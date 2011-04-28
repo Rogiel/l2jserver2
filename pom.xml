@@ -9,23 +9,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.jboss.netty</groupId>
-			<artifactId>netty</artifactId>
-			<version>3.2.4.Final</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
+			<groupId>com.l2jserver</groupId>
+			<artifactId>l2jserver2-core</artifactId>
+			<version>2.0.0-DEVEL</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
