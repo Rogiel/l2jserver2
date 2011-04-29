@@ -8,7 +8,7 @@ import com.l2jserver.util.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Summunable extends Spawnable {
+public interface Summonable extends Spawnable {
 	void summon(Coordinate coordinate);
 
 	boolean isSummoned();

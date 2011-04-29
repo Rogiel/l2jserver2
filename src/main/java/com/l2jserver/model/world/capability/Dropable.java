@@ -7,6 +7,6 @@ import com.l2jserver.model.world.AbstractObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Dropable extends WorldCapability {
+public interface Dropable extends ObjectCapability {
 	void drop();
 }

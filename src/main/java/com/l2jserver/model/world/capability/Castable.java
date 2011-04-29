@@ -7,6 +7,6 @@ import com.l2jserver.model.world.AbstractObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Castable extends WorldCapability {
+public interface Castable extends ObjectCapability {
 	void cast();
 }

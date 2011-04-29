@@ -8,6 +8,6 @@ import com.l2jserver.model.world.AbstractObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Child<P extends Parent> extends WorldCapability {
+public interface Child<P extends Parent> extends ObjectCapability {
 	public P getParent();
 }

@@ -8,7 +8,7 @@ import com.l2jserver.model.world.AbstractObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Equiper extends WorldCapability {
+public interface Equiper extends ObjectCapability {
 	void equip(Equipable equipable);
 
 	void setEquipment(Object slot, Equipable equipment);

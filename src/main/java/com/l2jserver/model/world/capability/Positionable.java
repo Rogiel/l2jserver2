@@ -8,6 +8,6 @@ import com.l2jserver.util.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Positionable extends WorldCapability {
+public interface Positionable extends ObjectCapability {
 	Coordinate getPosition();
 }

@@ -9,7 +9,7 @@ import com.l2jserver.service.game.script.Script;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Scriptable extends WorldCapability {
+public interface Scriptable extends ObjectCapability {
 	/**
 	 * The the current script attached to this object
 	 * 

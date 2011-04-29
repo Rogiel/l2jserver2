@@ -16,7 +16,7 @@ import com.l2jserver.model.world.event.WorldListener;
  *            the event type
  */
 public interface Listenable<L extends WorldListener<E>, E extends WorldEvent>
-		extends WorldCapability {
+		extends ObjectCapability {
 	/**
 	 * Adds a new listener
 	 * 

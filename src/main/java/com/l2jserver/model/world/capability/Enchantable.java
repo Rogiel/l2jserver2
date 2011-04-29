@@ -7,7 +7,7 @@ import com.l2jserver.model.world.AbstractObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Enchantable extends WorldCapability {
+public interface Enchantable extends ObjectCapability {
 	public int getEnchantLevel();
 
 	public int setEnchantLevel();

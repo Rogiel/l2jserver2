@@ -8,7 +8,7 @@ import com.l2jserver.util.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Spawnable extends WorldCapability, Positionable {
+public interface Spawnable extends ObjectCapability, Positionable {
 	void spawn(Coordinate coordinate);
 
 	boolean isSpawned();

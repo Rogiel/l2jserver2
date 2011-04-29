@@ -8,6 +8,6 @@ import com.l2jserver.model.world.AbstractObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Caster extends WorldCapability {
+public interface Caster extends ObjectCapability {
 	void cast(SkillTemplate skill, Castable cast);
 }
