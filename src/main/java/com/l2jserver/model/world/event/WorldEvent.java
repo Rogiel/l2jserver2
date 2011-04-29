@@ -1,5 +1,12 @@
 package com.l2jserver.model.world.event;
 
-public interface WorldEvent {
+import com.l2jserver.model.world.WorldObject;
 
+public interface WorldEvent {
+	WorldObject getObject();
+
+	/**
+	 * Dispatch this event to all the objects
+	 */
+	void dispatch();
 }

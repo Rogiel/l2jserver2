@@ -1,7 +1,5 @@
 package com.l2jserver.model.world.capability;
 
-import java.util.List;
-
 import com.l2jserver.model.world.AbstractObject;
 import com.l2jserver.model.world.event.WorldEvent;
 import com.l2jserver.model.world.event.WorldListener;
@@ -19,13 +17,27 @@ import com.l2jserver.model.world.event.WorldListener;
  */
 public interface Listenable<L extends WorldListener<E>, E extends WorldEvent>
 		extends WorldCapability {
+	/**
+	 * Adds a new listener
+	 * 
+	 * @param listener
+	 *            the listener
+	 */
 	void addListener(L listener);
 
+	/**
+	 * Removes an listener
+	 * 
+	 * @param listener
+	 *            the listener
+	 */
 	void removeListener(L listener);
 
-	List<L> getListeners();
-
-	boolean support(Class<? extends E> eventType);
-
+	/**
+	 * Don't use this method directly. It is called by the event dispatcher.
+	 * 
+	 * @param e
+	 *            the event
+	 */
 	void dispatch(E e);
 }

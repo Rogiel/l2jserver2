@@ -7,7 +7,7 @@ import com.l2jserver.model.world.WorldObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface WorldFilter<O extends WorldObject> {
+public interface WorldObjectFilter<O extends WorldObject> {
 	/**
 	 * Test if <tt>object</tt> matches the filter requirements
 	 * 

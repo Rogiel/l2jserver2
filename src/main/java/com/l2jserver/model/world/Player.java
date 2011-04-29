@@ -14,6 +14,7 @@ import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.player.PlayerEvent;
 import com.l2jserver.model.world.player.PlayerListener;
 import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * {@link Player} is any object that can be controlled by the player. The most
@@ -24,6 +25,9 @@ import com.l2jserver.util.Coordinate;
 public abstract class Player extends AbstractObject implements Playable,
 		Spawnable, Attacker, Attackable,
 		Listenable<PlayerListener, PlayerEvent>, Caster, Parent {
+	private final List<PlayerListener> listeners = CollectionFactory
+			.newList(PlayerListener.class);
+
 	@Override
 	public void spawn(Coordinate coordinate) {
 
@@ -43,37 +47,25 @@ public abstract class Player extends AbstractObject implements Playable,
 
 	@Override
 	public void addListener(PlayerListener listener) {
-		// TODO Auto-generated method stub
-
+		listeners.add(listener);
 	}
 
 	@Override
 	public void removeListener(PlayerListener listener) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<PlayerListener> getListeners() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean support(Class<? extends PlayerEvent> eventType) {
-		return eventType.isAssignableFrom(PlayerEvent.class);
-	}
-	
-	@Override
-	public Coordinate getPosition() {
-		// TODO Auto-generated method stub
-		return null;
+		listeners.remove(listener);
 	}
 
 	@Override
 	public void dispatch(PlayerEvent e) {
-		// TODO Auto-generated method stub
+		for (final PlayerListener listener : listeners) {
+			listener.dispatch(e);
+		}
+	}
 
+	@Override
+	public Coordinate getPosition() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

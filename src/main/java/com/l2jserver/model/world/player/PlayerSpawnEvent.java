@@ -20,4 +20,10 @@ public class PlayerSpawnEvent implements PlayerEvent, SpawnEvent {
 	public Player getPlayer() {
 		return player;
 	}
+
+	@Override
+	public void dispatch() {
+		if(player != null)
+			player.dispatch(this);
+	}
 }

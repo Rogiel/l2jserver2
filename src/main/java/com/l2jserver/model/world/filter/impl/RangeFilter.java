@@ -1,10 +1,10 @@
 package com.l2jserver.model.world.filter.impl;
 
 import com.l2jserver.model.world.capability.Positionable;
-import com.l2jserver.model.world.filter.WorldFilter;
+import com.l2jserver.model.world.filter.WorldObjectFilter;
 import com.l2jserver.util.Coordinate;
 
-public class RangeFilter implements WorldFilter<Positionable> {
+public class RangeFilter implements WorldObjectFilter<Positionable> {
 	private final Coordinate coordinate;
 	private final int range;
 

@@ -1,16 +1,13 @@
 package com.l2jserver.service.game.world;
 
 import java.util.Iterator;
-import java.util.Set;
 
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.filter.WorldFilter;
+import com.l2jserver.model.world.filter.WorldObjectFilter;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
 public class WorldServiceImpl implements WorldService {
-	private Set<WorldObject> objects;
-	
 	@Override
 	public void start() throws ServiceStartException {
 		// TODO Auto-generated method stub
@@ -31,14 +28,15 @@ public class WorldServiceImpl implements WorldService {
 
 	@Override
 	public Iterator<WorldObject> iterator() {
-		return objects.iterator();
-	}
-	
-	public <T extends WorldObject> Iterator<T> iterator(WorldFilter<T> filter) {
-		//return objects.iterator();
+		// return objects.iterator();
 		return null;
 	}
-	
+
+	public <T extends WorldObject> Iterator<T> iterator(WorldObjectFilter<T> filter) {
+		// return objects.iterator();
+		return null;
+	}
+
 	@Override
 	public void stop() throws ServiceStopException {
 		// TODO Auto-generated method stub
