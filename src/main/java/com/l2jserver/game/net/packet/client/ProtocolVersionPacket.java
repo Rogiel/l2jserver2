@@ -2,27 +2,22 @@ package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.L2JConstants;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.logging.Logger;
-import com.l2jserver.service.logging.LoggingService;
+import com.l2jserver.service.logging.guice.InjectLogger;
 
 public class ProtocolVersionPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x0e;
 
 	// services
-	private final Logger logger;
-	
+	@InjectLogger
+	private final Logger logger = null;
+
 	// packet
 	private int version;
-	
-	@Inject
-	protected ProtocolVersionPacket(LoggingService logging) {
-		logger = logging.getLogger(ProtocolVersionPacket.class);
-	}
 
 	@Override
 	public void read(ChannelBuffer buffer) {
@@ -31,11 +26,13 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 
 	@Override
 	public void process(Lineage2Connection conn, Injector injector) {
-		if(L2JConstants.SUPPORTED_PROTOCOL != version) {
-			logger.info("Incorrect protocol version: "+version);
+		if (L2JConstants.SUPPORTED_PROTOCOL != version) {
+			logger.info(
+					"Incorrect protocol version: {0}. Only {1} is supported.",
+					version, L2JConstants.SUPPORTED_PROTOCOL);
 			conn.close();
 		}
-		
+
 	}
 
 	public int getVersion() {

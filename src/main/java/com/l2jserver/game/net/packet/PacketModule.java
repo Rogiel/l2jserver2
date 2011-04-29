@@ -5,6 +5,7 @@ import com.google.inject.AbstractModule;
 public class PacketModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		
+		install(new ClientPacketModule());
+		install(new ServerPacketModule());
 	}
 }
