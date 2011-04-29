@@ -1,5 +1,6 @@
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.skill;
 
+import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.world.capability.Castable;
 import com.l2jserver.model.world.capability.Caster;
 

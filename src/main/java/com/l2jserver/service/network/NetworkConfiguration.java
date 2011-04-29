@@ -4,10 +4,8 @@ import java.net.InetSocketAddress;
 
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
-import com.l2jserver.service.configuration.Configuration.ConfigurationPrefix;
 
 @ConfigurationName("network")
-@ConfigurationPrefix("net")
 public interface NetworkConfiguration extends Configuration {
 	// TODO set default value
 	/**

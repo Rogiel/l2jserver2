@@ -5,6 +5,7 @@ import static org.jboss.netty.channel.Channels.pipeline;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.codec.Lineage2Decoder;
 import com.l2jserver.game.net.codec.Lineage2Decrypter;
@@ -18,6 +19,7 @@ import com.l2jserver.service.logging.LoggingService;
 public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	private final Injector injector;
 
+	@Inject
 	public Lineage2PipelineFactory(Injector injector) {
 		this.injector = injector;
 	}

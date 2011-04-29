@@ -10,6 +10,9 @@ import com.l2jserver.model.world.AbstractObject;
  */
 public interface Equiper extends ObjectCapability {
 	void equip(Equipable equipable);
+	
+	boolean isEquiped(Equipable equipment);
+	boolean isEquiped(com.l2jserver.model.template.capability.Equipable equipable);
 
 	void setEquipment(Object slot, Equipable equipment);
 

@@ -7,6 +7,7 @@ import com.l2jserver.model.world.capability.Attackable;
 import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.capability.Castable;
 import com.l2jserver.model.world.capability.Caster;
+import com.l2jserver.model.world.capability.Levelable;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Parent;
 import com.l2jserver.model.world.capability.Playable;
@@ -24,7 +25,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 public abstract class Player extends AbstractObject implements Playable,
 		Spawnable, Attacker, Attackable,
-		Listenable<PlayerListener, PlayerEvent>, Caster, Parent {
+		Listenable<PlayerListener, PlayerEvent>, Caster, Parent, Levelable {
 	private final List<PlayerListener> listeners = CollectionFactory
 			.newList(PlayerListener.class);
 
@@ -34,14 +35,14 @@ public abstract class Player extends AbstractObject implements Playable,
 	}
 
 	@Override
-	public void receiveAttack(Attacker attacker) {
-		// TODO Auto-generated method stub
+	public void attack(Attackable target,
+			com.l2jserver.model.template.capability.Attackable weapon) {
 
 	}
 
 	@Override
-	public void attack(Attackable target) {
-		// TODO Auto-generated method stub
+	public void receiveAttack(Attacker attacker,
+			com.l2jserver.model.template.capability.Attackable weapon) {
 
 	}
 
@@ -78,5 +79,16 @@ public abstract class Player extends AbstractObject implements Playable,
 	public boolean isSpawned() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setLevel(int level) {
+		// TODO Auto-generated method stub
 	}
 }

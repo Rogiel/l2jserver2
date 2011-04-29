@@ -8,7 +8,18 @@ import com.l2jserver.model.world.AbstractObject;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Enchantable extends ObjectCapability {
-	public int getEnchantLevel();
+	/**
+	 * Get the current enchant level in the object
+	 * 
+	 * @return the enchant level
+	 */
+	int getEnchantLevel();
 
-	public int setEnchantLevel();
+	/**
+	 * Set the new enchant level in the object
+	 * 
+	 * @param level
+	 *            the enchant level
+	 */
+	void setEnchantLevel(int level);
 }

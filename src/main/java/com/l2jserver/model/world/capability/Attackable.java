@@ -9,5 +9,6 @@ import com.l2jserver.model.world.AbstractObject;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Attackable extends ObjectCapability {
-	void receiveAttack(Attacker attacker);
+	void receiveAttack(Attacker attacker,
+			com.l2jserver.model.template.capability.Attackable weapon);
 }
