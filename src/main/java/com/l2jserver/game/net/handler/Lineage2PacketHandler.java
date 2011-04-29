@@ -15,6 +15,9 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
 		connection = new Lineage2Connection(e.getChannel());
+		
+		System.out.println(e);
+		
 		super.channelOpen(ctx, e);
 	}
 
@@ -25,7 +28,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 		if (!(msg instanceof ClientPacket))
 			return;
 		final ClientPacket packet = (ClientPacket) msg;
-		packet.process(connection, null);
+		packet.process(connection);
 		super.messageReceived(ctx, e);
 	}
 

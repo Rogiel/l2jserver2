@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.WeakHashMap;
 
 /**
  * Factory class to create {@link Collection} instances.
@@ -36,5 +38,22 @@ public class CollectionFactory {
 	 */
 	public static final <T> Set<T> newSet(Class<T> type) {
 		return new HashSet<T>();
+	}
+
+	/**
+	 * Creates a new weak map.
+	 * 
+	 * @param <K>
+	 *            the key type
+	 * @param <V>
+	 *            the value type
+	 * @param key
+	 *            the key type class
+	 * @param value
+	 *            the value type class
+	 * @return the new map
+	 */
+	public static final <K, V> Map<K, V> newWeakMap(Class<K> key, Class<V> value) {
+		return new WeakHashMap<K, V>();
 	}
 }

@@ -4,6 +4,8 @@ import static org.jboss.netty.channel.Channels.pipeline;
 
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.handler.logging.LoggingHandler;
+import org.jboss.netty.logging.InternalLogLevel;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -28,19 +30,21 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	public ChannelPipeline getPipeline() throws Exception {
 		final ChannelPipeline pipeline = pipeline();
 
+		pipeline.addLast("header.encoder", new Lineage2Encoder());
+		pipeline.addLast("header.decoder", new Lineage2Decoder());
+		
 		pipeline.addLast(Lineage2Encrypter.HANDLER_NAME,
 				new Lineage2Encrypter());
 		pipeline.addLast(Lineage2Decrypter.HANDLER_NAME,
 				new Lineage2Decrypter());
-
-		pipeline.addLast("header.encoder", new Lineage2Encoder());
-		pipeline.addLast("header.decoder", new Lineage2Decoder());
 
 		pipeline.addLast("packet.writer", new Lineage2PacketWriter());
 		pipeline.addLast("packet.reader", new Lineage2PacketReader(injector,
 				injector.getInstance(LoggingService.class)));
 
 		pipeline.addLast("packet.handler", new Lineage2PacketHandler());
+
+		pipeline.addLast("logger", new LoggingHandler(InternalLogLevel.WARN));
 
 		return pipeline;
 	}

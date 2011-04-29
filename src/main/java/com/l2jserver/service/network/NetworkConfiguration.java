@@ -13,7 +13,7 @@ public interface NetworkConfiguration extends Configuration {
 	 * 
 	 * @return the listen address
 	 */
-	@ConfigurationPropertyGetter(name = "listen", defaultValue = "0.0.0.0:54")
+	@ConfigurationPropertyGetter(name = "listen", defaultValue = "0.0.0.0:7777")
 	InetSocketAddress getListenAddress();
 
 	/**

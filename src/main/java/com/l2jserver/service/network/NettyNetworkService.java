@@ -7,16 +7,22 @@ import org.jboss.netty.channel.ServerChannel;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.service.configuration.ConfigurationService;
 
 public class NettyNetworkService implements NetworkService {
 	private final NetworkConfiguration config;
+	private final Injector injector;
 	private ServerBootstrap server;
 	private ServerChannel channel;
 
 	@Inject
-	public NettyNetworkService(ConfigurationService configService) {
+	public NettyNetworkService(ConfigurationService configService,
+			Injector injector) {
 		this.config = configService.get(NetworkConfiguration.class);
+		this.injector = injector;
 	}
 
 	@Override
@@ -24,6 +30,7 @@ public class NettyNetworkService implements NetworkService {
 		server = new ServerBootstrap(new NioServerSocketChannelFactory(
 				Executors.newCachedThreadPool(),
 				Executors.newCachedThreadPool()));
+		server.setPipelineFactory(new Lineage2PipelineFactory(injector));
 		channel = (ServerChannel) server.bind(config.getListenAddress());
 	}
 

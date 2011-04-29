@@ -6,5 +6,5 @@ public class L2JConstants {
 	 * <p>
 	 * This <b>MUST</b> be hard-coded!
 	 */
-	public static final int SUPPORTED_PROTOCOL = 10;
+	public static final int SUPPORTED_PROTOCOL = 216;
 }

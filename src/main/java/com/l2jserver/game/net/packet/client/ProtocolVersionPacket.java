@@ -1,11 +1,13 @@
 package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.ChannelFutureListener;
 
-import com.google.inject.Injector;
 import com.l2jserver.L2JConstants;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.KeyPacket;
 import com.l2jserver.service.logging.Logger;
 import com.l2jserver.service.logging.guice.InjectLogger;
 
@@ -17,29 +19,48 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 	private final Logger logger = null;
 
 	// packet
-	private int version;
+	private long version;
 
 	@Override
 	public void read(ChannelBuffer buffer) {
-		this.version = buffer.readInt();
+		this.version = buffer.readUnsignedInt();
 	}
 
 	@Override
-	public void process(Lineage2Connection conn, Injector injector) {
+	public void process(final Lineage2Connection conn) {
+		// generate a new key
+		final byte[] key = conn.getDecrypter().enable();
+
 		if (L2JConstants.SUPPORTED_PROTOCOL != version) {
 			logger.info(
 					"Incorrect protocol version: {0}. Only {1} is supported.",
 					version, L2JConstants.SUPPORTED_PROTOCOL);
-			conn.close();
+			// notify wrong protocol and close connection
+			conn.write(new KeyPacket(key, false)).addListener(
+					new ChannelFutureListener() {
+						@Override
+						public void operationComplete(ChannelFuture future)
+								throws Exception {
+							// close connection
+							conn.close();
+						}
+					});
+			return;
 		}
-
+		// activate encrypter once packet has been sent.
+		conn.write(new KeyPacket(key, true)).addListener(
+				new ChannelFutureListener() {
+					@Override
+					public void operationComplete(ChannelFuture future)
+							throws Exception {
+						// enable encrypter
+						conn.getEncrypter().setKey(key);
+						conn.getEncrypter().setEnabled(true);
+					}
+				});
 	}
 
-	public int getVersion() {
+	public long getVersion() {
 		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
 	}
 }

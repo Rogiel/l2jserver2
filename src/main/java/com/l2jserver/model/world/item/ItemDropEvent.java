@@ -3,6 +3,7 @@ package com.l2jserver.model.world.item;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.player.PlayerEvent;
 
 public class ItemDropEvent implements ItemEvent, PlayerEvent {
@@ -34,5 +35,10 @@ public class ItemDropEvent implements ItemEvent, PlayerEvent {
 		item.dispatch(this);
 		if (player != null)
 			player.dispatch(this);
+	}
+
+	@Override
+	public Actor getActor() {
+		return player;
 	}
 }

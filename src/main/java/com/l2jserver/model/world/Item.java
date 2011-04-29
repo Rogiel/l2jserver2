@@ -54,4 +54,9 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void setPosition(Coordinate coord) {
+		
+	}
 }

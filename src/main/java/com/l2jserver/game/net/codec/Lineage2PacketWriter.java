@@ -1,5 +1,7 @@
 package com.l2jserver.game.net.codec;
 
+import java.nio.ByteOrder;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
@@ -14,9 +16,12 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 			Object msg) throws Exception {
 		if (!(msg instanceof ServerPacket))
 			return msg;
-		final ChannelBuffer buffer = ChannelBuffers.dynamicBuffer();
+		final ChannelBuffer buffer = ChannelBuffers.dynamicBuffer(
+				ByteOrder.LITTLE_ENDIAN, 10);
 		final ServerPacket packet = (ServerPacket) msg;
-		packet.write(buffer);
+		buffer.writeShort(0x0000);
+		buffer.writeByte(packet.getOpcode()); // packet opcode
+		packet.write(buffer);		
 		return buffer;
 	}
 }

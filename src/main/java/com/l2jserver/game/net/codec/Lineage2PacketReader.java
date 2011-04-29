@@ -44,10 +44,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 		switch (opcode) {
 		case ProtocolVersionPacket.OPCODE:
 			return ProtocolVersionPacket.class;
-		case 0x2b:
-			return null;
 		default:
-			logger.info("Unknown opcode: " + opcode);
+			logger.info("Unknown opcode: " + Integer.toHexString(opcode));
 			break;
 		}
 		return null;

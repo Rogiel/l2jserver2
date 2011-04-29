@@ -1,9 +1,13 @@
 package com.l2jserver.game.net.codec;
 
+import java.util.Arrays;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
+
+import com.l2jserver.util.BlowFishKeygen;
 
 public class Lineage2Encrypter extends OneToOneEncoder {
 	public static final String HANDLER_NAME = "crypto.encoder";
@@ -16,7 +20,11 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 			Object msg) throws Exception {
 		if (!(msg instanceof ChannelBuffer))
 			return msg;
+		if (!enabled)
+			return msg;
 		final ChannelBuffer buffer = (ChannelBuffer) msg;
+		
+		System.out.println("Encrypting...");
 
 		final int offset = buffer.readerIndex();
 		final int size = buffer.readableBytes();
@@ -40,6 +48,11 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 		key[11] = (byte) (old >> 0x18 & 0xff);
 
 		return msg;
+	}
+	
+	public void enable(byte[] key) {
+		this.setKey(key);
+		this.setEnabled(true);
 	}
 
 	public void setKey(byte[] key) {
