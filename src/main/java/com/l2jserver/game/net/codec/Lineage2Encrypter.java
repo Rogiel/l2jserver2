@@ -1,22 +1,19 @@
 package com.l2jserver.game.net.codec;
 
-import java.util.Arrays;
-
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
-import com.l2jserver.util.BlowFishKeygen;
-
 public class Lineage2Encrypter extends OneToOneEncoder {
 	public static final String HANDLER_NAME = "crypto.encoder";
-	
+
 	private boolean enabled = false;
 	private final byte[] key = new byte[16];
 
 	@Override
-	protected Object encode(ChannelHandlerContext ctx, Channel channel,
+	protected synchronized Object encode(ChannelHandlerContext ctx, Channel channel,
 			Object msg) throws Exception {
 		if (!(msg instanceof ChannelBuffer))
 			return msg;
@@ -24,13 +21,13 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 			return msg;
 		final ChannelBuffer buffer = (ChannelBuffer) msg;
 		
-		System.out.println("Encrypting...");
+		System.out.println(ChannelBuffers.hexDump(buffer));
 
-		final int offset = buffer.readerIndex();
-		final int size = buffer.readableBytes();
+		final int offset = buffer.readerIndex() + 2; //skip header
+		final int size = buffer.readableBytes() - 2;
 		int temp = 0;
 		for (int i = 0; i < size; i++) {
-			int temp2 = buffer.getUnsignedByte(offset + i);
+			int temp2 = buffer.getUnsignedByte(offset + i) & 0xFF;
 			buffer.setByte(offset + i, (byte) (temp2 ^ key[i & 15] ^ temp));
 			temp = temp2;
 		}
@@ -49,7 +46,7 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 
 		return msg;
 	}
-	
+
 	public void enable(byte[] key) {
 		this.setKey(key);
 		this.setEnabled(true);

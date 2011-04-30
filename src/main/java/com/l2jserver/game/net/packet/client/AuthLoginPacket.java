@@ -1,19 +1,23 @@
 package com.l2jserver.game.net.packet.client;
 
-import java.nio.charset.Charset;
-
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.CharSelectionInfoPacket;
+import com.l2jserver.model.id.factory.CharacterIDFactory;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.util.BufferUtil;
 
 public class AuthLoginPacket extends AbstractClientPacket {
-	public static final int OPCODE = 0x0e;
-	
+	public static final int OPCODE = 0x2b;
+
 	@Inject
 	private WorldService world;
+	@Inject
+	private CharacterIDFactory idFactory;
 
 	// packet
 	private String loginName;
@@ -24,8 +28,8 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 	@Override
 	public void read(ChannelBuffer buffer) {
-		this.loginName = buffer.readBytes(buffer.bytesBefore((byte) 0x00))
-				.toString(Charset.defaultCharset());
+		this.loginName = BufferUtil.readString(buffer);
+		System.out.println(loginName);
 		this.playKey1 = buffer.readInt();
 		this.playKey2 = buffer.readInt();
 		this.loginKey1 = buffer.readInt();
@@ -36,7 +40,9 @@ public class AuthLoginPacket extends AbstractClientPacket {
 	public void process(final Lineage2Connection conn) {
 		// assume it is correct, for now
 		// send character list
-		world.getEventDispatcher().dispatch(null);
+		// world.getEventDispatcher().dispatch(null);
+		final L2Character c = idFactory.createID(268435456).getObject();
+		conn.write(new CharSelectionInfoPacket(loginName, playKey1, -1, c));
 	}
 
 	/**

@@ -14,15 +14,13 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 	private final byte[] key = new byte[16];
 
 	@Override
-	protected Object decode(ChannelHandlerContext ctx, Channel channel,
+	protected synchronized Object decode(ChannelHandlerContext ctx, Channel channel,
 			Object msg) throws Exception {
 		if (!(msg instanceof ChannelBuffer))
 			return msg;
 		if (!enabled)
 			return msg;
 		final ChannelBuffer buffer = (ChannelBuffer) msg;
-		
-		System.out.println("Decrypting...");
 		
 		final int offset = buffer.readerIndex();
 		final int size = buffer.readableBytes();

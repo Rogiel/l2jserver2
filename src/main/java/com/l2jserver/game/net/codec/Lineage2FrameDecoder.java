@@ -8,7 +8,7 @@ import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
-public class Lineage2Decoder extends FrameDecoder {
+public class Lineage2FrameDecoder extends FrameDecoder {
 	private static final int HEADER_SIZE = 2;
 
 	@Override
@@ -21,7 +21,6 @@ public class Lineage2Decoder extends FrameDecoder {
 
 		buffer.markReaderIndex();
 		final int pending = buffer.readUnsignedShort() - HEADER_SIZE;
-		System.out.println(ChannelBuffers.hexDump(buffer));
 		if (pending == 0) {
 			return null;
 		}

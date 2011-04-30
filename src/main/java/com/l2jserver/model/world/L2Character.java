@@ -1,5 +1,7 @@
 package com.l2jserver.model.world;
 
+import java.sql.Date;
+
 import com.l2jserver.model.id.CharacterID;
 import com.l2jserver.model.id.ClanID;
 import com.l2jserver.model.id.PetID;
@@ -28,6 +30,10 @@ public class L2Character extends Player {
 	 * The character's status
 	 */
 	private boolean online;
+	/**
+	 * Date of character's last access
+	 */
+	private Date lastAccess;
 
 	/**
 	 * This character's inventory
@@ -119,6 +125,21 @@ public class L2Character extends Player {
 	 */
 	public void setOnline(boolean online) {
 		this.online = online;
+	}
+
+	/**
+	 * @return the lastAccess
+	 */
+	public Date getLastAccess() {
+		return lastAccess;
+	}
+
+	/**
+	 * @param lastAccess
+	 *            the lastAccess to set
+	 */
+	public void setLastAccess(Date lastAccess) {
+		this.lastAccess = lastAccess;
 	}
 
 	/**

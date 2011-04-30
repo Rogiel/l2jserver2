@@ -9,9 +9,9 @@ import org.jboss.netty.logging.InternalLogLevel;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.game.net.codec.Lineage2Decoder;
+import com.l2jserver.game.net.codec.Lineage2FrameDecoder;
 import com.l2jserver.game.net.codec.Lineage2Decrypter;
-import com.l2jserver.game.net.codec.Lineage2Encoder;
+import com.l2jserver.game.net.codec.Lineage2FrameEncoder;
 import com.l2jserver.game.net.codec.Lineage2Encrypter;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
@@ -30,8 +30,8 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	public ChannelPipeline getPipeline() throws Exception {
 		final ChannelPipeline pipeline = pipeline();
 
-		pipeline.addLast("header.encoder", new Lineage2Encoder());
-		pipeline.addLast("header.decoder", new Lineage2Decoder());
+		pipeline.addLast("frame.encoder", new Lineage2FrameEncoder());
+		pipeline.addLast("frame.decoder", new Lineage2FrameDecoder());
 		
 		pipeline.addLast(Lineage2Encrypter.HANDLER_NAME,
 				new Lineage2Encrypter());

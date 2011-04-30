@@ -8,6 +8,7 @@ import org.jboss.netty.handler.codec.oneone.OneToOneDecoder;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.packet.ClientPacket;
+import com.l2jserver.game.net.packet.client.AuthLoginPacket;
 import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
 import com.l2jserver.service.logging.Logger;
 import com.l2jserver.service.logging.LoggingService;
@@ -36,6 +37,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 	}
 
 	private ClientPacket createPacket(Class<? extends ClientPacket> type) {
+		if (type == null)
+			return null;
 		return injector.getInstance(type);
 	}
 
@@ -44,6 +47,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 		switch (opcode) {
 		case ProtocolVersionPacket.OPCODE:
 			return ProtocolVersionPacket.class;
+		case AuthLoginPacket.OPCODE:
+			return AuthLoginPacket.class;
 		default:
 			logger.info("Unknown opcode: " + Integer.toHexString(opcode));
 			break;
