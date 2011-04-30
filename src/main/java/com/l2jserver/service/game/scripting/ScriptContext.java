@@ -22,8 +22,8 @@ import java.util.Collection;
 
 import com.l2jserver.service.game.scripting.classlistener.ClassListener;
 import com.l2jserver.service.game.scripting.classlistener.DefaultClassListener;
-import com.l2jserver.service.game.scripting.metadata.OnClassLoad;
-import com.l2jserver.service.game.scripting.metadata.OnClassUnload;
+import com.l2jserver.service.game.scripting.classlistener.Loader;
+import com.l2jserver.service.game.scripting.classlistener.Unloader;
 
 /**
  * This class represents script context that can be loaded, unloaded, etc...<br>
@@ -33,15 +33,15 @@ import com.l2jserver.service.game.scripting.metadata.OnClassUnload;
 public interface ScriptContext {
 	/**
 	 * Initializes script context. Calls the compilation task.<br>
-	 * After compilation static methods marked with {@link OnClassLoad} are
-	 * invoked
+	 * After compilation classes implementing with {@link Loader#load(Class[])}
+	 * are invoked
 	 */
 	void init();
 
 	/**
 	 * Notifies all script classes that they must save their data and release
-	 * resources to prevent memory leaks. It's done via static methods with
-	 * {@link OnClassUnload} annotation
+	 * resources to prevent memory leaks. It's done via classes implementing
+	 * with {@link Unloader#unload(Class[])}
 	 */
 	void shutdown();
 
@@ -147,6 +147,13 @@ public interface ScriptContext {
 	 * @return compiler class name that will be used for tis script context
 	 */
 	String getCompilerClassName();
+
+	/**
+	 * Returns script class loader
+	 * 
+	 * @return the class loader used in this script context
+	 */
+	ScriptClassLoader getClassLoader();
 
 	/**
 	 * Tests if this ScriptContext is equal to another ScriptContext.

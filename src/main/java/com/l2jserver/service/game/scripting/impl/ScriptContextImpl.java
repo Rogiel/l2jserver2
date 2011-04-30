@@ -26,7 +26,9 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Injector;
 import com.l2jserver.service.game.scripting.CompilationResult;
+import com.l2jserver.service.game.scripting.ScriptClassLoader;
 import com.l2jserver.service.game.scripting.ScriptCompiler;
 import com.l2jserver.service.game.scripting.ScriptContext;
 import com.l2jserver.service.game.scripting.classlistener.ClassListener;
@@ -43,6 +45,8 @@ public class ScriptContextImpl implements ScriptContext {
 	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(ScriptContextImpl.class);
+
+	private final Injector injector;
 
 	/**
 	 * Script context that is parent for this script context
@@ -90,8 +94,8 @@ public class ScriptContextImpl implements ScriptContext {
 	 * @throws IllegalArgumentException
 	 *             if root directory doesn't exists or is not a directory
 	 */
-	public ScriptContextImpl(File root) {
-		this(root, null);
+	public ScriptContextImpl(Injector injector, File root) {
+		this(injector, root, null);
 	}
 
 	/**
@@ -108,16 +112,14 @@ public class ScriptContextImpl implements ScriptContext {
 	 * @throws IllegalArgumentException
 	 *             if root directory doesn't exists or is not a directory
 	 */
-	public ScriptContextImpl(File root, ScriptContext parent) {
-		if (root == null) {
+	public ScriptContextImpl(Injector injector, File root, ScriptContext parent) {
+		if (root == null)
 			throw new NullPointerException("Root file must be specified");
-		}
-
-		if (!root.exists() || !root.isDirectory()) {
+		if (!root.exists() || !root.isDirectory())
 			throw new IllegalArgumentException(
 					"Root directory not exists or is not a directory");
-		}
 
+		this.injector = injector;
 		this.root = root;
 		this.parentScriptContext = parent;
 	}
@@ -247,7 +249,7 @@ public class ScriptContextImpl implements ScriptContext {
 	public ClassListener getClassListener() {
 		if (classListener == null) {
 			if (getParentScriptContext() == null) {
-				setClassListener(new DefaultClassListener());
+				setClassListener(new DefaultClassListener(injector));
 				return classListener;
 			} else {
 				return getParentScriptContext().getClassListener();
@@ -265,6 +267,11 @@ public class ScriptContextImpl implements ScriptContext {
 	@Override
 	public String getCompilerClassName() {
 		return this.compilerClassName;
+	}
+
+	@Override
+	public ScriptClassLoader getClassLoader() {
+		return compilationResult.getClassLoader();
 	}
 
 	/**

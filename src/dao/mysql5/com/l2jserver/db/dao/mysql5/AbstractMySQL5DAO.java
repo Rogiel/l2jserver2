@@ -1,4 +1,4 @@
-package script.dao.mysql5;
+package com.l2jserver.db.dao.mysql5;
 
 import com.google.inject.Inject;
 import com.l2jserver.service.database.AbstractDAO;

@@ -1,7 +1,7 @@
 package com.l2jserver.service.game.template;
 
 import com.l2jserver.model.id.TemplateID;
-import com.l2jserver.model.template.AbstractTemplate;
+import com.l2jserver.model.template.Template;
 import com.l2jserver.service.Service;
 
 public interface TemplateService extends Service {
@@ -12,14 +12,10 @@ public interface TemplateService extends Service {
 	 *            the template id
 	 * @return the template matching the id
 	 */
-	AbstractTemplate getTemplate(TemplateID id);
+	Template getTemplate(TemplateID id);
 
 	/**
-	 * Recompile the template with id <tt>id</tt>. This can be used to reload
-	 * the template.
-	 * 
-	 * @param id
-	 *            the template id
+	 * Reload the template list.
 	 */
-	void recompile(TemplateID id);
+	void reload();
 }

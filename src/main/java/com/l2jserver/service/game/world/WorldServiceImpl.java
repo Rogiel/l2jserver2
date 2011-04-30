@@ -9,11 +9,12 @@ import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.filter.WorldObjectFilter;
 import com.l2jserver.model.world.filter.impl.InstanceFilter;
 import com.l2jserver.model.world.iterator.FilterIterator;
+import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.util.factory.CollectionFactory;
 
-public class WorldServiceImpl implements WorldService {
+public class WorldServiceImpl extends AbstractService implements WorldService {
 	private final Set<WorldObject> objects = CollectionFactory
 			.newSet(WorldObject.class);
 	private final WorldEventDispatcher dispatcher;

@@ -4,10 +4,10 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import script.dao.mysql5.DAOModuleMySQL5;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.l2jserver.db.dao.DAOModuleMySQL5;
 import com.l2jserver.model.id.CharacterID;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.world.L2Character;

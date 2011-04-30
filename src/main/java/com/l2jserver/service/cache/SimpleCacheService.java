@@ -6,19 +6,12 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Map;
 
-import com.l2jserver.service.ServiceStartException;
-import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.AbstractService;
 import com.l2jserver.util.factory.CollectionFactory;
 
-public class SimpleCacheService implements CacheService {
+public class SimpleCacheService extends AbstractService implements CacheService {
 	private final Map<MethodInvocation, Object> cache = CollectionFactory
 			.newWeakMap(MethodInvocation.class, Object.class);
-
-	@Override
-	public void start() throws ServiceStartException {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public <T extends Cacheable> T decorate(final Class<T> interfaceType,
@@ -45,12 +38,6 @@ public class SimpleCacheService implements CacheService {
 					}
 				});
 		return proxy;
-	}
-
-	@Override
-	public void stop() throws ServiceStopException {
-		// TODO Auto-generated method stub
-
 	}
 
 	private class MethodInvocation {

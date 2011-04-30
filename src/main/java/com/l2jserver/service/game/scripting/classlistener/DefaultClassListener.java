@@ -17,72 +17,64 @@
 
 package com.l2jserver.service.game.scripting.classlistener;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.l2jserver.service.game.scripting.metadata.OnClassLoad;
-import com.l2jserver.service.game.scripting.metadata.OnClassUnload;
+import com.google.inject.Injector;
+import com.l2jserver.util.ClassUtils;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DefaultClassListener implements ClassListener {
+	private final Injector injector;
 
-	private static final Logger log = LoggerFactory
-			.getLogger(DefaultClassListener.class);
+	public DefaultClassListener(Injector injector) {
+		this.injector = injector;
+	}
 
 	@Override
 	public void postLoad(Class<?>... classes) {
-		for (Class<?> c : classes) {
-			doMethodInvoke(c.getDeclaredMethods(), OnClassLoad.class);
-		}
+		doMethodInvokeLoad(classes);
 	}
 
 	@Override
 	public void preUnload(Class<?>... classes) {
-		for (Class<?> c : classes) {
-			doMethodInvoke(c.getDeclaredMethods(), OnClassUnload.class);
+		doMethodInvokeUnload(classes);
+	}
+
+	/**
+	 * Actually invokes method where given interface class is present.
+	 * 
+	 * @param classes
+	 *            Classes to scan for interface
+	 */
+	private void doMethodInvokeLoad(Class<?>[] classes) {
+		for (final Class<?> clazz : classes) {
+			if (!ClassUtils.isSubclass(clazz, Loader.class))
+				continue;
+			if (Modifier.isAbstract(clazz.getModifiers())
+					|| Modifier.isInterface(clazz.getModifiers()))
+				continue;
+			final Loader loader = (Loader) injector.getInstance(clazz);
+			loader.load(classes);
 		}
 	}
 
 	/**
-	 * Actually invokes method where given annotation class is present. Only
-	 * static methods can be invoked
+	 * Actually invokes method where given interface class is present.
 	 * 
-	 * @param methods
-	 *            Methods to scan for annotations
-	 * @param annotationClass
-	 *            class of annotation to search for
+	 * @param classes
+	 *            Classes to scan for interface
 	 */
-	static void doMethodInvoke(Method[] methods,
-			Class<? extends Annotation> annotationClass) {
-		for (Method m : methods) {
-
-			if (!Modifier.isStatic(m.getModifiers())) {
+	private void doMethodInvokeUnload(Class<?>[] classes) {
+		for (final Class<?> clazz : classes) {
+			if (!ClassUtils.isSubclass(clazz, Unloader.class))
 				continue;
-			}
-
-			boolean accessible = m.isAccessible();
-			m.setAccessible(true);
-
-			if (m.getAnnotation(annotationClass) != null) {
-				try {
-					m.invoke(null);
-				} catch (IllegalAccessException e) {
-					log.error("Can't access method " + m.getName()
-							+ " of class " + m.getDeclaringClass().getName(), e);
-				} catch (InvocationTargetException e) {
-					log.error("Can't invoke method " + m.getName()
-							+ " of class " + m.getDeclaringClass().getName(), e);
-				}
-			}
-
-			m.setAccessible(accessible);
+			if (Modifier.isAbstract(clazz.getModifiers())
+					|| Modifier.isInterface(clazz.getModifiers()))
+				continue;
+			final Unloader unloader = (Unloader) injector.getInstance(clazz);
+			unloader.unload(classes);
 		}
 	}
 }

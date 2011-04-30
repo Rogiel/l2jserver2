@@ -1,9 +1,11 @@
-package script.dao.mysql5;
+package com.l2jserver.db.dao;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.db.dao.mysql5.MySQL5CharacterDAO;
+import com.l2jserver.db.dao.mysql5.MySQL5ItemDAO;
 
 public class DAOModuleMySQL5 extends AbstractModule {
 	@Override

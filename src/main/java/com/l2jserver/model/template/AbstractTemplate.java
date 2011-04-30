@@ -2,7 +2,7 @@ package com.l2jserver.model.template;
 
 import com.l2jserver.model.id.TemplateID;
 
-public class AbstractTemplate {
+public class AbstractTemplate implements Template {
 	private final TemplateID id;
 
 	public AbstractTemplate(TemplateID id) {
@@ -10,7 +10,8 @@ public class AbstractTemplate {
 		this.id = id;
 	}
 
-	public TemplateID getId() {
+	@Override
+	public TemplateID getID() {
 		return id;
 	}
 }
