@@ -4,23 +4,23 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneDecoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.AuthLoginPacket;
 import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
-import com.l2jserver.service.logging.Logger;
-import com.l2jserver.service.logging.LoggingService;
 
 public class Lineage2PacketReader extends OneToOneDecoder {
 	private final Injector injector;
-	private final Logger logger;
+	private final Logger logger = LoggerFactory
+			.getLogger(Lineage2PacketReader.class);
 
 	@Inject
-	public Lineage2PacketReader(Injector injector, LoggingService logging) {
+	public Lineage2PacketReader(Injector injector) {
 		this.injector = injector;
-		this.logger = logging.getLogger(Lineage2PacketReader.class);
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package com.l2jserver.model.world.capability;
 
 import com.l2jserver.model.world.AbstractObject;
-import com.l2jserver.service.game.script.Script;
+import com.l2jserver.service.game.scripting.Script;
 
 /**
  * Defines an {@link AbstractObject} that can be controller by an {@link Script}

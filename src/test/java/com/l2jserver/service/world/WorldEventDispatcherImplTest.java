@@ -7,11 +7,12 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import script.dao.mysql5.DAOModuleMySQL5;
+
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
-import com.l2jserver.db.dao.mysql5.DAOModuleMySQL5;
 import com.l2jserver.model.id.factory.CharacterIDFactory;
 import com.l2jserver.model.id.factory.IDFactoryModule;
 import com.l2jserver.model.id.factory.ItemIDFactory;

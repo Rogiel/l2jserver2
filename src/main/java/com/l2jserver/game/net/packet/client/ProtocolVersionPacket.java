@@ -3,20 +3,20 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.L2JConstants;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.KeyPacket;
-import com.l2jserver.service.logging.Logger;
-import com.l2jserver.service.logging.guice.InjectLogger;
 
 public class ProtocolVersionPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x0e;
 
 	// services
-	@InjectLogger
-	private final Logger logger = null;
+	private final Logger logger = LoggerFactory
+			.getLogger(ProtocolVersionPacket.class);
 
 	// packet
 	private long version;

@@ -9,14 +9,13 @@ import org.jboss.netty.logging.InternalLogLevel;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.game.net.codec.Lineage2FrameDecoder;
 import com.l2jserver.game.net.codec.Lineage2Decrypter;
-import com.l2jserver.game.net.codec.Lineage2FrameEncoder;
 import com.l2jserver.game.net.codec.Lineage2Encrypter;
+import com.l2jserver.game.net.codec.Lineage2FrameDecoder;
+import com.l2jserver.game.net.codec.Lineage2FrameEncoder;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.handler.Lineage2PacketHandler;
-import com.l2jserver.service.logging.LoggingService;
 
 public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	private final Injector injector;
@@ -32,15 +31,14 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 
 		pipeline.addLast("frame.encoder", new Lineage2FrameEncoder());
 		pipeline.addLast("frame.decoder", new Lineage2FrameDecoder());
-		
+
 		pipeline.addLast(Lineage2Encrypter.HANDLER_NAME,
 				new Lineage2Encrypter());
 		pipeline.addLast(Lineage2Decrypter.HANDLER_NAME,
 				new Lineage2Decrypter());
 
 		pipeline.addLast("packet.writer", new Lineage2PacketWriter());
-		pipeline.addLast("packet.reader", new Lineage2PacketReader(injector,
-				injector.getInstance(LoggingService.class)));
+		pipeline.addLast("packet.reader", new Lineage2PacketReader(injector));
 
 		pipeline.addLast("packet.handler", new Lineage2PacketHandler());
 
