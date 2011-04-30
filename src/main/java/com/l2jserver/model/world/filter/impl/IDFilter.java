@@ -15,6 +15,6 @@ public class IDFilter implements WorldObjectFilter<Positionable> {
 	public boolean accept(Positionable other) {
 		if (other == null)
 			return false;
-		return other.getId().equals(id);
+		return other.getID().equals(id);
 	}
 }

@@ -10,11 +10,13 @@ package com.l2jserver.model.world.event;
  */
 public interface WorldListener<E extends WorldEvent> {
 	/**
-	 * Once the event call is dispatched, the listener <b>WILL NOT</b> be
-	 * removed. You must manually remove it from the <tt>event</tt> object.
+	 * Once the event call is dispatched the listener <b>WILL</b> be removed if
+	 * false is returned. If you wish to keep this listener, you must return
+	 * true.
 	 * 
 	 * @param e
 	 *            the event
+	 * @return true to keep listener alive
 	 */
-	void dispatch(E e);
+	boolean dispatch(E e);
 }

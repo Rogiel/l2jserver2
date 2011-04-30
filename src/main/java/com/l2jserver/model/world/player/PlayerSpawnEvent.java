@@ -2,6 +2,7 @@ package com.l2jserver.model.world.player;
 
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.util.Coordinate;
@@ -13,12 +14,6 @@ public class PlayerSpawnEvent implements PlayerEvent, SpawnEvent {
 	public PlayerSpawnEvent(Player player, Coordinate coordinate) {
 		this.player = player;
 		this.coordinate = coordinate;
-	}
-	
-	@Override
-	public void dispatch() {
-		if (player != null)
-			player.dispatch(this);
 	}
 
 	@Override
@@ -39,5 +34,10 @@ public class PlayerSpawnEvent implements PlayerEvent, SpawnEvent {
 	@Override
 	public Actor getActor() {
 		return player;
+	}
+
+	@Override
+	public Listenable<?, ?>[] getDispatchableObjects() {
+		return new Listenable<?, ?>[] { player };
 	}
 }

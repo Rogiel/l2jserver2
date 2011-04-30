@@ -3,6 +3,7 @@ package com.l2jserver.game.net.packet.server;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.model.world.L2Character;
 
 public class CharSelectionInfoPacket extends AbstractServerPacket {
 	public static final int OPCODE = 0x09;
@@ -10,10 +11,10 @@ public class CharSelectionInfoPacket extends AbstractServerPacket {
 	private final String loginName;
 	private final int sessionId;
 	private final int activeId;
-	private final Character[] characters;
+	private final L2Character[] characters;
 
 	public CharSelectionInfoPacket(int opcode, String loginName, int sessionId,
-			int activeId, Character... characters) {
+			int activeId, L2Character... characters) {
 		super(opcode);
 		this.loginName = loginName;
 		this.sessionId = sessionId;

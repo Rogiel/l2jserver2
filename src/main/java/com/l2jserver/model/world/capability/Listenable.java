@@ -17,27 +17,4 @@ import com.l2jserver.model.world.event.WorldListener;
  */
 public interface Listenable<L extends WorldListener<E>, E extends WorldEvent>
 		extends ObjectCapability {
-	/**
-	 * Adds a new listener
-	 * 
-	 * @param listener
-	 *            the listener
-	 */
-	void addListener(L listener);
-
-	/**
-	 * Removes an listener
-	 * 
-	 * @param listener
-	 *            the listener
-	 */
-	void removeListener(L listener);
-
-	/**
-	 * Don't use this method directly. It is called by the event dispatcher.
-	 * 
-	 * @param e
-	 *            the event
-	 */
-	void dispatch(E e);
 }

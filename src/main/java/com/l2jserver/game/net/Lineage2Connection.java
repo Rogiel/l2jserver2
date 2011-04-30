@@ -6,12 +6,42 @@ import org.jboss.netty.channel.ChannelFuture;
 import com.l2jserver.game.net.codec.Lineage2Decrypter;
 import com.l2jserver.game.net.codec.Lineage2Encrypter;
 import com.l2jserver.game.net.packet.ServerPacket;
+import com.l2jserver.model.world.L2Character;
 
+/**
+ * This object connects the model (structure objects normally stored in the
+ * database) to the controller (protocol stuff).
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2Connection {
 	private final Channel channel;
+	private L2Character character;
 
 	public Lineage2Connection(Channel channel) {
 		this.channel = channel;
+	}
+
+	/**
+	 * @return the character
+	 */
+	public boolean hasCharacter() {
+		return character != null;
+	}
+
+	/**
+	 * @return the character
+	 */
+	public L2Character getCharacter() {
+		return character;
+	}
+
+	/**
+	 * @param character
+	 *            the character to set
+	 */
+	public void setCharacter(L2Character character) {
+		this.character = character;
 	}
 
 	public Channel getChannel() {

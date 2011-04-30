@@ -8,13 +8,15 @@ import com.l2jserver.model.id.ObjectID;
  * @author Rogiel
  */
 public abstract class AbstractObject implements WorldObject {
-	protected ObjectID id;
+	protected ObjectID<?> id;
 
-	public ObjectID getId() {
+	public ObjectID<?> getID() {
 		return id;
 	}
 
-	public void setId(ObjectID id) {
+	public void setID(ObjectID<?> id) {
+		if (this.id != null)
+			throw new IllegalStateException("ID is already set!");
 		this.id = id;
 	}
 

@@ -4,6 +4,7 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.player.PlayerEvent;
 
 public class ItemDropEvent implements ItemEvent, PlayerEvent {
@@ -31,14 +32,12 @@ public class ItemDropEvent implements ItemEvent, PlayerEvent {
 	}
 
 	@Override
-	public void dispatch() {
-		item.dispatch(this);
-		if (player != null)
-			player.dispatch(this);
+	public Actor getActor() {
+		return player;
 	}
 
 	@Override
-	public Actor getActor() {
-		return player;
+	public Listenable<?, ?>[] getDispatchableObjects() {
+		return new Listenable<?, ?>[] { player, item };
 	}
 }

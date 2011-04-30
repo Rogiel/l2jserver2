@@ -8,7 +8,6 @@ import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.service.configuration.ConfigurationService;
 

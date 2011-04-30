@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.capability.Attackable;
-import com.l2jserver.model.world.actor.ActorEvent;
 import com.l2jserver.model.world.actor.ActorListener;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Attacker;
@@ -123,22 +122,5 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	@Override
 	public void equip(Equiper equiper) {
 		// TODO
-	}
-
-	@Override
-	public void addListener(ActorListener listener) {
-		listeners.add(listener);
-	}
-
-	@Override
-	public void removeListener(ActorListener listener) {
-		listeners.remove(listener);
-	}
-
-	@Override
-	public void dispatch(ActorEvent e) {
-		for (final ActorListener listener : listeners) {
-			listener.dispatch(e);
-		}
 	}
 }

@@ -11,8 +11,12 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.db.dao.mysql5.DAOModuleMySQL5;
+import com.l2jserver.model.id.factory.CharacterIDFactory;
+import com.l2jserver.model.id.factory.IDFactoryModule;
+import com.l2jserver.model.id.factory.ItemIDFactory;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.item.ItemDropEvent;
 import com.l2jserver.model.world.item.ItemEvent;
 import com.l2jserver.model.world.item.ItemListener;
@@ -30,9 +34,13 @@ public class WorldEventDispatcherImplTest {
 	private WorldService world;
 	private WorldEventDispatcher dispatcher;
 
+	private CharacterIDFactory cidFactory;
+	private ItemIDFactory iidFactory;
+
 	@Before
 	public void tearUp() throws ServiceStartException {
 		Injector injector = Guice.createInjector(new BasicServiceModule(),
+				new DAOModuleMySQL5(), new IDFactoryModule(),
 				new AbstractModule() {
 					@Override
 					protected void configure() {
@@ -44,6 +52,9 @@ public class WorldEventDispatcherImplTest {
 					}
 				});
 
+		cidFactory = injector.getInstance(CharacterIDFactory.class);
+		iidFactory = injector.getInstance(ItemIDFactory.class);
+
 		world = injector.getInstance(WorldService.class);
 		dispatcher = injector.getInstance(WorldEventDispatcher.class);
 		Assert.assertNotNull(world);
@@ -52,44 +63,56 @@ public class WorldEventDispatcherImplTest {
 	}
 
 	@Test
-	public void testListeners1() {
+	public void testListeners1() throws InterruptedException {
 		final L2Character character1 = new L2Character();
+		character1.setID(cidFactory.createID());
 		final L2Character character2 = new L2Character();
+		character2.setID(cidFactory.createID());
 		final Item item1 = new Item();
+		item1.setID(iidFactory.createID());
 		world.add(character1);
 		world.add(character2);
 		world.add(item1);
 
 		final AtomicBoolean bool = new AtomicBoolean();
 		Assert.assertFalse(bool.get());
-		character1.addListener(new PlayerListener() {
+
+		dispatcher.addListener(character1, new PlayerListener() {
 			@Override
-			protected void dispatch(PlayerEvent e) {
+			protected boolean dispatch(PlayerEvent e) {
 				bool.set(true);
-				e.getPlayer().removeListener(this);
+				return false;
 			}
 		});
-		character1.addListener(new PlayerListener() {
+		dispatcher.addListener(character1, new PlayerListener() {
 			@Override
-			protected void dispatch(PlayerEvent e) {
-				// bool.set(true);
+			protected boolean dispatch(PlayerEvent e) {
+				bool.set(true);
+				return false;
 			}
 		});
+
 		dispatcher.dispatch(new PlayerSpawnEvent(character1, null));
+		Thread.sleep(100); // wait a bit for dispatching to happen
 		Assert.assertTrue(bool.get());
 
 		bool.set(false);
 
 		dispatcher.dispatch(new PlayerSpawnEvent(character1, null));
+		Thread.sleep(100); // wait a bit for dispatching to happen
 		Assert.assertFalse(bool.get());
 	}
 
 	@Test
-	public void testListeners2() {
+	public void testListeners2() throws InterruptedException {
 		final L2Character character1 = new L2Character();
+		character1.setID(cidFactory.createID());
 		final L2Character character2 = new L2Character();
+		character2.setID(cidFactory.createID());
 		final Item item1 = new Item();
+		item1.setID(iidFactory.createID());
 		final Item item2 = new Item();
+		item2.setID(iidFactory.createID());
 		world.add(character1);
 		world.add(character2);
 		world.add(item1);
@@ -101,20 +124,24 @@ public class WorldEventDispatcherImplTest {
 		Assert.assertFalse(bool1.get());
 		Assert.assertFalse(bool2.get());
 
-		character1.addListener(new PlayerListener() {
+		dispatcher.addListener(character1, new PlayerListener() {
 			@Override
-			public void dispatch(PlayerEvent e) {
+			public boolean dispatch(PlayerEvent e) {
 				bool1.set(true);
+				return true;
 			}
 		});
-		item1.addListener(new ItemListener() {
+		dispatcher.addListener(item1, new ItemListener() {
 			@Override
-			public void dispatch(ItemEvent e) {
+			public boolean dispatch(ItemEvent e) {
 				bool2.set(true);
+				return true;
 			}
 		});
 
 		dispatcher.dispatch(new ItemDropEvent(character1, item1));
+		Thread.sleep(100); // wait a bit for dispatching to happen
+
 		Assert.assertTrue(bool1.get());
 		Assert.assertTrue(bool2.get());
 	}

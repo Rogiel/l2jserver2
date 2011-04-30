@@ -5,10 +5,10 @@ import com.l2jserver.model.world.actor.ActorListener;
 
 public abstract class PlayerListener implements ActorListener {
 	@Override
-	public void dispatch(ActorEvent e) {
+	public boolean dispatch(ActorEvent e) {
 		if (!(e instanceof PlayerEvent))
-			return;
-		dispatch((PlayerEvent) e);
+			return false;
+		return dispatch((PlayerEvent) e);
 	}
 
 	/**
@@ -18,5 +18,5 @@ public abstract class PlayerListener implements ActorListener {
 	 * @param e
 	 *            the event
 	 */
-	protected abstract void dispatch(PlayerEvent e);
+	protected abstract boolean dispatch(PlayerEvent e);
 }
