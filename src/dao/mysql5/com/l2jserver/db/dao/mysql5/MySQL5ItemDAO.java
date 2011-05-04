@@ -7,9 +7,9 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
-import com.l2jserver.model.id.ItemID;
-import com.l2jserver.model.id.factory.CharacterIDFactory;
-import com.l2jserver.model.id.factory.ItemIDFactory;
+import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.factory.ItemIDFactory;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory;

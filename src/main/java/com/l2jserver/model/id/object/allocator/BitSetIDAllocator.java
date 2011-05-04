@@ -1,4 +1,4 @@
-package com.l2jserver.model.id.allocator;
+package com.l2jserver.model.id.object.allocator;
 
 import java.util.BitSet;
 import java.util.concurrent.atomic.AtomicInteger;

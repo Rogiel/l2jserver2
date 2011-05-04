@@ -6,7 +6,7 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharSelectionInfoPacket;
-import com.l2jserver.model.id.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.util.BufferUtil;

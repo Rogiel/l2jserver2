@@ -4,5 +4,5 @@ import com.l2jserver.model.world.capability.Caster;
 
 public interface Castable extends TemplateCapability {
 	void cast(Caster caster,
-			com.l2jserver.model.world.capability.Castable target);
+			com.l2jserver.model.world.capability.Castable... targets);
 }

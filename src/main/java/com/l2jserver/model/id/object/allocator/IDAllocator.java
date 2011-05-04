@@ -1,4 +1,4 @@
-package com.l2jserver.model.id.allocator;
+package com.l2jserver.model.id.object.allocator;
 
 /**
  * The ID allocator is used to alloc new ID and to release IDs that aren't used

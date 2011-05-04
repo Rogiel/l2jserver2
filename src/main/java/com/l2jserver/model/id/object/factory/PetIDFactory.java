@@ -1,16 +1,17 @@
-package com.l2jserver.model.id.factory;
+package com.l2jserver.model.id.object.factory;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.l2jserver.model.id.ItemID;
-import com.l2jserver.model.id.allocator.IDAllocator;
+import com.l2jserver.model.id.factory.IDFactory;
+import com.l2jserver.model.id.object.PetID;
+import com.l2jserver.model.id.object.allocator.IDAllocator;
 
 /**
- * {@link IDFactory} for {@link ItemID}.
+ * {@link IDFactory} for {@link PetID}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ItemIDFactory implements ObjectIDFactory<ItemID> {
+public class PetIDFactory implements ObjectIDFactory<PetID> {
 	/**
 	 * The ID allocator
 	 */
@@ -18,27 +19,27 @@ public class ItemIDFactory implements ObjectIDFactory<ItemID> {
 	/**
 	 * The Guice factory
 	 */
-	private final ItemIDGuiceFactory factory;
+	private final PetIDGuiceFactory factory;
 
 	@Inject
-	public ItemIDFactory(IDAllocator allocator, ItemIDGuiceFactory factory) {
+	public PetIDFactory(IDAllocator allocator, PetIDGuiceFactory factory) {
 		super();
 		this.allocator = allocator;
 		this.factory = factory;
 	}
 
 	@Override
-	public ItemID createID() {
+	public PetID createID() {
 		return createID(allocator.allocate());
 	}
 
 	@Override
-	public ItemID createID(int id) {
+	public PetID createID(int id) {
 		return factory.create(id);
 	}
 
 	@Override
-	public void destroy(ItemID id) {
+	public void destroy(PetID id) {
 		allocator.release(id.getID());
 	}
 
@@ -48,7 +49,7 @@ public class ItemIDFactory implements ObjectIDFactory<ItemID> {
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public interface ItemIDGuiceFactory {
+	public interface PetIDGuiceFactory {
 		/**
 		 * Creates a new ID instance
 		 * 
@@ -56,6 +57,6 @@ public class ItemIDFactory implements ObjectIDFactory<ItemID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public ItemID create(@Assisted int id);
+		public PetID create(@Assisted int id);
 	}
 }

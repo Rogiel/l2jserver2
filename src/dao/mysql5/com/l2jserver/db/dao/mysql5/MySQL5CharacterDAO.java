@@ -7,8 +7,8 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.model.id.CharacterID;
-import com.l2jserver.model.id.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;

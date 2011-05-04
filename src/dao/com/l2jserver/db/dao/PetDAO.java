@@ -3,7 +3,7 @@ package com.l2jserver.db.dao;
 import java.util.List;
 
 import com.l2jserver.model.id.ID;
-import com.l2jserver.model.id.PetID;
+import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.world.Pet;
 import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.cache.IgnoreCaching;

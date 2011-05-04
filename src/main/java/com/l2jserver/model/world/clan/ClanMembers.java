@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.l2jserver.model.id.CharacterID;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.factory.CollectionFactory;

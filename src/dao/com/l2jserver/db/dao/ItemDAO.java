@@ -3,7 +3,7 @@ package com.l2jserver.db.dao;
 import java.util.List;
 
 import com.l2jserver.model.id.ID;
-import com.l2jserver.model.id.ItemID;
+import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.cache.Cacheable;

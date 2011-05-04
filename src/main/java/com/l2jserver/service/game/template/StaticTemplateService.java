@@ -51,8 +51,9 @@ public class StaticTemplateService extends AbstractService implements
 	}
 
 	@Override
-	public Template getTemplate(TemplateID id) {
-		return templates.get(id);
+	@SuppressWarnings("unchecked")
+	public <T extends Template> T getTemplate(TemplateID<T> id) {
+		return (T) templates.get(id);
 	}
 
 	public void addTemplate(Class<? extends Template> t) {

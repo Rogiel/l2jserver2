@@ -1,4 +1,4 @@
-package com.l2jserver.model.id.allocator;
+package com.l2jserver.model.id.object.allocator;
 
 public class IDAllocatorException extends RuntimeException {
 	private static final long serialVersionUID = 111195059766878062L;

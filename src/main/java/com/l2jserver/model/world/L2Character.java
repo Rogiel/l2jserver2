@@ -2,9 +2,9 @@ package com.l2jserver.model.world;
 
 import java.sql.Date;
 
-import com.l2jserver.model.id.CharacterID;
-import com.l2jserver.model.id.ClanID;
-import com.l2jserver.model.id.PetID;
+import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.ClanID;
+import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.world.character.CharacterAppearance;
 import com.l2jserver.model.world.character.CharacterInventory;
 

@@ -1,6 +1,6 @@
-package script.template.armor;
+package script.template.item.armor;
 
-import com.l2jserver.model.id.TemplateID;
+import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ArmorTemplate;
 import com.l2jserver.model.template.capability.Enchantable;
 import com.l2jserver.model.template.capability.Penalty;
@@ -10,7 +10,7 @@ import com.l2jserver.model.world.capability.Levelable;
 
 public abstract class AbstractGradeAArmorTemplate extends ArmorTemplate
 		implements Enchantable, Penalty {
-	public AbstractGradeAArmorTemplate(TemplateID id) {
+	public AbstractGradeAArmorTemplate(ItemTemplateID id) {
 		super(id);
 	}
 

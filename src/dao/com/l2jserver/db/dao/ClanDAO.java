@@ -2,8 +2,8 @@ package com.l2jserver.db.dao;
 
 import java.util.List;
 
-import com.l2jserver.model.id.ClanID;
 import com.l2jserver.model.id.ID;
+import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.cache.IgnoreCaching;

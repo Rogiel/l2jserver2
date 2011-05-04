@@ -10,25 +10,10 @@ import com.l2jserver.model.id.ID;
  */
 public interface IDFactory<T extends ID> {
 	/**
-	 * Generated a new ID
-	 * 
-	 * @return the new ID
-	 */
-	T createID();
-
-	/**
 	 * Creates the ID object for an <b>EXISTING</b> ID.
 	 * 
 	 * @param id
 	 * @return
 	 */
-	T createID(int id);
-
-	/**
-	 * Destroy this ID. Releases this value to be used once again.
-	 * 
-	 * @param id
-	 *            the id to be destroyed.
-	 */
-	void destroy(T id);
+	T createID(int id); 
 }

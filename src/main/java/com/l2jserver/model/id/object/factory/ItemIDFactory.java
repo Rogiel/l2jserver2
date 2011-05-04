@@ -1,16 +1,17 @@
-package com.l2jserver.model.id.factory;
+package com.l2jserver.model.id.object.factory;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.l2jserver.model.id.PetID;
-import com.l2jserver.model.id.allocator.IDAllocator;
+import com.l2jserver.model.id.factory.IDFactory;
+import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.id.object.allocator.IDAllocator;
 
 /**
- * {@link IDFactory} for {@link PetID}.
+ * {@link IDFactory} for {@link ItemID}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PetIDFactory implements ObjectIDFactory<PetID> {
+public class ItemIDFactory implements ObjectIDFactory<ItemID> {
 	/**
 	 * The ID allocator
 	 */
@@ -18,27 +19,27 @@ public class PetIDFactory implements ObjectIDFactory<PetID> {
 	/**
 	 * The Guice factory
 	 */
-	private final PetIDGuiceFactory factory;
+	private final ItemIDGuiceFactory factory;
 
 	@Inject
-	public PetIDFactory(IDAllocator allocator, PetIDGuiceFactory factory) {
+	public ItemIDFactory(IDAllocator allocator, ItemIDGuiceFactory factory) {
 		super();
 		this.allocator = allocator;
 		this.factory = factory;
 	}
 
 	@Override
-	public PetID createID() {
+	public ItemID createID() {
 		return createID(allocator.allocate());
 	}
 
 	@Override
-	public PetID createID(int id) {
+	public ItemID createID(int id) {
 		return factory.create(id);
 	}
 
 	@Override
-	public void destroy(PetID id) {
+	public void destroy(ItemID id) {
 		allocator.release(id.getID());
 	}
 
@@ -48,7 +49,7 @@ public class PetIDFactory implements ObjectIDFactory<PetID> {
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public interface PetIDGuiceFactory {
+	public interface ItemIDGuiceFactory {
 		/**
 		 * Creates a new ID instance
 		 * 
@@ -56,6 +57,6 @@ public class PetIDFactory implements ObjectIDFactory<PetID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public PetID create(@Assisted int id);
+		public ItemID create(@Assisted int id);
 	}
 }

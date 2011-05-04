@@ -1,17 +1,20 @@
-package script.template.armor;
+package script.template.item.armor;
 
+import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
 import com.l2jserver.model.world.capability.Attackable;
 import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.capability.Damagable;
 import com.l2jserver.model.world.capability.Enchantable;
 
 public class Dummy2ArmorTemplate extends AbstractGradeAArmorTemplate {
+	public static final int ID = 10;
+	
 	private static final int REDUCED_DAMAGE_PHYSICAL = 10;
 	private static final int REDUCED_DAMAGE_MAGICAL = 10;
 	private static final int MAX_ENCHANT = 10;
 
-	public Dummy2ArmorTemplate() {
-		super(null);
+	public Dummy2ArmorTemplate(ItemTemplateIDFactory factory) {
+		super(factory.createID(ID));
 	}
 
 	@Override

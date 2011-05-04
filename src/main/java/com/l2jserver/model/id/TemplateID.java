@@ -1,5 +1,8 @@
 package com.l2jserver.model.id;
 
+import com.l2jserver.model.template.Template;
+
+
 /**
  * Templates IDs, different from {@link ObjectID}s, can be repeated and are
  * defined in the template class.
@@ -7,8 +10,10 @@ package com.l2jserver.model.id;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public final class TemplateID extends ID {
+public abstract class TemplateID<T extends Template> extends ID {
 	public TemplateID(int id) {
 		super(id);
 	}
+	
+	public abstract T getTemplate();
 }

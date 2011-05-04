@@ -1,6 +1,6 @@
 package com.l2jserver.model.world;
 
-import com.l2jserver.model.id.CharacterID;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.capability.Summonable;
 import com.l2jserver.util.Coordinate;
 

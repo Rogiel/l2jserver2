@@ -6,6 +6,10 @@ import static junit.framework.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.l2jserver.model.id.object.allocator.BitSetIDAllocator;
+import com.l2jserver.model.id.object.allocator.IDAllocator;
+import com.l2jserver.model.id.object.allocator.IDAllocatorException;
+
 public class BitSetIDAllocatorTest {
 	private final BitSetIDAllocator allocator = new BitSetIDAllocator();
 

@@ -2,8 +2,8 @@ package com.l2jserver.model.world;
 
 import java.util.List;
 
-import com.l2jserver.model.id.CharacterID;
-import com.l2jserver.model.id.ClanID;
+import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.capability.Joinable;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.party.PartyEvent;

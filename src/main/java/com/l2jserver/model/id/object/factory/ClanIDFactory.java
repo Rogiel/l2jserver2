@@ -1,45 +1,45 @@
-package com.l2jserver.model.id.factory;
+package com.l2jserver.model.id.object.factory;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.l2jserver.model.id.CharacterID;
-import com.l2jserver.model.id.allocator.IDAllocator;
+import com.l2jserver.model.id.factory.IDFactory;
+import com.l2jserver.model.id.object.ClanID;
+import com.l2jserver.model.id.object.allocator.IDAllocator;
 
 /**
- * {@link IDFactory} for {@link CharacterID}.
+ * {@link IDFactory} for {@link ClanID}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterIDFactory implements ObjectIDFactory<CharacterID> {
+public class ClanIDFactory implements ObjectIDFactory<ClanID> {
 	/**
 	 * The ID allocator
 	 */
 	private final IDAllocator allocator;
 	/**
-	 * The Guice Factory
+	 * The Guice factory
 	 */
-	private final CharacterIDGuiceFactory factory;
+	private final ClanIDGuiceFactory factory;
 
 	@Inject
-	public CharacterIDFactory(IDAllocator allocator,
-			CharacterIDGuiceFactory factory) {
+	public ClanIDFactory(IDAllocator allocator, ClanIDGuiceFactory factory) {
 		super();
 		this.allocator = allocator;
 		this.factory = factory;
 	}
 
 	@Override
-	public CharacterID createID() {
+	public ClanID createID() {
 		return createID(allocator.allocate());
 	}
 
 	@Override
-	public CharacterID createID(int id) {
+	public ClanID createID(int id) {
 		return factory.create(id);
 	}
 
 	@Override
-	public void destroy(CharacterID id) {
+	public void destroy(ClanID id) {
 		allocator.release(id.getID());
 	}
 
@@ -49,7 +49,7 @@ public class CharacterIDFactory implements ObjectIDFactory<CharacterID> {
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public interface CharacterIDGuiceFactory {
+	public interface ClanIDGuiceFactory {
 		/**
 		 * Creates a new ID instance
 		 * 
@@ -57,6 +57,6 @@ public class CharacterIDFactory implements ObjectIDFactory<CharacterID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public CharacterID create(@Assisted int id);
+		public ClanID create(@Assisted int id);
 	}
 }

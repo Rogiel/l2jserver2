@@ -1,4 +1,4 @@
-package script.template.weapon;
+package script.template.item.weapon;
 
 import com.l2jserver.model.template.WeaponTemplate;
 import com.l2jserver.model.world.capability.Attackable;

@@ -2,7 +2,7 @@ package com.l2jserver.model.world;
 
 import java.util.List;
 
-import com.l2jserver.model.id.CharacterID;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Playable;
 import com.l2jserver.model.world.capability.Spawnable;
