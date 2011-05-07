@@ -2,7 +2,7 @@ package com.l2jserver.model.template;
 
 import com.l2jserver.model.id.TemplateID;
 
-public class AbstractTemplate implements Template {
+public abstract class AbstractTemplate<T> implements Template<T> {
 	private final TemplateID<?> id;
 
 	public AbstractTemplate(TemplateID<?> id) {

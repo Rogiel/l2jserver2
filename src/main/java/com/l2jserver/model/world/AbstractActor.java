@@ -1,25 +1,73 @@
 package com.l2jserver.model.world;
 
-import java.util.List;
-
 import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.capability.Attackable;
-import com.l2jserver.model.world.actor.ActorListener;
+import com.l2jserver.model.world.actor.ActorEffects;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.capability.Castable;
 import com.l2jserver.model.world.capability.Equipable;
 import com.l2jserver.model.world.capability.Equiper;
 import com.l2jserver.util.Coordinate;
-import com.l2jserver.util.factory.CollectionFactory;
 
 public abstract class AbstractActor extends AbstractObject implements Actor {
-	private final List<ActorListener> listeners = CollectionFactory
-			.newList(ActorListener.class);
+	protected Race race;
+
+	/**
+	 * Represents the actor race.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public enum Race {
+		HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(
+				0x05);
+
+		public final int option;
+
+		Race(int option) {
+			this.option = option;
+		}
+
+		public static Race fromOption(int option) {
+			for (final Race race : values()) {
+				if (race.option == option)
+					return race;
+			}
+			return null;
+		}
+	}
+
+	protected Sex sex;
+
+	/**
+	 * Represent the sex of an actor.
+	 * <p>
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public enum Sex {
+		MALE(0x00), FEMALE(0x01);
+
+		public final int option;
+
+		Sex(int option) {
+			this.option = option;
+		}
+
+		public static Sex fromOption(int option) {
+			for (Sex sex : values()) {
+				if (sex.option == option)
+					return sex;
+			}
+			return null;
+		}
+	}
 
 	protected int level;
 	protected int hp;
 	protected Coordinate position;
+
+	protected final ActorEffects effects = new ActorEffects(this);
 
 	@Override
 	public void receiveDamage(int damage) {
@@ -78,6 +126,36 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 		this.position = coord;
 	}
 
+	/**
+	 * @return the race
+	 */
+	public Race getRace() {
+		return race;
+	}
+
+	/**
+	 * @param race
+	 *            the race to set
+	 */
+	public void setRace(Race race) {
+		this.race = race;
+	}
+
+	/**
+	 * @return the sex
+	 */
+	public Sex getSex() {
+		return sex;
+	}
+
+	/**
+	 * @param sex
+	 *            the sex to set
+	 */
+	public void setSex(Sex sex) {
+		this.sex = sex;
+	}
+
 	@Override
 	public int getLevel() {
 		return level;
@@ -86,6 +164,13 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	@Override
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	/**
+	 * @return the active effects on this actor
+	 */
+	public ActorEffects getEffects() {
+		return effects;
 	}
 
 	@Override

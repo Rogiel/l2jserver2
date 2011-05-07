@@ -12,9 +12,6 @@ import com.l2jserver.util.factory.CollectionFactory;
 
 public class Party extends AbstractObject implements
 		Listenable<PartyListener, PartyEvent>, Joinable<L2Character> {
-	private final List<PartyListener> listeners = CollectionFactory
-			.newList(PartyListener.class);
-
 	private final List<CharacterID> members = CollectionFactory
 			.newList(CharacterID.class);
 

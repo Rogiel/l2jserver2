@@ -21,7 +21,7 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 		final ServerPacket packet = (ServerPacket) msg;
 		buffer.writeShort(0x0000);
 		buffer.writeByte(packet.getOpcode()); // packet opcode
-		packet.write(buffer);		
+		packet.write(buffer);
 		return buffer;
 	}
 }

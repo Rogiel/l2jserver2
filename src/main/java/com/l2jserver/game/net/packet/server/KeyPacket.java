@@ -7,10 +7,8 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 
 /**
- * <h1>0x2e "KeyPacket"</h1>
- * <p>
- * byte[8] key<br>
- * byte protocolStatus
+ * This packet send the encryptation keys for the client. After this message all
+ * communication is done with the cryptography engine enabled.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

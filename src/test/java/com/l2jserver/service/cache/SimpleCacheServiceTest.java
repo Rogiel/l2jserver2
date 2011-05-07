@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class SimpleCacheServiceTest {
 	private final SimpleCacheService cacheService = new SimpleCacheService();
-	
+
 	@Test
 	public void testNoArgs() {
 		final TestCacheable cached = cacheService.decorate(TestCacheable.class,
@@ -26,7 +26,7 @@ public class SimpleCacheServiceTest {
 		int output2 = cached.random(10);
 		Assert.assertEquals(output1, output2);
 	}
-	
+
 	@Test
 	public void testDifferentArgs() {
 		final TestCacheable cached = cacheService.decorate(TestCacheable.class,
@@ -47,6 +47,7 @@ public class SimpleCacheServiceTest {
 
 	public interface TestCacheable extends Cacheable {
 		public int random();
+
 		public int random(int arg);
 
 		@IgnoreCaching
@@ -55,12 +56,12 @@ public class SimpleCacheServiceTest {
 
 	public static class TestCacheableInstance implements TestCacheable {
 		private final Random random = new Random();
-		
+
 		@Override
 		public int random() {
 			return random.nextInt(Integer.MAX_VALUE);
 		}
-		
+
 		@Override
 		public int random(int arg) {
 			return random.nextInt(Integer.MAX_VALUE);

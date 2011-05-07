@@ -25,21 +25,19 @@ public class CharacterAppearance {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterFace {
-		FACE1((byte) 0x00),
+		FACE_A(0x00),
 
-		FACE2((byte) 0x01),
+		FACE_B(0x01),
 
-		FACE3((byte) 0x02),
+		FACE_C(0x02);
 
-		FACE4((byte) 0x03);
+		public final int option;
 
-		public final byte option;
-
-		CharacterFace(byte option) {
+		CharacterFace(int option) {
 			this.option = option;
 		}
 
-		public static CharacterFace fromOption(byte option) {
+		public static CharacterFace fromOption(int option) {
 			for (CharacterFace face : values()) {
 				if (face.option == option)
 					return face;
@@ -59,21 +57,21 @@ public class CharacterAppearance {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterHairColor {
-		COLOR1((byte) 0x00),
+		COLOR_A(0x00),
 
-		COLOR2((byte) 0x01),
+		COLOR_B(0x01),
 
-		COLOR3((byte) 0x02),
+		COLOR_C(0x02),
 
-		COLOR4((byte) 0x03);
+		COLOR_D(0x03);
 
-		public final byte option;
+		public final int option;
 
-		CharacterHairColor(byte option) {
+		CharacterHairColor(int option) {
 			this.option = option;
 		}
 
-		public static CharacterHairColor fromOption(byte option) {
+		public static CharacterHairColor fromOption(int option) {
 			for (CharacterHairColor color : values()) {
 				if (color.option == option)
 					return color;
@@ -93,44 +91,29 @@ public class CharacterAppearance {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterHairStyle {
-		STYLE1((byte) 0x00),
+		STYLE_A(0x00),
 
-		STYLE2((byte) 0x01),
+		STYLE_B(0x01),
 
-		STYLE3((byte) 0x02),
+		STYLE_C(0x02),
 
-		STYLE4((byte) 0x03);
+		STYLE_D(0x03),
 
-		public final byte option;
+		STYLE_E(0x04);
 
-		CharacterHairStyle(byte option) {
+		public final int option;
+
+		CharacterHairStyle(int option) {
 			this.option = option;
 		}
 
-		public static CharacterHairStyle fromOption(byte option) {
+		public static CharacterHairStyle fromOption(int option) {
 			for (CharacterHairStyle style : values()) {
 				if (style.option == option)
 					return style;
 			}
 			return null;
 		}
-	}
-
-	/**
-	 * The character sex
-	 */
-	private CharacterSex sex;
-
-	/**
-	 * Represent the sex of an character.
-	 * <p>
-	 * TODO this will be moved soon: not only characters have sex, NPC can
-	 * have'em too.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public enum CharacterSex {
-		MALE, FEMALE;
 	}
 
 	/**
@@ -148,14 +131,16 @@ public class CharacterAppearance {
 
 	/**
 	 * The name color
+	 * <p>
+	 * <b>This is not persisted!</b>
 	 */
-	private RGBColor nameColor = new RGBColor((byte) 0xFF, (byte) 0xFF,
-			(byte) 0xFF);
+	private RGBColor nameColor = RGBColor.fromInteger(0xFFFFFF);
 	/**
 	 * The title color
+	 * <p>
+	 * <b>This is not persisted!</b>
 	 */
-	private RGBColor titleColor = new RGBColor((byte) 0xFF, (byte) 0xFF,
-			(byte) 0x77);
+	private RGBColor titleColor = RGBColor.fromInteger(0xFFFF77);
 
 	public CharacterAppearance(L2Character character) {
 		this.character = character;
@@ -204,21 +189,6 @@ public class CharacterAppearance {
 	 */
 	public void setHairStyle(CharacterHairStyle hairStyle) {
 		this.hairStyle = hairStyle;
-	}
-
-	/**
-	 * @return the character sex
-	 */
-	public CharacterSex getSex() {
-		return sex;
-	}
-
-	/**
-	 * @param sex
-	 *            the character sex to set
-	 */
-	public void setSex(CharacterSex sex) {
-		this.sex = sex;
 	}
 
 	/**

@@ -11,7 +11,11 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.AuthLoginPacket;
+import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
+import com.l2jserver.game.net.packet.client.LogoutPacket;
 import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
+import com.l2jserver.game.net.packet.client.RequestGotoLobby;
+import com.l2jserver.game.net.packet.client.RequestNewCharacterPacket;
 
 public class Lineage2PacketReader extends OneToOneDecoder {
 	private final Injector injector;
@@ -45,12 +49,30 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 	private Class<? extends ClientPacket> getPacketClass(ChannelBuffer buffer) {
 		final short opcode = buffer.readUnsignedByte();
 		switch (opcode) {
+		case LogoutPacket.OPCODE:
+			return LogoutPacket.class;
 		case ProtocolVersionPacket.OPCODE:
 			return ProtocolVersionPacket.class;
 		case AuthLoginPacket.OPCODE:
 			return AuthLoginPacket.class;
+		case CharacterCreatePacket.OPCODE:
+			return CharacterCreatePacket.class;
+		case RequestNewCharacterPacket.OPCODE:
+			return RequestNewCharacterPacket.class;
+			// COMPOSED
+		case 0xd0:
+			final int opcode2 = buffer.readUnsignedShort();
+			switch (opcode2) {
+			case RequestGotoLobby.OPCODE2:
+				return RequestGotoLobby.class;
+			default:
+				logger.warn("Unknown opcode2: 0x{}",
+						Integer.toHexString(opcode));
+				break;
+			}
+			break;
 		default:
-			logger.info("Unknown opcode: " + Integer.toHexString(opcode));
+			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
 			break;
 		}
 		return null;

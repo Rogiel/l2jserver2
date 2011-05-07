@@ -18,7 +18,8 @@ import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
 
 public class StaticTemplateServiceTest {
 	private final Injector injector = Guice.createInjector(
-			new BasicServiceModule(), new IDFactoryModule(), new DAOModuleMySQL5(), new AbstractModule() {
+			new BasicServiceModule(), new IDFactoryModule(),
+			new DAOModuleMySQL5(), new AbstractModule() {
 				@Override
 				protected void configure() {
 					bind(ScriptingService.class).to(ScriptingServiceImpl.class)
@@ -35,6 +36,7 @@ public class StaticTemplateServiceTest {
 	@Test
 	public void testAdena() throws ServiceStartException {
 		service.start();
-		System.out.println(factory.createID(AdenaItemTemplate.ID).getTemplate());
+		System.out
+				.println(factory.createID(AdenaItemTemplate.ID).getTemplate());
 	}
 }

@@ -10,5 +10,6 @@ import com.l2jserver.util.Coordinate;
  */
 public interface Positionable extends ObjectCapability {
 	Coordinate getPosition();
+
 	void setPosition(Coordinate coord);
 }

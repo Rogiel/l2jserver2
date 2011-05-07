@@ -14,7 +14,7 @@ public interface TemplateService extends Service {
 	 *            the template id
 	 * @return the template
 	 */
-	<T extends Template> T getTemplate(TemplateID<T> id);
+	<T extends Template<?>> T getTemplate(TemplateID<T> id);
 
 	/**
 	 * Reload the template list.

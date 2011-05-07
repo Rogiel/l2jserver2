@@ -1,10 +1,12 @@
 package com.l2jserver.model.id;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.template.Template;
+import com.l2jserver.model.world.WorldObject;
 
 /**
- * The ID interface. Each Object or Template must be represented by an unique
- * ID.
+ * The ID interface. Each {@link WorldObject} or {@link Template} must be
+ * represented by an unique ID.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -35,7 +37,7 @@ public abstract class ID {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + id + this.getClass().hashCode();
 		return result;
 	}
 

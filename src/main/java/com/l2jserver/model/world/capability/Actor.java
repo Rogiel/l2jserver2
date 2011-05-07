@@ -1,6 +1,7 @@
 package com.l2jserver.model.world.capability;
 
 import com.l2jserver.model.world.AbstractObject;
+import com.l2jserver.model.world.actor.ActorEffects;
 import com.l2jserver.model.world.actor.ActorEvent;
 import com.l2jserver.model.world.actor.ActorListener;
 
@@ -13,5 +14,5 @@ import com.l2jserver.model.world.actor.ActorListener;
 public interface Actor extends Listenable<ActorListener, ActorEvent>,
 		Spawnable, Positionable, Damagable, Attackable, Attacker, Castable,
 		Caster, Levelable, Killable, Equiper, Equipable {
-
+	ActorEffects getEffects();
 }

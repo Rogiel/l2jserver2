@@ -1,13 +1,17 @@
 package com.l2jserver;
 
+import org.apache.log4j.BasicConfigurator;
+
 import com.l2jserver.routines.GameServerInitializationRoutine;
 
 public class L2JGameServerMain {
 	/**
 	 * @param args
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws InterruptedException {
+		BasicConfigurator.configure();
+
 		final L2JGameServer server = new L2JGameServer();
 		try {
 			server.getInjector()
@@ -16,7 +20,7 @@ public class L2JGameServerMain {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();
 		}
-		
+
 		Thread.sleep(60 * 60 * 1000);
 	}
 

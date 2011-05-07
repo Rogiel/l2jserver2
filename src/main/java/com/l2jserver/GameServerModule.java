@@ -1,6 +1,5 @@
 package com.l2jserver;
 
-
 import com.google.inject.AbstractModule;
 import com.l2jserver.db.dao.DAOModuleMySQL5;
 import com.l2jserver.model.id.factory.IDFactoryModule;

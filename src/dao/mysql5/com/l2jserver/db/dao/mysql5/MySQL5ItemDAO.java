@@ -10,6 +10,9 @@ import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory;
+import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory;
@@ -20,6 +23,7 @@ import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
 
 public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	private final ItemIDFactory idFactory;
+	private final ItemTemplateIDFactory templateIdFactory;
 	private final CharacterIDFactory charIdFactory;
 
 	/**
@@ -28,22 +32,31 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	public static final String TABLE = "item";
 	// FIELDS
 	public static final String ITEM_ID = "item_id";
+	public static final String TEMPLATE_ID = "template_id";
 	public static final String CHAR_ID = MySQL5CharacterDAO.CHAR_ID;
 
 	@Inject
 	public MySQL5ItemDAO(DatabaseService database,
-			final ItemIDFactory idFactory, CharacterIDFactory charIdFactory) {
+			final ItemIDFactory idFactory,
+			ItemTemplateIDFactory templateIdFactory,
+			CharacterIDFactory charIdFactory) {
 		super(database);
 		this.idFactory = idFactory;
+		this.templateIdFactory = templateIdFactory;
 		this.charIdFactory = charIdFactory;
 	}
 
 	private final class CharacterMapper implements Mapper<Item> {
 		@Override
 		public Item map(ResultSet rs) throws SQLException {
-			final Item item = new Item();
+			final ItemTemplateID templateId = templateIdFactory.createID(rs
+					.getInt(TEMPLATE_ID));
+			final ItemTemplate template = templateId.getTemplate();
+			final Item item = template.create();
+
 			item.setID(idFactory.createID(rs.getInt(ITEM_ID)));
-			item.setID(charIdFactory.createID(rs.getInt(CHAR_ID)));
+			item.setOwnerID(charIdFactory.createID(rs.getInt(CHAR_ID)));
+
 			return item;
 		}
 	}

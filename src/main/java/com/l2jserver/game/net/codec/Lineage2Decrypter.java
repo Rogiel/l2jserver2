@@ -14,14 +14,14 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 	private final byte[] key = new byte[16];
 
 	@Override
-	protected synchronized Object decode(ChannelHandlerContext ctx, Channel channel,
-			Object msg) throws Exception {
+	protected synchronized Object decode(ChannelHandlerContext ctx,
+			Channel channel, Object msg) throws Exception {
 		if (!(msg instanceof ChannelBuffer))
 			return msg;
 		if (!enabled)
 			return msg;
 		final ChannelBuffer buffer = (ChannelBuffer) msg;
-		
+
 		final int offset = buffer.readerIndex();
 		final int size = buffer.readableBytes();
 		int temp = 0;
@@ -45,7 +45,7 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 
 		return buffer;
 	}
-	
+
 	public byte[] enable() {
 		byte[] key = BlowFishKeygen.getRandomKey();
 		this.setKey(key);

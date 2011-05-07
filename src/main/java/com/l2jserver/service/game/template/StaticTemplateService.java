@@ -22,6 +22,7 @@ public class StaticTemplateService extends AbstractService implements
 
 	private ScriptContext context;
 
+	@SuppressWarnings("rawtypes")
 	private Map<TemplateID, Template> templates = CollectionFactory.newMap(
 			TemplateID.class, Template.class);
 
@@ -52,18 +53,18 @@ public class StaticTemplateService extends AbstractService implements
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends Template> T getTemplate(TemplateID<T> id) {
+	public <T extends Template<?>> T getTemplate(TemplateID<T> id) {
 		return (T) templates.get(id);
 	}
 
-	public void addTemplate(Class<? extends Template> t) {
-		final Template template = injector.getInstance(t);
+	public void addTemplate(Class<? extends Template<?>> t) {
+		final Template<?> template = injector.getInstance(t);
 		System.out.println(template.getID() + " -> " + template);
 		if (template.getID() != null)
 			templates.put(template.getID(), template);
 	}
 
-	public void removeTemplate(Template t) {
+	public void removeTemplate(Template<?> t) {
 		// TODO templates.remove(t);
 	}
 

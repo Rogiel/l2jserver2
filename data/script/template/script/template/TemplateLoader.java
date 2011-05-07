@@ -1,22 +1,10 @@
-package script.template;/*
- * This file is part of aion-emu <aion-emu.com>.
- *
- * aion-emu is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * aion-emu is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
- */
+package script.template;
 
 import java.lang.reflect.Modifier;
 import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.template.Template;
@@ -35,6 +23,9 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class TemplateLoader implements Loader, Unloader {
+	private static final Logger log = LoggerFactory
+			.getLogger(TemplateLoader.class);
+
 	private final StaticTemplateService templateService;
 
 	@Inject
@@ -44,16 +35,19 @@ public class TemplateLoader implements Loader, Unloader {
 
 	@Override
 	public void load(Class<?>[] classes) {
-		for (final Class<? extends Template> template : getSuitableClasses(classes)) {
+		log.debug("Loading templates from {} classes", classes.length);
+		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
+			log.debug("Found loadable template class: {}", template);
 			templateService.addTemplate(template);
-			System.out.println("Loading template: " + template);
 		}
 	}
 
 	@Override
 	public void unload(Class<?>[] classes) {
-		for (final Class<? extends Template> template : getSuitableClasses(classes)) {
-			System.out.println("Unloading template: " + template);
+		log.debug("Unloading templates from {} classes", classes.length);
+		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
+			log.debug("Found unloadable template class: {}", template);
+			// TODO unloading
 		}
 	}
 
@@ -63,9 +57,9 @@ public class TemplateLoader implements Loader, Unloader {
 	 * @return list of Template classes to load/unload
 	 */
 	@SuppressWarnings({ "unchecked" })
-	private static Set<Class<? extends Template>> getSuitableClasses(
+	private static Set<Class<? extends Template<?>>> getSuitableClasses(
 			Class<?>[] classes) {
-		final Set<Class<? extends Template>> suitable = CollectionFactory
+		final Set<Class<? extends Template<?>>> suitable = CollectionFactory
 				.newSet(null);
 		for (Class<?> clazz : classes) {
 			if (!ClassUtils.isSubclass(clazz, Template.class))
@@ -78,7 +72,7 @@ public class TemplateLoader implements Loader, Unloader {
 			if (clazz.isAnnotationPresent(DisabledTemplate.class))
 				continue;
 
-			suitable.add((Class<? extends Template>) clazz);
+			suitable.add((Class<? extends Template<?>>) clazz);
 		}
 
 		return suitable;

@@ -5,7 +5,7 @@ public class RGBColor {
 	private final byte green;
 	private final byte blue;
 
-	public RGBColor(byte r, byte g, byte b) {
+	protected RGBColor(byte r, byte g, byte b) {
 		this.red = r;
 		this.green = g;
 		this.blue = b;
@@ -34,5 +34,14 @@ public class RGBColor {
 
 	public byte[] toByteArray() {
 		return new byte[] { red, green, blue };
+	}
+
+	public static RGBColor fromByteArray(byte[] rgb) {
+		return new RGBColor(rgb[0], rgb[1], rgb[2]);
+	}
+
+	public static RGBColor fromInteger(int color) {
+		return new RGBColor((byte) (color << 0), (byte) (color << 8),
+				(byte) (color << 16));
 	}
 }

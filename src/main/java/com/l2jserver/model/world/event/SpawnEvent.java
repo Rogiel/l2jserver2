@@ -5,5 +5,6 @@ import com.l2jserver.util.Coordinate;
 
 public interface SpawnEvent extends WorldEvent {
 	Spawnable getObject();
+
 	Coordinate getCoordinate();
 }

@@ -17,6 +17,7 @@ import com.l2jserver.model.world.L2Character;
 public class Lineage2Connection {
 	private final Channel channel;
 	private L2Character character;
+	private Lineage2Session session;
 
 	public Lineage2Connection(Channel channel) {
 		this.channel = channel;
@@ -42,6 +43,23 @@ public class Lineage2Connection {
 	 */
 	public void setCharacter(L2Character character) {
 		this.character = character;
+	}
+
+	/**
+	 * @return the session
+	 */
+	public Lineage2Session getSession() {
+		return session;
+	}
+
+	/**
+	 * @param session
+	 *            the session to set
+	 */
+	public void setSession(Lineage2Session session) {
+		if (this.session != null)
+			throw new IllegalStateException("Session is already set!");
+		this.session = session;
 	}
 
 	public Channel getChannel() {

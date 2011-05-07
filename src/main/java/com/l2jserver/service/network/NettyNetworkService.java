@@ -12,7 +12,8 @@ import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.configuration.ConfigurationService;
 
-public class NettyNetworkService extends AbstractService implements NetworkService {
+public class NettyNetworkService extends AbstractService implements
+		NetworkService {
 	private final NetworkConfiguration config;
 	private final Injector injector;
 	private ServerBootstrap server;

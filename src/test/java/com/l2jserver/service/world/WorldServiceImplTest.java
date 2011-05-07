@@ -9,8 +9,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
-import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.filter.impl.InstanceFilter;
 import com.l2jserver.service.BasicServiceModule;
@@ -44,29 +44,29 @@ public class WorldServiceImplTest {
 
 	@Test
 	public void testAdd() {
-		final L2Character character = new L2Character();
+		final L2Character character = new L2Character(null);
 		world.add(character);
 	}
 
 	@Test
 	public void testRemove() {
-		final L2Character character = new L2Character();
+		final L2Character character = new L2Character(null);
 		world.add(character);
 		world.remove(character);
 	}
 
 	@Test
 	public void testContains() {
-		final L2Character character = new L2Character();
+		final L2Character character = new L2Character(null);
 		world.add(character);
 		Assert.assertTrue(world.contains(character));
 	}
 
 	@Test
 	public void testIterator() {
-		final L2Character character1 = new L2Character();
-		final L2Character character2 = new L2Character();
-		final Item item1 = new Item();
+		final L2Character character1 = new L2Character(null);
+		final L2Character character2 = new L2Character(null);
+		final Item item1 = new Item(null);
 		world.add(character1);
 		world.add(character2);
 		world.add(item1);

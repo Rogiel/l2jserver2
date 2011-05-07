@@ -19,6 +19,8 @@ package com.l2jserver.service.game.scripting.impl.javacc;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -109,11 +111,20 @@ public class ClassFileManager extends
 	@Override
 	public synchronized ScriptClassLoaderImpl getClassLoader(Location location) {
 		if (loader == null) {
-			if (parentClassLoader != null) {
-				loader = new ScriptClassLoaderImpl(this, parentClassLoader);
-			} else {
-				loader = new ScriptClassLoaderImpl(this);
-			}
+			return AccessController
+					.doPrivileged(new PrivilegedAction<ScriptClassLoaderImpl>() {
+						@Override
+						public ScriptClassLoaderImpl run() {
+							if (parentClassLoader != null) {
+								return new ScriptClassLoaderImpl(
+										ClassFileManager.this,
+										ClassFileManager.this.parentClassLoader);
+							} else {
+								return new ScriptClassLoaderImpl(
+										ClassFileManager.this);
+							}
+						}
+					});
 		}
 		return loader;
 	}

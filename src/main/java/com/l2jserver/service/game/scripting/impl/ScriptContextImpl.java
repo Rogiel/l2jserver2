@@ -212,7 +212,7 @@ public class ScriptContextImpl implements ScriptContext {
 	}
 
 	@Override
-	public Collection<ScriptContext> getChildScriptContexts() {
+	public synchronized Collection<ScriptContext> getChildScriptContexts() {
 		return childScriptContexts;
 	}
 
@@ -220,7 +220,7 @@ public class ScriptContextImpl implements ScriptContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addChildScriptContext(ScriptContext context) {
+	public synchronized void addChildScriptContext(ScriptContext context) {
 		synchronized (this) {
 			if (childScriptContexts == null) {
 				childScriptContexts = new HashSet<ScriptContext>();

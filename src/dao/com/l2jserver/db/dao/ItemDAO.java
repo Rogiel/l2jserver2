@@ -46,7 +46,7 @@ public interface ItemDAO extends DataAccessObject<Item>, Cacheable {
 	 * Save the instance to the database. If a new database entry was created
 	 * returns true.
 	 * 
-	 * @param id
+	 * @param option
 	 *            the id
 	 * @return true if created a new entry in database (i.e. insert), false if
 	 *         not created (i.e. update)

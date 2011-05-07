@@ -11,11 +11,21 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.KeyPacket;
 
+/**
+ * In this packet the client is informing its protocol version. It is possible
+ * to do an test and refuse invalid protocol versions. After this packet, the
+ * messages received and sent are all encrypted, except for the encryptation key
+ * which is sent here.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class ProtocolVersionPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x0e;
 
-	// services
-	private final Logger logger = LoggerFactory
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory
 			.getLogger(ProtocolVersionPacket.class);
 
 	// packet
@@ -30,9 +40,11 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 	public void process(final Lineage2Connection conn) {
 		// generate a new key
 		final byte[] key = conn.getDecrypter().enable();
-
+		log.debug("Decrypter has been enabled");
+		
+		log.debug("Client protocol version: {}", version);
 		if (L2JConstants.SUPPORTED_PROTOCOL != version) {
-			logger.info(
+			log.info(
 					"Incorrect protocol version: {0}. Only {1} is supported.",
 					version, L2JConstants.SUPPORTED_PROTOCOL);
 			// notify wrong protocol and close connection
@@ -53,6 +65,7 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 					@Override
 					public void operationComplete(ChannelFuture future)
 							throws Exception {
+						log.debug("Encrypter has been enabled");
 						// enable encrypter
 						conn.getEncrypter().setKey(key);
 						conn.getEncrypter().setEnabled(true);

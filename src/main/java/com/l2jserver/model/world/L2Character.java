@@ -6,6 +6,10 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.world.character.CharacterAppearance;
+import com.l2jserver.model.world.character.CharacterAttributes;
+import com.l2jserver.model.world.character.CharacterBaseAttributes;
+import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
+import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterInventory;
 
 /**
@@ -27,6 +31,10 @@ public class L2Character extends Player {
 	 */
 	private String name;
 	/**
+	 * The class of the character
+	 */
+	private CharacterClass characterClass;
+	/**
 	 * The character's status
 	 */
 	private boolean online;
@@ -43,6 +51,25 @@ public class L2Character extends Player {
 	 * The appearance of this character
 	 */
 	private final CharacterAppearance appearance = new CharacterAppearance(this);
+	/**
+	 * The base attributes of this character
+	 */
+	private final CharacterBaseAttributes baseAttributes;
+	/**
+	 * The attributes of this character
+	 */
+	private final CharacterAttributes attributes;
+
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param baseAttributes
+	 *            the base attribute for this character
+	 */
+	public L2Character(CharacterBaseAttributes baseAttributes) {
+		this.baseAttributes = baseAttributes;
+		this.attributes = new CharacterCalculatedAttributes(this);
+	}
 
 	@Override
 	public CharacterID getID() {
@@ -113,6 +140,21 @@ public class L2Character extends Player {
 	}
 
 	/**
+	 * @return the characterClass
+	 */
+	public CharacterClass getCharacterClass() {
+		return characterClass;
+	}
+
+	/**
+	 * @param characterClass
+	 *            the characterClass to set
+	 */
+	public void setCharacterClass(CharacterClass characterClass) {
+		this.characterClass = characterClass;
+	}
+
+	/**
 	 * @return the online
 	 */
 	public boolean isOnline() {
@@ -154,5 +196,19 @@ public class L2Character extends Player {
 	 */
 	public CharacterAppearance getAppearance() {
 		return appearance;
+	}
+
+	/**
+	 * @return the base attributes
+	 */
+	public CharacterBaseAttributes getBaseAttributes() {
+		return baseAttributes;
+	}
+
+	/**
+	 * @return the attributes
+	 */
+	public CharacterAttributes getAttributes() {
+		return attributes;
 	}
 }

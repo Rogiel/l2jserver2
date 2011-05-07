@@ -1,10 +1,26 @@
 package com.l2jserver.model.template;
 
-import com.l2jserver.model.id.template.ItemTemplateID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public abstract class ItemTemplate extends AbstractTemplate {
+import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.world.Item;
+
+public abstract class ItemTemplate extends AbstractTemplate<Item> {
+	/**
+	 * The logger
+	 */
+	private static final Logger log = LoggerFactory
+			.getLogger(ItemTemplate.class);
+
 	public ItemTemplate(ItemTemplateID id) {
 		super(id);
+	}
+
+	@Override
+	public Item create() {
+		log.debug("Creating a new Item instance with template {}", this);
+		return new Item(this.getID());
 	}
 
 	@Override

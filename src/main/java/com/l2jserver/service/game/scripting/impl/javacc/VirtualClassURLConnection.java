@@ -25,8 +25,7 @@ import java.net.URLConnection;
 
 /**
  * This class represents URL Connection that is used to "connect" to scripts
- * binary data that was loaded by specified
- * {@link ScriptCompilerImpl}.<br>
+ * binary data that was loaded by specified {@link ScriptCompilerImpl}.<br>
  * <br>
  * TODO: Implement all methods of {@link URLConnection} to ensure valid
  * behaviour

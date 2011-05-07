@@ -15,5 +15,5 @@ public interface IDFactory<T extends ID> {
 	 * @param id
 	 * @return
 	 */
-	T createID(int id); 
+	T createID(int id);
 }

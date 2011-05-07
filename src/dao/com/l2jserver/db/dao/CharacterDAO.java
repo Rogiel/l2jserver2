@@ -25,6 +25,24 @@ public interface CharacterDAO extends DataAccessObject<L2Character>, Cacheable {
 	L2Character load(CharacterID id);
 
 	/**
+	 * Select an character by its name.
+	 * 
+	 * @param name
+	 *            the character name
+	 * @return the found character. Null if does not exists.
+	 */
+	L2Character selectByName(String name);
+
+	/**
+	 * Select an character by its name.
+	 * 
+	 * @param name
+	 *            the character name
+	 * @return the found character. Null if does not exists.
+	 */
+	List<L2Character> selectByAccount(String username);
+
+	/**
 	 * Loads an List of all {@link ID}s in the database
 	 * 
 	 * @return the list containing all ids
@@ -36,7 +54,7 @@ public interface CharacterDAO extends DataAccessObject<L2Character>, Cacheable {
 	 * Save the instance to the database. If a new database entry was created
 	 * returns true.
 	 * 
-	 * @param id
+	 * @param option
 	 *            the id
 	 * @return true if created a new entry in database (i.e. insert), false if
 	 *         not created (i.e. update)

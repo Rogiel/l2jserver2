@@ -1,23 +1,29 @@
 package com.l2jserver.game.net.packet.client;
 
+import java.util.List;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
+import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.CharSelectionInfoPacket;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.game.net.packet.server.CharacterSelectionListPacket;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.util.BufferUtil;
 
+/**
+ * This packet is sent by the client once the login server has authorized
+ * authentication into this server. A new {@link Lineage2Session} object will be
+ * set to the current connection and the character list is sent to the client.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class AuthLoginPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x2b;
 
-	@Inject
-	private WorldService world;
-	@Inject
-	private CharacterIDFactory idFactory;
+	private final CharacterDAO characterDao;
 
 	// packet
 	private String loginName;
@@ -25,6 +31,11 @@ public class AuthLoginPacket extends AbstractClientPacket {
 	private int playKey2;
 	private int loginKey1;
 	private int loginKey2;
+
+	@Inject
+	public AuthLoginPacket(CharacterDAO characterDao) {
+		this.characterDao = characterDao;
+	}
 
 	@Override
 	public void read(ChannelBuffer buffer) {
@@ -38,11 +49,13 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		// assume it is correct, for now
-		// send character list
-		// world.getEventDispatcher().dispatch(null);
-		final L2Character c = idFactory.createID(268435456).getObject();
-		conn.write(new CharSelectionInfoPacket(loginName, playKey1, -1, c));
+		conn.setSession(new Lineage2Session(loginName, playKey1, playKey2,
+				loginKey1, loginKey2));
+
+		final List<L2Character> chars = characterDao.selectByAccount(conn
+				.getSession().getUsername());
+		conn.write(CharacterSelectionListPacket.fromL2Session(
+				conn.getSession(), chars.toArray(new L2Character[0])));
 	}
 
 	/**

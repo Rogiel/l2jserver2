@@ -9,6 +9,7 @@ import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory.CharacterIDGuiceFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory.ItemIDGuiceFactory;
+import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
 import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
 import com.l2jserver.model.id.template.factory.SkillTemplateIDFactory;
 
@@ -34,5 +35,7 @@ public class IDFactoryModule extends AbstractModule {
 		// TEMPLATE IDS
 		install(new FactoryModuleBuilder().build(ItemTemplateIDFactory.class));
 		install(new FactoryModuleBuilder().build(SkillTemplateIDFactory.class));
+		install(new FactoryModuleBuilder()
+				.build(CharacterTemplateIDFactory.class));
 	}
 }

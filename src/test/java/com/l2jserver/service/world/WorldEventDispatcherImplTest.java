@@ -7,7 +7,6 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -65,11 +64,11 @@ public class WorldEventDispatcherImplTest {
 
 	@Test
 	public void testListeners1() throws InterruptedException {
-		final L2Character character1 = new L2Character();
+		final L2Character character1 = new L2Character(null);
 		character1.setID(cidFactory.createID());
-		final L2Character character2 = new L2Character();
+		final L2Character character2 = new L2Character(null);
 		character2.setID(cidFactory.createID());
-		final Item item1 = new Item();
+		final Item item1 = new Item(null);
 		item1.setID(iidFactory.createID());
 		world.add(character1);
 		world.add(character2);
@@ -106,13 +105,13 @@ public class WorldEventDispatcherImplTest {
 
 	@Test
 	public void testListeners2() throws InterruptedException {
-		final L2Character character1 = new L2Character();
+		final L2Character character1 = new L2Character(null);
 		character1.setID(cidFactory.createID());
-		final L2Character character2 = new L2Character();
+		final L2Character character2 = new L2Character(null);
 		character2.setID(cidFactory.createID());
-		final Item item1 = new Item();
+		final Item item1 = new Item(null);
 		item1.setID(iidFactory.createID());
-		final Item item2 = new Item();
+		final Item item2 = new Item(null);
 		item2.setID(iidFactory.createID());
 		world.add(character1);
 		world.add(character2);

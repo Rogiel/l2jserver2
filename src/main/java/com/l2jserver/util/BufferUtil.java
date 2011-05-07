@@ -16,9 +16,10 @@ public class BufferUtil {
 	}
 
 	public static final void writeString(ChannelBuffer buffer, String str) {
-		for (char c : str.toCharArray()) {
-			buffer.writeChar(c);
-		}
-		buffer.writeChar(0x00);
+		if (str != null)
+			for (char c : str.toCharArray()) {
+				buffer.writeChar(c);
+			}
+		buffer.writeChar('\000');
 	}
 }

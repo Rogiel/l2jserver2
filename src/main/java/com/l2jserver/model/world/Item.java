@@ -1,22 +1,22 @@
 package com.l2jserver.model.world;
 
-import java.util.List;
-
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Playable;
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.item.ItemEvent;
 import com.l2jserver.model.world.item.ItemListener;
 import com.l2jserver.util.Coordinate;
-import com.l2jserver.util.factory.CollectionFactory;
 
 public class Item extends AbstractObject implements Playable, Spawnable,
 		Listenable<ItemListener, ItemEvent> {
-	private final List<ItemListener> listeners = CollectionFactory
-			.newList(ItemListener.class);
-
+	private final ItemTemplateID templateID;
 	private CharacterID ownerID;
+
+	public Item(ItemTemplateID templateID) {
+		this.templateID = templateID;
+	}
 
 	@Override
 	public void spawn(Coordinate coordinate) {
@@ -39,7 +39,14 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	public void setPosition(Coordinate coord) {
 
 	}
-	
+
+	/**
+	 * @return the templateID
+	 */
+	public ItemTemplateID getTemplateID() {
+		return templateID;
+	}
+
 	/**
 	 * @return the ownerID
 	 */

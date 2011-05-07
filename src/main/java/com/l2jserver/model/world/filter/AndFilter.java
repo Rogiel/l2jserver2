@@ -11,8 +11,8 @@ public class AndFilter<O extends WorldObject> implements WorldObjectFilter<O> {
 
 	@Override
 	public boolean accept(O object) {
-		for(final WorldObjectFilter<O> filter : filters) {
-			if(!filter.accept(object))
+		for (final WorldObjectFilter<O> filter : filters) {
+			if (!filter.accept(object))
 				return false;
 		}
 		return true;

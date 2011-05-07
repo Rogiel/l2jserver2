@@ -1,7 +1,6 @@
 package com.l2jserver.game.net.codec;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
@@ -13,17 +12,15 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 	private final byte[] key = new byte[16];
 
 	@Override
-	protected synchronized Object encode(ChannelHandlerContext ctx, Channel channel,
-			Object msg) throws Exception {
+	protected synchronized Object encode(ChannelHandlerContext ctx,
+			Channel channel, Object msg) throws Exception {
 		if (!(msg instanceof ChannelBuffer))
 			return msg;
 		if (!enabled)
 			return msg;
 		final ChannelBuffer buffer = (ChannelBuffer) msg;
-		
-		System.out.println(ChannelBuffers.hexDump(buffer));
 
-		final int offset = buffer.readerIndex() + 2; //skip header
+		final int offset = buffer.readerIndex() + 2; // skip header
 		final int size = buffer.readableBytes() - 2;
 		int temp = 0;
 		for (int i = 0; i < size; i++) {
