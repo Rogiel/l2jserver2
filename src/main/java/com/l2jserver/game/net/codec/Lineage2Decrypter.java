@@ -1,5 +1,7 @@
 package com.l2jserver.game.net.codec;
 
+import java.util.Arrays;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
@@ -26,10 +28,22 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 		final int size = buffer.readableBytes();
 		int temp = 0;
 		for (int i = 0; i < size; i++) {
-			int temp2 = buffer.getUnsignedByte(offset + i) & 0xFF;
-			buffer.setByte(offset + i, (byte) (temp2 ^ key[i & 15] ^ temp));
+			int temp2 = buffer.getByte(offset + i) & 0xFF;
+			buffer.setByte(offset + i, (temp2 ^ key[i & 15] ^ temp));
 			temp = temp2;
 		}
+
+		// int old = _inKey[8] &0xff;
+		// old |= _inKey[9] << 8 &0xff00;
+		// old |= _inKey[10] << 0x10 &0xff0000;
+		// old |= _inKey[11] << 0x18 &0xff000000;
+		//
+		// old += size;
+		//
+		// _inKey[8] = (byte)(old &0xff);
+		// _inKey[9] = (byte)(old >> 0x08 &0xff);
+		// _inKey[10] = (byte)(old >> 0x10 &0xff);
+		// _inKey[11] = (byte)(old >> 0x18 &0xff);
 
 		int old = key[8] & 0xff;
 		old |= key[9] << 8 & 0xff00;
@@ -54,9 +68,7 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 	}
 
 	public void setKey(byte[] key) {
-		for (int i = 0; i < 16; i++) {
-			this.key[i] = key[i];
-		}
+		System.arraycopy(key, 0, this.key, 0, key.length);
 	}
 
 	public boolean isEnabled() {

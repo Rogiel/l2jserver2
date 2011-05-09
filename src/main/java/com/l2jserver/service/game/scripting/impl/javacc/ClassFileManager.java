@@ -111,7 +111,7 @@ public class ClassFileManager extends
 	@Override
 	public synchronized ScriptClassLoaderImpl getClassLoader(Location location) {
 		if (loader == null) {
-			return AccessController
+			loader = AccessController
 					.doPrivileged(new PrivilegedAction<ScriptClassLoaderImpl>() {
 						@Override
 						public ScriptClassLoaderImpl run() {
@@ -135,7 +135,7 @@ public class ClassFileManager extends
 	 * @param classLoader
 	 *            parent class loader
 	 */
-	public void setParentClassLoader(ScriptClassLoader classLoader) {
+	public synchronized void setParentClassLoader(ScriptClassLoader classLoader) {
 		this.parentClassLoader = classLoader;
 	}
 

@@ -36,13 +36,15 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 				new Lineage2Encrypter());
 		pipeline.addLast(Lineage2Decrypter.HANDLER_NAME,
 				new Lineage2Decrypter());
+		
+		pipeline.addLast("logger-hex", new LoggingHandler(InternalLogLevel.DEBUG, true));
 
 		pipeline.addLast("packet.writer", new Lineage2PacketWriter());
 		pipeline.addLast("packet.reader", new Lineage2PacketReader(injector));
+		
+		pipeline.addLast("logger", new LoggingHandler(InternalLogLevel.DEBUG, true));
 
 		pipeline.addLast("packet.handler", new Lineage2PacketHandler());
-
-		pipeline.addLast("logger", new LoggingHandler(InternalLogLevel.WARN));
 
 		return pipeline;
 	}

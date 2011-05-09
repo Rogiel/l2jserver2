@@ -1,5 +1,7 @@
 package com.l2jserver.game.net.codec;
 
+import java.util.Arrays;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
@@ -24,7 +26,7 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 		final int size = buffer.readableBytes() - 2;
 		int temp = 0;
 		for (int i = 0; i < size; i++) {
-			int temp2 = buffer.getUnsignedByte(offset + i) & 0xFF;
+			int temp2 = buffer.getByte(offset + i) & 0xFF;
 			buffer.setByte(offset + i, (byte) (temp2 ^ key[i & 15] ^ temp));
 			temp = temp2;
 		}
@@ -50,9 +52,7 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 	}
 
 	public void setKey(byte[] key) {
-		for (int i = 0; i < 16; i++) {
-			this.key[i] = key[i];
-		}
+		System.arraycopy(key, 0, this.key, 0, key.length);
 	}
 
 	public boolean isEnabled() {

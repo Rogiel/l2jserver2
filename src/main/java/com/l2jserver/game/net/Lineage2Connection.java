@@ -18,6 +18,11 @@ public class Lineage2Connection {
 	private final Channel channel;
 	private L2Character character;
 	private Lineage2Session session;
+	private ConnectionState state = ConnectionState.CONNECTED;
+	
+	public enum ConnectionState {
+		CONNECTED, AUTHENTICATED, IN_GAME;
+	}
 
 	public Lineage2Connection(Channel channel) {
 		this.channel = channel;

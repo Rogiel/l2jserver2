@@ -5,6 +5,8 @@ import java.util.concurrent.Executors;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.ServerChannel;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
+import org.jboss.netty.logging.InternalLoggerFactory;
+import org.jboss.netty.logging.Slf4JLoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -24,6 +26,7 @@ public class NettyNetworkService extends AbstractService implements
 			Injector injector) {
 		this.config = configService.get(NetworkConfiguration.class);
 		this.injector = injector;
+		InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory());
 	}
 
 	@Override

@@ -199,13 +199,13 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 		return database.query(new InsertUpdateQuery<L2Character>(character) {
 			@Override
 			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
+				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`" + ACCOUNT_ID + "`,`"
 						+ NAME + "`,`" + RACE + "`,`" + CLASS + "`,`" + SEX
 						+ "`,`" + LEVEL + "`,`" + COORD_X + "`,`" + COORD_Y
 						+ "`,`" + COORD_Z + "`,`" + APPEARANCE_HAIR_STYLE
 						+ "`,`" + APPEARANCE_HAIR_COLOR + "`,`"
 						+ APPEARANCE_FACE
-						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			}
 
 			@Override
@@ -216,6 +216,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 				int i = 1;
 
 				st.setInt(i++, character.getID().getID());
+				st.setString(i++, "rogiel"); // FIXME
 				st.setString(i++, character.getName());
 
 				st.setString(i++, character.getRace().name());

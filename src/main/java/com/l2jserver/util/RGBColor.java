@@ -14,26 +14,30 @@ public class RGBColor {
 	/**
 	 * @return the red
 	 */
-	public byte getR() {
+	public byte getRed() {
 		return red;
 	}
 
 	/**
 	 * @return the green
 	 */
-	public byte getG() {
+	public byte getGreen() {
 		return green;
 	}
 
 	/**
 	 * @return the blue
 	 */
-	public byte getB() {
+	public byte getBlue() {
 		return blue;
 	}
 
 	public byte[] toByteArray() {
 		return new byte[] { red, green, blue };
+	}
+	
+	public int toInteger() {
+		return red  + green >> 8 + blue >> 16;
 	}
 
 	public static RGBColor fromByteArray(byte[] rgb) {

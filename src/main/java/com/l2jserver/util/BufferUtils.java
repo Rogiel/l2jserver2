@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-public class BufferUtil {
+public class BufferUtils {
 	public static final String readString(ChannelBuffer buffer) {
 		char[] str = new char[buffer.readableBytes()];
 		int index = 0;
@@ -16,10 +16,12 @@ public class BufferUtil {
 	}
 
 	public static final void writeString(ChannelBuffer buffer, String str) {
-		if (str != null)
-			for (char c : str.toCharArray()) {
-				buffer.writeChar(c);
+		if (str != null) {
+			final int len = str.length();
+			for (int i = 0; i < len; i++) {
+				buffer.writeChar(str.charAt(i));
 			}
+		}
 		buffer.writeChar('\000');
 	}
 }

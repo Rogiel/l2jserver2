@@ -6,7 +6,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.Coordinate;
 
-public class AbstractCharacterTemplate extends CharacterTemplate {
+public abstract class AbstractCharacterTemplate extends CharacterTemplate {
 	protected AbstractCharacterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, int intelligence, int strength,
 			int concentration, int mentality, int dextry, int witness,

@@ -21,11 +21,11 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
-import com.l2jserver.util.BufferUtil;
+import com.l2jserver.util.BufferUtils;
 
 /**
  * Completes the creation of an character. Creates the object, inserts into the
- * database and notifies the client abou the status of the operation.
+ * database and notifies the client about the status of the operation.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -71,7 +71,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 
 	@Override
 	public void read(ChannelBuffer buffer) {
-		name = BufferUtil.readString(buffer);
+		name = BufferUtils.readString(buffer);
 		race = Race.fromOption(buffer.readInt());
 		sex = Sex.fromOption(buffer.readInt());
 		classId = buffer.readInt();
@@ -90,7 +90,8 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		log.debug("Creating a new character");
+		log.debug("Creating a new character, race={}, sex={}, classid={}",
+				new Object[] { race, sex, classId });
 		if ((name.length() < 1) || (name.length() > 16)) {
 			log.debug("Character name length invalid: {}. Aborting.", name);
 			conn.write(new CharacterCreateFailPacket(
@@ -123,15 +124,29 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 		log.debug("Creating character with template {}", template);
 
 		// ensure parameters passed by the client are true
-		if ((intelligence != template.getIntelligence())
-				|| (strength != template.getStrength())
-				|| (concentration != template.getConcentration())
-				|| (mentality != template.getMentality())
-				|| (dextry != template.getDextry())
-				|| (witness != template.getWitness())
-				|| (race != template.getRace())) {
+		if (/*
+			 * (intelligence != template.getIntelligence()) || (strength !=
+			 * template.getStrength()) || (concentration !=
+			 * template.getConcentration()) || (mentality !=
+			 * template.getMentality()) || (dextry != template.getDextry()) ||
+			 * (witness != template.getWitness()) ||
+			 */(race != template.getRace())) {
+			// log.debug("intelligence, expected {}, received {}",
+			// template.getIntelligence(), intelligence);
+			// log.debug("strength, expected {}, received {}",
+			// template.getStrength(), strength);
+			// log.debug("concentration, expected {}, received {}",
+			// template.getConcentration(), concentration);
+			// log.debug("dextry, expected {}, received {}",
+			// template.getDextry(),
+			// dextry);
+			// log.debug("witness, expected {}, received {}",
+			// template.getWitness(), witness);
+			log.debug("race, expected {}, received {}", template.getRace(),
+					race);
+
 			log.debug(
-					"Values sent by client and sent from template does not match: {}",
+					"Values sent by client and from template does not match: {}",
 					template);
 			// some of the values didn't match, canceling creation
 			conn.write(new CharacterCreateFailPacket(

@@ -5,7 +5,8 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.util.BufferUtil;
+import com.l2jserver.model.world.actor.ActorExperience;
+import com.l2jserver.util.BufferUtils;
 
 /**
  * The list of characters sent to the client.
@@ -32,7 +33,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 	public static CharacterSelectionListPacket fromL2Session(
 			Lineage2Session session, L2Character... characters) {
 		return new CharacterSelectionListPacket(session.getUsername(),
-				session.getPlayKey1(), -1, characters);
+				session.getPlayKey2(), -1, characters);
 	}
 
 	@Override
@@ -40,16 +41,17 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 		// buffer.writeByte(0x09);
 		buffer.writeInt(characters.length);
 
-		// Can prevent players from creating new characters (if 0); (if 1,
-		// the client will ask if chars may be created (0x13) Response: (0x0D) )
-		buffer.writeInt(0x01);
+		// Can prevent players from creating new characters (if 0);
+		// if 1 the client will ask if chars may be created
+		// (RequestCharacterTemplatesPacket) Response: (CharacterTemplatePacket)
+		buffer.writeInt(0x07); // max chars
 		buffer.writeByte(0x00);
 
-		int i = 0;
+		//int i = 0;
 		for (final L2Character character : characters) {
-			BufferUtil.writeString(buffer, character.getName());
+			BufferUtils.writeString(buffer, character.getName());
 			buffer.writeInt(character.getID().getID());
-			BufferUtil.writeString(buffer, loginName);
+			BufferUtils.writeString(buffer, loginName);
 			buffer.writeInt(sessionId);
 			// if (character.getClanID() == null) {
 			buffer.writeInt(0x00); // clan id
@@ -58,7 +60,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// }
 			buffer.writeInt(0x00); // ??
 
-			buffer.writeInt(character.getSex().option); // sex
+			buffer.writeInt(0x01); // sex
 			buffer.writeInt(character.getRace().option); // race
 
 			// if (character.getClassId() == character.getBaseClassId())
@@ -76,23 +78,26 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeDouble(20); // hp cur
 			buffer.writeDouble(20); // mp cur
 
-			buffer.writeInt(3000); // sp
-			buffer.writeLong(2000); // exp
-			buffer.writeInt(0x01); // level
+			buffer.writeInt(0x00); // sp
+			buffer.writeLong(ActorExperience.LEVEL_1.experience); // exp
+			buffer.writeInt(ActorExperience.LEVEL_1.level); // level
 
 			buffer.writeInt(0x00); // karma
 			buffer.writeInt(0x00); // pk
 			buffer.writeInt(0x00); // pvp
 
-			buffer.writeInt(0x00); // unk
-			buffer.writeInt(0x00); // unk
-			buffer.writeInt(0x00); // unk
-			buffer.writeInt(0x00); // unk
-			buffer.writeInt(0x00); // unk
-			buffer.writeInt(0x00); // unk
-			buffer.writeInt(0x00); // unk
+			for (int n = 0; n < 7; n++) {
+				buffer.writeInt(0x00); // unk
+			}
+			// buffer.writeInt(0x00); // unk 1
+			// buffer.writeInt(0x00); // unk 2
+			// buffer.writeInt(0x00); // unk 3
+			// buffer.writeInt(0x00); // unk 4
+			// buffer.writeInt(0x00); // unk 5
+			// buffer.writeInt(0x00); // unk 6
+			// buffer.writeInt(0x00); // unk 7
 
-			for (int id = 0; id < 26; id++) {
+			for (int id = 0; id < 25; id++) {
 				buffer.writeInt(0x00); // paperdolls
 			}
 			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HAIR));
@@ -123,18 +128,21 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_BELT));
 
 			// hair style
-			buffer.writeInt(character.getAppearance().getHairStyle().option);
+			//buffer.writeInt(character.getAppearance().getHairStyle().option);
+			buffer.writeInt(0x02);
 			// hair color
-			buffer.writeInt(character.getAppearance().getHairColor().option);
+			//buffer.writeInt(character.getAppearance().getHairColor().option);
+			buffer.writeInt(0x03);
 			// face
-			buffer.writeInt(character.getAppearance().getFace().option);
+			//buffer.writeInt(character.getAppearance().getFace().option);
+			buffer.writeInt(0x00);
 
 			buffer.writeDouble(30); // hp max
 			buffer.writeDouble(30); // mp max
 
 			buffer.writeInt(0x0); // seconds left before delete
 			buffer.writeInt(character.getCharacterClass().id); // class
-			buffer.writeInt(0x00); // c3 auto-select char
+			buffer.writeInt(0x01); // c3 auto-select char
 
 			buffer.writeByte(0x00); // enchant effect
 
@@ -146,7 +154,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// character select you don't see your transformation.
 
 			// Freya by Vistall:
-			// buffer.writeInt(0); // npdid - 16024 Tame Tiny Baby Kookaburra
+			buffer.writeInt(16024); // npdid - 16024 Tame Tiny Baby Kookaburra
 			// // A9E89C
 			buffer.writeInt(0); // level
 			buffer.writeInt(0); // ?
@@ -154,7 +162,9 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeDouble(0); // max Hp
 			buffer.writeDouble(0); // cur Hp
 
-			i++;
+			// buffer.writeInt(0x00);
+
+			//i++;
 		}
 	}
 }

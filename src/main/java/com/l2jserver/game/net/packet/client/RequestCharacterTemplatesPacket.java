@@ -11,27 +11,28 @@ import com.l2jserver.game.net.packet.server.CharacterTemplatePacket;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
 import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.world.character.CharacterClass;
 
 /**
  * Requests the creation of a new Character. The list of character templates is
- * sent to the client, meaning that the client is autorized to create
+ * sent to the client, meaning that the client is authorized to create
  * characters.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RequestNewCharacterPacket extends AbstractClientPacket {
+public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x13;
 
 	/**
 	 * The logger
 	 */
 	private static final Logger log = LoggerFactory
-			.getLogger(RequestNewCharacterPacket.class);
+			.getLogger(RequestCharacterTemplatesPacket.class);
 
 	private final CharacterTemplateIDFactory idFactory;
 
 	@Inject
-	public RequestNewCharacterPacket(CharacterTemplateIDFactory idFactory) {
+	public RequestCharacterTemplatesPacket(CharacterTemplateIDFactory idFactory) {
 		this.idFactory = idFactory;
 	}
 
@@ -43,7 +44,7 @@ public class RequestNewCharacterPacket extends AbstractClientPacket {
 	public void process(final Lineage2Connection conn) {
 		log.debug("Requested character templates");
 		final CharacterTemplateID id = idFactory
-				.createID(Integer.MAX_VALUE - 1);
+				.createID(CharacterClass.HUMAN_FIGHTER.id);
 		final CharacterTemplate template = id.getTemplate();
 
 		final CharacterTemplatePacket templatePacket = new CharacterTemplatePacket(

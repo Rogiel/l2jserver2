@@ -9,9 +9,9 @@ import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.CharacterSelectionListPacket;
+import com.l2jserver.game.net.packet.server.CharacterEnterWorldPacket;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.util.BufferUtil;
+import com.l2jserver.util.BufferUtils;
 
 /**
  * This packet is sent by the client once the login server has authorized
@@ -39,8 +39,7 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 	@Override
 	public void read(ChannelBuffer buffer) {
-		this.loginName = BufferUtil.readString(buffer);
-		System.out.println(loginName);
+		this.loginName = BufferUtils.readString(buffer).toLowerCase();
 		this.playKey1 = buffer.readInt();
 		this.playKey2 = buffer.readInt();
 		this.loginKey1 = buffer.readInt();
@@ -54,8 +53,9 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 		final List<L2Character> chars = characterDao.selectByAccount(conn
 				.getSession().getUsername());
-		conn.write(CharacterSelectionListPacket.fromL2Session(
-				conn.getSession(), chars.toArray(new L2Character[0])));
+//		conn.write(CharacterSelectionListPacket.fromL2Session(
+//				conn.getSession(), chars.toArray(new L2Character[0])));
+		conn.write(new CharacterEnterWorldPacket(chars.get(0), playKey1));
 	}
 
 	/**
