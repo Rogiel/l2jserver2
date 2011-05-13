@@ -10,7 +10,7 @@ import com.google.inject.Inject;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.game.scripting.classlistener.Loader;
 import com.l2jserver.service.game.scripting.classlistener.Unloader;
-import com.l2jserver.service.game.template.StaticTemplateService;
+import com.l2jserver.service.game.template.ScriptTemplateService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -26,11 +26,11 @@ public class TemplateLoader implements Loader, Unloader {
 	private static final Logger log = LoggerFactory
 			.getLogger(TemplateLoader.class);
 
-	private final StaticTemplateService templateService;
+	private final ScriptTemplateService templateService;
 
 	@Inject
 	public TemplateLoader(TemplateService templateService) {
-		this.templateService = (StaticTemplateService) templateService;
+		this.templateService = (ScriptTemplateService) templateService;
 	}
 
 	@Override

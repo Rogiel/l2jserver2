@@ -14,10 +14,10 @@ import com.l2jserver.service.game.scripting.ScriptContext;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
-public class StaticTemplateService extends AbstractService implements
+public class ScriptTemplateService extends AbstractService implements
 		TemplateService {
 	private final ScriptingService scriptingService;
-	private final StaticTemplateServiceConfiguration config;
+	private final ScriptTemplateServiceConfiguration config;
 	private final Injector injector;
 
 	private ScriptContext context;
@@ -27,12 +27,12 @@ public class StaticTemplateService extends AbstractService implements
 			TemplateID.class, Template.class);
 
 	@Inject
-	public StaticTemplateService(ScriptingService scriptingService,
+	public ScriptTemplateService(ScriptingService scriptingService,
 			ConfigurationService configService, Injector injector) {
 		this.scriptingService = scriptingService;
 		this.injector = injector;
 		this.config = configService
-				.get(StaticTemplateServiceConfiguration.class);
+				.get(ScriptTemplateServiceConfiguration.class);
 	}
 
 	@Override

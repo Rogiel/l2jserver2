@@ -8,7 +8,7 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
-import com.l2jserver.service.game.template.StaticTemplateService;
+import com.l2jserver.service.game.template.ScriptTemplateService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.WorldServiceImpl;
@@ -34,7 +34,7 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(ScriptingService.class).to(ScriptingServiceImpl.class).in(
 				Scopes.SINGLETON);
-		bind(TemplateService.class).to(StaticTemplateService.class).in(
+		bind(TemplateService.class).to(ScriptTemplateService.class).in(
 				Scopes.SINGLETON);
 
 		bind(WorldService.class).to(WorldServiceImpl.class)

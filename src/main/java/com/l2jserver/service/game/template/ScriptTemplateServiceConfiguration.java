@@ -6,7 +6,7 @@ import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
 @ConfigurationName("template")
-public interface StaticTemplateServiceConfiguration extends Configuration {
+public interface ScriptTemplateServiceConfiguration extends Configuration {
 	@ConfigurationPropertyGetter(name = "template.descriptor", defaultValue = "data/script/template/template.xml")
 	File getTemplateDescriptor();
 
