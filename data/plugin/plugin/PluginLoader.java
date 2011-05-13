@@ -10,6 +10,8 @@ import com.google.inject.Inject;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.game.scripting.classlistener.Loader;
 import com.l2jserver.service.game.scripting.classlistener.Unloader;
+import com.l2jserver.service.game.template.StaticTemplateService;
+import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -24,25 +26,27 @@ public class PluginLoader implements Loader, Unloader {
 	private static final Logger log = LoggerFactory
 			.getLogger(PluginLoader.class);
 
+	private final StaticTemplateService templateService;
+
 	@Inject
-	public PluginLoader() {
-		
+	public PluginLoader(TemplateService templateService) {
+		this.templateService = (StaticTemplateService) templateService;
 	}
 
 	@Override
 	public void load(Class<?>[] classes) {
-		log.debug("Loading plugins from {} classes", classes.length);
+		log.debug("Loading templates from {} classes", classes.length);
 		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
-			log.debug("Found loadable plugin class: {}", template);
-			//templateService.addTemplate(template);
+			log.debug("Found loadable template class: {}", template);
+			templateService.addTemplate(template);
 		}
 	}
 
 	@Override
 	public void unload(Class<?>[] classes) {
-		log.debug("Unloading plugins from {} classes", classes.length);
+		log.debug("Unloading templates from {} classes", classes.length);
 		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
-			log.debug("Found unloadable plugin class: {}", template);
+			log.debug("Found unloadable template class: {}", template);
 			// TODO unloading
 		}
 	}

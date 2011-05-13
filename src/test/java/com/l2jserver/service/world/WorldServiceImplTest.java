@@ -13,7 +13,6 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.filter.impl.InstanceFilter;
-import com.l2jserver.service.BasicServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.WorldServiceImpl;
@@ -25,17 +24,15 @@ public class WorldServiceImplTest {
 
 	@Before
 	public void tearUp() throws ServiceStartException {
-		Injector injector = Guice.createInjector(new BasicServiceModule(),
-				new AbstractModule() {
-					@Override
-					protected void configure() {
-						bind(WorldService.class).to(WorldServiceImpl.class).in(
-								Scopes.SINGLETON);
-						bind(WorldEventDispatcher.class).to(
-								WorldEventDispatcherImpl.class).in(
-								Scopes.SINGLETON);
-					}
-				});
+		Injector injector = Guice.createInjector(new AbstractModule() {
+			@Override
+			protected void configure() {
+				bind(WorldService.class).to(WorldServiceImpl.class).in(
+						Scopes.SINGLETON);
+				bind(WorldEventDispatcher.class).to(
+						WorldEventDispatcherImpl.class).in(Scopes.SINGLETON);
+			}
+		});
 
 		world = injector.getInstance(WorldService.class);
 		Assert.assertNotNull(world);

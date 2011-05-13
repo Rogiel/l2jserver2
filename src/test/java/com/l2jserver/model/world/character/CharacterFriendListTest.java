@@ -13,7 +13,6 @@ import com.l2jserver.model.id.factory.IDFactoryModule;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.BasicServiceModule;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
@@ -22,8 +21,7 @@ import com.l2jserver.service.game.template.TemplateService;
 
 public class CharacterFriendListTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new BasicServiceModule(), new DAOModuleMySQL5(),
-			new IDFactoryModule());
+			new DAOModuleMySQL5(), new IDFactoryModule());
 	private final CharacterIDFactory charIdFactory = injector
 			.getInstance(CharacterIDFactory.class);
 
