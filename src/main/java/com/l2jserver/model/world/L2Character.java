@@ -10,6 +10,7 @@ import com.l2jserver.model.world.character.CharacterAttributes;
 import com.l2jserver.model.world.character.CharacterBaseAttributes;
 import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
+import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
 
 /**
@@ -59,6 +60,10 @@ public class L2Character extends Player {
 	 * The attributes of this character
 	 */
 	private final CharacterAttributes attributes;
+	/**
+	 * The list of friend of this character
+	 */
+	private final CharacterFriendList friendList = new CharacterFriendList(this);
 
 	/**
 	 * Creates a new instance
@@ -210,5 +215,12 @@ public class L2Character extends Player {
 	 */
 	public CharacterAttributes getAttributes() {
 		return attributes;
+	}
+
+	/**
+	 * @return the friendList
+	 */
+	public CharacterFriendList getFriendList() {
+		return friendList;
 	}
 }

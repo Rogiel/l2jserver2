@@ -1,4 +1,4 @@
-package com.l2jserver.service.game.world;
+package com.l2jserver.service.game.world.event;
 
 import java.util.Queue;
 import java.util.Timer;

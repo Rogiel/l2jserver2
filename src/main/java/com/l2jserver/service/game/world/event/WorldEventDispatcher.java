@@ -1,4 +1,4 @@
-package com.l2jserver.service.game.world;
+package com.l2jserver.service.game.world.event;
 
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.capability.Listenable;

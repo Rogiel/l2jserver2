@@ -71,6 +71,11 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	 */
 	private final CharacterMapper mapper = new CharacterMapper();
 
+	/**
+	 * Character mapper class
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	private final class CharacterMapper implements Mapper<L2Character> {
 		@Override
 		public L2Character map(ResultSet rs) throws SQLException {
@@ -199,12 +204,12 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 		return database.query(new InsertUpdateQuery<L2Character>(character) {
 			@Override
 			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`" + ACCOUNT_ID + "`,`"
-						+ NAME + "`,`" + RACE + "`,`" + CLASS + "`,`" + SEX
-						+ "`,`" + LEVEL + "`,`" + COORD_X + "`,`" + COORD_Y
-						+ "`,`" + COORD_Z + "`,`" + APPEARANCE_HAIR_STYLE
-						+ "`,`" + APPEARANCE_HAIR_COLOR + "`,`"
-						+ APPEARANCE_FACE
+				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
+						+ ACCOUNT_ID + "`,`" + NAME + "`,`" + RACE + "`,`"
+						+ CLASS + "`,`" + SEX + "`,`" + LEVEL + "`,`" + COORD_X
+						+ "`,`" + COORD_Y + "`,`" + COORD_Z + "`,`"
+						+ APPEARANCE_HAIR_STYLE + "`,`" + APPEARANCE_HAIR_COLOR
+						+ "`,`" + APPEARANCE_FACE
 						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			}
 
@@ -233,6 +238,6 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 				st.setString(i++, appearance.getHairColor().name());
 				st.setString(i++, appearance.getFace().name());
 			}
-		});
+		}) > 0;
 	}
 }

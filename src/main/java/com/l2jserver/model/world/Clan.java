@@ -1,24 +1,18 @@
 package com.l2jserver.model.world;
 
-import java.util.List;
+import java.util.Iterator;
 
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
+import com.l2jserver.model.id.object.iterator.WorldObjectIterator;
 import com.l2jserver.model.world.capability.Joinable;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.clan.ClanEvent;
 import com.l2jserver.model.world.clan.ClanListener;
 import com.l2jserver.model.world.clan.ClanMembers;
-import com.l2jserver.util.factory.CollectionFactory;
 
 public class Clan extends AbstractObject implements
 		Listenable<ClanListener, ClanEvent>, Joinable<L2Character> {
-	/**
-	 * This clan listeners
-	 */
-	private final List<ClanListener> listeners = CollectionFactory
-			.newList(ClanListener.class);
-
 	/**
 	 * Clan leader
 	 */
@@ -67,5 +61,10 @@ public class Clan extends AbstractObject implements
 	@Override
 	public ClanID getID() {
 		return (ClanID) super.getID();
+	}
+
+	@Override
+	public Iterator<L2Character> iterator() {
+		return new WorldObjectIterator<L2Character>(members.iterator());
 	}
 }

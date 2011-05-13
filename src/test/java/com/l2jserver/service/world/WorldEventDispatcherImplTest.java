@@ -24,11 +24,12 @@ import com.l2jserver.model.world.player.PlayerEvent;
 import com.l2jserver.model.world.player.PlayerListener;
 import com.l2jserver.model.world.player.PlayerSpawnEvent;
 import com.l2jserver.service.BasicServiceModule;
+import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
-import com.l2jserver.service.game.world.WorldEventDispatcher;
-import com.l2jserver.service.game.world.WorldEventDispatcherImpl;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.WorldServiceImpl;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 
 public class WorldEventDispatcherImplTest {
 	private WorldService world;
@@ -40,8 +41,8 @@ public class WorldEventDispatcherImplTest {
 	@Before
 	public void tearUp() throws ServiceStartException {
 		Injector injector = Guice.createInjector(new BasicServiceModule(),
-				new DAOModuleMySQL5(), new IDFactoryModule(),
-				new AbstractModule() {
+				new ServiceModule(), new DAOModuleMySQL5(),
+				new IDFactoryModule(), new AbstractModule() {
 					@Override
 					protected void configure() {
 						bind(WorldService.class).to(WorldServiceImpl.class).in(

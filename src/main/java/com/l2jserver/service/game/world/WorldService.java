@@ -6,6 +6,7 @@ import java.util.List;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.filter.WorldObjectFilter;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 
 /**
  * Service responsible for managing {@link WorldObject} and dispatch events.

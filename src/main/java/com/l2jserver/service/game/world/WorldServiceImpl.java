@@ -15,6 +15,7 @@ import com.l2jserver.model.world.iterator.FilterIterator;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.util.factory.CollectionFactory;
 
 public class WorldServiceImpl extends AbstractService implements WorldService {

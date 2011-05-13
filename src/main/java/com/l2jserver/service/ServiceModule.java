@@ -6,10 +6,10 @@ import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
 import com.l2jserver.service.game.template.StaticTemplateService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.service.game.world.WorldEventDispatcher;
-import com.l2jserver.service.game.world.WorldEventDispatcherImpl;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.WorldServiceImpl;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
 
