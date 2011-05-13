@@ -41,11 +41,10 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 		// generate a new key
 		final byte[] key = conn.getDecrypter().enable();
 		log.debug("Decrypter has been enabled");
-		
+
 		log.debug("Client protocol version: {}", version);
 		if (L2JConstants.SUPPORTED_PROTOCOL != version) {
-			log.info(
-					"Incorrect protocol version: {0}. Only {1} is supported.",
+			log.info("Incorrect protocol version: {0}. Only {1} is supported.",
 					version, L2JConstants.SUPPORTED_PROTOCOL);
 			// notify wrong protocol and close connection
 			conn.write(new KeyPacket(key, false)).addListener(

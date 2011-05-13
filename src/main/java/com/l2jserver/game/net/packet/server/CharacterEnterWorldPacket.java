@@ -51,7 +51,7 @@ public class CharacterEnterWorldPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAttributes().getStrength()); // STR
 		buffer.writeInt(character.getAttributes().getConcentration()); // CON
 		buffer.writeInt(character.getAttributes().getMentality()); // MEN
-		buffer.writeInt(character.getAttributes().getDextry()); // DEX
+		buffer.writeInt(character.getAttributes().getDexterity()); // DEX
 		buffer.writeInt(character.getAttributes().getWitness()); // WIT
 
 		buffer.writeInt(250); // game time

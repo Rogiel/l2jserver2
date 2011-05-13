@@ -36,7 +36,7 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 
 	public CharacterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dextry, int witness,
+			int concentration, int mentality, int dexterity, int witness,
 			int physicalAttack, int magicalAttack, int physicalDefense,
 			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
 			int criticalChance, int evasionChance, int moveSpeed,
@@ -46,7 +46,7 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 		this.characterClass = characterClass;
 		this.spawnLocation = spawnLocation;
 		baseAttributes = new CharacterBaseAttributes(intelligence, strength,
-				concentration, mentality, dextry, witness, physicalAttack,
+				concentration, mentality, dexterity, witness, physicalAttack,
 				magicalAttack, physicalDefense, magicalDefense, attackSpeed,
 				castSpeed, accuracy, criticalChance, evasionChance, moveSpeed,
 				maxWeigth, craft);
@@ -133,10 +133,10 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getDextry()
+	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getDexterity()
 	 */
 	public int getDextry() {
-		return baseAttributes.getDextry();
+		return baseAttributes.getDexterity();
 	}
 
 	/**

@@ -8,13 +8,13 @@ import com.l2jserver.util.Coordinate;
 public abstract class HumanCharacterTemplate extends AbstractCharacterTemplate {
 	protected HumanCharacterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dextry, int witness,
+			int concentration, int mentality, int dexterity, int witness,
 			int physicalAttack, int magicalAttack, int physicalDefense,
 			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
 			int criticalChance, int evasionChance, int moveSpeed,
 			int maxWeigth, boolean craft, Coordinate spawnLocation) {
 		super(id, characterClass, intelligence, strength, concentration,
-				mentality, dextry, witness, physicalAttack, magicalAttack,
+				mentality, dexterity, witness, physicalAttack, magicalAttack,
 				physicalDefense, magicalDefense, attackSpeed, castSpeed,
 				accuracy, criticalChance, evasionChance, moveSpeed, maxWeigth,
 				false, spawnLocation);

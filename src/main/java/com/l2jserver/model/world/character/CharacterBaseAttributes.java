@@ -25,7 +25,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * The character dextry
 	 */
-	private final int dextry;
+	private final int dexterity;
 	/**
 	 * The character witness
 	 */
@@ -132,7 +132,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 		this.strength = strength;
 		this.concentration = concentration;
 		this.mentality = mentality;
-		this.dextry = dextry;
+		this.dexterity = dextry;
 		this.witness = witness;
 		this.physicalAttack = physicalAttack;
 		this.magicalAttack = magicalAttack;
@@ -179,8 +179,8 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the dextry
 	 */
-	public int getDextry() {
-		return dextry;
+	public int getDexterity() {
+		return dexterity;
 	}
 
 	/**

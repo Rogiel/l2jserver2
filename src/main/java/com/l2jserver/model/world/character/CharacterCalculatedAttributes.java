@@ -27,8 +27,8 @@ public class CharacterCalculatedAttributes implements CharacterAttributes {
 		return baseAttributes.getMentality();
 	}
 
-	public int getDextry() {
-		return baseAttributes.getDextry();
+	public int getDexterity() {
+		return baseAttributes.getDexterity();
 	}
 
 	public int getWitness() {

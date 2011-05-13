@@ -10,7 +10,7 @@ import com.l2jserver.util.BufferUtils;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class UserinfoPacket extends AbstractServerPacket {
+public class UserInformationPacket extends AbstractServerPacket {
 	/**
 	 * Message OPCODE
 	 */
@@ -18,7 +18,7 @@ public class UserinfoPacket extends AbstractServerPacket {
 
 	private String[] manors;
 
-	public UserinfoPacket(String... manors) {
+	public UserInformationPacket(String... manors) {
 		super(OPCODE);
 		this.manors = manors;
 	}

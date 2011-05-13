@@ -53,7 +53,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	private int strength;
 	private int concentration;
 	private int mentality;
-	private int dextry;
+	private int dexterity;
 	private int witness;
 
 	private CharacterHairStyle hairStyle;
@@ -80,7 +80,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 		strength = buffer.readInt();
 		concentration = buffer.readInt();
 		mentality = buffer.readInt();
-		dextry = buffer.readInt();
+		dexterity = buffer.readInt();
 		witness = buffer.readInt();
 
 		hairStyle = CharacterHairStyle.fromOption(buffer.readInt());

@@ -30,7 +30,7 @@ public class RequestManorList extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		conn.write(new ManorListPacket("gludio", "dion", "giran", "oren", "aden",
-				"innadril", "goddard", "rune", "schuttgart"));
+		conn.write(new ManorListPacket("gludio", "dion", "giran", "oren",
+				"aden", "innadril", "goddard", "rune", "schuttgart"));
 	}
 }

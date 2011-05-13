@@ -47,7 +47,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 		buffer.writeInt(0x07); // max chars
 		buffer.writeByte(0x00);
 
-		//int i = 0;
+		// int i = 0;
 		for (final L2Character character : characters) {
 			BufferUtils.writeString(buffer, character.getName());
 			buffer.writeInt(character.getID().getID());
@@ -128,13 +128,13 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_BELT));
 
 			// hair style
-			//buffer.writeInt(character.getAppearance().getHairStyle().option);
+			// buffer.writeInt(character.getAppearance().getHairStyle().option);
 			buffer.writeInt(0x02);
 			// hair color
-			//buffer.writeInt(character.getAppearance().getHairColor().option);
+			// buffer.writeInt(character.getAppearance().getHairColor().option);
 			buffer.writeInt(0x03);
 			// face
-			//buffer.writeInt(character.getAppearance().getFace().option);
+			// buffer.writeInt(character.getAppearance().getFace().option);
 			buffer.writeInt(0x00);
 
 			buffer.writeDouble(30); // hp max
@@ -164,7 +164,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 			// buffer.writeInt(0x00);
 
-			//i++;
+			// i++;
 		}
 	}
 }

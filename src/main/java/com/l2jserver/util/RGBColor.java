@@ -35,9 +35,9 @@ public class RGBColor {
 	public byte[] toByteArray() {
 		return new byte[] { red, green, blue };
 	}
-	
+
 	public int toInteger() {
-		return red  + green >> 8 + blue >> 16;
+		return red + green >> 8 + blue >> 16;
 	}
 
 	public static RGBColor fromByteArray(byte[] rgb) {

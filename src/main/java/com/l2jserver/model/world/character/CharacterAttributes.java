@@ -22,9 +22,9 @@ public interface CharacterAttributes {
 	public int getMentality();
 
 	/**
-	 * @return the dextry
+	 * @return the dexterity
 	 */
-	public int getDextry();
+	public int getDexterity();
 
 	/**
 	 * @return the witness

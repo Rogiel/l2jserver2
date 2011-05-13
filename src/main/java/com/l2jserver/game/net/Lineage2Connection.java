@@ -19,7 +19,7 @@ public class Lineage2Connection {
 	private L2Character character;
 	private Lineage2Session session;
 	private ConnectionState state = ConnectionState.CONNECTED;
-	
+
 	public enum ConnectionState {
 		CONNECTED, AUTHENTICATED, IN_GAME;
 	}

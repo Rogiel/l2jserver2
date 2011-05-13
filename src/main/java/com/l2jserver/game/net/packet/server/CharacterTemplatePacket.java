@@ -30,7 +30,7 @@ public class CharacterTemplatePacket extends AbstractServerPacket {
 			buffer.writeInt(template.getBaseAttributes().getStrength());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getDextry());
+			buffer.writeInt(template.getBaseAttributes().getDexterity());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
 			buffer.writeInt(template.getBaseAttributes().getConcentration());
