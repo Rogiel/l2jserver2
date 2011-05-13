@@ -25,7 +25,7 @@ public class RequestManorList extends AbstractClientPacket {
 			.getLogger(RequestManorList.class);
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 	}
 
 	@Override

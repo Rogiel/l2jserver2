@@ -16,7 +16,7 @@ public class EnterWorld extends AbstractClientPacket {
 	public static final int OPCODE = 0x11;
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.readBytes(new byte[32]); // Unknown Byte Array
 		buffer.readInt(); // Unknown Value
 		buffer.readInt(); // Unknown Value

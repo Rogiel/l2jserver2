@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 
 /**
@@ -27,9 +29,9 @@ public class KeyPacket extends AbstractServerPacket {
 	 */
 	private boolean status;
 
-	public KeyPacket(byte[] key, boolean status) {
+	public KeyPacket(Lineage2CryptographyKey key, boolean status) {
 		super(OPCODE);
-		this.key = Arrays.copyOfRange(key, 0, 8);
+		this.key = Arrays.copyOfRange(key.key, 0, 8);
 		this.status = status;
 	}
 
@@ -40,7 +42,7 @@ public class KeyPacket extends AbstractServerPacket {
 	 *            the key
 	 * @return the new instance
 	 */
-	public static KeyPacket valid(byte[] key) {
+	public static KeyPacket valid(Lineage2CryptographyKey key) {
 		return new KeyPacket(key, true);
 	}
 
@@ -51,12 +53,12 @@ public class KeyPacket extends AbstractServerPacket {
 	 *            the key
 	 * @return the new instance
 	 */
-	public static KeyPacket invalid(byte[] key) {
+	public static KeyPacket invalid(Lineage2CryptographyKey key) {
 		return new KeyPacket(key, false);
 	}
 
 	@Override
-	public void write(ChannelBuffer buffer) {
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeByte((status ? 0x01 : 0x00));
 		for (int i = 0; i < 8; i++) {
 			buffer.writeByte(key[i]);

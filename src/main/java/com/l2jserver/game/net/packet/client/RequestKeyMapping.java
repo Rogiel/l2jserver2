@@ -16,7 +16,7 @@ public class RequestKeyMapping extends AbstractClientPacket {
 	public static final int OPCODE2 = 0x21;
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 	}
 
 	@Override

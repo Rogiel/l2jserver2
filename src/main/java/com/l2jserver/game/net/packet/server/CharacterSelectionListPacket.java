@@ -2,6 +2,8 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.l2jserver.ProtocolVersion;
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.L2Character;
@@ -37,7 +39,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(ChannelBuffer buffer) {
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		// buffer.writeByte(0x09);
 		buffer.writeInt(characters.length);
 
@@ -148,23 +150,20 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 			buffer.writeInt(0x00); // augmentation id
 
-			// buffer.writeInt(charInfoPackage.getTransformId()); // Used to
-			// display Transformations
-			buffer.writeInt(0x00); // Currently on retail when you are on
-			// character select you don't see your transformation.
+			// Currently on retail when you are on character select you don't
+			// see your transformation.
+			buffer.writeInt(0x00);
 
 			// Freya by Vistall:
-			buffer.writeInt(16024); // npdid - 16024 Tame Tiny Baby Kookaburra
-			// // A9E89C
-			buffer.writeInt(0); // level
-			buffer.writeInt(0); // ?
-			buffer.writeInt(0); // food? - 1200
-			buffer.writeDouble(0); // max Hp
-			buffer.writeDouble(0); // cur Hp
-
-			// buffer.writeInt(0x00);
-
-			// i++;
+			if (conn.supports(ProtocolVersion.FREYA)) {
+				// npdid - 16024 Tame Tiny Baby Kookaburra
+				buffer.writeInt(16024); // A9E89C
+				buffer.writeInt(0); // level
+				buffer.writeInt(0); // ?
+				buffer.writeInt(0); // food? - 1200
+				buffer.writeDouble(0); // max Hp
+				buffer.writeDouble(0); // cur Hp
+			}
 		}
 	}
 }

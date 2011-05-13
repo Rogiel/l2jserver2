@@ -15,8 +15,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
 		connection = new Lineage2Connection(e.getChannel());
-
-		System.out.println(e);
+		connection.getPacketWriter().setConnection(connection);
 
 		super.channelOpen(ctx, e);
 	}

@@ -2,6 +2,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 
 /**
@@ -68,7 +69,7 @@ public class CharacterCreateFailPacket extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(ChannelBuffer buffer) {
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(reason.id);
 	}
 }

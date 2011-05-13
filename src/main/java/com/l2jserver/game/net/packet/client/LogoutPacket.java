@@ -23,7 +23,7 @@ public class LogoutPacket extends AbstractClientPacket {
 			.getLogger(LogoutPacket.class);
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 	}
 
 	@Override

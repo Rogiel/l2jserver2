@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.L2JConstants;
+import com.l2jserver.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.KeyPacket;
 
@@ -29,25 +31,28 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 			.getLogger(ProtocolVersionPacket.class);
 
 	// packet
-	private long version;
+	private ProtocolVersion version;
 
 	@Override
-	public void read(ChannelBuffer buffer) {
-		this.version = buffer.readUnsignedInt();
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+		this.version = ProtocolVersion.fromVersion((int) buffer
+				.readUnsignedInt());
 	}
 
 	@Override
 	public void process(final Lineage2Connection conn) {
 		// generate a new key
-		final byte[] key = conn.getDecrypter().enable();
+		final Lineage2CryptographyKey inKey = conn.getDecrypter().enable();
+		final Lineage2CryptographyKey outKey = inKey.clone();
 		log.debug("Decrypter has been enabled");
 
 		log.debug("Client protocol version: {}", version);
+		conn.setVersion(version);
 		if (L2JConstants.SUPPORTED_PROTOCOL != version) {
 			log.info("Incorrect protocol version: {0}. Only {1} is supported.",
 					version, L2JConstants.SUPPORTED_PROTOCOL);
 			// notify wrong protocol and close connection
-			conn.write(new KeyPacket(key, false)).addListener(
+			conn.write(new KeyPacket(inKey, false)).addListener(
 					new ChannelFutureListener() {
 						@Override
 						public void operationComplete(ChannelFuture future)
@@ -59,20 +64,20 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 			return;
 		}
 		// activate encrypter once packet has been sent.
-		conn.write(new KeyPacket(key, true)).addListener(
+		conn.write(new KeyPacket(inKey, true)).addListener(
 				new ChannelFutureListener() {
 					@Override
 					public void operationComplete(ChannelFuture future)
 							throws Exception {
 						log.debug("Encrypter has been enabled");
 						// enable encrypter
-						conn.getEncrypter().setKey(key);
+						conn.getEncrypter().setKey(outKey);
 						conn.getEncrypter().setEnabled(true);
 					}
 				});
 	}
 
-	public long getVersion() {
+	public ProtocolVersion getVersion() {
 		return version;
 	}
 }

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.AuthLoginPacket;
 import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
@@ -21,9 +22,13 @@ import com.l2jserver.game.net.packet.client.RequestKeyMapping;
 import com.l2jserver.game.net.packet.client.RequestManorList;
 
 public class Lineage2PacketReader extends OneToOneDecoder {
+	public static final String HANDLER_NAME = "packet.reader";
+
 	private final Injector injector;
 	private final Logger logger = LoggerFactory
 			.getLogger(Lineage2PacketReader.class);
+
+	private Lineage2Connection connection;
 
 	@Inject
 	public Lineage2PacketReader(Injector injector) {
@@ -39,7 +44,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 		final ClientPacket packet = createPacket(getPacketClass(buffer));
 		if (packet == null)
 			return null;
-		packet.read(buffer);
+		packet.read(connection, buffer);
 		return packet;
 	}
 
@@ -84,5 +89,20 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			break;
 		}
 		return null;
+	}
+
+	/**
+	 * @return the connection
+	 */
+	public Lineage2Connection getConnection() {
+		return connection;
+	}
+
+	/**
+	 * @param connection
+	 *            the connection to set
+	 */
+	public void setConnection(Lineage2Connection connection) {
+		this.connection = connection;
 	}
 }

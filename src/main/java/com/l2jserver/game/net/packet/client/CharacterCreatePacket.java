@@ -70,7 +70,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 		name = BufferUtils.readString(buffer);
 		race = Race.fromOption(buffer.readInt());
 		sex = Sex.fromOption(buffer.readInt());

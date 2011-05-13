@@ -38,7 +38,7 @@ public class AuthLoginPacket extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 		this.loginName = BufferUtils.readString(buffer).toLowerCase();
 		this.playKey1 = buffer.readInt();
 		this.playKey2 = buffer.readInt();

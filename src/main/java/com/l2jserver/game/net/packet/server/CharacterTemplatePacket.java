@@ -2,6 +2,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.template.CharacterTemplate;
 
@@ -21,7 +22,7 @@ public class CharacterTemplatePacket extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(ChannelBuffer buffer) {
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(templates.length);
 		for (final CharacterTemplate template : templates) {
 			buffer.writeInt(template.getRace().option);

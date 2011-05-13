@@ -29,7 +29,7 @@ public class RequestGotoLobby extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(ChannelBuffer buffer) {
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 	}
 
 	@Override

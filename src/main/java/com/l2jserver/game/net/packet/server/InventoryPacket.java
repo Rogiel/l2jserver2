@@ -2,6 +2,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.character.CharacterInventory;
 
@@ -25,7 +26,7 @@ public class InventoryPacket extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(ChannelBuffer buffer) {
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeByte((showWindow ? 0x01 : 0x00));
 		buffer.writeInt(0x00); // item count
 		// for (Item item : inventory) {
