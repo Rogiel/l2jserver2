@@ -7,6 +7,7 @@
 	<classpathentry kind="src" path="data/script/template"/>
 	<classpathentry kind="src" path="data/script/quest"/>
 	<classpathentry kind="src" path="data/script/ai"/>
+	<classpathentry kind="src" path=" data/plugin"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources"/>
 	<classpathentry kind="src" path="src/tool/java"/>

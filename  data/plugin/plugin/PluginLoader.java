@@ -1,4 +1,4 @@
-package script.template;
+package plugin;
 
 import java.lang.reflect.Modifier;
 import java.util.Set;
@@ -10,43 +10,39 @@ import com.google.inject.Inject;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.game.scripting.classlistener.Loader;
 import com.l2jserver.service.game.scripting.classlistener.Unloader;
-import com.l2jserver.service.game.template.StaticTemplateService;
-import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * Utility class that loads all Template's in classPath of this script context.<br>
- * Template should be public, not abstract, not interface, must have default
+ * Utility class that loads all Plugins in classPath of this script context.<br>
+ * Plugin should be public, not abstract, not interface, must have default
  * constructor annotated with @Inject.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class TemplateLoader implements Loader, Unloader {
+public class PluginLoader implements Loader, Unloader {
 	private static final Logger log = LoggerFactory
-			.getLogger(TemplateLoader.class);
-
-	private final StaticTemplateService templateService;
+			.getLogger(PluginLoader.class);
 
 	@Inject
-	public TemplateLoader(TemplateService templateService) {
-		this.templateService = (StaticTemplateService) templateService;
+	public PluginLoader() {
+		
 	}
 
 	@Override
 	public void load(Class<?>[] classes) {
-		log.debug("Loading templates from {} classes", classes.length);
+		log.debug("Loading plugins from {} classes", classes.length);
 		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
-			log.debug("Found loadable template class: {}", template);
-			templateService.addTemplate(template);
+			log.debug("Found loadable plugin class: {}", template);
+			//templateService.addTemplate(template);
 		}
 	}
 
 	@Override
 	public void unload(Class<?>[] classes) {
-		log.debug("Unloading templates from {} classes", classes.length);
+		log.debug("Unloading plugins from {} classes", classes.length);
 		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
-			log.debug("Found unloadable template class: {}", template);
+			log.debug("Found unloadable plugin class: {}", template);
 			// TODO unloading
 		}
 	}
@@ -69,7 +65,7 @@ public class TemplateLoader implements Loader, Unloader {
 				continue;
 			if (!Modifier.isPublic(clazz.getModifiers()))
 				continue;
-			if (clazz.isAnnotationPresent(DisabledTemplate.class))
+			if (clazz.isAnnotationPresent(DisabledPlugin.class))
 				continue;
 
 			suitable.add((Class<? extends Template<?>>) clazz);
