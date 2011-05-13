@@ -16,6 +16,8 @@ import com.l2jserver.service.BasicServiceModule;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.game.scripting.ScriptingService;
+import com.l2jserver.service.game.template.TemplateService;
 
 public class IDFactoryTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
@@ -42,14 +44,17 @@ public class IDFactoryTest {
 	@Test
 	public void testGetObject() throws ServiceStartException {
 		BasicConfigurator.configure();
+		injector.getInstance(ScriptingService.class).start();
+		injector.getInstance(TemplateService.class).start();
 
 		injector.getInstance(DatabaseService.class).start();
-		final CharacterID id1 = charIdFactory.createID(268435456);
-		final L2Character character = id1.getObject();
+		final CharacterID id = charIdFactory.createID(268437456);
+		final L2Character character = id.getObject();
 
+		Assert.assertNotNull(character);
 		System.out.println(character.getAppearance().getHairColor());
 
 		Assert.assertNotNull(character);
-		Assert.assertEquals(id1, character.getID());
+		Assert.assertEquals(id, character.getID());
 	}
 }

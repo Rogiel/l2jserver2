@@ -12,7 +12,8 @@ public class CharacterSQLEnumGenerator {
 		final StringBuilder builder = new StringBuilder();
 		builder.append("ALTER TABLE `character` CHANGE `class` `class` ENUM(");
 		for (CharacterClass c : CharacterClass.values()) {
-			builder.append("'" + c.name() + "',");
+			if (!c.name().startsWith("DUMMY"))
+				builder.append("'" + c.name() + "',");
 		}
 		builder.replace(builder.length() - 1, builder.length(), "");
 		builder.append(") CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'HUMAN_FIGHTER';");

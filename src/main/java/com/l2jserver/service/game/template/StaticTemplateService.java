@@ -59,7 +59,6 @@ public class StaticTemplateService extends AbstractService implements
 
 	public void addTemplate(Class<? extends Template<?>> t) {
 		final Template<?> template = injector.getInstance(t);
-		System.out.println(template.getID() + " -> " + template);
 		if (template.getID() != null)
 			templates.put(template.getID(), template);
 	}
