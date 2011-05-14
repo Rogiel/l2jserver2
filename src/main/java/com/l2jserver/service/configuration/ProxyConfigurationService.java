@@ -49,7 +49,8 @@ public class ProxyConfigurationService extends AbstractService implements
 	@Override
 	public void start() throws ServiceStartException {
 		if (!directory.exists())
-			directory.mkdirs();
+			if (!directory.mkdirs())
+				throw new ServiceStartException("Failed to create directories");
 	}
 
 	@Override

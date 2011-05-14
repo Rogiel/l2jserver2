@@ -17,12 +17,12 @@ public class InventoryPacket extends AbstractServerPacket {
 	 */
 	public static final int OPCODE = 0x11;
 
-	private CharacterInventory inventory;
+	// private CharacterInventory inventory;
 	private boolean showWindow = false;
 
 	public InventoryPacket(CharacterInventory inventory) {
 		super(OPCODE);
-		this.inventory = inventory;
+		// this.inventory = inventory;
 	}
 
 	@Override

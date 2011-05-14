@@ -16,11 +16,11 @@ public class AdenaItemTemplate extends ItemTemplate implements Stackable<Item> {
 
 	@Override
 	public void stack(Item... object) {
-		final Item item1 = object[0];
-		if (object.length >= 2) {
-			for (int i = 1; i < object.length; i++) {
-				// TODO set item amount
-			}
-		}
+		// final Item item1 = object[0];
+		// if (object.length >= 2) {
+		// for (int i = 1; i < object.length; i++) {
+		// // TODO set item amount
+		// }
+		// }
 	}
 }

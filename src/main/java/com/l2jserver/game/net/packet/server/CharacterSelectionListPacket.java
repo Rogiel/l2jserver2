@@ -20,7 +20,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 	private final String loginName;
 	private final int sessionId;
-	private int lastCharacterId;
+	// private int lastCharacterId;
 	private final L2Character[] characters;
 
 	public CharacterSelectionListPacket(String loginName, int sessionId,
@@ -28,7 +28,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 		super(OPCODE);
 		this.loginName = loginName;
 		this.sessionId = sessionId;
-		this.lastCharacterId = lastCharacterId;
+		// this.lastCharacterId = lastCharacterId;
 		this.characters = characters;
 	}
 

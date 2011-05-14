@@ -176,4 +176,199 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 			conn.write(CharacterCreateOkPacket.INSTANCE);
 		}
 	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the race
+	 */
+	public Race getRace() {
+		return race;
+	}
+
+	/**
+	 * @param race
+	 *            the race to set
+	 */
+	public void setRace(Race race) {
+		this.race = race;
+	}
+
+	/**
+	 * @return the sex
+	 */
+	public Sex getSex() {
+		return sex;
+	}
+
+	/**
+	 * @param sex
+	 *            the sex to set
+	 */
+	public void setSex(Sex sex) {
+		this.sex = sex;
+	}
+
+	/**
+	 * @return the classId
+	 */
+	public int getClassId() {
+		return classId;
+	}
+
+	/**
+	 * @param classId
+	 *            the classId to set
+	 */
+	public void setClassId(int classId) {
+		this.classId = classId;
+	}
+
+	/**
+	 * @return the intelligence
+	 */
+	public int getIntelligence() {
+		return intelligence;
+	}
+
+	/**
+	 * @param intelligence
+	 *            the intelligence to set
+	 */
+	public void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	/**
+	 * @return the strength
+	 */
+	public int getStrength() {
+		return strength;
+	}
+
+	/**
+	 * @param strength
+	 *            the strength to set
+	 */
+	public void setStrength(int strength) {
+		this.strength = strength;
+	}
+
+	/**
+	 * @return the concentration
+	 */
+	public int getConcentration() {
+		return concentration;
+	}
+
+	/**
+	 * @param concentration
+	 *            the concentration to set
+	 */
+	public void setConcentration(int concentration) {
+		this.concentration = concentration;
+	}
+
+	/**
+	 * @return the mentality
+	 */
+	public int getMentality() {
+		return mentality;
+	}
+
+	/**
+	 * @param mentality
+	 *            the mentality to set
+	 */
+	public void setMentality(int mentality) {
+		this.mentality = mentality;
+	}
+
+	/**
+	 * @return the dexterity
+	 */
+	public int getDexterity() {
+		return dexterity;
+	}
+
+	/**
+	 * @param dexterity
+	 *            the dexterity to set
+	 */
+	public void setDexterity(int dexterity) {
+		this.dexterity = dexterity;
+	}
+
+	/**
+	 * @return the witness
+	 */
+	public int getWitness() {
+		return witness;
+	}
+
+	/**
+	 * @param witness
+	 *            the witness to set
+	 */
+	public void setWitness(int witness) {
+		this.witness = witness;
+	}
+
+	/**
+	 * @return the hairStyle
+	 */
+	public CharacterHairStyle getHairStyle() {
+		return hairStyle;
+	}
+
+	/**
+	 * @param hairStyle
+	 *            the hairStyle to set
+	 */
+	public void setHairStyle(CharacterHairStyle hairStyle) {
+		this.hairStyle = hairStyle;
+	}
+
+	/**
+	 * @return the hairColor
+	 */
+	public CharacterHairColor getHairColor() {
+		return hairColor;
+	}
+
+	/**
+	 * @param hairColor
+	 *            the hairColor to set
+	 */
+	public void setHairColor(CharacterHairColor hairColor) {
+		this.hairColor = hairColor;
+	}
+
+	/**
+	 * @return the face
+	 */
+	public CharacterFace getFace() {
+		return face;
+	}
+
+	/**
+	 * @param face
+	 *            the face to set
+	 */
+	public void setFace(CharacterFace face) {
+		this.face = face;
+	}
 }
