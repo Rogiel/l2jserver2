@@ -5,7 +5,7 @@ import com.l2jserver.model.world.capability.Equiper;
 
 /**
  * Indicated than an {@link AbstractTemplate} can add penalties to an given
- * user.
+ * {@link Equiper}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

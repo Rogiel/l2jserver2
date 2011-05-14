@@ -1,5 +1,12 @@
 package com.l2jserver.model.world.actor;
 
+import com.l2jserver.model.world.capability.Actor;
+
+/**
+ * This enumeration maps for each level the minimum experience required.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public enum ActorExperience {
 	/**
 	 * This is an unreachable level!
@@ -60,6 +67,13 @@ public enum ActorExperience {
 		this.level = this.ordinal();
 	}
 
+	/**
+	 * Look for level of the {@link Actor} given it's <tt>experience</tt>
+	 * 
+	 * @param experience
+	 *            the experience value
+	 * @return the {@link ActorExperience}
+	 */
 	public static ActorExperience getLevel(long experience) {
 		ActorExperience last = ActorExperience.LEVEL_0;
 		for (ActorExperience exp : values()) {

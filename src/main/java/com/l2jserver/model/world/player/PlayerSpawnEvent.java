@@ -7,10 +7,29 @@ import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.util.Coordinate;
 
+/**
+ * Event dispatcher once an player has spawned in the world
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class PlayerSpawnEvent implements PlayerEvent, SpawnEvent {
+	/**
+	 * The spawned player
+	 */
 	private final Player player;
+	/**
+	 * The spawning coordinate
+	 */
 	private final Coordinate coordinate;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param player
+	 *            the spawned player
+	 * @param coordinate
+	 *            the spawn coordinate
+	 */
 	public PlayerSpawnEvent(Player player, Coordinate coordinate) {
 		this.player = player;
 		this.coordinate = coordinate;

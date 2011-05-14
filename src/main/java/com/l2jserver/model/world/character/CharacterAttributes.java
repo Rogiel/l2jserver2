@@ -1,5 +1,15 @@
 package com.l2jserver.model.world.character;
 
+import com.l2jserver.model.template.CharacterTemplate;
+
+/**
+ * Defines attributes of the character. Implementations can use an static value
+ * (i.e. from {@link CharacterTemplate}) or can use an calculator to define
+ * values, composed from many attributes objects.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ */
 public interface CharacterAttributes {
 	/**
 	 * @return the intelligence

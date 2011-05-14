@@ -143,12 +143,41 @@ public enum CharacterClass {
 			null, null), DUMMY_ENTRY_33(0x79, null, false, null, null), DUMMY_ENTRY_34(
 			0x7a, null, false, null, null);
 
+	/**
+	 * The Class ID
+	 */
 	public final int id;
+	/**
+	 * The class type
+	 */
 	public final ClassType type;
+	/**
+	 * Is this class summoner?
+	 */
 	public final boolean summoner;
+	/**
+	 * The class race
+	 */
 	public final Race race;
+	/**
+	 * The parent class
+	 */
 	public final CharacterClass parent;
 
+	/**
+	 * Creates a new class
+	 * 
+	 * @param id
+	 *            the id
+	 * @param type
+	 *            the type
+	 * @param summoner
+	 *            is summoner
+	 * @param race
+	 *            the race
+	 * @param parent
+	 *            the parent
+	 */
 	private CharacterClass(int id, ClassType type, boolean summoner, Race race,
 			CharacterClass parent) {
 		this.id = id;
@@ -158,31 +187,104 @@ public enum CharacterClass {
 		this.parent = parent;
 	}
 
+	/**
+	 * Creates a new instance, will inherit <tt>type</tt>, <tt>summoner</tt> and
+	 * <tt>race</tt> from <tt>parent</tt>
+	 * 
+	 * @param id
+	 *            the id
+	 * @param parent
+	 *            the parent
+	 */
 	private CharacterClass(int id, CharacterClass parent) {
 		this(id, parent.type, parent.summoner, parent.race, parent);
 	}
 
+	/**
+	 * Creates a new instance, will inherit <tt>type</tt> and <tt>race</tt> from
+	 * <tt>parent</tt>
+	 * 
+	 * @param id
+	 *            the class id
+	 * @param summoner
+	 *            is summoner
+	 * @param parent
+	 *            the parent
+	 */
 	private CharacterClass(int id, boolean summoner, CharacterClass parent) {
 		this(id, parent.type, summoner, parent.race, parent);
 	}
 
+	/**
+	 * Creates a new instance, will inherit <tt>type</tt> and <tt>summoner</tt>
+	 * from <tt>parent</tt>
+	 * 
+	 * @param id
+	 *            the class id
+	 * @param race
+	 *            the race
+	 * @param parent
+	 *            the parent class
+	 */
 	private CharacterClass(int id, Race race, CharacterClass parent) {
 		this(id, parent.type, parent.summoner, race, parent);
 	}
 
+	/**
+	 * Creates a new instance, will inherit <tt>summoner</tt> will be false and
+	 * <tt>parent</tt> null.
+	 * 
+	 * @param id
+	 *            the id
+	 * @param type
+	 *            the class type
+	 * @param race
+	 *            the class race
+	 */
 	private CharacterClass(int id, ClassType type, Race race) {
 		this(id, type, false, race, null);
 	}
 
+	/**
+	 * Creates a new instance will inherit <tt>race</tt> from <tt/>parent</tt>.
+	 * <tt>summoner</tt> will be false
+	 * 
+	 * @param id
+	 *            the class id
+	 * @param type
+	 *            the class type
+	 * @param parent
+	 *            the parent class
+	 */
 	private CharacterClass(int id, ClassType type, CharacterClass parent) {
 		this(id, type, false, parent.race, parent);
 	}
 
+	/**
+	 * Creates a new instance will inherit <tt>race</tt> from <tt/>parent</tt>
+	 * 
+	 * @param id
+	 *            the class id
+	 * @param type
+	 *            the class type
+	 * @param summoner
+	 *            is class summoner
+	 * @param parent
+	 *            the parent class
+	 */
 	private CharacterClass(int id, ClassType type, boolean summoner,
 			CharacterClass parent) {
 		this(id, type, summoner, parent.race, parent);
 	}
 
+	/**
+	 * Tries to locate the class based on its ID. If not found, <tt>null</tt> is
+	 * returned.
+	 * 
+	 * @param id
+	 *            the class id
+	 * @return the {@link CharacterClass} instance found
+	 */
 	public CharacterClass fromID(int id) {
 		for (final CharacterClass c : values()) {
 			if (c.id == id)
@@ -202,6 +304,11 @@ public enum CharacterClass {
 		return 1 + parent.level();
 	}
 
+	/**
+	 * The class type
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum ClassType {
 		FIGHTER, MYSTIC, PRIEST;
 	}

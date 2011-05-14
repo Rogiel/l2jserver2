@@ -8,9 +8,23 @@ import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.network.NetworkService;
 
+/**
+ * Routine used to initialize the server. Starts all services.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class GameServerInitializationRoutine implements Routine<Boolean> {
+	/**
+	 * The service manager
+	 */
 	private final ServiceManager serviceManager;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param serviceManager
+	 *            the service manager
+	 */
 	@Inject
 	public GameServerInitializationRoutine(ServiceManager serviceManager) {
 		this.serviceManager = serviceManager;

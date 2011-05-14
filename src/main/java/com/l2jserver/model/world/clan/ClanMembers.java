@@ -26,6 +26,12 @@ public class ClanMembers implements Iterable<CharacterID> {
 	private final Set<CharacterID> members = CollectionFactory
 			.newSet(CharacterID.class);
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param clan
+	 *            the clan
+	 */
 	public ClanMembers(Clan clan) {
 		this.clan = clan;
 	}

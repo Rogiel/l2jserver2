@@ -12,6 +12,26 @@ import com.l2jserver.model.world.item.ItemEvent;
 import com.l2jserver.model.world.item.ItemListener;
 import com.l2jserver.util.Coordinate;
 
+/**
+ * This class represents an {@link Item} in the Lineage II World. The item can
+ * be:
+ * <ul>
+ * <li><b>In the {@link L2Character character} inventory</b>: <tt>location</tt>
+ * is {@link InventoryLocation#INVENTORY}, <tt>coordinate</tt> and
+ * <tt>paperdoll</tt> are null.</li>
+ * <li><b>In the {@link L2Character character} warehouse</b>: <tt>location</tt>
+ * is {@link InventoryLocation#WAREHOUSE}, <tt>coordinate</tt> and
+ * <tt>paperdoll</tt> are null.</li>
+ * <li><b>Equipped by the {@link L2Character character}</b>: <tt>location</tt>
+ * is {@link InventoryLocation#PAPERDOLL}, <tt>paperdoll</tt> is not null and
+ * <tt>coordinate</tt> is null.</li>
+ * <li><b>Dropped on the ground</b>: <tt>location</li> and <tt>paperdoll</tt>
+ * are null, <tt>coordinate</tt> is not null and represents the dropping
+ * location.
+ * </ul>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Item extends AbstractObject implements Playable, Spawnable,
 		Listenable<ItemListener, ItemEvent>, Dropable {
 	private final ItemTemplateID templateID;

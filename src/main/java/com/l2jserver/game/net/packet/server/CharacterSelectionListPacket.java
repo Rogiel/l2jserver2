@@ -2,7 +2,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.ProtocolVersion;
+import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractServerPacket;

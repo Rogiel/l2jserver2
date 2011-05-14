@@ -10,16 +10,28 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * Defines how an character looks in-game.
+ * Controls the friend list of an {@link L2Character}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterFriendList implements Iterable<L2Character> {
+	/**
+	 * The character
+	 */
 	private final L2Character character;
 
+	/**
+	 * The list of friends of this character
+	 */
 	private final Set<CharacterID> friends = CollectionFactory
 			.newSet(CharacterID.class);
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param character
+	 *            the parent character
+	 */
 	public CharacterFriendList(L2Character character) {
 		this.character = character;
 	}
@@ -45,6 +57,14 @@ public class CharacterFriendList implements Iterable<L2Character> {
 		return new WorldObjectIterator<L2Character>(friends.iterator());
 	}
 
+	/**
+	 * Load an {@link Collection} of {@link CharacterID} to this object.
+	 * <p>
+	 * Note that this is normally used by DAOs do load data.
+	 * 
+	 * @param list
+	 *            the id list
+	 */
 	public void load(Collection<CharacterID> list) {
 		friends.addAll(list);
 	}

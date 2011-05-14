@@ -1,11 +1,24 @@
 package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.world.capability.Summonable;
 import com.l2jserver.util.Coordinate;
 
+/**
+ * This class represents an Pet in the Lineage II World
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Pet extends Player implements Summonable {
+	/**
+	 * The {@link CharacterID} pet's owner
+	 */
 	private CharacterID ownerID;
+	/**
+	 * {@link ItemID} used to summon this pet
+	 */
+	private ItemID itemID;
 
 	@Override
 	public void teleport(Coordinate coordinate) {
@@ -26,7 +39,7 @@ public class Pet extends Player implements Summonable {
 	}
 
 	/**
-	 * @return the ownerID
+	 * @return the owner ID
 	 */
 	public CharacterID getOwnerID() {
 		return ownerID;
@@ -41,9 +54,31 @@ public class Pet extends Player implements Summonable {
 
 	/**
 	 * @param ownerID
-	 *            the ownerID to set
+	 *            the owner ID to set
 	 */
 	public void setOwnerID(CharacterID ownerID) {
 		this.ownerID = ownerID;
+	}
+
+	/**
+	 * @return the item ID
+	 */
+	public ItemID getItemID() {
+		return itemID;
+	}
+
+	/**
+	 * @return the item
+	 */
+	public Item getItem() {
+		return itemID.getObject();
+	}
+
+	/**
+	 * @param itemID
+	 *            the item ID to set
+	 */
+	public void setItemID(ItemID itemID) {
+		this.itemID = itemID;
 	}
 }

@@ -12,8 +12,16 @@ import com.l2jserver.model.world.party.PartyEvent;
 import com.l2jserver.model.world.party.PartyListener;
 import com.l2jserver.util.factory.CollectionFactory;
 
+/**
+ * This class represents an Party in Lineage II world
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Party extends AbstractObject implements
 		Listenable<PartyListener, PartyEvent>, Joinable<L2Character> {
+	/**
+	 * Active party members
+	 */
 	private final List<CharacterID> members = CollectionFactory
 			.newList(CharacterID.class);
 
@@ -29,7 +37,6 @@ public class Party extends AbstractObject implements
 
 	@Override
 	public void leave(L2Character member) {
-		// TODO Auto-generated method stub
 
 	}
 

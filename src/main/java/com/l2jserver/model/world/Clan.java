@@ -11,6 +11,11 @@ import com.l2jserver.model.world.clan.ClanEvent;
 import com.l2jserver.model.world.clan.ClanListener;
 import com.l2jserver.model.world.clan.ClanMembers;
 
+/**
+ * This class represents an clan in the Lineage II world
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Clan extends AbstractObject implements
 		Listenable<ClanListener, ClanEvent>, Joinable<L2Character> {
 	/**
@@ -23,9 +28,6 @@ public class Clan extends AbstractObject implements
 	 */
 	private final ClanMembers members = new ClanMembers(this);
 
-	/**
-	 * Remember to save your clan!
-	 */
 	@Override
 	public void join(L2Character member) {
 		members.add(member);

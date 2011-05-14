@@ -1,4 +1,4 @@
-package com.l2jserver;
+package com.l2jserver.game;
 
 /**
  * Represents the protocol version used by the client

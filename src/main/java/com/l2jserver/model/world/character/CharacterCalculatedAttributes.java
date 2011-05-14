@@ -1,9 +1,23 @@
 package com.l2jserver.model.world.character;
 
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
 
+/**
+ * This {@link CharacterAttributes} implementation calculates the <b>real</b>
+ * character attributes based on it's {@link CharacterTemplate} and active
+ * buffs.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class CharacterCalculatedAttributes implements CharacterAttributes {
+	/**
+	 * The character
+	 */
 	private final L2Character character;
+	/**
+	 * The base attributes (from {@link CharacterTemplate})
+	 */
 	private final CharacterAttributes baseAttributes;
 
 	public CharacterCalculatedAttributes(L2Character character) {

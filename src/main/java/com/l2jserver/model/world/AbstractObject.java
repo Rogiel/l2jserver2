@@ -8,6 +8,9 @@ import com.l2jserver.model.id.ObjectID;
  * @author Rogiel
  */
 public abstract class AbstractObject implements WorldObject {
+	/**
+	 * The {@link ObjectID}
+	 */
 	protected ObjectID<?> id;
 
 	public ObjectID<?> getID() {

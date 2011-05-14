@@ -3,7 +3,7 @@ package com.l2jserver.game.net;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
 
-import com.l2jserver.ProtocolVersion;
+import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.codec.Lineage2Decrypter;
 import com.l2jserver.game.net.codec.Lineage2Encrypter;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
@@ -135,7 +135,7 @@ public class Lineage2Connection {
 	 * 
 	 * @param version
 	 * @return true if version is supported by the client
-	 * @see com.l2jserver.ProtocolVersion#supports(com.l2jserver.ProtocolVersion)
+	 * @see com.l2jserver.game.ProtocolVersion#supports(com.l2jserver.game.ProtocolVersion)
 	 */
 	public boolean supports(ProtocolVersion version) {
 		if (version == null)

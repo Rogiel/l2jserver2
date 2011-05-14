@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.L2JConstants;
-import com.l2jserver.ProtocolVersion;
+import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.packet.AbstractClientPacket;

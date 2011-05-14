@@ -2,6 +2,13 @@ package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.ObjectID;
 
+/**
+ * This is an base interface that every object in the Lineage II World need to
+ * implement. The only methods defines by this class are getters and setters for
+ * {@link ObjectID}.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface WorldObject {
 	/**
 	 * Get the object's ID

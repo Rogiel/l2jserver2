@@ -9,6 +9,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.db.dao.DAOModuleMySQL5;
 import com.l2jserver.model.id.ID;
+import com.l2jserver.model.id.factory.IDFactoryModule;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.world.L2Character;

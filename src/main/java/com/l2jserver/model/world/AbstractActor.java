@@ -10,7 +10,15 @@ import com.l2jserver.model.world.capability.Equipable;
 import com.l2jserver.model.world.capability.Equiper;
 import com.l2jserver.util.Coordinate;
 
+/**
+ * Abstract {@link Actor} class.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public abstract class AbstractActor extends AbstractObject implements Actor {
+	/**
+	 * The actor race
+	 */
 	protected Race race;
 
 	/**
@@ -37,6 +45,9 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 		}
 	}
 
+	/**
+	 * The actor sex
+	 */
 	protected Sex sex;
 
 	/**
@@ -63,10 +74,21 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 		}
 	}
 
+	/**
+	 * The actor level
+	 */
 	protected int level;
+	/**
+	 * The actor HP
+	 */
 	protected int hp;
+	/**
+	 * The actor coordinate
+	 */
 	protected Coordinate position;
-
+	/**
+	 * The currently effects active on the actor
+	 */
 	protected final ActorEffects effects = new ActorEffects(this);
 
 	@Override
