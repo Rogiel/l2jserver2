@@ -1,7 +1,7 @@
 package com.l2jserver.model.world.player;
 
 import com.l2jserver.model.world.Player;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Event dispatched once an player is teleported.

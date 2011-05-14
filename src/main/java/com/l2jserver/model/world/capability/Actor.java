@@ -12,7 +12,7 @@ import com.l2jserver.model.world.actor.ActorListener;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Actor extends Listenable<ActorListener, ActorEvent>,
-		Spawnable, Positionable, Damagable, Attackable, Attacker, Castable,
+		Spawnable, Pointable, Damagable, Attackable, Attacker, Castable,
 		Caster, Levelable, Killable, Equiper, Equipable {
 	ActorEffects getEffects();
 }

@@ -3,7 +3,7 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.world.capability.Summonable;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * This class represents an Pet in the Lineage II World

@@ -27,7 +27,7 @@ import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * {@link CharacterDAO} implementation for MySQL5
@@ -66,9 +66,10 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	public static final String EXPERIENCE = "experience";
 	public static final String SP = "sp";
 
-	public static final String COORD_X = "position_x";
-	public static final String COORD_Y = "position_y";
-	public static final String COORD_Z = "position_z";
+	public static final String POINT_X = "point_x";
+	public static final String POINT_Y = "point_y";
+	public static final String POINT_Z = "point_z";
+	public static final String POINT_ANGLE = "point_angle";
 
 	public static final String APPEARANCE_HAIR_STYLE = "appearance_hair_style";
 	public static final String APPEARANCE_HAIR_COLOR = "appearance_hair_color";
@@ -121,8 +122,9 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 			// TODO load experience
 			// TODO load sp
 
-			character.setPosition(Coordinate.fromXYZ(rs.getInt(COORD_X),
-					rs.getInt(COORD_Y), rs.getInt(COORD_Z)));
+			character.setPoint(Point.fromXYZA(rs.getInt(POINT_X),
+					rs.getInt(POINT_Y), rs.getInt(POINT_Z),
+					rs.getDouble(POINT_ANGLE)));
 
 			// appearance
 			character.getAppearance().setHairStyle(
@@ -228,8 +230,8 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
 						+ ACCOUNT_ID + "`,`" + NAME + "`,`" + RACE + "`,`"
-						+ CLASS + "`,`" + SEX + "`,`" + LEVEL + "`,`" + COORD_X
-						+ "`,`" + COORD_Y + "`,`" + COORD_Z + "`,`"
+						+ CLASS + "`,`" + SEX + "`,`" + LEVEL + "`,`" + POINT_X
+						+ "`,`" + POINT_Y + "`,`" + POINT_ANGLE + "`,`"
 						+ APPEARANCE_HAIR_STYLE + "`,`" + APPEARANCE_HAIR_COLOR
 						+ "`,`" + APPEARANCE_FACE
 						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";

@@ -3,7 +3,7 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Playable;
 import com.l2jserver.model.world.capability.Teleportable;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * {@link Player} is any object that can be controlled by the player. The most

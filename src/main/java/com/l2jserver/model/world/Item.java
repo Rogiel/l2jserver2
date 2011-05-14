@@ -10,7 +10,7 @@ import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.item.ItemEvent;
 import com.l2jserver.model.world.item.ItemListener;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * This class represents an {@link Item} in the Lineage II World. The item can

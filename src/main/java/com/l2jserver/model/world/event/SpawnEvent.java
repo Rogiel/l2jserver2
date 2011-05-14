@@ -1,7 +1,7 @@
 package com.l2jserver.model.world.event;
 
 import com.l2jserver.model.world.capability.Spawnable;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Event for objects spawning

@@ -8,7 +8,7 @@ import com.l2jserver.model.world.AbstractActor.Race;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterBaseAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Template for {@link L2Character}
@@ -33,7 +33,7 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 	/**
 	 * The initial location for the character to be spawned
 	 */
-	protected final Coordinate spawnLocation;
+	protected final Point spawnLocation;
 	/**
 	 * The base attributes instance
 	 */
@@ -45,7 +45,7 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 			int physicalAttack, int magicalAttack, int physicalDefense,
 			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
 			int criticalChance, int evasionChance, int moveSpeed,
-			int maxWeigth, boolean craft, Coordinate spawnLocation) {
+			int maxWeigth, boolean craft, Point spawnLocation) {
 		super(id);
 		this.race = characterClass.race;
 		this.characterClass = characterClass;
@@ -64,7 +64,7 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 
 		character.setRace(race);
 		character.setCharacterClass(characterClass);
-		character.setPosition(spawnLocation);
+		character.setPoint(spawnLocation);
 
 		// character.getBaseAttributes().setIntelligence(intelligence);
 		// character.getBaseAttributes().setStrength(strength);
@@ -91,9 +91,9 @@ public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 	}
 
 	/**
-	 * @return the spawnLocation
+	 * @return the initial spawn location
 	 */
-	public Coordinate getSpawnLocation() {
+	public Point getSpawnLocation() {
 		return spawnLocation;
 	}
 

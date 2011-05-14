@@ -2,7 +2,7 @@ package com.l2jserver.model.world.filter.impl;
 
 import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.model.world.filter.WorldObjectFilter;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Filter objects that are in the <tt>range</tt> of <tt>coordinate</tt>

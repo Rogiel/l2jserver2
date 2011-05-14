@@ -8,7 +8,8 @@ import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.capability.Castable;
 import com.l2jserver.model.world.capability.Equipable;
 import com.l2jserver.model.world.capability.Equiper;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Abstract {@link Actor} class.
@@ -83,9 +84,9 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	 */
 	protected int hp;
 	/**
-	 * The actor coordinate
+	 * The actor coordinate point
 	 */
-	protected Coordinate position;
+	protected Point point;
 	/**
 	 * The currently effects active on the actor
 	 */
@@ -138,14 +139,29 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 		return false;
 	}
 
+	/**
+	 * @return the coordinate point
+	 */
+	public Point getPoint() {
+		return point;
+	}
+
+	/**
+	 * @param point
+	 *            the coordinate point to set
+	 */
+	public void setPoint(Point point) {
+		this.point = point;
+	}
+
 	@Override
 	public Coordinate getPosition() {
-		return position;
+		return point.getCoordinate();
 	}
 
 	@Override
 	public void setPosition(Coordinate coord) {
-		this.position = coord;
+		this.point = new Point(coord, (point != null ? point.getAngle() : 0));
 	}
 
 	/**

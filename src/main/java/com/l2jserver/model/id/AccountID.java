@@ -1,5 +1,6 @@
 package com.l2jserver.model.id;
 
+import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
 /**
@@ -15,6 +16,7 @@ public class AccountID extends ID<String> {
 	 * @param login
 	 *            the login
 	 */
+	@Inject
 	public AccountID(@Assisted String login) {
 		super(login);
 	}

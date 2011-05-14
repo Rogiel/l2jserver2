@@ -1,7 +1,7 @@
 package com.l2jserver.model.world.capability;
 
 import com.l2jserver.model.world.AbstractObject;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Represents an {@link AbstractObject} that can be spawned.

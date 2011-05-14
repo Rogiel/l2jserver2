@@ -1,4 +1,6 @@
-package com.l2jserver.util;
+package com.l2jserver.util.dimensional;
+
+import org.apache.commons.math.geometry.Vector3D;
 
 /**
  * Represents an coordinate in the game world.
@@ -8,18 +10,12 @@ package com.l2jserver.util;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Coordinate {
+	private static final long serialVersionUID = 1L;
+
 	/**
-	 * The X point
+	 * The backing vector of this Coordinate
 	 */
-	private final int x;
-	/**
-	 * The Y point
-	 */
-	private final int y;
-	/**
-	 * The Z point
-	 */
-	private final int z;
+	protected final Vector3D vector;
 
 	/**
 	 * Creates a new coordinate
@@ -32,30 +28,19 @@ public class Coordinate {
 	 *            the z point
 	 */
 	protected Coordinate(int x, int y, int z) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		this.vector = new Vector3D(x, y, z);
 	}
 
-	/**
-	 * @return the x point
-	 */
 	public int getX() {
-		return x;
+		return (int) vector.getX();
 	}
 
-	/**
-	 * @return the y point
-	 */
 	public int getY() {
-		return y;
+		return (int) vector.getY();
 	}
 
-	/**
-	 * @return the z point
-	 */
 	public int getZ() {
-		return z;
+		return (int) vector.getZ();
 	}
 
 	/**
@@ -63,12 +48,11 @@ public class Coordinate {
 	 * <tt>other</tt>
 	 * 
 	 * @param other
-	 *            the other coodinate
-	 * @return the computed distance
+	 *            the other coordinate
+	 * @return the calculated distance
 	 */
-	public int getDistance(Coordinate other) {
-		// TODO calculation
-		return x + y + z;
+	public double getDistance(Coordinate other) {
+		return Vector3D.distance(vector, other.vector);
 	}
 
 	/**

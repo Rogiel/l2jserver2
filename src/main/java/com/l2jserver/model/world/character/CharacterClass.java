@@ -285,7 +285,7 @@ public enum CharacterClass {
 	 *            the class id
 	 * @return the {@link CharacterClass} instance found
 	 */
-	public CharacterClass fromID(int id) {
+	public static CharacterClass fromID(int id) {
 		for (final CharacterClass c : values()) {
 			if (c.id == id)
 				return c;

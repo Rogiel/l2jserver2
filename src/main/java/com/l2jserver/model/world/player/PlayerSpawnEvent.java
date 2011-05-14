@@ -5,7 +5,7 @@ import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.event.SpawnEvent;
-import com.l2jserver.util.Coordinate;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Event dispatcher once an player has spawned in the world
