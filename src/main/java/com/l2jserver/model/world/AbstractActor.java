@@ -191,6 +191,7 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	/**
 	 * @return the active effects on this actor
 	 */
+	@Override
 	public ActorEffects getEffects() {
 		return effects;
 	}

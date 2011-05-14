@@ -27,6 +27,6 @@ public class CharacterTemplateID extends TemplateID<CharacterTemplate> {
 
 	@Override
 	public CharacterTemplate getTemplate() {
-		return (CharacterTemplate) templateService.getTemplate(this);
+		return templateService.getTemplate(this);
 	}
 }

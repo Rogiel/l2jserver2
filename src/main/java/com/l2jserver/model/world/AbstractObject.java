@@ -13,10 +13,12 @@ public abstract class AbstractObject implements WorldObject {
 	 */
 	protected ObjectID<?> id;
 
+	@Override
 	public ObjectID<?> getID() {
 		return id;
 	}
 
+	@Override
 	public void setID(ObjectID<?> id) {
 		if (this.id != null)
 			throw new IllegalStateException("ID is already set!");

@@ -21,8 +21,7 @@ public abstract class AbstractGradeAArmorTemplate extends ArmorTemplate
 
 	@Override
 	public void penalty(Equiper user) {
-		if (!(user instanceof Levelable) && !(user instanceof Castable)
-				&& !(user instanceof Equiper))
+		if (!(user instanceof Levelable) && !(user instanceof Castable))
 			return;
 		final Levelable levelable = (Levelable) user;
 		final Castable castable = (Castable) user;

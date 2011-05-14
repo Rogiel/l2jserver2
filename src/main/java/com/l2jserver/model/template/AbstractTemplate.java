@@ -18,6 +18,7 @@ public abstract class AbstractTemplate<T> implements Template<T> {
 
 	/**
 	 * Creates a new instance
+	 * 
 	 * @param id
 	 */
 	protected AbstractTemplate(TemplateID<?> id) {

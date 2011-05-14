@@ -145,6 +145,7 @@ public class Lineage2Connection {
 
 	/**
 	 * Get the channel
+	 * 
 	 * @return the channel
 	 */
 	public Channel getChannel() {

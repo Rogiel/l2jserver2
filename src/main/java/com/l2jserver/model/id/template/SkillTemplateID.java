@@ -7,8 +7,7 @@ import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.service.game.template.TemplateService;
 
 /**
- * An {@link TemplateID} instance representing an {@link SkillTemplate}
- * object
+ * An {@link TemplateID} instance representing an {@link SkillTemplate} object
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -26,6 +25,6 @@ public class SkillTemplateID extends TemplateID<SkillTemplate> {
 
 	@Override
 	public SkillTemplate getTemplate() {
-		return (SkillTemplate) templateService.getTemplate(this);
+		return templateService.getTemplate(this);
 	}
 }

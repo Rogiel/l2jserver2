@@ -7,8 +7,7 @@ import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.service.game.template.TemplateService;
 
 /**
- * An {@link TemplateID} instance representing an {@link ItemTemplate}
- * object
+ * An {@link TemplateID} instance representing an {@link ItemTemplate} object
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -26,6 +25,6 @@ public class ItemTemplateID extends TemplateID<ItemTemplate> {
 
 	@Override
 	public ItemTemplate getTemplate() {
-		return (ItemTemplate) templateService.getTemplate(this);
+		return templateService.getTemplate(this);
 	}
 }

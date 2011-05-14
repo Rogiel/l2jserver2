@@ -9,7 +9,7 @@ import com.l2jserver.util.transformer.Transformer;
  */
 public class ShortTransformer implements Transformer<Short> {
 	public static final ShortTransformer SHARED_INSTANCE = new ShortTransformer();
-	
+
 	@Override
 	public String transform(Short value) {
 		return Short.toString(value);

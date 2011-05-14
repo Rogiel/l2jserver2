@@ -9,7 +9,7 @@ import com.l2jserver.util.transformer.Transformer;
  */
 public class IntegerTransformer implements Transformer<Integer> {
 	public static final IntegerTransformer SHARED_INSTANCE = new IntegerTransformer();
-	
+
 	@Override
 	public String transform(Integer value) {
 		return Integer.toString(value);

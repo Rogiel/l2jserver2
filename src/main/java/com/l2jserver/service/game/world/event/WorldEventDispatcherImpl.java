@@ -44,6 +44,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		}, 0, 50);
 	}
 
+	@Override
 	public void dispatch(WorldEvent event) {
 		log.debug("Queing dispatch for event {}", event);
 		events.add(event);

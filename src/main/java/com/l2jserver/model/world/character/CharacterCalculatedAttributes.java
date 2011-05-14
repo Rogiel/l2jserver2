@@ -25,74 +25,92 @@ public class CharacterCalculatedAttributes implements CharacterAttributes {
 		this.baseAttributes = this.character.getBaseAttributes();
 	}
 
+	@Override
 	public int getIntelligence() {
 		return baseAttributes.getIntelligence();
 	}
 
+	@Override
 	public int getStrength() {
 		return baseAttributes.getStrength();
 	}
 
+	@Override
 	public int getConcentration() {
 		return baseAttributes.getConcentration();
 	}
 
+	@Override
 	public int getMentality() {
 		return baseAttributes.getMentality();
 	}
 
+	@Override
 	public int getDexterity() {
 		return baseAttributes.getDexterity();
 	}
 
+	@Override
 	public int getWitness() {
 		return baseAttributes.getWitness();
 	}
 
+	@Override
 	public int getPhysicalAttack() {
 		return baseAttributes.getPhysicalAttack();
 	}
 
+	@Override
 	public int getMagicalAttack() {
 		return baseAttributes.getMagicalAttack();
 	}
 
+	@Override
 	public int getPhysicalDefense() {
 		return baseAttributes.getPhysicalDefense();
 	}
 
+	@Override
 	public int getMagicalDefense() {
 		return baseAttributes.getMagicalDefense();
 	}
 
+	@Override
 	public int getAttackSpeed() {
 		return baseAttributes.getAttackSpeed();
 	}
 
+	@Override
 	public int getCastSpeed() {
 		return baseAttributes.getCastSpeed();
 	}
 
+	@Override
 	public int getAccuracy() {
 		return baseAttributes.getAccuracy();
 	}
 
+	@Override
 	public int getCriticalChance() {
 		return baseAttributes.getCriticalChance();
 	}
 
+	@Override
 	public int getEvasionChance() {
 		return baseAttributes.getEvasionChance();
 	}
 
+	@Override
 	public int getMoveSpeed() {
 		return baseAttributes.getMoveSpeed();
 	}
 
+	@Override
 	public int getMaxWeigth() {
 		return baseAttributes.getMaxWeigth();
 	}
 
+	@Override
 	public boolean canCraft() {
 		return baseAttributes.canCraft();
 	}

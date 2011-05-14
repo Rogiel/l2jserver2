@@ -9,7 +9,7 @@ import com.l2jserver.util.transformer.Transformer;
  */
 public class DoubleTransformer implements Transformer<Double> {
 	public static final DoubleTransformer SHARED_INSTANCE = new DoubleTransformer();
-	
+
 	@Override
 	public String transform(Double value) {
 		return Double.toString(value);
