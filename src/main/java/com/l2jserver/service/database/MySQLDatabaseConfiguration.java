@@ -1,5 +1,10 @@
 package com.l2jserver.service.database;
 
+/**
+ * Configuration interface for {@link MySQLDatabaseService}.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface MySQLDatabaseConfiguration extends DatabaseConfiguration {
 	/**
 	 * @return the jdbc url

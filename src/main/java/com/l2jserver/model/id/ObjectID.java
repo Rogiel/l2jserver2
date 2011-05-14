@@ -15,9 +15,20 @@ import com.l2jserver.model.world.WorldObject;
  *            the {@link WorldObject} type
  */
 public abstract class ObjectID<T extends WorldObject> extends ID {
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param id
+	 *            the raw id
+	 */
 	protected ObjectID(int id) {
 		super(id);
 	}
 
+	/**
+	 * Returns the {@link WorldObject} associated with this {@link ID}
+	 * 
+	 * @return the {@link WorldObject} if existent, <tt>null</tt> otherwise
+	 */
 	public abstract T getObject();
 }

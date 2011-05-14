@@ -17,7 +17,16 @@ import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.handler.Lineage2PacketHandler;
 
+/**
+ * This class creates a new instance of {@link ChannelPipeline} and attaches all
+ * handlers and codecs.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2PipelineFactory implements ChannelPipelineFactory {
+	/**
+	 * The Google Guice {@link Injector}.
+	 */
 	private final Injector injector;
 
 	@Inject

@@ -13,12 +13,28 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ServerPacket;
 
+/**
+ * This encoder writes the frame content and encodes the packet in it. Each
+ * packet has an fixed single opcode byte. Once the packet opcode has been
+ * written, packet data is written by the {@link ServerPacket} class.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2PacketWriter extends OneToOneEncoder {
+	/**
+	 * The handler name
+	 */
 	public static final String HANDLER_NAME = "packet.writer";
 
+	/**
+	 * The logger
+	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(Lineage2PacketWriter.class);
 
+	/**
+	 * The active Lineage 2 connection
+	 */
 	private Lineage2Connection connection;
 
 	@Override

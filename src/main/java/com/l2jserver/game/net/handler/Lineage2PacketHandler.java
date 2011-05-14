@@ -8,7 +8,17 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
 
+/**
+ * This handler dispatches the {@link ClientPacket#process(Lineage2Connection)}
+ * method and creates a new {@link Lineage2Connection} once a new channel is
+ * open.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2PacketHandler extends SimpleChannelHandler {
+	/**
+	 * The Lineage 2 connection
+	 */
 	private Lineage2Connection connection;
 
 	@Override

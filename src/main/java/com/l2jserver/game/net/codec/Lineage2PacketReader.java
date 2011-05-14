@@ -21,15 +21,43 @@ import com.l2jserver.game.net.packet.client.RequestGotoLobby;
 import com.l2jserver.game.net.packet.client.RequestKeyMapping;
 import com.l2jserver.game.net.packet.client.RequestManorList;
 
+/**
+ * This decoder reads an frame and decodes the packet in it. Each packet has an
+ * fixed single opcode byte. Once the packet has been identified, reading is
+ * done by the {@link ClientPacket} class.
+ * <p>
+ * Note that some packets have an additional opcode. This class also handle
+ * those cases.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2PacketReader extends OneToOneDecoder {
+	/**
+	 * The handler name
+	 */
 	public static final String HANDLER_NAME = "packet.reader";
 
+	/**
+	 * The Google Guice {@link Injector}
+	 */
 	private final Injector injector;
+	/**
+	 * The logger
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(Lineage2PacketReader.class);
 
+	/**
+	 * The active Lineage 2 connection
+	 */
 	private Lineage2Connection connection;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param injector
+	 *            the injector
+	 */
 	@Inject
 	public Lineage2PacketReader(Injector injector) {
 		this.injector = injector;
@@ -48,12 +76,26 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 		return packet;
 	}
 
+	/**
+	 * Crates a new instance of the packet <tt>type</tt>
+	 * 
+	 * @param type
+	 *            the packet type
+	 * @return the created packet
+	 */
 	private ClientPacket createPacket(Class<? extends ClientPacket> type) {
 		if (type == null)
 			return null;
 		return injector.getInstance(type);
 	}
 
+	/**
+	 * Discovers the packet type
+	 * 
+	 * @param buffer
+	 *            the buffer
+	 * @return the packet class
+	 */
 	private Class<? extends ClientPacket> getPacketClass(ChannelBuffer buffer) {
 		final short opcode = buffer.readUnsignedByte();
 		switch (opcode) {

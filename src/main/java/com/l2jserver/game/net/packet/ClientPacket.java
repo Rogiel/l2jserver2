@@ -4,6 +4,11 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 
+/**
+ * Each implementation is an packet sent by the game client.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface ClientPacket extends Packet {
 	/**
 	 * Read binary data in the {@link ChannelBuffer}.

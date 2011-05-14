@@ -14,7 +14,7 @@ import com.l2jserver.model.world.event.WorldListener;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * {@link WorldEventDispatcher} implementation
+ * Default {@link WorldEventDispatcher} implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

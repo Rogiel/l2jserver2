@@ -5,6 +5,11 @@ import java.net.InetSocketAddress;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
+/**
+ * The network {@link Configuration}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 @ConfigurationName("network")
 public interface NetworkConfiguration extends Configuration {
 	// TODO set default value

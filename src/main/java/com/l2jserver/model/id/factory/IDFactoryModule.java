@@ -1,6 +1,7 @@
 package com.l2jserver.model.id.factory;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.l2jserver.model.id.object.allocator.BitSetIDAllocator;
@@ -13,6 +14,11 @@ import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
 import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
 import com.l2jserver.model.id.template.factory.SkillTemplateIDFactory;
 
+/**
+ * Google Guice {@link IDFactory} {@link Module}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class IDFactoryModule extends AbstractModule {
 	@Override
 	protected void configure() {

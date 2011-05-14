@@ -16,5 +16,16 @@ import com.l2jserver.service.Service;
  * 
  */
 public interface CacheService extends Service {
+	/**
+	 * Decores the <tt>instance</tt> with the cache
+	 * 
+	 * @param <T>
+	 *            the <tt>instance</tt> type
+	 * @param interfaceType
+	 *            the interface type
+	 * @param instance
+	 *            the instance
+	 * @return the cache-decorated object
+	 */
 	<T extends Cacheable> T decorate(Class<T> interfaceType, T instance);
 }

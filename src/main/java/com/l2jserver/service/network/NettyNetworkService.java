@@ -14,6 +14,11 @@ import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.configuration.ConfigurationService;
 
+/**
+ * Netty network service implementation
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class NettyNetworkService extends AbstractService implements
 		NetworkService {
 	private final NetworkConfiguration config;

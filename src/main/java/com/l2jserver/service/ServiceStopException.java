@@ -1,5 +1,10 @@
 package com.l2jserver.service;
 
+/**
+ * Exception thrown when a service failed to stop
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class ServiceStopException extends ServiceException {
 	private static final long serialVersionUID = 1L;
 

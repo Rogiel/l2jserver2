@@ -4,6 +4,11 @@ import java.io.File;
 
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
+/**
+ * Configuration for DB4O Database Service
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 @ConfigurationName("db4o")
 public interface DB4ODatabaseConfiguration extends DatabaseConfiguration {
 	/**

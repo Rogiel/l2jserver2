@@ -23,12 +23,27 @@ import com.l2jserver.service.configuration.Configuration.ConfigurationPropertySe
 import com.l2jserver.util.transformer.Transformer;
 import com.l2jserver.util.transformer.TransformerFactory;
 
+/**
+ * Creates {@link Configuration} object through Java {@link Proxy}. Uses the
+ * annotations in the interface to retrieve and store values.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class ProxyConfigurationService extends AbstractService implements
 		ConfigurationService {
+	/**
+	 * The directory in which configuration files are stored
+	 */
 	private File directory = new File("./config");
+	/**
+	 * The logger
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(ProxyConfigurationService.class);
 
+	/**
+	 * The cache of configuration objects
+	 */
 	private Map<Class<?>, Object> cache = new WeakHashMap<Class<?>, Object>();
 
 	@Override
@@ -59,6 +74,11 @@ public class ProxyConfigurationService extends AbstractService implements
 		return proxy;
 	}
 
+	/**
+	 * The invocation handler for configuration interfaces
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	private class ConfigInvocationHandler implements InvocationHandler {
 		private final Properties properties;
 		private Map<String, Object> cache = new WeakHashMap<String, Object>();
@@ -70,7 +90,8 @@ public class ProxyConfigurationService extends AbstractService implements
 		@Override
 		public Object invoke(Object proxy, Method method, Object[] args)
 				throws Throwable {
-			logger.debug("Configuration service, method invoked: {}", method.getName());
+			logger.debug("Configuration service, method invoked: {}",
+					method.getName());
 			if (args == null || args.length == 0) {
 				final ConfigurationPropertyGetter getter = method
 						.getAnnotation(ConfigurationPropertyGetter.class);
@@ -87,6 +108,15 @@ public class ProxyConfigurationService extends AbstractService implements
 			return null;
 		}
 
+		/**
+		 * Get the untransformed value of an property
+		 * 
+		 * @param getter
+		 *            the getter annotation
+		 * @param type
+		 *            the transformed type
+		 * @return the untransformed property
+		 */
 		private Object get(ConfigurationPropertyGetter getter, Class<?> type) {
 			if (cache.containsKey(getter.name()))
 				return cache.get(getter.name());
@@ -96,6 +126,16 @@ public class ProxyConfigurationService extends AbstractService implements
 			return o;
 		}
 
+		/**
+		 * Set the transformed value of an property
+		 * 
+		 * @param setter
+		 *            the setter annotation
+		 * @param value
+		 *            the untransformed value
+		 * @param type
+		 *            the transformed type
+		 */
 		private void set(ConfigurationPropertySetter setter, Object value,
 				Class<?> type) {
 			if (value != null) {
@@ -108,6 +148,15 @@ public class ProxyConfigurationService extends AbstractService implements
 			}
 		}
 
+		/**
+		 * Untransforms an value
+		 * 
+		 * @param value
+		 *            the raw value
+		 * @param type
+		 *            the output type
+		 * @return the untransformed value
+		 */
 		private Object untransform(String value, Class<?> type) {
 			if (value == null)
 				return null;
@@ -120,6 +169,15 @@ public class ProxyConfigurationService extends AbstractService implements
 			return transformer.untransform(value);
 		}
 
+		/**
+		 * Transforms an value
+		 * 
+		 * @param value
+		 *            the raw typed value
+		 * @param type
+		 *            the input type
+		 * @return the string representing <tt>value</tt>
+		 */
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		private String transform(Object value, Class<?> type) {
 			if (value == null)
@@ -133,6 +191,15 @@ public class ProxyConfigurationService extends AbstractService implements
 			return transformer.transform(value);
 		}
 
+		/**
+		 * Retrieve the raw value from the property file
+		 * 
+		 * @param key
+		 *            the key
+		 * @param defaultValue
+		 *            the default value
+		 * @return the value found or default value
+		 */
 		private String getRaw(String key, String defaultValue) {
 			if (properties == null)
 				return defaultValue;
@@ -143,6 +210,15 @@ public class ProxyConfigurationService extends AbstractService implements
 		}
 	}
 
+	/**
+	 * Tries to locate an .properties file
+	 * 
+	 * @param clazz
+	 *            configuration interface class
+	 * @return the found property
+	 * @throws IOException
+	 *             if any i/o error occur
+	 */
 	private Properties findProperties(Class<?> clazz) throws IOException {
 		ConfigurationName config = findAnnotation(ConfigurationName.class,
 				clazz);
@@ -159,6 +235,17 @@ public class ProxyConfigurationService extends AbstractService implements
 		return prop;
 	}
 
+	/**
+	 * Tries to find an annotation in the class or any parent-class.
+	 * 
+	 * @param <T>
+	 *            the annotation type
+	 * @param annotationClass
+	 *            the annotation class
+	 * @param clazz
+	 *            the class to look for annotations
+	 * @return the annotation found
+	 */
 	private <T extends Annotation> T findAnnotation(Class<T> annotationClass,
 			Class<?> clazz) {
 		T ann = clazz.getAnnotation(annotationClass);
@@ -175,10 +262,19 @@ public class ProxyConfigurationService extends AbstractService implements
 		return null;
 	}
 
+	/**
+	 * @return the configuration store directory
+	 */
 	public File getDirectory() {
 		return directory;
 	}
 
+	/**
+	 * Set the configuration store directory
+	 * 
+	 * @param directory
+	 *            the directory
+	 */
 	public void setDirectory(File directory) {
 		this.directory = directory;
 	}

@@ -10,6 +10,12 @@ import org.jboss.netty.handler.codec.frame.FrameDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This decoder parses Lineage II frames. Each frame is has a header of 2 bytes
+ * unsigned short.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2FrameDecoder extends FrameDecoder {
 	private static final int HEADER_SIZE = 2;
 

@@ -18,17 +18,44 @@ import com.l2jserver.model.world.L2Character;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Lineage2Connection {
+	/**
+	 * The connection channel
+	 */
 	private final Channel channel;
+	/**
+	 * The character object
+	 */
 	private L2Character character;
+	/**
+	 * The Lineage 2 session
+	 */
 	private Lineage2Session session;
+	/**
+	 * The connection state
+	 */
 	private ConnectionState state = ConnectionState.CONNECTED;
 
+	/**
+	 * Each connection is represented by an state: connected, authenticated and
+	 * in-game.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum ConnectionState {
 		CONNECTED, AUTHENTICATED, IN_GAME;
 	}
 
+	/**
+	 * The client supported protocol version
+	 */
 	private ProtocolVersion version;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param channel
+	 *            the channel
+	 */
 	public Lineage2Connection(Channel channel) {
 		this.channel = channel;
 	}
@@ -116,6 +143,10 @@ public class Lineage2Connection {
 		return version.supports(version);
 	}
 
+	/**
+	 * Get the channel
+	 * @return the channel
+	 */
 	public Channel getChannel() {
 		return channel;
 	}

@@ -18,12 +18,26 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.util.factory.CollectionFactory;
 
+/**
+ * Default implementation for {@link WorldService}.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class WorldServiceImpl extends AbstractService implements WorldService {
+	/**
+	 * The logger
+	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(WorldServiceImpl.class);
 
+	/**
+	 * The set of all objects registered in the world
+	 */
 	private final Set<WorldObject> objects = CollectionFactory
 			.newSet(WorldObject.class);
+	/**
+	 * The world event dispatcher
+	 */
 	private final WorldEventDispatcher dispatcher;
 
 	@Inject

@@ -5,6 +5,11 @@ import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Clan;
 
+/**
+ * An {@link ObjectID} instance representing an {@link Clan} object
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public final class ClanID extends ObjectID<Clan> {
 	/**
 	 * Data Access Object (DAO) for clans

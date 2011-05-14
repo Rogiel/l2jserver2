@@ -17,12 +17,27 @@ import com.l2jserver.util.ArrayIterator;
  *            the object type
  */
 public class WorldObjectIterator<T extends WorldObject> implements Iterator<T> {
+	/**
+	 * The {@link ObjectID} iterator
+	 */
 	private final Iterator<? extends ObjectID<T>> ids;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param ids
+	 *            the {@link ObjectID} var-arg
+	 */
 	public WorldObjectIterator(ObjectID<T>... ids) {
 		this(new ArrayIterator<ObjectID<T>>(ids));
 	}
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param ids
+	 *            the {@link ObjectID} iterator
+	 */
 	public WorldObjectIterator(Iterator<? extends ObjectID<T>> ids) {
 		this.ids = ids;
 	}

@@ -7,6 +7,11 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.service.logging.LoggingService;
 
+/**
+ * The {@link ServiceManager} is responsible for starting and stopping services
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class ServiceManager {
 	/**
 	 * The logger
@@ -39,8 +44,7 @@ public class ServiceManager {
 			logger.info("{}: Starting service...",
 					serviceClass.getCanonicalName());
 			service.start();
-			logger.info("{}: Service started!",
-					serviceClass.getCanonicalName());
+			logger.info("{}: Service started!", serviceClass.getCanonicalName());
 			return service;
 		} catch (ServiceStartException e) {
 			logger.error("{}: Error starting service: {}",

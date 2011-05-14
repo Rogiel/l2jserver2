@@ -13,8 +13,17 @@ import com.l2jserver.model.world.WorldObject;
  *            the return object type
  */
 public class WorldObjectIterable<T extends WorldObject> implements Iterable<T> {
+	/**
+	 * The {@link Iterator}
+	 */
 	private final Iterator<T> iterator;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param iterator
+	 *            the iterator
+	 */
 	public WorldObjectIterable(Iterator<T> iterator) {
 		this.iterator = iterator;
 	}

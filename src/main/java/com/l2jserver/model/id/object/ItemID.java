@@ -6,6 +6,11 @@ import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Item;
 
+/**
+ * An {@link ObjectID} instance representing an {@link Item} object
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public final class ItemID extends ObjectID<Item> {
 	/**
 	 * Data Access Object (DAO) for items

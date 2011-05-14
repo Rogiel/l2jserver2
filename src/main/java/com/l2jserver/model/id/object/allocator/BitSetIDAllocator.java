@@ -10,7 +10,15 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.util.PrimeFinder;
 
+/**
+ * The {@link BitSet} id allocator allocates new IDs backed by an {@link BitSet}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class BitSetIDAllocator implements IDAllocator {
+	/**
+	 * The logger
+	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(BitSetIDAllocator.class);
 
@@ -32,6 +40,9 @@ public class BitSetIDAllocator implements IDAllocator {
 	 */
 	private AtomicInteger nextId = new AtomicInteger();
 
+	/**
+	 * Initializes this allocator
+	 */
 	public void init() {
 		ids = new BitSet(PrimeFinder.nextPrime(100000));
 		ids.clear();
@@ -108,6 +119,9 @@ public class BitSetIDAllocator implements IDAllocator {
 		}
 	}
 
+	/**
+	 * Increases the {@link BitSet} capacity
+	 */
 	private void increaseBitSetCapacity() {
 		log.debug("Increasing BitSet capacity from {}", ids.size());
 		BitSet newBitSet = new BitSet(

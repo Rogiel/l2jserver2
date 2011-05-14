@@ -1,6 +1,7 @@
 package com.l2jserver.service;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
@@ -19,6 +20,11 @@ import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
 
+/**
+ * Google Guice {@link Module} for services
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class ServiceModule extends AbstractModule {
 	@Override
 	protected void configure() {
@@ -29,7 +35,7 @@ public class ServiceModule extends AbstractModule {
 				.in(Scopes.SINGLETON);
 		bind(DatabaseService.class).to(MySQLDatabaseService.class).in(
 				Scopes.SINGLETON);
-		
+
 		bind(NetworkService.class).to(NettyNetworkService.class).in(
 				Scopes.SINGLETON);
 		bind(ScriptingService.class).to(ScriptingServiceImpl.class).in(

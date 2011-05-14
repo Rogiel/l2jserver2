@@ -5,10 +5,16 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.util.factory.CollectionFactory;
 
+/**
+ * Simple cache that stores invocation results in a {@link WeakHashMap}.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class SimpleCacheService extends AbstractService implements CacheService {
 	private final Map<MethodInvocation, Object> cache = CollectionFactory
 			.newWeakMap(MethodInvocation.class, Object.class);

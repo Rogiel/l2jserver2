@@ -7,10 +7,24 @@ import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
 import com.l2jserver.game.net.Lineage2CryptographyKey;
 
+/**
+ * Encrypts Lineage II packets
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Lineage2Encrypter extends OneToOneEncoder {
+	/**
+	 * The handler name
+	 */
 	public static final String HANDLER_NAME = "crypto.encoder";
 
+	/**
+	 * Enabled state
+	 */
 	private boolean enabled = false;
+	/**
+	 * Crypto key
+	 */
 	private Lineage2CryptographyKey key;
 
 	@Override
@@ -37,11 +51,23 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 		return msg;
 	}
 
+	/**
+	 * Enables this encrypter with the given <tt>key</tt>
+	 * 
+	 * @param key
+	 *            the key
+	 */
 	public void enable(Lineage2CryptographyKey key) {
 		this.setKey(key);
 		this.setEnabled(true);
 	}
 
+	/**
+	 * Set this decrypter key. The key can only be set once.
+	 * 
+	 * @param key
+	 *            the key
+	 */
 	public void setKey(Lineage2CryptographyKey key) {
 		if (this.key != null)
 			throw new IllegalStateException("Key is already set");

@@ -10,6 +10,11 @@ import com.l2jserver.model.world.character.CharacterBaseAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.Coordinate;
 
+/**
+ * Template for {@link L2Character}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public abstract class CharacterTemplate extends AbstractTemplate<L2Character> {
 	/**
 	 * The logger

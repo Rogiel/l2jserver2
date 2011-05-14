@@ -23,7 +23,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	 */
 	private final int mentality;
 	/**
-	 * The character dextry
+	 * The character dexterity
 	 */
 	private final int dexterity;
 	/**
@@ -93,8 +93,8 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	 *            the concentration
 	 * @param mentality
 	 *            the mentality
-	 * @param dextry
-	 *            the dextry
+	 * @param dexterity
+	 *            the dexterity
 	 * @param witness
 	 *            the witness
 	 * @param physicalAttack
@@ -151,6 +151,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the intelligence
 	 */
+	@Override
 	public int getIntelligence() {
 		return intelligence;
 	}
@@ -158,6 +159,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the strength
 	 */
+	@Override
 	public int getStrength() {
 		return strength;
 	}
@@ -165,6 +167,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the concentration
 	 */
+	@Override
 	public int getConcentration() {
 		return concentration;
 	}
@@ -172,13 +175,15 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the mentality
 	 */
+	@Override
 	public int getMentality() {
 		return mentality;
 	}
 
 	/**
-	 * @return the dextry
+	 * @return the dexterity
 	 */
+	@Override
 	public int getDexterity() {
 		return dexterity;
 	}
@@ -186,6 +191,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the witness
 	 */
+	@Override
 	public int getWitness() {
 		return witness;
 	}
@@ -193,6 +199,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the physicalAttack
 	 */
+	@Override
 	public int getPhysicalAttack() {
 		return physicalAttack;
 	}
@@ -200,6 +207,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the magicalAttack
 	 */
+	@Override
 	public int getMagicalAttack() {
 		return magicalAttack;
 	}
@@ -207,6 +215,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the physicalDefense
 	 */
+	@Override
 	public int getPhysicalDefense() {
 		return physicalDefense;
 	}
@@ -214,6 +223,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the magicalDefense
 	 */
+	@Override
 	public int getMagicalDefense() {
 		return magicalDefense;
 	}
@@ -221,6 +231,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the attackSpeed
 	 */
+	@Override
 	public int getAttackSpeed() {
 		return attackSpeed;
 	}
@@ -228,6 +239,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the castSpeed
 	 */
+	@Override
 	public int getCastSpeed() {
 		return castSpeed;
 	}
@@ -235,6 +247,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the accuracy
 	 */
+	@Override
 	public int getAccuracy() {
 		return accuracy;
 	}
@@ -242,6 +255,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the criticalChance
 	 */
+	@Override
 	public int getCriticalChance() {
 		return criticalChance;
 	}
@@ -249,6 +263,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the evasionChance
 	 */
+	@Override
 	public int getEvasionChance() {
 		return evasionChance;
 	}
@@ -256,6 +271,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the moveSpeed
 	 */
+	@Override
 	public int getMoveSpeed() {
 		return moveSpeed;
 	}
@@ -263,6 +279,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the maxWeigth
 	 */
+	@Override
 	public int getMaxWeigth() {
 		return maxWeigth;
 	}
@@ -270,6 +287,7 @@ public class CharacterBaseAttributes implements CharacterAttributes {
 	/**
 	 * @return the craft
 	 */
+	@Override
 	public boolean canCraft() {
 		return craft;
 	}

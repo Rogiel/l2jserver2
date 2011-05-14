@@ -14,7 +14,20 @@ import com.l2jserver.util.transformer.impl.IntegerTransformer;
 import com.l2jserver.util.transformer.impl.LongTransformer;
 import com.l2jserver.util.transformer.impl.ShortTransformer;
 
+/**
+ * The {@link TransformerFactory} return the transformer instance for any given
+ * type.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class TransformerFactory {
+	/**
+	 * return the transformer instance the given <tt>type</tt>.
+	 * 
+	 * @param type
+	 *            the type
+	 * @return the transformer
+	 */
 	public static final Transformer<?> getTransfromer(Class<?> type) {
 		if (type == Byte.class || type == Byte.TYPE) {
 			return ByteTransformer.SHARED_INSTANCE;
@@ -30,11 +43,11 @@ public class TransformerFactory {
 			return DoubleTransformer.SHARED_INSTANCE;
 		} else if (type == Boolean.class || type == Boolean.TYPE) {
 			return BooleanTransformer.SHARED_INSTANCE;
-		} else if(type == InetSocketAddress.class) {
+		} else if (type == InetSocketAddress.class) {
 			return InetSocketAddressTransformer.SHARED_INSTANCE;
-		} else if(type == File.class) {
+		} else if (type == File.class) {
 			return FileTransformer.SHARED_INSTANCE;
-		}else if(type == Class.class) {
+		} else if (type == Class.class) {
 			return ClassTransformer.SHARED_INSTANCE;
 		}
 		return null;
