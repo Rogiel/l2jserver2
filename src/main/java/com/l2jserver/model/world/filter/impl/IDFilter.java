@@ -1,6 +1,6 @@
 package com.l2jserver.model.world.filter.impl;
 
-import com.l2jserver.model.id.ID;
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.model.world.filter.WorldObjectFilter;
 
@@ -13,7 +13,7 @@ public class IDFilter implements WorldObjectFilter<Positionable> {
 	/**
 	 * The object id
 	 */
-	private final ID id;
+	private final ObjectID<?> id;
 
 	/**
 	 * Creates a new instance
@@ -21,7 +21,7 @@ public class IDFilter implements WorldObjectFilter<Positionable> {
 	 * @param id
 	 *            the desired object ID
 	 */
-	public IDFilter(final ID id) {
+	public IDFilter(final ObjectID<?> id) {
 		this.id = id;
 	}
 

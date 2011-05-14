@@ -25,6 +25,9 @@ public class IDFactoryModule extends AbstractModule {
 		bind(IDAllocator.class).to(BitSetIDAllocator.class)
 				.in(Scopes.SINGLETON);
 
+		// ACCOUNT ID
+		install(new FactoryModuleBuilder().build(AccountIDFactory.class));
+
 		// OBJECT IDS
 		bind(CharacterIDFactory.class).in(Scopes.SINGLETON);
 		install(new FactoryModuleBuilder().build(CharacterIDGuiceFactory.class));

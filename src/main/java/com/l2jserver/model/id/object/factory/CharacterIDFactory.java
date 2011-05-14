@@ -35,7 +35,7 @@ public class CharacterIDFactory implements ObjectIDFactory<CharacterID> {
 	}
 
 	@Override
-	public CharacterID createID(int id) {
+	public CharacterID createID(Integer id) {
 		return factory.create(id);
 	}
 

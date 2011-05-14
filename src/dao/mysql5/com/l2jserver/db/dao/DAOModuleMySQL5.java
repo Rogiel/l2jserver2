@@ -1,11 +1,17 @@
 package com.l2jserver.db.dao;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.db.dao.mysql5.MySQL5CharacterDAO;
 import com.l2jserver.db.dao.mysql5.MySQL5CharacterFriendDAO;
 import com.l2jserver.db.dao.mysql5.MySQL5ItemDAO;
 
+/**
+ * Google Guice {@link Module} for MySQL5 DAOs
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class DAOModuleMySQL5 extends AbstractModule {
 	@Override
 	protected void configure() {

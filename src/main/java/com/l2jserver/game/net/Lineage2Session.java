@@ -1,5 +1,7 @@
 package com.l2jserver.game.net;
 
+import com.l2jserver.model.id.AccountID;
+
 /**
  * Lineage 2 session with the username and loginserver keys
  * 
@@ -7,9 +9,9 @@ package com.l2jserver.game.net;
  */
 public class Lineage2Session {
 	/**
-	 * The username
+	 * The account ID
 	 */
-	private final String username;
+	private final AccountID accountID;
 
 	/**
 	 * The play key, part 1
@@ -32,8 +34,8 @@ public class Lineage2Session {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param username
-	 *            the username
+	 * @param accountID
+	 *            the account ID
 	 * @param playOK1
 	 *            the play key, part 1
 	 * @param playOK2
@@ -43,9 +45,9 @@ public class Lineage2Session {
 	 * @param loginOK2
 	 *            the login key, part 2
 	 */
-	public Lineage2Session(String username, int playOK1, int playOK2,
+	public Lineage2Session(AccountID accountID, int playOK1, int playOK2,
 			int loginOK1, int loginOK2) {
-		this.username = username;
+		this.accountID = accountID;
 		this.playKey1 = playOK1;
 		this.playKey2 = playOK2;
 		this.loginKey1 = loginOK1;
@@ -53,10 +55,10 @@ public class Lineage2Session {
 	}
 
 	/**
-	 * @return the username
+	 * @return the account ID
 	 */
-	public String getUsername() {
-		return username;
+	public AccountID getAccountID() {
+		return accountID;
 	}
 
 	/**

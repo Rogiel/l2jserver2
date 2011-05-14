@@ -34,7 +34,7 @@ public class ClanIDFactory implements ObjectIDFactory<ClanID> {
 	}
 
 	@Override
-	public ClanID createID(int id) {
+	public ClanID createID(Integer id) {
 		return factory.create(id);
 	}
 

@@ -34,7 +34,7 @@ public class ItemIDFactory implements ObjectIDFactory<ItemID> {
 	}
 
 	@Override
-	public ItemID createID(int id) {
+	public ItemID createID(Integer id) {
 		return factory.create(id);
 	}
 

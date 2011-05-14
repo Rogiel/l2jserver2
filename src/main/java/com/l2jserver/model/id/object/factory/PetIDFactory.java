@@ -34,7 +34,7 @@ public class PetIDFactory implements ObjectIDFactory<PetID> {
 	}
 
 	@Override
-	public PetID createID(int id) {
+	public PetID createID(Integer id) {
 		return factory.create(id);
 	}
 

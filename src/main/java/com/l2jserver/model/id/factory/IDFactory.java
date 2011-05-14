@@ -8,12 +8,12 @@ import com.l2jserver.model.id.ID;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface IDFactory<T extends ID> {
+public interface IDFactory<I, T extends ID<?>> {
 	/**
 	 * Creates the ID object for an <b>EXISTING</b> ID.
 	 * 
 	 * @param id
 	 * @return
 	 */
-	T createID(int id);
+	T createID(I id);
 }

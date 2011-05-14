@@ -12,5 +12,5 @@ import com.l2jserver.model.id.factory.IDFactory;
  *            the subclass of {@link TemplateID} that will be createdF
  */
 public interface TemplateIDFactory<T extends TemplateID<?>> extends
-		IDFactory<T> {
+		IDFactory<Integer, T> {
 }

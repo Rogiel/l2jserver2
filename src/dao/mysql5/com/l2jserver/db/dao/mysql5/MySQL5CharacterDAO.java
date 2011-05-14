@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
+import com.l2jserver.model.id.AccountID;
+import com.l2jserver.model.id.factory.AccountIDFactory;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.template.CharacterTemplateID;
@@ -27,10 +29,25 @@ import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
 import com.l2jserver.util.Coordinate;
 
+/**
+ * {@link CharacterDAO} implementation for MySQL5
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 		implements CharacterDAO {
+	/**
+	 * The {@link CharacterID} factory
+	 */
 	private final CharacterIDFactory idFactory;
+	/**
+	 * The {@link CharacterTemplateID} factory
+	 */
 	private final CharacterTemplateIDFactory templateIdFactory;
+	/**
+	 * The {@link AccountID} factory
+	 */
+	private final AccountIDFactory accountIdFactory;
 
 	/**
 	 * Character table name
@@ -60,10 +77,12 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	@Inject
 	public MySQL5CharacterDAO(DatabaseService database,
 			final CharacterIDFactory idFactory,
-			CharacterTemplateIDFactory templateIdFactory) {
+			CharacterTemplateIDFactory templateIdFactory,
+			AccountIDFactory accountIdFactory) {
 		super(database);
 		this.idFactory = idFactory;
 		this.templateIdFactory = templateIdFactory;
+		this.accountIdFactory = accountIdFactory;
 	}
 
 	/**
@@ -88,6 +107,9 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 			final L2Character character = new L2Character(
 					template.getBaseAttributes());
 			character.setID(idFactory.createID(rs.getInt(CHAR_ID)));
+			character.setAccountID(accountIdFactory.createID(rs
+					.getString(ACCOUNT_ID)));
+
 			character.setName(rs.getString(NAME));
 
 			character.setRace(Race.valueOf(rs.getString(RACE)));
@@ -158,7 +180,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	}
 
 	@Override
-	public List<L2Character> selectByAccount(final String username) {
+	public List<L2Character> selectByAccount(final AccountID account) {
 		return database.query(new SelectListQuery<L2Character>() {
 			@Override
 			protected String query() {
@@ -168,7 +190,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 
 			@Override
 			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setString(1, username);
+				st.setString(1, account.getID());
 			}
 
 			@Override
@@ -221,7 +243,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 				int i = 1;
 
 				st.setInt(i++, character.getID().getID());
-				st.setString(i++, "rogiel"); // FIXME
+				st.setString(i++, character.getAccountID().getID()); // FIXME
 				st.setString(i++, character.getName());
 
 				st.setString(i++, character.getRace().name());

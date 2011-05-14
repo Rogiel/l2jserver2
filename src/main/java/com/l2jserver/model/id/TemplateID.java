@@ -8,7 +8,7 @@ import com.l2jserver.model.template.Template;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class TemplateID<T extends Template<?>> extends ID {
+public abstract class TemplateID<T extends Template<?>> extends ID<Integer> {
 	/**
 	 * Creates a new instance
 	 * 

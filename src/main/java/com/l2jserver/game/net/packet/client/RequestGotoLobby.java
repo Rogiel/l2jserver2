@@ -35,7 +35,7 @@ public class RequestGotoLobby extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Connection conn) {
 		final List<L2Character> chars = characterDao.selectByAccount(conn
-				.getSession().getUsername());
+				.getSession().getAccountID());
 		conn.write(CharacterSelectionListPacket.fromL2Session(
 				conn.getSession(), chars.toArray(new L2Character[0])));
 	}

@@ -1,30 +1,27 @@
 package com.l2jserver.model.id;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.template.Template;
-import com.l2jserver.model.world.WorldObject;
 
 /**
- * The ID interface. Each {@link WorldObject} or {@link Template} must be
- * represented by an unique ID.
+ * The ID interface. Each object must be represented by an unique ID.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ID {
+public abstract class ID<T> {
 	/**
 	 * The id itself
 	 */
-	protected final int id;
+	protected final T id;
 
 	@Inject
-	protected ID(int id) {
+	protected ID(T id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the id
 	 */
-	public int getID() {
+	public T getID() {
 		return id;
 	}
 
@@ -37,7 +34,7 @@ public abstract class ID {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id + this.getClass().hashCode();
+		result = prime * result + id.hashCode() + this.getClass().hashCode();
 		return result;
 	}
 
@@ -49,9 +46,14 @@ public abstract class ID {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		@SuppressWarnings("rawtypes")
 		ID other = (ID) obj;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
+
 }

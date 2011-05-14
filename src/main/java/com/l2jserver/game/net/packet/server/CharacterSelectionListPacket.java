@@ -34,7 +34,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 	public static CharacterSelectionListPacket fromL2Session(
 			Lineage2Session session, L2Character... characters) {
-		return new CharacterSelectionListPacket(session.getUsername(),
+		return new CharacterSelectionListPacket(session.getAccountID().getID(),
 				session.getPlayKey2(), -1, characters);
 	}
 

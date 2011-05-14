@@ -16,8 +16,16 @@ import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 
+/**
+ * {@link CharacterFriendDAO} implementation for MySQL5
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class MySQL5CharacterFriendDAO extends AbstractMySQL5DAO<CharacterID>
 		implements CharacterFriendDAO {
+	/**
+	 * The {@link CharacterID} factory
+	 */
 	private final CharacterIDFactory idFactory;
 
 	/**

@@ -10,6 +10,8 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterEnterWorldPacket;
+import com.l2jserver.model.id.AccountID;
+import com.l2jserver.model.id.factory.AccountIDFactory;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.BufferUtils;
 
@@ -24,6 +26,7 @@ public class AuthLoginPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x2b;
 
 	private final CharacterDAO characterDao;
+	private final AccountIDFactory accountIdFactory;
 
 	// packet
 	private String loginName;
@@ -33,8 +36,10 @@ public class AuthLoginPacket extends AbstractClientPacket {
 	private int loginKey2;
 
 	@Inject
-	public AuthLoginPacket(CharacterDAO characterDao) {
+	public AuthLoginPacket(CharacterDAO characterDao,
+			AccountIDFactory accountIdFactory) {
 		this.characterDao = characterDao;
+		this.accountIdFactory = accountIdFactory;
 	}
 
 	@Override
@@ -48,11 +53,11 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		conn.setSession(new Lineage2Session(loginName, playKey1, playKey2,
+		final AccountID accountId = accountIdFactory.createID(loginName);
+		conn.setSession(new Lineage2Session(accountId, playKey1, playKey2,
 				loginKey1, loginKey2));
 
-		final List<L2Character> chars = characterDao.selectByAccount(conn
-				.getSession().getUsername());
+		final List<L2Character> chars = characterDao.selectByAccount(accountId);
 		// conn.write(CharacterSelectionListPacket.fromL2Session(
 		// conn.getSession(), chars.toArray(new L2Character[0])));
 		conn.write(new CharacterEnterWorldPacket(chars.get(0), playKey1));

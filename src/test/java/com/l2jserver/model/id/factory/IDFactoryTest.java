@@ -26,8 +26,8 @@ public class IDFactoryTest {
 
 	@Test
 	public void testCreateID() {
-		final ID id1 = charIdFactory.createID();
-		final ID id2 = charIdFactory.createID();
+		final ID<Integer> id1 = charIdFactory.createID();
+		final ID<Integer> id2 = charIdFactory.createID();
 		Assert.assertNotNull(id1);
 		Assert.assertFalse(id1.equals(id2));
 	}

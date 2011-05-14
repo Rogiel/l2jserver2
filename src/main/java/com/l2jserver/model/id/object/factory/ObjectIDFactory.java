@@ -3,7 +3,8 @@ package com.l2jserver.model.id.object.factory;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.factory.IDFactory;
 
-public interface ObjectIDFactory<T extends ObjectID<?>> extends IDFactory<T> {
+public interface ObjectIDFactory<T extends ObjectID<?>> extends
+		IDFactory<Integer, T> {
 	/**
 	 * Generates a new ID
 	 * 

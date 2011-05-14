@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory;
@@ -21,9 +22,23 @@ import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
 
+/**
+ * {@link ItemDAO} implementation for MySQL5
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
+	/**
+	 * The {@link ItemID} factory
+	 */
 	private final ItemIDFactory idFactory;
+	/**
+	 * The {@link ItemTemplateID} factory
+	 */
 	private final ItemTemplateIDFactory templateIdFactory;
+	/**
+	 * The {@link CharacterID} factory
+	 */
 	private final CharacterIDFactory charIdFactory;
 
 	/**
@@ -46,7 +61,17 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 		this.charIdFactory = charIdFactory;
 	}
 
-	private final class CharacterMapper implements Mapper<Item> {
+	/**
+	 * The {@link Mapper} instance
+	 */
+	private final ItemMapper mapper = new ItemMapper();
+
+	/**
+	 * {@link Item} mapper class
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private final class ItemMapper implements Mapper<Item> {
 		@Override
 		public Item map(ResultSet rs) throws SQLException {
 			final ItemTemplateID templateId = templateIdFactory.createID(rs
@@ -77,7 +102,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 
 			@Override
 			protected Mapper<Item> mapper() {
-				return new CharacterMapper();
+				return mapper;
 			}
 		});
 	}
@@ -99,7 +124,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 
 			@Override
 			protected Mapper<Item> mapper() {
-				return new CharacterMapper();
+				return mapper;
 			}
 		});
 		inventory.load(items);

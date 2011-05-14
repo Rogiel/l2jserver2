@@ -2,6 +2,7 @@ package com.l2jserver.db.dao;
 
 import java.util.List;
 
+import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
@@ -36,11 +37,12 @@ public interface CharacterDAO extends DataAccessObject<L2Character>, Cacheable {
 	/**
 	 * Select an character by its name.
 	 * 
-	 * @param name
-	 *            the character name
-	 * @return the found character. Null if does not exists.
+	 * @param account
+	 *            the account id
+	 * @return the found characters. An empty list if this account has no
+	 *         characters.
 	 */
-	List<L2Character> selectByAccount(String username);
+	List<L2Character> selectByAccount(AccountID account);
 
 	/**
 	 * Loads an List of all {@link ID}s in the database

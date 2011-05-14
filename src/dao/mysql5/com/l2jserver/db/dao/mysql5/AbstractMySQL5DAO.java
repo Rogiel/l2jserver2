@@ -5,7 +5,18 @@ import com.l2jserver.service.database.AbstractDAO;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService;
 
+/**
+ * {@link AbstractDAO} for MySQL DAO implementation
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <T>
+ *            the object for the DAO
+ */
 public class AbstractMySQL5DAO<T> extends AbstractDAO<T> {
+	/**
+	 * The MySQL Database Service
+	 */
 	protected final MySQLDatabaseService database;
 
 	@Inject

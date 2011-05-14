@@ -2,6 +2,7 @@ package com.l2jserver.model.world;
 
 import java.sql.Date;
 
+import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
@@ -19,6 +20,10 @@ import com.l2jserver.model.world.character.CharacterInventory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2Character extends Player {
+	/**
+	 * The account id
+	 */
+	private AccountID accountID;
 	/**
 	 * The clan id
 	 */
@@ -76,9 +81,19 @@ public class L2Character extends Player {
 		this.attributes = new CharacterCalculatedAttributes(this);
 	}
 
-	@Override
-	public CharacterID getID() {
-		return (CharacterID) super.getID();
+	/**
+	 * @return the account ID
+	 */
+	public AccountID getAccountID() {
+		return accountID;
+	}
+
+	/**
+	 * @param accountID
+	 *            the account ID to set
+	 */
+	public void setAccountID(AccountID accountID) {
+		this.accountID = accountID;
 	}
 
 	/**
@@ -222,5 +237,10 @@ public class L2Character extends Player {
 	 */
 	public CharacterFriendList getFriendList() {
 		return friendList;
+	}
+
+	@Override
+	public CharacterID getID() {
+		return (CharacterID) super.getID();
 	}
 }
