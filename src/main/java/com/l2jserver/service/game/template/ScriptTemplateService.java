@@ -59,6 +59,11 @@ public class ScriptTemplateService extends AbstractService implements
 
 	public void addTemplate(Class<? extends Template<?>> t) {
 		final Template<?> template = injector.getInstance(t);
+		if (templates.containsKey(template.getID()))
+			throw new TemplateException("Template with ID" + template.getID()
+					+ " is already registered for "
+					+ templates.get(template.getID()));
+
 		if (template.getID() != null)
 			templates.put(template.getID(), template);
 	}

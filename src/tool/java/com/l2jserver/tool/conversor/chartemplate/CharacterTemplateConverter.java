@@ -1,4 +1,4 @@
-package com.l2jserver.tool.conversor;
+package com.l2jserver.tool.conversor.chartemplate;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

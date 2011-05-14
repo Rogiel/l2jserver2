@@ -23,6 +23,14 @@ import com.l2jserver.model.world.character.CharacterClass;
 public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x13;
 
+	public static final CharacterClass[] TEMPLATE_CLASSES = {
+			CharacterClass.HUMAN_FIGHTER, CharacterClass.HUMAN_MYSTIC,
+			CharacterClass.ELVEN_FIGHTER, CharacterClass.ELVEN_MYSTIC,
+			CharacterClass.DARK_FIGHTER, CharacterClass.DARK_MYSTIC,
+			CharacterClass.ORC_FIGHTER, CharacterClass.ORC_MYSTIC,
+			CharacterClass.DWARVEN_FIGHTER, CharacterClass.MALE_SOLDIER,
+			CharacterClass.FEMALE_SOLDIER };
+
 	/**
 	 * The logger
 	 */
@@ -43,12 +51,13 @@ public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Connection conn) {
 		log.debug("Requested character templates");
-		final CharacterTemplateID id = idFactory
-				.createID(CharacterClass.HUMAN_FIGHTER.id);
-		final CharacterTemplate template = id.getTemplate();
+		for (final CharacterClass charClass : TEMPLATE_CLASSES) {
+			final CharacterTemplateID id = idFactory.createID(charClass.id);
+			final CharacterTemplate template = id.getTemplate();
+			final CharacterTemplatePacket templatePacket = new CharacterTemplatePacket(
+					template);
 
-		final CharacterTemplatePacket templatePacket = new CharacterTemplatePacket(
-				template);
-		conn.write(templatePacket);
+			conn.write(templatePacket);
+		}
 	}
 }

@@ -1,6 +1,7 @@
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.item;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.template.capability.Consumable;
 import com.l2jserver.model.world.Item;
 
@@ -11,7 +12,8 @@ import com.l2jserver.model.world.Item;
  */
 public abstract class ConsumableTemplate extends ItemTemplate implements
 		Consumable {
-	public ConsumableTemplate(ItemTemplateID id) {
-		super(id);
+	public ConsumableTemplate(ItemTemplateID id, String icon,
+			ItemMaterial material) {
+		super(id, icon, material);
 	}
 }

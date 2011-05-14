@@ -5,13 +5,11 @@ import com.l2jserver.model.world.capability.Attacker;
 
 /**
  * Defines an {@link Template template} {@link TemplateCapability capability}
- * that an {@link Attacker} can use to attack an
- * {@link com.l2jserver.model.world.capability.Attackable}
+ * that can be selled.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
-public interface Attackable extends TemplateCapability {
-	void attack(Attacker source,
+public interface Depositable extends TemplateCapability {
+	void sell(Attacker source,
 			com.l2jserver.model.world.capability.Attackable target);
 }

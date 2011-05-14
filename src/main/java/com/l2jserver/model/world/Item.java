@@ -49,6 +49,8 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	 * Drop coordinate of this item
 	 */
 	private Coordinate coordinate;
+	
+	private int count = 1;
 
 	public Item(ItemTemplateID templateID) {
 		this.templateID = templateID;

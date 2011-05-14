@@ -1,9 +1,9 @@
 package script.template.item.armor;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.template.ArmorTemplate;
 import com.l2jserver.model.template.capability.Enchantable;
 import com.l2jserver.model.template.capability.Penalty;
+import com.l2jserver.model.template.item.ArmorTemplate;
 import com.l2jserver.model.world.capability.Equiper;
 
 public abstract class AbstractGradeAArmorTemplate extends ArmorTemplate

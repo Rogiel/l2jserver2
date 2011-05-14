@@ -12,15 +12,9 @@ public class AdenaItemTemplate extends ItemTemplate implements Stackable<Item> {
 	@Inject
 	public AdenaItemTemplate(ItemTemplateIDFactory factory) {
 		super(factory.createID(ID));
-	}
-
-	@Override
-	public void stack(Item... object) {
-		// final Item item1 = object[0];
-		// if (object.length >= 2) {
-		// for (int i = 1; i < object.length; i++) {
-		// // TODO set item amount
-		// }
-		// }
+		this.icon = "icon.etc_adena_i00";
+		this.immediateEffect = true;
+		this.material = ItemMaterial.GOLD;
+		this.price = 1;
 	}
 }
