@@ -1,3 +1,19 @@
+/*
+ * This file is part of l2jserver <l2jserver.com>.
+ *
+ * l2jserver is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * l2jserver is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package com.l2jserver.model.game;
 
 import com.l2jserver.model.id.object.CharacterID;
@@ -10,7 +26,7 @@ import com.l2jserver.model.world.L2Character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterShortcut {
+public class Shortcut {
 	/**
 	 * The character id
 	 */
@@ -86,7 +102,7 @@ public class CharacterShortcut {
 	 * @param character
 	 *            the character
 	 */
-	public CharacterShortcut(CharacterID characterID) {
+	public Shortcut(CharacterID characterID) {
 		this.characterID = characterID;
 	}
 
@@ -100,7 +116,7 @@ public class CharacterShortcut {
 	 * @param characterType
 	 *            the character type
 	 */
-	public CharacterShortcut(CharacterID characterID, ItemID itemID,
+	public Shortcut(CharacterID characterID, ItemID itemID,
 			int characterType) {
 		this.type = ShortcutType.ITEM;
 		this.characterID = characterID;
@@ -120,7 +136,7 @@ public class CharacterShortcut {
 	 * @param characterType
 	 *            the character type
 	 */
-	public CharacterShortcut(CharacterID characterID, SkillTemplateID skillID,
+	public Shortcut(CharacterID characterID, SkillTemplateID skillID,
 			int level, int characterType) {
 		this.type = ShortcutType.SKILL;
 		this.characterID = characterID;
@@ -143,7 +159,7 @@ public class CharacterShortcut {
 	 * @param characterType
 	 *            the character type
 	 */
-	public CharacterShortcut(CharacterID characterID, ShortcutType type,
+	public Shortcut(CharacterID characterID, ShortcutType type,
 			int slot, int page, int characterType) {
 		this.characterID = characterID;
 		this.slot = slot;

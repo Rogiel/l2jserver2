@@ -1,10 +1,26 @@
+/*
+ * This file is part of l2jserver <l2jserver.com>.
+ *
+ * l2jserver is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * l2jserver is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package com.l2jserver.model.world.character;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import com.l2jserver.model.game.CharacterShortcut;
+import com.l2jserver.model.game.Shortcut;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -13,7 +29,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
+public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	/**
 	 * The character
 	 */
@@ -21,8 +37,8 @@ public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
 	/**
 	 * The shortcut list
 	 */
-	private List<CharacterShortcut> shortcuts = CollectionFactory
-			.newList(CharacterShortcut.class);
+	private List<Shortcut> shortcuts = CollectionFactory
+			.newList(Shortcut.class);
 
 	/**
 	 * Creates a new instance
@@ -40,7 +56,7 @@ public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
 	 * @param shortcut
 	 *            the shortcut to be added
 	 */
-	public void register(CharacterShortcut shortcut) {
+	public void register(Shortcut shortcut) {
 		shortcuts.add(shortcut);
 	}
 
@@ -50,7 +66,7 @@ public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
 	 * @param shortcut
 	 *            the shortcut to be removed
 	 */
-	public void unregister(CharacterShortcut shortcut) {
+	public void unregister(Shortcut shortcut) {
 		shortcuts.remove(shortcut);
 	}
 
@@ -64,7 +80,7 @@ public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
 	 * @param shortcut2
 	 *            the second shortcut
 	 */
-	public void swap(CharacterShortcut shortcut1, CharacterShortcut shortcut2) {
+	public void swap(Shortcut shortcut1, Shortcut shortcut2) {
 		// only swap if is registered already
 		if (!shortcuts.contains(shortcut1) || !shortcuts.contains(shortcut2))
 			return;
@@ -98,12 +114,12 @@ public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
 	 * @param shortcuts
 	 *            the collection of shortcuts
 	 */
-	public void load(Collection<CharacterShortcut> shortcuts) {
+	public void load(Collection<Shortcut> shortcuts) {
 		this.shortcuts.addAll(shortcuts);
 	}
 
 	@Override
-	public Iterator<CharacterShortcut> iterator() {
+	public Iterator<Shortcut> iterator() {
 		return shortcuts.iterator();
 	}
 

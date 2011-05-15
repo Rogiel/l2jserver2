@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.l2jserver.service.game.scripting.impl.javacc;
 
 import java.util.Locale;
