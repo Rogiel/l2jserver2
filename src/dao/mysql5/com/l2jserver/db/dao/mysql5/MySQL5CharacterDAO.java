@@ -3,6 +3,7 @@ package com.l2jserver.db.dao.mysql5;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
 
 import com.google.inject.Inject;
@@ -10,7 +11,9 @@ import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.factory.AccountIDFactory;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.factory.ClanIDFactory;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
 import com.l2jserver.model.template.CharacterTemplate;
@@ -48,6 +51,10 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	 * The {@link AccountID} factory
 	 */
 	private final AccountIDFactory accountIdFactory;
+	/**
+	 * The {@link ClanID} factory
+	 */
+	private final ClanIDFactory clanIdFactory;
 
 	/**
 	 * Character table name
@@ -56,6 +63,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	// FIELDS
 	public static final String CHAR_ID = "character_id";
 	public static final String ACCOUNT_ID = "account_id";
+	public static final String CLAN_ID = "clan_id";
 	public static final String NAME = "name";
 
 	public static final String RACE = "race";
@@ -79,11 +87,12 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	public MySQL5CharacterDAO(DatabaseService database,
 			final CharacterIDFactory idFactory,
 			CharacterTemplateIDFactory templateIdFactory,
-			AccountIDFactory accountIdFactory) {
+			AccountIDFactory accountIdFactory, ClanIDFactory clanIdFactory) {
 		super(database);
 		this.idFactory = idFactory;
 		this.templateIdFactory = templateIdFactory;
 		this.accountIdFactory = accountIdFactory;
+		this.clanIdFactory = clanIdFactory;
 	}
 
 	/**
@@ -107,9 +116,12 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 
 			final L2Character character = new L2Character(
 					template.getBaseAttributes());
+
 			character.setID(idFactory.createID(rs.getInt(CHAR_ID)));
 			character.setAccountID(accountIdFactory.createID(rs
 					.getString(ACCOUNT_ID)));
+			if (rs.getString(CLAN_ID) != null)
+				character.setClanID(clanIdFactory.createID(rs.getInt(CLAN_ID)));
 
 			character.setName(rs.getString(NAME));
 
@@ -229,12 +241,13 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
-						+ ACCOUNT_ID + "`,`" + NAME + "`,`" + RACE + "`,`"
-						+ CLASS + "`,`" + SEX + "`,`" + LEVEL + "`,`" + POINT_X
-						+ "`,`" + POINT_Y + "`,`" + POINT_ANGLE + "`,`"
-						+ APPEARANCE_HAIR_STYLE + "`,`" + APPEARANCE_HAIR_COLOR
-						+ "`,`" + APPEARANCE_FACE
-						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+						+ ACCOUNT_ID + "`,`" + CLAN_ID + "`,`" + NAME + "`,`"
+						+ RACE + "`,`" + CLASS + "`,`" + SEX + "`,`" + LEVEL
+						+ "`,`" + POINT_X + "`,`" + POINT_Y + "`,`" + POINT_Z
+						+ "`,`" + POINT_ANGLE + "`,`" + APPEARANCE_HAIR_STYLE
+						+ "`,`" + APPEARANCE_HAIR_COLOR + "`,`"
+						+ APPEARANCE_FACE
+						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			}
 
 			@Override
@@ -245,7 +258,12 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 				int i = 1;
 
 				st.setInt(i++, character.getID().getID());
-				st.setString(i++, character.getAccountID().getID()); // FIXME
+				st.setString(i++, character.getAccountID().getID());
+				if (character.getClanID() != null)
+					st.setInt(i++, character.getClanID().getID());
+				else
+					st.setNull(i++, Types.INTEGER);
+
 				st.setString(i++, character.getName());
 
 				st.setString(i++, character.getRace().name());
@@ -253,9 +271,13 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 				st.setString(i++, character.getSex().name());
 
 				st.setInt(i++, character.getLevel());
-				st.setInt(i++, character.getPosition().getX());
-				st.setInt(i++, character.getPosition().getY());
-				st.setInt(i++, character.getPosition().getZ());
+				// TODO save experience
+				// TODO save sp
+
+				st.setInt(i++, character.getPoint().getX());
+				st.setInt(i++, character.getPoint().getY());
+				st.setInt(i++, character.getPoint().getZ());
+				st.setDouble(i++, character.getPoint().getAngle());
 
 				// appearance
 				st.setString(i++, appearance.getHairStyle().name());

@@ -9,7 +9,7 @@ import com.l2jserver.game.ProtocolVersion;
  */
 public class L2JConstants {
 	/**
-	 * Indicated the supported protocol for this compilation.
+	 * Indicate the supported protocol for this compilation.
 	 * <p>
 	 * This <b>MUST</b> be hard-coded!
 	 */

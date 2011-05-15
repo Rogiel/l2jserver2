@@ -1,8 +1,10 @@
 package com.l2jserver.model.world;
 
+import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.capability.Attackable;
 import com.l2jserver.model.world.actor.ActorEffects;
+import com.l2jserver.model.world.actor.ActorSkillContainer;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.capability.Castable;
@@ -31,15 +33,25 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 		HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(
 				0x05);
 
-		public final int option;
+		/**
+		 * The numeric ID representing this race
+		 */
+		public final int id;
 
-		Race(int option) {
-			this.option = option;
+		Race(int id) {
+			this.id = id;
 		}
 
-		public static Race fromOption(int option) {
+		/**
+		 * Finds the race based on the <tt>id</tt>
+		 * 
+		 * @param id
+		 *            the id
+		 * @return the race constant
+		 */
+		public static Race fromOption(int id) {
 			for (final Race race : values()) {
-				if (race.option == option)
+				if (race.id == id)
 					return race;
 			}
 			return null;
@@ -91,6 +103,10 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	 * The currently effects active on the actor
 	 */
 	protected final ActorEffects effects = new ActorEffects(this);
+	/**
+	 * The skills learned by this actor
+	 */
+	protected final ActorSkillContainer skills = new ActorSkillContainer(this);
 
 	@Override
 	public void receiveDamage(int damage) {
@@ -213,6 +229,11 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	}
 
 	@Override
+	public ActorSkillContainer getSkills() {
+		return skills;
+	}
+
+	@Override
 	public void die(WorldObject killer) {
 		// TODO
 	}
@@ -246,5 +267,10 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	@Override
 	public void equip(Equiper equiper) {
 		// TODO
+	}
+
+	@Override
+	public ActorID<?> getID() {
+		return (ActorID<?>) super.getID();
 	}
 }

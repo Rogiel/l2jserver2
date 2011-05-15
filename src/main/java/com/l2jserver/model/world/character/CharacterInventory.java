@@ -46,10 +46,10 @@ public class CharacterInventory implements Iterable<Item> {
 	}
 
 	/**
-	 * @return the character
+	 * @return the amount if items in inventory
 	 */
-	public L2Character getCharacter() {
-		return character;
+	public int getItemCount() {
+		return items.size();
 	}
 
 	@Override
@@ -84,5 +84,12 @@ public class CharacterInventory implements Iterable<Item> {
 	 */
 	public enum InventoryPaperdoll {
 		UNDERWEAR, HEAD, HAIR1, HAIR2, NECK, RIGHT_HAND, LEFT_HAND, RIGHT_EAR, LEFT_EAR, GLOVES, LEGS, LEFT_FEET, RIGHT_FEET, RIGHT_FINGER, LEFT_FINGER, LEFT_BRACELET, RIGHT_BRACELET, DECORATION_1, DECOREATION_2, DECORATION_3, DECORATION_4, DECORATION_5, DECORATION_6, CLOAK, BELT;
+	}
+
+	/**
+	 * @return the character
+	 */
+	public L2Character getCharacter() {
+		return character;
 	}
 }

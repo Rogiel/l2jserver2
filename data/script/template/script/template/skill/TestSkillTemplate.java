@@ -13,6 +13,7 @@ public class TestSkillTemplate extends SkillTemplate {
 	@Inject
 	public TestSkillTemplate(SkillTemplateIDFactory factory) {
 		super(factory.createID(ID));
+		this.maximumLevel = 1;
 	}
 
 	@Override

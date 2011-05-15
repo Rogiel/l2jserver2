@@ -63,7 +63,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeInt(0x00); // ??
 
 			buffer.writeInt(0x01); // sex
-			buffer.writeInt(character.getRace().option); // race
+			buffer.writeInt(character.getRace().id); // race
 
 			// if (character.getClassId() == character.getBaseClassId())
 			buffer.writeInt(character.getCharacterClass().id); // base class id

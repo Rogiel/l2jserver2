@@ -25,7 +25,7 @@ public class CharacterTemplatePacket extends AbstractServerPacket {
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(templates.length);
 		for (final CharacterTemplate template : templates) {
-			buffer.writeInt(template.getRace().option);
+			buffer.writeInt(template.getRace().id);
 			buffer.writeInt(template.getCharacterClass().id);
 			buffer.writeInt(0x46);
 			buffer.writeInt(template.getBaseAttributes().getStrength());

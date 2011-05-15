@@ -57,6 +57,6 @@ public class PetIDFactory implements ObjectIDFactory<PetID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public PetID create(@Assisted int id);
+		PetID create(@Assisted int id);
 	}
 }

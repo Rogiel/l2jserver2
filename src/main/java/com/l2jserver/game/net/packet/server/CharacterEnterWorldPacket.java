@@ -34,7 +34,7 @@ public class CharacterEnterWorldPacket extends AbstractServerPacket {
 		buffer.writeInt(0x00); // clan id
 		buffer.writeInt(0x00); // ??
 		buffer.writeInt(character.getSex().option);
-		buffer.writeInt(character.getRace().option);
+		buffer.writeInt(character.getRace().id);
 		buffer.writeInt(character.getCharacterClass().id);
 		buffer.writeInt(0x01); // active ??
 		buffer.writeInt(character.getPosition().getX());

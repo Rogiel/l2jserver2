@@ -57,6 +57,6 @@ public class ClanIDFactory implements ObjectIDFactory<ClanID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public ClanID create(@Assisted int id);
+		ClanID create(@Assisted int id);
 	}
 }

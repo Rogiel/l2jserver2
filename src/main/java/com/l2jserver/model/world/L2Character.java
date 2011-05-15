@@ -13,6 +13,7 @@ import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
+import com.l2jserver.model.world.character.CharacterShortcutContainer;
 
 /**
  * This class represents a playable character in Lineage II world.
@@ -69,6 +70,11 @@ public class L2Character extends Player {
 	 * The list of friend of this character
 	 */
 	private final CharacterFriendList friendList = new CharacterFriendList(this);
+	/**
+	 * The shortcut container of this character
+	 */
+	private final CharacterShortcutContainer shortcuts = new CharacterShortcutContainer(
+			this);
 
 	/**
 	 * Creates a new instance
@@ -237,6 +243,13 @@ public class L2Character extends Player {
 	 */
 	public CharacterFriendList getFriendList() {
 		return friendList;
+	}
+
+	/**
+	 * @return the shortcuts
+	 */
+	public CharacterShortcutContainer getShortcuts() {
+		return shortcuts;
 	}
 
 	@Override

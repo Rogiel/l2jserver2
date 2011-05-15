@@ -12,21 +12,10 @@ import com.l2jserver.service.game.template.TemplateService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterTemplateID extends TemplateID<CharacterTemplate> {
-	/**
-	 * The template service
-	 */
-	private final TemplateService templateService;
-
+public class CharacterTemplateID extends ActorTemplateID<CharacterTemplate> {
 	@Inject
 	protected CharacterTemplateID(@Assisted int id,
 			TemplateService templateService) {
-		super(id);
-		this.templateService = templateService;
-	}
-
-	@Override
-	public CharacterTemplate getTemplate() {
-		return templateService.getTemplate(this);
+		super(id, templateService);
 	}
 }

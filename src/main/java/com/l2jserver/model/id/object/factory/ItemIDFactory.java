@@ -57,6 +57,6 @@ public class ItemIDFactory implements ObjectIDFactory<ItemID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public ItemID create(@Assisted int id);
+		ItemID create(@Assisted int id);
 	}
 }

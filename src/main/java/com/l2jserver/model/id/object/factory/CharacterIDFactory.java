@@ -58,6 +58,6 @@ public class CharacterIDFactory implements ObjectIDFactory<CharacterID> {
 		 *            the numeric ID
 		 * @return the new ID created by injection
 		 */
-		public CharacterID create(@Assisted int id);
+		CharacterID create(@Assisted int id);
 	}
 }
