@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.cache;
 
+import net.sf.ehcache.Cache;
+
 import com.l2jserver.service.Service;
 
 /**
@@ -33,15 +35,54 @@ import com.l2jserver.service.Service;
  */
 public interface CacheService extends Service {
 	/**
-	 * Decores the <tt>instance</tt> with the cache
+	 * Decorates the <tt>instance</tt> with the cache. Note that
+	 * <tt>interfaceType</tt> must be an interface!
 	 * 
 	 * @param <T>
 	 *            the <tt>instance</tt> type
 	 * @param interfaceType
 	 *            the interface type
 	 * @param instance
-	 *            the instance
+	 *            the instance implementing the interface
 	 * @return the cache-decorated object
 	 */
 	<T extends Cacheable> T decorate(Class<T> interfaceType, T instance);
+
+	/**
+	 * Creates a new cache with default configurations. Eviction mode is LRU
+	 * (Last Recently Used). If you wish more customization, you should manually
+	 * create the cache and register it using {@link #register(Cache)}.
+	 * 
+	 * @param name
+	 *            the cache name
+	 * @size the maximum cache size
+	 * @return the created cache
+	 */
+	Cache createCache(String name, int size);
+
+	/**
+	 * Creates a new cache with default configurations. The default cache size
+	 * is 200.
+	 * 
+	 * @param name
+	 *            the cache name
+	 * @return the created cache
+	 */
+	Cache createCache(String name);
+
+	/**
+	 * Registers a new cache
+	 * 
+	 * @param cache
+	 *            the cache
+	 */
+	void register(Cache cache);
+
+	/**
+	 * Unregisters an already registered cache
+	 * 
+	 * @param cache
+	 *            the cache
+	 */
+	void unregister(Cache cache);
 }

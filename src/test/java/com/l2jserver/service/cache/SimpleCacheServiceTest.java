@@ -23,7 +23,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 public class SimpleCacheServiceTest {
-	private final SimpleCacheService cacheService = new SimpleCacheService();
+	private final EhCacheService cacheService = new EhCacheService();
 
 	@Test
 	public void testNoArgs() {

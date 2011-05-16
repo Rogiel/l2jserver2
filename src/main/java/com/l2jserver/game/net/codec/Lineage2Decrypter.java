@@ -72,11 +72,9 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 	 * 
 	 * @return the generated key
 	 */
-	public Lineage2CryptographyKey enable() {
-		Lineage2CryptographyKey key = Lineage2CryptographyKey.createRandomKey();
+	public void enable(Lineage2CryptographyKey key) {
 		this.setKey(key);
 		this.setEnabled(true);
-		return key;
 	}
 
 	/**

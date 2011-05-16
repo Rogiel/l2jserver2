@@ -30,11 +30,17 @@ import com.l2jserver.model.world.character.CharacterInventory;
  */
 public class InventoryPacket extends AbstractServerPacket {
 	/**
-	 * Message OPCODE
+	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x11;
 
+	/**
+	 * The character inventory
+	 */
 	private CharacterInventory inventory;
+	/**
+	 * Whether or not to open the inventory window
+	 */
 	private boolean showWindow = false;
 
 	public InventoryPacket(CharacterInventory inventory) {

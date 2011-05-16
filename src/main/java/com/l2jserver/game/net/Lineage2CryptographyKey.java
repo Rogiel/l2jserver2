@@ -16,10 +16,6 @@
  */
 package com.l2jserver.game.net;
 
-import java.util.Arrays;
-
-import com.l2jserver.util.BlowFishKeygen;
-
 /**
  * Manages the cryptography key used to write/read packets. This class also
  * updates the key once data has been sent/received.
@@ -40,16 +36,6 @@ public class Lineage2CryptographyKey implements Cloneable {
 	 */
 	public Lineage2CryptographyKey(byte[] key) {
 		this.key = key;
-	}
-
-	/**
-	 * Crates a new random key
-	 * 
-	 * @return the random created key
-	 */
-	public static Lineage2CryptographyKey createRandomKey() {
-		return new Lineage2CryptographyKey(Arrays.copyOf(
-				BlowFishKeygen.getRandomKey(), 16));
 	}
 
 	/**

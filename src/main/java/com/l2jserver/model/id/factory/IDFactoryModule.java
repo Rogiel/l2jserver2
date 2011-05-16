@@ -24,6 +24,8 @@ import com.l2jserver.model.id.object.allocator.BitSetIDAllocator;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory.CharacterIDGuiceFactory;
+import com.l2jserver.model.id.object.factory.ClanIDFactory;
+import com.l2jserver.model.id.object.factory.ClanIDFactory.ClanIDGuiceFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory.ItemIDGuiceFactory;
 import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
@@ -51,9 +53,9 @@ public class IDFactoryModule extends AbstractModule {
 		bind(ItemIDFactory.class).in(Scopes.SINGLETON);
 		install(new FactoryModuleBuilder().build(ItemIDGuiceFactory.class));
 
-		// bind(ClanIDFactory.class).in(Scopes.SINGLETON);
-		// install(new FactoryModuleBuilder().build(ClanIDGuiceFactory.class));
-		//
+		bind(ClanIDFactory.class).in(Scopes.SINGLETON);
+		install(new FactoryModuleBuilder().build(ClanIDGuiceFactory.class));
+
 		// bind(PetIDFactory.class).in(Scopes.SINGLETON);
 		// install(new FactoryModuleBuilder().build(PetIDGuiceFactory.class));
 

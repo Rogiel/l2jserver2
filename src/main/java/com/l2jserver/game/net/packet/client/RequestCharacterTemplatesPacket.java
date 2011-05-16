@@ -37,8 +37,14 @@ import com.l2jserver.model.world.character.CharacterClass;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x13;
 
+	/**
+	 * List of {@link CharacterClass} templates sent to the client
+	 */
 	public static final CharacterClass[] TEMPLATE_CLASSES = {
 			CharacterClass.HUMAN_FIGHTER, CharacterClass.HUMAN_MYSTIC,
 			CharacterClass.ELVEN_FIGHTER, CharacterClass.ELVEN_MYSTIC,
@@ -53,6 +59,9 @@ public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
 	private static final Logger log = LoggerFactory
 			.getLogger(RequestCharacterTemplatesPacket.class);
 
+	/**
+	 * The {@link CharacterTemplateID} factory
+	 */
 	private final CharacterTemplateIDFactory idFactory;
 
 	@Inject

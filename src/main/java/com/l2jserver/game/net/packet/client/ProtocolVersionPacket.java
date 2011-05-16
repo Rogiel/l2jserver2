@@ -22,12 +22,14 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
 import com.l2jserver.L2JConstants;
 import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.KeyPacket;
+import com.l2jserver.service.blowfish.BlowfishKeygenService;
 
 /**
  * In this packet the client is informing its protocol version. It is possible
@@ -38,6 +40,9 @@ import com.l2jserver.game.net.packet.server.KeyPacket;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ProtocolVersionPacket extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x0e;
 
 	/**
@@ -46,8 +51,23 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 	private final Logger log = LoggerFactory
 			.getLogger(ProtocolVersionPacket.class);
 
+	// services
+	/**
+	 * The {@link BlowfishKeygenService} implementation. Use to generate
+	 * cryptography keys.
+	 */
+	private final BlowfishKeygenService keygen;
+
 	// packet
+	/**
+	 * The client version of the protocol
+	 */
 	private ProtocolVersion version;
+
+	@Inject
+	public ProtocolVersionPacket(BlowfishKeygenService keygen) {
+		this.keygen = keygen;
+	}
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
@@ -58,7 +78,10 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Connection conn) {
 		// generate a new key
-		final Lineage2CryptographyKey inKey = conn.getDecrypter().enable();
+		final Lineage2CryptographyKey inKey = new Lineage2CryptographyKey(
+				keygen.generate());
+
+		conn.getDecrypter().enable(inKey);
 		final Lineage2CryptographyKey outKey = inKey.clone();
 		log.debug("Decrypter has been enabled");
 

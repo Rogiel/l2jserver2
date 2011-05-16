@@ -20,20 +20,38 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.WeakHashMap;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
+import net.sf.ehcache.config.CacheConfiguration;
+import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
+
 import com.l2jserver.service.AbstractService;
-import com.l2jserver.util.factory.CollectionFactory;
+import com.l2jserver.service.ServiceStartException;
+import com.l2jserver.service.ServiceStopException;
 
 /**
  * Simple cache that stores invocation results in a {@link WeakHashMap}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SimpleCacheService extends AbstractService implements CacheService {
-	private final Map<MethodInvocation, Object> cache = CollectionFactory
-			.newWeakMap(MethodInvocation.class, Object.class);
+public class EhCacheService extends AbstractService implements CacheService {
+	/**
+	 * The cache manager
+	 */
+	private CacheManager manager;
+	/**
+	 * The interface cache
+	 */
+	private Cache interfaceCache;
+
+	@Override
+	public void start() throws ServiceStartException {
+		manager = new CacheManager();
+		interfaceCache = createCache("interface-cache");
+	}
 
 	@Override
 	public <T extends Cacheable> T decorate(final Class<T> interfaceType,
@@ -51,10 +69,11 @@ public class SimpleCacheService extends AbstractService implements CacheService 
 							return method.invoke(instance, args);
 						final MethodInvocation invocation = new MethodInvocation(
 								method, args);
-						Object result = cache.get(invocation);
+						Object result = interfaceCache.get(invocation)
+								.getObjectValue();
 						if (result == null) {
 							result = method.invoke(instance, args);
-							cache.put(invocation, result);
+							interfaceCache.put(new Element(invocation, result));
 						}
 						return result;
 					}
@@ -62,7 +81,43 @@ public class SimpleCacheService extends AbstractService implements CacheService 
 		return proxy;
 	}
 
-	private class MethodInvocation {
+	@Override
+	public Cache createCache(String name, int size) {
+		Cache cache = new Cache(
+				new CacheConfiguration("database-service", size)
+						.memoryStoreEvictionPolicy(
+								MemoryStoreEvictionPolicy.LRU)
+						.overflowToDisk(true).eternal(false)
+						.timeToLiveSeconds(60).timeToIdleSeconds(30)
+						.diskPersistent(false)
+						.diskExpiryThreadIntervalSeconds(0));
+		register(cache);
+		return cache;
+	}
+
+	@Override
+	public Cache createCache(String name) {
+		return createCache(name, 200);
+	}
+
+	@Override
+	public void register(Cache cache) {
+		manager.addCache(cache);
+	}
+
+	@Override
+	public void unregister(Cache cache) {
+		manager.removeCache(cache.getName());
+	}
+
+	@Override
+	public void stop() throws ServiceStopException {
+		manager.removalAll();
+		manager.shutdown();
+		interfaceCache = null;
+	}
+
+	private static class MethodInvocation {
 		private final Method method;
 		private final Object[] args;
 

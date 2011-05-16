@@ -23,6 +23,7 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
+import com.l2jserver.service.network.NettyNetworkService;
 
 /**
  * This handler dispatches the {@link ClientPacket#process(Lineage2Connection)}
@@ -33,15 +34,25 @@ import com.l2jserver.game.net.packet.ClientPacket;
  */
 public class Lineage2PacketHandler extends SimpleChannelHandler {
 	/**
+	 * The {@link NettyNetworkService}
+	 */
+	private final NettyNetworkService nettyNetworkService;
+	/**
 	 * The Lineage 2 connection
 	 */
 	private Lineage2Connection connection;
+
+	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService) {
+		this.nettyNetworkService = nettyNetworkService;
+	}
 
 	@Override
 	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
 		connection = new Lineage2Connection(e.getChannel());
 		connection.getPacketWriter().setConnection(connection);
+
+		nettyNetworkService.register(connection);
 
 		super.channelOpen(ctx, e);
 	}
@@ -61,5 +72,11 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	public void writeRequested(ChannelHandlerContext ctx, MessageEvent e)
 			throws Exception {
 		super.writeRequested(ctx, e);
+	}
+
+	@Override
+	public void channelDisconnected(ChannelHandlerContext ctx,
+			ChannelStateEvent e) throws Exception {
+		nettyNetworkService.unregister(connection);
 	}
 }

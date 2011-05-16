@@ -14,22 +14,45 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.logging;
+package com.l2jserver.service.blowfish;
 
-import org.apache.log4j.BasicConfigurator;
+import java.util.Random;
 
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
+import com.l2jserver.service.ServiceStopException;
 
-/**
- * Logging service implementation for Log4J
- * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
- */
-public class Log4JLoggingService extends AbstractService implements
-		LoggingService {
+public class PseudoRandomBlowfishKeygenService extends AbstractService
+		implements BlowfishKeygenService {
+	private Random random;
+
 	@Override
 	public void start() throws ServiceStartException {
-		BasicConfigurator.configure();
+		random = new Random();
+	}
+
+	@Override
+	public byte[] generate() {
+		final byte[] key = new byte[16];
+		// randomize the 8 first bytes
+		for (int i = 0; i < key.length; i++) {
+			key[i] = (byte) random.nextInt(255);
+		}
+
+		// the last 8 bytes are static
+		key[8] = (byte) 0xc8;
+		key[9] = (byte) 0x27;
+		key[10] = (byte) 0x93;
+		key[11] = (byte) 0x01;
+		key[12] = (byte) 0xa1;
+		key[13] = (byte) 0x6c;
+		key[14] = (byte) 0x31;
+		key[15] = (byte) 0x97;
+		return key;
+	}
+
+	@Override
+	public void stop() throws ServiceStopException {
+		random = null;
 	}
 }

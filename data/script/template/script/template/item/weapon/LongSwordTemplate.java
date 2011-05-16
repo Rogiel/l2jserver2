@@ -24,7 +24,7 @@ import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 
 public class LongSwordTemplate extends AbstractNoGradeWeaponTemplate {
-	public static final int ID = 57;
+	public static final int ID = 2;
 
 	@Inject
 	public LongSwordTemplate(ItemTemplateIDFactory factory) {

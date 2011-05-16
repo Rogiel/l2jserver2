@@ -30,6 +30,9 @@ import com.l2jserver.game.net.packet.AbstractClientPacket;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class LogoutPacket extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x00;
 
 	/**

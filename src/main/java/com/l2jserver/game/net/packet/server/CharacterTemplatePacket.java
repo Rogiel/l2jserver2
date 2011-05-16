@@ -28,8 +28,14 @@ import com.l2jserver.model.template.CharacterTemplate;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterTemplatePacket extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x0d;
 
+	/**
+	 * The character template list
+	 */
 	private CharacterTemplate[] templates;
 
 	public CharacterTemplatePacket(CharacterTemplate... templates) {

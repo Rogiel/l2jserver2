@@ -19,6 +19,10 @@ package com.l2jserver.service;
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
 import com.google.inject.Scopes;
+import com.l2jserver.service.blowfish.BlowfishKeygenService;
+import com.l2jserver.service.blowfish.SecureBlowfishKeygenService;
+import com.l2jserver.service.cache.CacheService;
+import com.l2jserver.service.cache.EhCacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
@@ -49,9 +53,13 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
 				.in(Scopes.SINGLETON);
+		bind(CacheService.class).to(EhCacheService.class).in(
+				Scopes.SINGLETON);
 		bind(DatabaseService.class).to(MySQLDatabaseService.class).in(
 				Scopes.SINGLETON);
 
+		bind(BlowfishKeygenService.class).to(SecureBlowfishKeygenService.class)
+				.in(Scopes.SINGLETON);
 		bind(NetworkService.class).to(NettyNetworkService.class).in(
 				Scopes.SINGLETON);
 		bind(ScriptingService.class).to(ScriptingServiceImpl.class).in(

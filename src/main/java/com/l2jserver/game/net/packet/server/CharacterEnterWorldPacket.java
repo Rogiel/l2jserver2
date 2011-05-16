@@ -30,11 +30,28 @@ import com.l2jserver.util.BufferUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterEnterWorldPacket extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x0b;
 
+	/**
+	 * The entering character
+	 */
 	private final L2Character character;
+	/**
+	 * The session ID
+	 */
 	private final int sessionId;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param character
+	 *            the character
+	 * @param sessionId
+	 *            the session id
+	 */
 	public CharacterEnterWorldPacket(L2Character character, int sessionId) {
 		super(OPCODE);
 		this.character = character;

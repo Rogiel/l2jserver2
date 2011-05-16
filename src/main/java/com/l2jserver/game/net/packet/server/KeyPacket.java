@@ -32,7 +32,7 @@ import com.l2jserver.game.net.packet.AbstractServerPacket;
  */
 public class KeyPacket extends AbstractServerPacket {
 	/**
-	 * Message OPCODE
+	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x2e;
 

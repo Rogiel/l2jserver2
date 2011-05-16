@@ -14,22 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.logging;
+package com.l2jserver.service.blowfish;
 
-import org.apache.log4j.BasicConfigurator;
+import com.l2jserver.service.Service;
 
-import com.l2jserver.service.AbstractService;
-import com.l2jserver.service.ServiceStartException;
-
-/**
- * Logging service implementation for Log4J
- * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
- */
-public class Log4JLoggingService extends AbstractService implements
-		LoggingService {
-	@Override
-	public void start() throws ServiceStartException {
-		BasicConfigurator.configure();
-	}
+public interface BlowfishKeygenService extends Service {
+	byte[] generate();
 }

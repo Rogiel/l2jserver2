@@ -22,13 +22,18 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 
 /**
- * The client is requesting a logout. Currently, when this packet is received
- * the connection is immediately closed.
+ * The client is requesting a the key mappings.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class RequestKeyMapping extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE1
+	 */
 	public static final int OPCODE1 = 0xd0;
+	/**
+	 * The packet OPCODE2
+	 */
 	public static final int OPCODE2 = 0x21;
 
 	@Override

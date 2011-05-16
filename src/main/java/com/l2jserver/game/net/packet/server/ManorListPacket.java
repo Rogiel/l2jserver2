@@ -29,10 +29,13 @@ import com.l2jserver.util.BufferUtils;
  */
 public class ManorListPacket extends AbstractServerPacket {
 	/**
-	 * Message OPCODE
+	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0xfe;
 
+	/**
+	 * List of manors to be sent
+	 */
 	private String[] manors;
 
 	public ManorListPacket(String... manors) {

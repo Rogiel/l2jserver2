@@ -34,9 +34,18 @@ import com.l2jserver.model.world.L2Character;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class RequestGotoLobby extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE1
+	 */
 	public static final int OPCODE1 = 0xd0;
+	/**
+	 * The packet OPCODE2
+	 */
 	public static final int OPCODE2 = 0x36;
 
+	/**
+	 * The {@link CharacterDAO} implementation
+	 */
 	private final CharacterDAO characterDao;
 
 	@Inject

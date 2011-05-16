@@ -17,6 +17,7 @@
 package com.l2jserver.model.id.object;
 
 import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Clan;
@@ -33,7 +34,7 @@ public final class ClanID extends ObjectID<Clan> {
 	private final ClanDAO clanDao;
 
 	@Inject
-	protected ClanID(int id, ClanDAO clanDao) {
+	protected ClanID(@Assisted int id, ClanDAO clanDao) {
 		super(id);
 		this.clanDao = clanDao;
 	}

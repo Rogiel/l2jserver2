@@ -29,6 +29,9 @@ import com.l2jserver.game.net.packet.server.InventoryPacket;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class EnterWorld extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x11;
 
 	@Override

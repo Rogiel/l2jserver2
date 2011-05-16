@@ -25,6 +25,11 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.Element;
+import net.sf.ehcache.config.CacheConfiguration;
+import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
+
 import org.apache.commons.dbcp.ConnectionFactory;
 import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
@@ -35,9 +40,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.util.ArrayIterator;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -58,6 +66,11 @@ public class MySQLDatabaseService extends AbstractService implements
 	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(MySQLDatabaseService.class);
+	// services
+	/**
+	 * The cache service
+	 */
+	private final CacheService cacheService;
 
 	/**
 	 * The database connection pool
@@ -77,9 +90,16 @@ public class MySQLDatabaseService extends AbstractService implements
 	 */
 	private PoolingDataSource dataSource;
 
+	/**
+	 * An cache object
+	 */
+	private Cache objectCache;
+
 	@Inject
-	public MySQLDatabaseService(ConfigurationService configService) {
+	public MySQLDatabaseService(ConfigurationService configService,
+			CacheService cacheService) {
 		config = configService.get(MySQLDatabaseConfiguration.class);
+		this.cacheService = cacheService;
 	}
 
 	@Override
@@ -90,6 +110,14 @@ public class MySQLDatabaseService extends AbstractService implements
 		poolableConnectionFactory = new PoolableConnectionFactory(
 				connectionFactory, connectionPool, null, null, false, true);
 		dataSource = new PoolingDataSource(connectionPool);
+
+		objectCache = new Cache(new CacheConfiguration("database-service",
+				10 * 1000)
+				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
+				.overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
+				.timeToIdleSeconds(30).diskPersistent(false)
+				.diskExpiryThreadIntervalSeconds(0));
+		cacheService.register(objectCache);
 	}
 
 	/**
@@ -119,7 +147,33 @@ public class MySQLDatabaseService extends AbstractService implements
 	}
 
 	@Override
+	public Object getCachedObject(Object id) {
+		final Element element = objectCache.get(id);
+		if (element == null)
+			return null;
+		return element.getObjectValue();
+	}
+
+	@Override
+	public boolean hasCachedObject(Object id) {
+		return objectCache.get(id) != null;
+	}
+
+	@Override
+	public void updateCache(Object key, Object value) {
+		objectCache.put(new Element(key, value));
+	}
+
+	@Override
+	public void removeCache(Object key) {
+		objectCache.remove(key);
+	}
+
+	@Override
 	public void stop() throws ServiceStopException {
+		if (objectCache != null)
+			objectCache.dispose();
+		objectCache = null;
 		try {
 			if (connectionPool != null)
 				connectionPool.close();
@@ -367,5 +421,74 @@ public class MySQLDatabaseService extends AbstractService implements
 		 * @throws SQLException
 		 */
 		T map(ResultSet rs) throws SQLException;
+	}
+
+	/**
+	 * The cached mapper will try to lookup the result in the cache, before
+	 * create a new instance. If the instance is not found in the cache, then
+	 * the {@link Mapper} implementation is called to create the object. Note
+	 * that the ID, used for the cache lookup, will be reused. After creation,
+	 * the cache is updated.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <T>
+	 *            the object type
+	 * @param <I>
+	 *            the id type
+	 */
+	public abstract static class CachedMapper<T extends WorldObject, I extends ObjectID<T>>
+			implements Mapper<T> {
+		/**
+		 * The database service instance
+		 */
+		private final MySQLDatabaseService database;
+
+		/**
+		 * Creates a new instance
+		 * 
+		 * @param database
+		 *            the database service
+		 */
+		public CachedMapper(MySQLDatabaseService database) {
+			this.database = database;
+		}
+
+		@Override
+		@SuppressWarnings("unchecked")
+		public final T map(ResultSet rs) throws SQLException {
+			final I id = createID(rs);
+
+			if (database.hasCachedObject(id))
+				return (T) database.getCachedObject(id);
+
+			final T object = map(id, rs);
+			if (object != null)
+				database.updateCache(id, object);
+			return object;
+		}
+
+		/**
+		 * Creates an ID for an object
+		 * 
+		 * @param rs
+		 *            the jdbc result set
+		 * @return the id
+		 * @throws SQLException
+		 */
+		protected abstract I createID(ResultSet rs) throws SQLException;
+
+		/**
+		 * Maps an uncached object. Once mapping is complete, it will be added
+		 * to the cache.
+		 * 
+		 * @param id
+		 *            the object id
+		 * @param rs
+		 *            the jdbc result set
+		 * @return the created object
+		 * @throws SQLException
+		 */
+		protected abstract T map(I id, ResultSet rs) throws SQLException;
 	}
 }

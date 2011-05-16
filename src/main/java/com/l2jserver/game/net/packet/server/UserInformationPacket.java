@@ -29,10 +29,13 @@ import com.l2jserver.util.BufferUtils;
  */
 public class UserInformationPacket extends AbstractServerPacket {
 	/**
-	 * Message OPCODE
+	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0xfe;
 
+	/**
+	 * TODO
+	 */
 	private String[] manors;
 
 	public UserInformationPacket(String... manors) {

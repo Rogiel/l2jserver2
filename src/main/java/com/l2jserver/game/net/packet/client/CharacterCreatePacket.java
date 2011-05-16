@@ -37,6 +37,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
+import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.BufferUtils;
 
 /**
@@ -46,6 +47,9 @@ import com.l2jserver.util.BufferUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterCreatePacket extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x0c;
 
 	/**
@@ -55,25 +59,79 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 			.getLogger(CharacterCreatePacket.class);
 
 	// services and daos
+	/**
+	 * The {@link CharacterDAO} implementation
+	 */
 	private final CharacterDAO characterDao;
+	/**
+	 * The {@link CharacterID} factory
+	 */
 	private final CharacterIDFactory characterIdFactory;
+	/**
+	 * The {@link CharacterTemplateID} factory
+	 */
 	private final CharacterTemplateIDFactory characterTemplateIdFactory;
 
 	// packet
+	/**
+	 * The name of the new character
+	 */
 	private String name;
+	/**
+	 * The race of the new character
+	 */
 	private Race race;
+	/**
+	 * The sex of the new character
+	 */
 	private Sex sex;
-	private int classId;
+	/**
+	 * The class of the new character
+	 */
+	private CharacterClass characterClass;
 
+	/**
+	 * The new character intelligence. Note that this is ignored and the
+	 * template value is used.
+	 */
 	private int intelligence;
+	/**
+	 * The new character intelligence. Note that this is ignored and the
+	 * template value is used.
+	 */
 	private int strength;
+	/**
+	 * The new character strength. Note that this is ignored and the template
+	 * value is used.
+	 */
 	private int concentration;
+	/**
+	 * The new character concentration. Note that this is ignored and the
+	 * template value is used.
+	 */
 	private int mentality;
+	/**
+	 * The new character mentality. Note that this is ignored and the template
+	 * value is used.
+	 */
 	private int dexterity;
+	/**
+	 * The new character dexterity. Note that this is ignored and the template
+	 * value is used.
+	 */
 	private int witness;
 
+	/**
+	 * The new character hair style
+	 */
 	private CharacterHairStyle hairStyle;
+	/**
+	 * The new character hair color
+	 */
 	private CharacterHairColor hairColor;
+	/**
+	 * The new character face
+	 */
 	private CharacterFace face;
 
 	@Inject
@@ -90,7 +148,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 		name = BufferUtils.readString(buffer);
 		race = Race.fromOption(buffer.readInt());
 		sex = Sex.fromOption(buffer.readInt());
-		classId = buffer.readInt();
+		characterClass = CharacterClass.fromID(buffer.readInt());
 
 		intelligence = buffer.readInt();
 		strength = buffer.readInt();
@@ -106,8 +164,8 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		log.debug("Creating a new character, race={}, sex={}, classid={}",
-				new Object[] { race, sex, classId });
+		log.debug("Creating a new character, race={}, sex={}, class={}",
+				new Object[] { race, sex, characterClass });
 		if ((name.length() < 1) || (name.length() > 16)) {
 			log.debug("Character name length invalid: {}. Aborting.", name);
 			conn.write(new CharacterCreateFailPacket(
@@ -135,7 +193,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 
 		// create template id and lookup for the template instance
 		final CharacterTemplateID templateId = characterTemplateIdFactory
-				.createID(classId);
+				.createID(characterClass.id);
 		final CharacterTemplate template = templateId.getTemplate();
 		log.debug("Creating character with template {}", template);
 
@@ -239,18 +297,18 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	}
 
 	/**
-	 * @return the classId
+	 * @return the character class
 	 */
-	public int getClassId() {
-		return classId;
+	public CharacterClass getCharacterClass() {
+		return characterClass;
 	}
 
 	/**
-	 * @param classId
-	 *            the classId to set
+	 * @param characterClass
+	 *            the character class
 	 */
-	public void setClassId(int classId) {
-		this.classId = classId;
+	public void setClassId(CharacterClass characterClass) {
+		this.characterClass = characterClass;
 	}
 
 	/**

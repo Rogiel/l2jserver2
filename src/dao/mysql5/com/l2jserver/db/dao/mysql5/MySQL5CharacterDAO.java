@@ -42,6 +42,8 @@ import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColo
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.MySQLDatabaseService;
+import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
 import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
@@ -114,16 +116,26 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	/**
 	 * The {@link Mapper} instance
 	 */
-	private final CharacterMapper mapper = new CharacterMapper();
+	private final CharacterMapper mapper = new CharacterMapper(database);
 
 	/**
 	 * Character mapper class
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	private final class CharacterMapper implements Mapper<L2Character> {
+	private final class CharacterMapper extends
+			CachedMapper<L2Character, CharacterID> {
+		public CharacterMapper(MySQLDatabaseService database) {
+			super(database);
+		}
+
 		@Override
-		public L2Character map(ResultSet rs) throws SQLException {
+		protected CharacterID createID(ResultSet rs) throws SQLException {
+			return idFactory.createID(rs.getInt(CHAR_ID));
+		}
+
+		@Override
+		protected L2Character map(CharacterID id, ResultSet rs) throws SQLException {
 			final CharacterClass charClass = CharacterClass.valueOf(rs
 					.getString(CLASS));
 			final CharacterTemplateID templateId = templateIdFactory
@@ -133,7 +145,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 			final L2Character character = new L2Character(
 					template.getBaseAttributes());
 
-			character.setID(idFactory.createID(rs.getInt(CHAR_ID)));
+			character.setID(id);
 			character.setAccountID(accountIdFactory.createID(rs
 					.getString(ACCOUNT_ID)));
 			if (rs.getString(CLAN_ID) != null)
@@ -164,8 +176,62 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 			character.getAppearance().setFace(
 					CharacterFace.valueOf(rs.getString(APPEARANCE_FACE)));
 
+			database.updateCache(character.getID(), character);
+
 			return character;
 		}
+
+		// @Override
+		// public L2Character map(ResultSet rs) throws SQLException {
+		// final CharacterID id = idFactory.createID(rs.getInt(CHAR_ID));
+		//
+		// if (database.hasCachedObject(id))
+		// return (L2Character) database.getCachedObject(id);
+		//
+		// final CharacterClass charClass = CharacterClass.valueOf(rs
+		// .getString(CLASS));
+		// final CharacterTemplateID templateId = templateIdFactory
+		// .createID(charClass.id);
+		// final CharacterTemplate template = templateId.getTemplate();
+		//
+		// final L2Character character = new L2Character(
+		// template.getBaseAttributes());
+		//
+		// character.setID(id);
+		// character.setAccountID(accountIdFactory.createID(rs
+		// .getString(ACCOUNT_ID)));
+		// if (rs.getString(CLAN_ID) != null)
+		// character.setClanID(clanIdFactory.createID(rs.getInt(CLAN_ID)));
+		//
+		// character.setName(rs.getString(NAME));
+		//
+		// character.setRace(Race.valueOf(rs.getString(RACE)));
+		// character.setCharacterClass(CharacterClass.valueOf(rs
+		// .getString(CLASS)));
+		// character.setSex(Sex.valueOf(rs.getString(SEX)));
+		//
+		// character.setLevel(rs.getInt(LEVEL));
+		// // TODO load experience
+		// // TODO load sp
+		//
+		// character.setPoint(Point.fromXYZA(rs.getInt(POINT_X),
+		// rs.getInt(POINT_Y), rs.getInt(POINT_Z),
+		// rs.getDouble(POINT_ANGLE)));
+		//
+		// // appearance
+		// character.getAppearance().setHairStyle(
+		// CharacterHairStyle.valueOf(rs
+		// .getString(APPEARANCE_HAIR_STYLE)));
+		// character.getAppearance().setHairColor(
+		// CharacterHairColor.valueOf(rs
+		// .getString(APPEARANCE_HAIR_COLOR)));
+		// character.getAppearance().setFace(
+		// CharacterFace.valueOf(rs.getString(APPEARANCE_FACE)));
+		//
+		// database.updateCache(character.getID(), character);
+		//
+		// return character;
+		// }
 	}
 
 	@Override
@@ -235,8 +301,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 		return database.query(new SelectListQuery<CharacterID>() {
 			@Override
 			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?";
+				return "SELECT * FROM `" + TABLE + "`";
 			}
 
 			@Override

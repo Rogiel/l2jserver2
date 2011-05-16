@@ -39,12 +39,24 @@ import com.l2jserver.util.BufferUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AuthLoginPacket extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x2b;
 
+	/**
+	 * The {@link CharacterDAO} implementation
+	 */
 	private final CharacterDAO characterDao;
+	/**
+	 * The {@link AccountID} factory
+	 */
 	private final AccountIDFactory accountIdFactory;
 
 	// packet
+	/**
+	 * User account name
+	 */
 	private String loginName;
 	private int playKey1;
 	private int playKey2;

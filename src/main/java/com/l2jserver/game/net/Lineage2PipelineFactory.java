@@ -32,6 +32,7 @@ import com.l2jserver.game.net.codec.Lineage2FrameEncoder;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.handler.Lineage2PacketHandler;
+import com.l2jserver.service.network.NettyNetworkService;
 
 /**
  * This class creates a new instance of {@link ChannelPipeline} and attaches all
@@ -44,10 +45,16 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	 * The Google Guice {@link Injector}.
 	 */
 	private final Injector injector;
+	/**
+	 * The {@link NettyNetworkService}
+	 */
+	private final NettyNetworkService nettyNetworkService;
 
 	@Inject
-	public Lineage2PipelineFactory(Injector injector) {
+	public Lineage2PipelineFactory(Injector injector,
+			NettyNetworkService nettyNetworkService) {
 		this.injector = injector;
+		this.nettyNetworkService = nettyNetworkService;
 	}
 
 	@Override
@@ -73,7 +80,7 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 		pipeline.addLast("logger", new LoggingHandler(InternalLogLevel.DEBUG,
 				true));
 
-		pipeline.addLast("packet.handler", new Lineage2PacketHandler());
+		pipeline.addLast("packet.handler", new Lineage2PacketHandler(nettyNetworkService));
 
 		return pipeline;
 	}

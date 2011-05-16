@@ -90,13 +90,20 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	private final class ItemMapper implements Mapper<Item> {
 		@Override
 		public Item map(ResultSet rs) throws SQLException {
+			final ItemID id = idFactory.createID(rs.getInt(ITEM_ID));
+
+			if (database.hasCachedObject(id))
+				return (Item) database.getCachedObject(id);
+
 			final ItemTemplateID templateId = templateIdFactory.createID(rs
 					.getInt(TEMPLATE_ID));
 			final ItemTemplate template = templateId.getTemplate();
 			final Item item = template.create();
 
-			item.setID(idFactory.createID(rs.getInt(ITEM_ID)));
+			item.setID(id);
 			item.setOwnerID(charIdFactory.createID(rs.getInt(CHAR_ID)));
+			
+			database.updateCache(item.getID(), item);
 
 			return item;
 		}

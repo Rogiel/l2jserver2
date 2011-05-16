@@ -27,4 +27,27 @@ import com.l2jserver.service.AbstractService;
  */
 public class DB4ODatabaseService extends AbstractService implements
 		DatabaseService {
+	@Override
+	public Object getCachedObject(Object id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean hasCachedObject(Object id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void updateCache(Object key, Object value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeCache(Object key) {
+		// TODO Auto-generated method stub
+		
+	}
 }

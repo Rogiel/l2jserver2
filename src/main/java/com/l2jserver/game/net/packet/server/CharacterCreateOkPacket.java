@@ -27,8 +27,14 @@ import com.l2jserver.game.net.packet.AbstractServerPacket;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterCreateOkPacket extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x0f;
 
+	/**
+	 * The packet shared instance
+	 */
 	public static final CharacterCreateOkPacket INSTANCE = new CharacterCreateOkPacket();
 
 	public CharacterCreateOkPacket() {

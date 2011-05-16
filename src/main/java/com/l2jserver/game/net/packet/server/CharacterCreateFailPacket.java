@@ -28,8 +28,14 @@ import com.l2jserver.game.net.packet.AbstractServerPacket;
  * @see Reason
  */
 public class CharacterCreateFailPacket extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x10;
 
+	/**
+	 * The character creation failure reason
+	 */
 	private Reason reason;
 
 	/**
@@ -72,9 +78,12 @@ public class CharacterCreateFailPacket extends AbstractServerPacket {
 		 */
 		REASON_CHOOSE_ANOTHER_SVR(0x06);
 
+		/**
+		 * The error code id
+		 */
 		public final int id;
 
-		private Reason(int id) {
+		Reason(int id) {
 			this.id = id;
 		}
 	}

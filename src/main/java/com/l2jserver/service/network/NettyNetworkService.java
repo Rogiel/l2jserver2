@@ -16,9 +16,12 @@
  */
 package com.l2jserver.service.network;
 
+import java.util.Set;
 import java.util.concurrent.Executors;
 
 import org.jboss.netty.bootstrap.ServerBootstrap;
+import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ServerChannel;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.logging.InternalLoggerFactory;
@@ -26,9 +29,12 @@ import org.jboss.netty.logging.Slf4JLoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * Netty network service implementation
@@ -37,10 +43,28 @@ import com.l2jserver.service.configuration.ConfigurationService;
  */
 public class NettyNetworkService extends AbstractService implements
 		NetworkService {
+	/**
+	 * The network configuration object
+	 */
 	private final NetworkConfiguration config;
+	/**
+	 * The Google Guice {@link Injector}
+	 */
 	private final Injector injector;
+
+	/**
+	 * The server bootstrap
+	 */
 	private ServerBootstrap server;
+	/**
+	 * The server channel
+	 */
 	private ServerChannel channel;
+	/**
+	 * The client list. This list all active clients in the server
+	 */
+	private Set<Lineage2Connection> clients = CollectionFactory
+			.newSet(Lineage2Connection.class);
 
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,
@@ -55,8 +79,40 @@ public class NettyNetworkService extends AbstractService implements
 		server = new ServerBootstrap(new NioServerSocketChannelFactory(
 				Executors.newCachedThreadPool(),
 				Executors.newCachedThreadPool()));
-		server.setPipelineFactory(new Lineage2PipelineFactory(injector));
+		server.setPipelineFactory(new Lineage2PipelineFactory(injector, this));
 		channel = (ServerChannel) server.bind(config.getListenAddress());
+	}
+
+	@Override
+	public void register(final Lineage2Connection client) {
+		clients.add(client);
+		client.getChannel().getCloseFuture()
+				.addListener(new ChannelFutureListener() {
+					@Override
+					public void operationComplete(ChannelFuture future)
+							throws Exception {
+						unregister(client);
+					}
+				});
+	}
+
+	@Override
+	public void unregister(Lineage2Connection client) {
+		clients.remove(client);
+	}
+
+	@Override
+	public Lineage2Connection discover(CharacterID character) {
+		for (final Lineage2Connection client : clients) {
+			if (character.equals(client.getCharacterID()))
+				return client;
+		}
+		return null;
+	}
+
+	@Override
+	public void cleanup() {
+		// TODO
 	}
 
 	@Override

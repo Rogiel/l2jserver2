@@ -25,6 +25,7 @@ import com.l2jserver.game.net.codec.Lineage2Encrypter;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.packet.ServerPacket;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 
 /**
@@ -41,7 +42,7 @@ public class Lineage2Connection {
 	/**
 	 * The character object
 	 */
-	private L2Character character;
+	private CharacterID characterID;
 	/**
 	 * The Lineage 2 session
 	 */
@@ -80,22 +81,29 @@ public class Lineage2Connection {
 	 * @return the character
 	 */
 	public boolean hasCharacter() {
-		return character != null;
+		return characterID != null;
+	}
+
+	/**
+	 * @return the character ID
+	 */
+	public CharacterID getCharacterID() {
+		return characterID;
 	}
 
 	/**
 	 * @return the character
 	 */
 	public L2Character getCharacter() {
-		return character;
+		return characterID.getObject();
 	}
 
 	/**
-	 * @param character
-	 *            the character to set
+	 * @param characterID
+	 *            the character ID to set
 	 */
-	public void setCharacter(L2Character character) {
-		this.character = character;
+	public void setCharacterID(CharacterID characterID) {
+		this.characterID = characterID;
 	}
 
 	/**

@@ -32,11 +32,23 @@ import com.l2jserver.util.BufferUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterSelectionListPacket extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	public static final int OPCODE = 0x09;
 
+	/**
+	 * The account username
+	 */
 	private final String loginName;
+	/**
+	 * The session ID
+	 */
 	private final int sessionId;
 	// private int lastCharacterId;
+	/**
+	 * The list of character to be displayed
+	 */
 	private final L2Character[] characters;
 
 	public CharacterSelectionListPacket(String loginName, int sessionId,

@@ -16,8 +16,6 @@
  */
 package com.l2jserver.util.dimensional;
 
-import org.apache.commons.math.geometry.Rotation;
-
 /**
  * An point is composed of an Coordinate and an angle. The angle represents the
  * facing angle of the point, that is, the direction the point is "looking".
@@ -30,9 +28,9 @@ public class Point {
 	 */
 	protected final Coordinate coordinate;
 	/**
-	 * Te point rotation
+	 * The point angle
 	 */
-	protected final Rotation rotation;
+	protected final double angle;
 
 	/**
 	 * Creates a new point
@@ -44,7 +42,7 @@ public class Point {
 	 */
 	public Point(Coordinate coordinate, double angle) {
 		this.coordinate = coordinate;
-		this.rotation = new Rotation(coordinate.vector, angle);
+		this.angle = angle;
 	}
 
 	/**
@@ -93,21 +91,9 @@ public class Point {
 
 	/**
 	 * @return the angle
-	 * @see org.apache.commons.math.geometry.Rotation#getAngle()
 	 */
 	public double getAngle() {
-		return rotation.getAngle();
-	}
-
-	/**
-	 * @param other
-	 *            the other point
-	 * @return the angle difference between the two points
-	 * @see org.apache.commons.math.geometry.Rotation#distance(Rotation,
-	 *      Rotation)
-	 */
-	public double getAngleDifference(Point other) {
-		return Rotation.distance(this.rotation, other.rotation);
+		return angle;
 	}
 
 	/**
@@ -115,13 +101,6 @@ public class Point {
 	 */
 	public Coordinate getCoordinate() {
 		return coordinate;
-	}
-
-	/**
-	 * @return the rotation
-	 */
-	public Rotation getRotation() {
-		return rotation;
 	}
 
 	/**

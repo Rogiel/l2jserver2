@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.network;
 
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.Service;
 
 /**
@@ -25,4 +27,33 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface NetworkService extends Service {
+	/**
+	 * Registers a new client
+	 * 
+	 * @param client
+	 *            the client
+	 */
+	void register(Lineage2Connection client);
+
+	/**
+	 * Unregisters a client
+	 * 
+	 * @param client
+	 *            the client
+	 */
+	void unregister(Lineage2Connection client);
+
+	/**
+	 * Discover the client using <tt>character</tt>
+	 * 
+	 * @param character
+	 *            the character
+	 * @return the found connection
+	 */
+	Lineage2Connection discover(CharacterID character);
+
+	/**
+	 * Searches for idle connection and removes them
+	 */
+	void cleanup();
 }
