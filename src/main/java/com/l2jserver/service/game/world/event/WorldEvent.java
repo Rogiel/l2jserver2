@@ -14,19 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.player;
+package com.l2jserver.service.game.world.event;
 
-import com.l2jserver.model.world.Player;
-import com.l2jserver.model.world.actor.ActorEvent;
+import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.capability.Listenable;
 
-/**
- * Base event for {@link Player} objects
- * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
- */
-public interface PlayerEvent extends ActorEvent {
+public interface WorldEvent {
 	/**
-	 * @return the player
+	 * @return the object that issued this event
 	 */
-	Player getPlayer();
+	WorldObject getObject();
+
+	/**
+	 * @return the list of objects that will be notified of this event
+	 */
+	Listenable<?, ?>[] getDispatchableObjects();
 }

@@ -14,19 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.clan;
+package com.l2jserver.service.game.world.filter;
 
-import com.l2jserver.model.world.Clan;
-import com.l2jserver.service.game.world.event.WorldEvent;
+import com.l2jserver.model.world.WorldObject;
 
 /**
- * Base event for {@link Clan} objects
+ * <tt>OR</tt> filter that accepts all values in which at least one of the
+ * <tt>filters</tt> return true.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <O>
+ *            the item type
  */
-public interface ClanEvent extends WorldEvent {
+public class OrFilter<O extends WorldObject> implements WorldObjectFilter<O> {
 	/**
-	 * @return the clan
+	 * The filters
 	 */
-	Clan getClan();
+	private WorldObjectFilter<O>[] filters;
+
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param filters
+	 *            filters to be used with <tt>OR</tt> operator
+	 */
+	public OrFilter(WorldObjectFilter<O>... filters) {
+		this.filters = filters;
+	}
+
+	@Override
+	public boolean accept(O object) {
+		for (final WorldObjectFilter<O> filter : filters) {
+			if (filter.accept(object))
+				return true;
+		}
+		return false;
+	}
 }

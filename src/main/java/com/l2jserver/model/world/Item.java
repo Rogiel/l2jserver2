@@ -18,6 +18,7 @@ package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.capability.Dropable;
 import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Playable;
@@ -50,7 +51,13 @@ import com.l2jserver.util.dimensional.Coordinate;
  */
 public class Item extends AbstractObject implements Playable, Spawnable,
 		Listenable<ItemListener, ItemEvent>, Dropable {
+	/**
+	 * The {@link ItemTemplate} ID
+	 */
 	private final ItemTemplateID templateID;
+	/**
+	 * The {@link L2Character} ID owner of this object
+	 */
 	private CharacterID ownerID;
 
 	/**
@@ -65,7 +72,10 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	 * Drop coordinate of this item
 	 */
 	private Coordinate coordinate;
-	
+
+	/**
+	 * Count of items
+	 */
 	private int count = 1;
 
 	public Item(ItemTemplateID templateID) {
@@ -75,6 +85,8 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	@Override
 	public void drop(Coordinate position) {
 		this.coordinate = position;
+		this.location = null;
+		this.paperdoll = null;
 	}
 
 	@Override
@@ -84,8 +96,7 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 
 	@Override
 	public boolean isSpawned() {
-		// TODO Auto-generated method stub
-		return false;
+		return (location != null);
 	}
 
 	@Override
@@ -96,6 +107,21 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	@Override
 	public void setPosition(Coordinate coord) {
 		this.coordinate = coord;
+	}
+
+	/**
+	 * @return the count
+	 */
+	public int getCount() {
+		return count;
+	}
+
+	/**
+	 * @param count
+	 *            the count to set
+	 */
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	/**

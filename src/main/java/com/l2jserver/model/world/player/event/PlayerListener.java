@@ -14,39 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter.impl;
+package com.l2jserver.model.world.player.event;
 
-import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.filter.WorldObjectFilter;
+import com.l2jserver.model.world.actor.ActorEvent;
+import com.l2jserver.model.world.actor.ActorListener;
+import com.l2jserver.service.game.world.event.WorldEvent;
+import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
- * Filter object based on their types
+ * Listener for {@link PlayerEvent}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @param <T>
- *            the instance type
  */
-public class InstanceFilter<T extends WorldObject> implements
-		WorldObjectFilter<T> {
-	/**
-	 * The object's type
-	 */
-	private final Class<?> type;
-
-	/**
-	 * Creates a new instance
-	 * 
-	 * @param instance
-	 *            the instance type
-	 */
-	public InstanceFilter(Class<?> instance) {
-		this.type = instance;
-	}
-
+public abstract class PlayerListener implements ActorListener {
 	@Override
-	public boolean accept(T other) {
-		if (other == null)
+	public boolean dispatch(ActorEvent e) {
+		if (!(e instanceof PlayerEvent))
 			return false;
-		return type.isInstance(other);
+		return dispatch((PlayerEvent) e);
 	}
+
+	/**
+	 * @see WorldListener#dispatch(WorldEvent)
+	 */
+	protected abstract boolean dispatch(PlayerEvent e);
 }

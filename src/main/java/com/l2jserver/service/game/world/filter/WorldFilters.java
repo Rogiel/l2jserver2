@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter;
+package com.l2jserver.service.game.world.filter;
 
 import com.l2jserver.model.world.WorldObject;
 

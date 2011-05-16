@@ -14,19 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.event;
+package com.l2jserver.model.world.player.event;
 
-import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.capability.Listenable;
+import com.l2jserver.model.world.Player;
+import com.l2jserver.util.dimensional.Coordinate;
 
-public interface WorldEvent {
+/**
+ * Event dispatched once an player is teleported.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public class PlayerTeleportEvent extends PlayerSpawnEvent {
 	/**
-	 * @return the object that issued this event
+	 * Creates a new instance
+	 * 
+	 * @param player
+	 *            the teleported player
+	 * @param coordinate
+	 *            the coordinate
 	 */
-	WorldObject getObject();
-
-	/**
-	 * @return the list of objects that will be notified of this event
-	 */
-	Listenable<?, ?>[] getDispatchableObjects();
+	public PlayerTeleportEvent(Player player, Coordinate coordinate) {
+		super(player, coordinate);
+	}
 }

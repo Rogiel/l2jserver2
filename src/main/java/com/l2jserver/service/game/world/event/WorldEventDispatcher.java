@@ -18,8 +18,6 @@ package com.l2jserver.service.game.world.event;
 
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.capability.Listenable;
-import com.l2jserver.model.world.event.WorldEvent;
-import com.l2jserver.model.world.event.WorldListener;
 
 /**
  * This event dispatcher notify listeners that an certain event occured in their

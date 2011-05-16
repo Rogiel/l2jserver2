@@ -14,12 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.iterator;
+package com.l2jserver.service.game.world.filter;
 
 import java.util.Iterator;
 
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.filter.WorldObjectFilter;
 
 /**
  * The {@link FilterIterator} takes an {@link WorldObject} and a

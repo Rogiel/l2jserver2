@@ -16,14 +16,40 @@
  */
 package com.l2jserver.game.net.packet.server;
 
+import static com.l2jserver.game.ProtocolVersion.FREYA;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.BELT;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.CHEST;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.CLOAK;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_1;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_2;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_3;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_4;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_5;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.FEET;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.GLOVES;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.HAIR1;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.HAIR2;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.HEAD;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.LEFT_BRACELET;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.LEFT_EAR;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.LEFT_FINGER;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.LEFT_HAND;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.LEGS;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.NECK;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.RIGHT_BRACELET;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.RIGHT_EAR;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.RIGHT_FINGER;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.RIGHT_HAND;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.ActorExperience;
+import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.BufferUtils;
 
 /**
@@ -127,35 +153,31 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// buffer.writeInt(0x00); // unk 6
 			// buffer.writeInt(0x00); // unk 7
 
-			for (int id = 0; id < 25; id++) {
-				buffer.writeInt(0x00); // paperdolls
-			}
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HAIR));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_REAR));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LEAR));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_NECK));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_RFINGER));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LFINGER));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HEAD));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_RHAND));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LHAND));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_GLOVES));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_CHEST));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LEGS));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_FEET));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_CLOAK));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_RHAND));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HAIR));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_HAIR2));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_RBRACELET));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_LBRACELET));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_DECO1));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_DECO2));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_DECO3));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_DECO4));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_DECO5));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_DECO6));
-			// buffer.writeInt(charInfoPackage.getPaperdollItemId(Inventory.PAPERDOLL_BELT));
+			writePaperdollItemID(buffer, character, HAIR1);
+			writePaperdollItemID(buffer, character, RIGHT_EAR);
+			writePaperdollItemID(buffer, character, LEFT_EAR);
+			writePaperdollItemID(buffer, character, NECK);
+			writePaperdollItemID(buffer, character, RIGHT_FINGER);
+			writePaperdollItemID(buffer, character, LEFT_FINGER);
+			writePaperdollItemID(buffer, character, HEAD);
+			writePaperdollItemID(buffer, character, RIGHT_HAND);
+			writePaperdollItemID(buffer, character, LEFT_HAND);
+			writePaperdollItemID(buffer, character, GLOVES);
+			writePaperdollItemID(buffer, character, CHEST);
+			writePaperdollItemID(buffer, character, LEGS);
+			writePaperdollItemID(buffer, character, FEET);
+			writePaperdollItemID(buffer, character, CLOAK);
+			writePaperdollItemID(buffer, character, RIGHT_HAND);
+			writePaperdollItemID(buffer, character, HAIR1);
+			writePaperdollItemID(buffer, character, HAIR2);
+			writePaperdollItemID(buffer, character, RIGHT_BRACELET);
+			writePaperdollItemID(buffer, character, LEFT_BRACELET);
+			writePaperdollItemID(buffer, character, DECORATION_1);
+			writePaperdollItemID(buffer, character, DECORATION_2);
+			writePaperdollItemID(buffer, character, DECORATION_3);
+			writePaperdollItemID(buffer, character, DECORATION_4);
+			writePaperdollItemID(buffer, character, DECORATION_5);
+			writePaperdollItemID(buffer, character, BELT);
 
 			// hair style
 			// buffer.writeInt(character.getAppearance().getHairStyle().option);
@@ -183,7 +205,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeInt(0x00);
 
 			// Freya by Vistall:
-			if (conn.supports(ProtocolVersion.FREYA)) {
+			if (conn.supports(FREYA)) {
 				// npdid - 16024 Tame Tiny Baby Kookaburra
 				buffer.writeInt(16024); // A9E89C
 				buffer.writeInt(0); // level
@@ -193,5 +215,14 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 				buffer.writeDouble(0); // cur Hp
 			}
 		}
+	}
+
+	private void writePaperdollItemID(ChannelBuffer buffer,
+			L2Character character, InventoryPaperdoll paperdoll) {
+		final Item item = character.getInventory().getItem(paperdoll);
+		int id = 0;
+		if (item != null)
+			id = item.getTemplateID().getID();
+		buffer.writeInt(id);
 	}
 }

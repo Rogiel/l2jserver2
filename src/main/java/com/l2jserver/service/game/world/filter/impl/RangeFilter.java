@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter.impl;
+package com.l2jserver.service.game.world.filter.impl;
 
 import com.l2jserver.model.world.capability.Positionable;
-import com.l2jserver.model.world.filter.WorldObjectFilter;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**

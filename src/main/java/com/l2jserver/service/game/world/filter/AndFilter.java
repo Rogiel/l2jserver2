@@ -14,28 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.player;
+package com.l2jserver.service.game.world.filter;
 
-import com.l2jserver.model.world.actor.ActorEvent;
-import com.l2jserver.model.world.actor.ActorListener;
-import com.l2jserver.model.world.event.WorldEvent;
-import com.l2jserver.model.world.event.WorldListener;
+import com.l2jserver.model.world.WorldObject;
 
 /**
- * Listener for {@link PlayerEvent}
+ * <tt>AND</tt> filter that accepts all values in which all other
+ * <tt>filters</tt> return true.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <O>
+ *            the item type
  */
-public abstract class PlayerListener implements ActorListener {
-	@Override
-	public boolean dispatch(ActorEvent e) {
-		if (!(e instanceof PlayerEvent))
-			return false;
-		return dispatch((PlayerEvent) e);
-	}
+public class AndFilter<O extends WorldObject> implements WorldObjectFilter<O> {
+	/**
+	 * The filters
+	 */
+	private WorldObjectFilter<O>[] filters;
 
 	/**
-	 * @see WorldListener#dispatch(WorldEvent)
+	 * Creates a new instance
+	 * 
+	 * @param filters
+	 *            filters to be used with <tt>AND</tt> operator
 	 */
-	protected abstract boolean dispatch(PlayerEvent e);
+	public AndFilter(WorldObjectFilter<O>... filters) {
+		this.filters = filters;
+	}
+
+	@Override
+	public boolean accept(O object) {
+		for (final WorldObjectFilter<O> filter : filters) {
+			if (!filter.accept(object))
+				return false;
+		}
+		return true;
+	}
 }

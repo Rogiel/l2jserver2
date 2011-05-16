@@ -14,41 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter;
-
-import com.l2jserver.model.world.WorldObject;
+package com.l2jserver.service.game.world.event;
 
 /**
- * <tt>AND</tt> filter that accepts all values in which all other
- * <tt>filters</tt> return true.
+ * This is the most abstract listener for the listening engine.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
- * @param <O>
- *            the item type
+ * @param <E>
+ *            the received event type
  */
-public class AndFilter<O extends WorldObject> implements WorldObjectFilter<O> {
+public interface WorldListener<E extends WorldEvent> {
 	/**
-	 * The filters
-	 */
-	private WorldObjectFilter<O>[] filters;
-
-	/**
-	 * Creates a new instance
+	 * Once the event call is dispatched the listener <b>WILL</b> be removed if
+	 * false is returned. If you wish to keep this listener, you must return
+	 * true.
 	 * 
-	 * @param filters
-	 *            filters to be used with <tt>AND</tt> operator
+	 * @param e
+	 *            the event
+	 * @return true to keep listener alive
 	 */
-	public AndFilter(WorldObjectFilter<O>... filters) {
-		this.filters = filters;
-	}
-
-	@Override
-	public boolean accept(O object) {
-		for (final WorldObjectFilter<O> filter : filters) {
-			if (!filter.accept(object))
-				return false;
-		}
-		return true;
-	}
+	boolean dispatch(E e);
 }

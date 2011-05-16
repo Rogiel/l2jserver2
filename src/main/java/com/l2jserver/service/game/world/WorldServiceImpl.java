@@ -25,13 +25,13 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.filter.WorldObjectFilter;
-import com.l2jserver.model.world.filter.impl.InstanceFilter;
-import com.l2jserver.model.world.iterator.FilterIterator;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.filter.FilterIterator;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
+import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**

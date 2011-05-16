@@ -20,9 +20,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.filter.WorldObjectFilter;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
 /**
  * Service responsible for managing {@link WorldObject} and dispatch events.

@@ -14,41 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter;
+package com.l2jserver.model.world.character.event;
 
-import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.player.event.PlayerEvent;
 
 /**
- * <tt>OR</tt> filter that accepts all values in which at least one of the
- * <tt>filters</tt> return true.
+ * Base event for character
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
- * @param <O>
- *            the item type
  */
-public class OrFilter<O extends WorldObject> implements WorldObjectFilter<O> {
+public interface CharacterEvent extends PlayerEvent {
 	/**
-	 * The filters
-	 */
-	private WorldObjectFilter<O>[] filters;
-
-	/**
-	 * Creates a new instance
+	 * The character issue in this event
 	 * 
-	 * @param filters
-	 *            filters to be used with <tt>OR</tt> operator
+	 * @return the character
 	 */
-	public OrFilter(WorldObjectFilter<O>... filters) {
-		this.filters = filters;
-	}
-
-	@Override
-	public boolean accept(O object) {
-		for (final WorldObjectFilter<O> filter : filters) {
-			if (filter.accept(object))
-				return true;
-		}
-		return false;
-	}
+	L2Character getCharacter();
 }

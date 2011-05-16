@@ -17,8 +17,8 @@
 package com.l2jserver.model.world.capability;
 
 import com.l2jserver.model.world.AbstractObject;
-import com.l2jserver.model.world.event.WorldEvent;
-import com.l2jserver.model.world.event.WorldListener;
+import com.l2jserver.service.game.world.event.WorldEvent;
+import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
  * Defines an {@link AbstractObject} that can attach {@link WorldListener} that

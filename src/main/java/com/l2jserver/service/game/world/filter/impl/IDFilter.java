@@ -14,26 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.player;
+package com.l2jserver.service.game.world.filter.impl;
 
-import com.l2jserver.model.world.Player;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
 /**
- * Event dispatched once an player is teleported.
+ * Filter objects based on its ID.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PlayerTeleportEvent extends PlayerSpawnEvent {
+public class IDFilter implements WorldObjectFilter<Positionable> {
+	/**
+	 * The object id
+	 */
+	private final ObjectID<?> id;
+
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param player
-	 *            the teleported player
-	 * @param coordinate
-	 *            the coordinate
+	 * @param id
+	 *            the desired object ID
 	 */
-	public PlayerTeleportEvent(Player player, Coordinate coordinate) {
-		super(player, coordinate);
+	public IDFilter(final ObjectID<?> id) {
+		this.id = id;
+	}
+
+	@Override
+	public boolean accept(Positionable other) {
+		if (other == null)
+			return false;
+		return other.getID().equals(id);
 	}
 }

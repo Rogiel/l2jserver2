@@ -17,6 +17,7 @@
 package com.l2jserver.model.world.event;
 
 import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**

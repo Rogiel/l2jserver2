@@ -14,22 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter;
+package com.l2jserver.service.game.world.filter.impl;
 
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
 /**
- * Filter an object in a world
+ * Filter object based on their types
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <T>
+ *            the instance type
  */
-public interface WorldObjectFilter<O extends WorldObject> {
+public class InstanceFilter<T extends WorldObject> implements
+		WorldObjectFilter<T> {
 	/**
-	 * Test if <tt>object</tt> matches the filter requirements
-	 * 
-	 * @param object
-	 *            the object
-	 * @return true if object match requirements
+	 * The object's type
 	 */
-	boolean accept(O object);
+	private final Class<?> type;
+
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param instance
+	 *            the instance type
+	 */
+	public InstanceFilter(Class<?> instance) {
+		this.type = instance;
+	}
+
+	@Override
+	public boolean accept(T other) {
+		if (other == null)
+			return false;
+		return type.isInstance(other);
+	}
 }

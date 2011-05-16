@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.party;
 
-import com.l2jserver.model.world.event.WorldListener;
+import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
  * Listener for {@link PartyEvent}

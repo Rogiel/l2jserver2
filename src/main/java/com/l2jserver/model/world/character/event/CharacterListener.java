@@ -14,37 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.filter.impl;
+package com.l2jserver.model.world.character.event;
 
-import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.capability.Positionable;
-import com.l2jserver.model.world.filter.WorldObjectFilter;
+import com.l2jserver.model.world.player.event.PlayerEvent;
+import com.l2jserver.model.world.player.event.PlayerListener;
+import com.l2jserver.service.game.world.event.WorldEvent;
+import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
- * Filter objects based on its ID.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public class IDFilter implements WorldObjectFilter<Positionable> {
-	/**
-	 * The object id
-	 */
-	private final ObjectID<?> id;
-
-	/**
-	 * Creates a new instance
-	 * 
-	 * @param id
-	 *            the desired object ID
-	 */
-	public IDFilter(final ObjectID<?> id) {
-		this.id = id;
-	}
-
+public abstract class CharacterListener extends PlayerListener {
 	@Override
-	public boolean accept(Positionable other) {
-		if (other == null)
+	protected boolean dispatch(PlayerEvent e) {
+		if (!(e instanceof CharacterEvent))
 			return false;
-		return other.getID().equals(id);
+		return dispatch((CharacterEvent) e);
 	}
+
+	/**
+	 * @see WorldListener#dispatch(WorldEvent)
+	 */
+	protected abstract boolean dispatch(CharacterEvent e);
 }

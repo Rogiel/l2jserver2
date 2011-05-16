@@ -51,6 +51,21 @@ public class CharacterInventory implements Iterable<Item> {
 	}
 
 	/**
+	 * Get the item in the given <tt>paperdoll</tt> slot
+	 * 
+	 * @param paperdoll
+	 *            the paperdoll slot
+	 * @return the item in slot, null if emptys
+	 */
+	public Item getItem(InventoryPaperdoll paperdoll) {
+		for (final Item item : items) {
+			if (item.getPaperdoll() == paperdoll)
+				return item;
+		}
+		return null;
+	}
+
+	/**
 	 * This method will add new items to the inventory. This is normally called
 	 * from the DAO object.
 	 * 
@@ -74,7 +89,7 @@ public class CharacterInventory implements Iterable<Item> {
 	}
 
 	/**
-	 * Location of an item
+	 * Location of an item in the player's inventory
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
@@ -99,7 +114,11 @@ public class CharacterInventory implements Iterable<Item> {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum InventoryPaperdoll {
-		UNDERWEAR, HEAD, HAIR1, HAIR2, NECK, RIGHT_HAND, LEFT_HAND, RIGHT_EAR, LEFT_EAR, GLOVES, LEGS, LEFT_FEET, RIGHT_FEET, RIGHT_FINGER, LEFT_FINGER, LEFT_BRACELET, RIGHT_BRACELET, DECORATION_1, DECOREATION_2, DECORATION_3, DECORATION_4, DECORATION_5, DECORATION_6, CLOAK, BELT;
+		UNDERWEAR, HEAD, HAIR1, HAIR2, NECK, RIGHT_HAND, FEET, LEFT_HAND, RIGHT_EAR, LEFT_EAR, GLOVES,
+
+		LEGS, LEFT_FEET, RIGHT_FEET, RIGHT_FINGER, LEFT_FINGER, CHEST, LEFT_BRACELET, RIGHT_BRACELET,
+
+		DECORATION_1, DECORATION_2, DECORATION_3, DECORATION_4, DECORATION_5, DECORATION_6, CLOAK, BELT;
 	}
 
 	/**

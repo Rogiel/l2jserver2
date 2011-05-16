@@ -14,65 +14,83 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.item;
+package com.l2jserver.model.world.character.event;
 
-import com.l2jserver.model.world.Item;
+import java.util.Date;
+
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Listenable;
-import com.l2jserver.model.world.player.event.PlayerEvent;
 
 /**
- * Event dispatched once an {@link Item} has been dropped on the ground.
+ * Event triggered once a character logs-in.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ItemDropEvent implements ItemEvent, PlayerEvent {
+public class CharacterLoggedInEvent implements CharacterEvent {
 	/**
-	 * The dropping player
+	 * The character that is logging in
 	 */
-	private final Player player;
+	private final L2Character character;
 	/**
-	 * The item dropped
+	 * The time that this character has logged in
 	 */
-	private final Item item;
+	private final Date date;
 
 	/**
-	 * Creates a new instance of this event
+	 * Creates a new instance
 	 * 
-	 * @param player
-	 *            the dropping player
-	 * @param item
-	 *            the dropped item
+	 * @param character
+	 *            the character
+	 * @param date
+	 *            the login date
 	 */
-	public ItemDropEvent(Player player, Item item) {
-		this.player = player;
-		this.item = item;
+	public CharacterLoggedInEvent(L2Character character, Date date) {
+		this.character = character;
+		this.date = date;
 	}
 
-	@Override
-	public WorldObject getObject() {
-		return item;
+	/**
+	 * Creates a new instance. Login date is set to now.
+	 * 
+	 * @param character
+	 *            the character
+	 */
+	public CharacterLoggedInEvent(L2Character character) {
+		this(character, new Date());
+	}
+
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
 	}
 
 	@Override
 	public Player getPlayer() {
-		return player;
-	}
-
-	@Override
-	public Item getItem() {
-		return item;
+		return character;
 	}
 
 	@Override
 	public Actor getActor() {
-		return player;
+		return character;
+	}
+
+	@Override
+	public WorldObject getObject() {
+		return character;
+	}
+
+	@Override
+	public L2Character getCharacter() {
+		return character;
 	}
 
 	@Override
 	public Listenable<?, ?>[] getDispatchableObjects() {
-		return new Listenable<?, ?>[] { player, item };
+		return new Listenable<?, ?>[] { character };
 	}
 }

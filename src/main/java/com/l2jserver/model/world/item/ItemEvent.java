@@ -17,7 +17,7 @@
 package com.l2jserver.model.world.item;
 
 import com.l2jserver.model.world.Item;
-import com.l2jserver.model.world.event.WorldEvent;
+import com.l2jserver.service.game.world.event.WorldEvent;
 
 /**
  * Base event for items

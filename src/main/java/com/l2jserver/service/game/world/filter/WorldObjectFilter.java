@@ -14,25 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.event;
+package com.l2jserver.service.game.world.filter;
+
+import com.l2jserver.model.world.WorldObject;
 
 /**
- * This is the most abstract listener for the listening engine.
+ * Filter an object in a world
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
- * @param <E>
- *            the received event type
  */
-public interface WorldListener<E extends WorldEvent> {
+public interface WorldObjectFilter<O extends WorldObject> {
 	/**
-	 * Once the event call is dispatched the listener <b>WILL</b> be removed if
-	 * false is returned. If you wish to keep this listener, you must return
-	 * true.
+	 * Test if <tt>object</tt> matches the filter requirements
 	 * 
-	 * @param e
-	 *            the event
-	 * @return true to keep listener alive
+	 * @param object
+	 *            the object
+	 * @return true if object match requirements
 	 */
-	boolean dispatch(E e);
+	boolean accept(O object);
 }
