@@ -76,7 +76,7 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	/**
 	 * Count of items
 	 */
-	private int count = 1;
+	private long count = 1;
 
 	public Item(ItemTemplateID templateID) {
 		this.templateID = templateID;
@@ -112,7 +112,7 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	/**
 	 * @return the count
 	 */
-	public int getCount() {
+	public long getCount() {
 		return count;
 	}
 
@@ -120,7 +120,7 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	 * @param count
 	 *            the count to set
 	 */
-	public void setCount(int count) {
+	public void setCount(long count) {
 		this.count = count;
 	}
 

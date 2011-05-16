@@ -114,11 +114,21 @@ public class CharacterInventory implements Iterable<Item> {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum InventoryPaperdoll {
-		UNDERWEAR, HEAD, HAIR1, HAIR2, NECK, RIGHT_HAND, FEET, LEFT_HAND, RIGHT_EAR, LEFT_EAR, GLOVES,
+		UNDERWEAR(0), HEAD(1), HAIR1(2), HAIR2(3), NECK(4), RIGHT_HAND(5), CHEST(
+				6), LEFT_HAND(7), RIGHT_EAR(8), LEFT_EAR(9), GLOVES(10), LEGS(
+				11), FEET(12), RIGHT_FINGER(13), LEFT_FINGER(14), LEFT_BRACELET(
+				15), RIGHT_BRACELET(16), DECORATION_1(17), DECORATION_2(18), DECORATION_3(
+				19), DECORATION_4(20), DECORATION_5(21), DECORATION_6(22), CLOAK(
+				23), BELT(24);
 
-		LEGS, LEFT_FEET, RIGHT_FEET, RIGHT_FINGER, LEFT_FINGER, CHEST, LEFT_BRACELET, RIGHT_BRACELET,
+		/**
+		 * The inventory paperdoll slot id
+		 */
+		public final int id;
 
-		DECORATION_1, DECORATION_2, DECORATION_3, DECORATION_4, DECORATION_5, DECORATION_6, CLOAK, BELT;
+		InventoryPaperdoll(int id) {
+			this.id = id;
+		}
 	}
 
 	/**

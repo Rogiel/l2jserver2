@@ -1,0 +1,5 @@
+			== L2J Rewrite ==
+  This is an rewrite of the l2jserver. This software is a complete rewrite
+from scratch and thus does not use any code from original l2jserver.
+  Additionally, this rewrite is lacking a name and is currently using
+L2JServer a temporary name.

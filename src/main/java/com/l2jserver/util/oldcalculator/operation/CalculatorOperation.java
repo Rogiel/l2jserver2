@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator.operation;
+package com.l2jserver.util.oldcalculator.operation;
 
 public interface CalculatorOperation<T extends Number> {
 	T calculate(T value);

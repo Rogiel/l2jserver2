@@ -14,16 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.util.oldcalculator;
 
 import java.util.List;
 
-import com.l2jserver.util.calculator.operation.AddOperation;
-import com.l2jserver.util.calculator.operation.CalculatorOperation;
-import com.l2jserver.util.calculator.operation.SetOperation;
-import com.l2jserver.util.calculator.operation.SubtractOperation;
 import com.l2jserver.util.factory.CollectionFactory;
+import com.l2jserver.util.oldcalculator.operation.AddOperation;
+import com.l2jserver.util.oldcalculator.operation.CalculatorOperation;
+import com.l2jserver.util.oldcalculator.operation.SetOperation;
+import com.l2jserver.util.oldcalculator.operation.SubtractOperation;
 
+/**
+ * The formula object does an sequence of steps into calculating something.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class Formula {
 	private List<CalculatorOperation<Integer>> operations = CollectionFactory
 			.newList(null);

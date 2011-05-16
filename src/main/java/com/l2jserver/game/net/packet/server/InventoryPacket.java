@@ -22,6 +22,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory;
+import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 
 /**
  * This packet send the inventory to the client
@@ -53,13 +54,21 @@ public class InventoryPacket extends AbstractServerPacket {
 		buffer.writeByte((showWindow ? 0x01 : 0x00));
 		buffer.writeInt(inventory.getItemCount()); // item count
 		for (Item item : inventory) {
-			buffer.writeInt(item.getID().getID());
-			buffer.writeInt(item.getTemplateID().getID());
-			buffer.writeInt(0x00); // loc slot
-			buffer.writeLong(0x00); // count
+			buffer.writeInt(item.getID().getID()); // obj id
+			buffer.writeInt(item.getTemplateID().getID()); // item id
+			if (item.getLocation() == InventoryLocation.PAPERDOLL) {
+				buffer.writeInt(item.getPaperdoll().id); // loc slot
+			} else {
+				buffer.writeInt(0x00); // loc slot
+			}
+			buffer.writeLong(item.getCount()); // count
 			buffer.writeShort(0x00); // item type2
 			buffer.writeShort(0x00); // item type3
-			buffer.writeShort(0x00); // equiped?
+			if (item.getLocation() == InventoryLocation.PAPERDOLL) {
+				buffer.writeShort(0x01); // equiped?
+			} else {
+				buffer.writeShort(0x00); // equiped?
+			}
 			buffer.writeInt(0x00); // body part
 			buffer.writeShort(0x00); // enchant level
 			// race tickets

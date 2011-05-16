@@ -14,17 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator.operation;
+package com.l2jserver.util.oldcalculator.operation;
 
-public class MultiplyOperation implements CalculatorOperation<Integer> {
+public class SetOperation implements CalculatorOperation<Integer> {
 	private Integer value;
 
-	public MultiplyOperation(Integer value) {
+	public SetOperation(Integer value) {
 		this.value = value;
 	}
 
 	@Override
 	public Integer calculate(Integer value) {
-		return value * this.value;
+		return this.value;
 	}
 }
