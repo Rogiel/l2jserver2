@@ -61,21 +61,14 @@ public class MySQL5CharacterFriendDAO extends AbstractMySQL5DAO<CharacterID>
 	}
 
 	/**
-	 * The {@link Mapper} instance
+	 * The {@link Mapper} for {@link CharacterID}
 	 */
-	private final CharacterFriendMapper mapper = new CharacterFriendMapper();
-
-	/**
-	 * The friend list mapper
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	private final class CharacterFriendMapper implements Mapper<CharacterID> {
+	private final Mapper<CharacterID> mapper = new Mapper<CharacterID>() {
 		@Override
 		public CharacterID map(ResultSet rs) throws SQLException {
 			return idFactory.createID(rs.getInt(CHAR_ID_FRIEND));
 		}
-	}
+	};
 
 	@Override
 	public List<CharacterID> load(final CharacterID id) {

@@ -21,6 +21,7 @@ import java.util.List;
 import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.cache.IgnoreCaching;
@@ -40,6 +41,14 @@ public interface CharacterDAO extends DataAccessObject<L2Character>, Cacheable {
 	 *            the id
 	 */
 	L2Character load(CharacterID id);
+
+	/**
+	 * Load the members of the given <tt>clan</tt>
+	 * 
+	 * @param clan
+	 *            the clan
+	 */
+	void load(Clan clan);
 
 	/**
 	 * Select an character by its name.

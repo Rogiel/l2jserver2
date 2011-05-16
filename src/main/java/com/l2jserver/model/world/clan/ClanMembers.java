@@ -16,8 +16,8 @@
  */
 package com.l2jserver.model.world.clan;
 
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import com.l2jserver.model.id.object.CharacterID;
@@ -80,7 +80,7 @@ public class ClanMembers implements Iterable<CharacterID> {
 	 * @param members
 	 *            the list of members ids
 	 */
-	public void load(List<CharacterID> members) {
+	public void load(Collection<CharacterID> members) {
 		this.members.addAll(members);
 	}
 

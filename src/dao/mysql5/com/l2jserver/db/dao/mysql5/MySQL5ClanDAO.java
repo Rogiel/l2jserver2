@@ -30,7 +30,6 @@ import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.object.factory.ClanIDFactory;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.MySQLDatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
 import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
@@ -69,20 +68,9 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 	}
 
 	/**
-	 * The {@link Mapper} instance
+	 * The {@link Mapper} for {@link Clan}
 	 */
-	private final ClanMapper mapper = new ClanMapper(database);
-
-	/**
-	 * Clan mapper class
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	private final class ClanMapper extends CachedMapper<Clan, ClanID> {
-		public ClanMapper(MySQLDatabaseService database) {
-			super(database);
-		}
-
+	private final Mapper<Clan> mapper = new CachedMapper<Clan, ClanID>(database) {
 		@Override
 		protected ClanID createID(ResultSet rs) throws SQLException {
 			return idFactory.createID(rs.getInt(CLAN_ID));
@@ -94,7 +82,17 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 			clan.setID(id);
 			return clan;
 		}
-	}
+	};
+
+	/**
+	 * The {@link Mapper} for {@link ClanID}
+	 */
+	private final Mapper<ClanID> idMapper = new Mapper<ClanID>() {
+		@Override
+		public ClanID map(ResultSet rs) throws SQLException {
+			return idFactory.createID(rs.getInt(CLAN_ID));
+		}
+	};
 
 	@Override
 	public Clan load(final ClanID id) {
@@ -127,12 +125,7 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 
 			@Override
 			protected Mapper<ClanID> mapper() {
-				return new Mapper<ClanID>() {
-					@Override
-					public ClanID map(ResultSet rs) throws SQLException {
-						return idFactory.createID(rs.getInt(CLAN_ID));
-					}
-				};
+				return idMapper;
 			}
 		});
 	}
@@ -150,7 +143,6 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 			protected void parametize(PreparedStatement st, Clan clan)
 					throws SQLException {
 				int i = 1;
-
 				st.setInt(i++, clan.getID().getID());
 			}
 		}) > 0;

@@ -76,6 +76,13 @@ public class Clan extends AbstractObject implements
 		this.leaderID = leaderID;
 	}
 
+	/**
+	 * @return the members
+	 */
+	public ClanMembers getMembers() {
+		return members;
+	}
+
 	@Override
 	public ClanID getID() {
 		return (ClanID) super.getID();

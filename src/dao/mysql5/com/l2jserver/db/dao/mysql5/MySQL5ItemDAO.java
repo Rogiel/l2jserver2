@@ -34,6 +34,7 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
@@ -80,21 +81,14 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	/**
 	 * The {@link Mapper} instance
 	 */
-	private final ItemMapper mapper = new ItemMapper();
-
-	/**
-	 * {@link Item} mapper class
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	private final class ItemMapper implements Mapper<Item> {
+	private final Mapper<Item> mapper = new CachedMapper<Item, ItemID>(database) {
 		@Override
-		public Item map(ResultSet rs) throws SQLException {
-			final ItemID id = idFactory.createID(rs.getInt(ITEM_ID));
+		protected ItemID createID(ResultSet rs) throws SQLException {
+			return idFactory.createID(rs.getInt(ITEM_ID));
+		}
 
-			if (database.hasCachedObject(id))
-				return (Item) database.getCachedObject(id);
-
+		@Override
+		public Item map(ItemID id, ResultSet rs) throws SQLException {
 			final ItemTemplateID templateId = templateIdFactory.createID(rs
 					.getInt(TEMPLATE_ID));
 			final ItemTemplate template = templateId.getTemplate();
@@ -102,12 +96,20 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 
 			item.setID(id);
 			item.setOwnerID(charIdFactory.createID(rs.getInt(CHAR_ID)));
-			
-			database.updateCache(item.getID(), item);
 
 			return item;
 		}
-	}
+	};
+
+	/**
+	 * The {@link Mapper} for {@link ItemID}
+	 */
+	private final Mapper<ItemID> idMapper = new Mapper<ItemID>() {
+		@Override
+		public ItemID map(ResultSet rs) throws SQLException {
+			return idFactory.createID(rs.getInt(CHAR_ID));
+		}
+	};
 
 	@Override
 	public Item load(final ItemID id) {
@@ -164,12 +166,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 
 			@Override
 			protected Mapper<ItemID> mapper() {
-				return new Mapper<ItemID>() {
-					@Override
-					public ItemID map(ResultSet rs) throws SQLException {
-						return idFactory.createID(rs.getInt(CHAR_ID));
-					}
-				};
+				return idMapper;
 			}
 		});
 	}
