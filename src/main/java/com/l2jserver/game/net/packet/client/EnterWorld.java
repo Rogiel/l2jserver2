@@ -22,6 +22,11 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.UserInformationPacket;
+import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.service.game.chat.ChatService;
+import com.l2jserver.service.game.chat.channel.ChatChannel;
+import com.l2jserver.service.game.chat.channel.ChatChannelListener;
+import com.l2jserver.service.game.chat.channel.PublicChatChannel;
 
 /**
  * The client is requesting a logout. Currently, when this packet is received
@@ -34,6 +39,21 @@ public class EnterWorld extends AbstractClientPacket {
 	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x11;
+
+	/**
+	 * The chat service
+	 */
+	private final ChatService chatService;
+
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param chatService
+	 *            the chat service
+	 */
+	public EnterWorld(ChatService chatService) {
+		this.chatService = chatService;
+	}
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
@@ -52,8 +72,20 @@ public class EnterWorld extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
+		if (conn.getCharacter().getClanID() != null) {
+			final PublicChatChannel clanChannel = chatService.getChannel(conn
+					.getCharacter().getClanID());
+			clanChannel.addChatChannelListener(new ChatChannelListener() {
+				@Override
+				public void onMessage(ChatChannel channel, CharacterID source,
+						String message) {
+					// TODO write message
+				}
+			});
+		}
+
 		conn.write(new UserInformationPacket(conn.getCharacter()));
 		conn.write(new GameGuardQueryPacket());
-		//conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
+		// conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
 	}
 }

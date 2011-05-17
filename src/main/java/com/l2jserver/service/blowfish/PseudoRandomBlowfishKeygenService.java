@@ -27,7 +27,7 @@ public class PseudoRandomBlowfishKeygenService extends AbstractService
 	private Random random;
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		random = new Random();
 	}
 
@@ -52,7 +52,7 @@ public class PseudoRandomBlowfishKeygenService extends AbstractService
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	protected void doStop() throws ServiceStopException {
 		random = null;
 	}
 }

@@ -31,9 +31,9 @@ public enum ProtocolVersion {
 	 */
 	FREYA(216, RELEASE),
 	/**
-	 * High5(217)
+	 * High5(268)
 	 */
-	HIGH5(217, FREYA);
+	HIGH5(268, FREYA);
 
 	public final ProtocolVersion parent;
 	public final int version;

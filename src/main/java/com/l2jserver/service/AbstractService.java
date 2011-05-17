@@ -16,23 +16,78 @@
  */
 package com.l2jserver.service;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * An abstract service implementing basic life-cycle methods.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class AbstractService implements Service {
+public abstract class AbstractService implements Service {
+	/**
+	 * Running state of a service
+	 */
+	protected boolean running = false;
+
 	@Override
-	public void start() throws ServiceStartException {
+	public final void start() throws ServiceStartException {
+		if (running)
+			throw new ServiceStartException("Service is already started");
+		try {
+			this.doStart();
+			this.running = true;
+		} catch (ServiceStartException e) {
+			this.running = false;
+		}
+	}
+
+	protected void doStart() throws ServiceStartException {
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	public final void stop() throws ServiceStopException {
+		if (!running)
+			throw new ServiceStopException("Service is not started");
+		try {
+			this.doStop();
+		} finally {
+			this.running = false;
+		}
+	}
+
+	protected void doStop() throws ServiceStopException {
 	}
 
 	@Override
 	public void restart() throws ServiceException {
 		this.stop();
 		this.start();
+	}
+
+	@Override
+	public boolean isStarted() {
+		return running;
+	}
+
+	@Override
+	public boolean isStopped() {
+		return !running;
+	}
+
+	@Override
+	public Class<? extends Service>[] getDependencies() {
+		final Depends deps = this.getClass().getAnnotation(Depends.class);
+		if (deps == null)
+			return null;
+		return deps.value();
+	}
+
+	@Retention(RetentionPolicy.RUNTIME)
+	@Target(ElementType.TYPE)
+	public @interface Depends {
+		Class<? extends Service>[] value();
 	}
 }

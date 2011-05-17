@@ -32,10 +32,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
+import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertyGetter;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertySetter;
+import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.transformer.Transformer;
 import com.l2jserver.util.transformer.TransformerFactory;
 
@@ -45,6 +48,7 @@ import com.l2jserver.util.transformer.TransformerFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ LoggingService.class, CacheService.class })
 public class ProxyConfigurationService extends AbstractService implements
 		ConfigurationService {
 	/**
@@ -63,7 +67,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	private Map<Class<?>, Object> cache = new WeakHashMap<Class<?>, Object>();
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		if (!directory.exists())
 			if (!directory.mkdirs())
 				throw new ServiceStartException("Failed to create directories");

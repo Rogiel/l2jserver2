@@ -32,13 +32,21 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.scripting.impl.ScriptContextImpl;
 import com.l2jserver.service.game.scripting.scriptmanager.ScriptInfo;
 import com.l2jserver.service.game.scripting.scriptmanager.ScriptList;
+import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
+/**
+ * Default {@link ScriptingService} implementation
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+@Depends(LoggingService.class)
 public class ScriptingServiceImpl extends AbstractService implements
 		ScriptingService {
 	/**
@@ -60,7 +68,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		for (ScriptContext context : contexts) {
 			context.shutdown();
 		}
@@ -165,7 +173,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	protected void doStop() throws ServiceStopException {
 		for (ScriptContext context : contexts) {
 			context.shutdown();
 		}

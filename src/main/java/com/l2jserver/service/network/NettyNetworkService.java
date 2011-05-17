@@ -33,7 +33,11 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.blowfish.BlowfishKeygenService;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -41,6 +45,8 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ LoggingService.class, BlowfishKeygenService.class,
+		WorldService.class })
 public class NettyNetworkService extends AbstractService implements
 		NetworkService {
 	/**
@@ -75,7 +81,7 @@ public class NettyNetworkService extends AbstractService implements
 	}
 
 	@Override
-	public void start() {
+	protected void doStart() {
 		server = new ServerBootstrap(new NioServerSocketChannelFactory(
 				Executors.newCachedThreadPool(),
 				Executors.newCachedThreadPool()));
@@ -116,7 +122,7 @@ public class NettyNetworkService extends AbstractService implements
 	}
 
 	@Override
-	public void stop() {
+	protected void doStop() {
 		try {
 			channel.close().awaitUninterruptibly();
 		} finally {

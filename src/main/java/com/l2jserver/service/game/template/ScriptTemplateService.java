@@ -23,13 +23,17 @@ import com.google.inject.Injector;
 import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.game.scripting.ScriptContext;
 import com.l2jserver.service.game.scripting.ScriptingService;
+import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
+@Depends({ LoggingService.class, ConfigurationService.class,
+		ScriptingService.class })
 public class ScriptTemplateService extends AbstractService implements
 		TemplateService {
 	private final ScriptingService scriptingService;
@@ -52,7 +56,7 @@ public class ScriptTemplateService extends AbstractService implements
 	}
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		if (context == null) {
 			try {
 				context = scriptingService.load(config.getTemplateDescriptor())
@@ -94,7 +98,7 @@ public class ScriptTemplateService extends AbstractService implements
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	protected void doStop() throws ServiceStopException {
 		if (context.isInitialized())
 			context.shutdown();
 		context = null;

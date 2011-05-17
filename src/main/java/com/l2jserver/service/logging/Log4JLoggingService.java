@@ -29,7 +29,7 @@ import com.l2jserver.service.ServiceStartException;
 public class Log4JLoggingService extends AbstractService implements
 		LoggingService {
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		BasicConfigurator.configure();
 	}
 }

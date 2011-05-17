@@ -24,11 +24,15 @@ import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
+import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
 import com.l2jserver.service.game.chat.channel.PrivateChatChannel;
 import com.l2jserver.service.game.chat.channel.PublicChatChannel;
+import com.l2jserver.service.game.region.Region;
+import com.l2jserver.service.game.region.RegionService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -36,7 +40,10 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends(RegionService.class)
 public class SimpleChatService extends AbstractService implements ChatService {
+	private final RegionService regionService;
+
 	/**
 	 * The global chat channel
 	 */
@@ -51,12 +58,27 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 * The list of clan chat channels
 	 */
 	private Map<ClanID, ClanChatChannelImpl> clanChannels;
+	/**
+	 * The list of regional chat channels
+	 */
+	private Map<Region, RegionChatChannelImpl> regionChannels;
+
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param regionService
+	 *            the region service
+	 */
+	public SimpleChatService(RegionService regionService) {
+		this.regionService = regionService;
+	}
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		this.global = new GlobalChatChannelImpl();
 		this.privateChannels = CollectionFactory.newMap(null, null);
 		this.clanChannels = CollectionFactory.newMap(null, null);
+		this.regionChannels = CollectionFactory.newMap(null, null);
 	}
 
 	@Override
@@ -66,8 +88,13 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 	@Override
 	public PublicChatChannel getRegionChannel(L2Character character) {
-		// TODO Region chat channels
-		return null;
+		final Region region = regionService.getRegion(character);
+		RegionChatChannelImpl channel = regionChannels.get(region);
+		if (channel == null) {
+			channel = new RegionChatChannelImpl(region);
+			regionChannels.put(region, channel);
+		}
+		return channel;
 	}
 
 	@Override
@@ -88,6 +115,14 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			clanChannels.put(clan, channel);
 		}
 		return channel;
+	}
+
+	@Override
+	protected void doStop() throws ServiceStopException {
+		this.global = null;
+		this.privateChannels = null;
+		this.clanChannels = null;
+		this.regionChannels = null;
 	}
 
 	/**
@@ -168,6 +203,29 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 */
 		public ClanChatChannelImpl(ClanID clanID) {
 			this.clanID = clanID;
+		}
+	}
+
+	/**
+	 * {@link PublicChatChannel} implemenetation for {@link Region regions}
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private class RegionChatChannelImpl extends ChatChannelImpl implements
+			PublicChatChannel {
+		/**
+		 * The clan ID
+		 */
+		@SuppressWarnings("unused")
+		private final Region region;
+
+		/**
+		 * Creates a new instance
+		 * 
+		 * @param clanID
+		 */
+		public RegionChatChannelImpl(Region region) {
+			this.region = region;
 		}
 	}
 }

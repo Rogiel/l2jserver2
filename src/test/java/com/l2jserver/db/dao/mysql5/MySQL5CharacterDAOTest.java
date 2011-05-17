@@ -26,12 +26,10 @@ import com.l2jserver.GameServerModule;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
-import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.service.logging.LoggingService;
 
 public class MySQL5CharacterDAOTest {
 	private final Injector injector = Guice
@@ -39,11 +37,8 @@ public class MySQL5CharacterDAOTest {
 
 	@Test
 	public void testCachedLoad() throws ServiceStartException {
-		injector.getInstance(LoggingService.class).start();
-		injector.getInstance(CacheService.class).start();
-		injector.getInstance(DatabaseService.class).start();
-		injector.getInstance(ScriptingService.class).start();
-		injector.getInstance(TemplateService.class).start();
+		injector.getInstance(ServiceManager.class).start(TemplateService.class);
+		injector.getInstance(ServiceManager.class).start(DatabaseService.class);
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
 		final L2Character char1 = dao.load(injector.getInstance(

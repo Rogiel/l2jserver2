@@ -26,12 +26,17 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.game.scripting.ScriptingService;
+import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.filter.FilterIterator;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
+import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -39,6 +44,8 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ LoggingService.class, TemplateService.class, ScriptingService.class,
+		DatabaseService.class })
 public class WorldServiceImpl extends AbstractService implements WorldService {
 	/**
 	 * The logger
@@ -62,7 +69,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	}
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		objects.clear();
 	}
 
@@ -127,7 +134,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	protected void doStop() throws ServiceStopException {
 		objects.clear();
 	}
 }

@@ -43,10 +43,13 @@ import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.game.template.TemplateService;
+import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.ArrayIterator;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -55,6 +58,8 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ LoggingService.class, CacheService.class,
+		ConfigurationService.class, TemplateService.class })
 public class MySQLDatabaseService extends AbstractService implements
 		DatabaseService {
 	/**
@@ -103,7 +108,7 @@ public class MySQLDatabaseService extends AbstractService implements
 	}
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		connectionPool = new GenericObjectPool(null);
 		connectionFactory = new DriverManagerConnectionFactory(
 				config.getJdbcUrl(), config.getUsername(), config.getPassword());
@@ -170,7 +175,7 @@ public class MySQLDatabaseService extends AbstractService implements
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	protected void doStop() throws ServiceStopException {
 		if (objectCache != null)
 			objectCache.dispose();
 		objectCache = null;

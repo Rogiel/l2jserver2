@@ -48,7 +48,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 	private Cache interfaceCache;
 
 	@Override
-	public void start() throws ServiceStartException {
+	protected void doStart() throws ServiceStartException {
 		manager = new CacheManager();
 		interfaceCache = createCache("interface-cache");
 	}
@@ -111,7 +111,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 	}
 
 	@Override
-	public void stop() throws ServiceStopException {
+	protected void doStop() throws ServiceStopException {
 		manager.removalAll();
 		manager.shutdown();
 		interfaceCache = null;

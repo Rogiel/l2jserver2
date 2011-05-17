@@ -31,11 +31,17 @@ import com.l2jserver.service.game.chat.channel.PublicChatChannel;
  */
 public interface ChatService extends Service {
 	/**
+	 * Get the Global {@link ChatChannel}. Messages sent in this chat are
+	 * broadcasted to everyone online.
+	 * 
 	 * @return the global {@link ChatChannel}
 	 */
 	PublicChatChannel getGlobalChannel();
 
 	/**
+	 * Get the Region {@link ChatChannel}. Messages sent in this chat are
+	 * broadcasted to everyone nearby.
+	 * 
 	 * @param character
 	 *            the character in the region
 	 * @return the global {@link ChatChannel}
@@ -43,7 +49,8 @@ public interface ChatService extends Service {
 	PublicChatChannel getRegionChannel(L2Character character);
 
 	/**
-	 * Get an private {@link ChatChannel} to {@link CharacterID}
+	 * Get an private {@link ChatChannel} to {@link CharacterID}. Messages sent
+	 * in this channel are sent only to <tt>character</tt>.
 	 * 
 	 * @param character
 	 *            the target character
@@ -52,6 +59,9 @@ public interface ChatService extends Service {
 	PrivateChatChannel getChannel(CharacterID character);
 
 	/**
+	 * Get the Clan {@link ChatChannel}. Messages sent in this channel are
+	 * broadcast to all clan members online.
+	 * 
 	 * @param clan
 	 *            the clan
 	 * @return the public clan {@link ChatChannel}

@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.region;
 
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.Service;
 
 /**
@@ -25,5 +25,12 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface RegionService extends Service {
-	Region getRegion(L2Character character);
+	/**
+	 * Get the region in which this actor is.
+	 * 
+	 * @param actor
+	 *            the actor
+	 * @return the current region
+	 */
+	Region getRegion(Actor actor);
 }

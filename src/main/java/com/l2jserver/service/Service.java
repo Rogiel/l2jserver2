@@ -46,4 +46,19 @@ public interface Service {
 	 *             if an error occurred
 	 */
 	void restart() throws ServiceException;
+
+	/**
+	 * @return true if service is running
+	 */
+	boolean isStarted();
+
+	/**
+	 * @return false if service is not running
+	 */
+	boolean isStopped();
+
+	/**
+	 * @return the other services that the service depends on
+	 */
+	Class<? extends Service>[] getDependencies();
 }

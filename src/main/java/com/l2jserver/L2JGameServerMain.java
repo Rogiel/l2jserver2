@@ -16,7 +16,14 @@
  */
 package com.l2jserver;
 
-import com.l2jserver.routines.GameServerInitializationRoutine;
+import com.l2jserver.service.ServiceManager;
+import com.l2jserver.service.blowfish.BlowfishKeygenService;
+import com.l2jserver.service.cache.CacheService;
+import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.game.scripting.ScriptingService;
+import com.l2jserver.service.game.template.TemplateService;
+import com.l2jserver.service.network.NetworkService;
 
 public class L2JGameServerMain {
 	/**
@@ -26,8 +33,18 @@ public class L2JGameServerMain {
 	public static void main(String[] args) throws InterruptedException {
 		final L2JGameServer server = new L2JGameServer();
 		try {
-			server.getInjector()
-					.getInstance(GameServerInitializationRoutine.class).call();
+			final ServiceManager serviceManager = server.getInjector()
+					.getInstance(ServiceManager.class);
+
+			serviceManager.start(CacheService.class);
+			serviceManager.start(ConfigurationService.class);
+			serviceManager.start(DatabaseService.class);
+
+			serviceManager.start(ScriptingService.class);
+			serviceManager.start(TemplateService.class);
+
+			serviceManager.start(BlowfishKeygenService.class);
+			serviceManager.start(NetworkService.class);
 		} catch (Exception e) {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();

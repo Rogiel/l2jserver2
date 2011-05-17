@@ -14,17 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.routines;
+package com.l2jserver.service.game;
 
-import java.util.concurrent.Callable;
+import com.l2jserver.service.Service;
 
 /**
- * An routine is a set of operations that can be performed on another thread.
+ * This service handles PvP battles.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
- * @param <T>
- *            the routine return type
  */
-public interface Routine<T> extends Callable<T> {
+public interface PvPService extends Service {
+
 }

@@ -16,12 +16,16 @@
  */
 package com.l2jserver.service;
 
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.service.logging.LoggingService;
+import com.l2jserver.util.ClassUtils;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * The {@link ServiceManager} is responsible for starting and stopping services
@@ -38,11 +42,14 @@ public class ServiceManager {
 	 */
 	private final Injector injector;
 
+	private final Set<Service> knownServices = CollectionFactory.newSet(null);
+
 	@Inject
 	public ServiceManager(Injector injector) {
 		this.injector = injector;
 		final LoggingService service = injector
 				.getInstance(LoggingService.class);
+		knownServices.add(service);
 		try {
 			service.start();
 		} catch (ServiceStartException e) {
@@ -56,7 +63,11 @@ public class ServiceManager {
 		final T service = injector.getInstance(serviceClass);
 		if (service == null)
 			return null;
+		if (service.isStarted())
+			return service;
+		knownServices.add(service);
 		try {
+			startDependencies(service.getDependencies());
 			logger.info("{}: Starting service...",
 					serviceClass.getCanonicalName());
 			service.start();
@@ -64,8 +75,19 @@ public class ServiceManager {
 			return service;
 		} catch (ServiceStartException e) {
 			logger.error("{}: Error starting service: {}",
-					serviceClass.getCanonicalName(), e.getCause());
+					serviceClass.getCanonicalName(), e);
 			throw e;
+		}
+	}
+
+	private void startDependencies(Class<? extends Service>[] dependencies)
+			throws ServiceStartException {
+		if (dependencies == null)
+			return;
+		if (dependencies.length == 0)
+			return;
+		for (final Class<? extends Service> serviceClass : dependencies) {
+			this.start(serviceClass);
 		}
 	}
 
@@ -74,9 +96,13 @@ public class ServiceManager {
 		final Service service = injector.getInstance(serviceClass);
 		if (service == null)
 			return;
+		if (service.isStopped())
+			return;
+		knownServices.add(service);
 		try {
 			logger.info("{0}: Stopping service...",
 					serviceClass.getCanonicalName());
+			stopDependencies(service);
 			service.stop();
 			logger.info("{0}: Service stopped!",
 					serviceClass.getCanonicalName());
@@ -87,16 +113,46 @@ public class ServiceManager {
 		}
 	}
 
+	private void stopDependencies(Service service) throws ServiceStopException {
+		final Set<Class<? extends Service>> dependencies = createStopDependencies(
+				null, service);
+		for (final Class<? extends Service> dependency : dependencies) {
+			this.stop(dependency);
+		}
+	}
+
+	private Set<Class<? extends Service>> createStopDependencies(
+			Set<Class<? extends Service>> depends, Service serviceClass) {
+		if (depends == null)
+			depends = CollectionFactory.newSet(null);
+		for (final Service service : knownServices) {
+			if (service.getDependencies() == null
+					|| service.getDependencies().length == 0)
+				continue;
+			for (final Class<? extends Service> dependency : service
+					.getDependencies()) {
+				if (!ClassUtils.isSubclass(service.getClass(), dependency))
+					continue;
+				depends.add(dependency);
+				createStopDependencies(depends,
+						injector.getInstance(dependency));
+			}
+		}
+		return depends;
+	}
+
 	public <T extends Service> T restart(Class<T> serviceClass)
-			throws ServiceStartException, ServiceStopException {
+			throws ServiceException {
 		final T service = injector.getInstance(serviceClass);
 		if (service == null)
 			return null;
+		if (service.isStopped())
+			throw new ServiceStopException("Service is already stopped");
+		knownServices.add(service);
 		try {
 			logger.info("{0}: Restaring service...",
 					serviceClass.getCanonicalName());
-			service.stop();
-			service.start();
+			service.restart();
 			logger.info("{0}: Service restarted!",
 					serviceClass.getCanonicalName());
 			return service;
@@ -106,6 +162,10 @@ public class ServiceManager {
 			throw e;
 		} catch (ServiceStopException e) {
 			logger.error("{0}: Error stopping service: {1}",
+					serviceClass.getCanonicalName(), e.getCause());
+			throw e;
+		} catch (ServiceException e) {
+			logger.error("{0}: Error restarting service: {1}",
 					serviceClass.getCanonicalName(), e.getCause());
 			throw e;
 		}
