@@ -16,24 +16,18 @@
  */
 package com.l2jserver.game.net.packet.client;
 
-import java.util.List;
-
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.google.inject.Inject;
-import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.CharacterSelectionListPacket;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.game.net.packet.server.FortInfoPacket;
 
 /**
- * Requests the list of characters to be displayed in the lobby. The list of
- * characters is sent to the client.
+ * The client is requesting the manor list.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RequestGotoLobby extends AbstractClientPacket {
+public class RequestAllFortressInfoPacket extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE1
 	 */
@@ -41,17 +35,7 @@ public class RequestGotoLobby extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE2
 	 */
-	public static final int OPCODE2 = 0x36;
-
-	/**
-	 * The {@link CharacterDAO} implementation
-	 */
-	private final CharacterDAO characterDao;
-
-	@Inject
-	public RequestGotoLobby(CharacterDAO characterDao) {
-		this.characterDao = characterDao;
-	}
+	public static final int OPCODE2 = 0x3d;
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
@@ -59,9 +43,6 @@ public class RequestGotoLobby extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		final List<L2Character> chars = characterDao.selectByAccount(conn
-				.getSession().getAccountID());
-		conn.write(CharacterSelectionListPacket.fromL2Session(
-				conn.getSession(), chars.toArray(new L2Character[0])));
+		conn.write(new FortInfoPacket());
 	}
 }

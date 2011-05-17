@@ -1,4 +1,3 @@
-
 /*
  * This file is part of l2jserver <l2jserver.com>.
  *
@@ -14,8 +13,13 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 package script.template.item.weapon;
+
+import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.MAGICAL_ATTACK;
+import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.PHYSICAL_ATTACK;
+import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.PHYSICAL_ATTACK_SPEED;
+import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.R_CRITICAL;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
@@ -32,10 +36,10 @@ public class LongSwordTemplate extends AbstractNoGradeWeaponTemplate {
 				ItemMaterial.STEEL, InventoryPaperdoll.RIGHT_HAND,
 				WeaponType.SWORD);
 
-		attribute.set(WeaponAttributeType.PHYSICAL_ATTACK, 0x08, 24);
-		attribute.set(WeaponAttributeType.MAGICAL_ATTACK, 0x08, 17);
-		attribute.set(WeaponAttributeType.R_CRITICAL, 0x08, 8);
-		attribute.set(WeaponAttributeType.PHYSICAL_ATTACK_SPEED, 0x08, 379);
+		attribute.set(PHYSICAL_ATTACK, 0x80, 24);
+		attribute.set(MAGICAL_ATTACK, 0x80, 17);
+		attribute.set(R_CRITICAL, 0x80, 8);
+		attribute.set(PHYSICAL_ATTACK_SPEED, 0x80, 379);
 
 		this.randomDamage = 10;
 		this.attackRange = 40;

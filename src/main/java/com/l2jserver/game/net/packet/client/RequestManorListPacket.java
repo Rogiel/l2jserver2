@@ -20,40 +20,30 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
-import com.l2jserver.game.net.packet.server.UserInformationPacket;
+import com.l2jserver.game.net.packet.server.ManorListPacket;
 
 /**
- * The client is requesting a logout. Currently, when this packet is received
- * the connection is immediately closed.
+ * The client is requesting the manor list.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class EnterWorld extends AbstractClientPacket {
+public class RequestManorListPacket extends AbstractClientPacket {
 	/**
-	 * The packet OPCODE
+	 * The packet OPCODE1
 	 */
-	public static final int OPCODE = 0x11;
+	public static final int OPCODE1 = 0xd0;
+	/**
+	 * The packet OPCODE2
+	 */
+	public static final int OPCODE2 = 0x01;
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.readBytes(new byte[32]); // Unknown Byte Array
-		buffer.readInt(); // Unknown Value
-		buffer.readInt(); // Unknown Value
-		buffer.readInt(); // Unknown Value
-		buffer.readInt(); // Unknown Value
-		buffer.readBytes(new byte[32]); // Unknown Byte Array
-		buffer.readInt(); // Unknown Value
-		// TODO parse tracert
-		// for (int i = 0; i < 5; i++)
-		// for (int o = 0; o < 4; o++)
-		// tracert[i][o] = readC();
 	}
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		conn.write(new UserInformationPacket(conn.getCharacter()));
-		conn.write(new GameGuardQueryPacket());
-		//conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
+		conn.write(new ManorListPacket("gludio", "dion", "giran", "oren",
+				"aden", "innadril", "goddard", "rune", "schuttgart"));
 	}
 }

@@ -23,8 +23,18 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
+/**
+ * This implementation of {@link BlowfishKeygenService} generates
+ * cryptographically safe keys but at the cost of speed. The key generation is
+ * much slower than on a pseudo-random generator.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class SecureBlowfishKeygenService extends AbstractService implements
 		BlowfishKeygenService {
+	/**
+	 * The random number generator
+	 */
 	private RandomData random;
 
 	@Override

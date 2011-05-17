@@ -43,9 +43,6 @@ public class IDFactoryModule extends AbstractModule {
 		bind(IDAllocator.class).to(BitSetIDAllocator.class)
 				.in(Scopes.SINGLETON);
 
-		// ACCOUNT ID
-		install(new FactoryModuleBuilder().build(AccountIDFactory.class));
-
 		// OBJECT IDS
 		bind(CharacterIDFactory.class).in(Scopes.SINGLETON);
 		install(new FactoryModuleBuilder().build(CharacterIDGuiceFactory.class));
@@ -58,6 +55,10 @@ public class IDFactoryModule extends AbstractModule {
 
 		// bind(PetIDFactory.class).in(Scopes.SINGLETON);
 		// install(new FactoryModuleBuilder().build(PetIDGuiceFactory.class));
+
+		// MISC OBJECTS
+		install(new FactoryModuleBuilder().build(AccountIDFactory.class));
+		install(new FactoryModuleBuilder().build(FortIDFactory.class));
 
 		// TEMPLATE IDS
 		install(new FactoryModuleBuilder().build(ItemTemplateIDFactory.class));

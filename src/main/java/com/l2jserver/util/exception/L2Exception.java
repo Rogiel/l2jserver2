@@ -14,16 +14,44 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
-
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+package com.l2jserver.util.exception;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * Base exception for Lineage 2
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public class L2Exception extends Exception {
+	/**
+	 * Default Serial Version UID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see Exception#Exception()
+	 */
+	public L2Exception() {
+		super();
+	}
+
+	/**
+	 * @see Exception#Exception(String, Throwable)
+	 */
+	public L2Exception(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	/**
+	 * @see Exception#Exception(String)
+	 */
+	public L2Exception(String message) {
+		super(message);
+	}
+
+	/**
+	 * @see Exception#Exception(Throwable)
+	 */
+	public L2Exception(Throwable cause) {
+		super(cause);
+	}
 }

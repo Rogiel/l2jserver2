@@ -84,7 +84,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 	@Override
 	public Cache createCache(String name, int size) {
 		Cache cache = new Cache(
-				new CacheConfiguration("database-service", size)
+				new CacheConfiguration(name, size)
 						.memoryStoreEvictionPolicy(
 								MemoryStoreEvictionPolicy.LRU)
 						.overflowToDisk(true).eternal(false)

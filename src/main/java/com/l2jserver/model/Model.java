@@ -14,16 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.model;
 
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.ID;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
- * @author Rogiel
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public interface Model<T extends ID<?>> {
+	/**
+	 * @return the object ID
+	 */
+	T getID();
+
+	/**
+	 * @param ID
+	 *            the object ID to set
+	 */
+	void setID(T ID);
 }

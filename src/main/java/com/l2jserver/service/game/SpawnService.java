@@ -14,36 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet.client;
+package com.l2jserver.service.game;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-
-import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.ManorListPacket;
+import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.service.Service;
 
 /**
- * The client is requesting the manor list.
+ * This service is responsible for spawning monsters, npcs and players.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RequestManorList extends AbstractClientPacket {
+public interface SpawnService extends Service {
 	/**
-	 * The packet OPCODE1
+	 * Spawns an object in the world
+	 * 
+	 * @param spawnable
+	 *            the spawnable object
 	 */
-	public static final int OPCODE1 = 0xd0;
+	void spawn(Spawnable spawnable);
+
 	/**
-	 * The packet OPCODE2
+	 * Schedules an {@link Spawnable} object to be respawn in a certain time.
+	 * 
+	 * @param spawnable
+	 *            the spawnable object
 	 */
-	public static final int OPCODE2 = 0x01;
+	void scheduleRespawn(Spawnable spawnable);
 
-	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
-	}
-
-	@Override
-	public void process(final Lineage2Connection conn) {
-		conn.write(new ManorListPacket("gludio", "dion", "giran", "oren",
-				"aden", "innadril", "goddard", "rune", "schuttgart"));
-	}
+	/**
+	 * Unspawns an object from the world
+	 * 
+	 * @param spawnable
+	 *            the spawnable object
+	 */
+	void unspawn(Spawnable spawnable);
 }

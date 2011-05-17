@@ -14,16 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.service.admin;
 
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.service.Service;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * This service handles administrators in the server
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public interface AdminService extends Service {
+
 }

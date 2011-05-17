@@ -14,16 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.service.game;
 
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.service.AbstractService;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * Default implementation for {@link SpawnService}
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public class SpawnServiceImpl extends AbstractService implements SpawnService {
+	@Override
+	public void spawn(Spawnable spawnable) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void scheduleRespawn(Spawnable spawnable) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void unspawn(Spawnable spawnable) {
+		// TODO Auto-generated method stub
+
+	}
 }

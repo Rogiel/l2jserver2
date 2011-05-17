@@ -14,16 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
-
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+package com.l2jserver.util.calculator;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
- * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public interface Operation<T extends Number> {
+	/**
+	 * Performs the operation in the calculation process
+	 * 
+	 * @param value
+	 *            the chain input value
+	 * @return the output value
+	 */
+	T perform(T value);
 }

@@ -14,16 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
-
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+package com.l2jserver.util.calculator;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * This operation performs an modulus: <blockquote><code>|chain value|</code>
+ * </blockquote>
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public class ModulusOperation implements Operation<Double> {
+	@Override
+	public Double perform(Double value) {
+		if (value < 0)
+			return value * -1;
+		return value;
+	}
 }

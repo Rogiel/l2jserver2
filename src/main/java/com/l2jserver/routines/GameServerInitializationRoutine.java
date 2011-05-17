@@ -18,6 +18,8 @@ package com.l2jserver.routines;
 
 import com.google.inject.Inject;
 import com.l2jserver.service.ServiceManager;
+import com.l2jserver.service.blowfish.BlowfishKeygenService;
+import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.scripting.ScriptingService;
@@ -48,13 +50,14 @@ public class GameServerInitializationRoutine implements Routine<Boolean> {
 
 	@Override
 	public Boolean call() throws Exception {
-		// serviceManager.start(LoggingService.class);
+		serviceManager.start(CacheService.class);
 		serviceManager.start(ConfigurationService.class);
 		serviceManager.start(DatabaseService.class);
 
 		serviceManager.start(ScriptingService.class);
 		serviceManager.start(TemplateService.class);
 
+		serviceManager.start(BlowfishKeygenService.class);
 		serviceManager.start(NetworkService.class);
 		return true;
 	}

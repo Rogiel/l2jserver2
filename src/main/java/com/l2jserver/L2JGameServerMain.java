@@ -16,8 +16,6 @@
  */
 package com.l2jserver;
 
-import org.apache.log4j.BasicConfigurator;
-
 import com.l2jserver.routines.GameServerInitializationRoutine;
 
 public class L2JGameServerMain {
@@ -26,8 +24,6 @@ public class L2JGameServerMain {
 	 * @throws InterruptedException
 	 */
 	public static void main(String[] args) throws InterruptedException {
-		BasicConfigurator.configure();
-
 		final L2JGameServer server = new L2JGameServer();
 		try {
 			server.getInjector()

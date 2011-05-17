@@ -16,11 +16,22 @@
  */
 package com.l2jserver.model.template.item;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.template.capability.Attackable;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
+import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.calculator.DivisionOperation;
+import com.l2jserver.util.calculator.MultiplicationOperation;
+import com.l2jserver.util.calculator.Operation;
+import com.l2jserver.util.calculator.SetOperation;
+import com.l2jserver.util.calculator.SubtractOperation;
+import com.l2jserver.util.calculator.SumOperation;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * Template for Weapon {@link Item}
@@ -28,29 +39,83 @@ import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class WeaponTemplate extends ItemTemplate implements Attackable {
+	/**
+	 * The paperldoll slot used by this weapon
+	 */
 	protected InventoryPaperdoll paperdoll = null;
+	/**
+	 * The weapon type
+	 */
 	protected WeaponType type;
 
+	/**
+	 * The weapon type enum
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum WeaponType {
 		FISHINGROD, CROSSBOW, BIG_SWORD, RAPIER, DUAL_FIST, ETC, DAGGER, BLUNT, BIG_BLUNT, DUAL_DAGGER, DUAL, FLAG, POLE, FIST, BOW, OWN_THING, SWORD, ANCIENT_SWORD;
 	}
 
+	/**
+	 * The weapon's attributes
+	 */
 	protected final WeaponAttribute attribute = new WeaponAttribute();
 
+	/**
+	 * This weapon random damage
+	 */
 	protected int randomDamage = 0;
+	/**
+	 * This weapon attack range
+	 */
 	protected int attackRange = 0;
+	/**
+	 * Unknown!
+	 */
 	protected int[] damageRange = new int[] {};
 
+	/**
+	 * Number of soulshots used per attack
+	 */
 	protected int soulshots = 0;
+	/**
+	 * Number of spirithots used per cast
+	 */
 	protected int spiritshots = 0;
 
-	protected int crystals;
+	/**
+	 * The crystal count for this weapon
+	 */
+	protected int crystals = 0;
+	/**
+	 * This weapon crystal type
+	 */
 	protected CrystalType crystal;
 
+	/**
+	 * Enum containing all crystal types possible
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum CrystalType {
 		GRADE_A, GRADE_B, GRADE_C, GRADE_D;
 	}
 
+	/**
+	 * Creates a new instance. All arguments are required!
+	 * 
+	 * @param id
+	 *            the template id
+	 * @param icon
+	 *            the item icon
+	 * @param material
+	 *            the item material
+	 * @param paperdoll
+	 *            the paperdoll slot
+	 * @param type
+	 *            the weapon type
+	 */
 	public WeaponTemplate(ItemTemplateID id, String icon,
 			ItemMaterial material, InventoryPaperdoll paperdoll, WeaponType type) {
 		super(id, icon, material);
@@ -58,18 +123,152 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		this.type = type;
 	}
 
+	/**
+	 * Append all operation for this weapon
+	 * 
+	 * @param type
+	 *            the attribute type
+	 * @param calc
+	 *            the calculator
+	 */
+	public void calculator(WeaponAttributeType type, Calculator calc) {
+		attribute.calculator(type, calc);
+	}
+
+	/**
+	 * Attribute types for weapons
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum WeaponAttributeType {
 		PHYSICAL_ATTACK, MAGICAL_ATTACK, R_CRITICAL, PHYSICAL_ATTACK_SPEED;
 	}
 
+	/**
+	 * This class handles the Weapon attributes an can add operations to the
+	 * calculator
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public class WeaponAttribute {
-		public void add(WeaponAttributeType type, int order, int value) {
+		private final Map<WeaponAttributeType, Map<Integer, Operation<Double>>> operations = CollectionFactory
+				.newMap(null, null);
+
+		/**
+		 * Sets the result of an calculator
+		 * 
+		 * @param type
+		 *            the attribute type
+		 * @param order
+		 *            the calculation order
+		 * @param value
+		 *            the value to set
+		 */
+		public void set(WeaponAttributeType type, int order, double value) {
+			getMap(type).put(order, new SetOperation(value));
 		}
 
-		public void set(WeaponAttributeType type, int order, int value) {
+		/**
+		 * Adds <tt>value</tt> to the result of an calculator
+		 * 
+		 * @param type
+		 *            the attribute type
+		 * @param order
+		 *            the calculation order
+		 * @param value
+		 *            the value to be summed
+		 */
+		public void add(WeaponAttributeType type, int order, double value) {
+			getMap(type).put(order, new SumOperation(value));
 		}
 
-		public void enchant(WeaponAttributeType type, int order, int value) {
+		/**
+		 * Subtracts <tt>value</tt> from the result of an calculator
+		 * 
+		 * @param type
+		 *            the attribute type
+		 * @param order
+		 *            the calculation order
+		 * @param value
+		 *            the value to be subtracted
+		 */
+		public void sub(WeaponAttributeType type, int order, double value) {
+			getMap(type).put(order, new SubtractOperation(value));
+		}
+
+		/**
+		 * Multiply <tt>value</tt> the result of an calculator
+		 * 
+		 * @param type
+		 *            the attribute type
+		 * @param order
+		 *            the calculation order
+		 * @param value
+		 *            the value to be multiplied
+		 */
+		public void mult(WeaponAttributeType type, int order, double value) {
+			getMap(type).put(order, new MultiplicationOperation(value));
+		}
+
+		/**
+		 * Divides by <tt>value</tt> the result of an calculator
+		 * 
+		 * @param type
+		 *            the attribute type
+		 * @param order
+		 *            the calculation order
+		 * @param value
+		 *            the value to be divided by
+		 */
+		public void div(WeaponAttributeType type, int order, double value) {
+			getMap(type).put(order, new DivisionOperation(value));
+		}
+
+		/**
+		 * Performs an enchant operation. Note that this is not implemented yet!
+		 * 
+		 * @param type
+		 *            the attribute type
+		 * @param order
+		 *            the calculation order
+		 * @param value
+		 *            TODO
+		 */
+		public void enchant(WeaponAttributeType type, int order, double value) {
+			// TODO enchant operation for weapon
+		}
+
+		/**
+		 * Returns the Order-Operation map for <tt>type</tt>
+		 * 
+		 * @param type
+		 *            the type
+		 * @return the order-operation map
+		 */
+		private Map<Integer, Operation<Double>> getMap(WeaponAttributeType type) {
+			Map<Integer, Operation<Double>> map = operations.get(type);
+			if (map == null) {
+				map = CollectionFactory.newMap(null, null);
+				operations.put(type, map);
+			}
+			return map;
+		}
+
+		/**
+		 * Creates the calculator object for this weapon
+		 * 
+		 * @param type
+		 *            the type
+		 * @param calculator
+		 *            the calculator
+		 */
+		private void calculator(WeaponAttributeType type, Calculator calculator) {
+			final Map<Integer, Operation<Double>> operations = this.operations
+					.get(type);
+			for (final Entry<Integer, Operation<Double>> entry : operations
+					.entrySet()) {
+				calculator.add(entry.getKey(), entry.getValue());
+			}
 		}
 	}
 

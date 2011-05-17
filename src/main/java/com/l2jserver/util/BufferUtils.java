@@ -52,7 +52,7 @@ public class BufferUtils {
 	 *            the string
 	 */
 	public static final void writeString(ChannelBuffer buffer, String str) {
-		if (str != null) {
+		if (str != null && str.length() > 0) {
 			final int len = str.length();
 			for (int i = 0; i < len; i++) {
 				buffer.writeChar(str.charAt(i));

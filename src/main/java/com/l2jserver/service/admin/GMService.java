@@ -14,34 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet.client;
+package com.l2jserver.service.admin;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-
-import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.service.Service;
 
 /**
- * The client is requesting a the key mappings.
+ * This service handles GM in the server
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RequestKeyMapping extends AbstractClientPacket {
-	/**
-	 * The packet OPCODE1
-	 */
-	public static final int OPCODE1 = 0xd0;
-	/**
-	 * The packet OPCODE2
-	 */
-	public static final int OPCODE2 = 0x21;
+public interface GMService extends Service {
 
-	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
-	}
-
-	@Override
-	public void process(final Lineage2Connection conn) {
-		// TODO
-	}
 }

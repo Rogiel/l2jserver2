@@ -22,7 +22,7 @@ package com.l2jserver.game.net;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Lineage2CryptographyKey implements Cloneable {
+public class Lineage2CryptographyKey {
 	/**
 	 * The raw key
 	 */
@@ -76,12 +76,7 @@ public class Lineage2CryptographyKey implements Cloneable {
 		key[11] = (byte) (old >> 0x18 & 0xff);
 	}
 
-	@Override
-	public Lineage2CryptographyKey clone() {
-		try {
-			return (Lineage2CryptographyKey) super.clone();
-		} catch (CloneNotSupportedException e) {
-			return null;
-		}
+	public Lineage2CryptographyKey copy() {
+		return new Lineage2CryptographyKey(key);
 	}
 }

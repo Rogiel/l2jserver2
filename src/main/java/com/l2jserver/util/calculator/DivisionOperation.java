@@ -14,16 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
-
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+package com.l2jserver.util.calculator;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * This operation performs a division: <blockquote><code>chain value /
+ * value</code></blockquote>
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public class DivisionOperation implements Operation<Double> {
+	/**
+	 * The value
+	 */
+	private final double value;
+
+	public DivisionOperation(double value) {
+		this.value = value;
+	}
+
+	@Override
+	public Double perform(Double value) {
+		return value / this.value;
+	}
 }

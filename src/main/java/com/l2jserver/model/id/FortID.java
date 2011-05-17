@@ -14,16 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.model.id;
 
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
+import com.l2jserver.model.game.Fort;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * Each {@link Fort} is identified by an {@link ID}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public class FortID extends AbstractModelID<Integer, Fort> {
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param id
+	 *            the id
+	 */
+	@Inject
+	public FortID(@Assisted int id) {
+		super(id);
+	}
+
+	@Override
+	public Fort getObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

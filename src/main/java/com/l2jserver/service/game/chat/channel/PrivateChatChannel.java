@@ -14,16 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.service.game.chat.channel;
 
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.object.CharacterID;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * An private {@link ChatChannel}. Please note that the concept of "private"
+ * does not mean it requires a password or something like that to join, but the
+ * message is only broadcasted to a single character (i.e. private messages).
+ * The target can be retrieved by {@link #getTarget()}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public interface PrivateChatChannel extends ChatChannel {
+	/**
+	 * @return the target of this private chat channel.
+	 */
+	CharacterID getTarget();
 }

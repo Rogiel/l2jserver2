@@ -14,16 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.game.net.packet.client;
 
-import com.l2jserver.model.AbstractModel;
-import com.l2jserver.model.id.ObjectID;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
 
 /**
- * This is an abstract object representing all the world objects in Lineage II.
+ * The client is requesting a the key mappings.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
-		implements WorldObject {
+public class RequestKeyMappingPacket extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE1
+	 */
+	public static final int OPCODE1 = 0xd0;
+	/**
+	 * The packet OPCODE2
+	 */
+	public static final int OPCODE2 = 0x21;
+
+	@Override
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		// TODO
+	}
 }

@@ -82,7 +82,7 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 				keygen.generate());
 
 		conn.getDecrypter().enable(inKey);
-		final Lineage2CryptographyKey outKey = inKey.clone();
+		final Lineage2CryptographyKey outKey = inKey.copy();
 		log.debug("Decrypter has been enabled");
 
 		log.debug("Client protocol version: {}", version);

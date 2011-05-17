@@ -32,10 +32,11 @@ import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
 import com.l2jserver.game.net.packet.client.EnterWorld;
 import com.l2jserver.game.net.packet.client.LogoutPacket;
 import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
+import com.l2jserver.game.net.packet.client.RequestAllFortressInfoPacket;
 import com.l2jserver.game.net.packet.client.RequestCharacterTemplatesPacket;
-import com.l2jserver.game.net.packet.client.RequestGotoLobby;
-import com.l2jserver.game.net.packet.client.RequestKeyMapping;
-import com.l2jserver.game.net.packet.client.RequestManorList;
+import com.l2jserver.game.net.packet.client.RequestGotoLobbyPacket;
+import com.l2jserver.game.net.packet.client.RequestKeyMappingPacket;
+import com.l2jserver.game.net.packet.client.RequestManorListPacket;
 
 /**
  * This decoder reads an frame and decodes the packet in it. Each packet has an
@@ -128,12 +129,14 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 		case 0xd0: // COMPOSED
 			final int opcode2 = buffer.readUnsignedShort();
 			switch (opcode2) {
-			case RequestGotoLobby.OPCODE2:
-				return RequestGotoLobby.class;
-			case RequestKeyMapping.OPCODE2:
-				return RequestKeyMapping.class;
-			case RequestManorList.OPCODE2:
-				return RequestManorList.class;
+			case RequestGotoLobbyPacket.OPCODE2:
+				return RequestGotoLobbyPacket.class;
+			case RequestKeyMappingPacket.OPCODE2:
+				return RequestKeyMappingPacket.class;
+			case RequestManorListPacket.OPCODE2:
+				return RequestManorListPacket.class;
+			case RequestAllFortressInfoPacket.OPCODE2:
+				return RequestAllFortressInfoPacket.class;
 			default:
 				logger.warn("Unknown opcode2 for 0xd0: 0x{}",
 						Integer.toHexString(opcode2));
