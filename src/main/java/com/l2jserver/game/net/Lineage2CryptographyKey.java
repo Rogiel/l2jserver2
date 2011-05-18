@@ -16,6 +16,8 @@
  */
 package com.l2jserver.game.net;
 
+import java.util.Arrays;
+
 /**
  * Manages the cryptography key used to write/read packets. This class also
  * updates the key once data has been sent/received.
@@ -77,6 +79,6 @@ public class Lineage2CryptographyKey {
 	}
 
 	public Lineage2CryptographyKey copy() {
-		return new Lineage2CryptographyKey(key);
+		return new Lineage2CryptographyKey(Arrays.copyOf(key, key.length));
 	}
 }

@@ -29,7 +29,7 @@ import com.l2jserver.db.dao.mysql5.MySQL5ItemDAO;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class DAOModuleMySQL5 extends AbstractModule {
+public class MySQL5DAOModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		bind(CharacterDAO.class).to(MySQL5CharacterDAO.class).in(

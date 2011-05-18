@@ -58,6 +58,6 @@ public class BufferUtils {
 				buffer.writeChar(str.charAt(i));
 			}
 		}
-		buffer.writeChar('\000');
+		buffer.writeShort(0);
 	}
 }

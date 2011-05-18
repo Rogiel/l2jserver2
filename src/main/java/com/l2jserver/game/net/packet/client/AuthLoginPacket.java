@@ -25,7 +25,7 @@ import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.CharacterEnterWorldPacket;
+import com.l2jserver.game.net.packet.server.CharacterSelectionListPacket;
 import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.factory.AccountIDFactory;
 import com.l2jserver.model.world.L2Character;
@@ -86,10 +86,10 @@ public class AuthLoginPacket extends AbstractClientPacket {
 				loginKey1, loginKey2));
 
 		final List<L2Character> chars = characterDao.selectByAccount(accountId);
-		// conn.write(CharacterSelectionListPacket.fromL2Session(
-		// conn.getSession(), chars.toArray(new L2Character[0])));
-		conn.setCharacterID(chars.get(0).getID());
-		conn.write(new CharacterEnterWorldPacket(chars.get(0), playKey1));
+		conn.write(CharacterSelectionListPacket.fromL2Session(
+				conn.getSession(), chars.get(0)));
+		// conn.setCharacterID(chars.get(0).getID());
+		// conn.write(new CharacterEnterWorldPacket(chars.get(0), playKey1));
 	}
 
 	/**

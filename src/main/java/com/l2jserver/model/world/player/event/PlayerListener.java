@@ -16,8 +16,8 @@
  */
 package com.l2jserver.model.world.player.event;
 
-import com.l2jserver.model.world.actor.ActorEvent;
-import com.l2jserver.model.world.actor.ActorListener;
+import com.l2jserver.model.world.actor.event.ActorEvent;
+import com.l2jserver.model.world.actor.event.ActorListener;
 import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldListener;
 

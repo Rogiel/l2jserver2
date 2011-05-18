@@ -17,7 +17,7 @@
 package com.l2jserver.model.world.player.event;
 
 import com.l2jserver.model.world.Player;
-import com.l2jserver.model.world.actor.ActorEvent;
+import com.l2jserver.model.world.actor.event.ActorEvent;
 
 /**
  * Base event for {@link Player} objects

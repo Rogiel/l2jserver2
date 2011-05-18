@@ -54,12 +54,12 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 
 		final int offset = buffer.readerIndex() + 2; // skip header
 		final int size = buffer.readableBytes() - 2;
-		int temp = 0;
+		int temp = 0, temp2 = 0;
 		synchronized (key) {
 			for (int i = 0; i < size; i++) {
-				int temp2 = buffer.getByte(offset + i) & 0xFF;
-				buffer.setByte(offset + i, (byte) (temp2 ^ key.get(i) ^ temp));
-				temp = temp2;
+				temp2 = buffer.getByte(offset + i) & 0xFF;
+				temp = temp2 ^ key.get(i) ^ temp;
+				buffer.setByte(offset + i, (byte) temp);
 			}
 			key.update(size);
 		}

@@ -14,16 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.actor;
+package com.l2jserver.model.world.actor.event;
 
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.service.game.world.event.WorldEvent;
+import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
- * Base event for {@link Actor} instances
+ * Base listener for {@link Actor} instances
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ActorEvent extends WorldEvent {
-	Actor getActor();
+public interface ActorListener extends WorldListener<ActorEvent> {
 }

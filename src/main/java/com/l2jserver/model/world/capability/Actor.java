@@ -19,9 +19,9 @@ package com.l2jserver.model.world.capability;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.world.AbstractObject;
 import com.l2jserver.model.world.actor.ActorEffects;
-import com.l2jserver.model.world.actor.ActorEvent;
-import com.l2jserver.model.world.actor.ActorListener;
 import com.l2jserver.model.world.actor.ActorSkillContainer;
+import com.l2jserver.model.world.actor.event.ActorEvent;
+import com.l2jserver.model.world.actor.event.ActorListener;
 
 /**
  * Defines an {@link AbstractObject} that defines an Actor (NPC, player, pet,

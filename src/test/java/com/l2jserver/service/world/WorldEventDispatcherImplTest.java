@@ -27,7 +27,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
-import com.l2jserver.db.dao.DAOModuleMySQL5;
+import com.l2jserver.db.dao.MySQL5DAOModule;
 import com.l2jserver.model.id.factory.IDFactoryModule;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
 import com.l2jserver.model.id.object.factory.ItemIDFactory;
@@ -56,7 +56,7 @@ public class WorldEventDispatcherImplTest {
 	@Before
 	public void tearUp() throws ServiceStartException {
 		Injector injector = Guice.createInjector(new ServiceModule(),
-				new DAOModuleMySQL5(), new IDFactoryModule(),
+				new MySQL5DAOModule(), new IDFactoryModule(),
 				new AbstractModule() {
 					@Override
 					protected void configure() {

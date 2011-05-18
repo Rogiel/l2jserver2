@@ -48,7 +48,6 @@ import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.actor.ActorExperience;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.BufferUtils;
 
@@ -100,7 +99,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 		// Can prevent players from creating new characters (if 0);
 		// if 1 the client will ask if chars may be created
 		// (RequestCharacterTemplatesPacket) Response: (CharacterTemplatePacket)
-		buffer.writeInt(0x07); // max chars
+		buffer.writeInt(7); // max chars
 		buffer.writeByte(0x00);
 
 		// int i = 0;
@@ -116,7 +115,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// }
 			buffer.writeInt(0x00); // ??
 
-			buffer.writeInt(0x01); // sex
+			buffer.writeInt(character.getSex().option); // sex
 			buffer.writeInt(character.getRace().id); // race
 
 			// if (character.getClassId() == character.getBaseClassId())
@@ -125,7 +124,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// else
 			// buffer.writeInt(character.getBaseClassId());
 
-			buffer.writeInt(0x01); // active ??
+			buffer.writeInt(1); // active ??
 
 			buffer.writeInt(-71338); // x
 			buffer.writeInt(258271); // y
@@ -134,9 +133,9 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeDouble(20); // hp cur
 			buffer.writeDouble(20); // mp cur
 
-			buffer.writeInt(0x00); // sp
-			buffer.writeLong(ActorExperience.LEVEL_1.experience); // exp
-			buffer.writeInt(ActorExperience.LEVEL_1.level); // level
+			buffer.writeInt(320); // sp
+			buffer.writeLong(4640); // exp
+			buffer.writeInt(5); // level
 
 			buffer.writeInt(0x00); // karma
 			buffer.writeInt(0x00); // pk
@@ -181,10 +180,10 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 			// hair style
 			// buffer.writeInt(character.getAppearance().getHairStyle().option);
-			buffer.writeInt(0x02);
+			buffer.writeInt(0x00);
 			// hair color
 			// buffer.writeInt(character.getAppearance().getHairColor().option);
-			buffer.writeInt(0x03);
+			buffer.writeInt(0x00);
 			// face
 			// buffer.writeInt(character.getAppearance().getFace().option);
 			buffer.writeInt(0x00);
@@ -194,7 +193,7 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 			buffer.writeInt(0x0); // seconds left before delete
 			buffer.writeInt(character.getCharacterClass().id); // class
-			buffer.writeInt(0x01); // c3 auto-select char
+			buffer.writeInt(1); // c3 auto-select char
 
 			buffer.writeByte(0x00); // enchant effect
 

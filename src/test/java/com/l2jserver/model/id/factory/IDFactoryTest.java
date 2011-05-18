@@ -23,7 +23,7 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.l2jserver.db.dao.DAOModuleMySQL5;
+import com.l2jserver.db.dao.MySQL5DAOModule;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.factory.CharacterIDFactory;
@@ -36,7 +36,7 @@ import com.l2jserver.service.game.template.TemplateService;
 
 public class IDFactoryTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new DAOModuleMySQL5(), new IDFactoryModule());
+			new MySQL5DAOModule(), new IDFactoryModule());
 	private final CharacterIDFactory charIdFactory = injector
 			.getInstance(CharacterIDFactory.class);
 
