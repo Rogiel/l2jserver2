@@ -16,24 +16,15 @@
  */
 package com.l2jserver.model.world.actor.event;
 
-import com.l2jserver.service.game.world.event.WorldEvent;
-import com.l2jserver.service.game.world.event.WorldListener;
+import com.l2jserver.service.game.world.event.FilteredWorldListener;
 
 /**
  * This listener will filter to only dispatch {@link ActorEvent} events.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ActorListener implements WorldListener {
-	@Override
-	public boolean dispatch(WorldEvent e) {
-		if (!(e instanceof ActorEvent))
-			return false;
-		return dispatch((ActorEvent) e);
+public abstract class ActorListener extends FilteredWorldListener<ActorEvent> {
+	public ActorListener() {
+		super(ActorEvent.class);
 	}
-
-	/**
-	 * @see WorldListener#dispatch(WorldEvent)
-	 */
-	protected abstract boolean dispatch(ActorEvent e);
 }

@@ -29,5 +29,8 @@ public interface SpawnEvent extends WorldEvent {
 	@Override
 	Spawnable getObject();
 
+	/**
+	 * @return the spawning coordinate
+	 */
 	Coordinate getCoordinate();
 }

@@ -20,7 +20,6 @@ import org.apache.commons.math.random.RandomData;
 import org.apache.commons.math.random.RandomDataImpl;
 
 import com.l2jserver.service.AbstractService;
-import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 

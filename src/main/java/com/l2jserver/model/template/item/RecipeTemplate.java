@@ -26,9 +26,16 @@ import com.l2jserver.model.world.Item;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class RecipeTemplate extends ItemTemplate {
-	private ItemTemplateID item;
+	protected ItemTemplateID item;
 
 	public RecipeTemplate(ItemTemplateID id) {
 		super(id);
+	}
+
+	/**
+	 * @return the item
+	 */
+	public ItemTemplateID getItem() {
+		return item;
 	}
 }

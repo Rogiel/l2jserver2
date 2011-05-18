@@ -64,11 +64,11 @@ public class CharacterSelectPacket extends AbstractClientPacket {
 	public void process(final Lineage2Connection conn) {
 		final List<L2Character> chars = characterDao.selectByAccount(conn
 				.getSession().getAccountID());
-		
+
 		// FIXME better handling! this will throw an exception sooner or later
 		final L2Character character = chars.get(slot);
 		conn.setCharacterID(character.getID());
-		
+
 		conn.write(new CharacterSelectedPacket(chars.get(slot)));
 	}
 }

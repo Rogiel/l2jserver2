@@ -83,14 +83,11 @@ public class EhCacheService extends AbstractService implements CacheService {
 
 	@Override
 	public Cache createCache(String name, int size) {
-		Cache cache = new Cache(
-				new CacheConfiguration(name, size)
-						.memoryStoreEvictionPolicy(
-								MemoryStoreEvictionPolicy.LRU)
-						.overflowToDisk(true).eternal(false)
-						.timeToLiveSeconds(60).timeToIdleSeconds(30)
-						.diskPersistent(false)
-						.diskExpiryThreadIntervalSeconds(0));
+		Cache cache = new Cache(new CacheConfiguration(name, size)
+				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
+				.overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
+				.timeToIdleSeconds(30).diskPersistent(false)
+				.diskExpiryThreadIntervalSeconds(0));
 		register(cache);
 		return cache;
 	}

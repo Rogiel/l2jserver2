@@ -14,15 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.admin;
-
-import com.l2jserver.service.Service;
+package com.l2jserver.service.threading;
 
 /**
- * This service handles GM in the server
+ * This service is responsible for scheduling tasks and executing them in
+ * parallel.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface GMService extends Service {
+public interface ThreadService {
 
 }

@@ -18,7 +18,7 @@ package com.l2jserver.service.game.region;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- *
+ * 
  */
 public interface Region {
 

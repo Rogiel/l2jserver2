@@ -140,14 +140,14 @@ public class UserInformationPacket extends AbstractServerPacket {
 		writePaperdollItemID(buffer, character, LEFT_FINGER);
 		writePaperdollItemID(buffer, character, HEAD);
 		buffer.writeInt(246);
-		//writePaperdollItemID(buffer, character, RIGHT_HAND);
+		// writePaperdollItemID(buffer, character, RIGHT_HAND);
 		writePaperdollItemID(buffer, character, LEFT_HAND);
 		writePaperdollItemID(buffer, character, GLOVES);
 		writePaperdollItemID(buffer, character, CHEST);
 		writePaperdollItemID(buffer, character, LEGS);
 		writePaperdollItemID(buffer, character, FEET);
 		writePaperdollItemID(buffer, character, CLOAK);
-		///writePaperdollItemID(buffer, character, RIGHT_HAND);
+		// /writePaperdollItemID(buffer, character, RIGHT_HAND);
 		buffer.writeInt(246);
 		writePaperdollItemID(buffer, character, HAIR1);
 		writePaperdollItemID(buffer, character, HAIR2);

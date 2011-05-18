@@ -42,12 +42,12 @@ public class DB4ODatabaseService extends AbstractService implements
 	@Override
 	public void updateCache(Object key, Object value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void removeCache(Object key) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

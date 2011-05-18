@@ -16,24 +16,15 @@
  */
 package com.l2jserver.model.world.item;
 
-import com.l2jserver.service.game.world.event.WorldEvent;
-import com.l2jserver.service.game.world.event.WorldListener;
+import com.l2jserver.service.game.world.event.FilteredWorldListener;
 
 /**
  * This listener will filter to only dispatch {@link ItemEvent} events.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ItemListener implements WorldListener {
-	@Override
-	public boolean dispatch(WorldEvent e) {
-		if (!(e instanceof ItemEvent))
-			return false;
-		return dispatch((ItemEvent) e);
+public abstract class ItemListener extends FilteredWorldListener<ItemEvent> {
+	public ItemListener() {
+		super(ItemEvent.class);
 	}
-
-	/**
-	 * @see WorldListener#dispatch(WorldEvent)
-	 */
-	protected abstract boolean dispatch(ItemEvent e);
 }

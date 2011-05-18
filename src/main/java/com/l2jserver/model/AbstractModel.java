@@ -35,11 +35,11 @@ public class AbstractModel<T extends ID<?>> implements Model<T> {
 
 	@Override
 	public void setID(T ID) {
-		if(this.id != null)
+		if (this.id != null)
 			throw new IllegalStateException("ID is already set");
 		this.id = ID;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

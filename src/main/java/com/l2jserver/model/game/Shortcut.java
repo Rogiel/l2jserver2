@@ -36,7 +36,7 @@ public class Shortcut {
 	 * {@link ShortcutType#SKILL})
 	 */
 	private SkillTemplateID skillID;
-	
+
 	/**
 	 * The shortcut item id (only if <tt>type</tt> is {@link ShortcutType#ITEM})
 	 */
@@ -116,8 +116,7 @@ public class Shortcut {
 	 * @param characterType
 	 *            the character type
 	 */
-	public Shortcut(CharacterID characterID, ItemID itemID,
-			int characterType) {
+	public Shortcut(CharacterID characterID, ItemID itemID, int characterType) {
 		this.type = ShortcutType.ITEM;
 		this.characterID = characterID;
 		this.itemID = itemID;
@@ -159,8 +158,8 @@ public class Shortcut {
 	 * @param characterType
 	 *            the character type
 	 */
-	public Shortcut(CharacterID characterID, ShortcutType type,
-			int slot, int page, int characterType) {
+	public Shortcut(CharacterID characterID, ShortcutType type, int slot,
+			int page, int characterType) {
 		this.characterID = characterID;
 		this.slot = slot;
 		this.page = page;

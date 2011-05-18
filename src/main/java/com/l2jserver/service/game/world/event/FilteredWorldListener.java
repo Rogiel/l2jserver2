@@ -14,15 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.admin;
-
-import com.l2jserver.service.Service;
+package com.l2jserver.service.game.world.event;
 
 /**
- * This service handles GM in the server
+ * This listener will filter to only dispatch an certain type events.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface GMService extends Service {
+public abstract class FilteredWorldListener<T> implements WorldListener {
+	private final Class<T> type;
 
+	public FilteredWorldListener(Class<T> type) {
+		this.type = type;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public boolean dispatch(WorldEvent e) {
+		if (!type.isInstance(e))
+			return false;
+		return dispatch((T) e);
+	}
+
+	/**
+	 * @see WorldListener#dispatch(WorldEvent)
+	 */
+	protected abstract boolean dispatch(T e);
 }
