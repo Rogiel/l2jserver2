@@ -26,6 +26,7 @@ public enum ProtocolVersion {
 	 * Release version
 	 */
 	RELEASE(0),
+
 	/**
 	 * Freya(216)
 	 */

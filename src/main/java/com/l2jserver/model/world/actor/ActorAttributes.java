@@ -14,19 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.character;
+package com.l2jserver.model.world.actor;
 
-import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 
 /**
  * Defines attributes of the character. Implementations can use an static value
- * (i.e. from {@link CharacterTemplate}) or can use an calculator to define
- * values, composed from many attributes objects.
+ * (i.e. from {@link ActorTemplate}) or can use an calculator to define values,
+ * composed from many attributes objects.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public interface CharacterAttributes {
+public interface ActorAttributes {
 	/**
 	 * @return the intelligence
 	 */
@@ -105,7 +105,7 @@ public interface CharacterAttributes {
 	/**
 	 * @return the movement speed
 	 */
-	public int getMoveSpeed();
+	public double getMoveSpeed();
 
 	/**
 	 * @return the maxWeigth

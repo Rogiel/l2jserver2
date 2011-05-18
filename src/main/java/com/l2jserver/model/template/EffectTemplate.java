@@ -14,10 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.blowfish;
+package com.l2jserver.model.template;
 
-import com.l2jserver.service.Service;
+import com.l2jserver.model.id.template.ItemTemplateID;
 
-public interface BlowfishKeygenService extends Service {
-	byte[] generate();
+/**
+ * Template for effects
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public abstract class EffectTemplate extends AbstractTemplate<Object> {
+	public EffectTemplate(ItemTemplateID id) {
+		super(id);
+	}
+
+	@Override
+	public Object create() {
+		return null;
+	}
+
+	@Override
+	public ItemTemplateID getID() {
+		return (ItemTemplateID) super.getID();
+	}
 }

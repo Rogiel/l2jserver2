@@ -17,7 +17,6 @@
 package com.l2jserver;
 
 import com.l2jserver.service.ServiceManager;
-import com.l2jserver.service.blowfish.BlowfishKeygenService;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
@@ -25,6 +24,7 @@ import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 
 public class L2JGameServerMain {
 	/**

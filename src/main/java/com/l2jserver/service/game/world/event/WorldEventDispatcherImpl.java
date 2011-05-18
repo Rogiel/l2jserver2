@@ -87,10 +87,18 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	}
 
 	@Override
+	public void addListener(WorldListener listener) {
+		log.debug("Adding new listener global {}", listener);
+		listeners.add(new ListenerIDPair(null, listener));
+	}
+
+	@Override
 	public <E extends WorldEvent, L extends WorldListener> void addListener(
 			Listenable<L, E> object, WorldListener listener) {
-		log.debug("Adding new listener {} to {}", listener, object.getID());
-		listeners.add(new ListenerIDPair(object.getID(), listener));
+		log.debug("Adding new listener {} to {}", listener,
+				(object != null ? object.getID() : null));
+		listeners.add(new ListenerIDPair((object != null ? object.getID()
+				: null), listener));
 	}
 
 	@Override
@@ -125,6 +133,8 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		}
 
 		public boolean testDispatch(ObjectID<?> id) {
+			if (this.ID == null) // global listeners
+				return true;
 			return id.equals(this.ID);
 		}
 

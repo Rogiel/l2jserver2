@@ -25,6 +25,7 @@ import static com.l2jserver.model.world.character.CharacterInventory.InventoryPa
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_3;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_4;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_5;
+import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.DECORATION_6;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.FEET;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.GLOVES;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.HAIR1;
@@ -108,11 +109,8 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeInt(character.getID().getID());
 			BufferUtils.writeString(buffer, loginName);
 			buffer.writeInt(sessionId);
-			// if (character.getClanID() == null) {
-			buffer.writeInt(0x00); // clan id
-			// } else {
-			// buffer.writeInt(character.getClanID().getID()); // clan id
-			// }
+			buffer.writeInt((character.getClanID() != null ? character
+					.getClanID().getID() : 0x00)); // clan id
 			buffer.writeInt(0x00); // ??
 
 			buffer.writeInt(character.getSex().option); // sex
@@ -176,17 +174,15 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			writePaperdollItemID(buffer, character, DECORATION_3);
 			writePaperdollItemID(buffer, character, DECORATION_4);
 			writePaperdollItemID(buffer, character, DECORATION_5);
+			writePaperdollItemID(buffer, character, DECORATION_6);
 			writePaperdollItemID(buffer, character, BELT);
 
 			// hair style
-			// buffer.writeInt(character.getAppearance().getHairStyle().option);
-			buffer.writeInt(0x00);
+			buffer.writeInt(character.getAppearance().getHairStyle().option);
 			// hair color
-			// buffer.writeInt(character.getAppearance().getHairColor().option);
-			buffer.writeInt(0x00);
+			buffer.writeInt(character.getAppearance().getHairColor().option);
 			// face
-			// buffer.writeInt(character.getAppearance().getFace().option);
-			buffer.writeInt(0x00);
+			buffer.writeInt(character.getAppearance().getFace().option);
 
 			buffer.writeDouble(30); // hp max
 			buffer.writeDouble(30); // mp max

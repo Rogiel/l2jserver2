@@ -29,7 +29,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.KeyPacket;
-import com.l2jserver.service.blowfish.BlowfishKeygenService;
+import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 
 /**
  * In this packet the client is informing its protocol version. It is possible

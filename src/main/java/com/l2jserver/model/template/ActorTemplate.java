@@ -19,10 +19,10 @@ package com.l2jserver.model.template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.l2jserver.model.id.template.CharacterTemplateID;
+import com.l2jserver.model.id.template.ActorTemplateID;
 import com.l2jserver.model.world.AbstractActor.Race;
+import com.l2jserver.model.world.actor.ActorAttributes;
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.character.CharacterBaseAttributes;
 
 /**
  * Template for {@link Actor}
@@ -44,21 +44,11 @@ public abstract class ActorTemplate<T extends Actor> extends
 	/**
 	 * The base attributes instance
 	 */
-	protected final CharacterBaseAttributes baseAttributes;
+	protected ActorBaseAttributes attributes = new ActorBaseAttributes();
 
-	public ActorTemplate(CharacterTemplateID id, Race race, int intelligence,
-			int strength, int concentration, int mentality, int dexterity,
-			int witness, int physicalAttack, int magicalAttack,
-			int physicalDefense, int magicalDefense, int attackSpeed,
-			int castSpeed, int accuracy, int criticalChance, int evasionChance,
-			int moveSpeed, int maxWeigth, boolean craft) {
+	public ActorTemplate(ActorTemplateID<?> id, Race race) {
 		super(id);
 		this.race = race;
-		baseAttributes = new CharacterBaseAttributes(intelligence, strength,
-				concentration, mentality, dexterity, witness, physicalAttack,
-				magicalAttack, physicalDefense, magicalDefense, attackSpeed,
-				castSpeed, accuracy, criticalChance, evasionChance, moveSpeed,
-				maxWeigth, craft);
 	}
 
 	@Override
@@ -81,151 +71,379 @@ public abstract class ActorTemplate<T extends Actor> extends
 	/**
 	 * @return the baseAttributes
 	 */
-	public CharacterBaseAttributes getBaseAttributes() {
-		return baseAttributes;
+	public ActorBaseAttributes getBaseAttributes() {
+		return attributes;
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getIntelligence()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getIntelligence()
 	 */
 	public int getIntelligence() {
-		return baseAttributes.getIntelligence();
+		return attributes.getIntelligence();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getStrength()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getStrength()
 	 */
 	public int getStrength() {
-		return baseAttributes.getStrength();
+		return attributes.getStrength();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getConcentration()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getConcentration()
 	 */
 	public int getConcentration() {
-		return baseAttributes.getConcentration();
+		return attributes.getConcentration();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getMentality()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMentality()
 	 */
 	public int getMentality() {
-		return baseAttributes.getMentality();
+		return attributes.getMentality();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getDexterity()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getDexterity()
 	 */
 	public int getDextry() {
-		return baseAttributes.getDexterity();
+		return attributes.getDexterity();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getWitness()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getWitness()
 	 */
 	public int getWitness() {
-		return baseAttributes.getWitness();
+		return attributes.getWitness();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getPhysicalAttack()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getPhysicalAttack()
 	 */
 	public int getPhysicalAttack() {
-		return baseAttributes.getPhysicalAttack();
+		return attributes.getPhysicalAttack();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getMagicalAttack()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMagicalAttack()
 	 */
 	public int getMagicalAttack() {
-		return baseAttributes.getMagicalAttack();
+		return attributes.getMagicalAttack();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getPhysicalDefense()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getPhysicalDefense()
 	 */
 	public int getPhysicalDefense() {
-		return baseAttributes.getPhysicalDefense();
+		return attributes.getPhysicalDefense();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getMagicalDefense()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMagicalDefense()
 	 */
 	public int getMagicalDefense() {
-		return baseAttributes.getMagicalDefense();
+		return attributes.getMagicalDefense();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getAttackSpeed()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getAttackSpeed()
 	 */
 	public int getAttackSpeed() {
-		return baseAttributes.getAttackSpeed();
+		return attributes.getAttackSpeed();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getCastSpeed()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getCastSpeed()
 	 */
 	public int getCastSpeed() {
-		return baseAttributes.getCastSpeed();
+		return attributes.getCastSpeed();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getAccuracy()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getAccuracy()
 	 */
 	public int getAccuracy() {
-		return baseAttributes.getAccuracy();
+		return attributes.getAccuracy();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getCriticalChance()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getCriticalChance()
 	 */
 	public int getCriticalChance() {
-		return baseAttributes.getCriticalChance();
+		return attributes.getCriticalChance();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getEvasionChance()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getEvasionChance()
 	 */
 	public int getEvasionChance() {
-		return baseAttributes.getEvasionChance();
+		return attributes.getEvasionChance();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getMoveSpeed()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMoveSpeed()
 	 */
-	public int getMoveSpeed() {
-		return baseAttributes.getMoveSpeed();
+	public double getMoveSpeed() {
+		return attributes.getMoveSpeed();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#getMaxWeigth()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMaxWeigth()
 	 */
 	public int getMaxWeigth() {
-		return baseAttributes.getMaxWeigth();
+		return attributes.getMaxWeigth();
 	}
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.world.character.CharacterBaseAttributes#canCraft()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#canCraft()
 	 */
 	public boolean canCraft() {
-		return baseAttributes.canCraft();
+		return attributes.canCraft();
 	}
+
+	/**
+	 * Defines the attributes of an character
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public class ActorBaseAttributes implements ActorAttributes {
+		/**
+		 * The character intelligence
+		 */
+		public int intelligence;
+		/**
+		 * The character strength
+		 */
+		public int strength;
+		/**
+		 * The character concentration
+		 */
+		public int concentration;
+		/**
+		 * The character mentality power
+		 */
+		public int mentality;
+		/**
+		 * The character dexterity
+		 */
+		public int dexterity;
+		/**
+		 * The character witness
+		 */
+		public int witness;
+
+		/**
+		 * The default physical attack
+		 */
+		public int physicalAttack;
+		/**
+		 * The default magical attack
+		 */
+		public int magicalAttack;
+		/**
+		 * The physical defense
+		 */
+		public int physicalDefense;
+		/**
+		 * The magical defense
+		 */
+		public int magicalDefense;
+
+		/**
+		 * The physical attack speed
+		 */
+		public int attackSpeed;
+		/**
+		 * The "magical attack speed" (aka cast speed)
+		 */
+		public int castSpeed;
+
+		/**
+		 * The character accuracy
+		 */
+		public int accuracy;
+		/**
+		 * Chance of issuing an critical attack
+		 */
+		public int criticalChance;
+		/**
+		 * Chance of avoiding an attack
+		 */
+		public int evasionChance;
+		/**
+		 * The character's movement speed
+		 */
+		public float moveSpeed;
+		/**
+		 * The maximum weigth in items to be carried in the inventory
+		 */
+		public int maxWeigth;
+		/**
+		 * If this character can craft
+		 */
+		public boolean craft;
+
+		/**
+		 * @return the intelligence
+		 */
+		@Override
+		public int getIntelligence() {
+			return intelligence;
+		}
+
+		/**
+		 * @return the strength
+		 */
+		@Override
+		public int getStrength() {
+			return strength;
+		}
+
+		/**
+		 * @return the concentration
+		 */
+		@Override
+		public int getConcentration() {
+			return concentration;
+		}
+
+		/**
+		 * @return the mentality
+		 */
+		@Override
+		public int getMentality() {
+			return mentality;
+		}
+
+		/**
+		 * @return the dexterity
+		 */
+		@Override
+		public int getDexterity() {
+			return dexterity;
+		}
+
+		/**
+		 * @return the witness
+		 */
+		@Override
+		public int getWitness() {
+			return witness;
+		}
+
+		/**
+		 * @return the physicalAttack
+		 */
+		@Override
+		public int getPhysicalAttack() {
+			return physicalAttack;
+		}
+
+		/**
+		 * @return the magicalAttack
+		 */
+		@Override
+		public int getMagicalAttack() {
+			return magicalAttack;
+		}
+
+		/**
+		 * @return the physicalDefense
+		 */
+		@Override
+		public int getPhysicalDefense() {
+			return physicalDefense;
+		}
+
+		/**
+		 * @return the magicalDefense
+		 */
+		@Override
+		public int getMagicalDefense() {
+			return magicalDefense;
+		}
+
+		/**
+		 * @return the attackSpeed
+		 */
+		@Override
+		public int getAttackSpeed() {
+			return attackSpeed;
+		}
+
+		/**
+		 * @return the castSpeed
+		 */
+		@Override
+		public int getCastSpeed() {
+			return castSpeed;
+		}
+
+		/**
+		 * @return the accuracy
+		 */
+		@Override
+		public int getAccuracy() {
+			return accuracy;
+		}
+
+		/**
+		 * @return the criticalChance
+		 */
+		@Override
+		public int getCriticalChance() {
+			return criticalChance;
+		}
+
+		/**
+		 * @return the evasionChance
+		 */
+		@Override
+		public int getEvasionChance() {
+			return evasionChance;
+		}
+
+		/**
+		 * @return the moveSpeed
+		 */
+		@Override
+		public double getMoveSpeed() {
+			return moveSpeed;
+		}
+
+		/**
+		 * @return the maxWeigth
+		 */
+		@Override
+		public int getMaxWeigth() {
+			return maxWeigth;
+		}
+
+		/**
+		 * @return the craft
+		 */
+		@Override
+		public boolean canCraft() {
+			return craft;
+		}
+	}
+
 }

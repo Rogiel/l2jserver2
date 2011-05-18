@@ -37,6 +37,19 @@ public interface WorldEventDispatcher {
 	void dispatch(WorldEvent event);
 
 	/**
+	 * Adds a new global <tt>listener</tt>
+	 * 
+	 * @param <E>
+	 *            the event type
+	 * @param <L>
+	 *            the listener type
+	 * @param listener
+	 *            the listener
+	 */
+	<E extends WorldEvent, L extends WorldListener> void addListener(
+			WorldListener listener);
+
+	/**
 	 * Adds a new <tt>listener</tt> to <tt>object</tt>
 	 * 
 	 * @param <E>

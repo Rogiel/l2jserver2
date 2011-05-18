@@ -94,13 +94,13 @@ public class UserInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAttributes().getIntelligence());
 		buffer.writeInt(character.getAttributes().getWitness());
 		buffer.writeInt(character.getAttributes().getMentality());
-		buffer.writeInt(200); // hp
+		buffer.writeInt(200); // max hp
 		buffer.writeInt((int) 200); // cur hp
-		buffer.writeInt(200); // mp
+		buffer.writeInt(200); // max mp
 		buffer.writeInt((int) 200); // cur mp
 		buffer.writeInt(0); // sp
 		buffer.writeInt(0); // load
-		buffer.writeInt(200); // max load
+		buffer.writeInt(character.getAttributes().getMaxWeigth()); // max load
 
 		// 20 no weapon, 40 weapon equippe
 		buffer.writeInt(20);
@@ -139,16 +139,14 @@ public class UserInformationPacket extends AbstractServerPacket {
 		writePaperdollItemID(buffer, character, RIGHT_FINGER);
 		writePaperdollItemID(buffer, character, LEFT_FINGER);
 		writePaperdollItemID(buffer, character, HEAD);
-		buffer.writeInt(246);
-		// writePaperdollItemID(buffer, character, RIGHT_HAND);
+		writePaperdollItemID(buffer, character, RIGHT_HAND);
 		writePaperdollItemID(buffer, character, LEFT_HAND);
 		writePaperdollItemID(buffer, character, GLOVES);
 		writePaperdollItemID(buffer, character, CHEST);
 		writePaperdollItemID(buffer, character, LEGS);
 		writePaperdollItemID(buffer, character, FEET);
 		writePaperdollItemID(buffer, character, CLOAK);
-		// /writePaperdollItemID(buffer, character, RIGHT_HAND);
-		buffer.writeInt(246);
+		writePaperdollItemID(buffer, character, RIGHT_HAND);
 		writePaperdollItemID(buffer, character, HAIR1);
 		writePaperdollItemID(buffer, character, HAIR2);
 		writePaperdollItemID(buffer, character, RIGHT_BRACELET);
@@ -201,16 +199,21 @@ public class UserInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAttributes().getMagicalAttack());
 		buffer.writeInt(character.getAttributes().getCastSpeed());
 		buffer.writeInt(character.getAttributes().getAttackSpeed());
-
 		buffer.writeInt(character.getAttributes().getMagicalDefense());
 
 		buffer.writeInt(0x00); // 0-non-pvp 1-pvp = violett name
 		buffer.writeInt(0x00); // karma
 
-		buffer.writeInt(0x10); // run speed
-		buffer.writeInt(0x20); // walk speed
-		buffer.writeInt(0x10); // swim run speed
-		buffer.writeInt(0x20); // swim walk speed
+		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // run
+																			// speed
+		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // walk
+																			// speed
+		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // swim
+																			// run
+																			// speed
+		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // swim
+																			// walk
+																			// speed
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // fly speed -only if flying
@@ -275,13 +278,13 @@ public class UserInformationPacket extends AbstractServerPacket {
 		buffer.writeShort(500); // inventory limit
 
 		buffer.writeInt(character.getCharacterClass().id);
-		buffer.writeInt(0x00); // special effects? circles around player...
+		buffer.writeInt(0x01); // special effects? circles around player...
 		buffer.writeInt(200); // max cp
 		buffer.writeInt(200); // cur cp
 		buffer.writeByte(127); // is mount or is airshilhelp = 0; otherwise
 								// enchant effect (minimum 127)
 
-		buffer.writeByte(0x01);// team, 1=blue,2 red,0 is unknown
+		buffer.writeByte(0x00);// team, 1=blue,2 red,0 is unknown
 
 		buffer.writeInt(0x00); // clan crest large id
 		// 0x01: symbol on char menu ctrl+I
@@ -328,7 +331,7 @@ public class UserInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(0x00); // Fame
 		buffer.writeInt(0x01); // Minimap on Hellbound
 		buffer.writeInt(1); // Vitality Points
-		buffer.writeInt(0x000001); // special effects
+		buffer.writeInt(0x00); // special effects
 	}
 
 	private void writePaperdollObjectID(ChannelBuffer buffer,

@@ -18,15 +18,16 @@ package com.l2jserver.model.world.character;
 
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.actor.ActorAttributes;
 
 /**
- * This {@link CharacterAttributes} implementation calculates the <b>real</b>
+ * This {@link ActorAttributes} implementation calculates the <b>real</b>
  * character attributes based on it's {@link CharacterTemplate} and active
  * buffs.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterCalculatedAttributes implements CharacterAttributes {
+public class CharacterCalculatedAttributes implements ActorAttributes {
 	/**
 	 * The character
 	 */
@@ -34,7 +35,7 @@ public class CharacterCalculatedAttributes implements CharacterAttributes {
 	/**
 	 * The base attributes (from {@link CharacterTemplate})
 	 */
-	private final CharacterAttributes baseAttributes;
+	private final ActorAttributes baseAttributes;
 
 	public CharacterCalculatedAttributes(L2Character character) {
 		this.character = character;
@@ -117,7 +118,7 @@ public class CharacterCalculatedAttributes implements CharacterAttributes {
 	}
 
 	@Override
-	public int getMoveSpeed() {
+	public double getMoveSpeed() {
 		return baseAttributes.getMoveSpeed();
 	}
 

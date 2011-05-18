@@ -26,42 +26,31 @@ import com.l2jserver.util.dimensional.Point;
 public class TitanTemplate extends DestroyerTemplate {
 	@Inject
 	public TitanTemplate(CharacterTemplateIDFactory factory) {
-		super(factory.createID(CharacterClass.TITAN.id), CharacterClass.TITAN,
+		super(factory.createID(CharacterClass.TITAN.id), CharacterClass.TITAN,	Point.fromXYZ(-56693, -113610, -690));
 		// ATTRIBUTES
-				18,// INT
-				40,// STR
-				47,// CON
-				27,// MEN
-				26,// DEX
-				12,// WIT
-				4,// physical attack
-				6,// magical attack
-				80,// physical def
-				41,// magical def
-				300,// attack speed
-				333,// cast speed
-				31,// accuracy
-				42,// critical
-				31,// evasion
-				117,// move speed
-				87000,// max inventory weight
-				false,// can craft
-				Point.fromXYZ(-56693, -113610, -690)// spawn location
-		);
+		attributes.intelligence = 18;
+		attributes.strength = 40;
+		attributes.concentration = 47;
+		attributes.mentality = 27;
+		attributes.dexterity = 26;
+		attributes.witness = 12;
+		attributes.physicalAttack = 4;
+		attributes.magicalAttack = 6;
+		attributes.physicalDefense = 80;
+		attributes.magicalDefense = 41;
+		attributes.attackSpeed = 300;
+		attributes.castSpeed = 333;
+		attributes.accuracy = 31;
+		attributes.criticalChance = 42;
+		attributes.evasionChance = 31;
+		attributes.moveSpeed = 117;
+		attributes.maxWeigth = 87000;
+		attributes.craft = false;
 	}
-
+	
 	protected TitanTemplate(CharacterTemplateID id,
-			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dexterity, int witness,
-			int physicalAttack, int magicalAttack, int physicalDefense,
-			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
-			int criticalChance, int evasionChance, int moveSpeed,
-			int maxWeigth, boolean craft, Point spawnLocation) {
-		super(id, characterClass, intelligence, strength, concentration,
-				mentality, dexterity, witness, physicalAttack, magicalAttack,
-				physicalDefense, magicalDefense, attackSpeed, castSpeed,
-				accuracy, criticalChance, evasionChance, moveSpeed, maxWeigth,
-				craft, spawnLocation);
+			CharacterClass characterClass, Point spawnLocation) {
+		super(id, characterClass, spawnLocation);
 	}
 
 	@Override

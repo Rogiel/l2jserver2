@@ -26,43 +26,31 @@ import com.l2jserver.util.dimensional.Point;
 public class FemaleSouldhoundTemplate extends FemaleSoulbreakerTemplate {
 	@Inject
 	public FemaleSouldhoundTemplate(CharacterTemplateIDFactory factory) {
-		super(factory.createID(CharacterClass.FEMALE_SOULDHOUND.id),
-				CharacterClass.FEMALE_SOULDHOUND,
-				// ATTRIBUTES
-				28,// INT
-				39,// STR
-				30,// CON
-				27,// MEN
-				35,// DEX
-				11,// WIT
-				4,// physical attack
-				6,// magical attack
-				80,// physical def
-				41,// magical def
-				300,// attack speed
-				333,// cast speed
-				35,// accuracy
-				45,// critical
-				35,// evasion
-				122,// move speed
-				87000,// max inventory weight
-				false,// can craft
-				Point.fromXYZ(-125533, 38114, 1142)// spawn location
-		);
+		super(factory.createID(CharacterClass.FEMALE_SOULDHOUND.id), CharacterClass.FEMALE_SOULDHOUND,	Point.fromXYZ(-125533, 38114, 1142));
+		// ATTRIBUTES
+		attributes.intelligence = 28;
+		attributes.strength = 39;
+		attributes.concentration = 30;
+		attributes.mentality = 27;
+		attributes.dexterity = 35;
+		attributes.witness = 11;
+		attributes.physicalAttack = 4;
+		attributes.magicalAttack = 6;
+		attributes.physicalDefense = 80;
+		attributes.magicalDefense = 41;
+		attributes.attackSpeed = 300;
+		attributes.castSpeed = 333;
+		attributes.accuracy = 35;
+		attributes.criticalChance = 45;
+		attributes.evasionChance = 35;
+		attributes.moveSpeed = 122;
+		attributes.maxWeigth = 87000;
+		attributes.craft = false;
 	}
-
+	
 	protected FemaleSouldhoundTemplate(CharacterTemplateID id,
-			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dexterity, int witness,
-			int physicalAttack, int magicalAttack, int physicalDefense,
-			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
-			int criticalChance, int evasionChance, int moveSpeed,
-			int maxWeigth, boolean craft, Point spawnLocation) {
-		super(id, characterClass, intelligence, strength, concentration,
-				mentality, dexterity, witness, physicalAttack, magicalAttack,
-				physicalDefense, magicalDefense, attackSpeed, castSpeed,
-				accuracy, criticalChance, evasionChance, moveSpeed, maxWeigth,
-				craft, spawnLocation);
+			CharacterClass characterClass, Point spawnLocation) {
+		super(id, characterClass, spawnLocation);
 	}
 
 	@Override

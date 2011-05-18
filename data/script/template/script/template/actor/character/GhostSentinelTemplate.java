@@ -26,43 +26,31 @@ import com.l2jserver.util.dimensional.Point;
 public class GhostSentinelTemplate extends PhantomRangerTemplate {
 	@Inject
 	public GhostSentinelTemplate(CharacterTemplateIDFactory factory) {
-		super(factory.createID(CharacterClass.GHOST_SENTINEL.id),
-				CharacterClass.GHOST_SENTINEL,
-				// ATTRIBUTES
-				25,// INT
-				41,// STR
-				32,// CON
-				26,// MEN
-				34,// DEX
-				12,// WIT
-				4,// physical attack
-				6,// magical attack
-				80,// physical def
-				41,// magical def
-				300,// attack speed
-				333,// cast speed
-				35,// accuracy
-				45,// critical
-				35,// evasion
-				122,// move speed
-				69000,// max inventory weight
-				false,// can craft
-				Point.fromXYZ(28377, 10916, -4224)// spawn location
-		);
+		super(factory.createID(CharacterClass.GHOST_SENTINEL.id), CharacterClass.GHOST_SENTINEL,	Point.fromXYZ(28377, 10916, -4224));
+		// ATTRIBUTES
+		attributes.intelligence = 25;
+		attributes.strength = 41;
+		attributes.concentration = 32;
+		attributes.mentality = 26;
+		attributes.dexterity = 34;
+		attributes.witness = 12;
+		attributes.physicalAttack = 4;
+		attributes.magicalAttack = 6;
+		attributes.physicalDefense = 80;
+		attributes.magicalDefense = 41;
+		attributes.attackSpeed = 300;
+		attributes.castSpeed = 333;
+		attributes.accuracy = 35;
+		attributes.criticalChance = 45;
+		attributes.evasionChance = 35;
+		attributes.moveSpeed = 122;
+		attributes.maxWeigth = 69000;
+		attributes.craft = false;
 	}
-
+	
 	protected GhostSentinelTemplate(CharacterTemplateID id,
-			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dexterity, int witness,
-			int physicalAttack, int magicalAttack, int physicalDefense,
-			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
-			int criticalChance, int evasionChance, int moveSpeed,
-			int maxWeigth, boolean craft, Point spawnLocation) {
-		super(id, characterClass, intelligence, strength, concentration,
-				mentality, dexterity, witness, physicalAttack, magicalAttack,
-				physicalDefense, magicalDefense, attackSpeed, castSpeed,
-				accuracy, criticalChance, evasionChance, moveSpeed, maxWeigth,
-				craft, spawnLocation);
+			CharacterClass characterClass, Point spawnLocation) {
+		super(id, characterClass, spawnLocation);
 	}
 
 	@Override

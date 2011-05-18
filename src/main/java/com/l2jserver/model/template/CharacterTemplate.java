@@ -36,25 +36,23 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	 */
 	protected final Point spawnLocation;
 
+	protected Integer attackDamage = null;
+	protected AttackType attackType;
+
+	public enum AttackType {
+		FIST;
+	}
+
 	protected CharacterTemplate(CharacterTemplateID id,
-			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dexterity, int witness,
-			int physicalAttack, int magicalAttack, int physicalDefense,
-			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
-			int criticalChance, int evasionChance, int moveSpeed,
-			int maxWeigth, boolean craft, Point spawnLocation) {
-		super(id, characterClass.race, intelligence, strength, concentration,
-				mentality, dexterity, witness, physicalAttack, magicalAttack,
-				physicalDefense, magicalDefense, attackSpeed, castSpeed,
-				accuracy, criticalChance, evasionChance, moveSpeed, maxWeigth,
-				craft);
+			CharacterClass characterClass, Point spawnLocation) {
+		super(id, characterClass.race);
 		this.characterClass = characterClass;
 		this.spawnLocation = spawnLocation;
 	}
 
 	@Override
 	public L2Character createInstance() {
-		final L2Character character = new L2Character(baseAttributes);
+		final L2Character character = new L2Character(attributes);
 
 		character.setRace(race);
 		character.setCharacterClass(characterClass);

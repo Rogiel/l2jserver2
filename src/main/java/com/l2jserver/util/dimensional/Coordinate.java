@@ -86,13 +86,12 @@ public class Coordinate {
 		return new Coordinate(x, y, z);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Coordinate [" + vector + "]";
+	}
+
+	public Point toPoint() {
+		return new Point(this, 0);
 	}
 }

@@ -22,9 +22,9 @@ import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
+import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.world.actor.ActorAttributes;
 import com.l2jserver.model.world.character.CharacterAppearance;
-import com.l2jserver.model.world.character.CharacterAttributes;
-import com.l2jserver.model.world.character.CharacterBaseAttributes;
 import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterFriendList;
@@ -49,6 +49,33 @@ public class L2Character extends Player {
 	 * The pet id
 	 */
 	private PetID petID;
+
+	/**
+	 * This character's inventory
+	 */
+	private final CharacterInventory inventory = new CharacterInventory(this);
+	/**
+	 * The appearance of this character
+	 */
+	private final CharacterAppearance appearance = new CharacterAppearance(this);
+	/**
+	 * The base attributes of this character
+	 */
+	private final CharacterTemplate.ActorBaseAttributes baseAttributes;
+	/**
+	 * The attributes of this character
+	 */
+	private final ActorAttributes attributes;
+	/**
+	 * The list of friend of this character
+	 */
+	private final CharacterFriendList friendList = new CharacterFriendList(this);
+	/**
+	 * The shortcut container of this character
+	 */
+	private final CharacterShortcutContainer shortcuts = new CharacterShortcutContainer(
+			this);
+
 	/**
 	 * The character name
 	 */
@@ -65,32 +92,27 @@ public class L2Character extends Player {
 	 * Date of character's last access
 	 */
 	private Date lastAccess;
+	/**
+	 * The character walk mode.
+	 * <p>
+	 * This field is not persisted.
+	 */
+	private CharacterMoveType moveType = CharacterMoveType.WALK;
 
 	/**
-	 * This character's inventory
+	 * The character walking mode
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	private final CharacterInventory inventory = new CharacterInventory(this);
-	/**
-	 * The appearance of this character
-	 */
-	private final CharacterAppearance appearance = new CharacterAppearance(this);
-	/**
-	 * The base attributes of this character
-	 */
-	private final CharacterBaseAttributes baseAttributes;
-	/**
-	 * The attributes of this character
-	 */
-	private final CharacterAttributes attributes;
-	/**
-	 * The list of friend of this character
-	 */
-	private final CharacterFriendList friendList = new CharacterFriendList(this);
-	/**
-	 * The shortcut container of this character
-	 */
-	private final CharacterShortcutContainer shortcuts = new CharacterShortcutContainer(
-			this);
+	public enum CharacterMoveType {
+		RUN(0x01), WALK(0x00);
+
+		public final int id;
+
+		CharacterMoveType(int id) {
+			this.id = id;
+		}
+	}
 
 	/**
 	 * Creates a new instance
@@ -98,7 +120,7 @@ public class L2Character extends Player {
 	 * @param baseAttributes
 	 *            the base attribute for this character
 	 */
-	public L2Character(CharacterBaseAttributes baseAttributes) {
+	public L2Character(CharacterTemplate.ActorBaseAttributes baseAttributes) {
 		this.baseAttributes = baseAttributes;
 		this.attributes = new CharacterCalculatedAttributes(this);
 	}
@@ -227,6 +249,21 @@ public class L2Character extends Player {
 	}
 
 	/**
+	 * @return the moveType
+	 */
+	public CharacterMoveType getMoveType() {
+		return moveType;
+	}
+
+	/**
+	 * @param moveType
+	 *            the moveType to set
+	 */
+	public void setMoveType(CharacterMoveType moveType) {
+		this.moveType = moveType;
+	}
+
+	/**
 	 * @return the inventory
 	 */
 	public CharacterInventory getInventory() {
@@ -243,14 +280,14 @@ public class L2Character extends Player {
 	/**
 	 * @return the base attributes
 	 */
-	public CharacterBaseAttributes getBaseAttributes() {
+	public CharacterTemplate.ActorBaseAttributes getBaseAttributes() {
 		return baseAttributes;
 	}
 
 	/**
 	 * @return the attributes
 	 */
-	public CharacterAttributes getAttributes() {
+	public ActorAttributes getAttributes() {
 		return attributes;
 	}
 

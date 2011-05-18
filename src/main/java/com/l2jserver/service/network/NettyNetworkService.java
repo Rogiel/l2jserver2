@@ -34,10 +34,10 @@ import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
-import com.l2jserver.service.blowfish.BlowfishKeygenService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.logging.LoggingService;
+import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**

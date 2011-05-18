@@ -26,43 +26,31 @@ import com.l2jserver.util.dimensional.Point;
 public class OrcMysticTemplate extends AbstractOrcCharacterTemplate {
 	@Inject
 	public OrcMysticTemplate(CharacterTemplateIDFactory factory) {
-		super(factory.createID(CharacterClass.ORC_MYSTIC.id),
-				CharacterClass.ORC_MYSTIC,
-				// ATTRIBUTES
-				31,// INT
-				27,// STR
-				31,// CON
-				42,// MEN
-				24,// DEX
-				15,// WIT
-				3,// physical attack
-				6,// magical attack
-				54,// physical def
-				41,// magical def
-				300,// attack speed
-				333,// cast speed
-				30,// accuracy
-				41,// critical
-				30,// evasion
-				121,// move speed
-				68000,// max inventory weight
-				false,// can craft
-				Point.fromXYZ(-56682, -113730, -690)// spawn location
-		);
+		super(factory.createID(CharacterClass.ORC_MYSTIC.id), CharacterClass.ORC_MYSTIC,	Point.fromXYZ(-56682, -113730, -690));
+		// ATTRIBUTES
+		attributes.intelligence = 31;
+		attributes.strength = 27;
+		attributes.concentration = 31;
+		attributes.mentality = 42;
+		attributes.dexterity = 24;
+		attributes.witness = 15;
+		attributes.physicalAttack = 3;
+		attributes.magicalAttack = 6;
+		attributes.physicalDefense = 54;
+		attributes.magicalDefense = 41;
+		attributes.attackSpeed = 300;
+		attributes.castSpeed = 333;
+		attributes.accuracy = 30;
+		attributes.criticalChance = 41;
+		attributes.evasionChance = 30;
+		attributes.moveSpeed = 121;
+		attributes.maxWeigth = 68000;
+		attributes.craft = false;
 	}
-
+	
 	protected OrcMysticTemplate(CharacterTemplateID id,
-			CharacterClass characterClass, int intelligence, int strength,
-			int concentration, int mentality, int dexterity, int witness,
-			int physicalAttack, int magicalAttack, int physicalDefense,
-			int magicalDefense, int attackSpeed, int castSpeed, int accuracy,
-			int criticalChance, int evasionChance, int moveSpeed,
-			int maxWeigth, boolean craft, Point spawnLocation) {
-		super(id, characterClass, intelligence, strength, concentration,
-				mentality, dexterity, witness, physicalAttack, magicalAttack,
-				physicalDefense, magicalDefense, attackSpeed, castSpeed,
-				accuracy, criticalChance, evasionChance, moveSpeed, maxWeigth,
-				craft, spawnLocation);
+			CharacterClass characterClass, Point spawnLocation) {
+		super(id, characterClass, spawnLocation);
 	}
 
 	@Override

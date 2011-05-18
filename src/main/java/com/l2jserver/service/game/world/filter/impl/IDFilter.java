@@ -17,7 +17,7 @@
 package com.l2jserver.service.game.world.filter.impl;
 
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
 /**
@@ -25,7 +25,7 @@ import com.l2jserver.service.game.world.filter.WorldObjectFilter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class IDFilter implements WorldObjectFilter<Positionable> {
+public class IDFilter implements WorldObjectFilter<WorldObject> {
 	/**
 	 * The object id
 	 */
@@ -42,7 +42,7 @@ public class IDFilter implements WorldObjectFilter<Positionable> {
 	}
 
 	@Override
-	public boolean accept(Positionable other) {
+	public boolean accept(WorldObject other) {
 		if (other == null)
 			return false;
 		return other.getID().equals(id);

@@ -40,7 +40,7 @@ import com.l2jserver.game.net.packet.client.RequestCharacterTemplatesPacket;
 import com.l2jserver.game.net.packet.client.RequestGotoLobbyPacket;
 import com.l2jserver.game.net.packet.client.RequestKeyMappingPacket;
 import com.l2jserver.game.net.packet.client.RequestManorListPacket;
-import com.l2jserver.game.net.packet.client.RequestMoveBackwardToLocationPacket;
+import com.l2jserver.game.net.packet.client.CharacterRequestMovePacket;
 import com.l2jserver.game.net.packet.client.RequestRestartPacket;
 
 /**
@@ -150,8 +150,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			break;
 		case CharacterSelectPacket.OPCODE:
 			return CharacterSelectPacket.class;
-		case RequestMoveBackwardToLocationPacket.OPCODE:
-			return RequestMoveBackwardToLocationPacket.class;
+		case CharacterRequestMovePacket.OPCODE:
+			return CharacterRequestMovePacket.class;
 		case RequestRestartPacket.OPCODE:
 			return RequestRestartPacket.class;
 		case CharacterChatMessagePacket.OPCODE:

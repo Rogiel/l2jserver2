@@ -20,30 +20,36 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket.MessageDestination;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
+import com.l2jserver.game.net.packet.server.ActorMovementPacket;
+import com.l2jserver.game.net.packet.server.CharacterMovementTypePacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.InventoryPacket;
 import com.l2jserver.game.net.packet.server.UserInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.L2Character.CharacterMoveType;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterListener;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.game.ai.AIService;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Default implementation for {@link CharacterService}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ WorldService.class, ChatService.class, NetworkService.class })
+@Depends({ WorldService.class, ChatService.class, NetworkService.class,
+		SpawnService.class, AIService.class })
 public class CharacterServiceImpl extends AbstractService implements
 		CharacterService {
 	/**
@@ -67,15 +73,25 @@ public class CharacterServiceImpl extends AbstractService implements
 	 */
 	private final SpawnService spawnService;
 
+	// /**
+	// * The {@link AIService}
+	// */
+	// private final AIService aiService;
+
 	@Inject
 	public CharacterServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
-			NetworkService networkService, SpawnService spawnService) {
+			NetworkService networkService, SpawnService spawnService/*
+																	 * ,
+																	 * AIService
+																	 * aiService
+																	 */) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.chatService = chatService;
 		this.networkService = networkService;
 		this.spawnService = spawnService;
+		// this.aiService = aiService;
 	}
 
 	@Override
@@ -123,6 +139,8 @@ public class CharacterServiceImpl extends AbstractService implements
 		conn.write(new GameGuardQueryPacket());
 		conn.write(new InventoryPacket(character.getInventory()));
 
+		run(character);
+
 		// dispatch enter world event
 		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
 
@@ -131,9 +149,43 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
+	public void move(L2Character character, Coordinate coordinate) {
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+		// for now, let's just write the packet
+		// aiService.walk(character, coordinate);
+
+		final Coordinate source = character.getPosition();
+		character.setPosition(coordinate);
+		conn.write(new ActorMovementPacket(character, source));
+		// we don't dispatch events here, they will be dispatched by
+		// CharacterValidatePositionPacket packets at fixed time intervals.
+	}
+
+	@Override
 	public void leaveWorld(L2Character character) {
 		if (!worldService.remove(character))
 			return;
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
+	}
+
+	@Override
+	public void walk(L2Character character) {
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+		if (character.getMoveType() == CharacterMoveType.RUN) {
+			character.setMoveType(CharacterMoveType.WALK);
+			conn.broadcast(new CharacterMovementTypePacket(character));
+		}
+	}
+
+	@Override
+	public void run(L2Character character) {
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+		if (character.getMoveType() == CharacterMoveType.WALK) {
+			character.setMoveType(CharacterMoveType.RUN);
+			conn.broadcast(new CharacterMovementTypePacket(character));
+		}
 	}
 }

@@ -16,12 +16,14 @@
  */
 package com.l2jserver.service.threading;
 
+import com.l2jserver.service.Service;
+
 /**
  * This service is responsible for scheduling tasks and executing them in
  * parallel.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ThreadService {
+public interface ThreadService extends Service {
 
 }

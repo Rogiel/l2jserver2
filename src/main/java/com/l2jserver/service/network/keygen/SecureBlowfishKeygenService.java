@@ -14,21 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.blowfish;
+package com.l2jserver.service.network.keygen;
 
-import java.util.Random;
+import org.apache.commons.math.random.RandomData;
+import org.apache.commons.math.random.RandomDataImpl;
 
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
-public class PseudoRandomBlowfishKeygenService extends AbstractService
-		implements BlowfishKeygenService {
-	private Random random;
+/**
+ * This implementation of {@link BlowfishKeygenService} generates
+ * cryptographically safe keys but at the cost of speed. The key generation is
+ * much slower than on a pseudo-random generator.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public class SecureBlowfishKeygenService extends AbstractService implements
+		BlowfishKeygenService {
+	/**
+	 * The random number generator
+	 */
+	private RandomData random;
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		random = new Random();
+		random = new RandomDataImpl();
 	}
 
 	@Override
@@ -36,7 +47,7 @@ public class PseudoRandomBlowfishKeygenService extends AbstractService
 		final byte[] key = new byte[16];
 		// randomize the 8 first bytes
 		for (int i = 0; i < key.length; i++) {
-			key[i] = (byte) random.nextInt(255);
+			key[i] = (byte) random.nextSecureInt(0, 255);
 		}
 
 		// the last 8 bytes are static

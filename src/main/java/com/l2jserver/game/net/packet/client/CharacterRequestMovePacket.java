@@ -25,7 +25,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterStopMovePacket;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.SpawnService;
+import com.l2jserver.service.game.CharacterService;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
@@ -33,7 +33,7 @@ import com.l2jserver.util.dimensional.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RequestMoveBackwardToLocationPacket extends AbstractClientPacket {
+public class CharacterRequestMovePacket extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -42,9 +42,9 @@ public class RequestMoveBackwardToLocationPacket extends AbstractClientPacket {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
-	 * The {@link SpawnService}
+	 * The {@link CharacterService}
 	 */
-	private final SpawnService spawnService;
+	private final CharacterService charService;
 
 	// packet
 	private Coordinate target;
@@ -52,8 +52,8 @@ public class RequestMoveBackwardToLocationPacket extends AbstractClientPacket {
 	private int moveMovement;
 
 	@Inject
-	public RequestMoveBackwardToLocationPacket(SpawnService spawnService) {
-		this.spawnService = spawnService;
+	public CharacterRequestMovePacket(CharacterService charService) {
+		this.charService = charService;
 	}
 
 	@Override
@@ -86,6 +86,6 @@ public class RequestMoveBackwardToLocationPacket extends AbstractClientPacket {
 		final L2Character character = conn.getCharacter();
 		log.debug("Character {} is moving from {} to {}", new Object[] {
 				character, origin, target });
-		spawnService.teleport(character, target);
+		charService.move(character, target);
 	}
 }

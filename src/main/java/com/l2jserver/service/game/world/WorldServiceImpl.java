@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -35,6 +36,7 @@ import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.filter.FilterIterator;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
+import com.l2jserver.service.game.world.filter.impl.IDFilter;
 import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
 import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -88,6 +90,17 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public boolean contains(WorldObject object) {
 		return objects.contains(object);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public <T extends WorldObject> T find(ObjectID<T> id) {
+		final IDFilter filter = new IDFilter(id);
+		for (final WorldObject object : objects) {
+			if (filter.accept(object))
+				return (T) object;
+		}
+		return null;
 	}
 
 	@Override

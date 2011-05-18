@@ -19,8 +19,6 @@ package com.l2jserver.service;
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
 import com.google.inject.Scopes;
-import com.l2jserver.service.blowfish.BlowfishKeygenService;
-import com.l2jserver.service.blowfish.SecureBlowfishKeygenService;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.cache.EhCacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
@@ -45,6 +43,8 @@ import com.l2jserver.service.logging.Log4JLoggingService;
 import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.keygen.BlowfishKeygenService;
+import com.l2jserver.service.network.keygen.SecureBlowfishKeygenService;
 
 /**
  * Google Guice {@link Module} for services

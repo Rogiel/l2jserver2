@@ -19,6 +19,7 @@ package com.l2jserver.service.game.world;
 import java.util.Iterator;
 import java.util.List;
 
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
@@ -54,6 +55,19 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 * @return true if object exists
 	 */
 	boolean contains(WorldObject object);
+
+	/**
+	 * Locates the object with the given <tt>id</tt>
+	 * 
+	 * @param <T>
+	 *            the object type
+	 * @param id
+	 *            the object id
+	 * @return the found object
+	 * @throws ClassCastException
+	 *             if object found is not an instance of <tt>T</tt>
+	 */
+	<T extends WorldObject> T find(ObjectID<T> id) throws ClassCastException;
 
 	/**
 	 * Get the event dispatcher

@@ -18,6 +18,7 @@ package com.l2jserver.service.game;
 
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * This service manages {@link L2Character} instances
@@ -40,4 +41,30 @@ public interface CharacterService extends Service {
 	 *            the character
 	 */
 	void leaveWorld(L2Character character);
+
+	/**
+	 * Moves the given <tt>character</tt> to <tt>coordinate</tt>
+	 * 
+	 * @param character
+	 *            the character
+	 * @param coordinate
+	 *            the coordinate
+	 */
+	void move(L2Character character, Coordinate coordinate);
+
+	/**
+	 * Set the character to walking mode
+	 * 
+	 * @param character
+	 *            the character
+	 */
+	void walk(L2Character character);
+
+	/**
+	 * Set the character to run mode
+	 * 
+	 * @param character
+	 *            the character
+	 */
+	void run(L2Character character);
 }
