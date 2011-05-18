@@ -31,6 +31,7 @@ import com.l2jserver.game.net.packet.client.AuthLoginPacket;
 import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket;
 import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
 import com.l2jserver.game.net.packet.client.CharacterSelectPacket;
+import com.l2jserver.game.net.packet.client.CharacterValidatePositionPacket;
 import com.l2jserver.game.net.packet.client.EnterWorld;
 import com.l2jserver.game.net.packet.client.LogoutPacket;
 import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
@@ -155,6 +156,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return RequestRestartPacket.class;
 		case CharacterChatMessagePacket.OPCODE:
 			return CharacterChatMessagePacket.class;
+		case CharacterValidatePositionPacket.OPCODE:
+			return CharacterValidatePositionPacket.class;
 		case EnterWorld.OPCODE:
 			return EnterWorld.class;
 		default:

@@ -264,7 +264,7 @@ public class UserInformationPacket extends AbstractServerPacket {
 
 		buffer.writeByte(0); // is party match room
 
-		buffer.writeInt(0x100000); // abnormal effect
+		buffer.writeInt(0x00); // abnormal effect
 		buffer.writeByte(0x0); // flying mounted = 2; otherwise: 0
 
 		buffer.writeInt(0x00); // clan privileges

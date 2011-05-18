@@ -27,9 +27,11 @@ import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.InventoryPacket;
 import com.l2jserver.game.net.packet.server.UserInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.world.character.event.CharacterLoggedInEvent;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 
 /**
  * The client is requesting a logout. Currently, when this packet is received
@@ -47,6 +49,10 @@ public class EnterWorld extends AbstractClientPacket {
 	 * The chat service
 	 */
 	private final ChatService chatService;
+	/**
+	 * The World Event Dispatcher
+	 */
+	private final WorldEventDispatcher eventDispatcher;
 
 	/**
 	 * Creates a new instance
@@ -55,8 +61,10 @@ public class EnterWorld extends AbstractClientPacket {
 	 *            the chat service
 	 */
 	@Inject
-	public EnterWorld(ChatService chatService) {
+	public EnterWorld(ChatService chatService,
+			WorldEventDispatcher eventDispatcher) {
 		this.chatService = chatService;
+		this.eventDispatcher = eventDispatcher;
 	}
 
 	@Override
@@ -76,6 +84,7 @@ public class EnterWorld extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
+		// register global chat listener
 		chatService.getGlobalChannel().addChatChannelListener(
 				new ChatChannelListener() {
 					@Override
@@ -90,5 +99,8 @@ public class EnterWorld extends AbstractClientPacket {
 		// TODO game guard enforcing
 		conn.write(new GameGuardQueryPacket());
 		conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
+
+		eventDispatcher
+				.dispatch(new CharacterLoggedInEvent(conn.getCharacter()));
 	}
 }
