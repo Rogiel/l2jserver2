@@ -19,12 +19,12 @@ package com.l2jserver.service.game.chat;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.inject.Inject;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
-import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
@@ -40,7 +40,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends(RegionService.class)
+// @Depends(RegionService.class)
 public class SimpleChatService extends AbstractService implements ChatService {
 	private final RegionService regionService;
 
@@ -69,8 +69,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 * @param regionService
 	 *            the region service
 	 */
-	public SimpleChatService(RegionService regionService) {
-		this.regionService = regionService;
+	@Inject
+	public SimpleChatService() {
+		// this.regionService = regionService;
+		this.regionService = null;
 	}
 
 	@Override

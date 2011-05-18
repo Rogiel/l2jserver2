@@ -27,6 +27,8 @@ import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService;
+import com.l2jserver.service.game.chat.ChatService;
+import com.l2jserver.service.game.chat.SimpleChatService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
 import com.l2jserver.service.game.template.ScriptTemplateService;
@@ -53,8 +55,7 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
 				.in(Scopes.SINGLETON);
-		bind(CacheService.class).to(EhCacheService.class).in(
-				Scopes.SINGLETON);
+		bind(CacheService.class).to(EhCacheService.class).in(Scopes.SINGLETON);
 		bind(DatabaseService.class).to(MySQLDatabaseService.class).in(
 				Scopes.SINGLETON);
 
@@ -66,6 +67,9 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(TemplateService.class).to(ScriptTemplateService.class).in(
 				Scopes.SINGLETON);
+
+		bind(ChatService.class).to(SimpleChatService.class)
+				.in(Scopes.SINGLETON);
 
 		bind(WorldService.class).to(WorldServiceImpl.class)
 				.in(Scopes.SINGLETON);

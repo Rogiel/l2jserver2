@@ -18,15 +18,18 @@ package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket.MessageDestination;
+import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
+import com.l2jserver.game.net.packet.server.InventoryPacket;
 import com.l2jserver.game.net.packet.server.UserInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
-import com.l2jserver.service.game.chat.channel.PublicChatChannel;
 
 /**
  * The client is requesting a logout. Currently, when this packet is received
@@ -51,6 +54,7 @@ public class EnterWorld extends AbstractClientPacket {
 	 * @param chatService
 	 *            the chat service
 	 */
+	@Inject
 	public EnterWorld(ChatService chatService) {
 		this.chatService = chatService;
 	}
@@ -72,20 +76,19 @@ public class EnterWorld extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		if (conn.getCharacter().getClanID() != null) {
-			final PublicChatChannel clanChannel = chatService.getChannel(conn
-					.getCharacter().getClanID());
-			clanChannel.addChatChannelListener(new ChatChannelListener() {
-				@Override
-				public void onMessage(ChatChannel channel, CharacterID source,
-						String message) {
-					// TODO write message
-				}
-			});
-		}
+		chatService.getGlobalChannel().addChatChannelListener(
+				new ChatChannelListener() {
+					@Override
+					public void onMessage(ChatChannel channel,
+							CharacterID source, String message) {
+						conn.write(new ActorChatMessagePacket(source
+								.getObject(), MessageDestination.ALL, message));
+					}
+				});
 
 		conn.write(new UserInformationPacket(conn.getCharacter()));
+		// TODO game guard enforcing
 		conn.write(new GameGuardQueryPacket());
-		// conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
+		conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
 	}
 }

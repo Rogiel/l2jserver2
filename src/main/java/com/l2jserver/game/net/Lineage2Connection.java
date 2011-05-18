@@ -184,8 +184,13 @@ public class Lineage2Connection {
 		return channel.isConnected();
 	}
 
-	public ChannelFuture write(ServerPacket message) {
-		return channel.write(message);
+	public ChannelFuture write(ServerPacket packet) {
+		return channel.write(packet);
+	}
+
+	public ChannelFuture[] broadcast(ServerPacket packet) {
+		// TODO implement broadcasting
+		return new ChannelFuture[] { write(packet) };
 	}
 
 	public ChannelFuture disconnect() {

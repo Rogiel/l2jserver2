@@ -28,7 +28,9 @@ import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.AuthLoginPacket;
+import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket;
 import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
+import com.l2jserver.game.net.packet.client.CharacterSelectPacket;
 import com.l2jserver.game.net.packet.client.EnterWorld;
 import com.l2jserver.game.net.packet.client.LogoutPacket;
 import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
@@ -37,6 +39,8 @@ import com.l2jserver.game.net.packet.client.RequestCharacterTemplatesPacket;
 import com.l2jserver.game.net.packet.client.RequestGotoLobbyPacket;
 import com.l2jserver.game.net.packet.client.RequestKeyMappingPacket;
 import com.l2jserver.game.net.packet.client.RequestManorListPacket;
+import com.l2jserver.game.net.packet.client.RequestMoveBackwardToLocationPacket;
+import com.l2jserver.game.net.packet.client.RequestRestartPacket;
 
 /**
  * This decoder reads an frame and decodes the packet in it. Each packet has an
@@ -143,6 +147,14 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 				break;
 			}
 			break;
+		case CharacterSelectPacket.OPCODE:
+			return CharacterSelectPacket.class;
+		case RequestMoveBackwardToLocationPacket.OPCODE:
+			return RequestMoveBackwardToLocationPacket.class;
+		case RequestRestartPacket.OPCODE:
+			return RequestRestartPacket.class;
+		case CharacterChatMessagePacket.OPCODE:
+			return CharacterChatMessagePacket.class;
 		case EnterWorld.OPCODE:
 			return EnterWorld.class;
 		default:

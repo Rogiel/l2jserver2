@@ -21,6 +21,7 @@ import com.l2jserver.service.blowfish.BlowfishKeygenService;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.network.NetworkService;
@@ -42,6 +43,8 @@ public class L2JGameServerMain {
 
 			serviceManager.start(ScriptingService.class);
 			serviceManager.start(TemplateService.class);
+
+			serviceManager.start(ChatService.class);
 
 			serviceManager.start(BlowfishKeygenService.class);
 			serviceManager.start(NetworkService.class);

@@ -126,9 +126,9 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 
 			buffer.writeInt(1); // active ??
 
-			buffer.writeInt(-71338); // x
-			buffer.writeInt(258271); // y
-			buffer.writeInt(-3104); // z
+			buffer.writeInt(character.getPoint().getX()); // x
+			buffer.writeInt(character.getPoint().getY()); // y
+			buffer.writeInt(character.getPoint().getZ()); // z
 
 			buffer.writeDouble(20); // hp cur
 			buffer.writeDouble(20); // mp cur
