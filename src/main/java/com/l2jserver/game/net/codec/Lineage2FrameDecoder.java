@@ -46,9 +46,6 @@ public class Lineage2FrameDecoder extends FrameDecoder {
 		ChannelBuffer buffer = ChannelBuffers.wrappedBuffer(oldBuffer
 				.toByteBuffer().order(ByteOrder.LITTLE_ENDIAN));
 
-		logger.debug("Received frame segment: {}",
-				ChannelBuffers.hexDump(buffer));
-
 		buffer.markReaderIndex();
 		final int pending = buffer.readUnsignedShort() - HEADER_SIZE;
 		if (pending == 0)

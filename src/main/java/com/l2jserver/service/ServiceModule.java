@@ -27,6 +27,10 @@ import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService;
+import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.CharacterServiceImpl;
+import com.l2jserver.service.game.SpawnService;
+import com.l2jserver.service.game.SpawnServiceImpl;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.SimpleChatService;
 import com.l2jserver.service.game.scripting.ScriptingService;
@@ -70,6 +74,10 @@ public class ServiceModule extends AbstractModule {
 
 		bind(ChatService.class).to(SimpleChatService.class)
 				.in(Scopes.SINGLETON);
+		bind(SpawnService.class).to(SpawnServiceImpl.class)
+				.in(Scopes.SINGLETON);
+		bind(CharacterService.class).to(CharacterServiceImpl.class).in(
+				Scopes.SINGLETON);
 
 		bind(WorldService.class).to(WorldServiceImpl.class)
 				.in(Scopes.SINGLETON);

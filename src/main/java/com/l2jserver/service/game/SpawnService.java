@@ -16,8 +16,12 @@
  */
 package com.l2jserver.service.game;
 
+import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.model.world.event.SpawnEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
 import com.l2jserver.service.Service;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * This service is responsible for spawning monsters, npcs and players.
@@ -27,11 +31,27 @@ import com.l2jserver.service.Service;
 public interface SpawnService extends Service {
 	/**
 	 * Spawns an object in the world
+	 * <p>
+	 * An {@link SpawnEvent} will be dispatched and the object will be
+	 * registered in the world (if it isn't already)
 	 * 
 	 * @param spawnable
 	 *            the spawnable object
 	 */
 	void spawn(Spawnable spawnable);
+
+	/**
+	 * Teleports the object to the given <tt>point</tt>.
+	 * <p>
+	 * An {@link PlayerTeleportEvent} will be dispatched and the new position
+	 * will be broadcast to all clients.
+	 * 
+	 * @param player
+	 *            the player object
+	 * @param coordinate
+	 *            the teleportation coordinate
+	 */
+	void teleport(Player player, Coordinate coordinate);
 
 	/**
 	 * Schedules an {@link Spawnable} object to be respawn in a certain time.

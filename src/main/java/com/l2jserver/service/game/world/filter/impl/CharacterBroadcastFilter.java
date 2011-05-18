@@ -14,18 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.capability;
+package com.l2jserver.service.game.world.filter.impl;
 
-import com.l2jserver.model.world.AbstractObject;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.game.world.filter.AndFilter;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
 /**
- * Defines an {@link AbstractObject} that can be teleported by
- * {@link Teleporter} objects. Note that it is also possible to teleport
- * <b>without</b> a teleporter!
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Teleportable extends ObjectCapability, Positionable, Spawnable {
-	void teleport(Coordinate coordinate);
+public class CharacterBroadcastFilter extends AndFilter<L2Character> {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public CharacterBroadcastFilter(L2Character character) {
+		super(new InstanceFilter<L2Character>(L2Character.class),
+				(WorldObjectFilter) new KnownListFilter(character));
+	}
 }

@@ -87,46 +87,38 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public <E extends WorldEvent, L extends WorldListener<E>> void addListener(
-			Listenable<L, E> object, WorldListener<E> listener) {
+	public <E extends WorldEvent, L extends WorldListener> void addListener(
+			Listenable<L, E> object, WorldListener listener) {
 		log.debug("Adding new listener {} to {}", listener, object.getID());
-		listeners.add(new ListenerIDPair(object.getID(),
-				(WorldListener<WorldEvent>) listener));
+		listeners.add(new ListenerIDPair(object.getID(), listener));
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public <E extends WorldEvent, L extends WorldListener<E>> void addListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener<E> listener) {
+	public <E extends WorldEvent, L extends WorldListener> void addListener(
+			ObjectID<? extends Listenable<L, E>> id, WorldListener listener) {
 		log.debug("Adding new listener {} to {}", listener, id);
-		listeners.add(new ListenerIDPair(id,
-				(WorldListener<WorldEvent>) listener));
+		listeners.add(new ListenerIDPair(id, listener));
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public <E extends WorldEvent, L extends WorldListener<E>> void removeListener(
-			Listenable<L, E> object, WorldListener<E> listener) {
+	public <E extends WorldEvent, L extends WorldListener> void removeListener(
+			Listenable<L, E> object, WorldListener listener) {
 		log.debug("Removing new listener {} from {}", listener, object.getID());
-		listeners.remove(new ListenerIDPair(object.getID(),
-				(WorldListener<WorldEvent>) listener));
+		listeners.remove(new ListenerIDPair(object.getID(), listener));
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public <E extends WorldEvent, L extends WorldListener<E>> void removeListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener<E> listener) {
+	public <E extends WorldEvent, L extends WorldListener> void removeListener(
+			ObjectID<? extends Listenable<L, E>> id, WorldListener listener) {
 		log.debug("Removing new listener {} from {}", listener, id);
-		listeners.remove(new ListenerIDPair(id,
-				(WorldListener<WorldEvent>) listener));
+		listeners.remove(new ListenerIDPair(id, listener));
 	}
 
 	private class ListenerIDPair {
 		private ObjectID<?> ID;
-		private WorldListener<WorldEvent> listener;
+		private WorldListener listener;
 
-		public ListenerIDPair(ObjectID<?> ID, WorldListener<WorldEvent> listener) {
+		public ListenerIDPair(ObjectID<?> ID, WorldListener listener) {
 			super();
 			this.ID = ID;
 			this.listener = listener;

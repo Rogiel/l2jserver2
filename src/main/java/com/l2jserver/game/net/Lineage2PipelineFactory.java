@@ -32,7 +32,9 @@ import com.l2jserver.game.net.codec.Lineage2FrameEncoder;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.handler.Lineage2PacketHandler;
+import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
+import com.l2jserver.service.network.NetworkService;
 
 /**
  * This class creates a new instance of {@link ChannelPipeline} and attaches all
@@ -49,12 +51,17 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	 * The {@link NettyNetworkService}
 	 */
 	private final NettyNetworkService nettyNetworkService;
+	/**
+	 * The {@link WorldService} instance
+	 */
+	private final WorldService worldService;
 
 	@Inject
 	public Lineage2PipelineFactory(Injector injector,
-			NettyNetworkService nettyNetworkService) {
+			NetworkService networkService, WorldService worldService) {
 		this.injector = injector;
-		this.nettyNetworkService = nettyNetworkService;
+		this.nettyNetworkService = (NettyNetworkService) networkService;
+		this.worldService = worldService;
 	}
 
 	@Override
@@ -69,9 +76,6 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 		pipeline.addLast(Lineage2Decrypter.HANDLER_NAME,
 				new Lineage2Decrypter());
 
-		pipeline.addLast("logger-hex", new LoggingHandler(
-				InternalLogLevel.DEBUG, true));
-
 		pipeline.addLast(Lineage2PacketWriter.HANDLER_NAME,
 				new Lineage2PacketWriter());
 		pipeline.addLast(Lineage2PacketReader.HANDLER_NAME,
@@ -80,7 +84,8 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 		pipeline.addLast("logger", new LoggingHandler(InternalLogLevel.DEBUG,
 				true));
 
-		pipeline.addLast("packet.handler", new Lineage2PacketHandler(nettyNetworkService));
+		pipeline.addLast("packet.handler", new Lineage2PacketHandler(
+				nettyNetworkService, worldService));
 
 		return pipeline;
 	}

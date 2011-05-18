@@ -31,6 +31,6 @@ import com.l2jserver.service.game.world.event.WorldListener;
  * @param <E>
  *            the event type
  */
-public interface Listenable<L extends WorldListener<E>, E extends WorldEvent>
+public interface Listenable<L extends WorldListener, E extends WorldEvent>
 		extends ObjectCapability {
 }

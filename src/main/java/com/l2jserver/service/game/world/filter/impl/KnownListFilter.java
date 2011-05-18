@@ -14,17 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world;
+package com.l2jserver.service.game.world.filter.impl;
 
-import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Playable;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.service.game.world.filter.AndFilter;
 
 /**
- * {@link Player} is any object that can be controlled by the player. The most
- * common implementation is {@link L2Character}.
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
- * @author Rogiel
  */
-public abstract class Player extends AbstractActor implements Playable, Actor {
+public class KnownListFilter extends AndFilter<Positionable> {
+	public static final int KNOWNLIST_RANGE = 200;
 
+	@SuppressWarnings("unchecked")
+	public KnownListFilter(L2Character character) {
+		super(new InstanceFilter<Positionable>(Positionable.class),
+				new RangeFilter(character.getPosition(), KNOWNLIST_RANGE));
+	}
 }

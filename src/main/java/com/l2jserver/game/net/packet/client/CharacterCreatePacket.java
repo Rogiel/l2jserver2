@@ -198,24 +198,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 		log.debug("Creating character with template {}", template);
 
 		// ensure parameters passed by the client are true
-		if (/*
-			 * (intelligence != template.getIntelligence()) || (strength !=
-			 * template.getStrength()) || (concentration !=
-			 * template.getConcentration()) || (mentality !=
-			 * template.getMentality()) || (dextry != template.getDextry()) ||
-			 * (witness != template.getWitness()) ||
-			 */(race != template.getRace())) {
-			// log.debug("intelligence, expected {}, received {}",
-			// template.getIntelligence(), intelligence);
-			// log.debug("strength, expected {}, received {}",
-			// template.getStrength(), strength);
-			// log.debug("concentration, expected {}, received {}",
-			// template.getConcentration(), concentration);
-			// log.debug("dextry, expected {}, received {}",
-			// template.getDextry(),
-			// dextry);
-			// log.debug("witness, expected {}, received {}",
-			// template.getWitness(), witness);
+		if ((race != template.getRace())) {
 			log.debug("race, expected {}, received {}", template.getRace(),
 					race);
 

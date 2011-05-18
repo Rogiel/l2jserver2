@@ -64,8 +64,6 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 		buffer.writeShort(0);
 		buffer.writeByte(packet.getOpcode()); // packet opcode
 		packet.write(connection, buffer);
-		
-		log.debug("Writing message {}", ChannelBuffers.hexDump(buffer));
 
 		return buffer;
 	}

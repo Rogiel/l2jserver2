@@ -14,17 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.capability;
+package com.l2jserver.service.game;
 
-import com.l2jserver.model.world.AbstractObject;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.Service;
 
 /**
- * Defines an {@link AbstractObject} that can teleport {@link Teleportable}
- * objects.
+ * This service manages {@link L2Character} instances
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Teleporter extends ObjectCapability {
-	void teleport(Coordinate coord, Teleportable target);
+public interface CharacterService extends Service {
+	/**
+	 * Perform all operations required to this character join the world
+	 * 
+	 * @param character
+	 *            the character
+	 */
+	void enterWorld(L2Character character);
+
+	/**
+	 * Perform all operations required to this character leave the world
+	 * 
+	 * @param character
+	 *            the character
+	 */
+	void leaveWorld(L2Character character);
 }

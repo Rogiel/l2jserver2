@@ -16,8 +16,6 @@
  */
 package com.l2jserver.model.world.player.event;
 
-import com.l2jserver.model.world.actor.event.ActorEvent;
-import com.l2jserver.model.world.actor.event.ActorListener;
 import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldListener;
 
@@ -26,9 +24,9 @@ import com.l2jserver.service.game.world.event.WorldListener;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class PlayerListener implements ActorListener {
+public abstract class PlayerListener implements WorldListener {
 	@Override
-	public boolean dispatch(ActorEvent e) {
+	public boolean dispatch(WorldEvent e) {
 		if (!(e instanceof PlayerEvent))
 			return false;
 		return dispatch((PlayerEvent) e);

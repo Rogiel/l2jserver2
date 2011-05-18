@@ -24,7 +24,7 @@ package com.l2jserver.service.game.world.event;
  * @param <E>
  *            the received event type
  */
-public interface WorldListener<E extends WorldEvent> {
+public interface WorldListener {
 	/**
 	 * Once the event call is dispatched the listener <b>WILL</b> be removed if
 	 * false is returned. If you wish to keep this listener, you must return
@@ -34,5 +34,5 @@ public interface WorldListener<E extends WorldEvent> {
 	 *            the event
 	 * @return true to keep listener alive
 	 */
-	boolean dispatch(E e);
+	boolean dispatch(WorldEvent e);
 }

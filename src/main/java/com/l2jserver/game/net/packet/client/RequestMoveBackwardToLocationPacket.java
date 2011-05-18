@@ -17,12 +17,15 @@
 package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterStopMovePacket;
-import com.l2jserver.game.net.packet.server.CharacterTeleportPacket;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.game.SpawnService;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
@@ -36,10 +39,22 @@ public class RequestMoveBackwardToLocationPacket extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x0f;
 
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+	/**
+	 * The {@link SpawnService}
+	 */
+	private final SpawnService spawnService;
+
 	// packet
 	private Coordinate target;
 	private Coordinate origin;
 	private int moveMovement;
+
+	@Inject
+	public RequestMoveBackwardToLocationPacket(SpawnService spawnService) {
+		this.spawnService = spawnService;
+	}
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
@@ -47,24 +62,30 @@ public class RequestMoveBackwardToLocationPacket extends AbstractClientPacket {
 				buffer.readInt());
 		this.origin = Coordinate.fromXYZ(buffer.readInt(), buffer.readInt(),
 				buffer.readInt());
-		// 0 keyboard, 1 mouse
-		this.moveMovement = buffer.readInt(); // seems that L2Walker does not
-												// send this
+		// seems that L2Walker does not send this
+		if (buffer.readableBytes() >= 4) {
+			// 0 keyboard, 1 mouse
+			this.moveMovement = buffer.readInt();
+		}
 	}
 
 	@Override
 	public void process(final Lineage2Connection conn) {
 		if (target.equals(origin)) {
+			log.debug("Target is same as origin. Stopping character.");
 			conn.write(new CharacterStopMovePacket(conn.getCharacter()));
 			return;
 		}
 		if (target.getDistance(origin) >= 98010000) {
+			log.warn(
+					"Character {} is trying to move a really big distance: {}",
+					conn.getCharacter(), target.getDistance(origin));
 			// TODO send action failed message!
 			return;
 		}
 		final L2Character character = conn.getCharacter();
-		character.setPosition(target);
-		
-		conn.broadcast(new CharacterTeleportPacket(character));
+		log.debug("Character {} is moving from {} to {}", new Object[] {
+				character, origin, target });
+		spawnService.teleport(character, target);
 	}
 }

@@ -36,7 +36,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 * @param object
 	 *            the object
 	 */
-	public void add(WorldObject object);
+	boolean add(WorldObject object);
 
 	/**
 	 * Removes an object of the world
@@ -44,7 +44,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 * @param object
 	 *            the object
 	 */
-	public void remove(WorldObject object);
+	boolean remove(WorldObject object);
 
 	/**
 	 * Check if this object is in the world.
@@ -53,14 +53,14 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 *            the object
 	 * @return true if object exists
 	 */
-	public boolean contains(WorldObject object);
+	boolean contains(WorldObject object);
 
 	/**
 	 * Get the event dispatcher
 	 * 
 	 * @return the event dispatcher
 	 */
-	public WorldEventDispatcher getEventDispatcher();
+	WorldEventDispatcher getEventDispatcher();
 
 	/**
 	 * Creates a list of all objects matching <tt>filter</tt>
@@ -71,7 +71,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 *            the filter
 	 * @return the list of objects
 	 */
-	public <T extends WorldObject> List<T> list(WorldObjectFilter<T> filter);
+	<T extends WorldObject> List<T> list(WorldObjectFilter<T> filter);
 
 	/**
 	 * Creates a list of all objects of type <tt>type</tt>

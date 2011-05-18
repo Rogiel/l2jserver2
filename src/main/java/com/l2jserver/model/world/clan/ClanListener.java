@@ -16,12 +16,24 @@
  */
 package com.l2jserver.model.world.clan;
 
+import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
- * Base listener for {@link ClanEvent}
+ * This listener will filter to only dispatch {@link ClanEvent} events.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ClanListener extends WorldListener<ClanEvent> {
+public abstract class ClanListener implements WorldListener {
+	@Override
+	public boolean dispatch(WorldEvent e) {
+		if (!(e instanceof ClanEvent))
+			return false;
+		return dispatch((ClanEvent) e);
+	}
+
+	/**
+	 * @see WorldListener#dispatch(WorldEvent)
+	 */
+	protected abstract boolean dispatch(ClanEvent e);
 }

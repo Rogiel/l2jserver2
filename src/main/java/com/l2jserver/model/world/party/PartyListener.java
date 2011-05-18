@@ -16,12 +16,24 @@
  */
 package com.l2jserver.model.world.party;
 
+import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
- * Listener for {@link PartyEvent}
+ * This listener will filter to only dispatch {@link PartyEvent} events.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface PartyListener extends WorldListener<PartyEvent> {
+public abstract class PartyListener implements WorldListener {
+	@Override
+	public boolean dispatch(WorldEvent e) {
+		if (!(e instanceof PartyEvent))
+			return false;
+		return dispatch((PartyEvent) e);
+	}
+
+	/**
+	 * @see WorldListener#dispatch(WorldEvent)
+	 */
+	protected abstract boolean dispatch(PartyEvent e);
 }

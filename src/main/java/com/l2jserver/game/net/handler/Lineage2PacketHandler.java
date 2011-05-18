@@ -23,6 +23,7 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
+import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
 
 /**
@@ -38,18 +39,25 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	 */
 	private final NettyNetworkService nettyNetworkService;
 	/**
+	 * The {@link WorldService} instance
+	 */
+	private final WorldService worldService;
+	/**
 	 * The Lineage 2 connection
 	 */
 	private Lineage2Connection connection;
 
-	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService) {
+	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService,
+			WorldService worldService) {
 		this.nettyNetworkService = nettyNetworkService;
+		this.worldService = worldService;
 	}
 
 	@Override
 	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
-		connection = new Lineage2Connection(e.getChannel());
+		connection = new Lineage2Connection(worldService, nettyNetworkService,
+				e.getChannel());
 		connection.getPacketWriter().setConnection(connection);
 
 		nettyNetworkService.register(connection);

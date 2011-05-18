@@ -37,12 +37,6 @@ public class Pet extends Player implements Summonable {
 	private ItemID itemID;
 
 	@Override
-	public void teleport(Coordinate coordinate) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void summon(Coordinate coordinate) {
 		// TODO Auto-generated method stub
 

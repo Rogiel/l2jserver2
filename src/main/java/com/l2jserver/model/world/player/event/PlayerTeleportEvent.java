@@ -20,7 +20,7 @@ import com.l2jserver.model.world.Player;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
- * Event dispatched once an player is teleported.
+ * Event dispatched once an player is teleported to another location
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

@@ -16,18 +16,17 @@
  */
 package com.l2jserver.model.world.character.event;
 
-import com.l2jserver.model.world.player.event.PlayerEvent;
-import com.l2jserver.model.world.player.event.PlayerListener;
 import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldListener;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * This listener will filter to only dispatch {@link CharacterEvent} events.
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class CharacterListener extends PlayerListener {
+public abstract class CharacterListener implements WorldListener {
 	@Override
-	protected boolean dispatch(PlayerEvent e) {
+	public boolean dispatch(WorldEvent e) {
 		if (!(e instanceof CharacterEvent))
 			return false;
 		return dispatch((CharacterEvent) e);

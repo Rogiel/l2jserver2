@@ -17,21 +17,14 @@
 package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket.MessageDestination;
-import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
-import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
-import com.l2jserver.game.net.packet.server.InventoryPacket;
-import com.l2jserver.game.net.packet.server.UserInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.world.character.event.CharacterLoggedInEvent;
-import com.l2jserver.service.game.chat.ChatService;
-import com.l2jserver.service.game.chat.channel.ChatChannel;
-import com.l2jserver.service.game.chat.channel.ChatChannelListener;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.CharacterService;
 
 /**
  * The client is requesting a logout. Currently, when this packet is received
@@ -45,26 +38,16 @@ public class EnterWorld extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x11;
 
-	/**
-	 * The chat service
-	 */
-	private final ChatService chatService;
-	/**
-	 * The World Event Dispatcher
-	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final Logger log = LoggerFactory.getLogger(EnterWorld.class);
 
 	/**
-	 * Creates a new instance
-	 * 
-	 * @param chatService
-	 *            the chat service
+	 * The {@link CharacterService}
 	 */
+	private final CharacterService characterService;
+
 	@Inject
-	public EnterWorld(ChatService chatService,
-			WorldEventDispatcher eventDispatcher) {
-		this.chatService = chatService;
-		this.eventDispatcher = eventDispatcher;
+	public EnterWorld(CharacterService characterService) {
+		this.characterService = characterService;
 	}
 
 	@Override
@@ -84,23 +67,14 @@ public class EnterWorld extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		// register global chat listener
-		chatService.getGlobalChannel().addChatChannelListener(
-				new ChatChannelListener() {
-					@Override
-					public void onMessage(ChatChannel channel,
-							CharacterID source, String message) {
-						conn.write(new ActorChatMessagePacket(source
-								.getObject(), MessageDestination.ALL, message));
-					}
-				});
-
-		conn.write(new UserInformationPacket(conn.getCharacter()));
-		// TODO game guard enforcing
-		conn.write(new GameGuardQueryPacket());
-		conn.write(new InventoryPacket(conn.getCharacter().getInventory()));
-
-		eventDispatcher
-				.dispatch(new CharacterLoggedInEvent(conn.getCharacter()));
+		final CharacterID id = conn.getCharacterID();
+		if (id == null) {
+			log.warn(
+					"Client {} is trying to enter world without select a character",
+					conn);
+			conn.close();
+			return;
+		}
+		characterService.enterWorld(id.getObject());
 	}
 }

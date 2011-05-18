@@ -74,15 +74,15 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	}
 
 	@Override
-	public void add(WorldObject object) {
+	public boolean add(WorldObject object) {
 		log.debug("Adding object {} to world", object);
-		objects.add(object);
+		return objects.add(object);
 	}
 
 	@Override
-	public void remove(WorldObject object) {
+	public boolean remove(WorldObject object) {
 		log.debug("Removing object {} from world", object);
-		objects.remove(object);
+		return objects.remove(object);
 	}
 
 	@Override

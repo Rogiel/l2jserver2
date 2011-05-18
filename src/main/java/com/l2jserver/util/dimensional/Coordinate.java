@@ -85,4 +85,14 @@ public class Coordinate {
 	public static Coordinate fromXYZ(int x, int y, int z) {
 		return new Coordinate(x, y, z);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Coordinate [" + vector + "]";
+	}
 }

@@ -50,6 +50,11 @@ import com.l2jserver.util.factory.CollectionFactory;
 public class NettyNetworkService extends AbstractService implements
 		NetworkService {
 	/**
+	 * The {@link WorldService} instance
+	 */
+	private final WorldService worldService;
+
+	/**
 	 * The network configuration object
 	 */
 	private final NetworkConfiguration config;
@@ -74,9 +79,10 @@ public class NettyNetworkService extends AbstractService implements
 
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,
-			Injector injector) {
+			Injector injector, WorldService worldService) {
 		this.config = configService.get(NetworkConfiguration.class);
 		this.injector = injector;
+		this.worldService = worldService;
 		InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory());
 	}
 
@@ -85,7 +91,8 @@ public class NettyNetworkService extends AbstractService implements
 		server = new ServerBootstrap(new NioServerSocketChannelFactory(
 				Executors.newCachedThreadPool(),
 				Executors.newCachedThreadPool()));
-		server.setPipelineFactory(new Lineage2PipelineFactory(injector, this));
+		server.setPipelineFactory(new Lineage2PipelineFactory(injector, this,
+				worldService));
 		channel = (ServerChannel) server.bind(config.getListenAddress());
 	}
 

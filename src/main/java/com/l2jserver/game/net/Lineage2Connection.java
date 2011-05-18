@@ -16,6 +16,8 @@
  */
 package com.l2jserver.game.net;
 
+import java.util.Set;
+
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
 
@@ -27,10 +29,17 @@ import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.service.game.world.filter.impl.CharacterBroadcastFilter;
+import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * This object connects the model (structure objects normally stored in the
  * database) to the controller (protocol stuff).
+ * <p>
+ * This class also provides handy methods for {@link #write(ServerPacket)
+ * writing} and {@link #broadcast(ServerPacket) broadcasting} packets.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -67,13 +76,30 @@ public class Lineage2Connection {
 	 */
 	private ProtocolVersion version;
 
+	// services
+	/**
+	 * The {@link NetworkService} instance. This service is used to retrieve the
+	 * {@link Lineage2Connection} based on an {@link CharacterID}.
+	 */
+	private final NetworkService networkService;
+	/**
+	 * The {@link WorldService} instance. This service is used to dynamically
+	 * generate knownlists.
+	 */
+	private final WorldService worldService;
+
 	/**
 	 * Creates a new instance
 	 * 
+	 * @param worldService
+	 *            the world service
 	 * @param channel
 	 *            the channel
 	 */
-	public Lineage2Connection(Channel channel) {
+	public Lineage2Connection(WorldService worldService,
+			NetworkService networkService, Channel channel) {
+		this.worldService = worldService;
+		this.networkService = networkService;
 		this.channel = channel;
 	}
 
@@ -176,46 +202,115 @@ public class Lineage2Connection {
 		return channel;
 	}
 
+	/**
+	 * Test if the client is still open.
+	 * <p>
+	 * Please note that the channel can be open but disconnected!
+	 * 
+	 * @return true if the client is still open
+	 * @see Channel#isOpen()
+	 */
 	public boolean isOpen() {
 		return channel.isOpen();
 	}
 
+	/**
+	 * Test if the client is still connected
+	 * <p>
+	 * Please note that the channel can be open but disconnected!
+	 * 
+	 * @return true if the client is still connected
+	 * @see Channel#isConnected()
+	 */
 	public boolean isConnected() {
 		return channel.isConnected();
 	}
 
+	/**
+	 * Writes an packet to this client
+	 * <p>
+	 * Please note that this method will <b>not</b> block for the packets to be
+	 * sent. It is possible to check if the packet was sent successfully using
+	 * the {@link ChannelFuture}.
+	 * 
+	 * @param packet
+	 *            the packet
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
 	public ChannelFuture write(ServerPacket packet) {
 		return channel.write(packet);
 	}
 
-	public ChannelFuture[] broadcast(ServerPacket packet) {
-		// TODO implement broadcasting
-		return new ChannelFuture[] { write(packet) };
+	/**
+	 * Broadcast a packet to all characters in this character knownlist.
+	 * <p>
+	 * Note that in the broadcasting process, this client will be included.
+	 * <p>
+	 * Please note that this method will <b>not</b> block for all packets to be
+	 * sent. It is possible to check if all packets were sent successfully using
+	 * the {@link ChannelFuture} instances.
+	 * 
+	 * @param packet
+	 *            the packet
+	 * @return an {@link Set} containing all {@link ChannelFuture} instances.
+	 */
+	public Set<ChannelFuture> broadcast(ServerPacket packet) {
+		final Set<ChannelFuture> futures = CollectionFactory.newSet(null);
+		for (final L2Character character : worldService
+				.iterable(new CharacterBroadcastFilter(characterID.getObject()))) {
+			final Lineage2Connection conn = networkService.discover(character
+					.getID());
+			futures.add(conn.write(packet));
+		}
+		return futures;
 	}
 
+	/**
+	 * Disconnects this client, without closing the channel.
+	 * 
+	 * @return the {@link ChannelFuture}
+	 */
 	public ChannelFuture disconnect() {
 		return channel.disconnect();
 	}
 
+	/**
+	 * Closes the channel of this client.
+	 * 
+	 * @return the {@link ChannelFuture}
+	 */
 	public ChannelFuture close() {
 		return channel.close();
 	}
 
+	/**
+	 * @return the client {@link Lineage2Decrypter}
+	 */
 	public Lineage2Decrypter getDecrypter() {
 		return (Lineage2Decrypter) channel.getPipeline().get(
 				Lineage2Decrypter.HANDLER_NAME);
 	}
 
+	/**
+	 * @return the client {@link Lineage2Encrypter}
+	 */
 	public Lineage2Encrypter getEncrypter() {
 		return (Lineage2Encrypter) channel.getPipeline().get(
 				Lineage2Encrypter.HANDLER_NAME);
 	}
 
+	/**
+	 * @return the client {@link Lineage2PacketReader}
+	 */
 	public Lineage2PacketReader getPacketReader() {
 		return (Lineage2PacketReader) channel.getPipeline().get(
 				Lineage2PacketReader.HANDLER_NAME);
 	}
 
+	/**
+	 * @return the client {@link Lineage2PacketWriter}
+	 */
 	public Lineage2PacketWriter getPacketWriter() {
 		return (Lineage2PacketWriter) channel.getPipeline().get(
 				Lineage2PacketWriter.HANDLER_NAME);

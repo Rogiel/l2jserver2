@@ -48,8 +48,8 @@ public interface WorldEventDispatcher {
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener<E>> void addListener(
-			Listenable<L, E> object, WorldListener<E> listener);
+	<E extends WorldEvent, L extends WorldListener> void addListener(
+			Listenable<L, E> object, WorldListener listener);
 
 	/**
 	 * Adds a new <tt>listener</tt> to object with id <tt>id</tt>
@@ -63,8 +63,8 @@ public interface WorldEventDispatcher {
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener<E>> void addListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener<E> listener);
+	<E extends WorldEvent, L extends WorldListener> void addListener(
+			ObjectID<? extends Listenable<L, E>> id, WorldListener listener);
 
 	/**
 	 * Removes an existing <tt>listener</tt> from <tt>object</tt>
@@ -78,8 +78,8 @@ public interface WorldEventDispatcher {
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener<E>> void removeListener(
-			Listenable<L, E> object, WorldListener<E> listener);
+	<E extends WorldEvent, L extends WorldListener> void removeListener(
+			Listenable<L, E> object, WorldListener listener);
 
 	/**
 	 * Removes an existing <tt>listener</tt> from the object with id <tt>id</tt>
@@ -93,6 +93,6 @@ public interface WorldEventDispatcher {
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener<E>> void removeListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener<E> listener);
+	<E extends WorldEvent, L extends WorldListener> void removeListener(
+			ObjectID<? extends Listenable<L, E>> id, WorldListener listener);
 }

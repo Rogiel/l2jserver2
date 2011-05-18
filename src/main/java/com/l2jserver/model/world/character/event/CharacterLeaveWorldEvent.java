@@ -25,17 +25,17 @@ import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.capability.Listenable;
 
 /**
- * Event triggered once a character logs-in.
+ * Event triggered once a character logs-out.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterLoggedInEvent implements CharacterEvent {
+public class CharacterLeaveWorldEvent implements CharacterEvent {
 	/**
 	 * The character that is logging in
 	 */
 	private final L2Character character;
 	/**
-	 * The time that this character has logged in
+	 * The time that this character has logged off
 	 */
 	private final Date date;
 
@@ -45,9 +45,9 @@ public class CharacterLoggedInEvent implements CharacterEvent {
 	 * @param character
 	 *            the character
 	 * @param date
-	 *            the login date
+	 *            the logout date
 	 */
-	public CharacterLoggedInEvent(L2Character character, Date date) {
+	public CharacterLeaveWorldEvent(L2Character character, Date date) {
 		this.character = character;
 		this.date = date;
 	}
@@ -58,12 +58,12 @@ public class CharacterLoggedInEvent implements CharacterEvent {
 	 * @param character
 	 *            the character
 	 */
-	public CharacterLoggedInEvent(L2Character character) {
+	public CharacterLeaveWorldEvent(L2Character character) {
 		this(character, new Date());
 	}
 
 	/**
-	 * @return the date
+	 * @return the logout date
 	 */
 	public Date getDate() {
 		return date;
