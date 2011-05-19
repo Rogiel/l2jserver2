@@ -14,21 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat.channel;
+package com.l2jserver.util.html;
 
-import com.l2jserver.model.id.object.CharacterID;
+import org.htmlparser.Tag;
+import org.htmlparser.nodes.TagNode;
+import org.htmlparser.tags.LinkTag;
+import org.htmlparser.util.NodeList;
 
 /**
- * An private {@link ChatChannel}. Please note that the concept of "private"
- * does not mean it requires a password or something like that to join, but the
- * message is only broadcasted to a single character (i.e. private messages).
- * The destination can be retrieved by {@link #getDestination()}.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface PrivateChatChannel extends ChatChannel {
-	/**
-	 * @return the destination of this private chat channel.
-	 */
-	CharacterID getDestination();
+public class L2LinkTag extends LinkTag {
+	private static final long serialVersionUID = 1L;
+
+	public L2LinkTag() {
+		super.setTagName("a");
+		Tag end = new TagNode();
+		end.setTagName("/a");
+		super.setEndTag(end);
+		super.setChildren(new NodeList());
+		super.setEmptyXmlTag(true);
+	}
 }

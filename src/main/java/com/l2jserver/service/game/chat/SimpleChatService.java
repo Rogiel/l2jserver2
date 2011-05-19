@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.google.inject.Inject;
+import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
@@ -42,12 +43,27 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 // @Depends(RegionService.class)
 public class SimpleChatService extends AbstractService implements ChatService {
+	/**
+	 * The {@link RegionService}
+	 */
 	private final RegionService regionService;
+	/**
+	 * The {@link L2Character} DAO
+	 */
+	private final CharacterDAO charDao;
 
 	/**
-	 * The global chat channel
+	 * The global {@link ChatChannel}
 	 */
 	private GlobalChatChannelImpl global;
+	/**
+	 * The trade {@link ChatChannel}
+	 */
+	private TradeChatChannelImpl trade;
+	/**
+	 * The announcement {@link ChatChannel}
+	 */
+	private AnnouncementChatChannelImpl announcement;
 	/**
 	 * The list of private chat channels
 	 */
@@ -70,22 +86,68 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 *            the region service
 	 */
 	@Inject
-	public SimpleChatService() {
+	public SimpleChatService(CharacterDAO charDao) {
 		// this.regionService = regionService;
 		this.regionService = null;
+		this.charDao = charDao;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
 		this.global = new GlobalChatChannelImpl();
+		this.trade = new TradeChatChannelImpl();
+		this.announcement = new AnnouncementChatChannelImpl();
 		this.privateChannels = CollectionFactory.newMap();
 		this.clanChannels = CollectionFactory.newMap();
 		this.regionChannels = CollectionFactory.newMap();
 	}
 
 	@Override
+	public void send(CharacterID sender, ChatMessageDestination chat,
+			String message, String extra)
+			throws TargetNotFoundChatServiceException,
+			CannotChatToSelfChatServiceException {
+		final ChatChannel channel;
+		switch (chat) {
+		case ALL:
+			channel = getGlobalChannel();
+			break;
+		case TRADE:
+			channel = getTradeChannel();
+			break;
+		case CLAN:
+			channel = getChannel(sender.getObject().getClanID());
+			break;
+		case TELL:
+			final L2Character character = charDao.selectByName(extra);
+			if (character == null)
+				throw new TargetNotFoundChatServiceException();
+			if (character.equals(sender))
+				throw new CannotChatToSelfChatServiceException();
+			channel = getChannel(character.getID());
+			break;
+		case ANNOUNCEMENT:
+			channel = getAnnouncementChannel();
+			break;
+		default:
+			return;
+		}
+		channel.send(sender, message);
+	}
+
+	@Override
 	public PublicChatChannel getGlobalChannel() {
 		return global;
+	}
+
+	@Override
+	public PublicChatChannel getTradeChannel() {
+		return trade;
+	}
+
+	@Override
+	public PublicChatChannel getAnnouncementChannel() {
+		return announcement;
 	}
 
 	@Override
@@ -101,6 +163,8 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 	@Override
 	public PrivateChatChannel getChannel(CharacterID character) {
+		if (character == null)
+			return null;
 		PrivateChatChannelImpl channel = privateChannels.get(character);
 		if (channel == null) {
 			channel = new PrivateChatChannelImpl(character);
@@ -111,6 +175,8 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 	@Override
 	public PublicChatChannel getChannel(ClanID clan) {
+		if (clan == null)
+			return null;
 		ClanChatChannelImpl channel = clanChannels.get(clan);
 		if (channel == null) {
 			channel = new ClanChatChannelImpl(clan);
@@ -171,13 +237,13 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		}
 
 		@Override
-		public CharacterID getTarget() {
+		public CharacterID getDestination() {
 			return character;
 		}
 	}
 
 	/**
-	 * Global {@link PublicChatChannel} implemenetation
+	 * Global {@link PublicChatChannel} implementation
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
@@ -186,7 +252,25 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	}
 
 	/**
-	 * {@link PublicChatChannel} implemenetation for {@link Clan clans}
+	 * Trade {@link PublicChatChannel} implementation
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private class TradeChatChannelImpl extends ChatChannelImpl implements
+			PublicChatChannel {
+	}
+
+	/**
+	 * Announcement {@link PublicChatChannel} implementation
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private class AnnouncementChatChannelImpl extends ChatChannelImpl implements
+			PublicChatChannel {
+	}
+
+	/**
+	 * {@link PublicChatChannel} implementation for {@link Clan clans}
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
@@ -209,7 +293,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	}
 
 	/**
-	 * {@link PublicChatChannel} implemenetation for {@link Region regions}
+	 * {@link PublicChatChannel} implementation for {@link Region regions}
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */

@@ -16,50 +16,38 @@
  */
 package com.l2jserver.game.net.packet.server;
 
+import org.htmlparser.tags.Html;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.chat.ChatMessageDestination;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.BufferUtils;
 
 /**
- * This packet notifies the client that the chosen character has been
- * successfully selected.
+ * This packet sends an HTML message to be displayed in the client.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see Reason
  */
-public class ActorChatMessagePacket extends AbstractServerPacket {
+public class NPCHtmlMessagePacket extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x4a;
+	public static final int OPCODE = 0x19;
 
-	/**
-	 * The selected character
-	 */
-	private final L2Character character;
-	private ChatMessageDestination destination;
-	private String message = null;
-	private int messageID = 0;
+	private final NPC npc;
+	private final Html html;
 
-	public ActorChatMessagePacket(L2Character character,
-			ChatMessageDestination destination, String message) {
+	public NPCHtmlMessagePacket(NPC npc, Html html) {
 		super(OPCODE);
-		this.character = character;
-		this.destination = destination;
-		this.message = message;
+		this.npc = npc;
+		this.html = html;
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeInt(character.getID().getID());
-		buffer.writeInt(destination.id);
-		BufferUtils.writeString(buffer, character.getName()); // TODO can be
-																// char id!
-		BufferUtils.writeString(buffer, message); // TODO can be msg id
+		buffer.writeInt(npc.getID().getID());
+		BufferUtils.writeString(buffer, html.toHtml());
+		buffer.writeInt(0x00); // item id
 	}
 }

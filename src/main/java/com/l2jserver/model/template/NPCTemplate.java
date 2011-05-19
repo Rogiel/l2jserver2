@@ -19,6 +19,7 @@ package com.l2jserver.model.template;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
+import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
@@ -29,6 +30,9 @@ import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.CharacterService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.html.markup.Markup;
+import com.l2jserver.util.html.markup.Markup.Builder;
+import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
  * Template for {@link NPC}
@@ -103,7 +107,19 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 				.getID());
 		if (conn == null)
 			return;
+
+		// target this npc
 		charService.target(character, npc);
+		
+		// generate not implemented message
+		final Markup markup = new Markup(name + " - Notice", new Builder() {
+			@Override
+			public void build(MarkupTag body) {
+				body.text("This NPC is not yet implemented!");
+				body.addLink("Click me!", "test");
+			}
+		});
+		conn.write(new NPCHtmlMessagePacket(npc, markup.build()));
 	}
 
 	/**

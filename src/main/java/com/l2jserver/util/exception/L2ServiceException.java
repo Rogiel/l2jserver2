@@ -14,21 +14,44 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat.channel;
-
-import com.l2jserver.model.id.object.CharacterID;
+package com.l2jserver.util.exception;
 
 /**
- * An private {@link ChatChannel}. Please note that the concept of "private"
- * does not mean it requires a password or something like that to join, but the
- * message is only broadcasted to a single character (i.e. private messages).
- * The destination can be retrieved by {@link #getDestination()}.
+ * Base exception for Lineage 2
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface PrivateChatChannel extends ChatChannel {
+public class L2ServiceException extends Exception {
 	/**
-	 * @return the destination of this private chat channel.
+	 * Default Serial Version UID
 	 */
-	CharacterID getDestination();
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see Exception#Exception()
+	 */
+	public L2ServiceException() {
+		super();
+	}
+
+	/**
+	 * @see Exception#Exception(String, Throwable)
+	 */
+	public L2ServiceException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	/**
+	 * @see Exception#Exception(String)
+	 */
+	public L2ServiceException(String message) {
+		super(message);
+	}
+
+	/**
+	 * @see Exception#Exception(Throwable)
+	 */
+	public L2ServiceException(Throwable cause) {
+		super(cause);
+	}
 }

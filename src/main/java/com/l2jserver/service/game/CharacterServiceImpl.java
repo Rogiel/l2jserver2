@@ -18,7 +18,7 @@ package com.l2jserver.service.game;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket.MessageDestination;
+import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.ActionFailedPacket;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
@@ -46,6 +46,7 @@ import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.ai.AIService;
+import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
@@ -120,7 +121,15 @@ public class CharacterServiceImpl extends AbstractService implements
 			public void onMessage(ChatChannel channel, CharacterID source,
 					String message) {
 				conn.write(new ActorChatMessagePacket(source.getObject(),
-						MessageDestination.ALL, message));
+						ChatMessageDestination.ALL, message));
+			}
+		};
+		final ChatChannelListener tradeChatListener = new ChatChannelListener() {
+			@Override
+			public void onMessage(ChatChannel channel, CharacterID source,
+					String message) {
+				conn.write(new ActorChatMessagePacket(source.getObject(),
+						ChatMessageDestination.TRADE, message));
 			}
 		};
 
@@ -158,7 +167,9 @@ public class CharacterServiceImpl extends AbstractService implements
 				// remove chat listeners
 				chatService.getGlobalChannel().removeChatChannelListener(
 						globalChatListener);
-				
+				chatService.getTradeChannel().removeChatChannelListener(
+						tradeChatListener);
+
 				// remove broadcast listener
 				eventDispatcher.removeListener(broadcastListener);
 
@@ -170,12 +181,17 @@ public class CharacterServiceImpl extends AbstractService implements
 		// register global chat listener
 		chatService.getGlobalChannel().addChatChannelListener(
 				globalChatListener);
+		chatService.getTradeChannel().addChatChannelListener(tradeChatListener);
 
 		// send this user information
 		conn.write(new CharacterInformationPacket(character));
 		// TODO game guard enforcing
 		conn.write(new GameGuardQueryPacket());
 		conn.write(new CharacterInventoryPacket(character.getInventory()));
+
+		conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);
+		conn.sendMessage("This an an development version for l2jserver 2.0");
+		conn.sendMessage("Please note that many of the features are not yet implemented.");
 
 		// characters start in run mode
 		run(character);
@@ -237,6 +253,8 @@ public class CharacterServiceImpl extends AbstractService implements
 			eventDispatcher.dispatch(new CharacterTargetSelectedEvent(
 					character, target));
 			conn.write(new CharacterTargetSelectedPacket(target));
+		} else {
+			conn.sendActionFailed();
 		}
 	}
 

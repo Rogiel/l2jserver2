@@ -23,6 +23,7 @@ import com.l2jserver.service.Service;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.PrivateChatChannel;
 import com.l2jserver.service.game.chat.channel.PublicChatChannel;
+import com.l2jserver.util.exception.L2ChatServiceException;
 
 /**
  * This service chatting in the server
@@ -31,12 +32,51 @@ import com.l2jserver.service.game.chat.channel.PublicChatChannel;
  */
 public interface ChatService extends Service {
 	/**
+	 * Sends a message to a public chat channel.
+	 * 
+	 * @param sender
+	 *            the sender
+	 * @param chat
+	 *            the chat type
+	 * @param message
+	 *            the message
+	 * @param extra
+	 *            the the extra message field
+	 * @throws TargetNotFoundChatServiceException
+	 *             if target object not found
+	 * @throws CannotChatToSelfChatServiceException
+	 *             if trying to send a private message to self
+	 * @throws ChatBanActiveChatServiceException
+	 *             if there is chat ban active
+	 */
+	void send(CharacterID sender, ChatMessageDestination chat, String message,
+			String extra) throws TargetNotFoundChatServiceException,
+			CannotChatToSelfChatServiceException,
+			ChatBanActiveChatServiceException;
+
+	/**
 	 * Get the Global {@link ChatChannel}. Messages sent in this chat are
 	 * broadcasted to everyone online.
 	 * 
 	 * @return the global {@link ChatChannel}
 	 */
 	PublicChatChannel getGlobalChannel();
+
+	/**
+	 * Get the Trade {@link ChatChannel}. Messages sent in this chat are
+	 * broadcasted to everyone online.
+	 * 
+	 * @return the trade {@link ChatChannel}
+	 */
+	PublicChatChannel getTradeChannel();
+
+	/**
+	 * Get the Announcement {@link ChatChannel}. Messages sent in this chat are
+	 * broadcasted to everyone online.
+	 * 
+	 * @return the announcement {@link ChatChannel}
+	 */
+	PublicChatChannel getAnnouncementChannel();
 
 	/**
 	 * Get the Region {@link ChatChannel}. Messages sent in this chat are
@@ -69,4 +109,19 @@ public interface ChatService extends Service {
 	PublicChatChannel getChannel(ClanID clan);
 
 	// TODO party chat
+
+	public class TargetNotFoundChatServiceException extends
+			L2ChatServiceException {
+		private static final long serialVersionUID = 1L;
+	}
+
+	public class CannotChatToSelfChatServiceException extends
+			L2ChatServiceException {
+		private static final long serialVersionUID = 1L;
+	}
+
+	public class ChatBanActiveChatServiceException extends
+			L2ChatServiceException {
+		private static final long serialVersionUID = 1L;
+	}
 }

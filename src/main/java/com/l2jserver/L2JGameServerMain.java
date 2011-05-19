@@ -75,7 +75,8 @@ public class L2JGameServerMain {
 				.getInstance(NPCTemplateIDProvider.class);
 		final NPCIDProvider provider = injector
 				.getInstance(NPCIDProvider.class);
-		final SpawnService spawnService = injector.getInstance(SpawnService.class);
+		final SpawnService spawnService = injector
+				.getInstance(SpawnService.class);
 
 		final NPCTemplateID id = templateProvider.createID(12077);
 		final NPC npc = id.getTemplate().create();

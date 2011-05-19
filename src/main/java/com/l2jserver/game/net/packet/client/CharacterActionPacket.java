@@ -42,9 +42,6 @@ public class CharacterActionPacket extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x1f;
 
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-	private final WorldService worldService;
 	private final ObjectIDResolver idResolver;
 
 	private int objectId;
@@ -73,9 +70,7 @@ public class CharacterActionPacket extends AbstractClientPacket {
 	}
 
 	@Inject
-	public CharacterActionPacket(WorldService worldService,
-			ObjectIDResolver idResolver) {
-		this.worldService = worldService;
+	public CharacterActionPacket(ObjectIDResolver idResolver) {
 		this.idResolver = idResolver;
 	}
 
@@ -90,9 +85,13 @@ public class CharacterActionPacket extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Connection conn) {
 		// since this is an erasure type, this is safe.
+		System.out.println(objectId);
 		final ObjectID<NPC> id = idResolver.resolve(objectId);
-		if (!(id instanceof NPCID))
+		if (!(id instanceof NPCID)) {
+			System.out.println("Incorrect type: " + id);
+			conn.sendActionFailed();
 			return;
+		}
 		final NPC npc = id.getObject();
 		npc.action(conn.getCharacter(), action);
 	}

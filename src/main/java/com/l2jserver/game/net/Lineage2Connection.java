@@ -27,7 +27,11 @@ import com.l2jserver.game.net.codec.Lineage2Encrypter;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.packet.ServerPacket;
+import com.l2jserver.game.net.packet.server.ActionFailedPacket;
+import com.l2jserver.game.net.packet.server.SystemMessagePacket;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.template.ItemTemplate;
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.filter.impl.CharacterBroadcastFilter;
@@ -243,6 +247,71 @@ public class Lineage2Connection {
 	}
 
 	/**
+	 * Sends a string message to this client
+	 * 
+	 * @param message
+	 *            the message
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture sendMessage(String message) {
+		return write(new SystemMessagePacket(SystemMessage.S1)
+				.addString(message));
+	}
+
+	/**
+	 * Sends a {@link SystemMessage} to this client
+	 * 
+	 * @param message
+	 *            the {@link SystemMessage}
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture sendSystemMessage(SystemMessage message) {
+		return write(message.packet);
+	}
+
+	/**
+	 * Sends a {@link SystemMessage} to this client
+	 * 
+	 * @param message
+	 *            the {@link SystemMessage}
+	 * @param args
+	 *            the arguments of the message, they will be automatically
+	 *            detected and inserted. See {@link SystemMessagePacket} for
+	 *            more about supported formats.
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 * @see SystemMessagePacket
+	 */
+	public ChannelFuture sendSystemMessage(SystemMessage message,
+			Object... args) {
+		final SystemMessagePacket packet = new SystemMessagePacket(message);
+		for (final Object obj : args) {
+			if (obj instanceof String)
+				packet.addString((String) obj);
+			else if (obj instanceof ItemTemplate)
+				packet.addItem((ItemTemplate) obj);
+			else if (obj instanceof Item)
+				packet.addItem((Item) obj);
+		}
+		return write(message.packet);
+	}
+
+	/**
+	 * Sends a {@link ActionFailedPacket} to the client.
+	 * <p>
+	 * This is an convenience method for <blockquote><code>
+	 * conn.write(ActionFailedPacket.SHARED_INSTANCE);</code></blockquote>
+	 * 
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture sendActionFailed() {
+		return write(ActionFailedPacket.SHARED_INSTANCE);
+	}
+
+	/**
 	 * Broadcast a packet to all characters in this character knownlist.
 	 * <p>
 	 * Note that in the broadcasting process, this client will be included.
@@ -261,7 +330,7 @@ public class Lineage2Connection {
 				.iterable(new CharacterBroadcastFilter(characterID.getObject()))) {
 			final Lineage2Connection conn = networkService.discover(character
 					.getID());
-			if(conn == null)
+			if (conn == null)
 				continue;
 			futures.add(conn.write(packet));
 		}
