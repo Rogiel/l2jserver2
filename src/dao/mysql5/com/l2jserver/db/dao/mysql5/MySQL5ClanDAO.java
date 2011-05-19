@@ -26,8 +26,8 @@ import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
-import com.l2jserver.model.id.object.factory.ClanIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.object.provider.ClanIDProvider;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
@@ -45,11 +45,11 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 	/**
 	 * The {@link ClanID} factory
 	 */
-	private final ClanIDFactory idFactory;
+	private final ClanIDProvider idFactory;
 	/**
 	 * The {@link CharacterID} factory
 	 */
-	private final CharacterIDFactory charIdFactory;
+	private final CharacterIDProvider charIdFactory;
 
 	/**
 	 * Character table name
@@ -60,8 +60,8 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 	public static final String CHAR_ID_LEADER = "character_id_leader";
 
 	@Inject
-	public MySQL5ClanDAO(DatabaseService database, ClanIDFactory clanIdFactory,
-			final CharacterIDFactory idFactory) {
+	public MySQL5ClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
+			final CharacterIDProvider idFactory) {
 		super(database);
 		this.idFactory = clanIdFactory;
 		this.charIdFactory = idFactory;

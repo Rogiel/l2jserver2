@@ -25,13 +25,13 @@ import java.util.List;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.AccountID;
-import com.l2jserver.model.id.factory.AccountIDFactory;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
-import com.l2jserver.model.id.object.factory.ClanIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.object.provider.ClanIDProvider;
+import com.l2jserver.model.id.provider.AccountIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.AbstractActor.Race;
 import com.l2jserver.model.world.AbstractActor.Sex;
@@ -60,19 +60,19 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	/**
 	 * The {@link CharacterID} factory
 	 */
-	private final CharacterIDFactory idFactory;
+	private final CharacterIDProvider idFactory;
 	/**
 	 * The {@link CharacterTemplateID} factory
 	 */
-	private final CharacterTemplateIDFactory templateIdFactory;
+	private final CharacterTemplateIDProvider templateIdFactory;
 	/**
 	 * The {@link AccountID} factory
 	 */
-	private final AccountIDFactory accountIdFactory;
+	private final AccountIDProvider accountIdFactory;
 	/**
 	 * The {@link ClanID} factory
 	 */
-	private final ClanIDFactory clanIdFactory;
+	private final ClanIDProvider clanIdFactory;
 
 	/**
 	 * Character table name
@@ -103,9 +103,9 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 
 	@Inject
 	public MySQL5CharacterDAO(DatabaseService database,
-			final CharacterIDFactory idFactory,
-			CharacterTemplateIDFactory templateIdFactory,
-			AccountIDFactory accountIdFactory, ClanIDFactory clanIdFactory) {
+			final CharacterIDProvider idFactory,
+			CharacterTemplateIDProvider templateIdFactory,
+			AccountIDProvider accountIdFactory, ClanIDProvider clanIdFactory) {
 		super(database);
 		this.idFactory = idFactory;
 		this.templateIdFactory = templateIdFactory;
@@ -270,7 +270,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 		return database.query(new SelectListQuery<CharacterID>() {
 			@Override
 			protected String query() {
-				return "SELECT `" + CHAR_ID + " FROM `" + TABLE + "`";
+				return "SELECT `" + CHAR_ID + "` FROM `" + TABLE + "`";
 			}
 
 			@Override

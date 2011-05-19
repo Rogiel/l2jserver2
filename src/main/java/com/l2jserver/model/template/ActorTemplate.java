@@ -59,7 +59,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 		return actor;
 	}
 
-	public abstract T createInstance();
+	protected abstract T createInstance();
 
 	/**
 	 * @return the race

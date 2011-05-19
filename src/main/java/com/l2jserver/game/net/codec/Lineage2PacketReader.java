@@ -28,8 +28,10 @@ import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.AuthLoginPacket;
+import com.l2jserver.game.net.packet.client.CharacterActionPacket;
 import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket;
 import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
+import com.l2jserver.game.net.packet.client.CharacterRequestMovePacket;
 import com.l2jserver.game.net.packet.client.CharacterSelectPacket;
 import com.l2jserver.game.net.packet.client.CharacterValidatePositionPacket;
 import com.l2jserver.game.net.packet.client.EnterWorld;
@@ -40,7 +42,6 @@ import com.l2jserver.game.net.packet.client.RequestCharacterTemplatesPacket;
 import com.l2jserver.game.net.packet.client.RequestGotoLobbyPacket;
 import com.l2jserver.game.net.packet.client.RequestKeyMappingPacket;
 import com.l2jserver.game.net.packet.client.RequestManorListPacket;
-import com.l2jserver.game.net.packet.client.CharacterRequestMovePacket;
 import com.l2jserver.game.net.packet.client.RequestRestartPacket;
 
 /**
@@ -160,6 +161,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CharacterValidatePositionPacket.class;
 		case EnterWorld.OPCODE:
 			return EnterWorld.class;
+		case CharacterActionPacket.OPCODE:
+			return CharacterActionPacket.class;
 		default:
 			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
 			break;

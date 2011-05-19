@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class ElvenWizardTemplate extends ElvenMysticTemplate {
 	@Inject
-	public ElvenWizardTemplate(CharacterTemplateIDFactory factory) {
+	public ElvenWizardTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.ELVEN_WIZARD.id), CharacterClass.ELVEN_WIZARD,	Point.fromXYZ(46182, 41198, -3440));
 		// ATTRIBUTES
 		attributes.intelligence = 37;

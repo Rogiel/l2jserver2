@@ -16,23 +16,123 @@
  */
 package com.l2jserver.model.template;
 
+import com.google.inject.Inject;
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.AbstractActor.Race;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.network.NetworkService;
 
 /**
  * Template for {@link NPC}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class NPCTemplate<T extends NPC> extends ActorTemplate<T> {
+public abstract class NPCTemplate extends ActorTemplate<NPC> {
+	@Inject
+	protected NetworkService networkService;
+	@Inject
+	protected CharacterService charService;
+	@Inject
+	protected ItemTemplateIDProvider itemTemplateIdProvider;
+
+	protected String name = null;
+	protected String title = null;
+	protected boolean attackable = false;
+
+	protected double movementSpeedMultiplier = 1.0;
+	protected double attackSpeedMultiplier = 1.0;
+
+	protected double collisionRadius = 0;
+	protected double collisionHeigth = 0;
+
+	protected int maxHp;
+
 	protected NPCTemplate(NPCTemplateID id) {
 		super(id, null);
 	}
 
+	/**
+	 * Performs an interaction with this NPC. This is normally invoked from
+	 * <tt>npc</tt> instance.
+	 * 
+	 * @param character
+	 *            the interacting character
+	 * @param action
+	 *            the action performed
+	 */
+	public void action(NPC npc, L2Character character, CharacterAction action) {
+		final Lineage2Connection conn = networkService.discover(character
+				.getID());
+		if (conn == null)
+			return;
+		System.out.println(action);
+		charService.target(character, npc);
+	}
+
 	@Override
-	public T createInstance() {
-		return null;
+	public NPC createInstance() {
+		return new NPC(this.getID());
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @return the attackable
+	 */
+	public boolean isAttackable() {
+		return attackable;
+	}
+
+	/**
+	 * @return the movementSpeedMultiplier
+	 */
+	public double getMovementSpeedMultiplier() {
+		return movementSpeedMultiplier;
+	}
+
+	/**
+	 * @return the attackSpeedMultiplier
+	 */
+	public double getAttackSpeedMultiplier() {
+		return attackSpeedMultiplier;
+	}
+
+	/**
+	 * @return the collisionRadius
+	 */
+	public double getCollisionRadius() {
+		return collisionRadius;
+	}
+
+	/**
+	 * @return the collisionHeigth
+	 */
+	public double getCollisionHeigth() {
+		return collisionHeigth;
+	}
+
+	/**
+	 * @return the maxHp
+	 */
+	public int getMaxHP() {
+		return maxHp;
 	}
 
 	/**

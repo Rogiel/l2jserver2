@@ -24,7 +24,7 @@ import java.util.List;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterFriendDAO;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.service.database.DatabaseService;
@@ -42,7 +42,7 @@ public class MySQL5CharacterFriendDAO extends AbstractMySQL5DAO<CharacterID>
 	/**
 	 * The {@link CharacterID} factory
 	 */
-	private final CharacterIDFactory idFactory;
+	private final CharacterIDProvider idFactory;
 
 	/**
 	 * Character table name
@@ -55,7 +55,7 @@ public class MySQL5CharacterFriendDAO extends AbstractMySQL5DAO<CharacterID>
 
 	@Inject
 	public MySQL5CharacterFriendDAO(DatabaseService database,
-			final CharacterIDFactory idFactory) {
+			final CharacterIDProvider idFactory) {
 		super(database);
 		this.idFactory = idFactory;
 	}

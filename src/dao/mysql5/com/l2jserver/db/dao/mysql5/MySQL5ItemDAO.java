@@ -25,10 +25,10 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
-import com.l2jserver.model.id.object.factory.ItemIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
@@ -48,15 +48,15 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	/**
 	 * The {@link ItemID} factory
 	 */
-	private final ItemIDFactory idFactory;
+	private final ItemIDProvider idFactory;
 	/**
 	 * The {@link ItemTemplateID} factory
 	 */
-	private final ItemTemplateIDFactory templateIdFactory;
+	private final ItemTemplateIDProvider templateIdFactory;
 	/**
 	 * The {@link CharacterID} factory
 	 */
-	private final CharacterIDFactory charIdFactory;
+	private final CharacterIDProvider charIdFactory;
 
 	/**
 	 * Character table name
@@ -69,9 +69,9 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 
 	@Inject
 	public MySQL5ItemDAO(DatabaseService database,
-			final ItemIDFactory idFactory,
-			ItemTemplateIDFactory templateIdFactory,
-			CharacterIDFactory charIdFactory) {
+			final ItemIDProvider idFactory,
+			ItemTemplateIDProvider templateIdFactory,
+			CharacterIDProvider charIdFactory) {
 		super(database);
 		this.idFactory = idFactory;
 		this.templateIdFactory = templateIdFactory;

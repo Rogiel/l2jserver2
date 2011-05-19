@@ -71,5 +71,4 @@ public abstract class ID<T> {
 			return false;
 		return true;
 	}
-
 }

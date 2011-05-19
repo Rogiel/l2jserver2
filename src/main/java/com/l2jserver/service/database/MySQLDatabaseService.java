@@ -41,6 +41,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.object.allocator.IDAllocator;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -116,8 +117,10 @@ public class MySQLDatabaseService extends AbstractService implements
 				connectionFactory, connectionPool, null, null, false, true);
 		dataSource = new PoolingDataSource(connectionPool);
 
+		// cache must be large enough for all world objects, to avoid
+		// duplication... this would endanger non-persistent states
 		objectCache = new Cache(new CacheConfiguration("database-service",
-				10 * 1000)
+				IDAllocator.ALLOCABLE_IDS)
 				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
 				.overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
 				.timeToIdleSeconds(30).diskPersistent(false)

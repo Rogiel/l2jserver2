@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class ElementalMasterTemplate extends ElementalSummonerTemplate {
 	@Inject
-	public ElementalMasterTemplate(CharacterTemplateIDFactory factory) {
+	public ElementalMasterTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.ELEMENTAL_MASTER.id), CharacterClass.ELEMENTAL_MASTER,	Point.fromXYZ(46182, 41198, -3440));
 		// ATTRIBUTES
 		attributes.intelligence = 37;

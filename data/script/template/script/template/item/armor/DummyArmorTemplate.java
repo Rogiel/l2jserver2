@@ -17,7 +17,7 @@
 package script.template.item.armor;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.capability.Attackable;
 import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.capability.Damagable;
@@ -29,7 +29,7 @@ public class DummyArmorTemplate extends AbstractNoGradeArmorTemplate {
 	private static final int REDUCED_DAMAGE_MAGICAL = 10;
 
 	@Inject
-	public DummyArmorTemplate(ItemTemplateIDFactory factory) {
+	public DummyArmorTemplate(ItemTemplateIDProvider factory) {
 		super(factory.createID(ID));
 	}
 

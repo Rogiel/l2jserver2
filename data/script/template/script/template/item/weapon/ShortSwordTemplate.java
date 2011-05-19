@@ -22,7 +22,7 @@ import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeTy
 import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.R_CRITICAL;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.id.template.factory.ItemTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.capability.Attackable;
 import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
@@ -31,7 +31,7 @@ public class ShortSwordTemplate extends AbstractNoGradeWeaponTemplate {
 	public static final int ID = 1;
 
 	@Inject
-	public ShortSwordTemplate(ItemTemplateIDFactory factory) {
+	public ShortSwordTemplate(ItemTemplateIDProvider factory) {
 		super(factory.createID(ID), "icon.weapon_small_sword_i00",
 				ItemMaterial.STEEL, InventoryPaperdoll.RIGHT_HAND,
 				WeaponType.SWORD);

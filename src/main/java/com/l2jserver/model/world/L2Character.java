@@ -19,11 +19,13 @@ package com.l2jserver.model.world;
 import java.sql.Date;
 
 import com.l2jserver.model.id.AccountID;
+import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.actor.ActorAttributes;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.character.CharacterAppearance;
 import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
@@ -92,12 +94,21 @@ public class L2Character extends Player {
 	 * Date of character's last access
 	 */
 	private Date lastAccess;
+
+	// ////////////////////////////////////
+	// / RUNTIME
+	// ////////////////////////////////////
+
 	/**
 	 * The character walk mode.
 	 * <p>
 	 * This field is not persisted.
 	 */
 	private CharacterMoveType moveType = CharacterMoveType.WALK;
+	/**
+	 * The character target, if any.
+	 */
+	private ActorID<?> targetID;
 
 	/**
 	 * The character walking mode
@@ -261,6 +272,30 @@ public class L2Character extends Player {
 	 */
 	public void setMoveType(CharacterMoveType moveType) {
 		this.moveType = moveType;
+	}
+
+	/**
+	 * @return the target ID
+	 */
+	public ActorID<?> getTargetID() {
+		return targetID;
+	}
+
+	/**
+	 * @return the target
+	 */
+	public Actor getTarget() {
+		if (targetID == null)
+			return null;
+		return targetID.getObject();
+	}
+
+	/**
+	 * @param target
+	 *            the target ID to set
+	 */
+	public void setTargetID(ActorID<?> target) {
+		this.targetID = target;
 	}
 
 	/**

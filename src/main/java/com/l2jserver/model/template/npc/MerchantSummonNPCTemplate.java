@@ -24,7 +24,7 @@ import com.l2jserver.model.world.NPC;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class MerchantSummonNPCTemplate extends NPCTemplate<NPC> {
+public class MerchantSummonNPCTemplate extends NPCTemplate {
 	/**
 	 * Creates a new instance of this template
 	 * 

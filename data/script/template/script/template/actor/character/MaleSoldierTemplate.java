@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class MaleSoldierTemplate extends AbstractKamaelCharacterTemplate {
 	@Inject
-	public MaleSoldierTemplate(CharacterTemplateIDFactory factory) {
+	public MaleSoldierTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.MALE_SOLDIER.id), CharacterClass.MALE_SOLDIER,	Point.fromXYZ(-125464, 37776, 1176));
 		// ATTRIBUTES
 		attributes.intelligence = 29;

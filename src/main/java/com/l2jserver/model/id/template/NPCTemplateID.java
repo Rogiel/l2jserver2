@@ -27,7 +27,7 @@ import com.l2jserver.service.game.template.TemplateService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NPCTemplateID extends ActorTemplateID<NPCTemplate<?>> {
+public class NPCTemplateID extends ActorTemplateID<NPCTemplate> {
 	@Inject
 	protected NPCTemplateID(@Assisted int id, TemplateService templateService) {
 		super(id, templateService);

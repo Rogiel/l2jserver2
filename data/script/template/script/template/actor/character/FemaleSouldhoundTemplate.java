@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class FemaleSouldhoundTemplate extends FemaleSoulbreakerTemplate {
 	@Inject
-	public FemaleSouldhoundTemplate(CharacterTemplateIDFactory factory) {
+	public FemaleSouldhoundTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.FEMALE_SOULDHOUND.id), CharacterClass.FEMALE_SOULDHOUND,	Point.fromXYZ(-125533, 38114, 1142));
 		// ATTRIBUTES
 		attributes.intelligence = 28;

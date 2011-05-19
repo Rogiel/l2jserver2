@@ -25,7 +25,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterTemplatePacket;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.character.CharacterClass;
 
@@ -62,10 +62,10 @@ public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
 	/**
 	 * The {@link CharacterTemplateID} factory
 	 */
-	private final CharacterTemplateIDFactory idFactory;
+	private final CharacterTemplateIDProvider idFactory;
 
 	@Inject
-	public RequestCharacterTemplatesPacket(CharacterTemplateIDFactory idFactory) {
+	public RequestCharacterTemplatesPacket(CharacterTemplateIDProvider idFactory) {
 		this.idFactory = idFactory;
 	}
 

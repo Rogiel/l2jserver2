@@ -25,12 +25,12 @@ import com.l2jserver.model.template.capability.Attackable;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.calculator.Calculator;
-import com.l2jserver.util.calculator.DivisionOperation;
-import com.l2jserver.util.calculator.MultiplicationOperation;
-import com.l2jserver.util.calculator.Operation;
-import com.l2jserver.util.calculator.SetOperation;
-import com.l2jserver.util.calculator.SubtractOperation;
-import com.l2jserver.util.calculator.SumOperation;
+import com.l2jserver.util.calculator.DivisionFunction;
+import com.l2jserver.util.calculator.MultiplicationFunction;
+import com.l2jserver.util.calculator.Function;
+import com.l2jserver.util.calculator.SetFunction;
+import com.l2jserver.util.calculator.SubtractFunction;
+import com.l2jserver.util.calculator.SumFunction;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -151,7 +151,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public class WeaponAttribute {
-		private final Map<WeaponAttributeType, Map<Integer, Operation<Double>>> operations = CollectionFactory
+		private final Map<WeaponAttributeType, Map<Integer, Function<Double>>> operations = CollectionFactory
 				.newMap(null, null);
 
 		/**
@@ -165,7 +165,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the value to set
 		 */
 		public void set(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new SetOperation(value));
+			getMap(type).put(order, new SetFunction(value));
 		}
 
 		/**
@@ -179,7 +179,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the value to be summed
 		 */
 		public void add(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new SumOperation(value));
+			getMap(type).put(order, new SumFunction(value));
 		}
 
 		/**
@@ -193,7 +193,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the value to be subtracted
 		 */
 		public void sub(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new SubtractOperation(value));
+			getMap(type).put(order, new SubtractFunction(value));
 		}
 
 		/**
@@ -207,7 +207,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the value to be multiplied
 		 */
 		public void mult(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new MultiplicationOperation(value));
+			getMap(type).put(order, new MultiplicationFunction(value));
 		}
 
 		/**
@@ -221,7 +221,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the value to be divided by
 		 */
 		public void div(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new DivisionOperation(value));
+			getMap(type).put(order, new DivisionFunction(value));
 		}
 
 		/**
@@ -245,8 +245,8 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the type
 		 * @return the order-operation map
 		 */
-		private Map<Integer, Operation<Double>> getMap(WeaponAttributeType type) {
-			Map<Integer, Operation<Double>> map = operations.get(type);
+		private Map<Integer, Function<Double>> getMap(WeaponAttributeType type) {
+			Map<Integer, Function<Double>> map = operations.get(type);
 			if (map == null) {
 				map = CollectionFactory.newMap(null, null);
 				operations.put(type, map);
@@ -263,9 +263,9 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		 *            the calculator
 		 */
 		private void calculator(WeaponAttributeType type, Calculator calculator) {
-			final Map<Integer, Operation<Double>> operations = this.operations
+			final Map<Integer, Function<Double>> operations = this.operations
 					.get(type);
-			for (final Entry<Integer, Operation<Double>> entry : operations
+			for (final Entry<Integer, Function<Double>> entry : operations
 					.entrySet()) {
 				calculator.add(entry.getKey(), entry.getValue());
 			}

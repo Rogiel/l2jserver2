@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class DwarvenFighterTemplate extends AbstractDwarfCharacterTemplate {
 	@Inject
-	public DwarvenFighterTemplate(CharacterTemplateIDFactory factory) {
+	public DwarvenFighterTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.DWARVEN_FIGHTER.id), CharacterClass.DWARVEN_FIGHTER,	Point.fromXYZ(108512, -174026, -400));
 		// ATTRIBUTES
 		attributes.intelligence = 20;

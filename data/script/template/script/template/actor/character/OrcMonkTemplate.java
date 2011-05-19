@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class OrcMonkTemplate extends OrcFighterTemplate {
 	@Inject
-	public OrcMonkTemplate(CharacterTemplateIDFactory factory) {
+	public OrcMonkTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.ORC_MONK.id), CharacterClass.ORC_MONK,	Point.fromXYZ(-56682, -113610, -690));
 		// ATTRIBUTES
 		attributes.intelligence = 18;

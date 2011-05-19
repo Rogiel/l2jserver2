@@ -16,12 +16,13 @@
  */
 package com.l2jserver.model.id;
 
-import com.l2jserver.model.id.factory.IDFactory;
+import com.google.inject.assistedinject.Assisted;
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.world.WorldObject;
 
 /**
  * {@link ObjectID}s cannot be instantiated directly. This must be done through
- * an {@link IDFactory}. The {@link ObjectID} provides a facility
+ * an {@link IDProvider}. The {@link ObjectID} provides a facility
  * {@link #getObject() method} that allows easily fetch this object from
  * database without the need to directly use DAOs.
  * 
@@ -37,7 +38,7 @@ public abstract class ObjectID<T extends WorldObject> extends ID<Integer> {
 	 * @param id
 	 *            the raw id
 	 */
-	protected ObjectID(int id) {
+	protected ObjectID(@Assisted int id) {
 		super(id);
 	}
 
@@ -47,4 +48,33 @@ public abstract class ObjectID<T extends WorldObject> extends ID<Integer> {
 	 * @return the {@link WorldObject} if existent, <tt>null</tt> otherwise
 	 */
 	public abstract T getObject();
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		// this way we generate an unique hash code for all ObjectID and another
+		// ID with same id number will still generate another hash code.
+		result = prime * result + id.hashCode() + ObjectID.class.hashCode();
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		// we have unique id across all objects
+		// accept all subclasses of ObjectID is a requirement
+		if (!(obj instanceof ObjectID))
+			return false;
+		@SuppressWarnings("rawtypes")
+		ObjectID other = (ObjectID) obj;
+		if (other.id != null)
+			return false;
+		if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 }

@@ -16,10 +16,53 @@
  */
 package com.l2jserver.model.world;
 
+import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
+import com.l2jserver.model.id.object.NPCID;
+import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.template.NPCTemplate;
+
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
 public class NPC extends AbstractActor {
+	/**
+	 * The NPC template ID
+	 */
+	private final NPCTemplateID templateID;
 
+	public NPC(NPCTemplateID templateID) {
+		this.templateID = templateID;
+	}
+
+	/**
+	 * Executes an action on this NPC
+	 * 
+	 * @param character
+	 *            the interacting character
+	 * @param action
+	 *            the action
+	 */
+	public void action(L2Character character, CharacterAction action) {
+		getTemplate().action(this, character, action);
+	}
+
+	/**
+	 * @return the NPC template ID
+	 */
+	public NPCTemplateID getTemplateID() {
+		return templateID;
+	}
+
+	/**
+	 * @return the NPC template
+	 */
+	public NPCTemplate getTemplate() {
+		return templateID.getTemplate();
+	}
+
+	@Override
+	public NPCID getID() {
+		return (NPCID) super.getID();
+	}
 }

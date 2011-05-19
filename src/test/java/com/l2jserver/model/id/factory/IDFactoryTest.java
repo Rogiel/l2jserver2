@@ -26,7 +26,8 @@ import com.google.inject.Injector;
 import com.l2jserver.db.dao.MySQL5DAOModule;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
@@ -36,9 +37,9 @@ import com.l2jserver.service.game.template.TemplateService;
 
 public class IDFactoryTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new MySQL5DAOModule(), new IDFactoryModule());
-	private final CharacterIDFactory charIdFactory = injector
-			.getInstance(CharacterIDFactory.class);
+			new MySQL5DAOModule(), new IDProviderModule());
+	private final CharacterIDProvider charIdFactory = injector
+			.getInstance(CharacterIDProvider.class);
 
 	@Test
 	public void testCreateID() {

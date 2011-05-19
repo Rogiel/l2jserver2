@@ -29,76 +29,110 @@ public class CalculatorTest {
 	public void testSimple() {
 		final Calculator calc = new Calculator();
 
-		calc.add(0, new SetOperation(10));
-		calc.add(1, new MultiplicationOperation(2));
-		calc.add(2, new SetOperation(30));
+		calc.add(0, new SetFunction(10));
+		calc.add(1, new MultiplicationFunction(2));
+		calc.add(2, new SetFunction(30));
 
-		Assert.assertEquals(30.0, calc.compute());
+		Assert.assertEquals(30.0, calc.calculate());
 	}
 
 	@Test
 	public void testPercent() {
 		final Calculator calc = new Calculator();
 
-		calc.add(0, new SetOperation(10));
-		calc.add(1, new MultiplicationOperation(2));
-		calc.add(2, new PercentOperation(75));
+		calc.add(0, new SetFunction(10));
+		calc.add(1, new MultiplicationFunction(2));
+		calc.add(2, new PercentFunction(75));
 
-		Assert.assertEquals(15.0, calc.compute());
+		Assert.assertEquals(15.0, calc.calculate());
 	}
 
 	@Test
 	public void testComplex() {
 		final Calculator calc = new Calculator();
 
-		calc.add(0, new SetOperation(10));
-		calc.add(1, new MultiplicationOperation(2));
-		calc.add(2, new PercentOperation(75));
-		calc.add(3, new SumOperation(3));
-		calc.add(4, new SubtractOperation(8));
-		calc.add(5, new DivisionOperation(2));
+		calc.add(0, new SetFunction(10));
+		calc.add(1, new MultiplicationFunction(2));
+		calc.add(2, new PercentFunction(75));
+		calc.add(3, new SumFunction(3));
+		calc.add(4, new SubtractFunction(8));
+		calc.add(5, new DivisionFunction(2));
 
-		Assert.assertEquals(5.0, calc.compute());
+		Assert.assertEquals(5.0, calc.calculate());
 	}
 
 	@Test
 	public void testNesting() {
 		final Calculator calc1 = new Calculator();
 
-		calc1.add(0, new SetOperation(10));
-		calc1.add(1, new MultiplicationOperation(2));
-		calc1.add(2, new PercentOperation(75));
-		calc1.add(3, new SumOperation(3));
-		calc1.add(4, new SubtractOperation(8));
-		calc1.add(5, new DivisionOperation(2));
-		Assert.assertEquals(5.0, calc1.compute());
+		calc1.add(0, new SetFunction(10));
+		calc1.add(1, new MultiplicationFunction(2));
+		calc1.add(2, new PercentFunction(75));
+		calc1.add(3, new SumFunction(3));
+		calc1.add(4, new SubtractFunction(8));
+		calc1.add(5, new DivisionFunction(2));
+		Assert.assertEquals(5.0, calc1.calculate());
 
 		final Calculator calc2 = new Calculator();
 
-		calc2.add(0, new MultiplicationOperation(2));
-		calc2.add(1, new PercentOperation(75));
-		calc2.add(2, new SumOperation(3));
-		calc2.add(3, new SubtractOperation(8));
-		calc2.add(4, new DivisionOperation(2));
-		Assert.assertEquals(-2.5, calc2.compute());
+		calc2.add(0, new MultiplicationFunction(2));
+		calc2.add(1, new PercentFunction(75));
+		calc2.add(2, new SumFunction(3));
+		calc2.add(3, new SubtractFunction(8));
+		calc2.add(4, new DivisionFunction(2));
+		Assert.assertEquals(-2.5, calc2.calculate());
 
 		final Calculator calc3 = new Calculator();
 		calc3.add(0, calc1);
 		calc3.add(1, calc2);
 
-		Assert.assertEquals(1.25, calc3.compute());
+		// this should be executed
+		calc2.add(5, new SumFunction(1));
+		
+		Assert.assertEquals(2.25, calc3.calculate());
+	}
+
+	@Test
+	public void testImporting() {
+		final Calculator calc1 = new Calculator();
+
+		calc1.add(0, new SetFunction(10));
+		calc1.add(2, new MultiplicationFunction(2));
+		calc1.add(4, new PercentFunction(75));
+		calc1.add(6, new SumFunction(3));
+		calc1.add(8, new SubtractFunction(8));
+		calc1.add(10, new DivisionFunction(2));
+		Assert.assertEquals(5.0, calc1.calculate());
+
+		final Calculator calc2 = new Calculator();
+
+		calc2.add(1, new MultiplicationFunction(2));
+		calc2.add(3, new PercentFunction(75));
+		calc2.add(5, new SumFunction(3));
+		calc2.add(7, new SubtractFunction(8));
+		calc2.add(9, new DivisionFunction(2));
+		Assert.assertEquals(-2.5, calc2.calculate());
+
+		final Calculator calc3 = new Calculator();
+		calc3.importFunctions(calc1);
+		calc3.importFunctions(calc2);
+
+		// this should not be executed
+		calc2.add(5, new SumFunction(50));
+
+		Assert.assertEquals(1.25, calc3.calculate());
 	}
 
 	@Test
 	public void testRounding() {
 		final Calculator calc1 = new Calculator();
 
-		calc1.add(0, new MultiplicationOperation(2));
-		calc1.add(1, new PercentOperation(75));
-		calc1.add(2, new SumOperation(3));
-		calc1.add(3, new SubtractOperation(8.1));
-		calc1.add(4, new DivisionOperation(2));
-		calc1.add(5, new RoundOperation());
-		Assert.assertEquals(-3.0, calc1.compute());
+		calc1.add(0, new MultiplicationFunction(2));
+		calc1.add(1, new PercentFunction(75));
+		calc1.add(2, new SumFunction(3));
+		calc1.add(3, new SubtractFunction(8.1));
+		calc1.add(4, new DivisionFunction(2));
+		calc1.add(5, new RoundFunction());
+		Assert.assertEquals(-3.0, calc1.calculate());
 	}
 }

@@ -261,6 +261,8 @@ public class Lineage2Connection {
 				.iterable(new CharacterBroadcastFilter(characterID.getObject()))) {
 			final Lineage2Connection conn = networkService.discover(character
 					.getID());
+			if(conn == null)
+				continue;
 			futures.add(conn.write(packet));
 		}
 		return futures;

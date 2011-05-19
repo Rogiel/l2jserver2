@@ -24,7 +24,7 @@ import com.l2jserver.model.world.NPC;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class FlyNPCTemplate extends NPCTemplate<NPC> {
+public class FlyNPCTemplate extends NPCTemplate {
 	/**
 	 * Creates a new instance of this template
 	 * 

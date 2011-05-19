@@ -21,17 +21,24 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket.MessageDestination;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
+import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
 import com.l2jserver.game.net.packet.server.CharacterMovementTypePacket;
+import com.l2jserver.game.net.packet.server.CharacterTargetSelectedPacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.InventoryPacket;
-import com.l2jserver.game.net.packet.server.UserInformationPacket;
+import com.l2jserver.game.net.packet.server.NPCInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
+import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterListener;
+import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
+import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.ai.AIService;
@@ -40,6 +47,7 @@ import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.dimensional.Coordinate;
 
@@ -81,17 +89,12 @@ public class CharacterServiceImpl extends AbstractService implements
 	@Inject
 	public CharacterServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
-			NetworkService networkService, SpawnService spawnService/*
-																	 * ,
-																	 * AIService
-																	 * aiService
-																	 */) {
+			NetworkService networkService, SpawnService spawnService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.chatService = chatService;
 		this.networkService = networkService;
 		this.spawnService = spawnService;
-		// this.aiService = aiService;
 	}
 
 	@Override
@@ -134,12 +137,23 @@ public class CharacterServiceImpl extends AbstractService implements
 				globalChatListener);
 
 		// send this user information
-		conn.write(new UserInformationPacket(character));
+		conn.write(new CharacterInformationPacket(character));
 		// TODO game guard enforcing
 		conn.write(new GameGuardQueryPacket());
 		conn.write(new InventoryPacket(character.getInventory()));
 
+		// characters start in run mode
 		run(character);
+
+		// broadcast knownlist -- trashy implementation
+		// TODO should be moved to world service
+		for (final WorldObject o : worldService.iterable(new KnownListFilter(
+				character))) {
+			if (o instanceof NPC) {
+				conn.write(new NPCInformationPacket((NPC) o));
+				// conn.write(new ServerObjectPacket((NPC) o));
+			}
+		}
 
 		// dispatch enter world event
 		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
@@ -167,6 +181,28 @@ public class CharacterServiceImpl extends AbstractService implements
 		if (!worldService.remove(character))
 			return;
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
+	}
+
+	@Override
+	public void target(L2Character character, Actor target) {
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+
+		if (target == null && character.getTargetID() != null) {
+			final Actor oldTarget = character.getTarget();
+			character.setTargetID(null);
+			eventDispatcher.dispatch(new CharacterTargetDeselectedEvent(
+					character, oldTarget));
+		} else if (target != null && !target.getID().equals(character.getID())) {
+			if (character.getTargetID() != null) {
+				eventDispatcher.dispatch(new CharacterTargetDeselectedEvent(
+						character, character.getTarget()));
+			}
+			character.setTargetID(null);
+			eventDispatcher.dispatch(new CharacterTargetSelectedEvent(
+					character, target));
+			conn.write(new CharacterTargetSelectedPacket(target));
+		}
 	}
 
 	@Override

@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class ElvenScoutTemplate extends ElvenFighterTemplate {
 	@Inject
-	public ElvenScoutTemplate(CharacterTemplateIDFactory factory) {
+	public ElvenScoutTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.ELVEN_SCOUT.id), CharacterClass.ELVEN_SCOUT,	Point.fromXYZ(45978, 41196, -3440));
 		// ATTRIBUTES
 		attributes.intelligence = 23;

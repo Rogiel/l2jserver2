@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class HierophantTemplate extends ProphetTemplate {
 	@Inject
-	public HierophantTemplate(CharacterTemplateIDFactory factory) {
+	public HierophantTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.HIEROPHANT.id), CharacterClass.HIEROPHANT,	Point.fromXYZ(-90890, 248027, -3570));
 		// ATTRIBUTES
 		attributes.intelligence = 41;

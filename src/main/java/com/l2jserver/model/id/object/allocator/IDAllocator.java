@@ -60,6 +60,11 @@ public interface IDAllocator {
 	void release(int id);
 
 	/**
+	 * Release all allocated IDs
+	 */
+	void clear();
+
+	/**
 	 * Get the amount of already allocated IDs
 	 * 
 	 * @return allocated ids count

@@ -134,6 +134,11 @@ public class BitSetIDAllocator implements IDAllocator {
 			lock.unlock();
 		}
 	}
+	
+	@Override
+	public void clear() {
+		ids.clear();
+	}
 
 	/**
 	 * Increases the {@link BitSet} capacity

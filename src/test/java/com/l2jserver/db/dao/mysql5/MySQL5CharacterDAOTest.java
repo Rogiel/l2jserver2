@@ -24,7 +24,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.GameServerModule;
 import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
@@ -42,9 +42,9 @@ public class MySQL5CharacterDAOTest {
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
 		final L2Character char1 = dao.load(injector.getInstance(
-				CharacterIDFactory.class).createID(268437456));
+				CharacterIDProvider.class).createID(268437456));
 		final L2Character char2 = dao.load(injector.getInstance(
-				CharacterIDFactory.class).createID(268437456));
+				CharacterIDProvider.class).createID(268437456));
 
 		Assert.assertSame(char1, char2);
 	}

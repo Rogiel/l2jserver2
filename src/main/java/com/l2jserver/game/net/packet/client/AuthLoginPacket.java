@@ -27,7 +27,7 @@ import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterSelectionListPacket;
 import com.l2jserver.model.id.AccountID;
-import com.l2jserver.model.id.factory.AccountIDFactory;
+import com.l2jserver.model.id.provider.AccountIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.BufferUtils;
 
@@ -51,7 +51,7 @@ public class AuthLoginPacket extends AbstractClientPacket {
 	/**
 	 * The {@link AccountID} factory
 	 */
-	private final AccountIDFactory accountIdFactory;
+	private final AccountIDProvider accountIdFactory;
 
 	// packet
 	/**
@@ -65,7 +65,7 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 	@Inject
 	public AuthLoginPacket(CharacterDAO characterDao,
-			AccountIDFactory accountIdFactory) {
+			AccountIDProvider accountIdFactory) {
 		this.characterDao = characterDao;
 		this.accountIdFactory = accountIdFactory;
 	}

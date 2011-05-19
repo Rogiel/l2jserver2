@@ -77,7 +77,7 @@ public class RGBColor {
 	 * @return the color integer
 	 */
 	public int toInteger() {
-		return red >> 24 + green >> 16 + blue >> 8;
+		return (red >> 24) + (green >> 16) + (blue >> 8);
 	}
 
 	public static RGBColor fromByteArray(byte[] rgb) {

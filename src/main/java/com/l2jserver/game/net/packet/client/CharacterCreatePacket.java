@@ -27,9 +27,9 @@ import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateOkPacket;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.factory.CharacterIDFactory;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.AbstractActor.Race;
 import com.l2jserver.model.world.AbstractActor.Sex;
@@ -66,11 +66,11 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	/**
 	 * The {@link CharacterID} factory
 	 */
-	private final CharacterIDFactory characterIdFactory;
+	private final CharacterIDProvider characterIdFactory;
 	/**
 	 * The {@link CharacterTemplateID} factory
 	 */
-	private final CharacterTemplateIDFactory characterTemplateIdFactory;
+	private final CharacterTemplateIDProvider characterTemplateIdFactory;
 
 	// packet
 	/**
@@ -136,8 +136,8 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 
 	@Inject
 	public CharacterCreatePacket(CharacterDAO characterDao,
-			CharacterIDFactory characterIdFactory,
-			CharacterTemplateIDFactory characterTemplateIdFactory) {
+			CharacterIDProvider characterIdFactory,
+			CharacterTemplateIDProvider characterTemplateIdFactory) {
 		this.characterDao = characterDao;
 		this.characterIdFactory = characterIdFactory;
 		this.characterTemplateIdFactory = characterTemplateIdFactory;

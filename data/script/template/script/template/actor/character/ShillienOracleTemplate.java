@@ -18,14 +18,14 @@ package script.template.actor.character;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
 public class ShillienOracleTemplate extends DarkMysticTemplate {
 	@Inject
-	public ShillienOracleTemplate(CharacterTemplateIDFactory factory) {
+	public ShillienOracleTemplate(CharacterTemplateIDProvider factory) {
 		super(factory.createID(CharacterClass.SHILLIEN_ORACLE.id), CharacterClass.SHILLIEN_ORACLE,	Point.fromXYZ(28295, 11063, -4224));
 		// ATTRIBUTES
 		attributes.intelligence = 44;

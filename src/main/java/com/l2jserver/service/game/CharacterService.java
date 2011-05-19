@@ -17,6 +17,7 @@
 package com.l2jserver.service.game;
 
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
 
@@ -41,6 +42,16 @@ public interface CharacterService extends Service {
 	 *            the character
 	 */
 	void leaveWorld(L2Character character);
+
+	/**
+	 * Set the target of this <tt>character</tt>
+	 * 
+	 * @param character
+	 *            the character
+	 * @param actor
+	 *            the targeted actor
+	 */
+	void target(L2Character character, Actor actor);
 
 	/**
 	 * Moves the given <tt>character</tt> to <tt>coordinate</tt>
