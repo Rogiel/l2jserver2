@@ -14,17 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.oldcalculator.operation;
+package com.l2jserver.service.game.world.event;
 
-public class MultiplyOperation implements CalculatorOperation<Integer> {
-	private Integer value;
+/**
+ * This listener will filter to only dispatch an certain type events.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public abstract class TypedWorldListener<T> implements WorldListener {
+	private final Class<T> type;
 
-	public MultiplyOperation(Integer value) {
-		this.value = value;
+	public TypedWorldListener(Class<T> type) {
+		this.type = type;
 	}
 
 	@Override
-	public Integer calculate(Integer value) {
-		return value * this.value;
+	@SuppressWarnings("unchecked")
+	public boolean dispatch(WorldEvent e) {
+		if (!type.isInstance(e))
+			return false;
+		return dispatch((T) e);
 	}
+
+	/**
+	 * @see WorldListener#dispatch(WorldEvent)
+	 */
+	protected abstract boolean dispatch(T e);
 }

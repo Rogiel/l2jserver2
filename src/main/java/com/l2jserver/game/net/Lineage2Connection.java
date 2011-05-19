@@ -256,7 +256,7 @@ public class Lineage2Connection {
 	 * @return an {@link Set} containing all {@link ChannelFuture} instances.
 	 */
 	public Set<ChannelFuture> broadcast(ServerPacket packet) {
-		final Set<ChannelFuture> futures = CollectionFactory.newSet(null);
+		final Set<ChannelFuture> futures = CollectionFactory.newSet();
 		for (final L2Character character : worldService
 				.iterable(new CharacterBroadcastFilter(characterID.getObject()))) {
 			final Lineage2Connection conn = networkService.discover(character

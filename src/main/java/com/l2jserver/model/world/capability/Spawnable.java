@@ -24,7 +24,7 @@ import com.l2jserver.util.dimensional.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Spawnable extends ObjectCapability, Positionable {
+public interface Spawnable extends ObjectCapability, Positionable, Pointable {
 	void spawn(Coordinate coordinate);
 
 	boolean isSpawned();

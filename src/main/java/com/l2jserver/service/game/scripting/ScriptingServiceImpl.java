@@ -19,7 +19,6 @@ package com.l2jserver.service.game.scripting;
 import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -60,7 +59,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 	/**
 	 * Collection of script contexts
 	 */
-	private final Set<ScriptContext> contexts = new HashSet<ScriptContext>();
+	private final Set<ScriptContext> contexts = CollectionFactory.newSet();
 
 	@Inject
 	public ScriptingServiceImpl(Injector injector) {
@@ -90,8 +89,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 		final Unmarshaller u = c.createUnmarshaller();
 		final ScriptList list = (ScriptList) u.unmarshal(scriptDescriptor);
 
-		final List<ScriptContext> contexts = CollectionFactory
-				.newList(ScriptContext.class);
+		final List<ScriptContext> contexts = CollectionFactory.newList();
 
 		for (ScriptInfo si : list.getScriptInfos()) {
 			final ScriptContext context = createContext(si, null);

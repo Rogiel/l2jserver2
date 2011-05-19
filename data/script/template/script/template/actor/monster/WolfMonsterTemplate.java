@@ -34,6 +34,6 @@ public class WolfMonsterTemplate extends MonsterNPCTemplate {
 		this.attackable = true;
 		this.maxHp = 200;
 		this.collisionRadius = 13.00;
-		this.collisionHeigth = 9.00;
+		this.collisionHeight = 9.00;
 	}
 }

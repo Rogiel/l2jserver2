@@ -18,7 +18,7 @@ package com.l2jserver.model.world.event;
 
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.service.game.world.event.WorldEvent;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Event for objects spawning
@@ -30,7 +30,7 @@ public interface SpawnEvent extends WorldEvent {
 	Spawnable getObject();
 
 	/**
-	 * @return the spawning coordinate
+	 * @return the spawning point
 	 */
-	Coordinate getCoordinate();
+	Point getPoint();
 }

@@ -24,7 +24,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -37,6 +36,7 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.service.game.scripting.ScriptClassLoader;
 import com.l2jserver.util.ClassUtils;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * This classloader is used to load script classes. <br>
@@ -71,7 +71,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 * annotations, but they are needed by JavaCompiler to perform valid
 	 * compilation
 	 */
-	private Set<String> libraryClasses = new HashSet<String>();
+	private Set<String> libraryClasses = CollectionFactory.newSet();
 
 	/**
 	 * Creates new ScriptClassLoader with given ClassFileManger
@@ -215,7 +215,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 */
 	public Set<JavaFileObject> getClassesForPackage(String packageName)
 			throws IOException {
-		Set<JavaFileObject> result = new HashSet<JavaFileObject>();
+		Set<JavaFileObject> result = CollectionFactory.newSet();
 
 		// load parent
 		ClassLoader parent = getParent();

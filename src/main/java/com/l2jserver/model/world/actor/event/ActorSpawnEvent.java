@@ -14,71 +14,59 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.character.event;
+package com.l2jserver.model.world.actor.event;
 
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.Player;
-import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.model.world.event.SpawnEvent;
+import com.l2jserver.util.dimensional.Point;
 
 /**
- * Event triggered once a character moves
+ * Event dispatcher once an actor has spawned in the world
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterTargetDeselectedEvent implements CharacterEvent {
+public class ActorSpawnEvent implements ActorEvent, SpawnEvent {
 	/**
-	 * The character that is logging in
+	 * The spawned player
 	 */
-	private final L2Character character;
+	private final Actor actor;
 	/**
-	 * The object target
+	 * The spawning point
 	 */
-	private final Actor oldTarget;
+	private final Point point;
 
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param character
-	 *            the character
-	 * @param target
-	 *            the character target
+	 * @param actor
+	 *            the spawned actor
+	 * @param point
+	 *            the spawn point
 	 */
-	public CharacterTargetDeselectedEvent(L2Character character, Actor oldTarget) {
-		this.character = character;
-		this.oldTarget = oldTarget;
-	}
-
-	/**
-	 * @return the old target
-	 */
-	public Actor getOldTarget() {
-		return oldTarget;
+	public ActorSpawnEvent(Actor actor, Point point) {
+		this.actor = actor;
+		this.point = point;
 	}
 
 	@Override
-	public Player getPlayer() {
-		return character;
+	public Spawnable getObject() {
+		return actor;
 	}
 
 	@Override
 	public Actor getActor() {
-		return character;
+		return actor;
 	}
 
 	@Override
-	public WorldObject getObject() {
-		return character;
-	}
-
-	@Override
-	public L2Character getCharacter() {
-		return character;
+	public Point getPoint() {
+		return point;
 	}
 
 	@Override
 	public ObjectID<?>[] getDispatchableObjects() {
-		return new ObjectID<?>[] { character.getID() };
+		return new ObjectID<?>[] { actor.getID() };
 	}
 }

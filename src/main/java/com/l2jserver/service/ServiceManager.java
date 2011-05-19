@@ -42,7 +42,7 @@ public class ServiceManager {
 	 */
 	private final Injector injector;
 
-	private final Set<Service> knownServices = CollectionFactory.newSet(null);
+	private final Set<Service> knownServices = CollectionFactory.newSet();
 
 	@Inject
 	public ServiceManager(Injector injector) {
@@ -124,7 +124,7 @@ public class ServiceManager {
 	private Set<Class<? extends Service>> createStopDependencies(
 			Set<Class<? extends Service>> depends, Service serviceClass) {
 		if (depends == null)
-			depends = CollectionFactory.newSet(null);
+			depends = CollectionFactory.newSet();
 		for (final Service service : knownServices) {
 			if (service.getDependencies() == null
 					|| service.getDependencies().length == 0)

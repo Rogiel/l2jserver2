@@ -16,13 +16,19 @@
  */
 package com.l2jserver.service.game;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.server.CharacterTeleportPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.model.world.event.SpawnEvent;
+import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -30,6 +36,7 @@ import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Default implementation for {@link SpawnService}
@@ -38,6 +45,15 @@ import com.l2jserver.util.dimensional.Coordinate;
  */
 @Depends({ WorldService.class })
 public class SpawnServiceImpl extends AbstractService implements SpawnService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+	/**
+	 * The {@link WorldService}
+	 */
+	private final WorldService worldService;
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
@@ -48,15 +64,46 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	private final NetworkService networkService;
 
 	@Inject
-	public SpawnServiceImpl(WorldEventDispatcher eventDispatcher,
-			NetworkService networkService) {
+	public SpawnServiceImpl(WorldService worldService,
+			WorldEventDispatcher eventDispatcher, NetworkService networkService) {
+		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.networkService = networkService;
 	}
 
 	@Override
-	public void spawn(Spawnable spawnable) {
-		// TODO Auto-generated method stub
+	public void spawn(Spawnable spawnable, Point point) {
+		// sanitize
+		if (point == null)
+			// retrieving stored point
+			point = spawnable.getPoint();
+		if (point == null) {
+			// not point send and no point stored, aborting
+			log.warn("Trying to spawn {} to a null point", spawnable);
+			return;
+		}
+
+		// set the spawning point
+		spawnable.setPoint(point);
+		// register object in the world
+		if (!worldService.add(spawnable))
+			// object was already in world
+			return;
+
+		// create the SpawnEvent
+		SpawnEvent event = null;
+		if (spawnable instanceof NPC) {
+			final NPC npc = (NPC) spawnable;
+			event = new NPCSpawnEvent(npc, point);
+		} else if (spawnable instanceof L2Character) {
+			event = null;
+		}
+
+		if (event != null)
+			// dispatch spawn event
+			eventDispatcher.dispatch(event);
+
+		// TODO broadcast this object to players nearby
 	}
 
 	@Override
@@ -69,8 +116,9 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 				return;
 			conn.write(new CharacterTeleportPacket(conn.getCharacter()));
 		}
-		// dispatch events
-		eventDispatcher.dispatch(new PlayerTeleportEvent(player, coordinate));
+		// dispatch teleport event
+		eventDispatcher.dispatch(new PlayerTeleportEvent(player, coordinate
+				.toPoint()));
 		// TODO broadcast this player new position
 	}
 

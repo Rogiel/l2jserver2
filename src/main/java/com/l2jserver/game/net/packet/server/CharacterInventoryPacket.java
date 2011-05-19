@@ -29,7 +29,7 @@ import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class InventoryPacket extends AbstractServerPacket {
+public class CharacterInventoryPacket extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -44,7 +44,7 @@ public class InventoryPacket extends AbstractServerPacket {
 	 */
 	private boolean showWindow = false;
 
-	public InventoryPacket(CharacterInventory inventory) {
+	public CharacterInventoryPacket(CharacterInventory inventory) {
 		super(OPCODE);
 		this.inventory = inventory;
 	}

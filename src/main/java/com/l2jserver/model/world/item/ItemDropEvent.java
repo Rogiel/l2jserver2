@@ -16,11 +16,11 @@
  */
 package com.l2jserver.model.world.item;
 
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.player.event.PlayerEvent;
 
 /**
@@ -72,7 +72,7 @@ public class ItemDropEvent implements ItemEvent, PlayerEvent {
 	}
 
 	@Override
-	public Listenable<?, ?>[] getDispatchableObjects() {
-		return new Listenable<?, ?>[] { player, item };
+	public ObjectID<?>[] getDispatchableObjects() {
+		return new ObjectID<?>[] { item.getID() };
 	}
 }

@@ -20,14 +20,12 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.capability.Dropable;
-import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.model.world.capability.Playable;
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
-import com.l2jserver.model.world.item.ItemEvent;
-import com.l2jserver.model.world.item.ItemListener;
 import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * This class represents an {@link Item} in the Lineage II World. The item can
@@ -50,7 +48,7 @@ import com.l2jserver.util.dimensional.Coordinate;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Item extends AbstractObject implements Playable, Spawnable,
-		Listenable<ItemListener, ItemEvent>, Dropable {
+		Dropable {
 	/**
 	 * The {@link ItemTemplate} ID
 	 */
@@ -176,5 +174,20 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 	 */
 	public void setOwnerID(CharacterID ownerID) {
 		this.ownerID = ownerID;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.l2jserver.model.world.capability.Pointable#getPoint()
+	 */
+	@Override
+	public Point getPoint() {
+		return null;
+	}
+
+	@Override
+	public void setPoint(Point point) {
+
 	}
 }

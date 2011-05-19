@@ -54,6 +54,16 @@ public interface CharacterService extends Service {
 	void target(L2Character character, Actor actor);
 
 	/**
+	 * Attacks with the given <tt>character</tt> the <tt>target</tt>
+	 * 
+	 * @param character
+	 *            the character
+	 * @param target
+	 *            the target
+	 */
+	void attack(L2Character character, Actor target);
+
+	/**
 	 * Moves the given <tt>character</tt> to <tt>coordinate</tt>
 	 * 
 	 * @param character

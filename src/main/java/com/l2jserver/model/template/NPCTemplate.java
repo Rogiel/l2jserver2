@@ -19,13 +19,16 @@ package com.l2jserver.model.template;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
+import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.AbstractActor.Race;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.CharacterService;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.util.calculator.Calculator;
 
 /**
  * Template for {@link NPC}
@@ -33,22 +36,52 @@ import com.l2jserver.service.network.NetworkService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class NPCTemplate extends ActorTemplate<NPC> {
+	/**
+	 * The {@link NetworkService}
+	 */
 	@Inject
 	protected NetworkService networkService;
+	/**
+	 * The {@link CharacterService}
+	 */
 	@Inject
 	protected CharacterService charService;
+	/**
+	 * The {@link ItemTemplateID} provider
+	 */
 	@Inject
 	protected ItemTemplateIDProvider itemTemplateIdProvider;
 
+	/**
+	 * The NPC name
+	 */
 	protected String name = null;
+	/**
+	 * The NPC title
+	 */
 	protected String title = null;
+	/**
+	 * The attackable state of the NPC
+	 */
 	protected boolean attackable = false;
 
+	/**
+	 * The movement speed multiplier
+	 */
 	protected double movementSpeedMultiplier = 1.0;
+	/**
+	 * The attack speed multiplier
+	 */
 	protected double attackSpeedMultiplier = 1.0;
 
+	/**
+	 * The collision radius
+	 */
 	protected double collisionRadius = 0;
-	protected double collisionHeigth = 0;
+	/**
+	 * The collision height
+	 */
+	protected double collisionHeight = 0;
 
 	protected int maxHp;
 
@@ -70,8 +103,21 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 				.getID());
 		if (conn == null)
 			return;
-		System.out.println(action);
 		charService.target(character, npc);
+	}
+
+	/**
+	 * Receives an attack from an {@link Actor}
+	 * 
+	 * @param npc
+	 *            the {@link NPC} being attacked
+	 * @param calculator
+	 *            the calculator
+	 * @param attacker
+	 *            the attacker actor
+	 */
+	public void receiveAttack(NPC npc, Calculator calculator, Actor attacker) {
+		// TODO add attributes to calculator!
 	}
 
 	@Override
@@ -122,10 +168,10 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 	}
 
 	/**
-	 * @return the collisionHeigth
+	 * @return the collisionHeight
 	 */
-	public double getCollisionHeigth() {
-		return collisionHeigth;
+	public double getCollisionHeight() {
+		return collisionHeight;
 	}
 
 	/**

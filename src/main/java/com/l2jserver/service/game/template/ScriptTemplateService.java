@@ -43,8 +43,7 @@ public class ScriptTemplateService extends AbstractService implements
 	private ScriptContext context;
 
 	@SuppressWarnings("rawtypes")
-	private Map<TemplateID, Template> templates = CollectionFactory.newMap(
-			TemplateID.class, Template.class);
+	private Map<TemplateID, Template> templates = CollectionFactory.newMap();
 
 	@Inject
 	public ScriptTemplateService(ScriptingService scriptingService,

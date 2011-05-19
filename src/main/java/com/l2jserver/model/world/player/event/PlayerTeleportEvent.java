@@ -17,7 +17,7 @@
 package com.l2jserver.model.world.player.event;
 
 import com.l2jserver.model.world.Player;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Event dispatched once an player is teleported to another location
@@ -30,10 +30,10 @@ public class PlayerTeleportEvent extends PlayerSpawnEvent {
 	 * 
 	 * @param player
 	 *            the teleported player
-	 * @param coordinate
-	 *            the coordinate
+	 * @param point
+	 *            the teleport point
 	 */
-	public PlayerTeleportEvent(Player player, Coordinate coordinate) {
-		super(player, coordinate);
+	public PlayerTeleportEvent(Player player, Point point) {
+		super(player, point);
 	}
 }

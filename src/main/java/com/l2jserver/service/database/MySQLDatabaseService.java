@@ -318,7 +318,7 @@ public class MySQLDatabaseService extends AbstractService implements
 			final PreparedStatement st = conn.prepareStatement(query());
 			parametize(st);
 			st.execute();
-			final List<T> list = CollectionFactory.newList(null);
+			final List<T> list = CollectionFactory.newList();
 			final ResultSet rs = st.getResultSet();
 			while (rs.next()) {
 				list.add(mapper().map(rs));

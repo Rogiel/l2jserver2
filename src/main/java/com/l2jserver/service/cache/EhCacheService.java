@@ -20,7 +20,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
-import java.util.WeakHashMap;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -33,7 +32,7 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
 /**
- * Simple cache that stores invocation results in a {@link WeakHashMap}.
+ * Simple cache that stores invocation results in a EhCache {@link Cache}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

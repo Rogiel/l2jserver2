@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
@@ -68,6 +69,32 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 *             if object found is not an instance of <tt>T</tt>
 	 */
 	<T extends WorldObject> T find(ObjectID<T> id) throws ClassCastException;
+
+	/**
+	 * Executes an action inside the callback for each object in <tt>object</tt>
+	 * known list.
+	 * 
+	 * @param object
+	 *            the object
+	 * @param callback
+	 *            the callback
+	 */
+	void knownlist(Positionable object, KnownListCallback callback);
+
+	/**
+	 * The KnownList callback is used to execute an action for each object know
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public interface KnownListCallback {
+		/**
+		 * Performs an action on the given known <tt>object</tt>
+		 * 
+		 * @param object
+		 *            the object known by the other object
+		 */
+		void knownObject(WorldObject object);
+	}
 
 	/**
 	 * Get the event dispatcher

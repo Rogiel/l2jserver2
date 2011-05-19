@@ -76,7 +76,7 @@ public class TemplateLoader implements Loader, Unloader {
 	private static Set<Class<? extends Template<?>>> getSuitableClasses(
 			Class<?>[] classes) {
 		final Set<Class<? extends Template<?>>> suitable = CollectionFactory
-				.newSet(null);
+				.newSet();
 		for (Class<?> clazz : classes) {
 			if (!ClassUtils.isSubclass(clazz, Template.class))
 				continue;

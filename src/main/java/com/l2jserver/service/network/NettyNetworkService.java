@@ -74,8 +74,7 @@ public class NettyNetworkService extends AbstractService implements
 	/**
 	 * The client list. This list all active clients in the server
 	 */
-	private Set<Lineage2Connection> clients = CollectionFactory
-			.newSet(Lineage2Connection.class);
+	private Set<Lineage2Connection> clients = CollectionFactory.newSet();
 
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,

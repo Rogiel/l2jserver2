@@ -40,7 +40,7 @@ public class ActorSkillContainer implements Iterable<Skill> {
 	/**
 	 * The learned skill list
 	 */
-	private List<Skill> skills = CollectionFactory.newList(Skill.class);
+	private List<Skill> skills = CollectionFactory.newList();
 
 	/**
 	 * Creates a new instance

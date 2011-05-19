@@ -16,11 +16,11 @@
  */
 package com.l2jserver.model.world.character.event;
 
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Listenable;
 import com.l2jserver.util.dimensional.Point;
 
 /**
@@ -79,7 +79,7 @@ public class CharacterStopMoveEvent implements CharacterEvent {
 	}
 
 	@Override
-	public Listenable<?, ?>[] getDispatchableObjects() {
-		return new Listenable<?, ?>[] { character };
+	public ObjectID<?>[] getDispatchableObjects() {
+		return new ObjectID<?>[] { character.getID() };
 	}
 }

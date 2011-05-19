@@ -16,20 +16,22 @@
  */
 package com.l2jserver.service.game.world.filter.impl;
 
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.service.game.world.filter.AndFilter;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * This filter will only accept {@link WorldObject} which are in vision of
+ * another object.
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class KnownListFilter extends AndFilter<Positionable> {
 	public static final int KNOWNLIST_RANGE = 200;
 
 	@SuppressWarnings("unchecked")
-	public KnownListFilter(L2Character character) {
+	public KnownListFilter(Positionable object) {
 		super(new InstanceFilter<Positionable>(Positionable.class),
-				new RangeFilter(character.getPosition(), KNOWNLIST_RANGE));
+				new RangeFilter(object, KNOWNLIST_RANGE));
 	}
 }

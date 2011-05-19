@@ -18,7 +18,6 @@ package com.l2jserver.service.game.scripting.impl;
 
 import java.io.File;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
@@ -32,6 +31,7 @@ import com.l2jserver.service.game.scripting.ScriptCompiler;
 import com.l2jserver.service.game.scripting.ScriptContext;
 import com.l2jserver.service.game.scripting.classlistener.ClassListener;
 import com.l2jserver.service.game.scripting.classlistener.DefaultClassListener;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * This class is actual implementation of {@link ScriptContext}
@@ -222,7 +222,7 @@ public class ScriptContextImpl implements ScriptContext {
 	public synchronized void addChildScriptContext(ScriptContext context) {
 		synchronized (this) {
 			if (childScriptContexts == null) {
-				childScriptContexts = new HashSet<ScriptContext>();
+				childScriptContexts = CollectionFactory.newSet();
 			}
 
 			if (childScriptContexts.contains(context)) {

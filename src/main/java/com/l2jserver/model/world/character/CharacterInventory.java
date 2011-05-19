@@ -38,7 +38,7 @@ public class CharacterInventory implements Iterable<Item> {
 	/**
 	 * The items in this character inventory
 	 */
-	private final Set<Item> items = CollectionFactory.newSet(Item.class);
+	private final Set<Item> items = CollectionFactory.newSet();
 
 	/**
 	 * Creates a new instance

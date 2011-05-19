@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Stage;
 import com.l2jserver.GameServerModule;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
@@ -36,9 +37,11 @@ import com.l2jserver.model.world.item.ItemListener;
 import com.l2jserver.model.world.player.event.PlayerEvent;
 import com.l2jserver.model.world.player.event.PlayerListener;
 import com.l2jserver.model.world.player.event.PlayerSpawnEvent;
+import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.id.WorldIDService;
 
 public class WorldEventDispatcherImplTest {
 	private WorldService world;
@@ -49,7 +52,10 @@ public class WorldEventDispatcherImplTest {
 
 	@Before
 	public void tearUp() throws ServiceStartException {
-		Injector injector = Guice.createInjector(new GameServerModule());
+		Injector injector = Guice.createInjector(Stage.PRODUCTION,
+				new GameServerModule());
+
+		injector.getInstance(ServiceManager.class).start(WorldIDService.class);
 
 		cidFactory = injector.getInstance(CharacterIDProvider.class);
 		iidFactory = injector.getInstance(ItemIDProvider.class);
@@ -139,9 +145,9 @@ public class WorldEventDispatcherImplTest {
 		});
 
 		dispatcher.dispatch(new ItemDropEvent(character1, item1));
-		Thread.sleep(100); // wait a bit for dispatching to happen
+		Thread.sleep(1000); // wait a bit for dispatching to happen
 
-		Assert.assertTrue(bool1.get());
+		Assert.assertFalse(bool1.get());
 		Assert.assertTrue(bool2.get());
 	}
 }

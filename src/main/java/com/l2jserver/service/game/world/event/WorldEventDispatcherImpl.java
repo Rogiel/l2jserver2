@@ -16,7 +16,9 @@
  */
 package com.l2jserver.service.game.world.event;
 
+import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.capability.Listenable;
+import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -38,10 +40,12 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 
 	private final Timer timer = new Timer();
 
-	private Queue<ListenerIDPair> listeners = CollectionFactory
-			.newConcurrentQueue(ListenerIDPair.class);
-	private Queue<WorldEvent> events = CollectionFactory
-			.newConcurrentQueue(WorldEvent.class);
+	private Set<WorldListener> globalListeners = CollectionFactory.newSet();
+	private Map<ObjectID<?>, Set<WorldListener>> listeners = CollectionFactory
+			.newMap();
+	// private Queue<ListenerIDPair> listeners = CollectionFactory
+	// .newConcurrentQueue(ListenerIDPair.class);
+	private Queue<WorldEvent> events = CollectionFactory.newConcurrentQueue();
 
 	public WorldEventDispatcherImpl() {
 		timer.scheduleAtFixedRate(new TimerTask() {
@@ -53,6 +57,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 				try {
 					doDispatch(event);
 				} catch (Throwable t) {
+					log.warn("Exception in WorldEventDispatcher thread", t);
 				}
 			}
 		}, 0, 50);
@@ -66,22 +71,22 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 
 	public void doDispatch(WorldEvent event) {
 		log.debug("Dispatching event {}", event);
-		final Listenable<?, ?>[] objects = event.getDispatchableObjects();
-		for (final ListenerIDPair pair : listeners) {
-			for (Listenable<?, ?> obj : objects) {
-				if (obj == null)
-					continue;
-				if (!pair.testDispatch(obj.getID()))
-					continue;
+		final ObjectID<?>[] objects = event.getDispatchableObjects();
+		for (ObjectID<?> obj : objects) {
+			if (obj == null)
+				continue;
+			final Set<WorldListener> listeners = getListeners(obj);
+			for (final WorldListener listener : listeners) {
 				try {
-					if (pair.dispatch(event))
-						continue;
+					if (!listener.dispatch(event))
+						// remove listener if return value is false
+						listeners.remove(listener);
 				} catch (ClassCastException e) {
 					log.debug(
 							"Exception in Listener. This might indicate an implementation issue in {}",
-							pair.listener.getClass());
+							listener.getClass());
+					listeners.remove(listener);
 				}
-				listeners.remove(pair);
 			}
 		}
 	}
@@ -89,96 +94,52 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	@Override
 	public void addListener(WorldListener listener) {
 		log.debug("Adding new listener global {}", listener);
-		listeners.add(new ListenerIDPair(null, listener));
+		globalListeners.add(listener);
 	}
 
 	@Override
-	public <E extends WorldEvent, L extends WorldListener> void addListener(
-			Listenable<L, E> object, WorldListener listener) {
-		log.debug("Adding new listener {} to {}", listener,
-				(object != null ? object.getID() : null));
-		listeners.add(new ListenerIDPair((object != null ? object.getID()
-				: null), listener));
+	public void addListener(WorldObject object, WorldListener listener) {
+		addListener(object.getID(), listener);
 	}
 
 	@Override
-	public <E extends WorldEvent, L extends WorldListener> void addListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener listener) {
+	public void addListener(ObjectID<?> id, WorldListener listener) {
 		log.debug("Adding new listener {} to {}", listener, id);
-		listeners.add(new ListenerIDPair(id, listener));
+		getListeners(id).add(listener);
 	}
 
 	@Override
-	public <E extends WorldEvent, L extends WorldListener> void removeListener(
-			Listenable<L, E> object, WorldListener listener) {
-		log.debug("Removing new listener {} from {}", listener, object.getID());
-		listeners.remove(new ListenerIDPair(object.getID(), listener));
+	public void removeListener(WorldListener listener) {
+		globalListeners.remove(listener);
 	}
 
 	@Override
-	public <E extends WorldEvent, L extends WorldListener> void removeListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener listener) {
+	public void removeListener(WorldObject object, WorldListener listener) {
+		removeListener(object.getID(), listener);
+	}
+
+	@Override
+	public void removeListener(ObjectID<?> id, WorldListener listener) {
 		log.debug("Removing new listener {} from {}", listener, id);
-		listeners.remove(new ListenerIDPair(id, listener));
+		getListeners(id).remove(listener);
 	}
 
-	private class ListenerIDPair {
-		private ObjectID<?> ID;
-		private WorldListener listener;
+	/**
+	 * Removes all listeners from a given object
+	 * 
+	 * @param id
+	 *            the object id
+	 */
+	public void clear(ObjectID<?> id) {
+		listeners.remove(id);
+	}
 
-		public ListenerIDPair(ObjectID<?> ID, WorldListener listener) {
-			super();
-			this.ID = ID;
-			this.listener = listener;
+	private Set<WorldListener> getListeners(ObjectID<?> id) {
+		Set<WorldListener> set = listeners.get(id);
+		if (set == null) {
+			set = CollectionFactory.newSet();
+			listeners.put(id, set);
 		}
-
-		public boolean testDispatch(ObjectID<?> id) {
-			if (this.ID == null) // global listeners
-				return true;
-			return id.equals(this.ID);
-		}
-
-		public boolean dispatch(WorldEvent e) {
-			return listener.dispatch(e);
-		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + getOuterType().hashCode();
-			result = prime * result + ((ID == null) ? 0 : ID.hashCode());
-			result = prime * result
-					+ ((listener == null) ? 0 : listener.hashCode());
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			ListenerIDPair other = (ListenerIDPair) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
-			if (ID == null) {
-				if (other.ID != null)
-					return false;
-			} else if (!ID.equals(other.ID))
-				return false;
-			if (listener == null) {
-				if (other.listener != null)
-					return false;
-			} else if (!listener.equals(other.listener))
-				return false;
-			return true;
-		}
-
-		private WorldEventDispatcherImpl getOuterType() {
-			return WorldEventDispatcherImpl.this;
-		}
+		return set;
 	}
 }

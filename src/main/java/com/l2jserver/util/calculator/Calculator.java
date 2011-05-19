@@ -33,7 +33,7 @@ public class Calculator implements Function<Double> {
 	 * List of operations in this calculator
 	 */
 	private final List<FunctionContainer> functions = CollectionFactory
-			.newList(null);
+			.newList();
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using

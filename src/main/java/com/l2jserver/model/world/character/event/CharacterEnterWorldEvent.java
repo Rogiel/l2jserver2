@@ -18,11 +18,11 @@ package com.l2jserver.model.world.character.event;
 
 import java.util.Date;
 
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Listenable;
 
 /**
  * Event triggered once a character logs-in.
@@ -90,7 +90,7 @@ public class CharacterEnterWorldEvent implements CharacterEvent {
 	}
 
 	@Override
-	public Listenable<?, ?>[] getDispatchableObjects() {
-		return new Listenable<?, ?>[] { character };
+	public ObjectID<?>[] getDispatchableObjects() {
+		return new ObjectID<?>[] { character.getID() };
 	}
 }

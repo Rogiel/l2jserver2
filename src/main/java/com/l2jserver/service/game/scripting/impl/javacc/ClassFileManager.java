@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.IOException;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -51,7 +50,7 @@ public class ClassFileManager extends
 	 * This map contains classes compiled for this classloader
 	 */
 	private final Map<String, BinaryClass> compiledClasses = CollectionFactory
-			.newMap(String.class, BinaryClass.class);
+			.newMap();
 
 	/**
 	 * Classloader that will be used to load compiled classes
@@ -204,7 +203,7 @@ public class ClassFileManager extends
 
 		if (StandardLocation.CLASS_PATH.equals(location)
 				&& kinds.contains(Kind.CLASS)) {
-			List<JavaFileObject> temp = new ArrayList<JavaFileObject>();
+			List<JavaFileObject> temp = CollectionFactory.newList();
 			for (JavaFileObject object : objects) {
 				temp.add(object);
 			}

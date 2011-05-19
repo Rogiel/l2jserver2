@@ -21,7 +21,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
@@ -40,22 +40,25 @@ public class ActorMovementPacket extends AbstractServerPacket {
 	/**
 	 * The selected character
 	 */
-	private final L2Character character;
+	private final Actor actor;
+	/**
+	 * The source coordinate
+	 */
 	private Coordinate source;
 
-	public ActorMovementPacket(L2Character character, Coordinate source) {
+	public ActorMovementPacket(Actor actor, Coordinate source) {
 		super(OPCODE);
-		this.character = character;
+		this.actor = actor;
 		this.source = source;
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeInt(character.getID().getID());
+		buffer.writeInt(actor.getID().getID());
 
-		buffer.writeInt(character.getPoint().getX());
-		buffer.writeInt(character.getPoint().getY());
-		buffer.writeInt(character.getPoint().getZ());
+		buffer.writeInt(actor.getPoint().getX());
+		buffer.writeInt(actor.getPoint().getY());
+		buffer.writeInt(actor.getPoint().getZ());
 
 		buffer.writeInt(source.getX());
 		buffer.writeInt(source.getY());

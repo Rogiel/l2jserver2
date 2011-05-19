@@ -22,6 +22,7 @@ import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * This service is responsible for spawning monsters, npcs and players.
@@ -37,8 +38,11 @@ public interface SpawnService extends Service {
 	 * 
 	 * @param spawnable
 	 *            the spawnable object
+	 * @param point
+	 *            the spawning point. If null, will try to use
+	 *            {@link Spawnable#getPoint()}.
 	 */
-	void spawn(Spawnable spawnable);
+	void spawn(Spawnable spawnable, Point point);
 
 	/**
 	 * Teleports the object to the given <tt>point</tt>.

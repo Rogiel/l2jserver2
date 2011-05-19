@@ -17,7 +17,7 @@
 package com.l2jserver.service.game.world.event;
 
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.capability.Listenable;
+import com.l2jserver.model.world.WorldObject;
 
 /**
  * This event dispatcher notify listeners that an certain event occured in their
@@ -39,73 +39,56 @@ public interface WorldEventDispatcher {
 	/**
 	 * Adds a new global <tt>listener</tt>
 	 * 
-	 * @param <E>
-	 *            the event type
-	 * @param <L>
-	 *            the listener type
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener> void addListener(
-			WorldListener listener);
+	void addListener(WorldListener listener);
 
 	/**
 	 * Adds a new <tt>listener</tt> to <tt>object</tt>
 	 * 
-	 * @param <E>
-	 *            the event type
-	 * @param <L>
-	 *            the listener type
 	 * @param object
 	 *            the object to listen to
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener> void addListener(
-			Listenable<L, E> object, WorldListener listener);
+	void addListener(WorldObject object, WorldListener listener);
 
 	/**
 	 * Adds a new <tt>listener</tt> to object with id <tt>id</tt>
 	 * 
-	 * @param <E>
-	 *            the event type
-	 * @param <L>
-	 *            the listener type
 	 * @param id
 	 *            the object id to listen to
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener> void addListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener listener);
+	void addListener(ObjectID<?> id, WorldListener listener);
+
+	/**
+	 * Removes an existing global <tt>listener</tt>
+	 * 
+	 * @param listener
+	 *            the listener
+	 */
+	void removeListener(WorldListener listener);
 
 	/**
 	 * Removes an existing <tt>listener</tt> from <tt>object</tt>
 	 * 
-	 * @param <E>
-	 *            the event type
-	 * @param <L>
-	 *            the listener type
 	 * @param object
 	 *            the object to listen to
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener> void removeListener(
-			Listenable<L, E> object, WorldListener listener);
+	void removeListener(WorldObject object, WorldListener listener);
 
 	/**
 	 * Removes an existing <tt>listener</tt> from the object with id <tt>id</tt>
 	 * 
-	 * @param <E>
-	 *            the event type
-	 * @param <L>
-	 *            the listener type
 	 * @param id
 	 *            the object id to listen to
 	 * @param listener
 	 *            the listener
 	 */
-	<E extends WorldEvent, L extends WorldListener> void removeListener(
-			ObjectID<? extends Listenable<L, E>> id, WorldListener listener);
+	void removeListener(ObjectID<?> id, WorldListener listener);
 }

@@ -19,13 +19,14 @@ package com.l2jserver.service.game;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket.MessageDestination;
+import com.l2jserver.game.net.packet.server.ActionFailedPacket;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
 import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
+import com.l2jserver.game.net.packet.server.CharacterInventoryPacket;
 import com.l2jserver.game.net.packet.server.CharacterMovementTypePacket;
 import com.l2jserver.game.net.packet.server.CharacterTargetSelectedPacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
-import com.l2jserver.game.net.packet.server.InventoryPacket;
 import com.l2jserver.game.net.packet.server.NPCInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
@@ -33,12 +34,15 @@ import com.l2jserver.model.world.L2Character.CharacterMoveType;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterListener;
+import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
+import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.ai.AIService;
@@ -46,7 +50,10 @@ import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
 import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.service.game.world.event.FilteredWorldListener;
+import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldListener;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.dimensional.Coordinate;
@@ -117,6 +124,30 @@ public class CharacterServiceImpl extends AbstractService implements
 			}
 		};
 
+		// event broadcast listener
+		// this listener will be filtered so that only interesting events are
+		// dispatched, once a event arrives will be possible to check check if
+		// the given event will be broadcasted or not
+		final WorldListener broadcastListener = new FilteredWorldListener<Positionable>(
+				new KnownListFilter(character)) {
+			@Override
+			protected boolean dispatch(WorldEvent e, Positionable object) {
+				if (e instanceof NPCSpawnEvent) {
+					conn.write(new NPCInformationPacket((NPC) object));
+				} else if (e instanceof CharacterEnterWorldEvent) {
+					// conn.write(packet)
+					// TODO char broadcast
+				} else if (e instanceof CharacterMoveEvent) {
+					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
+					conn.write(new ActorMovementPacket((L2Character) object,
+							evt.getPoint().getCoordinate()));
+				}
+				// keep listener alive
+				return true;
+			}
+		};
+		eventDispatcher.addListener(broadcastListener);
+
 		// leave world event
 		eventDispatcher.addListener(id, new CharacterListener() {
 			@Override
@@ -127,7 +158,11 @@ public class CharacterServiceImpl extends AbstractService implements
 				// remove chat listeners
 				chatService.getGlobalChannel().removeChatChannelListener(
 						globalChatListener);
+				
+				// remove broadcast listener
+				eventDispatcher.removeListener(broadcastListener);
 
+				// we can kill this listener now
 				return false;
 			}
 		});
@@ -140,7 +175,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		conn.write(new CharacterInformationPacket(character));
 		// TODO game guard enforcing
 		conn.write(new GameGuardQueryPacket());
-		conn.write(new InventoryPacket(character.getInventory()));
+		conn.write(new CharacterInventoryPacket(character.getInventory()));
 
 		// characters start in run mode
 		run(character);
@@ -159,7 +194,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
 
 		// spawn the player -- this will also dispatch a spawn event
-		spawnService.spawn(character);
+		spawnService.spawn(character, null);
 	}
 
 	@Override
@@ -202,6 +237,21 @@ public class CharacterServiceImpl extends AbstractService implements
 			eventDispatcher.dispatch(new CharacterTargetSelectedEvent(
 					character, target));
 			conn.write(new CharacterTargetSelectedPacket(target));
+		}
+	}
+
+	@Override
+	public void attack(L2Character character, Actor target) {
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+		// check if this Actor can be attacked
+		if (target instanceof NPC) {
+			final NPC npc = (NPC) target;
+			if (!npc.getTemplate().isAttackable()) {
+				conn.write(ActionFailedPacket.SHARED_INSTANCE);
+				return;
+			}
+
 		}
 	}
 

@@ -22,9 +22,6 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.iterator.WorldObjectIterator;
 import com.l2jserver.model.world.capability.Joinable;
-import com.l2jserver.model.world.capability.Listenable;
-import com.l2jserver.model.world.clan.ClanEvent;
-import com.l2jserver.model.world.clan.ClanListener;
 import com.l2jserver.model.world.clan.ClanMembers;
 
 /**
@@ -32,8 +29,7 @@ import com.l2jserver.model.world.clan.ClanMembers;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Clan extends AbstractObject implements
-		Listenable<ClanListener, ClanEvent>, Joinable<L2Character> {
+public class Clan extends AbstractObject implements Joinable<L2Character> {
 	/**
 	 * Clan leader
 	 */

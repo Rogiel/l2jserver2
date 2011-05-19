@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -34,10 +35,12 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 import com.l2jserver.service.game.world.filter.FilterIterator;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 import com.l2jserver.service.game.world.filter.impl.IDFilter;
 import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
+import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -58,16 +61,15 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	/**
 	 * The set of all objects registered in the world
 	 */
-	private final Set<WorldObject> objects = CollectionFactory
-			.newSet(WorldObject.class);
+	private final Set<WorldObject> objects = CollectionFactory.newSet();
 	/**
 	 * The world event dispatcher
 	 */
-	private final WorldEventDispatcher dispatcher;
+	private final WorldEventDispatcherImpl dispatcher;
 
 	@Inject
 	public WorldServiceImpl(WorldEventDispatcher dispatcher) {
-		this.dispatcher = dispatcher;
+		this.dispatcher = (WorldEventDispatcherImpl) dispatcher;
 	}
 
 	@Override
@@ -84,6 +86,8 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public boolean remove(WorldObject object) {
 		log.debug("Removing object {} from world", object);
+		// we also need to remove all listeners for this object
+		dispatcher.clear(object.getID());
 		return objects.remove(object);
 	}
 
@@ -104,6 +108,17 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	}
 
 	@Override
+	public void knownlist(Positionable object, KnownListCallback callback) {
+		if (object == null)
+			return;
+		if (callback == null)
+			return;
+		for (Positionable known : iterable(new KnownListFilter(object))) {
+			callback.knownObject(known);
+		}
+	}
+
+	@Override
 	public WorldEventDispatcher getEventDispatcher() {
 		return dispatcher;
 	}
@@ -111,7 +126,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public <T extends WorldObject> List<T> list(WorldObjectFilter<T> filter) {
 		log.debug("Listing objects with filter {}", filter);
-		final List<T> list = CollectionFactory.newList(null);
+		final List<T> list = CollectionFactory.newList();
 		for (final T object : this.iterable(filter)) {
 			list.add(object);
 		}

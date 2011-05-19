@@ -14,17 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.oldcalculator.operation;
+package com.l2jserver.model.world.npc.event;
 
-public class AddOperation implements CalculatorOperation<Integer> {
-	private Integer value;
+import com.l2jserver.service.game.world.event.TypedWorldListener;
 
-	public AddOperation(Integer value) {
-		this.value = value;
-	}
-
-	@Override
-	public Integer calculate(Integer value) {
-		return value + this.value;
+/**
+ * This listener will filter to only dispatch {@link NPCEvent} events.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public abstract class NPCListener extends TypedWorldListener<NPCEvent> {
+	public NPCListener() {
+		super(NPCEvent.class);
 	}
 }

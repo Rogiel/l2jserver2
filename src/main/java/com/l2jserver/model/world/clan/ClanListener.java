@@ -16,14 +16,14 @@
  */
 package com.l2jserver.model.world.clan;
 
-import com.l2jserver.service.game.world.event.FilteredWorldListener;
+import com.l2jserver.service.game.world.event.TypedWorldListener;
 
 /**
  * This listener will filter to only dispatch {@link ClanEvent} events.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ClanListener extends FilteredWorldListener<ClanEvent> {
+public abstract class ClanListener extends TypedWorldListener<ClanEvent> {
 	public ClanListener() {
 		super(ClanEvent.class);
 	}

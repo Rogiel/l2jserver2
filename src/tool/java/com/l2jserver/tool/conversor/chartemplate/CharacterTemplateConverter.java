@@ -41,7 +41,7 @@ public class CharacterTemplateConverter {
 	private static String template;
 
 	private static Map<CharacterClass, String> parents = CollectionFactory
-			.newMap(CharacterClass.class, String.class);
+			.newMap();
 
 	public static void main(String[] args) throws SQLException, IOException,
 			ClassNotFoundException {

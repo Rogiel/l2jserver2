@@ -39,6 +39,7 @@ import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertyGetter;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertySetter;
 import com.l2jserver.service.logging.LoggingService;
+import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.transformer.Transformer;
 import com.l2jserver.util.transformer.TransformerFactory;
 
@@ -64,7 +65,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	/**
 	 * The cache of configuration objects
 	 */
-	private Map<Class<?>, Object> cache = new WeakHashMap<Class<?>, Object>();
+	private Map<Class<?>, Object> cache = CollectionFactory.newWeakMap();
 
 	@Override
 	protected void doStart() throws ServiceStartException {
@@ -102,7 +103,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	 */
 	private class ConfigInvocationHandler implements InvocationHandler {
 		private final Properties properties;
-		private Map<String, Object> cache = new WeakHashMap<String, Object>();
+		private Map<String, Object> cache = CollectionFactory.newWeakMap();
 
 		public ConfigInvocationHandler(Properties properties) {
 			this.properties = properties;

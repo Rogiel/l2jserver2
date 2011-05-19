@@ -39,8 +39,7 @@ public class ClanMembers implements Iterable<CharacterID> {
 	/**
 	 * The list of active members
 	 */
-	private final Set<CharacterID> members = CollectionFactory
-			.newSet(CharacterID.class);
+	private final Set<CharacterID> members = CollectionFactory.newSet();
 
 	/**
 	 * Creates a new instance

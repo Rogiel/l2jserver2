@@ -16,28 +16,33 @@
  */
 package com.l2jserver.service.game.world.event;
 
+import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.service.game.world.filter.WorldObjectFilter;
+
 /**
- * This listener will filter to only dispatch an certain type events.
+ * This listener will filter to only dispatch events on which the object matches
+ * an given {@link WorldObjectFilter}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class FilteredWorldListener<T> implements WorldListener {
-	private final Class<T> type;
+public abstract class FilteredWorldListener<T extends WorldObject> implements
+		WorldListener {
+	private final WorldObjectFilter<T> filter;
 
-	public FilteredWorldListener(Class<T> type) {
-		this.type = type;
+	public FilteredWorldListener(WorldObjectFilter<T> filter) {
+		this.filter = filter;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public boolean dispatch(WorldEvent e) {
-		if (!type.isInstance(e))
+		if (!filter.accept((T) e.getObject()))
 			return false;
-		return dispatch((T) e);
+		return dispatch(e, (T) e.getObject());
 	}
 
 	/**
 	 * @see WorldListener#dispatch(WorldEvent)
 	 */
-	protected abstract boolean dispatch(T e);
+	protected abstract boolean dispatch(WorldEvent e, T object);
 }

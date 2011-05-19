@@ -17,62 +17,27 @@
 package com.l2jserver.model.world.player.event;
 
 import com.l2jserver.model.world.Player;
-import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Listenable;
-import com.l2jserver.model.world.capability.Spawnable;
-import com.l2jserver.model.world.event.SpawnEvent;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.model.world.actor.event.ActorSpawnEvent;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Event dispatcher once an player has spawned in the world
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PlayerSpawnEvent implements PlayerEvent, SpawnEvent {
+public class PlayerSpawnEvent extends ActorSpawnEvent implements PlayerEvent {
 	/**
-	 * The spawned player
+	 * @param actor
+	 *            the player
+	 * @param point
+	 *            the spawn point
 	 */
-	private final Player player;
-	/**
-	 * The spawning coordinate
-	 */
-	private final Coordinate coordinate;
-
-	/**
-	 * Creates a new instance
-	 * 
-	 * @param player
-	 *            the spawned player
-	 * @param coordinate
-	 *            the spawn coordinate
-	 */
-	public PlayerSpawnEvent(Player player, Coordinate coordinate) {
-		this.player = player;
-		this.coordinate = coordinate;
-	}
-
-	@Override
-	public Spawnable getObject() {
-		return player;
+	public PlayerSpawnEvent(Player player, Point point) {
+		super(player, point);
 	}
 
 	@Override
 	public Player getPlayer() {
-		return player;
-	}
-
-	@Override
-	public Coordinate getCoordinate() {
-		return coordinate;
-	}
-
-	@Override
-	public Actor getActor() {
-		return player;
-	}
-
-	@Override
-	public Listenable<?, ?>[] getDispatchableObjects() {
-		return new Listenable<?, ?>[] { player };
+		return (Player) getActor();
 	}
 }

@@ -78,9 +78,9 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	@Override
 	protected void doStart() throws ServiceStartException {
 		this.global = new GlobalChatChannelImpl();
-		this.privateChannels = CollectionFactory.newMap(null, null);
-		this.clanChannels = CollectionFactory.newMap(null, null);
-		this.regionChannels = CollectionFactory.newMap(null, null);
+		this.privateChannels = CollectionFactory.newMap();
+		this.clanChannels = CollectionFactory.newMap();
+		this.regionChannels = CollectionFactory.newMap();
 	}
 
 	@Override
@@ -137,7 +137,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 * The list of all listeners on this channel
 		 */
 		protected final Set<ChatChannelListener> listeners = CollectionFactory
-				.newSet(null);
+				.newSet();
 
 		@Override
 		public void send(CharacterID sender, String message) {

@@ -18,7 +18,6 @@ package com.l2jserver.service.game.scripting.impl.javacc;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -34,6 +33,7 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.service.game.scripting.CompilationResult;
 import com.l2jserver.service.game.scripting.ScriptClassLoader;
 import com.l2jserver.service.game.scripting.ScriptCompiler;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * Wrapper for JavaCompiler api
@@ -142,7 +142,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 					"Amount of classes is not equal to amount of sources");
 		}
 
-		List<JavaFileObject> compilationUnits = new ArrayList<JavaFileObject>();
+		List<JavaFileObject> compilationUnits = CollectionFactory.newList();
 
 		for (int i = 0; i < classNames.length; i++) {
 			JavaFileObject compilationUnit = new JavaSourceFromString(
@@ -164,7 +164,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 */
 	@Override
 	public CompilationResult compile(Iterable<File> compilationUnits) {
-		List<JavaFileObject> list = new ArrayList<JavaFileObject>();
+		List<JavaFileObject> list = CollectionFactory.newList();
 
 		for (File f : compilationUnits) {
 			list.add(new JavaSourceFromFile(f, JavaFileObject.Kind.SOURCE));

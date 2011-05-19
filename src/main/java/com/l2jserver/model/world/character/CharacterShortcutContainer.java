@@ -37,8 +37,7 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	/**
 	 * The shortcut list
 	 */
-	private List<Shortcut> shortcuts = CollectionFactory
-			.newList(Shortcut.class);
+	private List<Shortcut> shortcuts = CollectionFactory.newList();
 
 	/**
 	 * Creates a new instance

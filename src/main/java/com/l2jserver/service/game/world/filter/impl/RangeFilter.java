@@ -18,7 +18,6 @@ package com.l2jserver.service.game.world.filter.impl;
 
 import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
-import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * Filter objects that are in the <tt>range</tt> of <tt>coordinate</tt>
@@ -29,7 +28,7 @@ public class RangeFilter implements WorldObjectFilter<Positionable> {
 	/**
 	 * The coordinate point
 	 */
-	private final Coordinate coordinate;
+	private final Positionable object;
 	/**
 	 * The desired maximum distance of the object
 	 */
@@ -38,32 +37,20 @@ public class RangeFilter implements WorldObjectFilter<Positionable> {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param coordinate
-	 *            the coordinate as base for range search
+	 * @param objcect
+	 *            the positionable object as center point for range search
 	 * @param range
 	 *            the desired maximum distance of the object
 	 */
-	public RangeFilter(final Coordinate coordinate, final int range) {
-		this.coordinate = coordinate;
+	public RangeFilter(final Positionable object, final int range) {
+		this.object = object;
 		this.range = range;
-	}
-
-	/**
-	 * Creates a new instance
-	 * 
-	 * @param positionable
-	 *            the base object
-	 * @param range
-	 *            the desired maximum distance of the object
-	 */
-	public RangeFilter(final Positionable positionable, final int range) {
-		this(positionable.getPosition(), range);
 	}
 
 	@Override
 	public boolean accept(Positionable other) {
 		if (other == null)
 			return false;
-		return other.getPosition().getDistance(coordinate) <= range;
+		return other.getPosition().getDistance(object.getPosition()) <= range;
 	}
 }

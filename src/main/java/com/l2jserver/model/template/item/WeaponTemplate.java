@@ -26,8 +26,8 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.calculator.Calculator;
 import com.l2jserver.util.calculator.DivisionFunction;
-import com.l2jserver.util.calculator.MultiplicationFunction;
 import com.l2jserver.util.calculator.Function;
+import com.l2jserver.util.calculator.MultiplicationFunction;
 import com.l2jserver.util.calculator.SetFunction;
 import com.l2jserver.util.calculator.SubtractFunction;
 import com.l2jserver.util.calculator.SumFunction;
@@ -152,7 +152,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 	 */
 	public class WeaponAttribute {
 		private final Map<WeaponAttributeType, Map<Integer, Function<Double>>> operations = CollectionFactory
-				.newMap(null, null);
+				.newMap();
 
 		/**
 		 * Sets the result of an calculator
@@ -248,7 +248,7 @@ public abstract class WeaponTemplate extends ItemTemplate implements Attackable 
 		private Map<Integer, Function<Double>> getMap(WeaponAttributeType type) {
 			Map<Integer, Function<Double>> map = operations.get(type);
 			if (map == null) {
-				map = CollectionFactory.newMap(null, null);
+				map = CollectionFactory.newMap();
 				operations.put(type, map);
 			}
 			return map;

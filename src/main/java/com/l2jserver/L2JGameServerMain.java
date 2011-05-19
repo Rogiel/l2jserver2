@@ -25,10 +25,10 @@ import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.game.SpawnService;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.id.WorldIDService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
@@ -75,7 +75,7 @@ public class L2JGameServerMain {
 				.getInstance(NPCTemplateIDProvider.class);
 		final NPCIDProvider provider = injector
 				.getInstance(NPCIDProvider.class);
-		final WorldService world = injector.getInstance(WorldService.class);
+		final SpawnService spawnService = injector.getInstance(SpawnService.class);
 
 		final NPCTemplateID id = templateProvider.createID(12077);
 		final NPC npc = id.getTemplate().create();
@@ -84,6 +84,6 @@ public class L2JGameServerMain {
 		// close to char spawn
 		npc.setPoint(Point.fromXYZ(-71301, 258259, -3134));
 
-		world.add(npc);
+		spawnService.spawn(npc, null);
 	}
 }

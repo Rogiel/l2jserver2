@@ -68,7 +68,7 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeDouble(template.getMovementSpeedMultiplier());
 		buffer.writeDouble(template.getAttackSpeedMultiplier());
 		buffer.writeDouble(template.getCollisionRadius());
-		buffer.writeDouble(template.getCollisionHeigth());
+		buffer.writeDouble(template.getCollisionHeight());
 		buffer.writeInt(0x00); // right hand weapon
 		buffer.writeInt(0x00); // chest
 		buffer.writeInt(0x00); // left hand weapon
@@ -92,7 +92,7 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeByte(0x00); // title color 0=client
 
 		buffer.writeDouble(template.getCollisionRadius());
-		buffer.writeDouble(template.getCollisionHeigth());
+		buffer.writeDouble(template.getCollisionHeight());
 		buffer.writeInt(0x00); // C4 - enchant effect
 		buffer.writeInt(0x00); // C6 -- is flying
 		buffer.writeInt(0x00); // unk

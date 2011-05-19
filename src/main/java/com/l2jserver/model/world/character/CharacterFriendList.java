@@ -40,7 +40,7 @@ public class CharacterFriendList implements Iterable<L2Character> {
 	 * The list of friends of this character
 	 */
 	private final Set<CharacterID> friends = CollectionFactory
-			.newSet(CharacterID.class);
+			.newSet();
 
 	/**
 	 * Creates a new instance
