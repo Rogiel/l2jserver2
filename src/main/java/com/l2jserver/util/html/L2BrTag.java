@@ -17,21 +17,17 @@
 package com.l2jserver.util.html;
 
 import org.htmlparser.Tag;
-import org.htmlparser.nodes.TagNode;
 import org.htmlparser.tags.Span;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Lineage 2 {@link Tag}: <tt>br</tt>
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2BrTag extends Span {
 	private static final long serialVersionUID = 1L;
 
 	public L2BrTag() {
 		super.setTagName("br");
-		Tag end = new TagNode();
-		end.setTagName("/br");
-		super.setEndTag(end);
-		super.setEmptyXmlTag(true);
 	}
 }

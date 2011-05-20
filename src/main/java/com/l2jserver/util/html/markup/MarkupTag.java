@@ -28,32 +28,78 @@ import com.l2jserver.util.html.L2LinkTag;
 import com.l2jserver.util.html.L2NewLineTag;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * This is an helper class that helps creating new tags in the HTML document.
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MarkupTag {
+	/**
+	 * The current tag
+	 */
 	private final Tag tag;
+	/**
+	 * The parent {@link MarkupTag}
+	 */
 	private final MarkupTag parent;
 
+	/**
+	 * Creates a new instance with a parent
+	 * 
+	 * @param tag
+	 *            the tag
+	 * @param parent
+	 *            the parent
+	 */
 	public MarkupTag(Tag tag, MarkupTag parent) {
 		this.tag = tag;
 		this.parent = parent;
 	}
 
+	/**
+	 * Creates a new instance without a parent
+	 * 
+	 * @param tag
+	 *            the tag
+	 */
 	public MarkupTag(Tag tag) {
 		this(tag, null);
 	}
 
+	/**
+	 * Adds an attribute to the current tag
+	 * 
+	 * @param name
+	 *            the attribute name
+	 * @param value
+	 *            the attribute value
+	 * @return this {@link MarkupTag}
+	 */
 	public MarkupTag attr(String name, String value) {
 		tag.setAttribute(name, value);
 		return this;
 	}
 
+	/**
+	 * Adds a plain text to the tag. It will not use any formatting.
+	 * 
+	 * @param text
+	 *            the text
+	 * @return this {@link MarkupTag}
+	 */
 	public MarkupTag text(String text) {
 		tag.getChildren().add(new TextNode(text));
 		return this;
 	}
 
+	/**
+	 * Adds a plain text to the tag, use the color formatting.
+	 * 
+	 * @param text
+	 *            the text
+	 * @param color
+	 *            the text color
+	 * @return this {@link MarkupTag}
+	 */
 	public MarkupTag text(String text, String color) {
 		final Tag font = new L2FontTag();
 		font.setAttribute("color", color);
@@ -62,30 +108,61 @@ public class MarkupTag {
 		return this;
 	}
 
+	/**
+	 * Creates a new DIV element
+	 * 
+	 * @return this div {@link MarkupTag}
+	 */
 	public MarkupTag div() {
 		final Tag tag = new L2DivTag();
 		this.tag.getChildren().add(tag);
 		return new MarkupTag(tag, this);
 	}
 
+	/**
+	 * Inserts a line break
+	 * 
+	 * @return this {@link MarkupTag}
+	 */
 	public MarkupTag br() {
 		final Tag tag = new L2BrTag();
 		this.tag.getChildren().add(tag);
 		return this;
 	}
 
+	/**
+	 * Inserts a new paragraph
+	 * 
+	 * @return this {@link MarkupTag}
+	 */
 	public MarkupTag p() {
 		final Tag tag = new L2NewLineTag();
 		this.tag.getChildren().add(tag);
 		return this;
 	}
 
+	/**
+	 * Creates a new CENTER element. Text inside this element will be centered.
+	 * 
+	 * @return this CENTER {@link MarkupTag}
+	 */
 	public MarkupTag center() {
 		final Tag tag = new L2CenterTag();
 		this.tag.getChildren().add(tag);
 		return new MarkupTag(this.tag, this);
 	}
 
+	/**
+	 * Adds an image
+	 * 
+	 * @param src
+	 *            the image source
+	 * @param height
+	 *            the height
+	 * @param width
+	 *            the width
+	 * @return this {@link MarkupTag}
+	 */
 	public MarkupTag addImage(String src, int height, int width) {
 		final Tag tag = new L2ImageTag();
 		this.tag.getChildren().add(tag);
@@ -95,6 +172,15 @@ public class MarkupTag {
 		return this;
 	}
 
+	/**
+	 * Adds a link
+	 * 
+	 * @param text
+	 *            the link text
+	 * @param action
+	 *            the link action (will automatically append "bypass -h")
+	 * @return
+	 */
 	public MarkupTag addLink(String text, String action) {
 		final Tag tag = new L2LinkTag();
 		this.tag.getChildren().add(tag);
@@ -103,6 +189,11 @@ public class MarkupTag {
 		return this;
 	}
 
+	/**
+	 * Close this tag and return the parent element
+	 * 
+	 * @return the parent element, if any.
+	 */
 	public MarkupTag close() {
 		return parent;
 	}

@@ -30,8 +30,7 @@ import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.CharacterService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.calculator.Calculator;
-import com.l2jserver.util.html.markup.Markup;
-import com.l2jserver.util.html.markup.Markup.Builder;
+import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
@@ -110,16 +109,18 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 
 		// target this npc
 		charService.target(character, npc);
-		
+
 		// generate not implemented message
-		final Markup markup = new Markup(name + " - Notice", new Builder() {
+		final HtmlTemplate template = new HtmlTemplate(name) {
 			@Override
 			public void build(MarkupTag body) {
-				body.text("This NPC is not yet implemented!");
+				body.text("The NPC ${name} is not yet implemented!", "ff0000")
+						.p();
 				body.addLink("Click me!", "test");
 			}
-		});
-		conn.write(new NPCHtmlMessagePacket(npc, markup.build()));
+		};
+		template.register("name", name);
+		conn.write(new NPCHtmlMessagePacket(npc, template));
 	}
 
 	/**

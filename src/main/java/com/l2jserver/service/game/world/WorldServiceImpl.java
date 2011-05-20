@@ -50,7 +50,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ LoggingService.class, TemplateService.class, ScriptingService.class,
-		DatabaseService.class })
+		DatabaseService.class, WorldIDService.class })
 public class WorldServiceImpl extends AbstractService implements WorldService {
 	/**
 	 * The logger
@@ -66,15 +66,22 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	 * The world event dispatcher
 	 */
 	private final WorldEventDispatcherImpl dispatcher;
+	/**
+	 * The {@link WorldIDService}
+	 */
+	private final WorldIDService idService;
 
 	@Inject
-	public WorldServiceImpl(WorldEventDispatcher dispatcher) {
+	public WorldServiceImpl(WorldEventDispatcher dispatcher,
+			WorldIDService idService) {
 		this.dispatcher = (WorldEventDispatcherImpl) dispatcher;
+		this.idService = idService;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
 		objects.clear();
+		idService.load();
 	}
 
 	@Override

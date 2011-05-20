@@ -22,6 +22,8 @@ import org.htmlparser.tags.HeadTag;
 import org.htmlparser.util.NodeList;
 
 /**
+ * Lineage 2 {@link Tag}: <tt>head</tt>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2HeadTag extends HeadTag {

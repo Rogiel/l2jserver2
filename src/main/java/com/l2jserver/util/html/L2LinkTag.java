@@ -22,6 +22,8 @@ import org.htmlparser.tags.LinkTag;
 import org.htmlparser.util.NodeList;
 
 /**
+ * Lineage 2 {@link Tag}: <tt>a</tt>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2LinkTag extends LinkTag {
@@ -33,6 +35,5 @@ public class L2LinkTag extends LinkTag {
 		end.setTagName("/a");
 		super.setEndTag(end);
 		super.setChildren(new NodeList());
-		super.setEmptyXmlTag(true);
 	}
 }

@@ -122,8 +122,7 @@ public class MySQLDatabaseService extends AbstractService implements
 		objectCache = new Cache(new CacheConfiguration("database-service",
 				IDAllocator.ALLOCABLE_IDS)
 				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
-				.overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
-				.timeToIdleSeconds(30).diskPersistent(false)
+				.overflowToDisk(true).eternal(true).diskPersistent(false)
 				.diskExpiryThreadIntervalSeconds(0));
 		cacheService.register(objectCache);
 	}

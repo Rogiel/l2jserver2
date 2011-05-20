@@ -20,6 +20,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * This service manages {@link L2Character} instances
@@ -72,6 +73,26 @@ public interface CharacterService extends Service {
 	 *            the coordinate
 	 */
 	void move(L2Character character, Coordinate coordinate);
+
+	/**
+	 * Validates the position of an character
+	 * 
+	 * @param character
+	 *            the character
+	 * @param point
+	 *            the validated point
+	 */
+	void validate(L2Character character, Point point);
+
+	/**
+	 * Called when received the validation of the position of an character
+	 * 
+	 * @param character
+	 *            the character
+	 * @param point
+	 *            the validated point
+	 */
+	void receivedValidation(L2Character character, Point point);
 
 	/**
 	 * Set the character to walking mode

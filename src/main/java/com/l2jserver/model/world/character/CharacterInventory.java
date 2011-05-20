@@ -73,7 +73,8 @@ public class CharacterInventory implements Iterable<Item> {
 	 *            the items to be added
 	 */
 	public void load(List<Item> items) {
-		items.addAll(items);
+		this.items.clear();
+		this.items.addAll(items);
 	}
 
 	/**

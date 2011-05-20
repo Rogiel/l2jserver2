@@ -51,26 +51,29 @@ public class CharacterInventoryPacket extends AbstractServerPacket {
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeByte((showWindow ? 0x01 : 0x00));
-		buffer.writeInt(inventory.getItemCount()); // item count
+		buffer.writeShort((showWindow ? 0x01 : 0x00));
+		// TODO warehouse items will have an issue here!
+		buffer.writeShort(inventory.getItemCount()); // item count
+
+		// TODO implement real item slot
+		int slot = 0;
 		for (Item item : inventory) {
+			if (item.getLocation() == InventoryLocation.WAREHOUSE
+					|| item.getLocation() == null) {
+				continue;
+			}
+
 			buffer.writeInt(item.getID().getID()); // obj id
 			buffer.writeInt(item.getTemplateID().getID()); // item id
-			if (item.getLocation() == InventoryLocation.PAPERDOLL) {
-				buffer.writeInt(item.getPaperdoll().id); // loc slot
-			} else {
-				buffer.writeInt(0x00); // loc slot
-			}
+			buffer.writeInt(slot); // loc slot
 			buffer.writeLong(item.getCount()); // count
 			buffer.writeShort(0x00); // item type2
 			buffer.writeShort(0x00); // item type3
-			if (item.getLocation() == InventoryLocation.PAPERDOLL) {
-				buffer.writeShort(0x01); // equiped?
-			} else {
-				buffer.writeShort(0x00); // equiped?
-			}
-			buffer.writeInt(0x00); // body part
-			buffer.writeShort(0x00); // enchant level
+			buffer.writeShort((item.getLocation() == InventoryLocation.PAPERDOLL ? 0x01
+					: 0x00)); // equiped?
+			buffer.writeInt((item.getPaperdoll() != null ? item.getPaperdoll().id
+					: 0)); // body part
+			buffer.writeShort(127); // enchant level
 			// race tickets
 			buffer.writeShort(0x00); // item type4 (custom type 2)
 			buffer.writeInt(0x00); // augument
@@ -85,6 +88,8 @@ public class CharacterInventoryPacket extends AbstractServerPacket {
 			buffer.writeShort(0x00);
 			buffer.writeShort(0x00);
 			buffer.writeShort(0x00);
+
+			slot++;
 		}
 		// TODO inventory block
 		// buffer.writeShort(_inventory.getBlockItems().length);

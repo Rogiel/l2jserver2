@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.world.id;
+package com.l2jserver.service.game.world;
 
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
@@ -31,6 +31,11 @@ import com.l2jserver.service.database.DatabaseService;
  */
 public interface WorldIDService extends Service {
 	/**
+	 * Load all {@link ObjectID} from the database
+	 */
+	void load();
+
+	/**
 	 * Tries to resolve an ID based on its raw value
 	 * 
 	 * @param <V>
@@ -43,7 +48,23 @@ public interface WorldIDService extends Service {
 	 */
 	<I extends ObjectID<?>> I resolve(int id);
 
+	/**
+	 * Adds a new ID to be managed by this service
+	 * 
+	 * @param <I>
+	 *            the ID type
+	 * @param id
+	 *            the id
+	 */
 	<I extends ObjectID<?>> void add(I id);
 
+	/**
+	 * Decouples an ID from this service
+	 * 
+	 * @param <I>
+	 *            the ID type
+	 * @param id
+	 *            the id
+	 */
 	<I extends ObjectID<?>> void remove(I id);
 }

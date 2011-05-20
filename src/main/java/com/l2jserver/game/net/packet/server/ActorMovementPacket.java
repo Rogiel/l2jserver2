@@ -42,26 +42,28 @@ public class ActorMovementPacket extends AbstractServerPacket {
 	 */
 	private final Actor actor;
 	/**
-	 * The source coordinate
+	 * The source target
 	 */
-	private Coordinate source;
+	private Coordinate target;
 
-	public ActorMovementPacket(Actor actor, Coordinate source) {
+	public ActorMovementPacket(Actor actor, Coordinate target) {
 		super(OPCODE);
 		this.actor = actor;
-		this.source = source;
+		this.target = target;
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(actor.getID().getID());
 
+		// target
+		buffer.writeInt(target.getX());
+		buffer.writeInt(target.getY());
+		buffer.writeInt(target.getZ());
+		
+		// source
 		buffer.writeInt(actor.getPoint().getX());
 		buffer.writeInt(actor.getPoint().getY());
 		buffer.writeInt(actor.getPoint().getZ());
-
-		buffer.writeInt(source.getX());
-		buffer.writeInt(source.getY());
-		buffer.writeInt(source.getZ());
 	}
 }

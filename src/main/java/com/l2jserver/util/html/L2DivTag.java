@@ -22,8 +22,9 @@ import org.htmlparser.tags.Div;
 import org.htmlparser.util.NodeList;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Lineage 2 {@link Tag}: <tt>div</tt>
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2DivTag extends Div {
 	private static final long serialVersionUID = 1L;

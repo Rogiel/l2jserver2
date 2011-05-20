@@ -17,19 +17,25 @@
 package com.l2jserver;
 
 import com.google.inject.Injector;
+import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.provider.NPCIDProvider;
+import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.game.CharacterService;
 import com.l2jserver.service.game.SpawnService;
 import com.l2jserver.service.game.chat.ChatService;
+import com.l2jserver.service.game.pathing.PathingService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.service.game.world.id.WorldIDService;
+import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 import com.l2jserver.util.dimensional.Point;
@@ -54,6 +60,9 @@ public class L2JGameServerMain {
 			serviceManager.start(TemplateService.class);
 
 			serviceManager.start(ChatService.class);
+
+			serviceManager.start(CharacterService.class);
+			serviceManager.start(PathingService.class);
 
 			serviceManager.start(BlowfishKeygenService.class);
 			serviceManager.start(NetworkService.class);
@@ -86,5 +95,16 @@ public class L2JGameServerMain {
 		npc.setPoint(Point.fromXYZ(-71301, 258259, -3134));
 
 		spawnService.spawn(npc, null);
+
+		final ObjectIDResolver resolver = injector
+				.getInstance(ObjectIDResolver.class);
+		final ObjectID<L2Character> cid = resolver.resolve(268437456);
+		L2Character c = cid.getObject();
+
+		System.out
+				.println(injector.getInstance(ItemDAO.class).loadInventory(c));
+
+		System.out.println(injector.getInstance(ObjectIDResolver.class)
+				.resolve(268635457).getObject());
 	}
 }

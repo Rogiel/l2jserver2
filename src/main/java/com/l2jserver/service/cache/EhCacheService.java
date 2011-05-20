@@ -25,6 +25,8 @@ import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
+import net.sf.ehcache.config.Configuration;
+import net.sf.ehcache.config.DiskStoreConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
 import com.l2jserver.service.AbstractService;
@@ -48,7 +50,8 @@ public class EhCacheService extends AbstractService implements CacheService {
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		manager = new CacheManager();
+		manager = new CacheManager(new Configuration().updateCheck(false)
+				.diskStore(new DiskStoreConfiguration().path("data/cache")));
 		interfaceCache = createCache("interface-cache");
 	}
 

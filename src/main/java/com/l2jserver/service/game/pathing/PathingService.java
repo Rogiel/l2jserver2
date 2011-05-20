@@ -14,20 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.service.game.pathing;
 
-import com.l2jserver.game.ProtocolVersion;
+import com.l2jserver.service.Service;
 
 /**
- * Constant values for this L2J compilation
+ * This service handles the pathing.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class L2JConstants {
-	/**
-	 * Indicate the supported protocol for this compilation.
-	 * <p>
-	 * This <b>MUST</b> be hard-coded!
-	 */
-	public static final ProtocolVersion SUPPORTED_PROTOCOL = ProtocolVersion.FREYA;
+public interface PathingService extends Service {
+
 }

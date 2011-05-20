@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.world.id;
+package com.l2jserver.service.game.world;
 
 import java.util.Collection;
 
@@ -25,6 +25,7 @@ import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
+import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
@@ -58,18 +59,28 @@ public class CachedWorldIDService extends AbstractService implements
 	 * The {@link CharacterDAO}
 	 */
 	private final CharacterDAO characterDao;
+	/**
+	 * The {@link ItemDAO}
+	 */
+	private final ItemDAO itemDao;
 
 	/**
 	 * The ID cache
 	 */
 	private Cache cache;
 
+	/**
+	 * The loaded state
+	 */
+	private boolean loaded = false;
+
 	@Inject
 	public CachedWorldIDService(CacheService cacheService,
-			IDAllocator allocator, CharacterDAO characterDao) {
+			IDAllocator allocator, CharacterDAO characterDao, ItemDAO itemDao) {
 		this.cacheService = cacheService;
 		this.allocator = allocator;
 		this.characterDao = characterDao;
+		this.itemDao = itemDao;
 	}
 
 	@Override
@@ -82,9 +93,13 @@ public class CachedWorldIDService extends AbstractService implements
 				.timeToIdleSeconds(30).diskPersistent(false)
 				.diskExpiryThreadIntervalSeconds(0));
 		cacheService.register(cache);
+	}
 
-		// load all ids
+	@Override
+	public void load() {
 		load(characterDao.listIDs());
+		load(itemDao.listIDs());
+		loaded = true;
 	}
 
 	/**
@@ -103,6 +118,11 @@ public class CachedWorldIDService extends AbstractService implements
 	@Override
 	@SuppressWarnings("unchecked")
 	public <I extends ObjectID<?>> I resolve(int id) {
+		if (!loaded) {
+			// ignore resolving before all IDs are loaded
+			return null;
+		}
+
 		final Element element = cache.get(id);
 		if (element == null)
 			return null;
@@ -111,9 +131,8 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	public <I extends ObjectID<?>> void add(I id) {
-		if(id == null)
+		if (id == null)
 			return;
-		System.out.println("Registering ID: "+id);
 		cache.put(new Element(id.getID(), id));
 	}
 

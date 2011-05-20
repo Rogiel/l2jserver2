@@ -33,11 +33,14 @@ import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory;
+import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
+import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
+import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * {@link ItemDAO} implementation for MySQL5
@@ -67,6 +70,13 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	public static final String TEMPLATE_ID = "template_id";
 	public static final String CHAR_ID = MySQL5CharacterDAO.CHAR_ID;
 
+	public static final String LOCATION = "location";
+	public static final String PAPERDOLL = "paperdoll";
+	public static final String COUNT = "count";
+	public static final String COORD_X = "coord_x";
+	public static final String COORD_Y = "coord_y";
+	public static final String COORD_Z = "coord_z";
+
 	@Inject
 	public MySQL5ItemDAO(DatabaseService database,
 			final ItemIDProvider idFactory,
@@ -95,7 +105,21 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 			final Item item = template.create();
 
 			item.setID(id);
-			item.setOwnerID(charIdFactory.createID(rs.getInt(CHAR_ID)));
+			if (rs.getObject(CHAR_ID) != null)
+				item.setOwnerID(charIdFactory.createID(rs.getInt(CHAR_ID)));
+			if (rs.getObject(LOCATION) != null)
+				item.setLocation(InventoryLocation.valueOf(rs
+						.getString(LOCATION)));
+			if (rs.getObject(PAPERDOLL) != null)
+				item.setPaperdoll(InventoryPaperdoll.valueOf(rs
+						.getString(PAPERDOLL)));
+
+			item.setCount(rs.getInt(COUNT));
+
+			if (rs.getObject(COORD_X) != null && rs.getObject(COORD_Y) != null
+					&& rs.getObject(COORD_Z) != null)
+				item.setPosition(Coordinate.fromXYZ(rs.getInt(COORD_X),
+						rs.getInt(COORD_Y), rs.getInt(COORD_Z)));
 
 			return item;
 		}
@@ -107,7 +131,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	private final Mapper<ItemID> idMapper = new Mapper<ItemID>() {
 		@Override
 		public ItemID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CHAR_ID));
+			return idFactory.createID(rs.getInt(ITEM_ID));
 		}
 	};
 
@@ -161,7 +185,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 		return database.query(new SelectListQuery<ItemID>() {
 			@Override
 			protected String query() {
-				return "SELECT `" + CHAR_ID + "` FROM `" + TABLE + "`";
+				return "SELECT `" + ITEM_ID + "` FROM `" + TABLE + "`";
 			}
 
 			@Override

@@ -22,8 +22,9 @@ import org.htmlparser.tags.Span;
 import org.htmlparser.util.NodeList;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Lineage 2 {@link Tag}: <tt>font</tt>
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2FontTag extends Span {
 	private static final long serialVersionUID = 1L;

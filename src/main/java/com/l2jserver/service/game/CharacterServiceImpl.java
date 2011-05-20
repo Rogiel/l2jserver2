@@ -17,6 +17,7 @@
 package com.l2jserver.service.game;
 
 import com.google.inject.Inject;
+import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.ActionFailedPacket;
@@ -45,7 +46,6 @@ import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
-import com.l2jserver.service.game.ai.AIService;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
@@ -58,6 +58,7 @@ import com.l2jserver.service.game.world.event.WorldListener;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * Default implementation for {@link CharacterService}.
@@ -65,7 +66,7 @@ import com.l2jserver.util.dimensional.Coordinate;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ WorldService.class, ChatService.class, NetworkService.class,
-		SpawnService.class, AIService.class })
+		SpawnService.class })
 public class CharacterServiceImpl extends AbstractService implements
 		CharacterService {
 	/**
@@ -88,6 +89,10 @@ public class CharacterServiceImpl extends AbstractService implements
 	 * The {@link SpawnService}
 	 */
 	private final SpawnService spawnService;
+	/**
+	 * The {@link ItemDAO}
+	 */
+	private final ItemDAO itemDao;
 
 	// /**
 	// * The {@link AIService}
@@ -97,12 +102,14 @@ public class CharacterServiceImpl extends AbstractService implements
 	@Inject
 	public CharacterServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
-			NetworkService networkService, SpawnService spawnService) {
+			NetworkService networkService, SpawnService spawnService,
+			ItemDAO itemDao) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.chatService = chatService;
 		this.networkService = networkService;
 		this.spawnService = spawnService;
+		this.itemDao = itemDao;
 	}
 
 	@Override
@@ -114,6 +121,8 @@ public class CharacterServiceImpl extends AbstractService implements
 		if (!worldService.add(character))
 			// character is already in the world!
 			return;
+		
+		itemDao.loadInventory(character);
 
 		// chat listener
 		final ChatChannelListener globalChatListener = new ChatChannelListener() {
@@ -221,10 +230,11 @@ public class CharacterServiceImpl extends AbstractService implements
 		// aiService.walk(character, coordinate);
 
 		final Coordinate source = character.getPosition();
-		character.setPosition(coordinate);
-		conn.write(new ActorMovementPacket(character, source));
+		// we don't set the character coordinate yet, this will be done by
+		// validate coordinate
+		conn.write(new ActorMovementPacket(character, coordinate));
 		// we don't dispatch events here, they will be dispatched by
-		// CharacterValidatePositionPacket packets at fixed time intervals.
+		// receivedValidation at fixed time intervals.
 	}
 
 	@Override
@@ -271,6 +281,17 @@ public class CharacterServiceImpl extends AbstractService implements
 			}
 
 		}
+	}
+
+	@Override
+	public void validate(L2Character character, Point point) {
+		// TODO implement position validation
+	}
+
+	@Override
+	public void receivedValidation(L2Character character, Point point) {
+		character.setPoint(point);
+		eventDispatcher.dispatch(new CharacterMoveEvent(character, point));
 	}
 
 	@Override

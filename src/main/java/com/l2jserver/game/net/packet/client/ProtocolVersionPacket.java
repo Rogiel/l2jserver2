@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.L2JConstants;
+import com.l2jserver.L2JConstant;
 import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
@@ -87,9 +87,9 @@ public class ProtocolVersionPacket extends AbstractClientPacket {
 
 		log.debug("Client protocol version: {}", version);
 		conn.setVersion(version);
-		if (L2JConstants.SUPPORTED_PROTOCOL != version) {
+		if (L2JConstant.SUPPORTED_PROTOCOL != version) {
 			log.info("Incorrect protocol version: {0}. Only {1} is supported.",
-					version, L2JConstants.SUPPORTED_PROTOCOL);
+					version, L2JConstant.SUPPORTED_PROTOCOL);
 			// notify wrong protocol and close connection
 			conn.write(new KeyPacket(inKey, false)).addListener(
 					new ChannelFutureListener() {

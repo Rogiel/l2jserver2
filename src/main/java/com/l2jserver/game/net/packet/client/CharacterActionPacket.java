@@ -17,8 +17,6 @@
 package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
@@ -27,7 +25,6 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
@@ -85,7 +82,6 @@ public class CharacterActionPacket extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Connection conn) {
 		// since this is an erasure type, this is safe.
-		System.out.println(objectId);
 		final ObjectID<NPC> id = idResolver.resolve(objectId);
 		if (!(id instanceof NPCID)) {
 			System.out.println("Incorrect type: " + id);

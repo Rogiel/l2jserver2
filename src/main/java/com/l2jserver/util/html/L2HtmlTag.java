@@ -22,8 +22,9 @@ import org.htmlparser.tags.Html;
 import org.htmlparser.util.NodeList;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Lineage 2 {@link Tag}: <tt>html</tt>
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2HtmlTag extends Html {
 	private static final long serialVersionUID = 1L;

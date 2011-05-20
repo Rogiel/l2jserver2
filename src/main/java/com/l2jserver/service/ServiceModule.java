@@ -31,16 +31,18 @@ import com.l2jserver.service.game.SpawnService;
 import com.l2jserver.service.game.SpawnServiceImpl;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.SimpleChatService;
+import com.l2jserver.service.game.pathing.MapperPathingService;
+import com.l2jserver.service.game.pathing.PathingService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
 import com.l2jserver.service.game.template.ScriptTemplateService;
 import com.l2jserver.service.game.template.TemplateService;
+import com.l2jserver.service.game.world.CachedWorldIDService;
+import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.WorldServiceImpl;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
-import com.l2jserver.service.game.world.id.CachedWorldIDService;
-import com.l2jserver.service.game.world.id.WorldIDService;
 import com.l2jserver.service.logging.Log4JLoggingService;
 import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.service.network.NettyNetworkService;
@@ -65,6 +67,9 @@ public class ServiceModule extends AbstractModule {
 		bind(DatabaseService.class).to(MySQLDatabaseService.class).in(
 				Scopes.SINGLETON);
 		bind(WorldIDService.class).to(CachedWorldIDService.class).in(
+				Scopes.SINGLETON);
+
+		bind(PathingService.class).to(MapperPathingService.class).in(
 				Scopes.SINGLETON);
 
 		bind(BlowfishKeygenService.class).to(SecureBlowfishKeygenService.class)

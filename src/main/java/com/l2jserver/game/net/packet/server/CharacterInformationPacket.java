@@ -281,7 +281,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(0x01); // special effects? circles around player...
 		buffer.writeInt(200); // max cp
 		buffer.writeInt(200); // cur cp
-		buffer.writeByte(127); // is mount or is airshilhelp = 0; otherwise
+		buffer.writeByte(0x00); // is mount or is airshilhelp = 0; otherwise
 								// enchant effect (minimum 127)
 
 		buffer.writeByte(0x00);// team, 1=blue,2 red,0 is unknown

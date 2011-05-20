@@ -14,24 +14,20 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.html;
+package com.l2jserver;
 
-import org.htmlparser.Tag;
-import org.htmlparser.nodes.TagNode;
-import org.htmlparser.tags.ImageTag;
+import com.l2jserver.game.ProtocolVersion;
 
 /**
- * Lineage 2 {@link Tag}: <tt>img</tt>
+ * Constant values for this L2J compilation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class L2ImageTag extends ImageTag {
-	private static final long serialVersionUID = 1L;
-
-	public L2ImageTag() {
-		super.setTagName("img");
-		Tag end = new TagNode();
-		end.setTagName("/img");
-		super.setEndTag(end);
-	}
+public class L2JConstant {
+	/**
+	 * Indicate the supported protocol for this compilation.
+	 * <p>
+	 * This <b>MUST</b> be hard-coded!
+	 */
+	public static final ProtocolVersion SUPPORTED_PROTOCOL = ProtocolVersion.FREYA;
 }

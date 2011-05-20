@@ -23,6 +23,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.BufferUtils;
+import com.l2jserver.util.html.markup.HtmlTemplate;
 
 /**
  * This packet sends an HTML message to be displayed in the client.
@@ -36,18 +37,24 @@ public class NPCHtmlMessagePacket extends AbstractServerPacket {
 	public static final int OPCODE = 0x19;
 
 	private final NPC npc;
-	private final Html html;
+	private final String html;
 
 	public NPCHtmlMessagePacket(NPC npc, Html html) {
 		super(OPCODE);
 		this.npc = npc;
-		this.html = html;
+		this.html = html.toHtml();
+	}
+
+	public NPCHtmlMessagePacket(NPC npc, HtmlTemplate markup) {
+		super(OPCODE);
+		this.npc = npc;
+		this.html = markup.toHtmlString();
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(npc.getID().getID());
-		BufferUtils.writeString(buffer, html.toHtml());
+		BufferUtils.writeString(buffer, html);
 		buffer.writeInt(0x00); // item id
 	}
 }

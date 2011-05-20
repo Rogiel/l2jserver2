@@ -18,45 +18,30 @@ package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.service.game.CharacterService;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.game.net.packet.server.CharacterInventoryPacket;
+import com.l2jserver.model.world.L2Character;
 
 /**
- * This packet notifies the server which character the player has chosen to use.
+ * Completes the creation of an character. Creates the object, inserts into the
+ * database and notifies the client about the status of the operation.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterValidatePositionPacket extends AbstractClientPacket {
+public class CharacterRequestInventoryPacket extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x59;
-
-	/**
-	 * The {@link CharacterService}
-	 */
-	private final CharacterService charService;
-
-	private Point point;
-	private int extra; // vehicle id
-
-	@Inject
-	public CharacterValidatePositionPacket(CharacterService charService) {
-		this.charService = charService;
-	}
+	public static final int OPCODE = 0x14;
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
-		point = Point.fromXYZA(buffer.readInt(), buffer.readInt(),
-				buffer.readInt(), buffer.readInt());
-		extra = buffer.readInt();
 	}
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		charService.receivedValidation(conn.getCharacter(), point);
+		final L2Character character = conn.getCharacter();
+		conn.write(new CharacterInventoryPacket(character.getInventory()));
 	}
 }

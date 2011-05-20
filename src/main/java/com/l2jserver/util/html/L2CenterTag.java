@@ -21,8 +21,9 @@ import org.htmlparser.nodes.TagNode;
 import org.htmlparser.tags.Span;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Lineage 2 {@link Tag}: <tt>center</tt>
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2CenterTag extends Span {
 	private static final long serialVersionUID = 1L;

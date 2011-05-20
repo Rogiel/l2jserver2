@@ -18,7 +18,7 @@ package com.l2jserver.model.id.object.provider;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.service.game.world.id.WorldIDService;
+import com.l2jserver.service.game.world.WorldIDService;
 
 /**
  * <h1>THIS PROVIDER IS READ ONLY!</h1>

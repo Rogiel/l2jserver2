@@ -21,7 +21,7 @@ import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
 import com.l2jserver.model.id.provider.IDProvider;
-import com.l2jserver.service.game.world.id.WorldIDService;
+import com.l2jserver.service.game.world.WorldIDService;
 
 /**
  * {@link IDProvider} for {@link NPCID}.
