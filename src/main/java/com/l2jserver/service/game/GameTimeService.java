@@ -25,6 +25,11 @@ import com.l2jserver.service.Service;
  */
 public interface GameTimeService extends Service {
 	/**
+	 * The real time length of a day in-game in milliseconds.
+	 */
+	public static final int GAME_DAY = 120 * 60 * 1000;
+
+	/**
 	 * Returns the in-game time
 	 * 
 	 * @return the game time

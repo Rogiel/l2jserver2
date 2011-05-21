@@ -14,16 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.threading;
+package com.l2jserver.service.game;
 
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
 
 /**
- * This service is responsible for scheduling tasks and executing them in
- * parallel.
+ * This service controls {@link NPC}s
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ThreadService extends Service {
-
+public interface MonsterService extends Service {
+	/**
+	 * Interacts the given <tt>player</tt> with the given <tt>npc</tt>
+	 * 
+	 * @param npc
+	 *            the npc
+	 * @param character
+	 *            the character
+	 */
+	void interact(NPC npc, L2Character character);
 }

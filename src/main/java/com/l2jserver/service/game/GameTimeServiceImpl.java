@@ -27,7 +27,6 @@ public class GameTimeServiceImpl extends AbstractService implements
 		GameTimeService {
 	@Override
 	public int getGameTime() {
-		// TODO implement this!
-		return (int) (System.currentTimeMillis() / 1000);
+		return (int) (System.currentTimeMillis() % GAME_DAY) / 1000;
 	}
 }

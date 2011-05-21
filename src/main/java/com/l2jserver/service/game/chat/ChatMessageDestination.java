@@ -16,6 +16,11 @@
  */
 package com.l2jserver.service.game.chat;
 
+/**
+ * Enumeration of all possible message destinations
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public enum ChatMessageDestination {
 	/**
 	 * Everyone
@@ -44,9 +49,17 @@ public enum ChatMessageDestination {
 	/**
 	 * $
 	 */
-	ALLIANCE(9), ANNOUNCEMENT(10), BOAT(11), L2FRIEND(12), MSNCHAT(13), PARTYMATCH_ROOM(
-			14), PARTYROOM_COMMANDER(15), PARTYROOM_ALL(16), HERO_VOICE(17), CRITICAL_ANNOUNCE(
-			18), SCREEN_ANNOUNCE(19), BATTLEFIELD(20), MPCC_ROOM(21);
+	ALLIANCE(9),
+	/**
+	 * Announcement
+	 */
+	ANNOUNCEMENT(10),
+	/**
+	 * Boat
+	 */
+	BOAT(11), L2FRIEND(12), MSNCHAT(13), PARTYMATCH_ROOM(14), PARTYROOM_COMMANDER(
+			15), PARTYROOM_ALL(16), HERO_VOICE(17), CRITICAL_ANNOUNCE(18), SCREEN_ANNOUNCE(
+			19), BATTLEFIELD(20), MPCC_ROOM(21);
 
 	public final int id;
 

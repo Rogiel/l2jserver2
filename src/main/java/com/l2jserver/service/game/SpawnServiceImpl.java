@@ -19,6 +19,7 @@ package com.l2jserver.service.game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.server.CharacterTeleportPacket;
@@ -72,16 +73,16 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public void spawn(Spawnable spawnable, Point point) {
+	public void spawn(Spawnable spawnable, Point point)
+			throws SpawnPointNotFoundServiceException {
+		Preconditions.checkNotNull(spawnable, "spawnable");
 		// sanitize
 		if (point == null)
 			// retrieving stored point
 			point = spawnable.getPoint();
 		if (point == null) {
 			// not point send and no point stored, aborting
-			// TODO this should throw an exception
-			log.warn("Trying to spawn {} to a null point", spawnable);
-			return;
+			throw new SpawnPointNotFoundServiceException();
 		}
 
 		// set the spawning point
@@ -110,6 +111,8 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 	@Override
 	public void teleport(Player player, Coordinate coordinate) {
+		Preconditions.checkNotNull(player, "player");
+		Preconditions.checkNotNull(coordinate, "coordinate");
 		player.setPosition(coordinate);
 		if (player instanceof L2Character) {
 			final Lineage2Connection conn = networkService
@@ -127,12 +130,14 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 	@Override
 	public void scheduleRespawn(Spawnable spawnable) {
+		Preconditions.checkNotNull(spawnable, "spawnable");
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void unspawn(Spawnable spawnable) {
+		Preconditions.checkNotNull(spawnable, "spawnable");
 		// TODO Auto-generated method stub
 
 	}

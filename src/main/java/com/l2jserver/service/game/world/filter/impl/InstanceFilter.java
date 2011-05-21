@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game.world.filter.impl;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
@@ -40,6 +41,7 @@ public class InstanceFilter<T extends WorldObject> implements
 	 *            the instance type
 	 */
 	public InstanceFilter(Class<?> instance) {
+		Preconditions.checkNotNull(instance, "instance");
 		this.type = instance;
 	}
 

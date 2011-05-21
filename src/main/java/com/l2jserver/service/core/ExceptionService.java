@@ -14,22 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.logging;
+package com.l2jserver.service.core;
 
-import org.apache.log4j.BasicConfigurator;
-
-import com.l2jserver.service.AbstractService;
-import com.l2jserver.service.ServiceStartException;
+import com.l2jserver.service.Service;
 
 /**
- * Logging service implementation for Log4J
+ * Service used to manage unhandled exceptions
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Log4JLoggingService extends AbstractService implements
-		LoggingService {
-	@Override
-	protected void doStart() throws ServiceStartException {
-		BasicConfigurator.configure();
-	}
+public interface ExceptionService extends Service {
+	/**
+	 * Handles an unhandled exception
+	 * 
+	 * @param t
+	 *            the exception
+	 */
+	void thrown(Throwable t);
+
+	/**
+	 * Handles an unhandled exception and rethrows it again
+	 * 
+	 * @param <T>
+	 *            the exception type
+	 * @param t
+	 *            the exception
+	 * @throws T
+	 *             same exception in <tt>t</tt>
+	 */
+	<T extends Throwable> void rethrown(T t) throws T;
 }

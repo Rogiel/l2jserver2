@@ -19,6 +19,7 @@ package com.l2jserver.service.game.chat;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.object.CharacterID;
@@ -106,7 +107,12 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	public void send(CharacterID sender, ChatMessageDestination chat,
 			String message, String extra)
 			throws TargetNotFoundChatServiceException,
-			CannotChatToSelfChatServiceException {
+			CannotChatToSelfChatServiceException,
+			ChatBanActiveChatServiceException {
+		Preconditions.checkNotNull(sender, "sender");
+		Preconditions.checkNotNull(message, "message");
+		Preconditions.checkNotNull(extra, "extra");
+
 		final ChatChannel channel;
 		switch (chat) {
 		case ALL:
@@ -122,7 +128,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			final L2Character character = charDao.selectByName(extra);
 			if (character == null)
 				throw new TargetNotFoundChatServiceException();
-			if (character.equals(sender))
+			if (character.getID().equals(sender))
 				throw new CannotChatToSelfChatServiceException();
 			channel = getChannel(character.getID());
 			break;
@@ -152,6 +158,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 	@Override
 	public PublicChatChannel getRegionChannel(L2Character character) {
+		Preconditions.checkNotNull(character, "character");
 		final Region region = regionService.getRegion(character);
 		RegionChatChannelImpl channel = regionChannels.get(region);
 		if (channel == null) {
@@ -163,6 +170,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 	@Override
 	public PrivateChatChannel getChannel(CharacterID character) {
+		Preconditions.checkNotNull(character, "character");
 		if (character == null)
 			return null;
 		PrivateChatChannelImpl channel = privateChannels.get(character);
@@ -175,6 +183,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 	@Override
 	public PublicChatChannel getChannel(ClanID clan) {
+		Preconditions.checkNotNull(clan, "clan");
 		if (clan == null)
 			return null;
 		ClanChatChannelImpl channel = clanChannels.get(clan);
@@ -207,6 +216,9 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 		@Override
 		public void send(CharacterID sender, String message) {
+			Preconditions.checkNotNull(sender, "sender");
+			Preconditions.checkNotNull(message, "message");
+			// TODO throw exception if sender is banned from chat
 			for (final ChatChannelListener listener : listeners) {
 				listener.onMessage(this, sender, message);
 			}
@@ -214,11 +226,13 @@ public class SimpleChatService extends AbstractService implements ChatService {
 
 		@Override
 		public void addChatChannelListener(ChatChannelListener listener) {
+			Preconditions.checkNotNull(listener, "listener");
 			listeners.add(listener);
 		}
 
 		@Override
 		public void removeChatChannelListener(ChatChannelListener listener) {
+			Preconditions.checkNotNull(listener, "listener");
 			listeners.remove(listener);
 		}
 	}
@@ -233,6 +247,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		private final CharacterID character;
 
 		public PrivateChatChannelImpl(CharacterID character) {
+			Preconditions.checkNotNull(character, "character");
 			this.character = character;
 		}
 
@@ -288,6 +303,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 * @param clanID
 		 */
 		public ClanChatChannelImpl(ClanID clanID) {
+			Preconditions.checkNotNull(clanID, "clanID");
 			this.clanID = clanID;
 		}
 	}
@@ -311,6 +327,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 * @param clanID
 		 */
 		public RegionChatChannelImpl(Region region) {
+			Preconditions.checkNotNull(region, "region");
 			this.region = region;
 		}
 	}

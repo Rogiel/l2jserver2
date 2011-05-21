@@ -27,6 +27,8 @@ import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.CharacterService;
 import com.l2jserver.service.game.SpawnService;
+import com.l2jserver.service.game.SpawnService.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.SpawnService.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.pathing.PathingService;
 import com.l2jserver.service.game.scripting.ScriptingService;
@@ -67,6 +69,7 @@ public class L2JGameServerMain {
 		} catch (Exception e) {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();
+			System.exit(0);
 		}
 
 		// Thread.sleep(60 * 60 * 1000);
@@ -74,8 +77,13 @@ public class L2JGameServerMain {
 
 	/**
 	 * This method does an static spawn for an object
+	 * 
+	 * @throws AlreadySpawnedServiceException
+	 * @throws SpawnPointNotFoundServiceException
 	 */
-	private static void staticSpawn(Injector injector) {
+	private static void staticSpawn(Injector injector)
+			throws SpawnPointNotFoundServiceException,
+			AlreadySpawnedServiceException {
 		final NPCTemplateIDProvider templateProvider = injector
 				.getInstance(NPCTemplateIDProvider.class);
 		final NPCIDProvider provider = injector

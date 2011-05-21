@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Connection;
@@ -47,6 +48,9 @@ import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.game.SpawnService.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.SpawnService.NotSpawnedServiceException;
+import com.l2jserver.service.game.SpawnService.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
@@ -114,14 +118,13 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public void enterWorld(final L2Character character) {
+	public void enterWorld(final L2Character character)
+			throws SpawnPointNotFoundServiceException,
+			AlreadySpawnedServiceException {
+		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 		if (conn == null)
-			return;
-		if (!worldService.add(character))
-			// TODO this should throw an exception
-			// character is already in the world!
 			return;
 
 		itemDao.loadInventory(character);
@@ -224,34 +227,23 @@ public class CharacterServiceImpl extends AbstractService implements
 		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
 
 		// spawn the player -- this will also dispatch a spawn event
+		// here the object is registered in the world
 		spawnService.spawn(character, null);
 	}
 
 	@Override
-	public void move(L2Character character, Coordinate coordinate) {
-		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
-		// we don't set the character coordinate here, this will be done by
-		// validation packets, sent by client
-
-		// for now, let's just write the packet, we don't have much validation
-		// to be done yet. With character validation packet, another packet of
-		// these will be broadcasted.
-		conn.write(new ActorMovementPacket(character, coordinate));
-		// we don't dispatch events here, they will be dispatched by
-		// with the same packet referred up here.
-	}
-
-	@Override
-	public void leaveWorld(L2Character character) {
-		if (!worldService.remove(character))
-			return;
+	public void leaveWorld(L2Character character)
+			throws NotSpawnedServiceException {
+		Preconditions.checkNotNull(character, "character");
 		spawnService.unspawn(character);
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
 	}
 
 	@Override
-	public void target(L2Character character, Actor target) {
+	public void target(L2Character character, Actor target)
+			throws CannotSetTargetServiceException {
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 
@@ -277,17 +269,19 @@ public class CharacterServiceImpl extends AbstractService implements
 					character, target));
 			conn.write(new CharacterTargetSelectedPacket(target));
 		} else {
-			// this indicates an inconsistency, send an action failed and reset
-			// target, i.e. deselect with no target
-			// TODO instead of sending action failed, we should throw an
-			// exception here
-			conn.sendActionFailed();
+			// this indicates an inconsistency: reset target and throws an
+			// exception
+			// this happens if tried deselect with no target
 			character.setTargetID(null);
+			throw new CannotSetTargetServiceException();
 		}
 	}
 
 	@Override
-	public void attack(L2Character character, Actor target) {
+	public void attack(L2Character character, Actor target)
+			throws CannotSetTargetServiceException {
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 		// check if this Actor can be attacked
@@ -306,18 +300,58 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
+	public void jail(L2Character character, long time, String reason)
+			throws CharacterInJailServiceException {
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkArgument(time > 0, "time <= 0");
+		Preconditions.checkNotNull(reason, "reason");
+		// TODO implement jailing
+		throw new CharacterInJailServiceException();
+	}
+
+	@Override
+	public void unjail(L2Character character)
+			throws CharacterNotInJailServiceException {
+		Preconditions.checkNotNull(character, "character");
+		// TODO implement jailing
+		throw new CharacterNotInJailServiceException();
+	}
+
+	@Override
+	public void move(L2Character character, Coordinate coordinate) {
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(coordinate, "coordinate");
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+		// we don't set the character coordinate here, this will be done by
+		// validation packets, sent by client
+
+		// for now, let's just write the packet, we don't have much validation
+		// to be done yet. With character validation packet, another packet of
+		// these will be broadcasted.
+		conn.write(new ActorMovementPacket(character, coordinate));
+		// we don't dispatch events here, they will be dispatched by
+		// with the same packet referred up here.
+	}
+
+	@Override
 	public void validate(L2Character character, Point point) {
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(point, "point");
 		// TODO implement position validation
 	}
 
 	@Override
 	public void receivedValidation(L2Character character, Point point) {
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(point, "point");
 		character.setPoint(point);
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, point));
 	}
 
 	@Override
 	public void walk(L2Character character) {
+		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 		// test if character is running
@@ -332,6 +366,7 @@ public class CharacterServiceImpl extends AbstractService implements
 
 	@Override
 	public void run(L2Character character) {
+		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 		// test if character is walking

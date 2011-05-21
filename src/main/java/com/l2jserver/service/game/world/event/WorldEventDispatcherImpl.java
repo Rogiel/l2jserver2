@@ -28,6 +28,7 @@ import java.util.concurrent.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.google.common.util.concurrent.AbstractFuture;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
@@ -92,6 +93,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 
 	@Override
 	public <E extends WorldEvent> WorldEventFuture<E> dispatch(E event) {
+		Preconditions.checkNotNull(event, "event");
 		log.debug("Queing dispatch for event {}", event);
 		final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
 		events.add(new EventContainer(event, future));
@@ -119,10 +121,9 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 					if (!listener.dispatch(event.event))
 						// remove listener if return value is false
 						listeners.remove(listener);
-				} catch (ClassCastException e) {
-					log.debug(
-							"Exception in Listener. This might indicate an implementation issue in {}",
-							listener.getClass());
+				} catch (Throwable t) {
+					log.warn("Exception in listener", t);
+					// always remove any listener that throws an exception
 					listeners.remove(listener);
 				}
 			}
@@ -132,33 +133,43 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 
 	@Override
 	public void addListener(WorldListener listener) {
+		Preconditions.checkNotNull(listener, "listener");
 		log.debug("Adding new listener global {}", listener);
 		globalListeners.add(listener);
 	}
 
 	@Override
 	public void addListener(WorldObject object, WorldListener listener) {
+		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkNotNull(listener, "listener");
 		addListener(object.getID(), listener);
 	}
 
 	@Override
 	public void addListener(ObjectID<?> id, WorldListener listener) {
+		Preconditions.checkNotNull(id, "id");
+		Preconditions.checkNotNull(listener, "listener");
 		log.debug("Adding new listener {} to {}", listener, id);
 		getListeners(id).add(listener);
 	}
 
 	@Override
 	public void removeListener(WorldListener listener) {
+		Preconditions.checkNotNull(listener, "listener");
 		globalListeners.remove(listener);
 	}
 
 	@Override
 	public void removeListener(WorldObject object, WorldListener listener) {
+		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkNotNull(listener, "listener");
 		removeListener(object.getID(), listener);
 	}
 
 	@Override
 	public void removeListener(ObjectID<?> id, WorldListener listener) {
+		Preconditions.checkNotNull(id, "id");
+		Preconditions.checkNotNull(listener, "listener");
 		log.debug("Removing new listener {} from {}", listener, id);
 		getListeners(id).remove(listener);
 	}
@@ -170,6 +181,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	 *            the object id
 	 */
 	public void clear(ObjectID<?> id) {
+		Preconditions.checkNotNull(id, "id");
 		listeners.remove(id);
 	}
 
@@ -182,6 +194,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	 * @return the {@link Set}. Never null.
 	 */
 	private Set<WorldListener> getListeners(ObjectID<?> id) {
+		Preconditions.checkNotNull(id, "id");
 		Set<WorldListener> set = listeners.get(id);
 		if (set == null) {
 			set = CollectionFactory.newSet();
@@ -189,7 +202,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		}
 		return set;
 	}
-	
+
 	public void stop() {
 		timer.cancel();
 		timer = null;

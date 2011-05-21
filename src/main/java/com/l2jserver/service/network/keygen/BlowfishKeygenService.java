@@ -18,6 +18,20 @@ package com.l2jserver.service.network.keygen;
 
 import com.l2jserver.service.Service;
 
+/**
+ * This service generated cryptography keys used to encrypt and decrypt client
+ * or server packets. Implementations can use an fixed set of keys or generate a
+ * random one. Note that the generated key might not be cryptographically safe,
+ * and this is implementation specific.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface BlowfishKeygenService extends Service {
+	/**
+	 * Creates a new 128 bits key. Note that the key is not necessarily random
+	 * and can be a fixed key.
+	 * 
+	 * @return the 128 bits key
+	 */
 	byte[] generate();
 }

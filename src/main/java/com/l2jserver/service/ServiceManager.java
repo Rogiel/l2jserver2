@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.service.logging.LoggingService;
+import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 

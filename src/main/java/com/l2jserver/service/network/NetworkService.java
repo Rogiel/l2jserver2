@@ -17,6 +17,7 @@
 package com.l2jserver.service.network;
 
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.Service;
 
@@ -51,6 +52,14 @@ public interface NetworkService extends Service {
 	 * @return the found connection
 	 */
 	Lineage2Connection discover(CharacterID character);
+
+	/**
+	 * Broadcast an given <tt>packet</tt> to all clients connected
+	 * 
+	 * @param packet
+	 *            the packet
+	 */
+	void broadcast(ServerPacket packet);
 
 	/**
 	 * Searches for idle connection and removes them

@@ -14,16 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.logging;
-
-import org.slf4j.Logger;
-
-import com.l2jserver.service.Service;
+package com.l2jserver.util.exception;
 
 /**
- * The logging service is used to get instances of the {@link Logger} class.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface LoggingService extends Service {
+public class L2CharacterServiceException extends L2ServiceException {
+	private static final long serialVersionUID = 1L;
+
+	public L2CharacterServiceException() {
+		super();
+	}
+
+	public L2CharacterServiceException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public L2CharacterServiceException(String message) {
+		super(message);
+	}
+
+	public L2CharacterServiceException(Throwable cause) {
+		super(cause);
+	}
 }

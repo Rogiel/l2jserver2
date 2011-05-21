@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game.world.event;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
@@ -30,6 +31,7 @@ public abstract class FilteredWorldListener<T extends WorldObject> implements
 	private final WorldObjectFilter<T> filter;
 
 	public FilteredWorldListener(WorldObjectFilter<T> filter) {
+		Preconditions.checkNotNull(filter, "filter");
 		this.filter = filter;
 	}
 

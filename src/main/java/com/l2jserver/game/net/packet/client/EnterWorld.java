@@ -25,6 +25,8 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.SpawnService.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.SpawnService.SpawnPointNotFoundServiceException;
 
 /**
  * The client is requesting a logout. Currently, when this packet is received
@@ -75,6 +77,13 @@ public class EnterWorld extends AbstractClientPacket {
 			conn.close();
 			return;
 		}
-		characterService.enterWorld(id.getObject());
+		// TODO send fail message
+		try {
+			characterService.enterWorld(id.getObject());
+		} catch (SpawnPointNotFoundServiceException e) {
+
+		} catch (AlreadySpawnedServiceException e) {
+
+		}
 	}
 }

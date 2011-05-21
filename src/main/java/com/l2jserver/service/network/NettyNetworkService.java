@@ -27,16 +27,18 @@ import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.logging.InternalLoggerFactory;
 import org.jboss.netty.logging.Slf4JLoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
+import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -97,6 +99,7 @@ public class NettyNetworkService extends AbstractService implements
 
 	@Override
 	public void register(final Lineage2Connection client) {
+		Preconditions.checkNotNull(client, "client");
 		clients.add(client);
 		client.getChannel().getCloseFuture()
 				.addListener(new ChannelFutureListener() {
@@ -110,16 +113,24 @@ public class NettyNetworkService extends AbstractService implements
 
 	@Override
 	public void unregister(Lineage2Connection client) {
+		Preconditions.checkNotNull(client, "client");
 		clients.remove(client);
 	}
 
 	@Override
 	public Lineage2Connection discover(CharacterID character) {
+		Preconditions.checkNotNull(character, "character");
 		for (final Lineage2Connection client : clients) {
 			if (character.equals(client.getCharacterID()))
 				return client;
 		}
 		return null;
+	}
+
+	@Override
+	public void broadcast(ServerPacket packet) {
+		Preconditions.checkNotNull(packet, "packet");
+		channel.write(packet);
 	}
 
 	@Override

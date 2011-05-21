@@ -39,6 +39,7 @@ import org.apache.commons.pool.impl.GenericObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
@@ -49,8 +50,8 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.ArrayIterator;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -137,6 +138,7 @@ public class MySQLDatabaseService extends AbstractService implements
 	 * @return an instance of <tt>T</tt>
 	 */
 	public <T> T query(Query<T> query) {
+		Preconditions.checkNotNull(query, "query");
 		try {
 			final Connection conn = dataSource.getConnection();
 			try {
@@ -155,6 +157,7 @@ public class MySQLDatabaseService extends AbstractService implements
 
 	@Override
 	public Object getCachedObject(Object id) {
+		Preconditions.checkNotNull(id, "id");
 		final Element element = objectCache.get(id);
 		if (element == null)
 			return null;
@@ -163,16 +166,20 @@ public class MySQLDatabaseService extends AbstractService implements
 
 	@Override
 	public boolean hasCachedObject(Object id) {
+		Preconditions.checkNotNull(id, "id");
 		return objectCache.get(id) != null;
 	}
 
 	@Override
 	public void updateCache(Object key, Object value) {
+		Preconditions.checkNotNull(key, "key");
+		Preconditions.checkNotNull(value, "value");
 		objectCache.put(new Element(key, value));
 	}
 
 	@Override
 	public void removeCache(Object key) {
+		Preconditions.checkNotNull(key, "key");
 		objectCache.remove(key);
 	}
 
@@ -254,6 +261,7 @@ public class MySQLDatabaseService extends AbstractService implements
 
 		@Override
 		public Integer query(Connection conn) throws SQLException {
+			Preconditions.checkNotNull(conn, "conn");
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
@@ -314,6 +322,7 @@ public class MySQLDatabaseService extends AbstractService implements
 	public static abstract class SelectListQuery<T> implements Query<List<T>> {
 		@Override
 		public List<T> query(Connection conn) throws SQLException {
+			Preconditions.checkNotNull(conn, "conn");
 			final PreparedStatement st = conn.prepareStatement(query());
 			parametize(st);
 			st.execute();
@@ -368,6 +377,7 @@ public class MySQLDatabaseService extends AbstractService implements
 	public static abstract class SelectSingleQuery<T> implements Query<T> {
 		@Override
 		public T query(Connection conn) throws SQLException {
+			Preconditions.checkNotNull(conn, "conn");
 			final PreparedStatement st = conn.prepareStatement(query());
 			parametize(st);
 			st.execute();
@@ -465,6 +475,7 @@ public class MySQLDatabaseService extends AbstractService implements
 		@SuppressWarnings("unchecked")
 		public final T map(ResultSet rs) throws SQLException {
 			final I id = createID(rs);
+			Preconditions.checkNotNull(id, "id");
 
 			if (database.hasCachedObject(id))
 				return (T) database.getCachedObject(id);

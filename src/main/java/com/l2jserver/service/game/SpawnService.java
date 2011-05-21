@@ -23,6 +23,7 @@ import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.exception.L2SpawnServiceException;
 
 /**
  * This service is responsible for spawning monsters, npcs and players.
@@ -41,8 +42,15 @@ public interface SpawnService extends Service {
 	 * @param point
 	 *            the spawning point. If null, will try to use
 	 *            {@link Spawnable#getPoint()}.
+	 * @throws SpawnPointNotFoundServiceException
+	 *             if could not find an spawn point (i.e <tt>point</tt> and
+	 *             {@link Spawnable#getPoint()} are null)
+	 * @throws AlreadySpawnedServiceException
+	 *             if the object is already spawned in the world
 	 */
-	void spawn(Spawnable spawnable, Point point);
+	void spawn(Spawnable spawnable, Point point)
+			throws SpawnPointNotFoundServiceException,
+			AlreadySpawnedServiceException;
 
 	/**
 	 * Teleports the object to the given <tt>point</tt>.
@@ -54,11 +62,16 @@ public interface SpawnService extends Service {
 	 *            the player object
 	 * @param coordinate
 	 *            the teleportation coordinate
+	 * @throws NotSpawnedServiceException
+	 *             if the object to be teleported is not spawned
 	 */
-	void teleport(Player player, Coordinate coordinate);
+	void teleport(Player player, Coordinate coordinate)
+			throws NotSpawnedServiceException;
 
 	/**
 	 * Schedules an {@link Spawnable} object to be respawn in a certain time.
+	 * <p>
+	 * TODO this is not complete
 	 * 
 	 * @param spawnable
 	 *            the spawnable object
@@ -70,6 +83,37 @@ public interface SpawnService extends Service {
 	 * 
 	 * @param spawnable
 	 *            the spawnable object
+	 * @throws NotSpawnedServiceException
+	 *             if the object is not spawned
 	 */
-	void unspawn(Spawnable spawnable);
+	void unspawn(Spawnable spawnable) throws NotSpawnedServiceException;
+
+	/**
+	 * Exception thrown when the object is already spawned and registered in the
+	 * world
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public class AlreadySpawnedServiceException extends L2SpawnServiceException {
+		private static final long serialVersionUID = 1L;
+	}
+
+	/**
+	 * Exception thrown when the target spawn point is not found
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public class SpawnPointNotFoundServiceException extends
+			L2SpawnServiceException {
+		private static final long serialVersionUID = 1L;
+	}
+
+	/**
+	 * Exception thrown when trying to unspawn an object that is not spawned
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public class NotSpawnedServiceException extends L2SpawnServiceException {
+		private static final long serialVersionUID = 1L;
+	}
 }

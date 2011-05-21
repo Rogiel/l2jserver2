@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.game.world.event;
 
+import com.google.common.base.Preconditions;
+
 /**
  * This listener will filter to only dispatch an certain type events.
  * 
@@ -25,6 +27,7 @@ public abstract class TypedWorldListener<T> implements WorldListener {
 	private final Class<T> type;
 
 	public TypedWorldListener(Class<T> type) {
+		Preconditions.checkNotNull(type, "type");
 		this.type = type;
 	}
 

@@ -26,11 +26,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 import java.util.Properties;
-import java.util.WeakHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -38,7 +38,7 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertyGetter;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertySetter;
-import com.l2jserver.service.logging.LoggingService;
+import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.transformer.Transformer;
 import com.l2jserver.util.transformer.TransformerFactory;
@@ -77,6 +77,8 @@ public class ProxyConfigurationService extends AbstractService implements
 	@Override
 	@SuppressWarnings("unchecked")
 	public <C extends Configuration> C get(Class<C> config) {
+		Preconditions.checkNotNull(config, "config");
+
 		if (cache.containsKey(config))
 			return (C) cache.get(config);
 		logger.info("Trying to create {} proxy", config);
@@ -242,6 +244,8 @@ public class ProxyConfigurationService extends AbstractService implements
 	 *             if any i/o error occur
 	 */
 	private Properties findProperties(Class<?> clazz) throws IOException {
+		Preconditions.checkNotNull(clazz, "clazz");
+
 		ConfigurationName config = findAnnotation(ConfigurationName.class,
 				clazz);
 		if (config == null)
@@ -270,6 +274,9 @@ public class ProxyConfigurationService extends AbstractService implements
 	 */
 	private <T extends Annotation> T findAnnotation(Class<T> annotationClass,
 			Class<?> clazz) {
+		Preconditions.checkNotNull(annotationClass, "annotationClass");
+		Preconditions.checkNotNull(clazz, "clazz");
+
 		T ann = clazz.getAnnotation(annotationClass);
 		if (ann != null)
 			return ann;
@@ -298,6 +305,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	 *            the directory
 	 */
 	public void setDirectory(File directory) {
+		Preconditions.checkNotNull(directory, "directory");
 		this.directory = directory;
 	}
 }

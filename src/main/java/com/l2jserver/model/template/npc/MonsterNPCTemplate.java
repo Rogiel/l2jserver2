@@ -16,11 +16,8 @@
  */
 package com.l2jserver.model.template.npc;
 
-import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.NPC;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -37,20 +34,5 @@ public class MonsterNPCTemplate extends NPCTemplate {
 	 */
 	protected MonsterNPCTemplate(NPCTemplateID id) {
 		super(id);
-	}
-
-	@Override
-	public void action(NPC npc, L2Character character, CharacterAction action) {
-		super.action(npc, character, action);
-	}
-
-	/**
-	 * Called when an character is executing an attack action
-	 * 
-	 * @param attacker
-	 *            the attacking character
-	 */
-	public void attack(L2Character attacker) {
-
 	}
 }

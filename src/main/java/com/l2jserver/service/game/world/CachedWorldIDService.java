@@ -23,6 +23,7 @@ import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.ItemDAO;
@@ -114,6 +115,7 @@ public class CachedWorldIDService extends AbstractService implements
 	 *            an collection of ids
 	 */
 	private void load(Collection<? extends ObjectID<?>> ids) {
+		Preconditions.checkNotNull(ids, "ids");
 		for (final ObjectID<?> id : ids) {
 			allocator.allocate(id.getID());
 			add(id);
@@ -123,6 +125,7 @@ public class CachedWorldIDService extends AbstractService implements
 	@Override
 	@SuppressWarnings("unchecked")
 	public <I extends ObjectID<?>> I resolve(int id) {
+		Preconditions.checkNotNull(id, "id");
 		if (!loaded) {
 			// ignore resolving before all IDs are loaded
 			return null;
@@ -136,6 +139,7 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	public <I extends ObjectID<?>> void add(I id) {
+		Preconditions.checkNotNull(id, "id");
 		if (id == null)
 			return;
 		cache.put(new Element(id.getID(), id));
@@ -143,6 +147,7 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	public <I extends ObjectID<?>> void remove(I id) {
+		Preconditions.checkNotNull(id, "id");
 		cache.remove(id.getID());
 	}
 

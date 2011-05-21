@@ -28,6 +28,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.CharacterService.CannotSetTargetServiceException;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.calculator.Calculator;
 import com.l2jserver.util.html.markup.HtmlTemplate;
@@ -107,21 +108,25 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 		if (conn == null)
 			return;
 
-		throw new RuntimeException("Testing...");
-//		// target this npc
-//		charService.target(character, npc);
-//
-//		// generate not implemented message
-//		final HtmlTemplate template = new HtmlTemplate(name) {
-//			@Override
-//			public void build(MarkupTag body) {
-//				body.text("The NPC ${name} is not yet implemented!", "ff0000")
-//						.p();
-//				body.addLink("Click me!", "test");
-//			}
-//		};
-//		template.register("name", name);
-//		conn.write(new NPCHtmlMessagePacket(npc, template));
+		// target this npc
+		try {
+			charService.target(character, npc);
+		} catch (CannotSetTargetServiceException e) {
+			conn.sendActionFailed();
+			return;
+		}
+
+		// generate not implemented message
+		final HtmlTemplate template = new HtmlTemplate(name) {
+			@Override
+			public void build(MarkupTag body) {
+				body.text("The NPC ${name} is not yet implemented!", "ff0000")
+						.p().p();
+				body.addLink("Click me!", "test");
+			}
+		};
+		template.register("name", name);
+		conn.write(new NPCHtmlMessagePacket(npc, template));
 	}
 
 	/**

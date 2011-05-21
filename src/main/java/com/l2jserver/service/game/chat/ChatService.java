@@ -110,16 +110,32 @@ public interface ChatService extends Service {
 
 	// TODO party chat
 
+	/**
+	 * Exception thrown when the target of an private chat is not found
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public class TargetNotFoundChatServiceException extends
 			L2ChatServiceException {
 		private static final long serialVersionUID = 1L;
 	}
 
+	/**
+	 * Exception thrown if the player is trying to chat with itself.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public class CannotChatToSelfChatServiceException extends
 			L2ChatServiceException {
 		private static final long serialVersionUID = 1L;
 	}
 
+	/**
+	 * Exception thrown if the player trying to send a message is currently
+	 * banned.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public class ChatBanActiveChatServiceException extends
 			L2ChatServiceException {
 		private static final long serialVersionUID = 1L;

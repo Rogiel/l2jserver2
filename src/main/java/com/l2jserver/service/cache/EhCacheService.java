@@ -29,6 +29,7 @@ import net.sf.ehcache.config.Configuration;
 import net.sf.ehcache.config.DiskStoreConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
@@ -58,6 +59,9 @@ public class EhCacheService extends AbstractService implements CacheService {
 	@Override
 	public <T extends Cacheable> T decorate(final Class<T> interfaceType,
 			final T instance) {
+		Preconditions.checkNotNull(interfaceType, "interfaceType");
+		Preconditions.checkNotNull(instance, "instance");
+
 		if (!interfaceType.isInterface())
 			return null;
 		@SuppressWarnings("unchecked")
@@ -85,6 +89,9 @@ public class EhCacheService extends AbstractService implements CacheService {
 
 	@Override
 	public Cache createCache(String name, int size) {
+		Preconditions.checkNotNull(name, "name");
+		Preconditions.checkArgument(size > 0, "size <= 0");
+
 		Cache cache = new Cache(new CacheConfiguration(name, size)
 				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
 				.overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
@@ -96,16 +103,19 @@ public class EhCacheService extends AbstractService implements CacheService {
 
 	@Override
 	public Cache createCache(String name) {
+		Preconditions.checkNotNull(name, "name");
 		return createCache(name, 200);
 	}
 
 	@Override
 	public void register(Cache cache) {
+		Preconditions.checkNotNull(cache, "cache");
 		manager.addCache(cache);
 	}
 
 	@Override
 	public void unregister(Cache cache) {
+		Preconditions.checkNotNull(cache, "cache");
 		manager.removeCache(cache.getName());
 	}
 

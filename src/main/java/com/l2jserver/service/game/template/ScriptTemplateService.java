@@ -18,6 +18,7 @@ package com.l2jserver.service.game.template;
 
 import java.util.Map;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.model.id.TemplateID;
@@ -27,9 +28,9 @@ import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.game.scripting.ScriptContext;
 import com.l2jserver.service.game.scripting.ScriptingService;
-import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 @Depends({ LoggingService.class, ConfigurationService.class,
@@ -73,10 +74,13 @@ public class ScriptTemplateService extends AbstractService implements
 	@Override
 	@SuppressWarnings("unchecked")
 	public <T extends Template<?>> T getTemplate(TemplateID<T> id) {
+		Preconditions.checkNotNull(id, "id");
 		return (T) templates.get(id);
 	}
 
 	public void addTemplate(Class<? extends Template<?>> t) {
+		Preconditions.checkNotNull(t, "t");
+
 		final Template<?> template = injector.getInstance(t);
 		if (templates.containsKey(template.getID()))
 			throw new TemplateException("Template with ID" + template.getID()
@@ -88,6 +92,7 @@ public class ScriptTemplateService extends AbstractService implements
 	}
 
 	public void removeTemplate(Template<?> t) {
+		Preconditions.checkNotNull(t, "t");
 		// TODO templates.remove(t);
 	}
 

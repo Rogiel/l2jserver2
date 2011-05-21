@@ -17,15 +17,20 @@
 package com.l2jserver.model.world;
 
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
+import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.service.game.ai.AIScript;
 import com.l2jserver.util.calculator.Calculator;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * NPC stand for "Not Playable Character" and is an character that not player
+ * has control over it. In most cases they are controlled by an {@link AIScript}
+ * .
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPC extends AbstractActor {
 	/**
@@ -33,6 +38,12 @@ public class NPC extends AbstractActor {
 	 */
 	private final NPCTemplateID templateID;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param templateID
+	 *            the {@link NPC} {@link TemplateID}
+	 */
 	public NPC(NPCTemplateID templateID) {
 		this.templateID = templateID;
 	}

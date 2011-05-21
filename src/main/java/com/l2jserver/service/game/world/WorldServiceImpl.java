@@ -23,6 +23,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
@@ -31,6 +32,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
@@ -41,7 +43,6 @@ import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 import com.l2jserver.service.game.world.filter.impl.IDFilter;
 import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
-import com.l2jserver.service.logging.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -87,12 +88,14 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 
 	@Override
 	public boolean add(WorldObject object) {
+		Preconditions.checkNotNull(object, "object");
 		log.debug("Adding object {} to world", object);
 		return objects.add(object);
 	}
 
 	@Override
 	public boolean remove(WorldObject object) {
+		Preconditions.checkNotNull(object, "object");
 		log.debug("Removing object {} from world", object);
 		// we also need to remove all listeners for this object
 		dispatcher.clear(object.getID());
@@ -101,12 +104,14 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 
 	@Override
 	public boolean contains(WorldObject object) {
+		Preconditions.checkNotNull(object, "object");
 		return objects.contains(object);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public <T extends WorldObject> T find(ObjectID<T> id) {
+		Preconditions.checkNotNull(id, "id");
 		final IDFilter filter = new IDFilter(id);
 		for (final WorldObject object : objects) {
 			if (filter.accept(object))
@@ -118,10 +123,8 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 
 	@Override
 	public void knownlist(Positionable object, KnownListCallback callback) {
-		if (object == null)
-			return;
-		if (callback == null)
-			return;
+		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkNotNull(callback, "callback");
 		for (Positionable known : iterable(new KnownListFilter(object))) {
 			callback.knownObject(known);
 		}
@@ -134,6 +137,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 
 	@Override
 	public <T extends WorldObject> List<T> list(WorldObjectFilter<T> filter) {
+		Preconditions.checkNotNull(filter, "filter");
 		log.debug("Listing objects with filter {}", filter);
 		final List<T> list = CollectionFactory.newList();
 		for (final T object : this.iterable(filter)) {
@@ -144,6 +148,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 
 	@Override
 	public <T extends WorldObject> List<T> list(Class<T> type) {
+		Preconditions.checkNotNull(type, "type");
 		log.debug("Listing of type {}", type);
 		return list(new InstanceFilter<T>(type));
 	}
@@ -156,12 +161,14 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public <T extends WorldObject> Iterator<T> iterator(
 			final WorldObjectFilter<T> filter) {
+		Preconditions.checkNotNull(filter, "filter");
 		return new FilterIterator<T>(filter, objects.iterator());
 	}
 
 	@Override
 	public <T extends WorldObject> Iterable<T> iterable(
 			final WorldObjectFilter<T> filter) {
+		Preconditions.checkNotNull(filter, "filter");
 		return new Iterable<T>() {
 			@Override
 			public Iterator<T> iterator() {

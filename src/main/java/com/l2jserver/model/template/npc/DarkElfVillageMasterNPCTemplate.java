@@ -17,14 +17,12 @@
 package com.l2jserver.model.template.npc;
 
 import com.l2jserver.model.id.template.NPCTemplateID;
-import com.l2jserver.model.template.NPCTemplate;
-import com.l2jserver.model.world.NPC;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class DarkElfVillageMasterNPCTemplate extends NPCTemplate {
+public class DarkElfVillageMasterNPCTemplate extends AbstractVillageMasterNPCTemplate {
 	/**
 	 * Creates a new instance of this template
 	 * 
