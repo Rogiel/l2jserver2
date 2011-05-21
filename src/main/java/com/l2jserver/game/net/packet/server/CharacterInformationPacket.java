@@ -278,7 +278,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeShort(500); // inventory limit
 
 		buffer.writeInt(character.getCharacterClass().id);
-		buffer.writeInt(0x01); // special effects? circles around player...
+		buffer.writeInt(0x00); // special effects? circles around player...
 		buffer.writeInt(200); // max cp
 		buffer.writeInt(200); // cur cp
 		buffer.writeByte(0x00); // is mount or is airshilhelp = 0; otherwise

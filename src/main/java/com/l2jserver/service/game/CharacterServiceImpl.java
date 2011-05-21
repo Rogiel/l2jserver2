@@ -30,6 +30,7 @@ import com.l2jserver.game.net.packet.server.CharacterTargetSelectedPacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.NPCInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
 import com.l2jserver.model.world.NPC;
@@ -119,9 +120,10 @@ public class CharacterServiceImpl extends AbstractService implements
 		if (conn == null)
 			return;
 		if (!worldService.add(character))
+			// TODO this should throw an exception
 			// character is already in the world!
 			return;
-		
+
 		itemDao.loadInventory(character);
 
 		// chat listener
@@ -146,6 +148,8 @@ public class CharacterServiceImpl extends AbstractService implements
 		// this listener will be filtered so that only interesting events are
 		// dispatched, once a event arrives will be possible to check check if
 		// the given event will be broadcasted or not
+		// TODO this should not be here, it should be i world service or a newly
+		// created broadcast service.
 		final WorldListener broadcastListener = new FilteredWorldListener<Positionable>(
 				new KnownListFilter(character)) {
 			@Override
@@ -206,7 +210,8 @@ public class CharacterServiceImpl extends AbstractService implements
 		run(character);
 
 		// broadcast knownlist -- trashy implementation
-		// TODO should be moved to world service
+		// TODO should be moved to world service or a newly created broadcast
+		// service, whichever fits the purpose
 		for (final WorldObject o : worldService.iterable(new KnownListFilter(
 				character))) {
 			if (o instanceof NPC) {
@@ -226,21 +231,22 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void move(L2Character character, Coordinate coordinate) {
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
-		// for now, let's just write the packet
-		// aiService.walk(character, coordinate);
+		// we don't set the character coordinate here, this will be done by
+		// validation packets, sent by client
 
-		final Coordinate source = character.getPosition();
-		// we don't set the character coordinate yet, this will be done by
-		// validate coordinate
+		// for now, let's just write the packet, we don't have much validation
+		// to be done yet. With character validation packet, another packet of
+		// these will be broadcasted.
 		conn.write(new ActorMovementPacket(character, coordinate));
 		// we don't dispatch events here, they will be dispatched by
-		// receivedValidation at fixed time intervals.
+		// with the same packet referred up here.
 	}
 
 	@Override
 	public void leaveWorld(L2Character character) {
 		if (!worldService.remove(character))
 			return;
+		spawnService.unspawn(character);
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
 	}
 
@@ -250,21 +256,33 @@ public class CharacterServiceImpl extends AbstractService implements
 		final Lineage2Connection conn = networkService.discover(id);
 
 		if (target == null && character.getTargetID() != null) {
+			// if is trying to select null (remove target) and the character has
+			// an target, trigger an deselect
 			final Actor oldTarget = character.getTarget();
 			character.setTargetID(null);
 			eventDispatcher.dispatch(new CharacterTargetDeselectedEvent(
 					character, oldTarget));
+			// TODO we need to send an packet here to inform of deselection
 		} else if (target != null && !target.getID().equals(character.getID())) {
+			// if new target is not null and the current character target is
+			// null or different, trigger the selection.
 			if (character.getTargetID() != null) {
+				// first deselect old target
 				eventDispatcher.dispatch(new CharacterTargetDeselectedEvent(
 						character, character.getTarget()));
 			}
-			character.setTargetID(null);
+			// now select the new target
+			character.setTargetID(target.getID());
 			eventDispatcher.dispatch(new CharacterTargetSelectedEvent(
 					character, target));
 			conn.write(new CharacterTargetSelectedPacket(target));
 		} else {
+			// this indicates an inconsistency, send an action failed and reset
+			// target, i.e. deselect with no target
+			// TODO instead of sending action failed, we should throw an
+			// exception here
 			conn.sendActionFailed();
+			character.setTargetID(null);
 		}
 	}
 
@@ -275,11 +293,15 @@ public class CharacterServiceImpl extends AbstractService implements
 		// check if this Actor can be attacked
 		if (target instanceof NPC) {
 			final NPC npc = (NPC) target;
-			if (!npc.getTemplate().isAttackable()) {
+			final NPCTemplate template = npc.getTemplate();
+			if (!template.isAttackable()) {
 				conn.write(ActionFailedPacket.SHARED_INSTANCE);
 				return;
 			}
+			// first try to target this, if it is not already
+			target(character, target);
 
+			// TODO issue attack
 		}
 	}
 
@@ -298,19 +320,27 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void walk(L2Character character) {
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
+		// test if character is running
 		if (character.getMoveType() == CharacterMoveType.RUN) {
+			// if running set mode to walk and broadcast packet
 			character.setMoveType(CharacterMoveType.WALK);
 			conn.broadcast(new CharacterMovementTypePacket(character));
+			// TODO dispatch move change type event
 		}
+		// TODO we need to throw an exception if character is not running
 	}
 
 	@Override
 	public void run(L2Character character) {
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
+		// test if character is walking
 		if (character.getMoveType() == CharacterMoveType.WALK) {
+			// if running walking mode to run and broadcast packet
 			character.setMoveType(CharacterMoveType.RUN);
 			conn.broadcast(new CharacterMovementTypePacket(character));
+			// TODO dispatch move change type event
 		}
+		// TODO we need to throw an exception if character is not walking
 	}
 }

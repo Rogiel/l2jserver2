@@ -79,6 +79,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			point = spawnable.getPoint();
 		if (point == null) {
 			// not point send and no point stored, aborting
+			// TODO this should throw an exception
 			log.warn("Trying to spawn {} to a null point", spawnable);
 			return;
 		}
@@ -87,6 +88,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		spawnable.setPoint(point);
 		// register object in the world
 		if (!worldService.add(spawnable))
+			// TODO this should throw an exception
 			// object was already in world
 			return;
 
@@ -99,11 +101,11 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			event = null;
 		}
 
+		// TODO throw an exception if event is null
 		if (event != null)
 			// dispatch spawn event
 			eventDispatcher.dispatch(event);
-
-		// TODO broadcast this object to players nearby
+		// remember: broadcasting is done through events!
 	}
 
 	@Override
@@ -113,13 +115,14 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			final Lineage2Connection conn = networkService
 					.discover((CharacterID) player.getID());
 			if (conn == null)
+				// TODO throw an exception here
 				return;
 			conn.write(new CharacterTeleportPacket(conn.getCharacter()));
 		}
 		// dispatch teleport event
 		eventDispatcher.dispatch(new PlayerTeleportEvent(player, coordinate
 				.toPoint()));
-		// TODO broadcast this player new position
+		// remember: broadcasting is done through events!
 	}
 
 	@Override

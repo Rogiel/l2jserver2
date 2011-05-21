@@ -111,6 +111,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 			if (filter.accept(object))
 				return (T) object;
 		}
+		// TODO throw exception if object is not found
 		return null;
 	}
 
