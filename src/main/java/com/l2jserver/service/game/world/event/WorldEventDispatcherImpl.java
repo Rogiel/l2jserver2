@@ -21,10 +21,14 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.util.concurrent.AbstractFuture;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -35,28 +39,51 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class WorldEventDispatcherImpl implements WorldEventDispatcher {
+	/**
+	 * The logger
+	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(WorldEventDispatcherImpl.class);
 
-	private final Timer timer = new Timer();
+	/**
+	 * The execution thread
+	 */
+	private Timer timer;
 
+	/**
+	 * The list of all global listeners
+	 */
 	private Set<WorldListener> globalListeners = CollectionFactory.newSet();
+	/**
+	 * The {@link Map} containing all listeners for every object
+	 */
 	private Map<ObjectID<?>, Set<WorldListener>> listeners = CollectionFactory
 			.newMap();
-	// private Queue<ListenerIDPair> listeners = CollectionFactory
-	// .newConcurrentQueue(ListenerIDPair.class);
-	private Queue<WorldEvent> events = CollectionFactory.newConcurrentQueue();
+	/**
+	 * The events pending dispatch
+	 */
+	private Queue<EventContainer> events = CollectionFactory
+			.newConcurrentQueue();
 
-	public WorldEventDispatcherImpl() {
+	public void start() {
+		timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				final WorldEvent event = events.poll();
+				final EventContainer event = events.poll();
 				if (event == null)
 					return;
 				try {
-					doDispatch(event);
+					// set state
+					event.future.running = true;
+					event.future.complete = false;
+
+					// dispatch
+					if (doDispatch(event))
+						// the set will update state
+						event.future.set(event.event);
 				} catch (Throwable t) {
+					event.future.setException(t);
 					log.warn("Exception in WorldEventDispatcher thread", t);
 				}
 			}
@@ -64,21 +91,32 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	}
 
 	@Override
-	public void dispatch(WorldEvent event) {
+	public <E extends WorldEvent> WorldEventFuture<E> dispatch(E event) {
 		log.debug("Queing dispatch for event {}", event);
-		events.add(event);
+		final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
+		events.add(new EventContainer(event, future));
+		return future;
 	}
 
-	public void doDispatch(WorldEvent event) {
+	/**
+	 * Do the dispatching
+	 * 
+	 * @param event
+	 *            the event
+	 * @return true if dispatch was not canceled
+	 */
+	public boolean doDispatch(EventContainer event) {
 		log.debug("Dispatching event {}", event);
-		final ObjectID<?>[] objects = event.getDispatchableObjects();
+		final ObjectID<?>[] objects = event.event.getDispatchableObjects();
 		for (ObjectID<?> obj : objects) {
 			if (obj == null)
 				continue;
 			final Set<WorldListener> listeners = getListeners(obj);
 			for (final WorldListener listener : listeners) {
+				if (event.future.isCancelled())
+					return false;
 				try {
-					if (!listener.dispatch(event))
+					if (!listener.dispatch(event.event))
 						// remove listener if return value is false
 						listeners.remove(listener);
 				} catch (ClassCastException e) {
@@ -89,6 +127,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 				}
 			}
 		}
+		return true;
 	}
 
 	@Override
@@ -134,6 +173,14 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		listeners.remove(id);
 	}
 
+	/**
+	 * Get the {@link Set} of listeners for an given object. Creates a new one
+	 * if does not exists.
+	 * 
+	 * @param id
+	 *            the object id
+	 * @return the {@link Set}. Never null.
+	 */
 	private Set<WorldListener> getListeners(ObjectID<?> id) {
 		Set<WorldListener> set = listeners.get(id);
 		if (set == null) {
@@ -141,5 +188,118 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 			listeners.put(id, set);
 		}
 		return set;
+	}
+	
+	public void stop() {
+		timer.cancel();
+		timer = null;
+	}
+
+	/**
+	 * {@link WorldEventFuture} implementation
+	 * 
+	 * @param <E>
+	 *            the event type
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private static class WorldEventFutureImpl<E extends WorldEvent> extends
+			AbstractFuture<E> implements WorldEventFuture<E> {
+		private boolean running = false;
+		private boolean complete = false;
+
+		@Override
+		@SuppressWarnings("unchecked")
+		protected boolean set(WorldEvent value) {
+			running = false;
+			complete = true;
+			return super.set((E) value);
+		}
+
+		@Override
+		protected boolean setException(Throwable throwable) {
+			return super.setException(throwable);
+		}
+
+		@Override
+		public boolean cancel(boolean mayInterruptIfRunning) {
+			if (!mayInterruptIfRunning && running)
+				return false;
+			if (complete)
+				return false;
+			return cancel();
+		}
+
+		@Override
+		public void await() throws InterruptedException {
+			try {
+				super.get();
+			} catch (ExecutionException e) {
+			}
+		}
+
+		@Override
+		public void await(long timeout, TimeUnit unit)
+				throws InterruptedException, TimeoutException {
+			try {
+				super.get(timeout, unit);
+			} catch (ExecutionException e) {
+			}
+		}
+
+		@Override
+		public boolean awaitUninterruptibly() {
+			try {
+				super.get();
+				return true;
+			} catch (InterruptedException e) {
+				return false;
+			} catch (ExecutionException e) {
+				return false;
+			}
+		}
+
+		@Override
+		public boolean awaitUninterruptibly(long timeout, TimeUnit unit) {
+			try {
+				super.get(timeout, unit);
+				return true;
+			} catch (InterruptedException e) {
+				return false;
+			} catch (ExecutionException e) {
+				return false;
+			} catch (TimeoutException e) {
+				return false;
+			}
+		}
+	}
+
+	/**
+	 * Simple container that contains an event and a future
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private static class EventContainer {
+		/**
+		 * The event
+		 */
+		private final WorldEvent event;
+		/**
+		 * The future
+		 */
+		private final WorldEventFutureImpl<? extends WorldEvent> future;
+
+		/**
+		 * Creates a new instance
+		 * 
+		 * @param event
+		 *            the event
+		 * @param future
+		 *            the future
+		 */
+		public EventContainer(WorldEvent event,
+				WorldEventFutureImpl<? extends WorldEvent> future) {
+			this.event = event;
+			this.future = future;
+		}
 	}
 }

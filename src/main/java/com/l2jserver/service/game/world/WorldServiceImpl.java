@@ -82,6 +82,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	protected void doStart() throws ServiceStartException {
 		objects.clear();
 		idService.load();
+		dispatcher.start();
 	}
 
 	@Override
@@ -172,5 +173,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	protected void doStop() throws ServiceStopException {
 		objects.clear();
+		idService.unload();
+		dispatcher.stop();
 	}
 }

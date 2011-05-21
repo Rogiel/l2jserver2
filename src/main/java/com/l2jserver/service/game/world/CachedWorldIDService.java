@@ -102,6 +102,11 @@ public class CachedWorldIDService extends AbstractService implements
 		loaded = true;
 	}
 
+	@Override
+	public void unload() {
+		cache.removeAll();
+	}
+
 	/**
 	 * Load the pre-existing ids
 	 * 

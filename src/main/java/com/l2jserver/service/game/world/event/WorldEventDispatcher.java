@@ -31,10 +31,14 @@ public interface WorldEventDispatcher {
 	 * need to invoke listeners immediately. Dispatching <b>can</b> occur
 	 * concurrently.
 	 * 
+	 * @param <E>
+	 *            the event type
 	 * @param event
 	 *            the event
+	 * @return the future. The future can be used to be notified once the event
+	 *         has been dispatched to all listeners.
 	 */
-	void dispatch(WorldEvent event);
+	<E extends WorldEvent> WorldEventFuture<E> dispatch(E event);
 
 	/**
 	 * Adds a new global <tt>listener</tt>

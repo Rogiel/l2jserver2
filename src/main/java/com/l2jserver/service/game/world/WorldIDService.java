@@ -36,6 +36,11 @@ public interface WorldIDService extends Service {
 	void load();
 
 	/**
+	 * Unload all loaded {@link ObjectID}
+	 */
+	void unload();
+
+	/**
 	 * Tries to resolve an ID based on its raw value
 	 * 
 	 * @param <V>
