@@ -36,7 +36,13 @@ public class NPCHtmlMessagePacket extends AbstractServerPacket {
 	 */
 	public static final int OPCODE = 0x19;
 
+	/**
+	 * The saying NPC
+	 */
 	private final NPC npc;
+	/**
+	 * The HTML contents
+	 */
 	private final String html;
 
 	public NPCHtmlMessagePacket(NPC npc, Html html) {
@@ -45,15 +51,15 @@ public class NPCHtmlMessagePacket extends AbstractServerPacket {
 		this.html = html.toHtml();
 	}
 
-	public NPCHtmlMessagePacket(NPC npc, HtmlTemplate markup) {
+	public NPCHtmlMessagePacket(NPC npc, HtmlTemplate template) {
 		super(OPCODE);
 		this.npc = npc;
-		this.html = markup.toHtmlString();
+		this.html = template.toHtmlString();
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeInt(npc.getID().getID());
+		buffer.writeInt((npc != null ? npc.getID().getID() : 0x01));
 		BufferUtils.writeString(buffer, html);
 		buffer.writeInt(0x00); // item id
 	}

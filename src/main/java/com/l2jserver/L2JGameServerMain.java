@@ -17,13 +17,9 @@
 package com.l2jserver;
 
 import com.google.inject.Injector;
-import com.l2jserver.db.dao.ItemDAO;
-import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.provider.NPCIDProvider;
-import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
-import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.cache.CacheService;
@@ -95,16 +91,5 @@ public class L2JGameServerMain {
 		npc.setPoint(Point.fromXYZ(-71301, 258259, -3134));
 
 		spawnService.spawn(npc, null);
-
-		final ObjectIDResolver resolver = injector
-				.getInstance(ObjectIDResolver.class);
-		final ObjectID<L2Character> cid = resolver.resolve(268437456);
-		L2Character c = cid.getObject();
-
-		System.out
-				.println(injector.getInstance(ItemDAO.class).loadInventory(c));
-
-		System.out.println(injector.getInstance(ObjectIDResolver.class)
-				.resolve(268635457).getObject());
 	}
 }

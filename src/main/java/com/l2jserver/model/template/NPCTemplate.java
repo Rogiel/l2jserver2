@@ -107,20 +107,21 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 		if (conn == null)
 			return;
 
-		// target this npc
-		charService.target(character, npc);
-
-		// generate not implemented message
-		final HtmlTemplate template = new HtmlTemplate(name) {
-			@Override
-			public void build(MarkupTag body) {
-				body.text("The NPC ${name} is not yet implemented!", "ff0000")
-						.p();
-				body.addLink("Click me!", "test");
-			}
-		};
-		template.register("name", name);
-		conn.write(new NPCHtmlMessagePacket(npc, template));
+		throw new RuntimeException("Testing...");
+//		// target this npc
+//		charService.target(character, npc);
+//
+//		// generate not implemented message
+//		final HtmlTemplate template = new HtmlTemplate(name) {
+//			@Override
+//			public void build(MarkupTag body) {
+//				body.text("The NPC ${name} is not yet implemented!", "ff0000")
+//						.p();
+//				body.addLink("Click me!", "test");
+//			}
+//		};
+//		template.register("name", name);
+//		conn.write(new NPCHtmlMessagePacket(npc, template));
 	}
 
 	/**

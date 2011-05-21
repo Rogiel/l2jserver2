@@ -18,13 +18,18 @@ package com.l2jserver.game.net.handler;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
+import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
 
+import com.google.common.base.Throwables;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
+import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
+import com.l2jserver.util.html.markup.HtmlTemplate;
+import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
  * This handler dispatches the {@link ClientPacket#process(Lineage2Connection)}
@@ -86,5 +91,22 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	public void channelDisconnected(ChannelHandlerContext ctx,
 			ChannelStateEvent e) throws Exception {
 		nettyNetworkService.unregister(connection);
+	}
+
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e)
+			throws Exception {
+		// TODO only send exception stack trace in development mode!
+		// TODO ignore netty exceptions or it could cause stack overflow
+		final String exception = Throwables.getStackTraceAsString(e.getCause())
+				.replaceAll("\n", "<br>").replace("	", "");
+
+		final HtmlTemplate template = new HtmlTemplate("Java Exception") {
+			@Override
+			public void build(MarkupTag body) {
+				body.text(exception);
+			}
+		};
+		connection.write(new NPCHtmlMessagePacket(null, template));
 	}
 }
