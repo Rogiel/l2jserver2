@@ -18,6 +18,9 @@ package com.l2jserver.model.template.npc;
 
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.util.exception.L2Exception;
+import com.l2jserver.util.html.markup.HtmlTemplate;
+import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -34,5 +37,15 @@ public class MonsterNPCTemplate extends NPCTemplate {
 	 */
 	protected MonsterNPCTemplate(NPCTemplateID id) {
 		super(id);
+	}
+
+	@Override
+	protected HtmlTemplate getChat(String name) throws L2Exception {
+		return new HtmlTemplate() {
+			@Override
+			protected void build(MarkupTag body) {
+				body.text("Sorry, but you can't interact with me yet.");
+			}
+		};
 	}
 }

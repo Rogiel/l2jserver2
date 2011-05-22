@@ -19,6 +19,9 @@ package com.l2jserver.model.template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.capability.Depositable;
 import com.l2jserver.model.template.capability.Dropable;
@@ -27,6 +30,8 @@ import com.l2jserver.model.template.capability.Sellable;
 import com.l2jserver.model.template.capability.Tradable;
 import com.l2jserver.model.template.capability.Usable;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.network.NetworkService;
 
 /**
  * Template for an {@link Item}
@@ -39,6 +44,9 @@ public abstract class ItemTemplate extends AbstractTemplate<Item> {
 	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(ItemTemplate.class);
+
+	@Inject
+	protected NetworkService networkService;
 
 	protected int weight = 0;
 	protected int price = 0;
@@ -66,6 +74,16 @@ public abstract class ItemTemplate extends AbstractTemplate<Item> {
 	public Item create() {
 		log.debug("Creating a new Item instance with template {}", this);
 		return new Item(this.getID());
+	}
+
+	public final void use(Item item, L2Character character) {
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+		this.use(item, character, conn);
+	}
+
+	protected void use(Item item, L2Character character, Lineage2Connection conn) {
+		conn.sendActionFailed();
 	}
 
 	public void stack(Item... object) {

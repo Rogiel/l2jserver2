@@ -49,7 +49,26 @@ public class CharacterRequestMovePacket extends AbstractClientPacket {
 	// packet
 	private Coordinate target;
 	private Coordinate origin;
-	private int moveMovement;
+	@SuppressWarnings("unused")
+	private MovementType type;
+
+	public enum MovementType {
+		MOUSE(0x01), KEYBOARD(0x00);
+
+		public final int id;
+
+		MovementType(int id) {
+			this.id = id;
+		}
+
+		public static MovementType fromID(int id) {
+			for (final MovementType type : values()) {
+				if (type.id == id)
+					return type;
+			}
+			return null;
+		}
+	}
 
 	@Inject
 	public CharacterRequestMovePacket(CharacterService charService) {
@@ -65,7 +84,7 @@ public class CharacterRequestMovePacket extends AbstractClientPacket {
 		// seems that L2Walker does not send this
 		if (buffer.readableBytes() >= 4) {
 			// 0 keyboard, 1 mouse
-			this.moveMovement = buffer.readInt();
+			this.type = MovementType.fromID(buffer.readInt());
 		}
 	}
 

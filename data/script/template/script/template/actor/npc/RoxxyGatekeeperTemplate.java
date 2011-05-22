@@ -19,6 +19,9 @@ package script.template.actor.npc;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
 import com.l2jserver.model.template.npc.TeleporterNPCTemplate;
+import com.l2jserver.util.exception.L2Exception;
+import com.l2jserver.util.html.markup.HtmlTemplate;
+import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -48,6 +51,57 @@ public class RoxxyGatekeeperTemplate extends TeleporterNPCTemplate {
 		addLocation("Talking Island, Northern Territor",
 				TALKING_ISLAND_NORTHERN_TERRITORY, 1000);
 		addLocation("Obelisk of Victory", OBELISK_OF_VICTORY, 470);
+	}
 
+	@Override
+	protected HtmlTemplate getChat(String name) throws L2Exception {
+		if (name.equals("")) {
+			return new HtmlTemplate() {
+				@Override
+				protected void build(MarkupTag body) {
+					body.text(
+							"Welcome! I am Gatekeeper Roxxy, dispatched from the Ivory Tower. "
+									+ "I'm very happy to return to my hometown. Have you perhaps been to "
+									+ "Einhovant's School of Magic? Grand Magister Gallint was my old "
+									+ "teacher. Now then, how can I help you?")
+							.br();
+					body.addLink("Ask about the airship wharf.",
+							"npc_${npcid}_Chat airship").br();
+					body.addLink("Ask about the Ivory Tower.",
+							"npc_${npcid}_Chat ivory").br();
+					body.addLink("Teleport", "npc_${npcid}_Chat teleport").br();
+					body.addLink("Exchange Dimension Diamonds. (TODO)",
+							"npc_${npcid}_multisell 002").br();
+					body.addLink("Noblesse Exclusive Teleport",
+							"npc_${npcid}_Quest 2000_NoblesseTeleport").br();
+					body.addLink("Receive your Birthday Gift! (TODO)",
+							"npc_${npcid}_Quest CharacterBirthday").br();
+					body.addLink("Quest", "npc_${npcid}_Quest").br();
+				}
+			};
+		} else if (name.equals("airship")) {
+			return new HtmlTemplate() {
+				@Override
+				protected void build(MarkupTag body) {
+					body.text("This text is not yet implemented.");
+				}
+			};
+		} else if (name.equals("ivory")) {
+			return new HtmlTemplate() {
+				@Override
+				protected void build(MarkupTag body) {
+					body.text(
+							"The Ivory Tower is the foremost temple of all Mystics. It has been "
+									+ "well known as such ever since the age of Elmoreden. I was born here, and "
+									+ "graduated from Einhovant's School of Wizardry. And now, I am working as a "
+									+ "gatekeeper by the order of the Ivory Tower. If you happen to go to the Ivory "
+									+ "Tower later on, please give my best regards to Grand Magister Valerie. She "
+									+ "is my teacher and a wonderful, caring person.")
+							.br();
+					body.addLink("Back", "npc_${npcid}");
+				}
+			};
+		}
+		return super.getChat(name);
 	}
 }

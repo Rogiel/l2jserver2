@@ -14,16 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template.capability;
+package com.l2jserver.game.net.packet.server;
 
-import com.l2jserver.model.world.capability.Damagable;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractServerPacket;
 
 /**
- * Indicates that an template has the ability to intercept incoming damage.
+ * An packet informing that the character was created with success.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
-public interface IncomingDamageIntercept extends TemplateCapability {
-	void interceptIncomingDamage(Damagable target);
+public class CharacterOpenMap extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
+	public static final int OPCODE = 0xa3;
+
+	/**
+	 * The map ID
+	 */
+	private final int mapID;
+
+	public CharacterOpenMap(int mapID) {
+		super(OPCODE);
+		this.mapID = mapID;
+	}
+
+	@Override
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+		buffer.writeInt(mapID);
+		buffer.writeByte(0x00); // seven signs period
+	}
 }

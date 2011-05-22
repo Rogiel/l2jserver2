@@ -18,17 +18,21 @@ package script.template.item;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
 import com.l2jserver.model.template.capability.Stackable;
-import com.l2jserver.model.template.item.EtcItemTemplate;
+import com.l2jserver.model.template.item.SkillEtcItemTemplate;
 import com.l2jserver.model.world.Item;
 
-public class AdenaItemTemplate extends EtcItemTemplate implements
+public class LargaFireworkItemTemplate extends SkillEtcItemTemplate implements
 		Stackable<Item> {
-	public static final int ID = 57;
+	public static final int ID = 6407;
 
 	@Inject
-	public AdenaItemTemplate(ItemTemplateIDProvider factory) {
-		super(factory.createID(ID), "icon.etc_adena_i00", ItemMaterial.GOLD);
+	public LargaFireworkItemTemplate(ItemTemplateIDProvider provider,
+			SkillTemplateIDProvider skillProvider) {
+		// TODO set skill id
+		super(provider.createID(ID), "icon.etc_ultra_bomb_i00",
+				ItemMaterial.STEEL, skillProvider.createID(0));
 		this.immediateEffect = true;
 		this.price = 1;
 	}

@@ -20,7 +20,6 @@ import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.capability.Attackable;
 import com.l2jserver.model.world.capability.Attacker;
-import com.l2jserver.model.world.capability.Damagable;
 
 public class DummyArmorTemplate extends AbstractNoGradeArmorTemplate {
 	public static final int ID = 20;
@@ -35,10 +34,6 @@ public class DummyArmorTemplate extends AbstractNoGradeArmorTemplate {
 
 	@Override
 	public void defend(Attacker source, Attackable target) {
-	}
-
-	@Override
-	public void interceptIncomingDamage(Damagable target) {
 	}
 
 	@Override

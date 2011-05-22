@@ -20,7 +20,6 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
@@ -100,40 +99,44 @@ public class TeleporterNPCTemplate extends NPCTemplate {
 	@Override
 	public void action(NPC npc, L2Character character, String... args)
 			throws L2Exception {
-		talk(npc, character, args);
-	}
-
-	public void talk(NPC npc, L2Character character, String... args)
-			throws NotSpawnedServiceException {
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());
-		if (args.length == 0) {
-			final HtmlTemplate template = new HtmlTemplate() {
+		if (args.length >= 2 && args[0].equals("goto")) {
+			teleport(npc, character, conn, args[1]);
+		}
+		super.action(npc, character, args);
+	}
+
+	@Override
+	protected HtmlTemplate getChat(String name) throws L2Exception {
+		if (name.equals("") || name.equals("teleport")) {
+			return new HtmlTemplate() {
 				@Override
 				protected void build(MarkupTag body) {
 					body.textcode(556).br().br();
-					// TODO this should not be hard coded!
 					int i = 0;
 					for (final TeleportationMetadata location : locations) {
 						body.addLink(
 								location.name + " - " + location.price
-										+ " Adena",
-								"npc_${npcid}_teleport " + i++).br();
+										+ " Adena", "npc_${npcid}_goto " + i++)
+								.br();
 					}
 				}
 			};
-			template.register("npcid", String.valueOf(npc.getID().getID()));
-			conn.write(new NPCHtmlMessagePacket(npc, template));
-		} else if (args[0].equals("teleport")) {
-			final int location = Integer.parseInt(args[1]);
-			final TeleportationMetadata metadata = locations.get(location);
-			if (metadata == null) {
-				conn.sendActionFailed();
-				return;
-			}
-			spawnService.teleport(character, metadata.point);
 		}
-		conn.sendActionFailed();
+		return super.getChat(name);
+	}
+
+	protected void teleport(NPC npc, L2Character character,
+			Lineage2Connection conn, String name)
+			throws NotSpawnedServiceException {
+		final int location = Integer.parseInt(name);
+		final TeleportationMetadata metadata = locations.get(location);
+		if (metadata == null) {
+			conn.sendActionFailed();
+			return;
+		}
+		spawnService.teleport(character, metadata.point);
 	}
 
 	protected void addLocation(String name, Coordinate coordinate, int price) {

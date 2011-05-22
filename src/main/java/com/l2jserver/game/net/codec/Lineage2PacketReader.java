@@ -37,6 +37,7 @@ import com.l2jserver.game.net.packet.client.CharacterRequestActionUse;
 import com.l2jserver.game.net.packet.client.CharacterRequestBypass;
 import com.l2jserver.game.net.packet.client.CharacterRequestInventoryPacket;
 import com.l2jserver.game.net.packet.client.CharacterRequestMovePacket;
+import com.l2jserver.game.net.packet.client.CharacterRequestOpenMap;
 import com.l2jserver.game.net.packet.client.CharacterSelectPacket;
 import com.l2jserver.game.net.packet.client.CharacterValidatePositionPacket;
 import com.l2jserver.game.net.packet.client.EnterWorld;
@@ -178,6 +179,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CharacterAppearingPacket.class;
 		case CharacterRequestActionUse.OPCODE:
 			return CharacterRequestActionUse.class;
+		case CharacterRequestOpenMap.OPCODE:
+			return CharacterRequestOpenMap.class;
 		default:
 			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
 			break;

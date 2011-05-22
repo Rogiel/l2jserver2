@@ -21,7 +21,6 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
-import com.l2jserver.game.net.packet.server.ActionFailedPacket;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
 import com.l2jserver.game.net.packet.server.CharacterInformationExtraPacket;
@@ -35,6 +34,7 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
+import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.capability.Actor;
@@ -44,8 +44,10 @@ import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterListener;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
+import com.l2jserver.model.world.character.event.CharacterRunningEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
+import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
@@ -162,26 +164,25 @@ public class CharacterServiceImpl extends AbstractService implements
 			protected boolean dispatch(WorldEvent e, Positionable object) {
 				if (e instanceof NPCSpawnEvent) {
 					conn.write(new NPCInformationPacket((NPC) object));
-				} else if (e instanceof CharacterEnterWorldEvent) {
-					// conn.write(packet)
-					// TODO char broadcast
 				} else if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
 					if (object.equals(character))
 						return true;
 					conn.write(new ActorMovementPacket((L2Character) object,
 							evt.getPoint().getCoordinate()));
-				} else if (e instanceof PlayerTeleportedEvent) {
+				} else if (e instanceof PlayerTeleportedEvent
+						|| e instanceof CharacterEnterWorldEvent) {
 					// TODO this should not be here!
-					System.out.println(((PlayerTeleportedEvent) e).getPoint()
-							.getCoordinate());
-					System.out.println(character.getPosition());
 					for (final WorldObject o : worldService
 							.iterable(new KnownListFilter(character))) {
 						if (o instanceof NPC) {
 							conn.write(new NPCInformationPacket((NPC) o));
 						}
 					}
+				} else if (e instanceof CharacterWalkingEvent
+						|| e instanceof CharacterRunningEvent) {
+					conn.write(new CharacterMovementTypePacket(
+							((CharacterWalkingEvent) e).getCharacter()));
 				}
 				// keep listener alive
 				return true;
@@ -227,7 +228,11 @@ public class CharacterServiceImpl extends AbstractService implements
 		conn.sendMessage("Please note that many of the features are not yet implemented.");
 
 		// characters start in run mode
-		run(character);
+		try {
+			run(character);
+		} catch (CharacterAlreadyRunningServiceException e1) {
+			// we can ignore this one
+		}
 
 		// broadcast knownlist -- trashy implementation
 		// TODO should be moved to world service or a newly created broadcast
@@ -295,7 +300,7 @@ public class CharacterServiceImpl extends AbstractService implements
 
 	@Override
 	public void attack(L2Character character, Actor target)
-			throws CannotSetTargetServiceException {
+			throws CannotSetTargetServiceException, ActorIsNotAttackableServiceException {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
@@ -305,8 +310,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			final NPC npc = (NPC) target;
 			final NPCTemplate template = npc.getTemplate();
 			if (!template.isAttackable()) {
-				conn.write(ActionFailedPacket.SHARED_INSTANCE);
-				return;
+				throw new ActorIsNotAttackableServiceException();
 			}
 			// first try to target this, if it is not already
 			target(character, target);
@@ -356,6 +360,8 @@ public class CharacterServiceImpl extends AbstractService implements
 		// we don't set the character coordinate here, this will be done by
 		// validation packets, sent by client
 
+		character.setState(CharacterState.MOVING);
+
 		// for now, let's just write the packet, we don't have much validation
 		// to be done yet. With character validation packet, another packet of
 		// these will be broadcasted.
@@ -380,36 +386,39 @@ public class CharacterServiceImpl extends AbstractService implements
 			// validation just before teleport packet
 			return;
 		character.setPoint(point);
+		character.setState(CharacterState.MOVING);
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, point));
 	}
 
 	@Override
-	public void walk(L2Character character) {
+	public void walk(L2Character character)
+			throws CharacterAlreadyWalkingServiceException {
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 		// test if character is running
-		if (character.getMoveType() == CharacterMoveType.RUN) {
-			// if running set mode to walk and broadcast packet
-			character.setMoveType(CharacterMoveType.WALK);
-			conn.broadcast(new CharacterMovementTypePacket(character));
-			// TODO dispatch move change type event
-		}
-		// TODO we need to throw an exception if character is not running
+		if (character.getMoveType() == CharacterMoveType.WALK)
+			throw new CharacterAlreadyWalkingServiceException();
+		// if running set mode to walk and broadcast packet
+		character.setMoveType(CharacterMoveType.WALK);
+
+		eventDispatcher.dispatch(new CharacterWalkingEvent(character));
+		conn.write(new CharacterMovementTypePacket(character));
 	}
 
 	@Override
-	public void run(L2Character character) {
+	public void run(L2Character character)
+			throws CharacterAlreadyRunningServiceException {
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
 		final Lineage2Connection conn = networkService.discover(id);
 		// test if character is walking
-		if (character.getMoveType() == CharacterMoveType.WALK) {
-			// if running walking mode to run and broadcast packet
-			character.setMoveType(CharacterMoveType.RUN);
-			conn.broadcast(new CharacterMovementTypePacket(character));
-			// TODO dispatch move change type event
-		}
-		// TODO we need to throw an exception if character is not walking
+		if (character.getMoveType() == CharacterMoveType.RUN)
+			throw new CharacterAlreadyRunningServiceException();
+		// if running walking mode to run and broadcast packet
+		character.setMoveType(CharacterMoveType.RUN);
+
+		eventDispatcher.dispatch(new CharacterRunningEvent(character));
+		conn.write(new CharacterMovementTypePacket(character));
 	}
 }

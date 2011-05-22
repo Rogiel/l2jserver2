@@ -16,18 +16,36 @@
  */
 package com.l2jserver.model.template.item;
 
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
-import com.l2jserver.model.template.capability.Defendable;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
 
 /**
- * Template for Armor {@link Item}
+ * Template for general items {@link Item}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ArmorTemplate extends ItemTemplate implements Defendable {
-	public ArmorTemplate(ItemTemplateID id) {
-		super(id);
+public abstract class SkillEtcItemTemplate extends ItemTemplate {
+	protected SkillTemplateID skill;
+
+	public SkillEtcItemTemplate(ItemTemplateID id, String icon,
+			ItemMaterial material, SkillTemplateID skill) {
+		super(id, icon, material);
+	}
+
+	@Override
+	protected void use(Item item, L2Character character, Lineage2Connection conn) {
+		
+		super.use(item, character, conn);
+	}
+
+	/**
+	 * @return the skill
+	 */
+	public SkillTemplateID getSkill() {
+		return skill;
 	}
 }

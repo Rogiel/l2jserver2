@@ -23,6 +23,8 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
+import com.l2jserver.service.game.character.CharacterAlreadyRunningServiceException;
+import com.l2jserver.service.game.character.CharacterAlreadyWalkingServiceException;
 import com.l2jserver.service.game.character.CharacterService;
 
 /**
@@ -101,10 +103,16 @@ public class CharacterRequestActionUse extends AbstractClientPacket {
 			// TODO
 			break;
 		case WALK_RUN:
-			if (character.getMoveType() == CharacterMoveType.WALK) {
-				charService.run(character);
-			} else {
-				charService.walk(character);
+			try {
+				if (character.getMoveType() == CharacterMoveType.WALK) {
+					charService.run(character);
+				} else {
+					charService.walk(character);
+				}
+			} catch (CharacterAlreadyWalkingServiceException e) {
+				conn.sendActionFailed();
+			} catch (CharacterAlreadyRunningServiceException e) {
+				conn.sendActionFailed();
 			}
 			break;
 		}

@@ -77,9 +77,12 @@ public interface CharacterService extends Service {
 	 *            the target
 	 * @throws CannotSetTargetServiceException
 	 *             if target cannot be set
+	 * @throws ActorIsNotAttackableServiceException
+	 *             if the target is not attackable
 	 */
 	void attack(L2Character character, Actor target)
-			throws CannotSetTargetServiceException;
+			throws CannotSetTargetServiceException,
+			ActorIsNotAttackableServiceException;
 
 	/**
 	 * Informs that an given <tt>character</tt> is appearing in the world.
@@ -152,14 +155,20 @@ public interface CharacterService extends Service {
 	 * 
 	 * @param character
 	 *            the character
+	 * @throws CharacterAlreadyWalkingServiceException
+	 *             if the character is already walking
 	 */
-	void walk(L2Character character);
+	void walk(L2Character character)
+			throws CharacterAlreadyWalkingServiceException;
 
 	/**
 	 * Set the character to run mode
 	 * 
 	 * @param character
 	 *            the character
+	 * @throws CharacterAlreadyRunningServiceException
+	 *             if the character is already running
 	 */
-	void run(L2Character character);
+	void run(L2Character character)
+			throws CharacterAlreadyRunningServiceException;
 }

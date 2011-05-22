@@ -14,15 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template.capability;
+package com.l2jserver.model.template.item;
 
-import com.l2jserver.model.world.capability.Damagable;
+import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.template.ItemTemplate;
+import com.l2jserver.model.world.Item;
 
 /**
- * Indicates that an template has the ability to intercept outgoing damage.
+ * Template for general items {@link Item}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface OutgoingDamageIntercept extends TemplateCapability {
-	void interceptOutgoingDamage(Damagable target);
+public abstract class EtcItemTemplate extends ItemTemplate {
+	public EtcItemTemplate(ItemTemplateID id, String icon, ItemMaterial material) {
+		super(id, icon, material);
+	}
 }

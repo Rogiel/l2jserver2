@@ -125,12 +125,12 @@ public class L2Character extends Player {
 	 */
 	private ActorID<?> targetID;
 	/**
-	 * State if the player is being teleported
+	 * State of the character. Will be null if it is idle
 	 */
 	private CharacterState state;
 
 	public enum CharacterState {
-		TELEPORTING;
+		TELEPORTING, CASTING, ATTACKING, MOVING;
 	}
 
 	/**

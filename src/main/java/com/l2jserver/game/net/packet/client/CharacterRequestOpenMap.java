@@ -14,20 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template.item;
+package com.l2jserver.game.net.packet.client;
 
-import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.template.ItemTemplate;
-import com.l2jserver.model.template.capability.Defendable;
-import com.l2jserver.model.world.Item;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.CharacterOpenMap;
 
 /**
- * Template for Armor {@link Item}
+ * Executes an bypass command
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ArmorTemplate extends ItemTemplate implements Defendable {
-	public ArmorTemplate(ItemTemplateID id) {
-		super(id);
+public class CharacterRequestOpenMap extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
+	public static final int OPCODE = 0x6c;
+	
+	@Override
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		conn.write(new CharacterOpenMap(1665));
 	}
 }

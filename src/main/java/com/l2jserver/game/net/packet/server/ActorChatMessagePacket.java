@@ -22,6 +22,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.util.BufferUtils;
 
@@ -39,27 +40,51 @@ public class ActorChatMessagePacket extends AbstractServerPacket {
 	public static final int OPCODE = 0x4a;
 
 	/**
-	 * The selected character
+	 * The sending actor
 	 */
-	private final L2Character character;
+	private final Actor actor;
+	/**
+	 * The message destination
+	 */
 	private ChatMessageDestination destination;
+	/**
+	 * The message
+	 */
 	private String message = null;
+	/**
+	 * The message ID
+	 */
 	private int messageID = 0;
 
-	public ActorChatMessagePacket(L2Character character,
+	public ActorChatMessagePacket(Actor character,
 			ChatMessageDestination destination, String message) {
 		super(OPCODE);
-		this.character = character;
+		this.actor = character;
 		this.destination = destination;
 		this.message = message;
 	}
 
+	public ActorChatMessagePacket(Actor actor,
+			ChatMessageDestination destination, int messageID) {
+		super(OPCODE);
+		this.actor = actor;
+		this.destination = destination;
+		this.messageID = messageID;
+	}
+
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeInt(character.getID().getID());
+		buffer.writeInt(actor.getID().getID());
 		buffer.writeInt(destination.id);
-		BufferUtils.writeString(buffer, character.getName()); // TODO can be
-																// char id!
-		BufferUtils.writeString(buffer, message); // TODO can be msg id
+		if (actor instanceof L2Character) {
+			BufferUtils.writeString(buffer, ((L2Character) actor).getName());
+		} else {
+			buffer.writeInt(actor.getID().getID());
+		}
+		if (message != null) {
+			BufferUtils.writeString(buffer, message);
+		} else {
+			buffer.writeInt(messageID);
+		}
 	}
 }

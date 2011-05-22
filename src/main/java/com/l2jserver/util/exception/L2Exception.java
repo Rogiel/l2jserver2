@@ -21,7 +21,7 @@ package com.l2jserver.util.exception;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class L2Exception extends Exception {
+public abstract class L2Exception extends Exception {
 	/**
 	 * Default Serial Version UID
 	 */
@@ -54,4 +54,15 @@ public class L2Exception extends Exception {
 	public L2Exception(Throwable cause) {
 		super(cause);
 	}
+
+	// /**
+	// * Each {@link L2Exception} has an {@link SystemMessage} attacked to it.
+	// It
+	// * is an <b><u>recommendation</u></b> of which message should be sent to
+	// the
+	// * client in case the exception is thrown.
+	// *
+	// * @return the recommended system message
+	// */
+	// public abstract SystemMessage getSystemMessage();
 }

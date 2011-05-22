@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.template;
 
+import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
@@ -32,7 +33,6 @@ import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.calculator.Calculator;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.html.markup.HtmlTemplate;
-import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
  * Template for {@link NPC}
@@ -106,6 +106,10 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 	 */
 	public void action(NPC npc, L2Character character, String... args)
 			throws L2Exception {
+		Preconditions.checkNotNull(npc, "npc");
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(args, "args");
+
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());
 		if (conn == null)
@@ -119,17 +123,40 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 			return;
 		}
 
-		// generate not implemented message
-		final HtmlTemplate template = new HtmlTemplate(name) {
-			@Override
-			public void build(MarkupTag body) {
-				body.text("The NPC ${name} is not yet implemented!", "ff0000")
-						.p().p();
-				body.addLink("Click me!", "test");
+		if (args.length == 0 || args[0].equals("Chat"))
+			talk(npc, character, conn, args);
+	}
+
+	/**
+	 * Talks with this NPC
+	 * 
+	 * @param npc
+	 *            the npc
+	 * @param character
+	 *            the character
+	 * @param conn
+	 *            the lineage 2 connection
+	 * @param args
+	 *            the action arguments
+	 * @throws L2Exception
+	 */
+	public void talk(NPC npc, L2Character character, Lineage2Connection conn,
+			String... args) throws L2Exception {
+		if (args.length == 0 || (args.length >= 1 && args[0].equals("Chat"))) {
+			String name = "";
+			if (args.length == 2)
+				name = args[1];
+			final HtmlTemplate template = getChat(name);
+			if (template != null) {
+				template.register("npcid", npc.getID().getID());
+				conn.write(new NPCHtmlMessagePacket(npc, template));
 			}
-		};
-		template.register("name", name);
-		conn.write(new NPCHtmlMessagePacket(npc, template));
+		}
+		conn.sendActionFailed();
+	}
+
+	protected HtmlTemplate getChat(String name) throws L2Exception {
+		return null;
 	}
 
 	/**

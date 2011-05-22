@@ -116,6 +116,18 @@ public abstract class HtmlTemplate {
 	public void register(String name, String value) {
 		variables.put(name, value);
 	}
+	
+	/**
+	 * Register an variable for this template
+	 * 
+	 * @param name
+	 *            the name
+	 * @param value
+	 *            the value
+	 */
+	public void register(String name, int value) {
+		variables.put(name, Integer.toString(value));
+	}
 
 	/**
 	 * Creates a new {@link Html} object using the {@link HtmlTemplate} provided
