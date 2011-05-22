@@ -16,8 +16,8 @@
  */
 package com.l2jserver.service.game.character;
 
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;

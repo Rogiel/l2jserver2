@@ -21,7 +21,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 
 /**
  * This packet notifies the client that the chosen character has been

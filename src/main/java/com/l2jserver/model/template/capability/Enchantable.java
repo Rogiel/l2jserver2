@@ -25,5 +25,5 @@ import com.l2jserver.model.template.Template;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Enchantable extends TemplateCapability {
-	void enchant(com.l2jserver.model.world.capability.Enchantable target);
+	
 }

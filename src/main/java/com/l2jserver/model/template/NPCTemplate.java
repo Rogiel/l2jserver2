@@ -23,10 +23,11 @@ import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.model.world.AbstractActor.Race;
+import com.l2jserver.model.template.capability.Interactable;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Actor.Race;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.network.NetworkService;
@@ -39,7 +40,8 @@ import com.l2jserver.util.html.markup.HtmlTemplate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class NPCTemplate extends ActorTemplate<NPC> {
+public abstract class NPCTemplate extends ActorTemplate<NPC> implements
+		Interactable<NPC> {
 	/**
 	 * The {@link NetworkService}
 	 */
@@ -93,17 +95,7 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 		super(id, null);
 	}
 
-	/**
-	 * Performs an interaction with this NPC. This is normally invoked from
-	 * <tt>npc</tt> instance.
-	 * 
-	 * @param character
-	 *            the interacting character
-	 * @param args
-	 *            the action arguments
-	 * @throws L2Exception
-	 *             any {@link L2Exception}
-	 */
+	@Override
 	public void action(NPC npc, L2Character character, String... args)
 			throws L2Exception {
 		Preconditions.checkNotNull(npc, "npc");
@@ -140,7 +132,7 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 	 *            the action arguments
 	 * @throws L2Exception
 	 */
-	public void talk(NPC npc, L2Character character, Lineage2Connection conn,
+	protected void talk(NPC npc, L2Character character, Lineage2Connection conn,
 			String... args) throws L2Exception {
 		if (args.length == 0 || (args.length >= 1 && args[0].equals("Chat"))) {
 			String name = "";

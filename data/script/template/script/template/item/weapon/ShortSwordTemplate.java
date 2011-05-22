@@ -23,8 +23,6 @@ import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeTy
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.model.world.capability.Attackable;
-import com.l2jserver.model.world.capability.Attacker;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 
 public class ShortSwordTemplate extends AbstractNoGradeWeaponTemplate {
@@ -51,11 +49,5 @@ public class ShortSwordTemplate extends AbstractNoGradeWeaponTemplate {
 		this.price = 590;
 		this.soulshots = 1;
 		this.spiritshots = 1;
-	}
-
-	@Override
-	public void attack(Attacker source, Attackable target) {
-		source.attack(target, this);
-		target.receiveAttack(source, this);
 	}
 }

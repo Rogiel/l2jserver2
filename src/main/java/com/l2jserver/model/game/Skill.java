@@ -19,7 +19,7 @@ package com.l2jserver.model.game;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.template.SkillTemplate;
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 
 /**
  * Register the state of a skill known by an {@link Actor}.

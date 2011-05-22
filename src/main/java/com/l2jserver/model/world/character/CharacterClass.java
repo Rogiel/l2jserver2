@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.character;
 
-import com.l2jserver.model.world.AbstractActor.Race;
+import com.l2jserver.model.world.Actor.Race;
 
 /**
  * Defines all the possible classes for an character

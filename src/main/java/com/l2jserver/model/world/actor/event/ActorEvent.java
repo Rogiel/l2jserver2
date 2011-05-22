@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor.event;
 
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.service.game.world.event.WorldEvent;
 
 /**

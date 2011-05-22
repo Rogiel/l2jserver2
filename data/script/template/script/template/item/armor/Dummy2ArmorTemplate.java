@@ -18,9 +18,6 @@ package script.template.item.armor;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.model.world.capability.Attackable;
-import com.l2jserver.model.world.capability.Attacker;
-import com.l2jserver.model.world.capability.Enchantable;
 
 public class Dummy2ArmorTemplate extends AbstractGradeAArmorTemplate {
 	public static final int ID = 10;
@@ -32,26 +29,5 @@ public class Dummy2ArmorTemplate extends AbstractGradeAArmorTemplate {
 	@Inject
 	public Dummy2ArmorTemplate(ItemTemplateIDProvider factory) {
 		super(factory.createID(ID));
-	}
-
-	@Override
-	public void defend(Attacker source, Attackable target) {
-	}
-
-	@Override
-	public void enchant(Enchantable target) {
-		if (target.getEnchantLevel() >= MAX_ENCHANT)
-			return;
-		super.enchant(target);
-	}
-
-	@Override
-	public int getPhysicalDefense() {
-		return REDUCED_DAMAGE_PHYSICAL;
-	}
-
-	@Override
-	public int getMagicalDefense() {
-		return REDUCED_DAMAGE_MAGICAL;
 	}
 }

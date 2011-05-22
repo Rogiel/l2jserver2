@@ -16,11 +16,13 @@
  */
 package com.l2jserver.model;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.model.id.ID;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Simple model interface implementing {@link ID} related methods
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AbstractModel<T extends ID<?>> implements Model<T> {
 	/**
@@ -35,8 +37,7 @@ public class AbstractModel<T extends ID<?>> implements Model<T> {
 
 	@Override
 	public void setID(T ID) {
-		if (this.id != null)
-			throw new IllegalStateException("ID is already set");
+		Preconditions.checkState(id == null, "ID is already set");
 		this.id = ID;
 	}
 

@@ -17,9 +17,9 @@
 package com.l2jserver.model.world.player.event;
 
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.util.dimensional.Point;
 
 /**

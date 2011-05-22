@@ -20,9 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.template.ActorTemplateID;
-import com.l2jserver.model.world.AbstractActor.Race;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Actor.Race;
 import com.l2jserver.model.world.actor.ActorAttributes;
-import com.l2jserver.model.world.capability.Actor;
 
 /**
  * Template for {@link Actor}

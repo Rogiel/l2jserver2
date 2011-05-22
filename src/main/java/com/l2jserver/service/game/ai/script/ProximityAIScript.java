@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.ai.script;
 
-import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.model.world.PositionableObject;
 
 /**
  * This AI is used to receive notifications once another object aproaches.
@@ -31,5 +31,5 @@ public interface ProximityAIScript {
 	 * @param object
 	 *            the object
 	 */
-	void approach(Positionable object);
+	void approach(PositionableObject object);
 }

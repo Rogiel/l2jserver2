@@ -29,7 +29,7 @@ import com.l2jserver.service.game.ai.AIScript;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NPC extends AbstractActor {
+public class NPC extends Actor {
 	/**
 	 * The NPC template ID
 	 */

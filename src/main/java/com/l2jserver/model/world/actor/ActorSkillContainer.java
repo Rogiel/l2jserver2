@@ -23,7 +23,7 @@ import java.util.List;
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.template.SkillTemplate;
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**

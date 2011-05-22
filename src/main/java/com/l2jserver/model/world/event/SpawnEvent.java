@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model.world.event;
 
-import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.util.dimensional.Point;
 
@@ -26,9 +25,6 @@ import com.l2jserver.util.dimensional.Point;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface SpawnEvent extends WorldEvent {
-	@Override
-	Spawnable getObject();
-
 	/**
 	 * @return the spawning point
 	 */

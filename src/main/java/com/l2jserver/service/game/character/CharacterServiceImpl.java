@@ -32,13 +32,13 @@ import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.NPCInformationPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
 import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
@@ -160,10 +160,10 @@ public class CharacterServiceImpl extends AbstractService implements
 		// the given event will be broadcasted or not
 		// TODO this should not be here, it should be i world service or a newly
 		// created broadcast service.
-		final WorldListener broadcastListener = new FilteredWorldListener<Positionable>(
+		final WorldListener broadcastListener = new FilteredWorldListener<PositionableObject>(
 				new KnownListFilter(character)) {
 			@Override
-			protected boolean dispatch(WorldEvent e, Positionable object) {
+			protected boolean dispatch(WorldEvent e, PositionableObject object) {
 				if (e instanceof NPCSpawnEvent) {
 					conn.write(new NPCInformationPacket((NPC) object));
 				} else if (e instanceof CharacterMoveEvent) {
@@ -175,7 +175,7 @@ public class CharacterServiceImpl extends AbstractService implements
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
 					// TODO this should not be here!
-					for (final WorldObject o : worldService
+					for (final PositionableObject o : worldService
 							.iterable(new KnownListFilter(character))) {
 						if (o instanceof NPC) {
 							conn.write(new NPCInformationPacket((NPC) o));

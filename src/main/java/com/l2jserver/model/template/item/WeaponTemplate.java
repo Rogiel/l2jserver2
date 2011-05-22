@@ -21,7 +21,6 @@ import java.util.Map.Entry;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
-import com.l2jserver.model.template.capability.Attackable;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.calculator.Calculator;
@@ -38,7 +37,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class WeaponTemplate extends ItemTemplate implements Attackable {
+public abstract class WeaponTemplate extends ItemTemplate {
 	/**
 	 * The paperldoll slot used by this weapon
 	 */

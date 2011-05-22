@@ -17,7 +17,7 @@
 package com.l2jserver.service.game.world.filter.impl;
 
 import com.google.common.base.Preconditions;
-import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 
 /**
@@ -25,11 +25,11 @@ import com.l2jserver.service.game.world.filter.WorldObjectFilter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RangeFilter implements WorldObjectFilter<Positionable> {
+public class RangeFilter implements WorldObjectFilter<PositionableObject> {
 	/**
 	 * The coordinate point
 	 */
-	private final Positionable object;
+	private final PositionableObject object;
 	/**
 	 * The desired maximum distance of the object
 	 */
@@ -43,7 +43,7 @@ public class RangeFilter implements WorldObjectFilter<Positionable> {
 	 * @param range
 	 *            the desired maximum distance of the object
 	 */
-	public RangeFilter(final Positionable object, final int range) {
+	public RangeFilter(final PositionableObject object, final int range) {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkState(range >= 0, "range < 0");
 		this.object = object;
@@ -51,7 +51,7 @@ public class RangeFilter implements WorldObjectFilter<Positionable> {
 	}
 
 	@Override
-	public boolean accept(Positionable other) {
+	public boolean accept(PositionableObject other) {
 		if (other == null)
 			return false;
 		return other.getPosition().getDistance(object.getPosition()) <= range;

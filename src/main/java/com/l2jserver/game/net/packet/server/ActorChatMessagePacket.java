@@ -21,8 +21,8 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.util.BufferUtils;
 

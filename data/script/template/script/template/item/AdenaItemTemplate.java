@@ -18,12 +18,9 @@ package script.template.item;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.model.template.capability.Stackable;
 import com.l2jserver.model.template.item.EtcItemTemplate;
-import com.l2jserver.model.world.Item;
 
-public class AdenaItemTemplate extends EtcItemTemplate implements
-		Stackable<Item> {
+public class AdenaItemTemplate extends EtcItemTemplate {
 	public static final int ID = 57;
 
 	@Inject

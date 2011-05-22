@@ -17,10 +17,10 @@
 package com.l2jserver.model.world.item;
 
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.player.event.PlayerEvent;
 
 /**

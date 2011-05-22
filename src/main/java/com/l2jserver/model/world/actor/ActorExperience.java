@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor;
 
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 
 /**
  * This enumeration maps for each level the minimum experience required.

@@ -20,9 +20,9 @@ import script.AIInterest;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.capability.Attackable;
-import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.service.game.ai.AIScript;
 import com.l2jserver.service.game.ai.script.AttackAIScript;
@@ -119,10 +119,10 @@ public class CharacterAI implements AIScript, WalkingAIScript, AttackAIScript {
 	}
 
 	@Override
-	public void follow(Positionable positionable) {
+	public void follow(PositionableObject positionable) {
 	}
 
 	@Override
-	public void attack(Attackable target) {
+	public void attack(Actor target) {
 	}
 }

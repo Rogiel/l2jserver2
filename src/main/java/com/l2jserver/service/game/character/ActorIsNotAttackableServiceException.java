@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.character;
 
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 
 /**
  * Exception thrown when the character is trying to attack an {@link Actor} that

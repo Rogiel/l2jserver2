@@ -14,23 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template.capability;
+package com.l2jserver.model.world;
 
-import com.l2jserver.model.template.Template;
-import com.l2jserver.model.world.capability.Attacker;
+import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.dimensional.Point;
 
 /**
- * Defines an {@link Template template} {@link TemplateCapability capability}
- * that an {@link com.l2jserver.model.world.capability.Attackable} can use to
- * defend from an {@link Attacker}.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface Defendable extends TemplateCapability {
-	void defend(Attacker source,
-			com.l2jserver.model.world.capability.Attackable target);
+public abstract class PositionableObject extends AbstractObject {
+	private Point point;
 
-	int getPhysicalDefense();
+	/**
+	 * @return the coordinate point
+	 */
+	public Point getPoint() {
+		return point;
+	}
 
-	int getMagicalDefense();
+	/**
+	 * @param point
+	 *            the coordinate point to set
+	 */
+	public void setPoint(Point point) {
+		this.point = point;
+	}
+
+	public Coordinate getPosition() {
+		return point.getCoordinate();
+	}
+
+	public void setPosition(Coordinate coord) {
+		this.point = new Point(coord, (point != null ? point.getAngle() : 0));
+	}
 }

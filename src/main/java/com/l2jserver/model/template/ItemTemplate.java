@@ -23,12 +23,10 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.template.capability.Depositable;
 import com.l2jserver.model.template.capability.Dropable;
 import com.l2jserver.model.template.capability.Enchantable;
 import com.l2jserver.model.template.capability.Sellable;
 import com.l2jserver.model.template.capability.Tradable;
-import com.l2jserver.model.template.capability.Usable;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.network.NetworkService;
@@ -115,20 +113,6 @@ public abstract class ItemTemplate extends AbstractTemplate<Item> {
 	 */
 	public boolean isTradable() {
 		return (this instanceof Tradable);
-	}
-
-	/**
-	 * @return the usable
-	 */
-	public boolean isUsable() {
-		return (this instanceof Usable);
-	}
-
-	/**
-	 * @return the usable
-	 */
-	public boolean isDepositable() {
-		return (this instanceof Depositable);
 	}
 
 	/**

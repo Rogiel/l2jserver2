@@ -17,8 +17,8 @@
 package com.l2jserver.model.world.actor.event;
 
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.util.dimensional.Point;
 
@@ -51,7 +51,7 @@ public class ActorSpawnEvent implements ActorEvent, SpawnEvent {
 	}
 
 	@Override
-	public Spawnable getObject() {
+	public WorldObject getObject() {
 		return actor;
 	}
 

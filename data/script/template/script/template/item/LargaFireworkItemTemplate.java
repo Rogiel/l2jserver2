@@ -19,12 +19,9 @@ package script.template.item;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
-import com.l2jserver.model.template.capability.Stackable;
 import com.l2jserver.model.template.item.SkillEtcItemTemplate;
-import com.l2jserver.model.world.Item;
 
-public class LargaFireworkItemTemplate extends SkillEtcItemTemplate implements
-		Stackable<Item> {
+public class LargaFireworkItemTemplate extends SkillEtcItemTemplate {
 	public static final int ID = 6407;
 
 	@Inject

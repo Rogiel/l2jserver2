@@ -14,16 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.capability;
+package com.l2jserver.model.template.capability;
 
-import com.l2jserver.model.world.AbstractObject;
+import com.l2jserver.model.template.Template;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.util.exception.L2Exception;
 
 /**
- * Defines an {@link AbstractObject} that can be played (i.e. controlled by the
- * player)
+ * Defines an {@link Template} which the player can interact with
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface Playable extends ObjectCapability {
-
+public interface Interactable<T extends WorldObject> extends TemplateCapability {
+	/**
+	 * Performs an interaction with this template.
+	 * 
+	 * @param character
+	 *            the interacting character
+	 * @param args
+	 *            the action arguments
+	 * @throws L2Exception
+	 *             any {@link L2Exception}
+	 */
+	void action(T object, L2Character character, String... args)
+			throws L2Exception;
 }

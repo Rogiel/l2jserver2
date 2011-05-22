@@ -27,8 +27,8 @@ import com.l2jserver.model.game.Fort;
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.template.SkillTemplate;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.util.BufferUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 

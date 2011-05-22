@@ -17,7 +17,7 @@
 package com.l2jserver.service.game.ai;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;

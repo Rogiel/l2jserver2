@@ -19,9 +19,6 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
-import com.l2jserver.model.world.capability.Dropable;
-import com.l2jserver.model.world.capability.Playable;
-import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.dimensional.Coordinate;
@@ -47,8 +44,7 @@ import com.l2jserver.util.dimensional.Point;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Item extends AbstractObject implements Playable, Spawnable,
-		Dropable {
+public class Item extends PositionableObject {
 	/**
 	 * The {@link ItemTemplate} ID
 	 */
@@ -78,33 +74,6 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 
 	public Item(ItemTemplateID templateID) {
 		this.templateID = templateID;
-	}
-
-	@Override
-	public void drop(Coordinate position) {
-		this.coordinate = position;
-		this.location = null;
-		this.paperdoll = null;
-	}
-
-	@Override
-	public void spawn(Coordinate coordinate) {
-		this.drop(coordinate);
-	}
-
-	@Override
-	public boolean isSpawned() {
-		return (location != null);
-	}
-
-	@Override
-	public Coordinate getPosition() {
-		return coordinate;
-	}
-
-	@Override
-	public void setPosition(Coordinate coord) {
-		this.coordinate = coord;
 	}
 
 	/**
@@ -176,17 +145,10 @@ public class Item extends AbstractObject implements Playable, Spawnable,
 		this.ownerID = ownerID;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.l2jserver.model.world.capability.Pointable#getPoint()
-	 */
-	@Override
 	public Point getPoint() {
 		return null;
 	}
 
-	@Override
 	public void setPoint(Point point) {
 
 	}

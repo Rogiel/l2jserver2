@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor;
 
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 
 /**
  * Class controlling active effects on an {@link Actor}.

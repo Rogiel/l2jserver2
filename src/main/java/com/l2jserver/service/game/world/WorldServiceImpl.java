@@ -26,8 +26,8 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -122,10 +122,10 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	}
 
 	@Override
-	public void knownlist(Positionable object, KnownListCallback callback) {
+	public void knownlist(PositionableObject object, KnownListCallback callback) {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkNotNull(callback, "callback");
-		for (Positionable known : iterable(new KnownListFilter(object))) {
+		for (PositionableObject known : iterable(new KnownListFilter(object))) {
 			callback.knownObject(known);
 		}
 	}

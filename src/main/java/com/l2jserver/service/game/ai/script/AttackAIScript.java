@@ -16,12 +16,12 @@
  */
 package com.l2jserver.service.game.ai.script;
 
-import com.l2jserver.model.world.capability.Attackable;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.service.game.ai.AIScript;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a
  */
 public interface AttackAIScript extends AIScript {
-	void attack(Attackable target);
+	void attack(Actor actor);
 }

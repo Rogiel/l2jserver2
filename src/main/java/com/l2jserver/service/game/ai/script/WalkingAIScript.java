@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.ai.script;
 
-import com.l2jserver.model.world.capability.Positionable;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.game.ai.AIScript;
 import com.l2jserver.util.dimensional.Coordinate;
 
@@ -26,5 +26,5 @@ import com.l2jserver.util.dimensional.Coordinate;
 public interface WalkingAIScript extends AIScript {
 	void walk(Coordinate coord);
 
-	void follow(Positionable positionable);
+	void follow(PositionableObject positionable);
 }

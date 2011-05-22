@@ -17,15 +17,8 @@
 package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.ActorID;
-import com.l2jserver.model.template.SkillTemplate;
-import com.l2jserver.model.template.capability.Attackable;
 import com.l2jserver.model.world.actor.ActorEffects;
 import com.l2jserver.model.world.actor.ActorSkillContainer;
-import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Attacker;
-import com.l2jserver.model.world.capability.Castable;
-import com.l2jserver.model.world.capability.Equipable;
-import com.l2jserver.model.world.capability.Equiper;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
 
@@ -34,7 +27,7 @@ import com.l2jserver.util.dimensional.Point;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractActor extends AbstractObject implements Actor {
+public abstract class Actor extends PositionableObject {
 	/**
 	 * The actor race
 	 */
@@ -124,76 +117,12 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	 */
 	protected final ActorSkillContainer skills = new ActorSkillContainer(this);
 
-	@Override
-	public void receiveDamage(int damage) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public int getHP() {
 		return hp;
 	}
 
-	@Override
 	public void setHP(int hp) {
 		this.hp = hp;
-	}
-
-	@Override
-	public void receiveAttack(Attacker attacker, Attackable weapon) {
-		// TODO
-	}
-
-	@Override
-	public void attack(com.l2jserver.model.world.capability.Attackable target,
-			Attackable weapon) {
-		// TODO
-	}
-
-	@Override
-	public void cast() {
-		// TODO
-	}
-
-	@Override
-	public void cast(SkillTemplate skill, Castable cast) {
-		// TODO
-	}
-
-	@Override
-	public void spawn(Coordinate coordinate) {
-		// TODO
-	}
-
-	@Override
-	public boolean isSpawned() {
-		return false;
-	}
-
-	/**
-	 * @return the coordinate point
-	 */
-	public Point getPoint() {
-		return point;
-	}
-
-	/**
-	 * @param point
-	 *            the coordinate point to set
-	 */
-	public void setPoint(Point point) {
-		this.point = point;
-	}
-
-	@Override
-	public Coordinate getPosition() {
-		return point.getCoordinate();
-	}
-
-	@Override
-	public void setPosition(Coordinate coord) {
-		this.point = new Point(coord, (point != null ? point.getAngle() : 0));
 	}
 
 	/**
@@ -226,12 +155,10 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 		this.sex = sex;
 	}
 
-	@Override
 	public int getLevel() {
 		return level;
 	}
 
-	@Override
 	public void setLevel(int level) {
 		this.level = level;
 	}
@@ -239,50 +166,12 @@ public abstract class AbstractActor extends AbstractObject implements Actor {
 	/**
 	 * @return the active effects on this actor
 	 */
-	@Override
 	public ActorEffects getEffects() {
 		return effects;
 	}
 
-	@Override
 	public ActorSkillContainer getSkills() {
 		return skills;
-	}
-
-	@Override
-	public void die(WorldObject killer) {
-		// TODO
-	}
-
-	@Override
-	public void equip(Equipable equipable) {
-		// TODO
-	}
-
-	@Override
-	public boolean isEquiped(Equipable equipment) {
-		return false;
-	}
-
-	@Override
-	public boolean isEquiped(
-			com.l2jserver.model.template.capability.Equipable equipable) {
-		return false;
-	}
-
-	@Override
-	public void setEquipment(Object slot, Equipable equipment) {
-		// TODO
-	}
-
-	@Override
-	public void getEquipment(Object slot) {
-		// TODO
-	}
-
-	@Override
-	public void equip(Equiper equiper) {
-		// TODO
 	}
 
 	@Override

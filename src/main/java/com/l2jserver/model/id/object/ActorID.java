@@ -19,7 +19,7 @@ package com.l2jserver.model.id.object;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.world.capability.Actor;
+import com.l2jserver.model.world.Actor;
 
 /**
  * An {@link ObjectID} instance representing an {@link Actor} object

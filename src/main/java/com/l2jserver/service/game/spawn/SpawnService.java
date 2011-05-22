@@ -17,7 +17,7 @@
 package com.l2jserver.service.game.spawn;
 
 import com.l2jserver.model.world.Player;
-import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
@@ -36,7 +36,7 @@ public interface SpawnService extends Service {
 	 * An {@link SpawnEvent} will be dispatched and the object will be
 	 * registered in the world (if it isn't already)
 	 * 
-	 * @param spawnable
+	 * @param object
 	 *            the spawnable object
 	 * @param point
 	 *            the spawning point. If null, will try to use
@@ -47,7 +47,7 @@ public interface SpawnService extends Service {
 	 * @throws AlreadySpawnedServiceException
 	 *             if the object is already spawned in the world
 	 */
-	void spawn(Spawnable spawnable, Point point)
+	void spawn(PositionableObject object, Point point)
 			throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException;
 
@@ -75,7 +75,7 @@ public interface SpawnService extends Service {
 	 * @param spawnable
 	 *            the spawnable object
 	 */
-	void scheduleRespawn(Spawnable spawnable);
+	void scheduleRespawn(PositionableObject spawnable);
 
 	/**
 	 * Unspawns an object from the world
@@ -85,5 +85,5 @@ public interface SpawnService extends Service {
 	 * @throws NotSpawnedServiceException
 	 *             if the object is not spawned
 	 */
-	void unspawn(Spawnable spawnable) throws NotSpawnedServiceException;
+	void unspawn(PositionableObject spawnable) throws NotSpawnedServiceException;
 }

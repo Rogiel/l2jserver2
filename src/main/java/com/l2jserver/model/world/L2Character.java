@@ -25,7 +25,6 @@ import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.actor.ActorAttributes;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.model.world.character.CharacterAppearance;
 import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
 import com.l2jserver.model.world.character.CharacterClass;

@@ -18,15 +18,13 @@ package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
-import com.l2jserver.model.world.capability.Summonable;
-import com.l2jserver.util.dimensional.Coordinate;
 
 /**
  * This class represents an Pet in the Lineage II World
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Pet extends Player implements Summonable {
+public class Pet extends Player {
 	/**
 	 * The {@link CharacterID} pet's owner
 	 */
@@ -35,18 +33,6 @@ public class Pet extends Player implements Summonable {
 	 * {@link ItemID} used to summon this pet
 	 */
 	private ItemID itemID;
-
-	@Override
-	public void summon(Coordinate coordinate) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean isSummoned() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	/**
 	 * @return the owner ID

@@ -19,8 +19,6 @@ package script.template.skill;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
 import com.l2jserver.model.template.SkillTemplate;
-import com.l2jserver.model.world.capability.Castable;
-import com.l2jserver.model.world.capability.Caster;
 import com.l2jserver.model.world.character.CharacterClass;
 
 public class TestSkillTemplate extends SkillTemplate {
@@ -35,10 +33,5 @@ public class TestSkillTemplate extends SkillTemplate {
 	@Override
 	public CharacterClass[] getClasses() {
 		return new CharacterClass[] { CharacterClass.HUMAN_FIGHTER };
-	}
-
-	@Override
-	public void cast(Caster caster, Castable... targets) {
-		// TODO do casting
 	}
 }

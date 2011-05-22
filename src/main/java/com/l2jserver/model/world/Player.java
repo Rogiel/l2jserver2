@@ -16,15 +16,12 @@
  */
 package com.l2jserver.model.world;
 
-import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.model.world.capability.Playable;
-
 /**
  * {@link Player} is any object that can be controlled by the player. The most
  * common implementation is {@link L2Character}.
  * 
  * @author Rogiel
  */
-public abstract class Player extends AbstractActor implements Playable, Actor {
+public abstract class Player extends Actor {
 
 }

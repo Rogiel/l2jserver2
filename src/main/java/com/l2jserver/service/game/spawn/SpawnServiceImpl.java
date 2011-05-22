@@ -28,7 +28,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.Player;
-import com.l2jserver.model.world.capability.Spawnable;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
@@ -74,32 +74,32 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public void spawn(Spawnable spawnable, Point point)
+	public void spawn(PositionableObject object, Point point)
 			throws SpawnPointNotFoundServiceException {
-		Preconditions.checkNotNull(spawnable, "spawnable");
+		Preconditions.checkNotNull(object, "object");
 		// sanitize
 		if (point == null)
 			// retrieving stored point
-			point = spawnable.getPoint();
+			point = object.getPoint();
 		if (point == null) {
 			// not point send and no point stored, aborting
 			throw new SpawnPointNotFoundServiceException();
 		}
 
 		// set the spawning point
-		spawnable.setPoint(point);
+		object.setPoint(point);
 		// register object in the world
-		if (!worldService.add(spawnable))
+		if (!worldService.add(object))
 			// TODO this should throw an exception
 			// object was already in world
 			return;
 
 		// create the SpawnEvent
 		SpawnEvent event = null;
-		if (spawnable instanceof NPC) {
-			final NPC npc = (NPC) spawnable;
+		if (object instanceof NPC) {
+			final NPC npc = (NPC) object;
 			event = new NPCSpawnEvent(npc, point);
-		} else if (spawnable instanceof L2Character) {
+		} else if (object instanceof L2Character) {
 			event = null;
 		}
 
@@ -114,7 +114,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	public void teleport(Player player, Coordinate coordinate) {
 		Preconditions.checkNotNull(player, "player");
 		Preconditions.checkNotNull(coordinate, "coordinate");
-		System.out.println("teleport: "+coordinate);
+		System.out.println("teleport: " + coordinate);
 		player.setPosition(coordinate);
 		if (player instanceof L2Character) {
 			final Lineage2Connection conn = networkService
@@ -132,15 +132,15 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public void scheduleRespawn(Spawnable spawnable) {
-		Preconditions.checkNotNull(spawnable, "spawnable");
+	public void scheduleRespawn(PositionableObject object) {
+		Preconditions.checkNotNull(object, "object");
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void unspawn(Spawnable spawnable) {
-		Preconditions.checkNotNull(spawnable, "spawnable");
+	public void unspawn(PositionableObject object) {
+		Preconditions.checkNotNull(object, "object");
 		// TODO Auto-generated method stub
 
 	}

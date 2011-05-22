@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 
-import com.l2jserver.model.world.AbstractActor.Race;
+import com.l2jserver.model.world.Actor.Race;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.factory.CollectionFactory;
 

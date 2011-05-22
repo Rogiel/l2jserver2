@@ -21,7 +21,6 @@ import java.util.Iterator;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.iterator.WorldObjectIterator;
-import com.l2jserver.model.world.capability.Joinable;
 import com.l2jserver.model.world.clan.ClanMembers;
 
 /**
@@ -29,7 +28,7 @@ import com.l2jserver.model.world.clan.ClanMembers;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Clan extends AbstractObject implements Joinable<L2Character> {
+public class Clan extends AbstractObject implements Iterable<L2Character> {
 	/**
 	 * Clan leader
 	 */
@@ -39,16 +38,6 @@ public class Clan extends AbstractObject implements Joinable<L2Character> {
 	 * Members in the clan
 	 */
 	private final ClanMembers members = new ClanMembers(this);
-
-	@Override
-	public void join(L2Character member) {
-		members.add(member);
-	}
-
-	@Override
-	public void leave(L2Character member) {
-		members.remove(member);
-	}
 
 	/**
 	 * @return the leaderID

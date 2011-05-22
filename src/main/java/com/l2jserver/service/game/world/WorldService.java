@@ -20,8 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.capability.Positionable;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
@@ -79,7 +79,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 * @param callback
 	 *            the callback
 	 */
-	void knownlist(Positionable object, KnownListCallback callback);
+	void knownlist(PositionableObject object, KnownListCallback callback);
 
 	/**
 	 * The KnownList callback is used to execute an action for each object know

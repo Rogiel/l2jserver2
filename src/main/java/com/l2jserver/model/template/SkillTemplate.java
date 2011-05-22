@@ -18,7 +18,6 @@ package com.l2jserver.model.template;
 
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.SkillTemplateID;
-import com.l2jserver.model.template.capability.Castable;
 import com.l2jserver.model.world.character.CharacterClass;
 
 /**
@@ -26,8 +25,7 @@ import com.l2jserver.model.world.character.CharacterClass;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class SkillTemplate extends AbstractTemplate<Skill> implements
-		Castable {
+public abstract class SkillTemplate extends AbstractTemplate<Skill> {
 	/**
 	 * The maximum level supported by this skill
 	 */
