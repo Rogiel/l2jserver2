@@ -52,7 +52,7 @@ public class CharacterMoveEvent implements CharacterEvent {
 	}
 
 	/**
-	 * @return the point
+	 * @return the new point
 	 */
 	public Point getPoint() {
 		return point;

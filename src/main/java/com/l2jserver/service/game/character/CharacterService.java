@@ -82,6 +82,16 @@ public interface CharacterService extends Service {
 			throws CannotSetTargetServiceException;
 
 	/**
+	 * Informs that an given <tt>character</tt> is appearing in the world.
+	 * <p>
+	 * This is normally called after an teleport.
+	 * 
+	 * @param character
+	 *            the character
+	 */
+	void appearing(L2Character character);
+
+	/**
 	 * Jails the given <tt>character</tt> for <tt>time</tt> seconds.
 	 * 
 	 * @param character

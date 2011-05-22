@@ -39,7 +39,23 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 
 		final NPCTemplate template = npc.getTemplate();
 		try {
-			template.action(npc, character, action);
+			template.action(npc, character, new String[0]);
+		} catch (L2Exception e) {
+			throw new ActionServiceException(e);
+		}
+	}
+
+	@Override
+	public void action(NPC npc, L2Character character, String... args)
+			throws ActionServiceException {
+		Preconditions.checkNotNull(npc, "npc");
+		Preconditions.checkNotNull(character, "character");
+		if (args == null)
+			args = new String[0];
+
+		final NPCTemplate template = npc.getTemplate();
+		try {
+			template.action(npc, character, args);
 		} catch (L2Exception e) {
 			throw new ActionServiceException(e);
 		}

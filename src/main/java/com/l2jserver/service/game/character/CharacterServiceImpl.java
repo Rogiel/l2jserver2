@@ -24,6 +24,7 @@ import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.ActionFailedPacket;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
+import com.l2jserver.game.net.packet.server.CharacterInformationExtraPacket;
 import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
 import com.l2jserver.game.net.packet.server.CharacterInventoryPacket;
 import com.l2jserver.game.net.packet.server.CharacterMovementTypePacket;
@@ -46,6 +47,7 @@ import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
@@ -165,8 +167,21 @@ public class CharacterServiceImpl extends AbstractService implements
 					// TODO char broadcast
 				} else if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
+					if (object.equals(character))
+						return true;
 					conn.write(new ActorMovementPacket((L2Character) object,
 							evt.getPoint().getCoordinate()));
+				} else if (e instanceof PlayerTeleportedEvent) {
+					// TODO this should not be here!
+					System.out.println(((PlayerTeleportedEvent) e).getPoint()
+							.getCoordinate());
+					System.out.println(character.getPosition());
+					for (final WorldObject o : worldService
+							.iterable(new KnownListFilter(character))) {
+						if (o instanceof NPC) {
+							conn.write(new NPCInformationPacket((NPC) o));
+						}
+					}
 				}
 				// keep listener alive
 				return true;
@@ -202,6 +217,7 @@ public class CharacterServiceImpl extends AbstractService implements
 
 		// send this user information
 		conn.write(new CharacterInformationPacket(character));
+		conn.write(new CharacterInformationExtraPacket(character));
 		// TODO game guard enforcing
 		conn.write(new GameGuardQueryPacket());
 		conn.write(new CharacterInventoryPacket(character.getInventory()));
@@ -220,7 +236,6 @@ public class CharacterServiceImpl extends AbstractService implements
 				character))) {
 			if (o instanceof NPC) {
 				conn.write(new NPCInformationPacket((NPC) o));
-				// conn.write(new ServerObjectPacket((NPC) o));
 			}
 		}
 
@@ -301,6 +316,20 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
+	public void appearing(L2Character character) {
+		Preconditions.checkNotNull(character, "character");
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+
+		character.setState(null);
+
+		conn.write(new CharacterInformationPacket(character));
+		conn.write(new CharacterInformationExtraPacket(character));
+		eventDispatcher.dispatch(new PlayerTeleportedEvent(character, character
+				.getPoint()));
+	}
+
+	@Override
 	public void jail(L2Character character, long time, String reason)
 			throws CharacterInJailServiceException {
 		Preconditions.checkNotNull(character, "character");
@@ -346,6 +375,10 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void receivedValidation(L2Character character, Point point) {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(point, "point");
+		if (character.isTeleporting())
+			// ignore while teleporting, for some reason the client sends a
+			// validation just before teleport packet
+			return;
 		character.setPoint(point);
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, point));
 	}

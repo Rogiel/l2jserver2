@@ -14,20 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.admin;
+package com.l2jserver.model.world.player.event;
 
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.Service;
+import com.l2jserver.model.world.Player;
+import com.l2jserver.util.dimensional.Point;
 
 /**
- * This service handles GM in the server
+ * Event dispatched once an player has completed its teleportation to another
+ * location
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface GMService extends Service {
-	void command(L2Character character, String command, String... args);
-
-	public interface GMCommand {
-		void gm(L2Character character, String... args);
+public class PlayerTeleportedEvent extends PlayerSpawnEvent {
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param player
+	 *            the teleported player
+	 * @param point
+	 *            the teleport point
+	 */
+	public PlayerTeleportedEvent(Player player, Point point) {
+		super(player, point);
 	}
 }

@@ -43,6 +43,20 @@ public interface NPCService extends Service {
 			throws ActionServiceException;
 
 	/**
+	 * Executes an action for an NPC. Each {@link NPCTemplate} have it's own
+	 * actions.
+	 * 
+	 * @param npc
+	 *            the npc
+	 * @param character
+	 *            the character
+	 * @param args
+	 *            the action arguments
+	 */
+	void action(NPC npc, L2Character character, String... args)
+			throws ActionServiceException;
+
+	/**
 	 * Attacks an given NPC, if possible.
 	 * 
 	 * @param npc

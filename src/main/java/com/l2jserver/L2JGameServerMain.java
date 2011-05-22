@@ -99,5 +99,19 @@ public class L2JGameServerMain {
 		npc.setPoint(Point.fromXYZ(-71301, 258259, -3134));
 
 		spawnService.spawn(npc, null);
+
+		// close spawn gatekepper
+		final NPCTemplateID gid = templateProvider.createID(30006);
+		final NPC gatekeeper = gid.getTemplate().create();
+		gatekeeper.setID(provider.createID());
+		gatekeeper.setPoint(Point.fromXYZ(-71301, 258559, -3134));
+		spawnService.spawn(gatekeeper, null);
+
+		// spawn tamil - orc village
+		final NPCTemplateID tamilId = templateProvider.createID(30576);
+		final NPC tamil = tamilId.getTemplate().create();
+		tamil.setID(provider.createID());
+		tamil.setPoint(Point.fromXYZ(-45264, -112512, -240));
+		spawnService.spawn(tamil, null);
 	}
 }

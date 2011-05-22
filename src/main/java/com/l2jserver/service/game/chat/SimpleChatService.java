@@ -111,7 +111,6 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			ChatBanActiveChatServiceException {
 		Preconditions.checkNotNull(sender, "sender");
 		Preconditions.checkNotNull(message, "message");
-		Preconditions.checkNotNull(extra, "extra");
 
 		final ChatChannel channel;
 		switch (chat) {

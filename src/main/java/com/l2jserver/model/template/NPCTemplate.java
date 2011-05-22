@@ -18,7 +18,6 @@ package com.l2jserver.model.template;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
@@ -100,12 +99,12 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 	 * 
 	 * @param character
 	 *            the interacting character
-	 * @param action
-	 *            the action performed
+	 * @param args
+	 *            the action arguments
 	 * @throws L2Exception
 	 *             any {@link L2Exception}
 	 */
-	public void action(NPC npc, L2Character character, CharacterAction action)
+	public void action(NPC npc, L2Character character, String... args)
 			throws L2Exception {
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());

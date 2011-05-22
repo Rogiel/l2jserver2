@@ -239,7 +239,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAppearance().getHairStyle().option);
 		buffer.writeInt(character.getAppearance().getHairColor().option);
 		buffer.writeInt(character.getAppearance().getFace().option);
-		buffer.writeInt(0x00); // is gm
+		buffer.writeInt(0x01); // is gm
 
 		String title = "Testing"; // title
 		BufferUtils.writeString(buffer, title);

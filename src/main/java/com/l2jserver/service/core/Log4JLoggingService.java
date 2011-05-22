@@ -37,6 +37,7 @@ public class Log4JLoggingService extends AbstractService implements
 	private Logger rootLogger;
 	private Logger l2jLogger;
 	private Logger scriptLogger;
+	private Logger nettyLogger;
 
 	@Override
 	protected void doStart() throws ServiceStartException {
@@ -47,6 +48,7 @@ public class Log4JLoggingService extends AbstractService implements
 		rootLogger = Logger.getRootLogger();
 		l2jLogger = Logger.getLogger("com.l2jserver");
 		scriptLogger = Logger.getLogger("script");
+		nettyLogger = Logger.getLogger("org.jboss.netty");
 
 		rootLogger.removeAllAppenders();
 		rootLogger.setLevel(Level.WARN);
@@ -54,6 +56,7 @@ public class Log4JLoggingService extends AbstractService implements
 
 		l2jLogger.setLevel(Level.DEBUG);
 		scriptLogger.setLevel(Level.DEBUG);
+		nettyLogger.setLevel(Level.DEBUG);
 	}
 
 	@Override

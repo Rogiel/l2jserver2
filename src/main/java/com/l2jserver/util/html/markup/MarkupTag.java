@@ -92,6 +92,17 @@ public class MarkupTag {
 	}
 
 	/**
+	 * Adds an internal text from an code
+	 * 
+	 * @param text
+	 *            the text
+	 * @return this {@link MarkupTag}
+	 */
+	public MarkupTag textcode(int code) {
+		return text("&$" + Integer.toString(code) + ";");
+	}
+
+	/**
 	 * Adds a plain text to the tag, use the color formatting.
 	 * 
 	 * @param text

@@ -16,15 +16,22 @@
  */
 package com.l2jserver.model.world.player.event;
 
+import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Player;
+import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.util.dimensional.Point;
 
 /**
- * Event dispatched once an player is teleported to another location
+ * Event dispatched once an player has started his teleported to another
+ * location
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PlayerTeleportEvent extends PlayerSpawnEvent {
+public class PlayerTeleportingEvent implements PlayerEvent {
+	private final Player player;
+	private final Point point;
+
 	/**
 	 * Creates a new instance
 	 * 
@@ -33,7 +40,37 @@ public class PlayerTeleportEvent extends PlayerSpawnEvent {
 	 * @param point
 	 *            the teleport point
 	 */
-	public PlayerTeleportEvent(Player player, Point point) {
-		super(player, point);
+	public PlayerTeleportingEvent(Player player, Point point) {
+		this.player = player;
+		this.point = point;
+	}
+
+	@Override
+	public Actor getActor() {
+		return player;
+	}
+
+	@Override
+	public WorldObject getObject() {
+		return player;
+	}
+
+	@Override
+	public Player getPlayer() {
+		return player;
+	}
+
+	/**
+	 * The point to which this player was teleported.
+	 * 
+	 * @return the teleported point
+	 */
+	public Point getPoint() {
+		return point;
+	}
+
+	@Override
+	public ObjectID<?>[] getDispatchableObjects() {
+		return new ObjectID<?>[] { player.getID() };
 	}
 }

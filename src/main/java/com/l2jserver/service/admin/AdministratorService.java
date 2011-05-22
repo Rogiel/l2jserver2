@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.admin;
 
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
@@ -23,6 +24,25 @@ import com.l2jserver.service.Service;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface AdminService extends Service {
+public interface AdministratorService extends Service {
+	/**
+	 * Executes an command
+	 * 
+	 * @param character
+	 *            the admin character
+	 * @param command
+	 *            the command
+	 * @param args
+	 *            the arguments
+	 */
+	void command(L2Character character, String command, String... args);
 
+	/**
+	 * The base interface for Administrator commands
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public interface AdministratorCommand {
+		void administrator(L2Character character, String... args);
+	}
 }

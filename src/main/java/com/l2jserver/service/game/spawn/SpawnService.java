@@ -19,7 +19,7 @@ package com.l2jserver.service.game.spawn;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.event.SpawnEvent;
-import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
@@ -54,7 +54,7 @@ public interface SpawnService extends Service {
 	/**
 	 * Teleports the object to the given <tt>point</tt>.
 	 * <p>
-	 * An {@link PlayerTeleportEvent} will be dispatched and the new position
+	 * An {@link PlayerTeleportingEvent} will be dispatched and the new position
 	 * will be broadcast to all clients.
 	 * 
 	 * @param player

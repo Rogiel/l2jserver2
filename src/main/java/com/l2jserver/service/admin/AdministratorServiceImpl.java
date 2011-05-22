@@ -17,17 +17,20 @@
 package com.l2jserver.service.admin;
 
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.Service;
+import com.l2jserver.service.AbstractService;
 
 /**
- * This service handles GM in the server
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface GMService extends Service {
-	void command(L2Character character, String command, String... args);
-
-	public interface GMCommand {
-		void gm(L2Character character, String... args);
+public class AdministratorServiceImpl extends AbstractService implements
+		AdministratorService {
+	@Override
+	public void command(L2Character character, String command, String... args) {
+		if(command.equals("log")) {
+			if(args.length == 2) {
+				
+			}
+		}
 	}
 }

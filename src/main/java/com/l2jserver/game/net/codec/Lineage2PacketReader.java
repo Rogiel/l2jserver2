@@ -27,10 +27,14 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
+import com.l2jserver.game.net.packet.client.AdminCommandPacket;
 import com.l2jserver.game.net.packet.client.AuthLoginPacket;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket;
+import com.l2jserver.game.net.packet.client.CharacterAppearingPacket;
 import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket;
 import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
+import com.l2jserver.game.net.packet.client.CharacterRequestActionUse;
+import com.l2jserver.game.net.packet.client.CharacterRequestBypass;
 import com.l2jserver.game.net.packet.client.CharacterRequestInventoryPacket;
 import com.l2jserver.game.net.packet.client.CharacterRequestMovePacket;
 import com.l2jserver.game.net.packet.client.CharacterSelectPacket;
@@ -166,6 +170,14 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CharacterActionPacket.class;
 		case CharacterRequestInventoryPacket.OPCODE:
 			return CharacterRequestInventoryPacket.class;
+		case AdminCommandPacket.OPCODE:
+			return AdminCommandPacket.class;
+		case CharacterRequestBypass.OPCODE:
+			return CharacterRequestBypass.class;
+		case CharacterAppearingPacket.OPCODE:
+			return CharacterAppearingPacket.class;
+		case CharacterRequestActionUse.OPCODE:
+			return CharacterRequestActionUse.class;
 		default:
 			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
 			break;

@@ -25,12 +25,13 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.server.CharacterTeleportPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.capability.Spawnable;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
-import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.world.WorldService;
@@ -113,6 +114,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	public void teleport(Player player, Coordinate coordinate) {
 		Preconditions.checkNotNull(player, "player");
 		Preconditions.checkNotNull(coordinate, "coordinate");
+		System.out.println("teleport: "+coordinate);
 		player.setPosition(coordinate);
 		if (player instanceof L2Character) {
 			final Lineage2Connection conn = networkService
@@ -121,9 +123,10 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 				// TODO throw an exception here
 				return;
 			conn.write(new CharacterTeleportPacket(conn.getCharacter()));
+			((L2Character) player).setState(CharacterState.TELEPORTING);
 		}
 		// dispatch teleport event
-		eventDispatcher.dispatch(new PlayerTeleportEvent(player, coordinate
+		eventDispatcher.dispatch(new PlayerTeleportingEvent(player, coordinate
 				.toPoint()));
 		// remember: broadcasting is done through events!
 	}

@@ -200,7 +200,10 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 			set = CollectionFactory.newSet();
 			listeners.put(id, set);
 		}
-		return set;
+		final Set<WorldListener> union = CollectionFactory.newSet();
+		union.addAll(set);
+		union.addAll(globalListeners);
+		return union;
 	}
 
 	public void stop() {

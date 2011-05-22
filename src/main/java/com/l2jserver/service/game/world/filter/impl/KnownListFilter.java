@@ -27,7 +27,7 @@ import com.l2jserver.service.game.world.filter.AndFilter;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class KnownListFilter extends AndFilter<Positionable> {
-	public static final int KNOWNLIST_RANGE = 200;
+	public static final int KNOWNLIST_RANGE = 2000;
 
 	@SuppressWarnings("unchecked")
 	public KnownListFilter(Positionable object) {

@@ -70,7 +70,7 @@ public class MapperPathingService extends AbstractService implements
 	private final WorldEventDispatcher eventDispatcher;
 
 	/**
-	 * The database channel, will reamain open until service is stopped.
+	 * The database channel, will remain open until service is stopped.
 	 */
 	private FileChannel channel;
 
@@ -102,6 +102,7 @@ public class MapperPathingService extends AbstractService implements
 						.fromCoordinate(point.getCoordinate());
 				try {
 					channel.write(struct.getByteBuffer());
+					channel.force(true);
 				} catch (IOException e1) {
 					log.warn("Error writing pathing file!", e1);
 				}

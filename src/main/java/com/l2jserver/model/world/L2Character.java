@@ -98,17 +98,12 @@ public class L2Character extends Player {
 	// ////////////////////////////////////
 	// / RUNTIME
 	// ////////////////////////////////////
-
 	/**
 	 * The character walk mode.
 	 * <p>
 	 * This field is not persisted.
 	 */
 	private CharacterMoveType moveType = CharacterMoveType.WALK;
-	/**
-	 * The character target, if any.
-	 */
-	private ActorID<?> targetID;
 
 	/**
 	 * The character walking mode
@@ -123,6 +118,19 @@ public class L2Character extends Player {
 		CharacterMoveType(int id) {
 			this.id = id;
 		}
+	}
+
+	/**
+	 * The character target, if any.
+	 */
+	private ActorID<?> targetID;
+	/**
+	 * State if the player is being teleported
+	 */
+	private CharacterState state;
+
+	public enum CharacterState {
+		TELEPORTING;
 	}
 
 	/**
@@ -296,6 +304,28 @@ public class L2Character extends Player {
 	 */
 	public void setTargetID(ActorID<?> target) {
 		this.targetID = target;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public CharacterState getState() {
+		return state;
+	}
+
+	/**
+	 * @param state
+	 *            the state to set
+	 */
+	public void setState(CharacterState state) {
+		this.state = state;
+	}
+
+	/**
+	 * @return true if character is being teleported
+	 */
+	public boolean isTeleporting() {
+		return state == CharacterState.TELEPORTING;
 	}
 
 	/**
