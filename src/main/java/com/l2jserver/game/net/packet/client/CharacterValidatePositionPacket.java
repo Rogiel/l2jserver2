@@ -21,7 +21,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.util.dimensional.Point;
 
 /**

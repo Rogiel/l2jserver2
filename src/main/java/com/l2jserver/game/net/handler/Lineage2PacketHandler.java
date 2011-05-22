@@ -16,6 +16,9 @@
  */
 package com.l2jserver.game.net.handler;
 
+import java.io.IOException;
+
+import org.jboss.netty.channel.ChannelException;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -94,13 +97,20 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	}
 
 	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e)
+	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent event)
 			throws Exception {
-		// TODO only send exception stack trace in development mode!
-		// TODO ignore netty exceptions or it could cause stack overflow
-		final String exception = Throwables.getStackTraceAsString(e.getCause())
-				.replaceAll("\n", "<br>").replace("	", "");
+		final Throwable e = event.getCause();
+		if (e instanceof ChannelException)
+			return;
+		if (e instanceof IOException)
+			return;
+		if (!connection.isConnected())
+			// no point sending error messages if the client is disconnected
+			return;
 
+		// TODO only send exception stack trace in development mode!
+		final String exception = Throwables.getStackTraceAsString(e)
+				.replaceAll("\n", "<br>").replace("	", "");
 		final HtmlTemplate template = new HtmlTemplate("Java Exception") {
 			@Override
 			public void build(MarkupTag body) {
@@ -108,5 +118,11 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 			}
 		};
 		connection.write(new NPCHtmlMessagePacket(null, template));
+		connection.sendActionFailed(); // order client not to wait any packet
+
+		final String[] lines = Throwables.getStackTraceAsString(e).split("\n");
+		for(final String line : lines) {
+			connection.sendMessage(line);
+		}
 	}
 }

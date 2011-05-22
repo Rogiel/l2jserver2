@@ -14,17 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game;
+package com.l2jserver.service.game.character;
 
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.Service;
-import com.l2jserver.service.game.SpawnService.AlreadySpawnedServiceException;
-import com.l2jserver.service.game.SpawnService.NotSpawnedServiceException;
-import com.l2jserver.service.game.SpawnService.SpawnPointNotFoundServiceException;
+import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
+import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
-import com.l2jserver.util.exception.L2ChatServiceException;
 
 /**
  * This service manages {@link L2Character} instances
@@ -105,7 +104,8 @@ public interface CharacterService extends Service {
 	 * @throws CharacterNotInJailServiceException
 	 *             if character is not in jail
 	 */
-	void unjail(L2Character character) throws CharacterNotInJailServiceException;
+	void unjail(L2Character character)
+			throws CharacterNotInJailServiceException;
 
 	/**
 	 * Moves the given <tt>character</tt> to <tt>coordinate</tt>
@@ -152,32 +152,4 @@ public interface CharacterService extends Service {
 	 *            the character
 	 */
 	void run(L2Character character);
-
-	/**
-	 * Exception thrown when the target cannot be set
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class CannotSetTargetServiceException extends L2ChatServiceException {
-		private static final long serialVersionUID = 1L;
-	}
-
-	/**
-	 * Exception thrown when the character is in jail
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class CharacterInJailServiceException extends L2ChatServiceException {
-		private static final long serialVersionUID = 1L;
-	}
-
-	/**
-	 * Exception thrown when the character is <b>not</b> in jail
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class CharacterNotInJailServiceException extends
-			L2ChatServiceException {
-		private static final long serialVersionUID = 1L;
-	}
 }

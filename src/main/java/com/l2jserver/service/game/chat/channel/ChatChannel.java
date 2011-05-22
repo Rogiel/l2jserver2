@@ -17,7 +17,7 @@
 package com.l2jserver.service.game.chat.channel;
 
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.service.game.chat.ChatService.ChatBanActiveChatServiceException;
+import com.l2jserver.service.game.chat.ChatBanActiveChatServiceException;
 
 /**
  * The {@link ChatChannel} object is used to send messages to a channel.

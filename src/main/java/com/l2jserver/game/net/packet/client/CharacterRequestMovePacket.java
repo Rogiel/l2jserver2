@@ -25,7 +25,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.CharacterStopMovePacket;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**

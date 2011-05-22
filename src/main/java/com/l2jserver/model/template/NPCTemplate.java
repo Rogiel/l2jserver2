@@ -27,10 +27,11 @@ import com.l2jserver.model.world.AbstractActor.Race;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.service.game.CharacterService;
-import com.l2jserver.service.game.CharacterService.CannotSetTargetServiceException;
+import com.l2jserver.service.game.character.CannotSetTargetServiceException;
+import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
 
@@ -101,8 +102,11 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> {
 	 *            the interacting character
 	 * @param action
 	 *            the action performed
+	 * @throws L2Exception
+	 *             any {@link L2Exception}
 	 */
-	public void action(NPC npc, L2Character character, CharacterAction action) {
+	public void action(NPC npc, L2Character character, CharacterAction action)
+			throws L2Exception {
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());
 		if (conn == null)

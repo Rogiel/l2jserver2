@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game;
+package com.l2jserver.service.game.spawn;
 
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.capability.Spawnable;
@@ -23,7 +23,6 @@ import com.l2jserver.model.world.player.event.PlayerTeleportEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
-import com.l2jserver.util.exception.L2SpawnServiceException;
 
 /**
  * This service is responsible for spawning monsters, npcs and players.
@@ -87,33 +86,4 @@ public interface SpawnService extends Service {
 	 *             if the object is not spawned
 	 */
 	void unspawn(Spawnable spawnable) throws NotSpawnedServiceException;
-
-	/**
-	 * Exception thrown when the object is already spawned and registered in the
-	 * world
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class AlreadySpawnedServiceException extends L2SpawnServiceException {
-		private static final long serialVersionUID = 1L;
-	}
-
-	/**
-	 * Exception thrown when the target spawn point is not found
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class SpawnPointNotFoundServiceException extends
-			L2SpawnServiceException {
-		private static final long serialVersionUID = 1L;
-	}
-
-	/**
-	 * Exception thrown when trying to unspawn an object that is not spawned
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class NotSpawnedServiceException extends L2SpawnServiceException {
-		private static final long serialVersionUID = 1L;
-	}
 }

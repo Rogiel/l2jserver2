@@ -16,12 +16,14 @@
  */
 package com.l2jserver.service;
 
+import com.l2jserver.util.exception.L2Exception;
+
 /**
  * Exception for an {@link Service}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ServiceException extends Exception {
+public class ServiceException extends L2Exception {
 	private static final long serialVersionUID = 1L;
 
 	public ServiceException() {

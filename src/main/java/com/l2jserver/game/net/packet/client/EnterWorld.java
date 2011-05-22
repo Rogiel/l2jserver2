@@ -24,9 +24,9 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.service.game.CharacterService;
-import com.l2jserver.service.game.SpawnService.AlreadySpawnedServiceException;
-import com.l2jserver.service.game.SpawnService.SpawnPointNotFoundServiceException;
+import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 
 /**
  * The client is requesting a logout. Currently, when this packet is received

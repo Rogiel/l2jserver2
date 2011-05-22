@@ -118,8 +118,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 	private ScriptContext createContext(ScriptInfo si, ScriptContext parent)
 			throws Exception {
 		Preconditions.checkNotNull(si, "si");
-		Preconditions.checkNotNull(parent, "parent");
-		
+
 		ScriptContext context = getScriptContext(si.getRoot(), parent);
 		context.setLibraries(si.getLibraries());
 		context.setCompilerClassName(si.getCompilerClass());
@@ -159,8 +158,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 	private ScriptContext getScriptContext(File root, ScriptContext parent)
 			throws InstantiationException {
 		Preconditions.checkNotNull(root, "root");
-		Preconditions.checkNotNull(parent, "parent");
-		
+
 		ScriptContextImpl ctx;
 		if (parent == null) {
 			ctx = new ScriptContextImpl(injector, root);

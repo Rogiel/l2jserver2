@@ -25,11 +25,12 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.game.npc.ActionServiceException;
+import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
- * Completes the creation of an character. Creates the object, inserts into the
- * database and notifies the client about the status of the operation.
+ * Executes an action from an character to an NPC
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -40,8 +41,10 @@ public class CharacterActionPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x1f;
 
 	private final ObjectIDResolver idResolver;
+	private final NPCService npcService;
 
 	private int objectId;
+	@SuppressWarnings("unused")
 	private Coordinate origin;
 	private CharacterAction action;
 
@@ -67,8 +70,10 @@ public class CharacterActionPacket extends AbstractClientPacket {
 	}
 
 	@Inject
-	public CharacterActionPacket(ObjectIDResolver idResolver) {
+	public CharacterActionPacket(ObjectIDResolver idResolver,
+			NPCService npcService) {
 		this.idResolver = idResolver;
+		this.npcService = npcService;
 	}
 
 	@Override
@@ -84,11 +89,14 @@ public class CharacterActionPacket extends AbstractClientPacket {
 		// since this is an erasure type, this is safe.
 		final ObjectID<NPC> id = idResolver.resolve(objectId);
 		if (!(id instanceof NPCID)) {
-			System.out.println("Incorrect type: " + id);
 			conn.sendActionFailed();
 			return;
 		}
 		final NPC npc = id.getObject();
-		npc.action(conn.getCharacter(), action);
+		try {
+			npcService.action(npc, conn.getCharacter(), action);
+		} catch (ActionServiceException e) {
+			conn.sendActionFailed();
+		}
 	}
 }

@@ -23,7 +23,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
-import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.character.CharacterService;
 
 /**
  * This packet notifies the server which character the player has chosen to use.

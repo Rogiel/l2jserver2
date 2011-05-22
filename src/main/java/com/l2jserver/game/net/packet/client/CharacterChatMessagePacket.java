@@ -22,13 +22,12 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.ActionFailedPacket;
+import com.l2jserver.service.game.chat.CannotChatToSelfChatServiceException;
+import com.l2jserver.service.game.chat.ChatBanActiveChatServiceException;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
-import com.l2jserver.service.game.chat.ChatService.CannotChatToSelfChatServiceException;
-import com.l2jserver.service.game.chat.ChatService.ChatBanActiveChatServiceException;
-import com.l2jserver.service.game.chat.ChatService.TargetNotFoundChatServiceException;
+import com.l2jserver.service.game.chat.TargetNotFoundChatServiceException;
 import com.l2jserver.util.BufferUtils;
-import com.l2jserver.util.exception.L2ChatServiceException;
 
 /**
  * Completes the creation of an character. Creates the object, inserts into the

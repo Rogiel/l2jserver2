@@ -17,6 +17,11 @@
 package com.l2jserver.service.core;
 
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Layout;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
@@ -29,9 +34,26 @@ import com.l2jserver.service.ServiceStopException;
  */
 public class Log4JLoggingService extends AbstractService implements
 		LoggingService {
+	private Logger rootLogger;
+	private Logger l2jLogger;
+	private Logger scriptLogger;
+
 	@Override
 	protected void doStart() throws ServiceStartException {
+		final Layout layout = new PatternLayout(
+				"[%p %d{yyyy-MM-dd HH-mm-ss}] %c:%L - %m%n");
+
 		BasicConfigurator.configure();
+		rootLogger = Logger.getRootLogger();
+		l2jLogger = Logger.getLogger("com.l2jserver");
+		scriptLogger = Logger.getLogger("script");
+
+		rootLogger.removeAllAppenders();
+		rootLogger.setLevel(Level.WARN);
+		rootLogger.addAppender(new ConsoleAppender(layout, "System.err"));
+
+		l2jLogger.setLevel(Level.DEBUG);
+		scriptLogger.setLevel(Level.DEBUG);
 	}
 
 	@Override

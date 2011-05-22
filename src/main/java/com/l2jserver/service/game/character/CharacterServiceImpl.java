@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game;
+package com.l2jserver.service.game.character;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
@@ -48,13 +48,14 @@ import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
-import com.l2jserver.service.game.SpawnService.AlreadySpawnedServiceException;
-import com.l2jserver.service.game.SpawnService.NotSpawnedServiceException;
-import com.l2jserver.service.game.SpawnService.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.channel.ChatChannel;
 import com.l2jserver.service.game.chat.channel.ChatChannelListener;
+import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
+import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
+import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.FilteredWorldListener;
 import com.l2jserver.service.game.world.event.WorldEvent;

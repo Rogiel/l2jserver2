@@ -14,27 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.exception;
+package com.l2jserver.service.game.spawn;
+
+import com.l2jserver.service.ServiceException;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class L2SpawnServiceException extends L2ServiceException {
+public class SpawnServiceException extends ServiceException {
 	private static final long serialVersionUID = 1L;
 
-	public L2SpawnServiceException() {
+	public SpawnServiceException() {
 		super();
 	}
 
-	public L2SpawnServiceException(String message, Throwable cause) {
+	public SpawnServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public L2SpawnServiceException(String message) {
+	public SpawnServiceException(String message) {
 		super(message);
 	}
 
-	public L2SpawnServiceException(Throwable cause) {
+	public SpawnServiceException(Throwable cause) {
 		super(cause);
 	}
 }

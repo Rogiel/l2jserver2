@@ -33,7 +33,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
-import com.l2jserver.service.game.CharacterService;
+import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.TypedWorldListener;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;

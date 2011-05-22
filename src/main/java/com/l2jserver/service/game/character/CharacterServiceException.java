@@ -14,44 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.exception;
+package com.l2jserver.service.game.character;
+
+import com.l2jserver.service.ServiceException;
 
 /**
- * Base exception for Lineage 2
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class L2ServiceException extends Exception {
-	/**
-	 * Default Serial Version UID
-	 */
+public class CharacterServiceException extends ServiceException {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see Exception#Exception()
-	 */
-	public L2ServiceException() {
+	public CharacterServiceException() {
 		super();
 	}
 
-	/**
-	 * @see Exception#Exception(String, Throwable)
-	 */
-	public L2ServiceException(String message, Throwable cause) {
+	public CharacterServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	/**
-	 * @see Exception#Exception(String)
-	 */
-	public L2ServiceException(String message) {
+	public CharacterServiceException(String message) {
 		super(message);
 	}
 
-	/**
-	 * @see Exception#Exception(Throwable)
-	 */
-	public L2ServiceException(Throwable cause) {
+	public CharacterServiceException(Throwable cause) {
 		super(cause);
 	}
 }

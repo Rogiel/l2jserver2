@@ -16,14 +16,11 @@
  */
 package com.l2jserver.model.world;
 
-import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
-import com.l2jserver.model.world.capability.Actor;
 import com.l2jserver.service.game.ai.AIScript;
-import com.l2jserver.util.calculator.Calculator;
 
 /**
  * NPC stand for "Not Playable Character" and is an character that not player
@@ -46,23 +43,6 @@ public class NPC extends AbstractActor {
 	 */
 	public NPC(NPCTemplateID templateID) {
 		this.templateID = templateID;
-	}
-
-	/**
-	 * Executes an action on this NPC
-	 * 
-	 * @param character
-	 *            the interacting character
-	 * @param action
-	 *            the action
-	 */
-	public void action(L2Character character, CharacterAction action) {
-		getTemplate().action(this, character, action);
-	}
-
-	public void receiveAttack(Calculator calculator, Actor attacker) {
-		// TODO add buffs to calculator!
-		getTemplate().receiveAttack(this, calculator, attacker);
 	}
 
 	/**

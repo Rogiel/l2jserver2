@@ -17,7 +17,6 @@
 package com.l2jserver.model.template.npc;
 
 import com.l2jserver.model.id.template.NPCTemplateID;
-import com.l2jserver.model.template.NPCTemplate;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>

@@ -90,8 +90,7 @@ public class CachedWorldIDService extends AbstractService implements
 		cache = new Cache(new CacheConfiguration("id-cache",
 				IDAllocator.ALLOCABLE_IDS)
 				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
-				.overflowToDisk(true).eternal(true).timeToLiveSeconds(60)
-				.timeToIdleSeconds(30).diskPersistent(false)
+				.overflowToDisk(true).eternal(true).diskPersistent(false)
 				.diskExpiryThreadIntervalSeconds(0));
 		cacheService.register(cache);
 	}

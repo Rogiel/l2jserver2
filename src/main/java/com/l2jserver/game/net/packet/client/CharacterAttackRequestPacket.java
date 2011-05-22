@@ -29,8 +29,8 @@ import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.capability.Actor;
-import com.l2jserver.service.game.CharacterService;
-import com.l2jserver.service.game.CharacterService.CannotSetTargetServiceException;
+import com.l2jserver.service.game.character.CannotSetTargetServiceException;
+import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**

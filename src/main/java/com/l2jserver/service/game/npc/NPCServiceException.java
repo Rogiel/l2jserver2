@@ -14,27 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.exception;
+package com.l2jserver.service.game.npc;
+
+import com.l2jserver.service.ServiceException;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class L2ChatServiceException extends L2ServiceException {
+public class NPCServiceException extends ServiceException {
 	private static final long serialVersionUID = 1L;
 
-	public L2ChatServiceException() {
+	public NPCServiceException() {
 		super();
 	}
 
-	public L2ChatServiceException(String message, Throwable cause) {
+	public NPCServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public L2ChatServiceException(String message) {
+	public NPCServiceException(String message) {
 		super(message);
 	}
 
-	public L2ChatServiceException(Throwable cause) {
+	public NPCServiceException(Throwable cause) {
 		super(cause);
 	}
 }

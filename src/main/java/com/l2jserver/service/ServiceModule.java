@@ -27,16 +27,18 @@ import com.l2jserver.service.core.Log4JLoggingService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService;
-import com.l2jserver.service.game.CharacterService;
-import com.l2jserver.service.game.CharacterServiceImpl;
-import com.l2jserver.service.game.SpawnService;
-import com.l2jserver.service.game.SpawnServiceImpl;
+import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.character.CharacterServiceImpl;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.SimpleChatService;
+import com.l2jserver.service.game.npc.NPCService;
+import com.l2jserver.service.game.npc.NPCServiceImpl;
 import com.l2jserver.service.game.pathing.MapperPathingService;
 import com.l2jserver.service.game.pathing.PathingService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
+import com.l2jserver.service.game.spawn.SpawnService;
+import com.l2jserver.service.game.spawn.SpawnServiceImpl;
 import com.l2jserver.service.game.template.ScriptTemplateService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.CachedWorldIDService;
@@ -87,6 +89,7 @@ public class ServiceModule extends AbstractModule {
 				.in(Scopes.SINGLETON);
 		bind(CharacterService.class).to(CharacterServiceImpl.class).in(
 				Scopes.SINGLETON);
+		bind(NPCService.class).to(NPCServiceImpl.class).in(Scopes.SINGLETON);
 
 		bind(WorldService.class).to(WorldServiceImpl.class)
 				.in(Scopes.SINGLETON);

@@ -14,25 +14,44 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game;
+package com.l2jserver.service.game.npc;
 
+import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
 
 /**
- * This service controls {@link NPC}s
+ * This service manages {@link NPC} instances
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface MonsterService extends Service {
+public interface NPCService extends Service {
 	/**
-	 * Interacts the given <tt>player</tt> with the given <tt>npc</tt>
+	 * Executes an action for an NPC. Each {@link NPCTemplate} have it's own
+	 * actions.
 	 * 
 	 * @param npc
 	 *            the npc
 	 * @param character
 	 *            the character
+	 * @param action
+	 *            the action type
 	 */
-	void interact(NPC npc, L2Character character);
+	void action(NPC npc, L2Character character, CharacterAction action)
+			throws ActionServiceException;
+
+	/**
+	 * Attacks an given NPC, if possible.
+	 * 
+	 * @param npc
+	 *            the npc
+	 * @param attacker
+	 *            the character
+	 * @throws NotAttackableNPCServiceException
+	 *             if {@link NPC} is not attackable
+	 */
+	void attack(NPC npc, L2Character attacker)
+			throws NotAttackableNPCServiceException;
 }
