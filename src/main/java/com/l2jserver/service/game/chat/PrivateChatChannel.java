@@ -14,26 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat.channel;
+package com.l2jserver.service.game.chat;
 
 import com.l2jserver.model.id.object.CharacterID;
 
 /**
- * This listener is used to received notifications once a new message is sent to
- * an given {@link ChatChannel}.
+ * An private {@link ChatChannel}. Please note that the concept of "private"
+ * does not mean it requires a password or something like that to join, but the
+ * message is only broadcasted to a single character (i.e. private messages).
+ * The destination can be retrieved by {@link #getDestination()}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ChatChannelListener {
+public interface PrivateChatChannel extends ChatChannel {
 	/**
-	 * Notification of a new message received
-	 * 
-	 * @param channel
-	 *            the chat channel
-	 * @param source
-	 *            the character sending this message
-	 * @param message
-	 *            the message
+	 * @return the destination of this private chat channel.
 	 */
-	void onMessage(ChatChannel channel, CharacterID source, String message);
+	CharacterID getDestination();
 }

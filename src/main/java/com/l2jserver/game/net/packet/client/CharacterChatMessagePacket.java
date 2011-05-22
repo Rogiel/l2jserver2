@@ -20,12 +20,14 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.ActionFailedPacket;
 import com.l2jserver.service.game.chat.CannotChatToSelfChatServiceException;
 import com.l2jserver.service.game.chat.ChatBanActiveChatServiceException;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
+import com.l2jserver.service.game.chat.ChatTargetOfflineServiceException;
 import com.l2jserver.service.game.chat.TargetNotFoundChatServiceException;
 import com.l2jserver.util.BufferUtils;
 
@@ -75,16 +77,16 @@ public class CharacterChatMessagePacket extends AbstractClientPacket {
 		}
 
 		try {
-			chatService.send(conn.getCharacterID(), destination, message, target);
+			chatService.send(conn.getCharacterID(), destination, message,
+					target);
 		} catch (TargetNotFoundChatServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			conn.sendSystemMessage(SystemMessage.TARGET_CANT_FOUND);
 		} catch (CannotChatToSelfChatServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			conn.sendSystemMessage(SystemMessage.CANNOT_USE_ON_YOURSELF);
 		} catch (ChatBanActiveChatServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			conn.sendSystemMessage(SystemMessage.CHATTING_IS_CURRENTLY_PROHIBITED);
+		} catch (ChatTargetOfflineServiceException e) {
+			conn.sendSystemMessage(SystemMessage.S1_IS_NOT_ONLINE, target);
 		}
 
 	}

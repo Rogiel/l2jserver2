@@ -20,9 +20,6 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
-import com.l2jserver.service.game.chat.channel.ChatChannel;
-import com.l2jserver.service.game.chat.channel.PrivateChatChannel;
-import com.l2jserver.service.game.chat.channel.PublicChatChannel;
 
 /**
  * This service chatting in the server
@@ -47,11 +44,14 @@ public interface ChatService extends Service {
 	 *             if trying to send a private message to self
 	 * @throws ChatBanActiveChatServiceException
 	 *             if there is chat ban active
+	 * @throws ChatTargetOfflineServiceException
+	 *             if the chat target is offline
 	 */
 	void send(CharacterID sender, ChatMessageDestination chat, String message,
 			String extra) throws TargetNotFoundChatServiceException,
 			CannotChatToSelfChatServiceException,
-			ChatBanActiveChatServiceException;
+			ChatBanActiveChatServiceException,
+			ChatTargetOfflineServiceException;
 
 	/**
 	 * Get the Global {@link ChatChannel}. Messages sent in this chat are

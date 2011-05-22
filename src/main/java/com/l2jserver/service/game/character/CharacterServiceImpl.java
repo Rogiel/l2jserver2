@@ -52,10 +52,10 @@ import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.game.chat.ChatChannel;
+import com.l2jserver.service.game.chat.ChatChannelListener;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
-import com.l2jserver.service.game.chat.channel.ChatChannel;
-import com.l2jserver.service.game.chat.channel.ChatChannelListener;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -133,6 +133,8 @@ public class CharacterServiceImpl extends AbstractService implements
 			return;
 
 		itemDao.loadInventory(character);
+		
+		character.setOnline(true);
 
 		// chat listener
 		final ChatChannelListener globalChatListener = new ChatChannelListener() {
@@ -258,6 +260,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		Preconditions.checkNotNull(character, "character");
 		spawnService.unspawn(character);
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
+		character.setOnline(false);
 	}
 
 	@Override

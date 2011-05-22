@@ -14,14 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.character;
+package com.l2jserver.service.game.chat;
 
 /**
- * Exception thrown when the target cannot be set
+ * Exception thrown if the player trying to send a message to an player that is
+ * not online.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CannotSetTargetServiceException extends
-		CharacterServiceException {
+public class ChatTargetOfflineServiceException extends ChatServiceException {
 	private static final long serialVersionUID = 1L;
 }

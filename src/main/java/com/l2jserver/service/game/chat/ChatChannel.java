@@ -14,10 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat.channel;
+package com.l2jserver.service.game.chat;
 
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.service.game.chat.ChatBanActiveChatServiceException;
 
 /**
  * The {@link ChatChannel} object is used to send messages to a channel.
@@ -38,9 +37,13 @@ public interface ChatChannel {
 	 *            the message to be sent
 	 * @throws ChatBanActiveChatServiceException
 	 *             if <tt>sender</tt> is banned from chatting
+	 * @throws ChatTargetOfflineServiceException
+	 *             if the target is offline. Will be be thrown in
+	 *             {@link PrivateChatChannel}.
 	 */
 	void send(CharacterID sender, String message)
-			throws ChatBanActiveChatServiceException;
+			throws ChatBanActiveChatServiceException,
+			ChatTargetOfflineServiceException;
 
 	/**
 	 * Adds a {@link ChatChannelListener} that will be notified once a message

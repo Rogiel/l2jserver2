@@ -14,21 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat.channel;
-
-import com.l2jserver.model.id.object.CharacterID;
+package com.l2jserver.service.game.chat;
 
 /**
- * An private {@link ChatChannel}. Please note that the concept of "private"
- * does not mean it requires a password or something like that to join, but the
- * message is only broadcasted to a single character (i.e. private messages).
- * The destination can be retrieved by {@link #getDestination()}.
+ * An public {@link ChatChannel}. Please note that the concept of "public" does
+ * not mean it is available to anyone, but there are more than 2 player chatting
+ * (i.e. clan, global, region, etc...)
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface PrivateChatChannel extends ChatChannel {
-	/**
-	 * @return the destination of this private chat channel.
-	 */
-	CharacterID getDestination();
+public interface PublicChatChannel extends ChatChannel {
 }

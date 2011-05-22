@@ -29,10 +29,6 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
-import com.l2jserver.service.game.chat.channel.ChatChannel;
-import com.l2jserver.service.game.chat.channel.ChatChannelListener;
-import com.l2jserver.service.game.chat.channel.PrivateChatChannel;
-import com.l2jserver.service.game.chat.channel.PublicChatChannel;
 import com.l2jserver.service.game.region.Region;
 import com.l2jserver.service.game.region.RegionService;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -108,7 +104,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			String message, String extra)
 			throws TargetNotFoundChatServiceException,
 			CannotChatToSelfChatServiceException,
-			ChatBanActiveChatServiceException {
+			ChatBanActiveChatServiceException, ChatTargetOfflineServiceException {
 		Preconditions.checkNotNull(sender, "sender");
 		Preconditions.checkNotNull(message, "message");
 
