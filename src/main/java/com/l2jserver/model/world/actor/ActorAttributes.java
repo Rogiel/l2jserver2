@@ -60,22 +60,22 @@ public interface ActorAttributes {
 	/**
 	 * @return the physicalAttack
 	 */
-	public int getPhysicalAttack();
+	public double getPhysicalAttack();
 
 	/**
 	 * @return the magicalAttack
 	 */
-	public int getMagicalAttack();
+	public double getMagicalAttack();
 
 	/**
 	 * @return the physicalDefense
 	 */
-	public int getPhysicalDefense();
+	public double getPhysicalDefense();
 
 	/**
 	 * @return the magicalDefense
 	 */
-	public int getMagicalDefense();
+	public double getMagicalDefense();
 
 	/**
 	 * @return the attackSpeed
@@ -103,9 +103,14 @@ public interface ActorAttributes {
 	public int getEvasionChance();
 
 	/**
-	 * @return the movement speed
+	 * @return the run speed
 	 */
-	public double getMoveSpeed();
+	public double getRunSpeed();
+	
+	/**
+	 * @return the walking speed
+	 */
+	public double getWalkSpeed();
 
 	/**
 	 * @return the maxWeigth

@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 
-import com.l2jserver.model.world.Actor.Race;
+import com.l2jserver.model.world.Actor.ActorRace;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -104,7 +104,7 @@ public class CharacterTemplateConverter {
 					camelCase(c.name()));
 		}
 		if (key.equals("RaceId"))
-			value = Race.fromOption(Integer.parseInt(value)).name();
+			value = ActorRace.fromOption(Integer.parseInt(value)).name();
 		if (key.equals("canCraft"))
 			value = (value.equals("1") ? "true" : "false");
 

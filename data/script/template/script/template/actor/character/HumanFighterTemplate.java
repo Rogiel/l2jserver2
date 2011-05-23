@@ -45,7 +45,7 @@ public class HumanFighterTemplate extends AbstractHumanCharacterTemplate {
 		attributes.accuracy = 33;
 		attributes.criticalChance = 44;
 		attributes.evasionChance = 33;
-		attributes.moveSpeed = 115;
+		attributes.runSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
 

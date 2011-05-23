@@ -44,7 +44,7 @@ public class OverlordTemplate extends OrcShamanTemplate {
 		attributes.accuracy = 30;
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
-		attributes.moveSpeed = 121;
+		attributes.runSpeed = 121;
 		attributes.maxWeigth = 68000;
 		attributes.craft = false;
 

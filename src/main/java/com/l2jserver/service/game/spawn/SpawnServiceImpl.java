@@ -22,6 +22,8 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.server.CharacterInformationExtraPacket;
+import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
 import com.l2jserver.game.net.packet.server.CharacterTeleportPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
@@ -31,6 +33,7 @@ import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -111,24 +114,52 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public void teleport(Player player, Coordinate coordinate) {
+	public void teleport(Player player, Coordinate coordinate)
+			throws CharacterAlreadyTeleportingServiceException {
 		Preconditions.checkNotNull(player, "player");
 		Preconditions.checkNotNull(coordinate, "coordinate");
-		System.out.println("teleport: " + coordinate);
-		player.setPosition(coordinate);
 		if (player instanceof L2Character) {
+			if (((L2Character) player).isTeleporting())
+				throw new CharacterAlreadyTeleportingServiceException();
+
 			final Lineage2Connection conn = networkService
 					.discover((CharacterID) player.getID());
 			if (conn == null)
 				// TODO throw an exception here
 				return;
-			conn.write(new CharacterTeleportPacket(conn.getCharacter()));
+			conn.write(new CharacterTeleportPacket(conn.getCharacter(),
+					coordinate.toPoint()));
 			((L2Character) player).setState(CharacterState.TELEPORTING);
+			((L2Character) player).setTargetLocation(coordinate.toPoint());
+		} else {
+			player.setPosition(coordinate);
 		}
 		// dispatch teleport event
 		eventDispatcher.dispatch(new PlayerTeleportingEvent(player, coordinate
 				.toPoint()));
 		// remember: broadcasting is done through events!
+	}
+
+	@Override
+	public void finishTeleport(L2Character character)
+			throws CharacterNotTeleportingServiceException {
+		Preconditions.checkNotNull(character, "character");
+		final CharacterID id = character.getID();
+		final Lineage2Connection conn = networkService.discover(id);
+
+		if (!character.isTeleporting())
+			throw new CharacterNotTeleportingServiceException();
+
+		character.setState(null);
+		character.setPoint(character.getTargetLocation());
+
+		eventDispatcher.dispatch(new PlayerTeleportedEvent(character, character
+				.getTargetLocation()));
+
+		character.setTargetLocation(null);
+
+		conn.write(new CharacterInformationPacket(character));
+		conn.write(new CharacterInformationExtraPacket(character));
 	}
 
 	@Override

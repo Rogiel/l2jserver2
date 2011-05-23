@@ -22,6 +22,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * This packet notifies the client that the chosen character has been
@@ -40,19 +41,24 @@ public class CharacterTeleportPacket extends AbstractServerPacket {
 	 * The selected character
 	 */
 	private final L2Character character;
+	/**
+	 * The teleportation point
+	 */
+	private final Point point;
 
-	public CharacterTeleportPacket(L2Character character) {
+	public CharacterTeleportPacket(L2Character character, Point point) {
 		super(OPCODE);
 		this.character = character;
+		this.point = point;
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(character.getID().getID());
-		buffer.writeInt(character.getPoint().getX());
-		buffer.writeInt(character.getPoint().getY());
-		buffer.writeInt(character.getPoint().getZ());
+		buffer.writeInt(point.getX());
+		buffer.writeInt(point.getY());
+		buffer.writeInt(point.getZ());
 		buffer.writeInt(0x00); // isValidation ??
-		buffer.writeInt((int) character.getPoint().getAngle()); // nYaw
+		buffer.writeInt((int) point.getAngle()); // nYaw
 	}
 }

@@ -33,8 +33,8 @@ import com.l2jserver.model.id.provider.AccountIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.world.Actor.Race;
-import com.l2jserver.model.world.Actor.Sex;
+import com.l2jserver.model.world.Actor.ActorRace;
+import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterAppearance;
@@ -142,10 +142,10 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 
 			character.setName(rs.getString(NAME));
 
-			character.setRace(Race.valueOf(rs.getString(RACE)));
+			character.setRace(ActorRace.valueOf(rs.getString(RACE)));
 			character.setCharacterClass(CharacterClass.valueOf(rs
 					.getString(CLASS)));
-			character.setSex(Sex.valueOf(rs.getString(SEX)));
+			character.setSex(ActorSex.valueOf(rs.getString(SEX)));
 
 			character.setLevel(rs.getInt(LEVEL));
 			// TODO load experience

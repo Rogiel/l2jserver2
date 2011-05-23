@@ -45,7 +45,7 @@ public class FemaleSoldierTemplate extends AbstractKamaelCharacterTemplate {
 		attributes.accuracy = 35;
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
-		attributes.moveSpeed = 122;
+		attributes.runSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
 

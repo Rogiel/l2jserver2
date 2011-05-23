@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.template.ActorTemplateID;
 import com.l2jserver.model.world.Actor;
-import com.l2jserver.model.world.Actor.Race;
 import com.l2jserver.model.world.actor.ActorAttributes;
 
 /**
@@ -38,11 +37,6 @@ public abstract class ActorTemplate<T extends Actor> extends
 			.getLogger(ActorTemplate.class);
 
 	/**
-	 * The actor race
-	 */
-	protected final Race race;
-
-	/**
 	 * The movement speed multiplier
 	 */
 	protected double movementSpeedMultiplier = 1.0;
@@ -51,16 +45,21 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 */
 	protected double attackSpeedMultiplier = 1.0;
 
-	protected int maxHp;
+	protected double maxHP;
+	protected double HP;
+
+	protected double maxMP;
+	protected double MP;
+
+	protected int level;
 
 	/**
 	 * The base attributes instance
 	 */
 	protected ActorBaseAttributes attributes = new ActorBaseAttributes();
 
-	public ActorTemplate(ActorTemplateID<?> id, Race race) {
+	public ActorTemplate(ActorTemplateID<?> id) {
 		super(id);
-		this.race = race;
 	}
 
 	@Override
@@ -72,13 +71,6 @@ public abstract class ActorTemplate<T extends Actor> extends
 	}
 
 	protected abstract T createInstance();
-
-	/**
-	 * @return the race
-	 */
-	public Race getRace() {
-		return race;
-	}
 
 	/**
 	 * @return the baseAttributes
@@ -139,7 +131,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 * @return
 	 * @see com.l2jserver.model.template.ActorBaseAttributes#getPhysicalAttack()
 	 */
-	public int getPhysicalAttack() {
+	public double getPhysicalAttack() {
 		return attributes.getPhysicalAttack();
 	}
 
@@ -147,7 +139,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 * @return
 	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMagicalAttack()
 	 */
-	public int getMagicalAttack() {
+	public double getMagicalAttack() {
 		return attributes.getMagicalAttack();
 	}
 
@@ -155,7 +147,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 * @return
 	 * @see com.l2jserver.model.template.ActorBaseAttributes#getPhysicalDefense()
 	 */
-	public int getPhysicalDefense() {
+	public double getPhysicalDefense() {
 		return attributes.getPhysicalDefense();
 	}
 
@@ -163,7 +155,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 * @return
 	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMagicalDefense()
 	 */
-	public int getMagicalDefense() {
+	public double getMagicalDefense() {
 		return attributes.getMagicalDefense();
 	}
 
@@ -209,10 +201,18 @@ public abstract class ActorTemplate<T extends Actor> extends
 
 	/**
 	 * @return
-	 * @see com.l2jserver.model.template.ActorBaseAttributes#getMoveSpeed()
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getRunSpeed()
 	 */
-	public double getMoveSpeed() {
-		return attributes.getMoveSpeed();
+	public double getRunSpeed() {
+		return attributes.getRunSpeed();
+	}
+	
+	/**
+	 * @return
+	 * @see com.l2jserver.model.template.ActorBaseAttributes#getWalkSpeed()
+	 */
+	public double getWalkSpeed() {
+		return attributes.getWalkSpeed();
 	}
 
 	/**
@@ -248,8 +248,8 @@ public abstract class ActorTemplate<T extends Actor> extends
 	/**
 	 * @return the max hp
 	 */
-	public int getMaxHP() {
-		return maxHp;
+	public double getMaxHP() {
+		return maxHP;
 	}
 
 	/**
@@ -286,19 +286,19 @@ public abstract class ActorTemplate<T extends Actor> extends
 		/**
 		 * The default physical attack
 		 */
-		public int physicalAttack;
+		public double physicalAttack;
 		/**
 		 * The default magical attack
 		 */
-		public int magicalAttack;
+		public double magicalAttack;
 		/**
 		 * The physical defense
 		 */
-		public int physicalDefense;
+		public double physicalDefense;
 		/**
 		 * The magical defense
 		 */
-		public int magicalDefense;
+		public double magicalDefense;
 
 		/**
 		 * The physical attack speed
@@ -322,9 +322,13 @@ public abstract class ActorTemplate<T extends Actor> extends
 		 */
 		public int evasionChance;
 		/**
-		 * The character's movement speed
+		 * The character's run speed
 		 */
-		public float moveSpeed;
+		public double runSpeed;
+		/**
+		 * The character's walk speed
+		 */
+		public double walkSpeed;
 		/**
 		 * The maximum weigth in items to be carried in the inventory
 		 */
@@ -386,7 +390,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 		 * @return the physicalAttack
 		 */
 		@Override
-		public int getPhysicalAttack() {
+		public double getPhysicalAttack() {
 			return physicalAttack;
 		}
 
@@ -394,7 +398,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 		 * @return the magicalAttack
 		 */
 		@Override
-		public int getMagicalAttack() {
+		public double getMagicalAttack() {
 			return magicalAttack;
 		}
 
@@ -402,7 +406,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 		 * @return the physicalDefense
 		 */
 		@Override
-		public int getPhysicalDefense() {
+		public double getPhysicalDefense() {
 			return physicalDefense;
 		}
 
@@ -410,7 +414,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 		 * @return the magicalDefense
 		 */
 		@Override
-		public int getMagicalDefense() {
+		public double getMagicalDefense() {
 			return magicalDefense;
 		}
 
@@ -458,8 +462,13 @@ public abstract class ActorTemplate<T extends Actor> extends
 		 * @return the moveSpeed
 		 */
 		@Override
-		public double getMoveSpeed() {
-			return moveSpeed;
+		public double getRunSpeed() {
+			return runSpeed;
+		}
+
+		@Override
+		public double getWalkSpeed() {
+			return walkSpeed;
 		}
 
 		/**

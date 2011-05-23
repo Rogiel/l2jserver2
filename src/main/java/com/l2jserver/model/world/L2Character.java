@@ -32,6 +32,7 @@ import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.model.world.character.CharacterShortcutContainer;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * This class represents a playable character in Lineage II world.
@@ -129,9 +130,19 @@ public class L2Character extends Player {
 	 */
 	private CharacterState state;
 
+	/**
+	 * The valid states for an character
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum CharacterState {
 		TELEPORTING, CASTING, ATTACKING, MOVING;
 	}
+
+	/**
+	 * The point the player is moving, teleporting etc...
+	 */
+	private Point targetLocation;
 
 	/**
 	 * Creates a new instance
@@ -328,6 +339,28 @@ public class L2Character extends Player {
 	 */
 	public boolean isTeleporting() {
 		return state == CharacterState.TELEPORTING;
+	}
+
+	/**
+	 * @return true if character is moving
+	 */
+	public boolean isMoving() {
+		return state == CharacterState.MOVING;
+	}
+
+	/**
+	 * @return the targetLocation
+	 */
+	public Point getTargetLocation() {
+		return targetLocation;
+	}
+
+	/**
+	 * @param targetLocation
+	 *            the targetLocation to set
+	 */
+	public void setTargetLocation(Point targetLocation) {
+		this.targetLocation = targetLocation;
 	}
 
 	/**

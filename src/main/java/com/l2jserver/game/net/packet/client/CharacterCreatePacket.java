@@ -31,8 +31,8 @@ import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.world.Actor.Race;
-import com.l2jserver.model.world.Actor.Sex;
+import com.l2jserver.model.world.Actor.ActorRace;
+import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
@@ -80,11 +80,11 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	/**
 	 * The race of the new character
 	 */
-	private Race race;
+	private ActorRace race;
 	/**
 	 * The sex of the new character
 	 */
-	private Sex sex;
+	private ActorSex sex;
 	/**
 	 * The class of the new character
 	 */
@@ -146,8 +146,8 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 		name = BufferUtils.readString(buffer);
-		race = Race.fromOption(buffer.readInt());
-		sex = Sex.fromOption(buffer.readInt());
+		race = ActorRace.fromOption(buffer.readInt());
+		sex = ActorSex.fromOption(buffer.readInt());
 		characterClass = CharacterClass.fromID(buffer.readInt());
 
 		intelligence = buffer.readInt();
@@ -252,7 +252,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	/**
 	 * @return the race
 	 */
-	public Race getRace() {
+	public ActorRace getRace() {
 		return race;
 	}
 
@@ -260,14 +260,14 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	 * @param race
 	 *            the race to set
 	 */
-	public void setRace(Race race) {
+	public void setRace(ActorRace race) {
 		this.race = race;
 	}
 
 	/**
 	 * @return the sex
 	 */
-	public Sex getSex() {
+	public ActorSex getSex() {
 		return sex;
 	}
 
@@ -275,7 +275,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	 * @param sex
 	 *            the sex to set
 	 */
-	public void setSex(Sex sex) {
+	public void setSex(ActorSex sex) {
 		this.sex = sex;
 	}
 

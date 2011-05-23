@@ -45,7 +45,7 @@ public class MoonlightSentinelTemplate extends SilverRangerTemplate {
 		attributes.accuracy = 36;
 		attributes.criticalChance = 46;
 		attributes.evasionChance = 36;
-		attributes.moveSpeed = 125;
+		attributes.runSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
 

@@ -45,7 +45,7 @@ public class ElementalSummonerTemplate extends ElvenWizardTemplate {
 		attributes.accuracy = 30;
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
-		attributes.moveSpeed = 122;
+		attributes.runSpeed = 122;
 		attributes.maxWeigth = 62400;
 		attributes.craft = false;
 

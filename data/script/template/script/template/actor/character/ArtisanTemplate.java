@@ -44,7 +44,7 @@ public class ArtisanTemplate extends DwarvenFighterTemplate {
 		attributes.accuracy = 33;
 		attributes.criticalChance = 43;
 		attributes.evasionChance = 33;
-		attributes.moveSpeed = 115;
+		attributes.runSpeed = 115;
 		attributes.maxWeigth = 83000;
 		attributes.craft = true;
 

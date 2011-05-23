@@ -25,7 +25,7 @@ import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.template.capability.Interactable;
 import com.l2jserver.model.world.Actor;
-import com.l2jserver.model.world.Actor.Race;
+import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
@@ -63,9 +63,17 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	 */
 	protected String name = null;
 	/**
+	 * If true will send the name in the packet
+	 */
+	protected boolean serverSideName;
+	/**
 	 * The NPC title
 	 */
 	protected String title = null;
+	/**
+	 * If true will send the title in the packet
+	 */
+	protected boolean serverSideTitle;
 	/**
 	 * The attackable state of the NPC
 	 */
@@ -80,8 +88,36 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	 */
 	protected double collisionHeight = 0;
 
+	// id idTemplate name serverSideName title serverSideTitle class
+	// collision_radius collision_height level sex type attackrange hp mp hpreg
+	// mpreg str con dex int wit men exp sp patk pdef matk mdef atkspd critical
+	// aggro matkspd rhand lhand enchant walkspd runspd targetable show_name
+	// dropHerbGroup basestats
+
+	protected ActorSex sex;
+	protected int level;
+
+	protected int attackRange;
+
+	protected double hpRegeneration;
+	protected double mpRegeneration;
+
+	protected long experience;
+	protected long sp;
+
+	protected boolean aggressive;
+
+	protected ItemTemplateID rightHand;
+	protected ItemTemplateID leftHand;
+	protected int enchantLevel;
+
+	protected boolean targetable;
+	protected boolean showName;
+	protected int dropHerbGroup;
+	protected boolean baseAttributes;
+
 	protected NPCTemplate(NPCTemplateID id) {
-		super(id, null);
+		super(id);
 	}
 
 	@Override
@@ -195,10 +231,122 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	}
 
 	/**
-	 * @return the race
+	 * @return the serverSideName
 	 */
-	public Race getRace() {
-		return race;
+	public boolean isServerSideName() {
+		return serverSideName;
+	}
+
+	/**
+	 * @return the serverSideTitle
+	 */
+	public boolean isServerSideTitle() {
+		return serverSideTitle;
+	}
+
+	/**
+	 * @return the sex
+	 */
+	public ActorSex getSex() {
+		return sex;
+	}
+
+	/**
+	 * @return the level
+	 */
+	public int getLevel() {
+		return level;
+	}
+
+	/**
+	 * @return the attackRange
+	 */
+	public int getAttackRange() {
+		return attackRange;
+	}
+
+	/**
+	 * @return the hpRegeneration
+	 */
+	public double getHPRegeneration() {
+		return hpRegeneration;
+	}
+
+	/**
+	 * @return the mpRegeneration
+	 */
+	public double getMPRegeneration() {
+		return mpRegeneration;
+	}
+
+	/**
+	 * @return the experience
+	 */
+	public long getExperience() {
+		return experience;
+	}
+
+	/**
+	 * @return the sp
+	 */
+	public long getSp() {
+		return sp;
+	}
+
+	/**
+	 * @return the aggressive
+	 */
+	public boolean isAggressive() {
+		return aggressive;
+	}
+
+	/**
+	 * @return the right Hand item
+	 */
+	public ItemTemplateID getRightHand() {
+		return rightHand;
+	}
+
+	/**
+	 * @return the left Hand item
+	 */
+	public ItemTemplateID getLeftHand() {
+		return leftHand;
+	}
+
+	/**
+	 * @return the enchantLevel
+	 */
+	public int getEnchantLevel() {
+		return enchantLevel;
+	}
+
+	/**
+	 * @return the targetable
+	 */
+	public boolean isTargetable() {
+		return targetable;
+	}
+
+	/**
+	 * @return the showName
+	 */
+	public boolean isShowName() {
+		return showName;
+	}
+
+	/**
+	 * @return the dropHerbGroup
+	 */
+	public int getDropHerbGroup() {
+		return dropHerbGroup;
+	}
+
+	/**
+	 * @return the baseAttributes
+	 */
+	public boolean isBaseAttributes() {
+		return baseAttributes;
 	}
 
 	@Override

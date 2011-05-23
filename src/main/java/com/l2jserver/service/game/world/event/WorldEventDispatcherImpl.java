@@ -21,7 +21,6 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -64,10 +63,11 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	/**
 	 * The events pending dispatch
 	 */
-	private Queue<EventContainer> events = new ArrayBlockingQueue<EventContainer>(
-			100 * 1000);
+	private Queue<EventContainer> events = CollectionFactory
+			.newConcurrentQueue();
 
 	public void start() {
+		// TODO event dispatching should be done using ThreadService
 		timer = new Timer();
 		final TimerTask task = new TimerTask() {
 			@Override

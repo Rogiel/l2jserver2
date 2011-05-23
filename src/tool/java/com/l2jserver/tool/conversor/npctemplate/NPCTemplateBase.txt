@@ -14,54 +14,65 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package script.template.actor.character;
+package script.template.actor.npc${javaPackage};
 
 import com.google.inject.Inject;
-import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.id.template.factory.CharacterTemplateIDFactory;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.character.CharacterClass;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
+import com.l2jserver.model.template.*;
+import com.l2jserver.model.template.npc.*;
+import com.l2jserver.model.world.Actor.ActorSex;
+import com.l2jserver.util.exception.L2Exception;
+import com.l2jserver.util.html.markup.HtmlTemplate;
+import com.l2jserver.util.html.markup.MarkupTag;
 
-public class ${javaClassName}Template extends ${parent}Template {
+/**
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public class ${javaClassName} extends ${javaParentClassName}NPCTemplate {
+	public static final int ID = ${idTemplate};
+
 	@Inject
-	public ${javaClassName}Template(CharacterTemplateIDFactory factory) {
-		super(factory.createID(${ClassId}.id), ${ClassId},	Point.fromXYZ(${x}, ${y}, ${z}));
-		// ATTRIBUTES
-		attributes.intelligence = ${_INT};
-		attributes.strength = ${STR};
-		attributes.concentration = ${CON};
-		attributes.mentality = ${MEN};
-		attributes.dexterity = ${DEX};
-		attributes.witness = ${WIT};
-		attributes.physicalAttack = ${P_ATK};
-		attributes.magicalAttack = ${M_ATK};
-		attributes.physicalDefense = ${P_DEF};
-		attributes.magicalDefense = ${M_DEF};
-		attributes.attackSpeed = ${P_SPD};
-		attributes.castSpeed = ${M_SPD};
-		attributes.accuracy = ${ACC};
-		attributes.criticalChance = ${CRITICAL};
-		attributes.evasionChance = ${EVASION};
-		attributes.moveSpeed = ${MOVE_SPD};
-		attributes.maxWeigth = ${_LOAD};
-		attributes.craft = ${canCraft};
+	protected ${javaClassName}(NPCTemplateIDProvider provider, ItemTemplateIDProvider itemProvider) {
+		super(provider.createID(ID));
+		this.name = "${name}";
+		this.serverSideName = ${serverSideName};
+		this.title = "${title}";
+		this.serverSideTitle = ${serverSideTitle};
+		this.collisionRadius = ${collision_radius};
+		this.collisionHeight = ${collision_height};
+		this.level = ${level};
+		this.sex = ActorSex.${sex};
+		this.attackRange = ${attackrange};
+		this.maxHP = ${hp};
+		this.maxMP = ${mp};
+		this.hpRegeneration = ${hpreg};
+		this.mpRegeneration = ${mpreg};
+		this.experience = ${exp};
+		this.sp = ${sp};
+		this.aggressive = ${aggro};
+		this.rightHand = itemProvider.createID(${rhand});
+		this.leftHand = itemProvider.createID(${lhand});
+		this.enchantLevel = ${enchant};
+		this.targetable = ${targetable};
+		this.showName = ${show_name};
+		this.dropHerbGroup = ${dropHerbGroup};
+		this.baseAttributes = ${basestats};
 		
-		this.maleCollisionRadius = ${M_COL_R};
-		this.maleCollisionHeight = ${M_COL_H};
-		this.femaleCollisionRadius = ${F_COL_R};
-		this.femaleCollisionHeight = ${F_COL_H};
-	}
-	
-	protected ${javaClassName}Template(CharacterTemplateID id,
-			CharacterClass characterClass, Point spawnLocation) {
-		super(id, characterClass, spawnLocation);
-	}
-
-	@Override
-	public L2Character create() {
-		final L2Character character = super.create();
-		// TODO register skills
-		return character;
+		attributes.intelligence = ${int};
+		attributes.strength = ${str};
+		attributes.concentration = ${con};
+		attributes.mentality = ${men};
+		attributes.dexterity = ${dex};
+		attributes.witness = ${wit};
+		attributes.physicalAttack = ${patk};
+		attributes.magicalAttack = ${matk};
+		attributes.physicalDefense = ${pdef};
+		attributes.magicalDefense = ${mdef};
+		attributes.attackSpeed = ${atkspd};
+		attributes.castSpeed = ${matkspd};
+		attributes.criticalChance = ${critical};
+		attributes.walkSpeed = ${walkspd};
+		attributes.runSpeed = ${runspd};
 	}
 }

@@ -44,7 +44,7 @@ public class OrcRaiderTemplate extends OrcFighterTemplate {
 		attributes.accuracy = 31;
 		attributes.criticalChance = 42;
 		attributes.evasionChance = 31;
-		attributes.moveSpeed = 117;
+		attributes.runSpeed = 117;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
 

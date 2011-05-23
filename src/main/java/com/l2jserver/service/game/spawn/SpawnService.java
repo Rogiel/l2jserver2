@@ -16,9 +16,12 @@
  */
 package com.l2jserver.service.game.spawn;
 
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.util.dimensional.Coordinate;
@@ -63,9 +66,29 @@ public interface SpawnService extends Service {
 	 *            the teleportation coordinate
 	 * @throws NotSpawnedServiceException
 	 *             if the object to be teleported is not spawned
+	 * @throws CharacterAlreadyTeleportingServiceException
+	 *             if this player is already being teleported. This will only be
+	 *             thrown for {@link L2Character} instances.
 	 */
 	void teleport(Player player, Coordinate coordinate)
-			throws NotSpawnedServiceException;
+			throws NotSpawnedServiceException,
+			CharacterAlreadyTeleportingServiceException;
+
+	/**
+	 * Finishes teleporting the character. This is only used for
+	 * {@link L2Character} instances.
+	 * <p>
+	 * An {@link PlayerTeleportedEvent} will be dispatched and the new position
+	 * will be broadcast to all clients.
+	 * 
+	 * @param character
+	 *            the character object
+	 * @throws CharacterNotTeleportingServiceException
+	 *             if the character state is not
+	 *             {@link CharacterState#TELEPORTING}
+	 */
+	void finishTeleport(L2Character character)
+			throws CharacterNotTeleportingServiceException;
 
 	/**
 	 * Schedules an {@link Spawnable} object to be respawn in a certain time.
@@ -85,5 +108,6 @@ public interface SpawnService extends Service {
 	 * @throws NotSpawnedServiceException
 	 *             if the object is not spawned
 	 */
-	void unspawn(PositionableObject spawnable) throws NotSpawnedServiceException;
+	void unspawn(PositionableObject spawnable)
+			throws NotSpawnedServiceException;
 }

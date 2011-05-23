@@ -34,14 +34,14 @@ public abstract class Actor extends PositionableObject {
 	/**
 	 * The actor race
 	 */
-	protected Race race;
+	protected ActorRace race;
 
 	/**
 	 * Represents the actor race.
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public enum Race {
+	public enum ActorRace {
 		HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(
 				0x05);
 
@@ -50,7 +50,7 @@ public abstract class Actor extends PositionableObject {
 		 */
 		public final int id;
 
-		Race(int id) {
+		ActorRace(int id) {
 			this.id = id;
 		}
 
@@ -61,8 +61,8 @@ public abstract class Actor extends PositionableObject {
 		 *            the id
 		 * @return the race constant
 		 */
-		public static Race fromOption(int id) {
-			for (final Race race : values()) {
+		public static ActorRace fromOption(int id) {
+			for (final ActorRace race : values()) {
 				if (race.id == id)
 					return race;
 			}
@@ -73,7 +73,7 @@ public abstract class Actor extends PositionableObject {
 	/**
 	 * The actor sex
 	 */
-	protected Sex sex;
+	protected ActorSex sex;
 
 	/**
 	 * Represent the sex of an actor.
@@ -81,17 +81,17 @@ public abstract class Actor extends PositionableObject {
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public enum Sex {
+	public enum ActorSex {
 		MALE(0x00), FEMALE(0x01);
 
 		public final int option;
 
-		Sex(int option) {
+		ActorSex(int option) {
 			this.option = option;
 		}
 
-		public static Sex fromOption(int option) {
-			for (Sex sex : values()) {
+		public static ActorSex fromOption(int option) {
+			for (ActorSex sex : values()) {
 				if (sex.option == option)
 					return sex;
 			}
@@ -135,7 +135,7 @@ public abstract class Actor extends PositionableObject {
 	/**
 	 * @return the race
 	 */
-	public Race getRace() {
+	public ActorRace getRace() {
 		return race;
 	}
 
@@ -143,14 +143,14 @@ public abstract class Actor extends PositionableObject {
 	 * @param race
 	 *            the race to set
 	 */
-	public void setRace(Race race) {
+	public void setRace(ActorRace race) {
 		this.race = race;
 	}
 
 	/**
 	 * @return the sex
 	 */
-	public Sex getSex() {
+	public ActorSex getSex() {
 		return sex;
 	}
 
@@ -158,7 +158,7 @@ public abstract class Actor extends PositionableObject {
 	 * @param sex
 	 *            the sex to set
 	 */
-	public void setSex(Sex sex) {
+	public void setSex(ActorSex sex) {
 		this.sex = sex;
 	}
 

@@ -21,7 +21,8 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.spawn.CharacterNotTeleportingServiceException;
+import com.l2jserver.service.game.spawn.SpawnService;
 
 /**
  * Completes the creation of an character. Creates the object, inserts into the
@@ -36,13 +37,13 @@ public class CharacterAppearingPacket extends AbstractClientPacket {
 	public static final int OPCODE = 0x3a;
 
 	/**
-	 * The {@link CharacterService}
+	 * The {@link SpawnService}
 	 */
-	private final CharacterService charService;
+	private final SpawnService spawnService;
 
 	@Inject
-	public CharacterAppearingPacket(CharacterService charService) {
-		this.charService = charService;
+	public CharacterAppearingPacket(SpawnService spawnService) {
+		this.spawnService = spawnService;
 	}
 
 	@Override
@@ -51,6 +52,10 @@ public class CharacterAppearingPacket extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		charService.appearing(conn.getCharacter());
+		try {
+			spawnService.finishTeleport(conn.getCharacter());
+		} catch (CharacterNotTeleportingServiceException e) {
+			conn.sendActionFailed();
+		}
 	}
 }

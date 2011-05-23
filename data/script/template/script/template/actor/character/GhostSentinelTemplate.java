@@ -45,7 +45,7 @@ public class GhostSentinelTemplate extends PhantomRangerTemplate {
 		attributes.accuracy = 35;
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
-		attributes.moveSpeed = 122;
+		attributes.runSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
 

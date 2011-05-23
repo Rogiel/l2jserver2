@@ -48,7 +48,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.Actor.Sex;
+import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.actor.ActorExperience;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.BufferUtils;
@@ -189,32 +189,26 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 
 		buffer.writeInt(0x00); // (max?) talismans count
 		buffer.writeInt(0x00); // cloak sratus
-		buffer.writeInt(character.getAttributes().getPhysicalAttack());
+		buffer.writeInt((int) character.getAttributes().getPhysicalAttack());
 		buffer.writeInt(character.getAttributes().getAttackSpeed());
-		buffer.writeInt(character.getAttributes().getPhysicalDefense());
+		buffer.writeInt((int) character.getAttributes().getPhysicalDefense());
 
 		buffer.writeInt(character.getAttributes().getEvasionChance()); // evasion
 		buffer.writeInt(character.getAttributes().getAccuracy());
 		buffer.writeInt(character.getAttributes().getCriticalChance());
 
-		buffer.writeInt(character.getAttributes().getMagicalAttack());
+		buffer.writeInt((int) character.getAttributes().getMagicalAttack());
 		buffer.writeInt(character.getAttributes().getCastSpeed());
 		buffer.writeInt(character.getAttributes().getAttackSpeed());
-		buffer.writeInt(character.getAttributes().getMagicalDefense());
+		buffer.writeInt((int) character.getAttributes().getMagicalDefense());
 
 		buffer.writeInt(0x00); // 0-non-pvp 1-pvp = violett name
 		buffer.writeInt(0x00); // karma
 
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // run
-																			// speed
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // walk
-																			// speed
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // swim
-																			// run
-																			// speed
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed()); // swim
-																			// walk
-																			// speed
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getWalkSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getWalkSpeed());
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // fly speed -only if flying
@@ -234,7 +228,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		// writeF(_activeChar.getCollisionRadius());
 		// writeF(_activeChar.getCollisionHeight());
 		// }
-		if (character.getSex() == Sex.MALE) {
+		if (character.getSex() == ActorSex.MALE) {
 			buffer.writeDouble(character.getTemplate().getMaleCollisionRadius());
 			buffer.writeDouble(character.getTemplate().getMaleCollisionHeight());
 		} else {
@@ -243,7 +237,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 			buffer.writeDouble(character.getTemplate()
 					.getFemaleCollisionHeight());
 		}
-		
+
 		buffer.writeInt(character.getAppearance().getHairStyle().option);
 		buffer.writeInt(character.getAppearance().getHairColor().option);
 		buffer.writeInt(character.getAppearance().getFace().option);
@@ -252,10 +246,8 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		String title = "Testing"; // title
 		BufferUtils.writeString(buffer, title);
 
-		int clanid = 0;
-		if (character.getClanID() != null)
-			clanid = character.getClanID().getID();
-		buffer.writeInt(clanid); // clanid
+		buffer.writeInt((character.getClanID() != null ? character.getClanID()
+				.getID() : 0x00)); // clanid
 		buffer.writeInt(0x00); // clan crest id
 		buffer.writeInt(0x00); // ally id
 		buffer.writeInt(0x00); // ally crest id

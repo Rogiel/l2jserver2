@@ -43,7 +43,8 @@ public class ${javaClassName}Template extends ${parent}Template {
 		attributes.accuracy = ${ACC};
 		attributes.criticalChance = ${CRITICAL};
 		attributes.evasionChance = ${EVASION};
-		attributes.moveSpeed = ${MOVE_SPD};
+		attributes.runSpeed = ${MOVE_SPD};
+		attributes.walkSpeed = ${MOVE_SPD};
 		attributes.maxWeigth = ${_LOAD};
 		attributes.craft = ${canCraft};
 		

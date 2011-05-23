@@ -62,21 +62,21 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(0x00); // unk
 		buffer.writeInt(template.getCastSpeed());
 		buffer.writeInt(template.getAttackSpeed());
-		buffer.writeInt((int) template.getMoveSpeed());
-		buffer.writeInt((int) template.getMoveSpeed());
-		buffer.writeInt((int) template.getMoveSpeed()); // swim run speed
-		buffer.writeInt((int) template.getMoveSpeed()); // swim walk speed
-		buffer.writeInt((int) template.getMoveSpeed()); // swim run speed
-		buffer.writeInt((int) template.getMoveSpeed()); // swim walk speed
-		buffer.writeInt((int) template.getMoveSpeed()); // fly run speed
-		buffer.writeInt((int) template.getMoveSpeed()); // fly run speed
+		buffer.writeInt((int) template.getRunSpeed());
+		buffer.writeInt((int) template.getWalkSpeed());
+		buffer.writeInt((int) template.getRunSpeed()); // swim run speed
+		buffer.writeInt((int) template.getWalkSpeed()); // swim walk speed
+		buffer.writeInt((int) template.getRunSpeed()); // swim run speed
+		buffer.writeInt((int) template.getWalkSpeed()); // swim walk speed
+		buffer.writeInt((int) template.getRunSpeed()); // fly run speed
+		buffer.writeInt((int) template.getWalkSpeed()); // fly run speed
 		buffer.writeDouble(template.getMovementSpeedMultiplier());
 		buffer.writeDouble(template.getAttackSpeedMultiplier());
 		buffer.writeDouble(template.getCollisionRadius());
 		buffer.writeDouble(template.getCollisionHeight());
-		buffer.writeInt(0x00); // right hand weapon
+		buffer.writeInt(template.getRightHand().getID()); // right hand weapon
 		buffer.writeInt(0x00); // chest
-		buffer.writeInt(0x00); // left hand weapon
+		buffer.writeInt(template.getLeftHand().getID()); // left hand weapon
 		buffer.writeByte(1); // name above char 1=true ... ??
 		buffer.writeByte(0x00); // is running
 		buffer.writeByte(0x00); // is in combat

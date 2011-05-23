@@ -41,7 +41,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.world.Actor.Sex;
+import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
@@ -145,19 +145,19 @@ public class CharacterInformationBroadcastPacket extends AbstractServerPacket {
 
 		buffer.writeInt(0x00); // unk
 
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
-		buffer.writeInt((int) character.getAttributes().getMoveSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		buffer.writeInt((int) character.getAttributes().getRunSpeed());
 
 		buffer.writeDouble(0x01); // move speed multiplier
 		buffer.writeDouble(0x01); // attack speed multiplier
 
-		if (character.getSex() == Sex.MALE) {
+		if (character.getSex() == ActorSex.MALE) {
 			buffer.writeDouble(character.getTemplate().getMaleCollisionRadius());
 			buffer.writeDouble(character.getTemplate().getMaleCollisionHeight());
 		} else {

@@ -44,7 +44,7 @@ public class DarkWizardTemplate extends DarkMysticTemplate {
 		attributes.accuracy = 29;
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 29;
-		attributes.moveSpeed = 122;
+		attributes.runSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
 

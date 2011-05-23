@@ -220,12 +220,6 @@ public class CharacterServiceImpl extends AbstractService implements
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
 					broadcast(conn, character);
-				} else if (e instanceof CharacterWalkingEvent) {
-					conn.write(new CharacterMovementTypePacket(
-							((CharacterWalkingEvent) e).getCharacter()));
-				} else if (e instanceof CharacterRunningEvent) {
-					conn.write(new CharacterMovementTypePacket(
-							((CharacterRunningEvent) e).getCharacter()));
 				}
 				// keep listener alive
 				return true;
@@ -373,20 +367,6 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public void appearing(L2Character character) {
-		Preconditions.checkNotNull(character, "character");
-		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
-
-		character.setState(null);
-
-		conn.write(new CharacterInformationPacket(character));
-		conn.write(new CharacterInformationExtraPacket(character));
-		eventDispatcher.dispatch(new PlayerTeleportedEvent(character, character
-				.getPoint()));
-	}
-
-	@Override
 	public void jail(L2Character character, long time, String reason)
 			throws CharacterInJailServiceException {
 		Preconditions.checkNotNull(character, "character");
@@ -414,6 +394,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		// validation packets, sent by client
 
 		character.setState(CharacterState.MOVING);
+		character.setTargetLocation(coordinate.toPoint());
 
 		// for now, let's just write the packet, we don't have much validation
 		// to be done yet. With character validation packet, another packet of
@@ -440,8 +421,14 @@ public class CharacterServiceImpl extends AbstractService implements
 			return;
 		final Point old = character.getPoint();
 		character.setPoint(point);
-		character.setState(CharacterState.MOVING);
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, old));
+
+		if (point.getCoordinate().equals(
+				character.getTargetLocation().getCoordinate())) {
+			character.setState(null);
+			character.setTargetLocation(null);
+			// TODO dispatch stop event
+		}
 	}
 
 	@Override

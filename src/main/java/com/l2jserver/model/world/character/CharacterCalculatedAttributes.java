@@ -73,22 +73,22 @@ public class CharacterCalculatedAttributes implements ActorAttributes {
 	}
 
 	@Override
-	public int getPhysicalAttack() {
+	public double getPhysicalAttack() {
 		return baseAttributes.getPhysicalAttack();
 	}
 
 	@Override
-	public int getMagicalAttack() {
+	public double getMagicalAttack() {
 		return baseAttributes.getMagicalAttack();
 	}
 
 	@Override
-	public int getPhysicalDefense() {
+	public double getPhysicalDefense() {
 		return baseAttributes.getPhysicalDefense();
 	}
 
 	@Override
-	public int getMagicalDefense() {
+	public double getMagicalDefense() {
 		return baseAttributes.getMagicalDefense();
 	}
 
@@ -118,8 +118,13 @@ public class CharacterCalculatedAttributes implements ActorAttributes {
 	}
 
 	@Override
-	public double getMoveSpeed() {
-		return baseAttributes.getMoveSpeed();
+	public double getRunSpeed() {
+		return baseAttributes.getRunSpeed();
+	}
+
+	@Override
+	public double getWalkSpeed() {
+		return baseAttributes.getWalkSpeed();
 	}
 
 	@Override

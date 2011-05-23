@@ -23,7 +23,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.service.admin.AdministratorService;
+import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.BufferUtils;
@@ -43,7 +43,7 @@ public class AdminCommandPacket extends AbstractClientPacket {
 	/**
 	 * The admin service
 	 */
-	private final AdministratorService adminService;
+	// private final AdministratorService adminService;
 	private final SpawnService spawnService;
 
 	/**
@@ -52,9 +52,9 @@ public class AdminCommandPacket extends AbstractClientPacket {
 	private String command;
 
 	@Inject
-	public AdminCommandPacket(AdministratorService adminService,
-			SpawnService spawnService) {
-		this.adminService = adminService;
+	public AdminCommandPacket(/* AdministratorService adminService, */
+	SpawnService spawnService) {
+		// this.adminService = adminService;
 		this.spawnService = spawnService;
 	}
 
@@ -75,8 +75,9 @@ public class AdminCommandPacket extends AbstractClientPacket {
 			try {
 				spawnService.teleport(conn.getCharacter(), coord);
 			} catch (NotSpawnedServiceException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				conn.sendActionFailed();
+			} catch (CharacterAlreadyTeleportingServiceException e) {
+				conn.sendActionFailed();
 			}
 		}
 		// TODO implement admin commands

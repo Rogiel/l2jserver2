@@ -24,6 +24,7 @@ import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.dimensional.Coordinate;
@@ -103,6 +104,8 @@ public class TeleporterNPCTemplate extends NPCTemplate {
 	 */
 	protected TeleporterNPCTemplate(NPCTemplateID id) {
 		super(id);
+		// TODO remove this when possible
+		addLocation("Talking Island Village - temporary", TALKING_ISLAND_VILLAGE, 0);
 	}
 
 	@Override
@@ -138,7 +141,8 @@ public class TeleporterNPCTemplate extends NPCTemplate {
 
 	protected void teleport(NPC npc, L2Character character,
 			Lineage2Connection conn, String name)
-			throws NotSpawnedServiceException {
+			throws NotSpawnedServiceException,
+			CharacterAlreadyTeleportingServiceException {
 		final int location = Integer.parseInt(name);
 		final TeleportationMetadata metadata = locations.get(location);
 		if (metadata == null) {

@@ -18,8 +18,6 @@ package com.l2jserver.service.game.template;
 
 import org.junit.Test;
 
-import script.template.item.AdenaItemTemplate;
-
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.db.dao.MySQL5DAOModule;
@@ -39,7 +37,6 @@ public class StaticTemplateServiceTest {
 	@Test
 	public void testAdena() throws ServiceStartException {
 		service.start();
-		System.out
-				.println(factory.createID(AdenaItemTemplate.ID).getTemplate());
+		System.out.println(factory.createID(57).getTemplate());
 	}
 }

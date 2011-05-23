@@ -44,7 +44,7 @@ public class WizardTemplate extends HumanMysticTemplate {
 		attributes.accuracy = 28;
 		attributes.criticalChance = 40;
 		attributes.evasionChance = 28;
-		attributes.moveSpeed = 120;
+		attributes.runSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
 

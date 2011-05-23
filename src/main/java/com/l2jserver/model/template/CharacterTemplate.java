@@ -17,6 +17,7 @@
 package com.l2jserver.model.template;
 
 import com.l2jserver.model.id.template.CharacterTemplateID;
+import com.l2jserver.model.world.Actor.ActorRace;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
@@ -59,10 +60,10 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	 * The collision height for female instances
 	 */
 	protected double femaleCollisionHeight = 0;
-	
+
 	protected CharacterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
-		super(id, characterClass.race);
+		super(id);
 		this.characterClass = characterClass;
 		this.spawnLocation = spawnLocation;
 	}
@@ -71,11 +72,18 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	public L2Character createInstance() {
 		final L2Character character = new L2Character(this.getID(), attributes);
 
-		character.setRace(race);
+		character.setRace(getRace());
 		character.setCharacterClass(characterClass);
 		character.setPoint(spawnLocation);
 
 		return character;
+	}
+
+	/**
+	 * @return the race
+	 */
+	public ActorRace getRace() {
+		return characterClass.race;
 	}
 
 	/**
@@ -91,7 +99,7 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	public Point getSpawnLocation() {
 		return spawnLocation;
 	}
-	
+
 	/**
 	 * @return the male collision radius
 	 */
