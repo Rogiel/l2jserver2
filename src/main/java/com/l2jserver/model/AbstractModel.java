@@ -24,11 +24,16 @@ import com.l2jserver.model.id.ID;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class AbstractModel<T extends ID<?>> implements Model<T> {
+public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	/**
 	 * The object id
 	 */
 	protected T id;
+	/**
+	 * The database state. True inidicates that the object is on database, false
+	 * indicates it must be inserted.
+	 */
+	protected boolean inDatabase;
 
 	@Override
 	public T getID() {
@@ -64,5 +69,15 @@ public class AbstractModel<T extends ID<?>> implements Model<T> {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public boolean isInDatabase() {
+		return inDatabase;
+	}
+
+	@Override
+	public void setIsInDatabase(boolean state) {
+		inDatabase = state;
 	}
 }

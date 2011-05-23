@@ -77,6 +77,15 @@ public class TeleporterNPCTemplate extends NPCTemplate {
 	public static final Coordinate CAVE_OF_TRIALS = Coordinate.fromXYZ(9340,
 			-112509, -2536);
 
+	public static final Coordinate DARK_FOREST = Coordinate.fromXYZ(-22224,
+			14168, -3232);
+	public static final Coordinate SPIDER_NEST = Coordinate.fromXYZ(-61095,
+			75104, -3352);
+	public static final Coordinate SWAMPLAND = Coordinate.fromXYZ(-21966,
+			40544, -3192);
+	public static final Coordinate NEUTRAL_ZONE = Coordinate.fromXYZ(-10612,
+			75881, -3592);
+
 	@Inject
 	protected SpawnService spawnService;
 

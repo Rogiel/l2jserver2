@@ -16,11 +16,15 @@
  */
 package com.l2jserver.service.game.npc;
 
+import java.util.List;
+
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 
 /**
  * This service manages {@link NPC} instances
@@ -55,6 +59,17 @@ public interface NPCService extends Service {
 	 */
 	void action(NPC npc, L2Character character, String... args)
 			throws ActionServiceException;
+
+	/**
+	 * Load from database and spawn all {@link NPC NPCs} instances
+	 * 
+	 * @throws AlreadySpawnedServiceException
+	 *             if one of the NPCs is already spawned
+	 * @throws SpawnPointNotFoundServiceException
+	 *             if one of the NPCs does not have an spawn point defined
+	 */
+	List<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
+			AlreadySpawnedServiceException;
 
 	/**
 	 * Attacks an given NPC, if possible.

@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class SpectralMasterTemplate extends PhantomSummonerTemplate {
 	@Inject
-	public SpectralMasterTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.SPECTRAL_MASTER.id), CharacterClass.SPECTRAL_MASTER,	Point.fromXYZ(28295, 11063, -4224));
+	public SpectralMasterTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.SPECTRAL_MASTER.id),
+				CharacterClass.SPECTRAL_MASTER, Point.fromXYZ(28295, 11063,
+						-4224));
 		// ATTRIBUTES
 		attributes.intelligence = 44;
 		attributes.strength = 23;
@@ -46,8 +48,13 @@ public class SpectralMasterTemplate extends PhantomSummonerTemplate {
 		attributes.moveSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected SpectralMasterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

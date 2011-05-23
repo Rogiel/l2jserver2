@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class DwarvenFighterTemplate extends AbstractDwarfCharacterTemplate {
 	@Inject
-	public DwarvenFighterTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.DWARVEN_FIGHTER.id), CharacterClass.DWARVEN_FIGHTER,	Point.fromXYZ(108512, -174026, -400));
+	public DwarvenFighterTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.DWARVEN_FIGHTER.id),
+				CharacterClass.DWARVEN_FIGHTER, Point.fromXYZ(108512, -174026,
+						-400));
 		// ATTRIBUTES
 		attributes.intelligence = 20;
 		attributes.strength = 39;
@@ -46,8 +48,13 @@ public class DwarvenFighterTemplate extends AbstractDwarfCharacterTemplate {
 		attributes.moveSpeed = 115;
 		attributes.maxWeigth = 83000;
 		attributes.craft = true;
+
+		this.maleCollisionRadius = 9.0;
+		this.maleCollisionHeight = 18.0;
+		this.femaleCollisionRadius = 5.0;
+		this.femaleCollisionHeight = 19.0;
 	}
-	
+
 	protected DwarvenFighterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

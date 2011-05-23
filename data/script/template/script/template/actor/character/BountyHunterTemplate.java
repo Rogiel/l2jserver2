@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class BountyHunterTemplate extends ScavengerTemplate {
 	@Inject
-	public BountyHunterTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.BOUNTY_HUNTER.id), CharacterClass.BOUNTY_HUNTER,	Point.fromXYZ(108512, -174026, -400));
+	public BountyHunterTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.BOUNTY_HUNTER.id),
+				CharacterClass.BOUNTY_HUNTER, Point.fromXYZ(108512, -174026,
+						-400));
 		// ATTRIBUTES
 		attributes.intelligence = 20;
 		attributes.strength = 39;
@@ -46,8 +48,13 @@ public class BountyHunterTemplate extends ScavengerTemplate {
 		attributes.moveSpeed = 115;
 		attributes.maxWeigth = 83000;
 		attributes.craft = true;
+
+		this.maleCollisionRadius = 9.0;
+		this.maleCollisionHeight = 18.0;
+		this.femaleCollisionRadius = 5.0;
+		this.femaleCollisionHeight = 19.0;
 	}
-	
+
 	protected BountyHunterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

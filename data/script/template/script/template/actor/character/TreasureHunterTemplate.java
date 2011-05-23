@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class TreasureHunterTemplate extends RogueTemplate {
 	@Inject
-	public TreasureHunterTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.TREASURE_HUNTER.id), CharacterClass.TREASURE_HUNTER,	Point.fromXYZ(-71338, 258271, -3104));
+	public TreasureHunterTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.TREASURE_HUNTER.id),
+				CharacterClass.TREASURE_HUNTER, Point.fromXYZ(-71338, 258271,
+						-3104));
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -46,8 +48,13 @@ public class TreasureHunterTemplate extends RogueTemplate {
 		attributes.moveSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 9.0;
+		this.maleCollisionHeight = 23.0;
+		this.femaleCollisionRadius = 8.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected TreasureHunterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

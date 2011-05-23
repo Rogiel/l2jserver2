@@ -132,8 +132,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 					.createID(charClass.id);
 			final CharacterTemplate template = templateId.getTemplate();
 
-			final L2Character character = new L2Character(
-					template.getBaseAttributes());
+			final L2Character character = template.create();
 
 			character.setID(id);
 			character.setAccountID(accountIdFactory.createID(rs

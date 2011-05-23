@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class OrcMonkTemplate extends OrcFighterTemplate {
 	@Inject
-	public OrcMonkTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.ORC_MONK.id), CharacterClass.ORC_MONK,	Point.fromXYZ(-56682, -113610, -690));
+	public OrcMonkTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.ORC_MONK.id),
+				CharacterClass.ORC_MONK, Point.fromXYZ(-56682, -113610, -690));
 		// ATTRIBUTES
 		attributes.intelligence = 18;
 		attributes.strength = 40;
@@ -46,8 +47,13 @@ public class OrcMonkTemplate extends OrcFighterTemplate {
 		attributes.moveSpeed = 117;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 11.0;
+		this.maleCollisionHeight = 28.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 27.0;
 	}
-	
+
 	protected OrcMonkTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

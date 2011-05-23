@@ -57,6 +57,10 @@ public class ServiceManager {
 		}
 		logger = LoggerFactory.getLogger(ServiceManager.class);
 	}
+	
+	public <T extends Service> T get(Class<T> serviceClass) {
+		return injector.getInstance(serviceClass);
+	}
 
 	public <T extends Service> T start(Class<T> serviceClass)
 			throws ServiceStartException {

@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class DestroyerTemplate extends OrcRaiderTemplate {
 	@Inject
-	public DestroyerTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.DESTROYER.id), CharacterClass.DESTROYER,	Point.fromXYZ(-56693, -113610, -690));
+	public DestroyerTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.DESTROYER.id),
+				CharacterClass.DESTROYER, Point.fromXYZ(-56693, -113610, -690));
 		// ATTRIBUTES
 		attributes.intelligence = 18;
 		attributes.strength = 40;
@@ -46,8 +47,13 @@ public class DestroyerTemplate extends OrcRaiderTemplate {
 		attributes.moveSpeed = 117;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 11.0;
+		this.maleCollisionHeight = 28.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 27.0;
 	}
-	
+
 	protected DestroyerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

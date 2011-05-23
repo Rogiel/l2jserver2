@@ -16,12 +16,19 @@
  */
 package com.l2jserver.service.game.npc;
 
+import java.util.List;
+
 import com.google.common.base.Preconditions;
+import com.google.inject.Inject;
+import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
+import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.exception.L2Exception;
 
 /**
@@ -30,6 +37,22 @@ import com.l2jserver.util.exception.L2Exception;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPCServiceImpl extends AbstractService implements NPCService {
+	/**
+	 * The {@link SpawnService} used to spawn the {@link NPC} instances
+	 */
+	private final SpawnService spawnService;
+
+	/**
+	 * The {@link NPCDAO}
+	 */
+	private final NPCDAO npcDao;
+
+	@Inject
+	public NPCServiceImpl(SpawnService spawnService, NPCDAO npcDao) {
+		this.spawnService = spawnService;
+		this.npcDao = npcDao;
+	}
+
 	@Override
 	public void action(NPC npc, L2Character character, CharacterAction action)
 			throws ActionServiceException {
@@ -59,6 +82,16 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		} catch (L2Exception e) {
 			throw new ActionServiceException(e);
 		}
+	}
+
+	@Override
+	public List<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
+			AlreadySpawnedServiceException {
+		final List<NPC> npcs = npcDao.loadAll();
+		for (final NPC npc : npcs) {
+			spawnService.spawn(npc, null);
+		}
+		return null;
 	}
 
 	@Override

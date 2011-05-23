@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class SwordMuseTemplate extends SwordSingerTemplate {
 	@Inject
-	public SwordMuseTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.SWORD_MUSE.id), CharacterClass.SWORD_MUSE,	Point.fromXYZ(45978, 41196, -3440));
+	public SwordMuseTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.SWORD_MUSE.id),
+				CharacterClass.SWORD_MUSE, Point.fromXYZ(45978, 41196, -3440));
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -46,8 +47,13 @@ public class SwordMuseTemplate extends SwordSingerTemplate {
 		attributes.moveSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.5;
+		this.femaleCollisionHeight = 23.0;
 	}
-	
+
 	protected SwordMuseTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

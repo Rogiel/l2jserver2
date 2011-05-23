@@ -23,6 +23,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
 import com.l2jserver.game.net.packet.server.ActorMovementPacket;
+import com.l2jserver.game.net.packet.server.CharacterInformationBroadcastPacket;
 import com.l2jserver.game.net.packet.server.CharacterInformationExtraPacket;
 import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
 import com.l2jserver.game.net.packet.server.CharacterInventoryPacket;
@@ -30,6 +31,7 @@ import com.l2jserver.game.net.packet.server.CharacterMovementTypePacket;
 import com.l2jserver.game.net.packet.server.CharacterTargetSelectedPacket;
 import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
 import com.l2jserver.game.net.packet.server.NPCInformationPacket;
+import com.l2jserver.game.net.packet.server.ObjectRemove;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
@@ -50,6 +52,7 @@ import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
+import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.chat.ChatChannel;
@@ -65,7 +68,9 @@ import com.l2jserver.service.game.world.event.FilteredWorldListener;
 import com.l2jserver.service.game.world.event.WorldEvent;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.event.WorldListener;
+import com.l2jserver.service.game.world.filter.impl.IDFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
+import com.l2jserver.service.game.world.filter.impl.KnownListUpdateFilter;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
@@ -133,7 +138,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			return;
 
 		itemDao.loadInventory(character);
-		
+
 		character.setOnline(true);
 
 		// chat listener
@@ -158,9 +163,10 @@ public class CharacterServiceImpl extends AbstractService implements
 		// this listener will be filtered so that only interesting events are
 		// dispatched, once a event arrives will be possible to check check if
 		// the given event will be broadcasted or not
-		// TODO this should not be here, it should be i world service or a newly
+		// TODO this should not be here, it should be in world service or a
+		// newly
 		// created broadcast service.
-		final WorldListener broadcastListener = new FilteredWorldListener<PositionableObject>(
+		final WorldListener neighboorListener = new FilteredWorldListener<PositionableObject>(
 				new KnownListFilter(character)) {
 			@Override
 			protected boolean dispatch(WorldEvent e, PositionableObject object) {
@@ -168,29 +174,64 @@ public class CharacterServiceImpl extends AbstractService implements
 					conn.write(new NPCInformationPacket((NPC) object));
 				} else if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
-					if (object.equals(character))
-						return true;
 					conn.write(new ActorMovementPacket((L2Character) object,
 							evt.getPoint().getCoordinate()));
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
-					// TODO this should not be here!
-					for (final PositionableObject o : worldService
-							.iterable(new KnownListFilter(character))) {
-						if (o instanceof NPC) {
-							conn.write(new NPCInformationPacket((NPC) o));
-						}
+					if (object instanceof NPC) {
+						conn.write(new NPCInformationPacket((NPC) object));
+					} else if (object instanceof L2Character) {
+						conn.write(new CharacterInformationBroadcastPacket(
+								(L2Character) object));
 					}
-				} else if (e instanceof CharacterWalkingEvent
-						|| e instanceof CharacterRunningEvent) {
+				} else if (e instanceof PlayerTeleportingEvent
+						|| e instanceof CharacterLeaveWorldEvent) {
+					// object is not out of sight
+					conn.write(new ObjectRemove(object));
+				} else if (e instanceof CharacterWalkingEvent) {
 					conn.write(new CharacterMovementTypePacket(
 							((CharacterWalkingEvent) e).getCharacter()));
+				} else if (e instanceof CharacterRunningEvent) {
+					conn.write(new CharacterMovementTypePacket(
+							((CharacterRunningEvent) e).getCharacter()));
 				}
 				// keep listener alive
 				return true;
 			}
 		};
-		eventDispatcher.addListener(broadcastListener);
+		eventDispatcher.addListener(neighboorListener);
+		final WorldListener sendPacketListener = new FilteredWorldListener<WorldObject>(
+				new IDFilter(character.getID())) {
+			@Override
+			protected boolean dispatch(WorldEvent e, WorldObject object) {
+				if (e instanceof CharacterMoveEvent) {
+					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
+					// process update known list
+					for (final WorldObject o : worldService
+							.iterable(new KnownListUpdateFilter(character, evt
+									.getPoint()))) {
+						if (o instanceof NPC) {
+							conn.write(new NPCInformationPacket((NPC) o));
+						} else if (o instanceof L2Character) {
+							conn.write(new CharacterInformationBroadcastPacket(
+									(L2Character) o));
+						}
+					}
+				} else if (e instanceof PlayerTeleportedEvent
+						|| e instanceof CharacterEnterWorldEvent) {
+					broadcast(conn, character);
+				} else if (e instanceof CharacterWalkingEvent) {
+					conn.write(new CharacterMovementTypePacket(
+							((CharacterWalkingEvent) e).getCharacter()));
+				} else if (e instanceof CharacterRunningEvent) {
+					conn.write(new CharacterMovementTypePacket(
+							((CharacterRunningEvent) e).getCharacter()));
+				}
+				// keep listener alive
+				return true;
+			}
+		};
+		eventDispatcher.addListener(sendPacketListener);
 
 		// leave world event
 		eventDispatcher.addListener(id, new CharacterListener() {
@@ -206,7 +247,8 @@ public class CharacterServiceImpl extends AbstractService implements
 						tradeChatListener);
 
 				// remove broadcast listener
-				eventDispatcher.removeListener(broadcastListener);
+				eventDispatcher.removeListener(neighboorListener);
+				eventDispatcher.removeListener(sendPacketListener);
 
 				// we can kill this listener now
 				return false;
@@ -236,22 +278,29 @@ public class CharacterServiceImpl extends AbstractService implements
 			// we can ignore this one
 		}
 
-		// broadcast knownlist -- trashy implementation
-		// TODO should be moved to world service or a newly created broadcast
-		// service, whichever fits the purpose
-		for (final WorldObject o : worldService.iterable(new KnownListFilter(
-				character))) {
-			if (o instanceof NPC) {
-				conn.write(new NPCInformationPacket((NPC) o));
-			}
-		}
-
-		// dispatch enter world event
-		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
+		broadcast(conn, character);
 
 		// spawn the player -- this will also dispatch a spawn event
 		// here the object is registered in the world
 		spawnService.spawn(character, null);
+
+		// dispatch enter world event
+		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
+	}
+
+	// broadcast knownlist -- trashy implementation
+	// TODO should be moved to world service or a newly created broadcast
+	// service, whichever fits the purpose
+	private void broadcast(Lineage2Connection conn, L2Character character) {
+		for (final WorldObject o : worldService.iterable(new KnownListFilter(
+				character))) {
+			if (o instanceof NPC) {
+				conn.write(new NPCInformationPacket((NPC) o));
+			} else if (o instanceof L2Character) {
+				conn.write(new CharacterInformationBroadcastPacket(
+						(L2Character) o));
+			}
+		}
 	}
 
 	@Override
@@ -303,7 +352,8 @@ public class CharacterServiceImpl extends AbstractService implements
 
 	@Override
 	public void attack(L2Character character, Actor target)
-			throws CannotSetTargetServiceException, ActorIsNotAttackableServiceException {
+			throws CannotSetTargetServiceException,
+			ActorIsNotAttackableServiceException {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
@@ -388,9 +438,10 @@ public class CharacterServiceImpl extends AbstractService implements
 			// ignore while teleporting, for some reason the client sends a
 			// validation just before teleport packet
 			return;
+		final Point old = character.getPoint();
 		character.setPoint(point);
 		character.setState(CharacterState.MOVING);
-		eventDispatcher.dispatch(new CharacterMoveEvent(character, point));
+		eventDispatcher.dispatch(new CharacterMoveEvent(character, old));
 	}
 
 	@Override

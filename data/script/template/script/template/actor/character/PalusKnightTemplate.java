@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class PalusKnightTemplate extends DarkFighterTemplate {
 	@Inject
-	public PalusKnightTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.PALUS_KNIGHT.id), CharacterClass.PALUS_KNIGHT,	Point.fromXYZ(28377, 10916, -4224));
+	public PalusKnightTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.PALUS_KNIGHT.id),
+				CharacterClass.PALUS_KNIGHT, Point.fromXYZ(28377, 10916, -4224));
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -46,8 +47,13 @@ public class PalusKnightTemplate extends DarkFighterTemplate {
 		attributes.moveSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected PalusKnightTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

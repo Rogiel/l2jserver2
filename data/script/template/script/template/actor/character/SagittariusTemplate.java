@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class SagittariusTemplate extends HawkeyeTemplate {
 	@Inject
-	public SagittariusTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.SAGITTARIUS.id), CharacterClass.SAGITTARIUS,	Point.fromXYZ(-71338, 258271, -3104));
+	public SagittariusTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.SAGITTARIUS.id),
+				CharacterClass.SAGITTARIUS, Point
+						.fromXYZ(-71338, 258271, -3104));
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -46,8 +48,13 @@ public class SagittariusTemplate extends HawkeyeTemplate {
 		attributes.moveSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 9.0;
+		this.maleCollisionHeight = 23.0;
+		this.femaleCollisionRadius = 8.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected SagittariusTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

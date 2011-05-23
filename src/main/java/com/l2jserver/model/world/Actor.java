@@ -17,9 +17,10 @@
 package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.ActorID;
+import com.l2jserver.model.id.template.ActorTemplateID;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.actor.ActorEffects;
 import com.l2jserver.model.world.actor.ActorSkillContainer;
-import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
 
 /**
@@ -28,6 +29,8 @@ import com.l2jserver.util.dimensional.Point;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class Actor extends PositionableObject {
+	protected ActorTemplateID<?> templateID;
+
 	/**
 	 * The actor race
 	 */
@@ -117,6 +120,10 @@ public abstract class Actor extends PositionableObject {
 	 */
 	protected final ActorSkillContainer skills = new ActorSkillContainer(this);
 
+	public Actor(ActorTemplateID<?> templateID) {
+		this.templateID = templateID;
+	}
+
 	public int getHP() {
 		return hp;
 	}
@@ -172,6 +179,20 @@ public abstract class Actor extends PositionableObject {
 
 	public ActorSkillContainer getSkills() {
 		return skills;
+	}
+
+	/**
+	 * @return the templateID
+	 */
+	public ActorTemplateID<?> getTemplateID() {
+		return templateID;
+	}
+
+	/**
+	 * @return the template
+	 */
+	public ActorTemplate<?> getTemplate() {
+		return templateID.getTemplate();
 	}
 
 	@Override

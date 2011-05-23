@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class DominatorTemplate extends OverlordTemplate {
 	@Inject
-	public DominatorTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.DOMINATOR.id), CharacterClass.DOMINATOR,	Point.fromXYZ(-56682, -113730, -690));
+	public DominatorTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.DOMINATOR.id),
+				CharacterClass.DOMINATOR, Point.fromXYZ(-56682, -113730, -690));
 		// ATTRIBUTES
 		attributes.intelligence = 31;
 		attributes.strength = 27;
@@ -46,8 +47,13 @@ public class DominatorTemplate extends OverlordTemplate {
 		attributes.moveSpeed = 121;
 		attributes.maxWeigth = 68000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.0;
+		this.maleCollisionHeight = 27.5;
+		this.femaleCollisionRadius = 8.0;
+		this.femaleCollisionHeight = 25.5;
 	}
-	
+
 	protected DominatorTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

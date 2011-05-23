@@ -19,6 +19,7 @@ package com.l2jserver.util.factory;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 import java.util.WeakHashMap;
@@ -67,6 +68,17 @@ public class CollectionFactory {
 	 */
 	public static final <T> Queue<T> newConcurrentQueue() {
 		return new ConcurrentLinkedQueue<T>();
+	}
+
+	/**
+	 * Creates a new priority queue of type <tt>T</tt>
+	 * 
+	 * @param <T>
+	 *            the type
+	 * @return the created queue
+	 */
+	public static final <T> PriorityQueue<T> newPriorityQueue() {
+		return new PriorityQueue<T>();
 	}
 
 	/**

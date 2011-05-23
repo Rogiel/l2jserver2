@@ -24,7 +24,7 @@ import com.l2jserver.model.template.npc.MonsterNPCTemplate;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class WolfMonsterTemplate extends MonsterNPCTemplate {
-	public static final int ID = 12077;
+	public static final int ID = 20120;
 
 	@Inject
 	protected WolfMonsterTemplate(NPCTemplateIDProvider provider) {
@@ -36,6 +36,4 @@ public class WolfMonsterTemplate extends MonsterNPCTemplate {
 		this.collisionRadius = 13.00;
 		this.collisionHeight = 9.00;
 	}
-	
-	
 }

@@ -19,7 +19,8 @@ package com.l2jserver.service.game.world.filter.impl;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.game.world.filter.AndFilter;
-import com.l2jserver.service.game.world.filter.ExcludeFilter;
+import com.l2jserver.service.game.world.filter.NotFilter;
+import com.l2jserver.util.dimensional.Point;
 
 /**
  * This filter will only accept {@link WorldObject} which are in vision of
@@ -27,13 +28,12 @@ import com.l2jserver.service.game.world.filter.ExcludeFilter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class KnownListFilter extends AndFilter<PositionableObject> {
+public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
 	public static final int KNOWNLIST_RANGE = 2000;
 
 	@SuppressWarnings("unchecked")
-	public KnownListFilter(PositionableObject object) {
-		super(new InstanceFilter<PositionableObject>(PositionableObject.class),
-				new RangeFilter(object, KNOWNLIST_RANGE),
-				new ExcludeFilter<PositionableObject>(object));
+	public KnownListUpdateFilter(PositionableObject object, Point old) {
+		super(new KnownListFilter(object), new NotFilter<PositionableObject>(
+				new RangePointFilter(old, KNOWNLIST_RANGE)));
 	}
 }

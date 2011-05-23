@@ -21,12 +21,12 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.BufferUtils;
 
 /**
- * This packet sends to the client an actor information about an actor (except
- * players)
+ * This packet sends to the client an actor information about an actor
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -49,7 +49,12 @@ public class NPCInformationPacket extends AbstractServerPacket {
 
 		buffer.writeInt(npc.getID().getID());
 		buffer.writeInt(template.getID().getID() + 1000000); // npctype id
-		buffer.writeInt((template.isAttackable() ? 0x01 : 0x00));
+		if (npc instanceof NPC) {
+			buffer.writeInt((((NPCTemplate) template).isAttackable() ? 0x01
+					: 0x00));
+		} else {
+			buffer.writeInt(0x01);
+		}
 		buffer.writeInt(npc.getPoint().getX());
 		buffer.writeInt(npc.getPoint().getY());
 		buffer.writeInt(npc.getPoint().getZ());
@@ -77,8 +82,8 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeByte(0x00); // is in combat
 		buffer.writeByte(0x00); // is like dead (faking)
 		buffer.writeByte(0x00); // 0=teleported 1=default 2=summoned
-		BufferUtils.writeString(buffer, template.getName());
-		BufferUtils.writeString(buffer, template.getTitle());
+		BufferUtils.writeString(buffer, ((NPCTemplate) template).getName());
+		BufferUtils.writeString(buffer, ((NPCTemplate) template).getTitle());
 		buffer.writeInt(0x00); // Title color 0=client default
 		buffer.writeInt(0x00); // pvp flag
 		buffer.writeInt(0x00); // karma

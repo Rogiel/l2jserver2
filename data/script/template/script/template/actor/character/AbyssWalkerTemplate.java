@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class AbyssWalkerTemplate extends AssassinTemplate {
 	@Inject
-	public AbyssWalkerTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.ABYSS_WALKER.id), CharacterClass.ABYSS_WALKER,	Point.fromXYZ(28377, 10916, -4224));
+	public AbyssWalkerTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.ABYSS_WALKER.id),
+				CharacterClass.ABYSS_WALKER, Point.fromXYZ(28377, 10916, -4224));
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -46,8 +47,13 @@ public class AbyssWalkerTemplate extends AssassinTemplate {
 		attributes.moveSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected AbyssWalkerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

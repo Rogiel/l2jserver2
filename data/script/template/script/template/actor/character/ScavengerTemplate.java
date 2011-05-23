@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class ScavengerTemplate extends DwarvenFighterTemplate {
 	@Inject
-	public ScavengerTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.SCAVENGER.id), CharacterClass.SCAVENGER,	Point.fromXYZ(108512, -174026, -400));
+	public ScavengerTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.SCAVENGER.id),
+				CharacterClass.SCAVENGER, Point.fromXYZ(108512, -174026, -400));
 		// ATTRIBUTES
 		attributes.intelligence = 20;
 		attributes.strength = 39;
@@ -46,8 +47,13 @@ public class ScavengerTemplate extends DwarvenFighterTemplate {
 		attributes.moveSpeed = 115;
 		attributes.maxWeigth = 83000;
 		attributes.craft = true;
+
+		this.maleCollisionRadius = 9.0;
+		this.maleCollisionHeight = 18.0;
+		this.femaleCollisionRadius = 5.0;
+		this.femaleCollisionHeight = 19.0;
 	}
-	
+
 	protected ScavengerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

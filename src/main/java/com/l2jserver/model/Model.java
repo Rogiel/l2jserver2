@@ -33,4 +33,15 @@ public interface Model<T extends ID<?>> {
 	 *            the object ID to set
 	 */
 	void setID(T ID);
+
+	/**
+	 * @return true if object is already inserted in the database
+	 */
+	boolean isInDatabase();
+
+	/**
+	 * @param state
+	 *            the database state
+	 */
+	void setIsInDatabase(boolean state);
 }

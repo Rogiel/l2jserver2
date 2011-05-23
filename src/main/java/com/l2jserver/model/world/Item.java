@@ -21,8 +21,6 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
 
 /**
  * This class represents an {@link Item} in the Lineage II World. The item can
@@ -37,10 +35,13 @@ import com.l2jserver.util.dimensional.Point;
  * <li><b>Equipped by the {@link L2Character character}</b>: <tt>location</tt>
  * is {@link InventoryLocation#PAPERDOLL}, <tt>paperdoll</tt> is not null and
  * <tt>coordinate</tt> is null.</li>
- * <li><b>Dropped on the ground</b>: <tt>location</li> and <tt>paperdoll</tt>
+ * <li><b>Dropped on the ground</b>: <tt>location</tt></li> and <tt>paperdoll</tt>
  * are null, <tt>coordinate</tt> is not null and represents the dropping
  * location.
  * </ul>
+ * <p>
+ * Please note that {@link PositionableObject} values are only set if the object
+ * is dropped on the ground.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -62,10 +63,6 @@ public class Item extends PositionableObject {
 	 * Paperdoll slot for this item
 	 */
 	private InventoryPaperdoll paperdoll;
-	/**
-	 * Drop coordinate of this item
-	 */
-	private Coordinate coordinate;
 
 	/**
 	 * Count of items
@@ -143,13 +140,5 @@ public class Item extends PositionableObject {
 	 */
 	public void setOwnerID(CharacterID ownerID) {
 		this.ownerID = ownerID;
-	}
-
-	public Point getPoint() {
-		return null;
-	}
-
-	public void setPoint(Point point) {
-
 	}
 }

@@ -46,6 +46,11 @@ public class ${javaClassName}Template extends ${parent}Template {
 		attributes.moveSpeed = ${MOVE_SPD};
 		attributes.maxWeigth = ${_LOAD};
 		attributes.craft = ${canCraft};
+		
+		this.maleCollisionRadius = ${M_COL_R};
+		this.maleCollisionHeight = ${M_COL_H};
+		this.femaleCollisionRadius = ${F_COL_R};
+		this.femaleCollisionHeight = ${F_COL_H};
 	}
 	
 	protected ${javaClassName}Template(CharacterTemplateID id,

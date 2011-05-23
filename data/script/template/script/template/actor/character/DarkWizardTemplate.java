@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class DarkWizardTemplate extends DarkMysticTemplate {
 	@Inject
-	public DarkWizardTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.DARK_WIZARD.id), CharacterClass.DARK_WIZARD,	Point.fromXYZ(28295, 11063, -4224));
+	public DarkWizardTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.DARK_WIZARD.id),
+				CharacterClass.DARK_WIZARD, Point.fromXYZ(28295, 11063, -4224));
 		// ATTRIBUTES
 		attributes.intelligence = 44;
 		attributes.strength = 23;
@@ -46,8 +47,13 @@ public class DarkWizardTemplate extends DarkMysticTemplate {
 		attributes.moveSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected DarkWizardTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

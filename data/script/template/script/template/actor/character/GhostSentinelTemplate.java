@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class GhostSentinelTemplate extends PhantomRangerTemplate {
 	@Inject
-	public GhostSentinelTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.GHOST_SENTINEL.id), CharacterClass.GHOST_SENTINEL,	Point.fromXYZ(28377, 10916, -4224));
+	public GhostSentinelTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.GHOST_SENTINEL.id),
+				CharacterClass.GHOST_SENTINEL, Point.fromXYZ(28377, 10916,
+						-4224));
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -46,8 +48,13 @@ public class GhostSentinelTemplate extends PhantomRangerTemplate {
 		attributes.moveSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected GhostSentinelTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

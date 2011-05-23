@@ -20,10 +20,15 @@ import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.dimensional.Point;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * This is an abstract object that objects that can be placed in world should
+ * extend.
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class PositionableObject extends AbstractObject {
+	/**
+	 * The point this object is currently in
+	 */
 	private Point point;
 
 	/**

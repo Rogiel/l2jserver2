@@ -31,32 +31,27 @@ import com.l2jserver.service.game.ai.AIScript;
  */
 public class NPC extends Actor {
 	/**
-	 * The NPC template ID
-	 */
-	private final NPCTemplateID templateID;
-
-	/**
 	 * Creates a new instance
 	 * 
 	 * @param templateID
 	 *            the {@link NPC} {@link TemplateID}
 	 */
 	public NPC(NPCTemplateID templateID) {
-		this.templateID = templateID;
+		super(templateID);
 	}
 
 	/**
 	 * @return the NPC template ID
 	 */
 	public NPCTemplateID getTemplateID() {
-		return templateID;
+		return (NPCTemplateID) templateID;
 	}
 
 	/**
 	 * @return the NPC template
 	 */
 	public NPCTemplate getTemplate() {
-		return templateID.getTemplate();
+		return (NPCTemplate) templateID.getTemplate();
 	}
 
 	@Override

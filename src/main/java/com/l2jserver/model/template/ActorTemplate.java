@@ -41,6 +41,18 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 * The actor race
 	 */
 	protected final Race race;
+
+	/**
+	 * The movement speed multiplier
+	 */
+	protected double movementSpeedMultiplier = 1.0;
+	/**
+	 * The attack speed multiplier
+	 */
+	protected double attackSpeedMultiplier = 1.0;
+
+	protected int maxHp;
+
 	/**
 	 * The base attributes instance
 	 */
@@ -217,6 +229,27 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 */
 	public boolean canCraft() {
 		return attributes.canCraft();
+	}
+
+	/**
+	 * @return the movementSpeedMultiplier
+	 */
+	public double getMovementSpeedMultiplier() {
+		return movementSpeedMultiplier;
+	}
+
+	/**
+	 * @return the attackSpeedMultiplier
+	 */
+	public double getAttackSpeedMultiplier() {
+		return attackSpeedMultiplier;
+	}
+
+	/**
+	 * @return the max hp
+	 */
+	public int getMaxHP() {
+		return maxHp;
 	}
 
 	/**

@@ -57,28 +57,28 @@ public class WorldServiceImplTest {
 
 	@Test
 	public void testAdd() {
-		final L2Character character = new L2Character(null);
+		final L2Character character = new L2Character(null, null);
 		world.add(character);
 	}
 
 	@Test
 	public void testRemove() {
-		final L2Character character = new L2Character(null);
+		final L2Character character = new L2Character(null, null);
 		world.add(character);
 		world.remove(character);
 	}
 
 	@Test
 	public void testContains() {
-		final L2Character character = new L2Character(null);
+		final L2Character character = new L2Character(null, null);
 		world.add(character);
 		Assert.assertTrue(world.contains(character));
 	}
 
 	@Test
 	public void testIterator() {
-		final L2Character character1 = new L2Character(null);
-		final L2Character character2 = new L2Character(null);
+		final L2Character character1 = new L2Character(null, null);
+		final L2Character character2 = new L2Character(null, null);
 		final Item item1 = new Item(null);
 		world.add(character1);
 		world.add(character2);

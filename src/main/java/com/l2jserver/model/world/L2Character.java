@@ -23,6 +23,7 @@ import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
+import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.actor.ActorAttributes;
 import com.l2jserver.model.world.character.CharacterAppearance;
@@ -138,7 +139,9 @@ public class L2Character extends Player {
 	 * @param baseAttributes
 	 *            the base attribute for this character
 	 */
-	public L2Character(CharacterTemplate.ActorBaseAttributes baseAttributes) {
+	public L2Character(CharacterTemplateID templateID,
+			CharacterTemplate.ActorBaseAttributes baseAttributes) {
+		super(templateID);
 		this.baseAttributes = baseAttributes;
 		this.attributes = new CharacterCalculatedAttributes(this);
 	}
@@ -367,6 +370,16 @@ public class L2Character extends Player {
 	 */
 	public CharacterShortcutContainer getShortcuts() {
 		return shortcuts;
+	}
+
+	@Override
+	public CharacterTemplateID getTemplateID() {
+		return (CharacterTemplateID) super.getTemplateID();
+	}
+
+	@Override
+	public CharacterTemplate getTemplate() {
+		return (CharacterTemplate) super.getTemplate();
 	}
 
 	@Override

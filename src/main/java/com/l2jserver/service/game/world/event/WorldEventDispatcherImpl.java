@@ -21,6 +21,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -63,32 +64,35 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	/**
 	 * The events pending dispatch
 	 */
-	private Queue<EventContainer> events = CollectionFactory
-			.newConcurrentQueue();
+	private Queue<EventContainer> events = new ArrayBlockingQueue<EventContainer>(
+			100 * 1000);
 
 	public void start() {
 		timer = new Timer();
-		timer.scheduleAtFixedRate(new TimerTask() {
+		final TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
-				final EventContainer event = events.poll();
-				if (event == null)
-					return;
-				try {
-					// set state
-					event.future.running = true;
-					event.future.complete = false;
+				EventContainer event;
+				while ((event = events.poll()) != null) {
+					try {
+						log.debug("Dispatching event {}", event.event);
 
-					// dispatch
-					if (doDispatch(event))
-						// the set will update state
-						event.future.set(event.event);
-				} catch (Throwable t) {
-					event.future.setException(t);
-					log.warn("Exception in WorldEventDispatcher thread", t);
+						// set state
+						event.future.running = true;
+						event.future.complete = false;
+
+						// dispatch
+						if (doDispatch(event))
+							// the set will update state
+							event.future.set(event.event);
+					} catch (Throwable t) {
+						event.future.setException(t);
+						log.warn("Exception in WorldEventDispatcher thread", t);
+					}
 				}
 			}
-		}, 0, 50);
+		};
+		timer.scheduleAtFixedRate(task, 0, 50);
 	}
 
 	@Override
@@ -97,6 +101,9 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		log.debug("Queing dispatch for event {}", event);
 		final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
 		events.add(new EventContainer(event, future));
+		// final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
+		// final EventContainer c = new EventContainer(event, future);
+		// doDispatch(c);
 		return future;
 	}
 
@@ -107,12 +114,24 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	 *            the event
 	 * @return true if dispatch was not canceled
 	 */
-	public boolean doDispatch(EventContainer event) {
-		log.debug("Dispatching event {}", event);
+	public synchronized boolean doDispatch(EventContainer event) {
 		final ObjectID<?>[] objects = event.event.getDispatchableObjects();
 		for (ObjectID<?> obj : objects) {
 			if (obj == null)
 				continue;
+			for (final WorldListener listener : globalListeners) {
+				if (event.future.isCancelled())
+					return false;
+				try {
+					if (!listener.dispatch(event.event))
+						// remove listener if return value is false
+						globalListeners.remove(listener);
+				} catch (Throwable t) {
+					log.warn("Exception in listener", t);
+					// always remove any listener that throws an exception
+					globalListeners.remove(listener);
+				}
+			}
 			final Set<WorldListener> listeners = getListeners(obj);
 			for (final WorldListener listener : listeners) {
 				if (event.future.isCancelled())
@@ -200,10 +219,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 			set = CollectionFactory.newSet();
 			listeners.put(id, set);
 		}
-		final Set<WorldListener> union = CollectionFactory.newSet();
-		union.addAll(set);
-		union.addAll(globalListeners);
-		return union;
+		return set;
 	}
 
 	public void stop() {

@@ -43,6 +43,23 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 		FIST;
 	}
 
+	/**
+	 * The collision radius for male instances
+	 */
+	protected double maleCollisionRadius = 0;
+	/**
+	 * The collision height for male instances
+	 */
+	protected double maleCollisionHeight = 0;
+	/**
+	 * The collision radius for female instances
+	 */
+	protected double femaleCollisionRadius = 0;
+	/**
+	 * The collision height for female instances
+	 */
+	protected double femaleCollisionHeight = 0;
+	
 	protected CharacterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass.race);
@@ -52,7 +69,7 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 
 	@Override
 	public L2Character createInstance() {
-		final L2Character character = new L2Character(attributes);
+		final L2Character character = new L2Character(this.getID(), attributes);
 
 		character.setRace(race);
 		character.setCharacterClass(characterClass);
@@ -73,6 +90,34 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	 */
 	public Point getSpawnLocation() {
 		return spawnLocation;
+	}
+	
+	/**
+	 * @return the male collision radius
+	 */
+	public double getMaleCollisionRadius() {
+		return maleCollisionRadius;
+	}
+
+	/**
+	 * @return the male collision height
+	 */
+	public double getMaleCollisionHeight() {
+		return maleCollisionHeight;
+	}
+
+	/**
+	 * @return the female collision radius
+	 */
+	public double getFemaleCollisionRadius() {
+		return femaleCollisionRadius;
+	}
+
+	/**
+	 * @return the female collision height
+	 */
+	public double getFemaleCollisionHeight() {
+		return femaleCollisionHeight;
 	}
 
 	@Override

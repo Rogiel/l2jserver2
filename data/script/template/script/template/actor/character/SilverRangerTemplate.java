@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class SilverRangerTemplate extends ElvenScoutTemplate {
 	@Inject
-	public SilverRangerTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.SILVER_RANGER.id), CharacterClass.SILVER_RANGER,	Point.fromXYZ(45978, 41196, -3440));
+	public SilverRangerTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.SILVER_RANGER.id),
+				CharacterClass.SILVER_RANGER, Point
+						.fromXYZ(45978, 41196, -3440));
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -46,8 +48,13 @@ public class SilverRangerTemplate extends ElvenScoutTemplate {
 		attributes.moveSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.5;
+		this.femaleCollisionHeight = 23.0;
 	}
-	
+
 	protected SilverRangerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

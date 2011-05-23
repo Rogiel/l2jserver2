@@ -72,15 +72,6 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	protected boolean attackable = false;
 
 	/**
-	 * The movement speed multiplier
-	 */
-	protected double movementSpeedMultiplier = 1.0;
-	/**
-	 * The attack speed multiplier
-	 */
-	protected double attackSpeedMultiplier = 1.0;
-
-	/**
 	 * The collision radius
 	 */
 	protected double collisionRadius = 0;
@@ -88,8 +79,6 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	 * The collision height
 	 */
 	protected double collisionHeight = 0;
-
-	protected int maxHp;
 
 	protected NPCTemplate(NPCTemplateID id) {
 		super(id, null);
@@ -132,8 +121,8 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	 *            the action arguments
 	 * @throws L2Exception
 	 */
-	protected void talk(NPC npc, L2Character character, Lineage2Connection conn,
-			String... args) throws L2Exception {
+	protected void talk(NPC npc, L2Character character,
+			Lineage2Connection conn, String... args) throws L2Exception {
 		if (args.length == 0 || (args.length >= 1 && args[0].equals("Chat"))) {
 			String name = "";
 			if (args.length == 2)
@@ -192,38 +181,17 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	}
 
 	/**
-	 * @return the movementSpeedMultiplier
-	 */
-	public double getMovementSpeedMultiplier() {
-		return movementSpeedMultiplier;
-	}
-
-	/**
-	 * @return the attackSpeedMultiplier
-	 */
-	public double getAttackSpeedMultiplier() {
-		return attackSpeedMultiplier;
-	}
-
-	/**
-	 * @return the collisionRadius
+	 * @return the collision radius
 	 */
 	public double getCollisionRadius() {
 		return collisionRadius;
 	}
 
 	/**
-	 * @return the collisionHeight
+	 * @return the collision height
 	 */
 	public double getCollisionHeight() {
 		return collisionHeight;
-	}
-
-	/**
-	 * @return the maxHp
-	 */
-	public int getMaxHP() {
-		return maxHp;
 	}
 
 	/**

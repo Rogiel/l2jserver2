@@ -27,6 +27,7 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
@@ -64,6 +65,10 @@ public class CachedWorldIDService extends AbstractService implements
 	 * The {@link ItemDAO}
 	 */
 	private final ItemDAO itemDao;
+	/**
+	 * The {@link NPCDAO}
+	 */
+	private final NPCDAO npcDao;
 
 	/**
 	 * The ID cache
@@ -77,11 +82,12 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Inject
 	public CachedWorldIDService(CacheService cacheService,
-			IDAllocator allocator, CharacterDAO characterDao, ItemDAO itemDao) {
+			IDAllocator allocator, CharacterDAO characterDao, ItemDAO itemDao, NPCDAO npcDao) {
 		this.cacheService = cacheService;
 		this.allocator = allocator;
 		this.characterDao = characterDao;
 		this.itemDao = itemDao;
+		this.npcDao = npcDao;
 	}
 
 	@Override
@@ -99,6 +105,7 @@ public class CachedWorldIDService extends AbstractService implements
 	public void load() {
 		load(characterDao.listIDs());
 		load(itemDao.listIDs());
+		//load(npcDao.listIDs());
 		loaded = true;
 	}
 

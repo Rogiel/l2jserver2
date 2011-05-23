@@ -23,6 +23,7 @@ import com.l2jserver.db.dao.mysql5.MySQL5CharacterDAO;
 import com.l2jserver.db.dao.mysql5.MySQL5CharacterFriendDAO;
 import com.l2jserver.db.dao.mysql5.MySQL5ClanDAO;
 import com.l2jserver.db.dao.mysql5.MySQL5ItemDAO;
+import com.l2jserver.db.dao.mysql5.MySQL5NPCDAO;
 
 /**
  * Google Guice {@link Module} for MySQL5 DAOs
@@ -36,6 +37,9 @@ public class MySQL5DAOModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(CharacterFriendDAO.class).to(MySQL5CharacterFriendDAO.class).in(
 				Scopes.SINGLETON);
+
+		bind(NPCDAO.class).to(MySQL5NPCDAO.class).in(Scopes.SINGLETON);
+
 		bind(ItemDAO.class).to(MySQL5ItemDAO.class).in(Scopes.SINGLETON);
 		bind(ClanDAO.class).to(MySQL5ClanDAO.class).in(Scopes.SINGLETON);
 	}

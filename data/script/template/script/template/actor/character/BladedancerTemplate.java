@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class BladedancerTemplate extends PalusKnightTemplate {
 	@Inject
-	public BladedancerTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.BLADEDANCER.id), CharacterClass.BLADEDANCER,	Point.fromXYZ(28377, 10916, -4224));
+	public BladedancerTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.BLADEDANCER.id),
+				CharacterClass.BLADEDANCER, Point.fromXYZ(28377, 10916, -4224));
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -46,8 +47,13 @@ public class BladedancerTemplate extends PalusKnightTemplate {
 		attributes.moveSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected BladedancerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

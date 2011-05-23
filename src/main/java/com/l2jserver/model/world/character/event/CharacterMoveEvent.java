@@ -34,7 +34,7 @@ public class CharacterMoveEvent implements CharacterEvent {
 	 */
 	private final L2Character character;
 	/**
-	 * The new point of the character
+	 * The old point of the character
 	 */
 	private final Point point;
 
@@ -44,7 +44,7 @@ public class CharacterMoveEvent implements CharacterEvent {
 	 * @param character
 	 *            the character
 	 * @param point
-	 *            the character point
+	 *            the character point before moving
 	 */
 	public CharacterMoveEvent(L2Character character, Point point) {
 		this.character = character;
@@ -52,7 +52,7 @@ public class CharacterMoveEvent implements CharacterEvent {
 	}
 
 	/**
-	 * @return the new point
+	 * @return the old point
 	 */
 	public Point getPoint() {
 		return point;

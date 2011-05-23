@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class OverlordTemplate extends OrcShamanTemplate {
 	@Inject
-	public OverlordTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.OVERLORD.id), CharacterClass.OVERLORD,	Point.fromXYZ(-56682, -113730, -690));
+	public OverlordTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.OVERLORD.id),
+				CharacterClass.OVERLORD, Point.fromXYZ(-56682, -113730, -690));
 		// ATTRIBUTES
 		attributes.intelligence = 31;
 		attributes.strength = 27;
@@ -46,8 +47,13 @@ public class OverlordTemplate extends OrcShamanTemplate {
 		attributes.moveSpeed = 121;
 		attributes.maxWeigth = 68000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.0;
+		this.maleCollisionHeight = 27.5;
+		this.femaleCollisionRadius = 8.0;
+		this.femaleCollisionHeight = 25.5;
 	}
-	
+
 	protected OverlordTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

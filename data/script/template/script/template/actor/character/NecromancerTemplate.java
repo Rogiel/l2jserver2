@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class NecromancerTemplate extends WizardTemplate {
 	@Inject
-	public NecromancerTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.NECROMANCER.id), CharacterClass.NECROMANCER,	Point.fromXYZ(-90890, 248027, -3570));
+	public NecromancerTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.NECROMANCER.id),
+				CharacterClass.NECROMANCER, Point
+						.fromXYZ(-90890, 248027, -3570));
 		// ATTRIBUTES
 		attributes.intelligence = 41;
 		attributes.strength = 22;
@@ -46,8 +48,13 @@ public class NecromancerTemplate extends WizardTemplate {
 		attributes.moveSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 22.8;
+		this.femaleCollisionRadius = 6.5;
+		this.femaleCollisionHeight = 22.5;
 	}
-	
+
 	protected NecromancerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

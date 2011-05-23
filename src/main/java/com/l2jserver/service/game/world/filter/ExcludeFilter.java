@@ -60,6 +60,6 @@ public class ExcludeFilter<O extends WorldObject> implements
 
 	@Override
 	public boolean accept(O object) {
-		return objects.contains(object);
+		return !objects.contains(object);
 	}
 }

@@ -25,8 +25,10 @@ import com.l2jserver.util.dimensional.Point;
 
 public class TempleKnightTemplate extends ElvenKnightTemplate {
 	@Inject
-	public TempleKnightTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.TEMPLE_KNIGHT.id), CharacterClass.TEMPLE_KNIGHT,	Point.fromXYZ(45978, 41196, -3440));
+	public TempleKnightTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.TEMPLE_KNIGHT.id),
+				CharacterClass.TEMPLE_KNIGHT, Point
+						.fromXYZ(45978, 41196, -3440));
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -46,8 +48,13 @@ public class TempleKnightTemplate extends ElvenKnightTemplate {
 		attributes.moveSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 7.5;
+		this.maleCollisionHeight = 24.0;
+		this.femaleCollisionRadius = 7.5;
+		this.femaleCollisionHeight = 23.0;
 	}
-	
+
 	protected TempleKnightTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

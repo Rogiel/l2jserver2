@@ -48,6 +48,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.Actor.Sex;
 import com.l2jserver.model.world.actor.ActorExperience;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.BufferUtils;
@@ -233,9 +234,16 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		// writeF(_activeChar.getCollisionRadius());
 		// writeF(_activeChar.getCollisionHeight());
 		// }
-		buffer.writeDouble(9.0); // collision radius
-		buffer.writeDouble(23.0); // collision heigth
-
+		if (character.getSex() == Sex.MALE) {
+			buffer.writeDouble(character.getTemplate().getMaleCollisionRadius());
+			buffer.writeDouble(character.getTemplate().getMaleCollisionHeight());
+		} else {
+			buffer.writeDouble(character.getTemplate()
+					.getFemaleCollisionRadius());
+			buffer.writeDouble(character.getTemplate()
+					.getFemaleCollisionHeight());
+		}
+		
 		buffer.writeInt(character.getAppearance().getHairStyle().option);
 		buffer.writeInt(character.getAppearance().getHairColor().option);
 		buffer.writeInt(character.getAppearance().getFace().option);
@@ -299,9 +307,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 
 		// new c5
 		// is running
-		buffer.writeByte(0x00); // changes the Speed
-								// display on Status
-								// Window
+		buffer.writeByte(character.getMoveType().id);
 
 		// pledge class
 		buffer.writeInt(0x00); // changes the text above

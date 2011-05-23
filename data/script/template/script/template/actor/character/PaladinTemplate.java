@@ -25,8 +25,9 @@ import com.l2jserver.util.dimensional.Point;
 
 public class PaladinTemplate extends KnightTemplate {
 	@Inject
-	public PaladinTemplate(CharacterTemplateIDProvider factory) {
-		super(factory.createID(CharacterClass.PALADIN.id), CharacterClass.PALADIN,	Point.fromXYZ(-71338, 258271, -3104));
+	public PaladinTemplate(CharacterTemplateIDProvider provider) {
+		super(provider.createID(CharacterClass.PALADIN.id),
+				CharacterClass.PALADIN, Point.fromXYZ(-71338, 258271, -3104));
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -46,8 +47,13 @@ public class PaladinTemplate extends KnightTemplate {
 		attributes.moveSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
+
+		this.maleCollisionRadius = 9.0;
+		this.maleCollisionHeight = 23.0;
+		this.femaleCollisionRadius = 8.0;
+		this.femaleCollisionHeight = 23.5;
 	}
-	
+
 	protected PaladinTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

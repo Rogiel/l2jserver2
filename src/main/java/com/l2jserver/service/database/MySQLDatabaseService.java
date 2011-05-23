@@ -329,7 +329,9 @@ public class MySQLDatabaseService extends AbstractService implements
 			final List<T> list = CollectionFactory.newList();
 			final ResultSet rs = st.getResultSet();
 			while (rs.next()) {
-				list.add(mapper().map(rs));
+				final T obj = mapper().map(rs);
+				if (obj != null)
+					list.add(obj);
 			}
 			return list;
 		}

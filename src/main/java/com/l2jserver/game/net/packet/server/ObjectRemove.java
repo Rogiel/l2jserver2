@@ -14,26 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.world.filter.impl;
+package com.l2jserver.game.net.packet.server;
 
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.PositionableObject;
-import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.service.game.world.filter.AndFilter;
-import com.l2jserver.service.game.world.filter.ExcludeFilter;
 
 /**
- * This filter will only accept {@link WorldObject} which are in vision of
- * another object.
+ * This packet informs the client that an certain object has disappeared from
+ * his sight or from the world.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class KnownListFilter extends AndFilter<PositionableObject> {
-	public static final int KNOWNLIST_RANGE = 2000;
+public class ObjectRemove extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
+	public static final int OPCODE = 0x08;
 
-	@SuppressWarnings("unchecked")
-	public KnownListFilter(PositionableObject object) {
-		super(new InstanceFilter<PositionableObject>(PositionableObject.class),
-				new RangeFilter(object, KNOWNLIST_RANGE),
-				new ExcludeFilter<PositionableObject>(object));
+	/**
+	 * The Object
+	 */
+	private final PositionableObject object;
+
+	public ObjectRemove(PositionableObject object) {
+		super(OPCODE);
+		this.object = object;
+	}
+
+	@Override
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+		buffer.writeInt(object.getID().getID());
+		buffer.writeInt(0x00);
 	}
 }

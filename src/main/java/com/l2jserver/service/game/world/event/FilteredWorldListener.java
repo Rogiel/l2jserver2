@@ -39,7 +39,7 @@ public abstract class FilteredWorldListener<T extends WorldObject> implements
 	@SuppressWarnings("unchecked")
 	public boolean dispatch(WorldEvent e) {
 		if (!filter.accept((T) e.getObject()))
-			return false;
+			return true;
 		return dispatch(e, (T) e.getObject());
 	}
 

@@ -18,6 +18,7 @@ package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.id.template.ActorTemplateID;
 
 /**
  * This class represents an Pet in the Lineage II World
@@ -33,6 +34,10 @@ public class Pet extends Player {
 	 * {@link ItemID} used to summon this pet
 	 */
 	private ItemID itemID;
+
+	public Pet(ActorTemplateID<?> templateID) {
+		super(templateID);
+	}
 
 	/**
 	 * @return the owner ID
