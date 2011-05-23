@@ -17,6 +17,8 @@
 package com.l2jserver.service.database;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
 
 /**
  * Abstract DAO implementations. Store an instance of {@link DatabaseService}.
@@ -26,7 +28,8 @@ import com.google.inject.Inject;
  * @param <T>
  *            the dao object type
  */
-public abstract class AbstractDAO<T> implements DataAccessObject<T> {
+public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
+		implements DataAccessObject<T, I> {
 	/**
 	 * The database service instance
 	 */
@@ -35,6 +38,19 @@ public abstract class AbstractDAO<T> implements DataAccessObject<T> {
 	@Inject
 	protected AbstractDAO(DatabaseService database) {
 		this.database = database;
+	}
+
+	@Override
+	public boolean save(T object) {
+		switch (object.getObjectState()) {
+		case NOT_STORED:
+			return insert(object);
+		case STORED:
+			return update(object);
+		case ORPHAN:
+			return delete(object);
+		}
+		return false;
 	}
 
 	/**

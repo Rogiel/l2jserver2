@@ -14,33 +14,36 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.model.game;
 
-import com.google.inject.Inject;
-import com.l2jserver.model.Model;
-import com.l2jserver.model.id.ID;
-import com.l2jserver.service.database.AbstractDAO;
-import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.MySQLDatabaseService;
+import com.l2jserver.model.AbstractModel;
+import com.l2jserver.model.id.FriendID;
+import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.world.L2Character;
 
 /**
- * {@link AbstractDAO} for MySQL DAO implementation
+ * Represents a pair of two {@link CharacterID} whose characters are friends.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
- * @param <T>
- *            the object for the DAO
  */
-public abstract class AbstractMySQL5DAO<T extends Model<?>, I extends ID<?>> extends
-		AbstractDAO<T, I> {
-	/**
-	 * The MySQL Database Service
-	 */
-	protected final MySQLDatabaseService database;
+public class CharacterFriend extends AbstractModel<FriendID> {
+	public CharacterFriend(FriendID id) {
+		this.setID(id);
+	}
+	
+	public CharacterID getCharacterID() {
+		return id.getID1();
+	}
 
-	@Inject
-	protected AbstractMySQL5DAO(DatabaseService database) {
-		super(database);
-		this.database = (MySQLDatabaseService) database;
+	public L2Character getCharacter() {
+		return id.getID1().getObject();
+	}
+
+	public CharacterID getFriendID() {
+		return id.getID2();
+	}
+
+	public L2Character getFriend() {
+		return id.getID2().getObject();
 	}
 }

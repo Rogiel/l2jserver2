@@ -23,26 +23,35 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterFriendDAO;
+import com.l2jserver.model.game.CharacterFriend;
+import com.l2jserver.model.id.FriendID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.FriendIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
 
 /**
  * {@link CharacterFriendDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5CharacterFriendDAO extends AbstractMySQL5DAO<CharacterID>
-		implements CharacterFriendDAO {
+public class MySQL5CharacterFriendDAO extends
+		AbstractMySQL5DAO<CharacterFriend, FriendID> implements
+		CharacterFriendDAO {
 	/**
-	 * The {@link CharacterID} factory
+	 * The {@link FriendID} provider
 	 */
-	private final CharacterIDProvider idFactory;
+	private final FriendIDProvider idProvider;
+	/**
+	 * The {@link CharacterID} provider
+	 */
+	private final CharacterIDProvider charIdProvider;
 
 	/**
 	 * Character table name
@@ -55,100 +64,132 @@ public class MySQL5CharacterFriendDAO extends AbstractMySQL5DAO<CharacterID>
 
 	@Inject
 	public MySQL5CharacterFriendDAO(DatabaseService database,
-			final CharacterIDProvider idFactory) {
+			final FriendIDProvider idProvider,
+			CharacterIDProvider charIdProvider) {
 		super(database);
-		this.idFactory = idFactory;
+		this.idProvider = idProvider;
+		this.charIdProvider = charIdProvider;
 	}
 
 	/**
 	 * The {@link Mapper} for {@link CharacterID}
 	 */
-	private final Mapper<CharacterID> mapper = new Mapper<CharacterID>() {
+	private final Mapper<CharacterFriend> mapper = new Mapper<CharacterFriend>() {
 		@Override
-		public CharacterID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CHAR_ID_FRIEND));
+		public CharacterFriend map(ResultSet rs) throws SQLException {
+			final CharacterID characterId = charIdProvider.createID(rs
+					.getInt(CHAR_ID));
+			final CharacterID friendId = charIdProvider.createID(rs
+					.getInt(CHAR_ID_FRIEND));
+			return new CharacterFriend(idProvider.createID(characterId,
+					friendId));
 		}
 	};
 
 	@Override
-	public List<CharacterID> load(final CharacterID id) {
-		return database.query(new SelectListQuery<CharacterID>() {
+	public CharacterFriend select(final FriendID id) {
+		return database.query(new SelectSingleQuery<CharacterFriend>() {
 			@Override
 			protected String query() {
 				return "SELECT * FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?";
+						+ "` = ? AND `" + CHAR_ID_FRIEND + "` = ?";
 			}
 
 			@Override
 			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, id.getID());
+				st.setInt(1, id.getID1().getID());
+				st.setInt(2, id.getID2().getID());
 			}
 
 			@Override
-			protected Mapper<CharacterID> mapper() {
+			protected Mapper<CharacterFriend> mapper() {
 				return mapper;
 			}
 		});
 	}
 
 	@Override
-	public void load(L2Character character) {
-		final List<CharacterID> list = load(character.getID());
+	public void load(final L2Character character) {
+		final List<CharacterFriend> list = database
+				.query(new SelectListQuery<CharacterFriend>() {
+					@Override
+					protected String query() {
+						return "SELECT * FROM `" + TABLE + "` WHERE `"
+								+ CHAR_ID + "` = ?";
+					}
+
+					@Override
+					protected void parametize(PreparedStatement st)
+							throws SQLException {
+						st.setInt(1, character.getID().getID());
+					}
+
+					@Override
+					protected Mapper<CharacterFriend> mapper() {
+						return mapper;
+					}
+				});
 		character.getFriendList().load(list);
 	}
 
 	@Override
-	public boolean save(final CharacterFriendList friends) {
-		return database.query(new InsertUpdateQuery<CharacterID>(friends
-				.idIterator()) {
+	public boolean insert(CharacterFriend friend) {
+		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
 			@Override
 			protected String query() {
-				return "REPLACE INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
+				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
 						+ CHAR_ID_FRIEND + "`) VALUES(?,?)";
 			}
 
 			@Override
-			protected void parametize(PreparedStatement st, CharacterID id)
-					throws SQLException {
-				st.setInt(1, friends.getCharacter().getID().getID());
-				st.setInt(2, id.getID());
+			protected void parametize(PreparedStatement st,
+					CharacterFriend friend) throws SQLException {
+				st.setInt(1, friend.getCharacterID().getID());
+				st.setInt(2, friend.getFriendID().getID());
 			}
 		}) > 0;
 	}
 
 	@Override
-	public boolean delete(final CharacterFriendList friends) {
-		return database.query(new InsertUpdateQuery<CharacterFriendList>(
-				friends) {
+	public boolean update(CharacterFriend friend) {
+		// is not possible update friends, because it is only a ID and IDs are
+		// immutable
+		return false;
+	}
+
+	@Override
+	public boolean delete(CharacterFriend friend) {
+		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?";
+						+ "` = ?,`" + CHAR_ID_FRIEND + "` = ?";
 			}
 
 			@Override
 			protected void parametize(PreparedStatement st,
-					CharacterFriendList friends) throws SQLException {
-				st.setInt(1, friends.getCharacter().getID().getID());
+					CharacterFriend friend) throws SQLException {
+				st.setInt(1, friend.getCharacterID().getID());
+				st.setInt(2, friend.getFriendID().getID());
 			}
 		}) > 0;
 	}
 
 	@Override
-	public boolean delete(final CharacterID character, final CharacterID friend) {
-		return database.query(new InsertUpdateQuery<Object>((Object) null) {
-			@Override
-			protected String query() {
-				return "DELETE FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?, `" + CHAR_ID_FRIEND + "` = ?";
-			}
+	public boolean save(final CharacterFriendList friends) {
+		for (final CharacterFriend friend : friends) {
+			if (!save(friend))
+				return false;
+		}
+		return true;
+	}
 
-			@Override
-			protected void parametize(PreparedStatement st, Object friends)
-					throws SQLException {
-				st.setInt(1, character.getID());
-				st.setInt(2, friend.getID());
-			}
-		}) == 1;
+	@Override
+	public boolean delete(final CharacterFriendList friends) {
+		for (final CharacterFriend friend : friends) {
+			if (!delete(friend))
+				return false;
+		}
+		return true;
 	}
 }

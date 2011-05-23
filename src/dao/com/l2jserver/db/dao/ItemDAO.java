@@ -32,15 +32,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author Rogiel
  */
-public interface ItemDAO extends DataAccessObject<Item>, Cacheable {
-	/**
-	 * Load the instance represented by <tt>id</tt> from the database
-	 * 
-	 * @param id
-	 *            the id
-	 */
-	Item load(ItemID id);
-
+public interface ItemDAO extends DataAccessObject<Item, ItemID>, Cacheable {
 	/**
 	 * Load the inventory for an {@link L2Character character}.
 	 * 
@@ -57,16 +49,4 @@ public interface ItemDAO extends DataAccessObject<Item>, Cacheable {
 	 */
 	@IgnoreCaching
 	List<ItemID> listIDs();
-
-	/**
-	 * Save the instance to the database. If a new database entry was created
-	 * returns true.
-	 * 
-	 * @param option
-	 *            the id
-	 * @return true if created a new entry in database (i.e. insert), false if
-	 *         not created (i.e. update)
-	 */
-	@IgnoreCaching
-	boolean save(Item character);
 }

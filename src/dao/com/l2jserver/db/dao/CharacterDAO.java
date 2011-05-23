@@ -33,15 +33,8 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author Rogiel
  */
-public interface CharacterDAO extends DataAccessObject<L2Character>, Cacheable {
-	/**
-	 * Load the instance represented by <tt>id</tt> from the database
-	 * 
-	 * @param id
-	 *            the id
-	 */
-	L2Character load(CharacterID id);
-
+public interface CharacterDAO extends
+		DataAccessObject<L2Character, CharacterID>, Cacheable {
 	/**
 	 * Load the members of the given <tt>clan</tt>
 	 * 
@@ -76,16 +69,4 @@ public interface CharacterDAO extends DataAccessObject<L2Character>, Cacheable {
 	 */
 	@IgnoreCaching
 	List<CharacterID> listIDs();
-
-	/**
-	 * Save the instance to the database. If a new database entry was created
-	 * returns true.
-	 * 
-	 * @param option
-	 *            the id
-	 * @return true if created a new entry in database (i.e. insert), false if
-	 *         not created (i.e. update)
-	 */
-	@IgnoreCaching
-	boolean save(L2Character character);
 }

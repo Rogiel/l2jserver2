@@ -40,6 +40,6 @@ public final class PetID extends ActorID<Pet> {
 
 	@Override
 	public Pet getObject() {
-		return petDao.load(this);
+		return petDao.select(this);
 	}
 }

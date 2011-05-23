@@ -37,6 +37,7 @@ import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
+import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
@@ -47,7 +48,8 @@ import com.l2jserver.util.dimensional.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
+public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
+		ItemDAO {
 	/**
 	 * The {@link ItemID} factory
 	 */
@@ -136,7 +138,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	};
 
 	@Override
-	public Item load(final ItemID id) {
+	public Item select(final ItemID id) {
 		return database.query(new SelectSingleQuery<Item>() {
 			@Override
 			protected String query() {
@@ -196,8 +198,30 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item> implements ItemDAO {
 	}
 
 	@Override
-	public boolean save(Item item) {
+	public boolean insert(Item item) {
 		throw new UnsupportedOperationException(
 				"Saving items is not yet implemented!");
+	}
+
+	@Override
+	public boolean update(Item item) {
+		return false;
+	}
+
+	@Override
+	public boolean delete(Item item) {
+		return database.query(new InsertUpdateQuery<Item>(item) {
+			@Override
+			protected String query() {
+				return "DELETE FROM `" + TABLE + "` WHERE `" + ITEM_ID
+						+ "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st, Item item)
+					throws SQLException {
+				st.setInt(1, item.getID().getID());
+			}
+		}) > 0;
 	}
 }

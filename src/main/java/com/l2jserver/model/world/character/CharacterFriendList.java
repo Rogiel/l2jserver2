@@ -20,8 +20,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.iterator.WorldObjectIterator;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -30,7 +30,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterFriendList implements Iterable<L2Character> {
+public class CharacterFriendList implements Iterable<CharacterFriend> {
 	/**
 	 * The character
 	 */
@@ -39,8 +39,7 @@ public class CharacterFriendList implements Iterable<L2Character> {
 	/**
 	 * The list of friends of this character
 	 */
-	private final Set<CharacterID> friends = CollectionFactory
-			.newSet();
+	private final Set<CharacterFriend> friends = CollectionFactory.newSet();
 
 	/**
 	 * Creates a new instance
@@ -64,13 +63,15 @@ public class CharacterFriendList implements Iterable<L2Character> {
 	 * 
 	 * @return an iterator with friend ids
 	 */
-	public Iterator<CharacterID> idIterator() {
+	public Iterator<CharacterFriend> idIterator() {
 		return friends.iterator();
 	}
 
 	@Override
-	public Iterator<L2Character> iterator() {
-		return new WorldObjectIterator<L2Character>(friends.iterator());
+	public Iterator<CharacterFriend> iterator() {
+		// return new WorldObjectIterator<L2Character>(friends.iterator());
+		// FIXME
+		return null;
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class CharacterFriendList implements Iterable<L2Character> {
 	 * @param list
 	 *            the id list
 	 */
-	public void load(Collection<CharacterID> list) {
+	public void load(Collection<CharacterFriend> list) {
 		friends.addAll(list);
 	}
 }

@@ -21,7 +21,6 @@ import com.l2jserver.model.id.template.ActorTemplateID;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.actor.ActorEffects;
 import com.l2jserver.model.world.actor.ActorSkillContainer;
-import com.l2jserver.util.dimensional.Point;
 
 /**
  * Abstract {@link Actor} class.
@@ -108,9 +107,9 @@ public abstract class Actor extends PositionableObject {
 	 */
 	protected int hp;
 	/**
-	 * The actor coordinate point
+	 * The actor MP
 	 */
-	protected Point point;
+	protected int mp;
 	/**
 	 * The currently effects active on the actor
 	 */
@@ -130,6 +129,21 @@ public abstract class Actor extends PositionableObject {
 
 	public void setHP(int hp) {
 		this.hp = hp;
+	}
+
+	/**
+	 * @return the mp
+	 */
+	public int getMP() {
+		return mp;
+	}
+
+	/**
+	 * @param mp
+	 *            the mp to set
+	 */
+	public void setMP(int mp) {
+		this.mp = mp;
 	}
 
 	/**

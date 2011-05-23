@@ -124,7 +124,9 @@ public class CharacterCalculatedAttributes implements ActorAttributes {
 
 	@Override
 	public double getWalkSpeed() {
-		return baseAttributes.getWalkSpeed();
+		//FIXME this is a temporary work arround
+		return getRunSpeed();
+		//return baseAttributes.getWalkSpeed();
 	}
 
 	@Override

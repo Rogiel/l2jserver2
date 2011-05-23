@@ -91,7 +91,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		for (final NPC npc : npcs) {
 			spawnService.spawn(npc, null);
 		}
-		return null;
+		return npcs;
 	}
 
 	@Override

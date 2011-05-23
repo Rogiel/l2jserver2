@@ -41,6 +41,6 @@ public final class CharacterID extends ActorID<L2Character> {
 
 	@Override
 	public L2Character getObject() {
-		return characterDao.load(this);
+		return characterDao.select(this);
 	}
 }

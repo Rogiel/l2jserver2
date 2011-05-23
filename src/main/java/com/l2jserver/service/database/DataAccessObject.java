@@ -16,6 +16,10 @@
  */
 package com.l2jserver.service.database;
 
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
+import com.l2jserver.service.cache.IgnoreCaching;
+
 /**
  * The DAO interface
  * <p>
@@ -28,6 +32,53 @@ package com.l2jserver.service.database;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface DataAccessObject<T> {
+public interface DataAccessObject<O extends Model<?>, I extends ID<?>> {
+	/**
+	 * Load the instance represented by <tt>id</tt> from the database
+	 * 
+	 * @param id
+	 *            the id
+	 */
+	O select(I id);
 
+	/**
+	 * Save the instance to the database. If a new database entry was created
+	 * returns true.
+	 * 
+	 * @param object
+	 *            the object
+	 * @return true if the row was inserted or updated
+	 */
+	@IgnoreCaching
+	boolean save(O object);
+
+	/**
+	 * Inserts the instance in the database.
+	 * 
+	 * @param object
+	 *            the object
+	 * @return true if the row was inserted
+	 */
+	@IgnoreCaching
+	boolean insert(O object);
+
+	/**
+	 * Updates the instance in the database.
+	 * 
+	 * @param object
+	 *            the object
+	 * @return true if the row was updated
+	 */
+	@IgnoreCaching
+	boolean update(O object);
+
+	/**
+	 * Deletes the instance in the database.
+	 * 
+	 * @param object
+	 *            the object
+	 * @return true if the row was deleted
+	 */
+	@IgnoreCaching
+	boolean delete(O object);
 }

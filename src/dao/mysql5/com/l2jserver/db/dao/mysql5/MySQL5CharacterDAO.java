@@ -55,8 +55,8 @@ import com.l2jserver.util.dimensional.Point;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
-		implements CharacterDAO {
+public class MySQL5CharacterDAO extends
+		AbstractMySQL5DAO<L2Character, CharacterID> implements CharacterDAO {
 	/**
 	 * The {@link CharacterID} factory
 	 */
@@ -180,7 +180,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	};
 
 	@Override
-	public L2Character load(final CharacterID id) {
+	public L2Character select(final CharacterID id) {
 		return database.query(new SelectSingleQuery<L2Character>() {
 			@Override
 			protected String query() {
@@ -280,7 +280,7 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 	}
 
 	@Override
-	public boolean save(L2Character character) {
+	public boolean insert(L2Character character) {
 		return database.query(new InsertUpdateQuery<L2Character>(character) {
 			@Override
 			protected String query() {
@@ -327,6 +327,78 @@ public class MySQL5CharacterDAO extends AbstractMySQL5DAO<L2Character>
 				st.setString(i++, appearance.getHairStyle().name());
 				st.setString(i++, appearance.getHairColor().name());
 				st.setString(i++, appearance.getFace().name());
+			}
+		}) > 0;
+	}
+
+	@Override
+	public boolean update(L2Character character) {
+		return database.query(new InsertUpdateQuery<L2Character>(character) {
+			@Override
+			protected String query() {
+				return "UPDATE `" + TABLE + "` SET " + ACCOUNT_ID + "` = ?,`"
+						+ CLAN_ID + "` = ?,`" + NAME + "` = ?,`" + RACE
+						+ "` = ?,`" + CLASS + "` = ?,`" + SEX + "` = ?,`"
+						+ LEVEL + "` = ?,`" + POINT_X + "` = ?,`" + POINT_Y
+						+ "` = ?,`" + POINT_Z + "` = ?,`" + POINT_ANGLE
+						+ "` = ?,`" + APPEARANCE_HAIR_STYLE + "` = ?,`"
+						+ APPEARANCE_HAIR_COLOR + "` = ?,`" + APPEARANCE_FACE
+						+ "` = ? WHERE `" + CHAR_ID + "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st,
+					L2Character character) throws SQLException {
+				final CharacterAppearance appearance = character
+						.getAppearance();
+				int i = 1;
+
+				// SET
+				st.setString(i++, character.getAccountID().getID());
+				if (character.getClanID() != null)
+					st.setInt(i++, character.getClanID().getID());
+				else
+					st.setNull(i++, Types.INTEGER);
+
+				st.setString(i++, character.getName());
+
+				st.setString(i++, character.getRace().name());
+				st.setString(i++, character.getCharacterClass().name());
+				st.setString(i++, character.getSex().name());
+
+				st.setInt(i++, character.getLevel());
+				// TODO save experience
+				// TODO save sp
+
+				st.setInt(i++, character.getPoint().getX());
+				st.setInt(i++, character.getPoint().getY());
+				st.setInt(i++, character.getPoint().getZ());
+				st.setDouble(i++, character.getPoint().getAngle());
+
+				// appearance
+				st.setString(i++, appearance.getHairStyle().name());
+				st.setString(i++, appearance.getHairColor().name());
+				st.setString(i++, appearance.getFace().name());
+
+				// WHERE
+				st.setInt(i++, character.getID().getID());
+			}
+		}) > 0;
+	}
+
+	@Override
+	public boolean delete(L2Character character) {
+		return database.query(new InsertUpdateQuery<L2Character>(character) {
+			@Override
+			protected String query() {
+				return "DELETE FROM `" + TABLE + "` WHERE `" + CHAR_ID
+						+ "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st,
+					L2Character character) throws SQLException {
+				st.setInt(1, character.getID().getID());
 			}
 		}) > 0;
 	}

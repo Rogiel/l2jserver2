@@ -88,32 +88,71 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	 */
 	protected double collisionHeight = 0;
 
-	// id idTemplate name serverSideName title serverSideTitle class
-	// collision_radius collision_height level sex type attackrange hp mp hpreg
-	// mpreg str con dex int wit men exp sp patk pdef matk mdef atkspd critical
-	// aggro matkspd rhand lhand enchant walkspd runspd targetable show_name
-	// dropHerbGroup basestats
-
+	/**
+	 * The NPC Sex
+	 */
 	protected ActorSex sex;
+	/**
+	 * The NPC level
+	 */
 	protected int level;
 
+	/**
+	 * The NPC attack range
+	 */
 	protected int attackRange;
 
+	/**
+	 * The HP regeneration
+	 */
 	protected double hpRegeneration;
+	/**
+	 * The MP regeneration
+	 */
 	protected double mpRegeneration;
 
+	/**
+	 * The NPC experience
+	 */
 	protected long experience;
+	/**
+	 * The NPC sp
+	 */
 	protected long sp;
 
+	/**
+	 * The NPC agressive state
+	 */
 	protected boolean aggressive;
 
+	/**
+	 * Weapon or shield in NPC right hand
+	 */
 	protected ItemTemplateID rightHand;
+	/**
+	 * Weapon or shield in NPC left hand
+	 */
 	protected ItemTemplateID leftHand;
+	/**
+	 * Enchant level in NPC weapon
+	 */
 	protected int enchantLevel;
 
+	/**
+	 * True if NPC can be targetted
+	 */
 	protected boolean targetable;
+	/**
+	 * True will display the NPC name
+	 */
 	protected boolean showName;
+	/**
+	 * TODO
+	 */
 	protected int dropHerbGroup;
+	/**
+	 * Use base attributes
+	 */
 	protected boolean baseAttributes;
 
 	protected NPCTemplate(NPCTemplateID id) {

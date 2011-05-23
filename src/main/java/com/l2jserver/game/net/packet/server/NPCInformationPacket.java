@@ -74,9 +74,11 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeDouble(template.getAttackSpeedMultiplier());
 		buffer.writeDouble(template.getCollisionRadius());
 		buffer.writeDouble(template.getCollisionHeight());
-		buffer.writeInt(template.getRightHand().getID()); // right hand weapon
+		buffer.writeInt((template.getRightHand() != null ? template
+				.getRightHand().getID() : 0x00));
 		buffer.writeInt(0x00); // chest
-		buffer.writeInt(template.getLeftHand().getID()); // left hand weapon
+		buffer.writeInt((template.getLeftHand() != null ? template
+				.getLeftHand().getID() : 0x00));
 		buffer.writeByte(1); // name above char 1=true ... ??
 		buffer.writeByte(0x00); // is running
 		buffer.writeByte(0x00); // is in combat

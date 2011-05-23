@@ -20,16 +20,15 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
- * This packet notifies the client that the chosen character has been
- * successfully selected.
+ * This packet notifies the client that the character is moving to an certain
+ * point. If the {@link Actor} moving is the same as the client connected, the
+ * client will send position validations at specific time intervals.
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see Reason
+ * @author <a href="http://www.rogiel.com">Rogiel</a> O
  */
 public class ActorMovementPacket extends AbstractServerPacket {
 	/**
@@ -42,26 +41,26 @@ public class ActorMovementPacket extends AbstractServerPacket {
 	 */
 	private final Actor actor;
 	/**
-	 * The source target
+	 * The destination coordinate
 	 */
-	private Coordinate source;
+	private Coordinate target;
 
-	public ActorMovementPacket(Actor actor, Coordinate source) {
+	public ActorMovementPacket(Actor actor, Coordinate target) {
 		super(OPCODE);
 		this.actor = actor;
-		this.source = source;
+		this.target = target;
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(actor.getID().getID());
-		
-		// source
-		buffer.writeInt(source.getX());
-		buffer.writeInt(source.getY());
-		buffer.writeInt(source.getZ());
-		
+
 		// target
+		buffer.writeInt(target.getX());
+		buffer.writeInt(target.getY());
+		buffer.writeInt(target.getZ());
+
+		// source
 		buffer.writeInt(actor.getPoint().getX());
 		buffer.writeInt(actor.getPoint().getY());
 		buffer.writeInt(actor.getPoint().getZ());

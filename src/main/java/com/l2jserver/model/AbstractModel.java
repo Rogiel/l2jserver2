@@ -30,10 +30,9 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 */
 	protected T id;
 	/**
-	 * The database state. True inidicates that the object is on database, false
-	 * indicates it must be inserted.
+	 * The database object state
 	 */
-	protected boolean inDatabase;
+	protected ObjectState state = ObjectState.NOT_STORED;
 
 	@Override
 	public T getID() {
@@ -44,6 +43,16 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	public void setID(T ID) {
 		Preconditions.checkState(id == null, "ID is already set");
 		this.id = ID;
+	}
+
+	@Override
+	public ObjectState getObjectState() {
+		return state;
+	}
+
+	@Override
+	public void setObjectState(ObjectState state) {
+		this.state = state;
 	}
 
 	@Override
@@ -69,15 +78,5 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public boolean isInDatabase() {
-		return inDatabase;
-	}
-
-	@Override
-	public void setIsInDatabase(boolean state) {
-		inDatabase = state;
 	}
 }

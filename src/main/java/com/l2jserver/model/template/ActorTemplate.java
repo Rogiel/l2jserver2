@@ -45,13 +45,14 @@ public abstract class ActorTemplate<T extends Actor> extends
 	 */
 	protected double attackSpeedMultiplier = 1.0;
 
+	/**
+	 * The Actor maximum HP
+	 */
 	protected double maxHP;
-	protected double HP;
-
+	/**
+	 * The Actor maximum MP
+	 */
 	protected double maxMP;
-	protected double MP;
-
-	protected int level;
 
 	/**
 	 * The base attributes instance
@@ -206,7 +207,7 @@ public abstract class ActorTemplate<T extends Actor> extends
 	public double getRunSpeed() {
 		return attributes.getRunSpeed();
 	}
-	
+
 	/**
 	 * @return
 	 * @see com.l2jserver.model.template.ActorBaseAttributes#getWalkSpeed()

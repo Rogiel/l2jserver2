@@ -42,18 +42,19 @@ import com.l2jserver.service.game.scripting.scriptmanager.ScriptList;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * Default {@link ScriptingService} implementation
+ * This alternative {@link ScriptingService} uses an cache to speed up the
+ * server startup at the cost of not being capable of recompiling templates.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends(LoggingService.class)
-public class ScriptingServiceImpl extends AbstractService implements
+public class PreCompiledScriptingService extends AbstractService implements
 		ScriptingService {
 	/**
 	 * Logger for script context
 	 */
 	private static final Logger log = LoggerFactory
-			.getLogger(ScriptingServiceImpl.class);
+			.getLogger(PreCompiledScriptingService.class);
 
 	private final Injector injector;
 
@@ -63,7 +64,7 @@ public class ScriptingServiceImpl extends AbstractService implements
 	private final Set<ScriptContext> contexts = CollectionFactory.newSet();
 
 	@Inject
-	public ScriptingServiceImpl(Injector injector) {
+	public PreCompiledScriptingService(Injector injector) {
 		this.injector = injector;
 	}
 

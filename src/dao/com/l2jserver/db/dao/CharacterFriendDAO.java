@@ -16,9 +16,8 @@
  */
 package com.l2jserver.db.dao;
 
-import java.util.List;
-
-import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.game.CharacterFriend;
+import com.l2jserver.model.id.FriendID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.service.cache.Cacheable;
@@ -31,17 +30,8 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author Rogiel
  */
-public interface CharacterFriendDAO extends DataAccessObject<CharacterID>,
-		Cacheable {
-	/**
-	 * Load the friend list for character represented by <tt>id</tt> from the
-	 * database
-	 * 
-	 * @param id
-	 *            the id
-	 */
-	List<CharacterID> load(CharacterID id);
-
+public interface CharacterFriendDAO extends
+		DataAccessObject<CharacterFriend, FriendID>, Cacheable {
 	/**
 	 * Load the friend list for character represented by <tt>character</tt> from
 	 * the database
@@ -71,15 +61,4 @@ public interface CharacterFriendDAO extends DataAccessObject<CharacterID>,
 	 * @return true if at least 1 item was removed
 	 */
 	boolean delete(CharacterFriendList friends);
-
-	/**
-	 * Delete an <tt>friend</tt> from an <tt>character</tt>
-	 * 
-	 * @param character
-	 *            the character id
-	 * @param friend
-	 *            the friend id
-	 * @return true if the item was removed
-	 */
-	boolean delete(CharacterID character, CharacterID friend);
 }

@@ -41,7 +41,8 @@ import com.l2jserver.service.database.MySQLDatabaseService.SelectSingleQuery;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
+public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan, ClanID> implements
+		ClanDAO {
 	/**
 	 * The {@link ClanID} factory
 	 */
@@ -60,8 +61,8 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 	public static final String CHAR_ID_LEADER = "character_id_leader";
 
 	@Inject
-	public MySQL5ClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
-			final CharacterIDProvider idFactory) {
+	public MySQL5ClanDAO(DatabaseService database,
+			ClanIDProvider clanIdFactory, final CharacterIDProvider idFactory) {
 		super(database);
 		this.idFactory = clanIdFactory;
 		this.charIdFactory = idFactory;
@@ -95,7 +96,7 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 	};
 
 	@Override
-	public Clan load(final ClanID id) {
+	public Clan select(final ClanID id) {
 		return database.query(new SelectSingleQuery<Clan>() {
 			@Override
 			protected String query() {
@@ -131,7 +132,7 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 	}
 
 	@Override
-	public boolean save(Clan clan) {
+	public boolean insert(Clan clan) {
 		return database.query(new InsertUpdateQuery<Clan>(clan) {
 			@Override
 			protected String query() {
@@ -144,6 +145,29 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan> implements ClanDAO {
 					throws SQLException {
 				int i = 1;
 				st.setInt(i++, clan.getID().getID());
+			}
+		}) > 0;
+	}
+
+	@Override
+	public boolean update(Clan clan) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(Clan clan) {
+		return database.query(new InsertUpdateQuery<Clan>(clan) {
+			@Override
+			protected String query() {
+				return "DELETE FROM `" + TABLE + "` WHERE `" + CLAN_ID
+						+ "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st, Clan clan)
+					throws SQLException {
+				st.setInt(1, clan.getID().getID());
 			}
 		}) > 0;
 	}

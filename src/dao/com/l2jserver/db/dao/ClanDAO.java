@@ -30,15 +30,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author Rogiel
  */
-public interface ClanDAO extends DataAccessObject<Clan>, Cacheable {
-	/**
-	 * Load the instance represented by <tt>id</tt> from the database
-	 * 
-	 * @param id
-	 *            the id
-	 */
-	Clan load(ClanID id);
-
+public interface ClanDAO extends DataAccessObject<Clan, ClanID>, Cacheable {
 	/**
 	 * Loads an List of all {@link ID}s in the database
 	 * 
@@ -46,16 +38,4 @@ public interface ClanDAO extends DataAccessObject<Clan>, Cacheable {
 	 */
 	@IgnoreCaching
 	List<ClanID> listIDs();
-
-	/**
-	 * Save the instance to the database. If a new database entry was created
-	 * returns true.
-	 * 
-	 * @param option
-	 *            the id
-	 * @return true if created a new entry in database (i.e. insert), false if
-	 *         not created (i.e. update)
-	 */
-	@IgnoreCaching
-	boolean save(Clan character);
 }

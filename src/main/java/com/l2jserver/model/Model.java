@@ -35,13 +35,17 @@ public interface Model<T extends ID<?>> {
 	void setID(T ID);
 
 	/**
-	 * @return true if object is already inserted in the database
+	 * @return the database object state
 	 */
-	boolean isInDatabase();
+	ObjectState getObjectState();
 
 	/**
 	 * @param state
-	 *            the database state
+	 *            the database object state to set
 	 */
-	void setIsInDatabase(boolean state);
+	void setObjectState(ObjectState state);
+
+	public enum ObjectState {
+		STORED, NOT_STORED, ORPHAN;
+	}
 }

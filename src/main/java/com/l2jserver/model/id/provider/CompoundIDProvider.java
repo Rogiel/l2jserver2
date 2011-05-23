@@ -14,28 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao;
+package com.l2jserver.model.id.provider;
 
-import java.util.List;
-
+import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.ID;
-import com.l2jserver.model.id.object.PetID;
-import com.l2jserver.model.world.Pet;
-import com.l2jserver.service.cache.Cacheable;
-import com.l2jserver.service.cache.IgnoreCaching;
-import com.l2jserver.service.database.DataAccessObject;
+import com.l2jserver.model.id.compound.AbstractCompoundID;
 
 /**
- * The {@link PetDAO} is can load and save {@link Pet pet instances}.
+ * The ID factory is used to create instances of IDs. It will automatically make
+ * sure the ID is free before allocating it.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface PetDAO extends DataAccessObject<Pet, PetID>, Cacheable {
+public interface CompoundIDProvider<I1 extends ID<?>, I2 extends ID<?>, T extends AbstractCompoundID<I1, I2>> {
 	/**
-	 * Loads an List of all {@link ID}s in the database
+	 * Creates the ID object for an <b>EXISTING</b> ID.
 	 * 
-	 * @return the list containing all ids
+	 * @param id1
+	 *            the first id
+	 * @param id2
+	 *            the second id
+	 * @return the created compound {@link ID}
 	 */
-	@IgnoreCaching
-	List<PetID> listIDs();
+	T createID(@Assisted("id1") I1 id1, @Assisted("id2") I2 id2);
+
 }

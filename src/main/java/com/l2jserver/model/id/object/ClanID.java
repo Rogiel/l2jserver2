@@ -41,6 +41,6 @@ public final class ClanID extends ObjectID<Clan> {
 
 	@Override
 	public Clan getObject() {
-		return clanDao.load(this);
+		return clanDao.select(this);
 	}
 }

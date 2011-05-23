@@ -41,6 +41,6 @@ public final class ItemID extends ObjectID<Item> {
 
 	@Override
 	public Item getObject() {
-		return itemDao.load(this);
+		return itemDao.select(this);
 	}
 }

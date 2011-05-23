@@ -24,7 +24,7 @@ import com.l2jserver.model.id.ID;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface IDProvider<I, T extends ID<?>> {
+public interface IDProvider<I, T extends ID<I>> {
 	/**
 	 * Creates the ID object for an <b>EXISTING</b> ID.
 	 * 

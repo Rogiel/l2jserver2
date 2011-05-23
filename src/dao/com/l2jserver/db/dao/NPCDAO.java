@@ -31,16 +31,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author Rogiel
  */
-public interface NPCDAO extends DataAccessObject<NPC>, Cacheable {
-	/**
-	 * Load the instance represented by <tt>id</tt> from the database
-	 * 
-	 * @param id
-	 *            the id
-	 * @return the instance loaded
-	 */
-	NPC load(NPCID id);
-
+public interface NPCDAO extends DataAccessObject<NPC, NPCID>, Cacheable {
 	/**
 	 * Load all {@link NPC} instances
 	 * 
@@ -64,35 +55,4 @@ public interface NPCDAO extends DataAccessObject<NPC>, Cacheable {
 	 */
 	@IgnoreCaching
 	List<NPCID> listIDs();
-
-	/**
-	 * Save the instance to the database. If a new database entry was created
-	 * returns true.
-	 * 
-	 * @param npc
-	 *            the npc
-	 * @return true if created a new entry in database (i.e. insert), false if
-	 *         not created (i.e. update)
-	 */
-	@IgnoreCaching
-	boolean save(NPC npc);
-
-	/**
-	 * Save the instance to the database. If a new database entry was created
-	 * returns true.
-	 * 
-	 * @param npc
-	 *            the npc
-	 */
-	@IgnoreCaching
-	void insert(NPC npc);
-
-	/**
-	 * Updates the instance to the database.
-	 * 
-	 * @param npc
-	 *            the npc
-	 */
-	@IgnoreCaching
-	void update(NPC npc);
 }

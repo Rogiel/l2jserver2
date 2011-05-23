@@ -21,6 +21,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.NPCDAO;
@@ -44,7 +47,10 @@ import com.l2jserver.util.dimensional.Point;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
+public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC, NPCID> implements
+		NPCDAO {
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The {@link NPCID} provider
 	 */
@@ -95,8 +101,8 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
 			if (template == null) {
 				// set default npc instance, for now!
 				// RoxxyGatekeeperTemplate - 30006
-				templateId = templateIdProvider.createID(30006);
-				template = templateId.getTemplate();
+				log.warn("No template found for {}", templateId);
+				return null;
 			}
 
 			final NPC npc = template.create();
@@ -122,7 +128,7 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
 	};
 
 	@Override
-	public NPC load(final NPCID id) {
+	public NPC select(final NPCID id) {
 		return database.query(new SelectSingleQuery<NPC>() {
 			@Override
 			protected String query() {
@@ -194,19 +200,8 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
 	}
 
 	@Override
-	public boolean save(NPC npc) {
-		if (npc.isInDatabase()) {
-			update(npc);
-			return false;
-		} else {
-			insert(npc);
-			return true;
-		}
-	}
-
-	@Override
-	public void insert(NPC npc) {
-		database.query(new InsertUpdateQuery<NPC>(npc) {
+	public boolean insert(NPC npc) {
+		return database.query(new InsertUpdateQuery<NPC>(npc) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + NPC_ID + "`,`"
@@ -228,18 +223,18 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
 				st.setInt(i++, npc.getPoint().getZ());
 				st.setDouble(i++, npc.getPoint().getAngle());
 			}
-		});
+		}) > 0;
 	}
 
 	@Override
-	public void update(NPC npc) {
-		database.query(new InsertUpdateQuery<NPC>(npc) {
+	public boolean update(NPC npc) {
+		return database.query(new InsertUpdateQuery<NPC>(npc) {
 			@Override
 			protected String query() {
-				return "UPDATE `" + TABLE + "` SET `" + NPC_ID + "` = ?,`"
-						+ NPC_TEMPLATE_ID + " = ?`,`" + POINT_X + " = ?`,`"
-						+ POINT_Y + "` = ?,`" + POINT_Z + "` = ?,`"
-						+ POINT_ANGLE + "` = ? WHERE " + NPC_ID + "` = ?";
+				return "UPDATE `" + TABLE + "` SET " + NPC_TEMPLATE_ID
+						+ "` = ?,`" + POINT_X + "` = ?,`" + POINT_Y + "` = ?,`"
+						+ POINT_Z + "` = ?,`" + POINT_ANGLE + "` = ? WHERE `"
+						+ NPC_ID + "` = ?";
 			}
 
 			@Override
@@ -248,7 +243,6 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
 				int i = 1;
 
 				// SET
-				st.setInt(i++, npc.getID().getID());
 				st.setInt(i++, npc.getTemplateID().getID());
 
 				st.setInt(i++, npc.getPoint().getX());
@@ -259,6 +253,22 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC> implements NPCDAO {
 				// WHERE
 				st.setInt(i++, npc.getID().getID());
 			}
-		});
+		}) > 0;
+	}
+
+	@Override
+	public boolean delete(NPC npc) {
+		return database.query(new InsertUpdateQuery<NPC>(npc) {
+			@Override
+			protected String query() {
+				return "DELETE FROM `" + TABLE + "` WHERE `" + NPC_ID + "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st, NPC npc)
+					throws SQLException {
+				st.setInt(1, npc.getID().getID());
+			}
+		}) > 0;
 	}
 }
