@@ -16,12 +16,14 @@
  */
 package com.l2jserver.util.calculator;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * This function performs an set. It ignores the input value and return its own.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SetFunction extends AbstractFunction<CalculatorContext> {
+public class SetFunction<O extends Actor> extends AbstractFunction<O> {
 	/**
 	 * The value
 	 */
@@ -33,7 +35,7 @@ public class SetFunction extends AbstractFunction<CalculatorContext> {
 	}
 
 	@Override
-	public void calculate(CalculatorContext ctx) {
+	public void calculate(O actor, CalculatorContext ctx) {
 		ctx.result = value;
 	}
 }

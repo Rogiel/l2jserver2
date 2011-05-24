@@ -19,6 +19,7 @@ package com.l2jserver.model.world.character.calculator;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -26,17 +27,15 @@ import com.l2jserver.util.calculator.AbstractFunction;
 public class BaseMagicalCriticalRateCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")
 	public BaseMagicalCriticalRateCalculator() {
-		super(new AbstractFunction<CharacterCalculatorContext>(0x000) {
+		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
+			public void calculate(L2Character c, CalculatorContext ctx) {
 				// XXX is the same as physical????
-				ctx.result = ctx.character.getTemplate().getCriticalChance();
+				ctx.result = c.getTemplate().getCriticalChance();
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x300) {
+		}, new AbstractFunction<L2Character>(0x300) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				final L2Character c = ctx.character;
-
+			public void calculate(L2Character c, CalculatorContext ctx) {
 				// TODO only apply if using a weapon
 				ctx.result *= BaseStats.WIT.calculateBonus(c.getStats()
 						.getWitness());

@@ -16,8 +16,10 @@
  */
 package com.l2jserver.model.world.character.calculator;
 
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -26,16 +28,16 @@ import com.l2jserver.util.calculator.AbstractFunction;
 public class BasePhysicalAttackSpeedCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")
 	public BasePhysicalAttackSpeedCalculator() {
-		super(new AbstractFunction<CharacterCalculatorContext>(0x000) {
+		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result = ctx.character.getTemplate().getAttackSpeed();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result = c.getTemplate().getAttackSpeed();
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x200) {
+		}, new AbstractFunction<L2Character>(0x200) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result *= BaseStats.DEX.calculateBonus(ctx.character
-						.getStats().getDexterity());
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result *= BaseStats.DEX.calculateBonus(c.getStats()
+						.getDexterity());
 			}
 		});
 	}

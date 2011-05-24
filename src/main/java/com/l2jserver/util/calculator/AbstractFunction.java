@@ -16,12 +16,13 @@
  */
 package com.l2jserver.util.calculator;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public abstract class AbstractFunction<T extends CalculatorContext> implements
-		Function<T> {
+public abstract class AbstractFunction<O extends Actor> implements Function<O> {
 	private final int order;
 
 	public AbstractFunction(int order) {

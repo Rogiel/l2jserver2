@@ -16,19 +16,21 @@
  */
 package com.l2jserver.util.calculator;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * This function performs an negate: <blockquote><code>-chain value</code>
  * </blockquote>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NegateFunction extends AbstractFunction<CalculatorContext> {
+public class NegateFunction<O extends Actor> extends AbstractFunction<O> {
 	public NegateFunction(int order) {
 		super(order);
 	}
 
 	@Override
-	public void calculate(CalculatorContext ctx) {
+	public void calculate(O actor, CalculatorContext ctx) {
 		ctx.result = -ctx.result;
 	}
 }

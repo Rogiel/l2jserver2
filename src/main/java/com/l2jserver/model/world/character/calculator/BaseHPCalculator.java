@@ -17,8 +17,10 @@
 package com.l2jserver.model.world.character.calculator;
 
 import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -27,28 +29,28 @@ import com.l2jserver.util.calculator.AbstractFunction;
 public class BaseHPCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")
 	public BaseHPCalculator() {
-		super(new AbstractFunction<CharacterCalculatorContext>(0x000) {
+		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result = ctx.character.getTemplate().getHpBase();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result = c.getTemplate().getHpBase();
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x100) {
+		}, new AbstractFunction<L2Character>(0x100) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				final CharacterTemplate template = ctx.character.getTemplate();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				final CharacterTemplate template = c.getTemplate();
 
-				int lvl = ctx.character.getLevel() - template.getMinimumLevel();
+				int lvl = c.getLevel() - template.getMinimumLevel();
 				double mod = template.getHpMultiplier() * lvl;
 				double max = (template.getHpAdd() + mod) * lvl;
 				double min = (template.getHpAdd() * lvl) + mod;
 
 				ctx.result += (max + min) / 2;
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x200) {
+		}, new AbstractFunction<L2Character>(0x200) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result *= BaseStats.CON.calculateBonus(ctx.character
-						.getStats().getConcentration());
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result *= BaseStats.CON.calculateBonus(c.getStats()
+						.getConcentration());
 			}
 		});
 	}

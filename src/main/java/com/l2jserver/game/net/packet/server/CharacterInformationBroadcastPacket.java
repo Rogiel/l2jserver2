@@ -146,14 +146,14 @@ public class CharacterInformationBroadcastPacket extends AbstractServerPacket {
 		buffer.writeInt(0x00); // unk
 
 		// FIXME half of those are walk speed
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
 
 		buffer.writeDouble(0x01); // move speed multiplier
 		buffer.writeDouble(0x01); // attack speed multiplier

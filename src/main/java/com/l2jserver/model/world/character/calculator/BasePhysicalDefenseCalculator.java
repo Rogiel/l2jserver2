@@ -28,6 +28,7 @@ import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterClass.ClassType;
 import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -35,15 +36,14 @@ import com.l2jserver.util.calculator.AbstractFunction;
 public class BasePhysicalDefenseCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")
 	public BasePhysicalDefenseCalculator() {
-		super(new AbstractFunction<CharacterCalculatorContext>(0x000) {
+		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result = ctx.character.getTemplate().getPhysicalDefense();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result = c.getTemplate().getPhysicalDefense();
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x200) {
+		}, new AbstractFunction<L2Character>(0x200) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				final L2Character c = ctx.character;
+			public void calculate(L2Character c, CalculatorContext ctx) {
 				final CharacterInventory inv = c.getInventory();
 
 				// orc mystics are a special case

@@ -126,16 +126,19 @@ public class NPCTemplateConverter {
 			// System.exit(0);
 		}
 		className += "Template";
-		template = replace(template, "javaClassName", className);
 
 		folder = "";
 		name = className + ".java";
 
 		folder = createFolder(npcType);
+		if (folder.contains("villagemaster")) {
+			folder = "villagemaster";
+		}
 
 		String packageName = "";
 		if (folder.length() > 0)
 			packageName = "." + folder;
+		template = replace(template, "javaClassName", className);
 		template = replace(template, "javaPackage", packageName);
 
 		return new String[] { template, "/" + folder + "/", name };
@@ -184,6 +187,10 @@ public class NPCTemplateConverter {
 			l2j = l2j.substring(2);
 		if (l2j.equals("Npc"))
 			return "";
+		if (l2j.contains("VillageMaster"))
+			return (l2j.replaceAll("VillageMaster", "") + "VillageMaster");
+		if(l2j.contains("Npc"))
+			l2j = l2j.replaceAll("Npc", "");
 		return l2j;
 	}
 

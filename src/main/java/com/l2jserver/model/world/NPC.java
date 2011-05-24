@@ -99,6 +99,7 @@ public class NPC extends Actor {
 	/**
 	 * @return the NPC template ID
 	 */
+	@Override
 	public NPCTemplateID getTemplateID() {
 		return (NPCTemplateID) templateID;
 	}
@@ -106,6 +107,7 @@ public class NPC extends Actor {
 	/**
 	 * @return the NPC template
 	 */
+	@Override
 	public NPCTemplate getTemplate() {
 		return (NPCTemplate) templateID.getTemplate();
 	}

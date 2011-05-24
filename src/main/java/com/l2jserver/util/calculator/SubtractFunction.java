@@ -16,13 +16,15 @@
  */
 package com.l2jserver.util.calculator;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * This function performs an subtraction: <blockquote><code>chain value -
  * value</code></blockquote>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SubtractFunction extends AbstractFunction<CalculatorContext> {
+public class SubtractFunction<O extends Actor> extends AbstractFunction<O> {
 	/**
 	 * The value
 	 */
@@ -34,7 +36,7 @@ public class SubtractFunction extends AbstractFunction<CalculatorContext> {
 	}
 
 	@Override
-	public void calculate(CalculatorContext ctx) {
+	public void calculate(O actor, CalculatorContext ctx) {
 		ctx.result -= value;
 	}
 }

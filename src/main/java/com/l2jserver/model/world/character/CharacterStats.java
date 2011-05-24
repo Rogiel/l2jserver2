@@ -77,13 +77,13 @@ public class CharacterStats {
 
 	private final L2Character character;
 	@SuppressWarnings("unchecked")
-	private final Calculator<CharacterCalculatorContext>[] calculators = new Calculator[StatType
+	private final Calculator<L2Character>[] calculators = new Calculator[StatType
 			.values().length];
 
 	public CharacterStats(L2Character character) {
 		this.character = character;
 		for (int i = 0; i < calculators.length; i++) {
-			calculators[i] = new Calculator<CharacterCalculatorContext>();
+			calculators[i] = new Calculator<L2Character>();
 		}
 
 		// bind default functions
@@ -217,14 +217,14 @@ public class CharacterStats {
 	// getCalculator(type).importFunctions(calculator);
 	// }
 
-	protected Calculator<CharacterCalculatorContext> getCalculator(StatType type) {
+	protected Calculator<L2Character> getCalculator(StatType type) {
 		return calculators[type.ordinal()];
 	}
 
 	public double calc(StatType type) {
 		final CharacterCalculatorContext ctx = new CharacterCalculatorContext(
 				character);
-		getCalculator(type).calculate(ctx);
+		getCalculator(type).calculate(character, ctx);
 		return ctx.result;
 	}
 }

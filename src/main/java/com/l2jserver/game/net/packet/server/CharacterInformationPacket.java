@@ -205,10 +205,10 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(0x00); // 0-non-pvp 1-pvp = violett name
 		buffer.writeInt(character.getKarma()); // karma
 
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getWalkSpeed());
-		buffer.writeInt((int) character.getStats().getRunSpeed());
-		buffer.writeInt((int) character.getStats().getWalkSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getWalkSpeed());
+		buffer.writeInt(character.getStats().getRunSpeed());
+		buffer.writeInt(character.getStats().getWalkSpeed());
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // fly speed -only if flying

@@ -17,6 +17,7 @@
 package com.l2jserver.model.template;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.world.Actor;
 
 /**
  * Template for effects
@@ -31,6 +32,16 @@ public abstract class EffectTemplate extends AbstractTemplate<Object> {
 	@Override
 	public Object create() {
 		return null;
+	}
+
+	/**
+	 * Adds this effect to the given <tt>actor</tt>
+	 * 
+	 * @param actor
+	 *            the actor
+	 */
+	public void apply(Actor actor) {
+
 	}
 
 	@Override

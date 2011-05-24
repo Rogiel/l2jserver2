@@ -3,8 +3,8 @@ package com.l2jserver.model.world.actor.stat;
 import java.util.List;
 import java.util.Map;
 
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.calculator.Calculator;
-import com.l2jserver.util.calculator.CalculatorContext;
 import com.l2jserver.util.calculator.DivisionFunction;
 import com.l2jserver.util.calculator.Function;
 import com.l2jserver.util.calculator.MultiplicationFunction;
@@ -136,7 +136,7 @@ public class Stats {
 		// PHYSICAL_ATTACK_SPEED;
 	}
 
-	private final Map<StatType, List<Function<CalculatorContext>>> operations = CollectionFactory
+	private final Map<StatType, List<Function<Actor>>> operations = CollectionFactory
 			.newMap();
 
 	/**
@@ -150,7 +150,7 @@ public class Stats {
 	 *            the value to set
 	 */
 	public void set(Stats.StatType type, int order, double value) {
-		func(type, new SetFunction(order, value));
+		func(type, new SetFunction<Actor>(order, value));
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class Stats {
 	 *            the value to be summed
 	 */
 	public void add(Stats.StatType type, int order, double value) {
-		func(type, new SumFunction(order, value));
+		func(type, new SumFunction<Actor>(order, value));
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class Stats {
 	 *            the value to be subtracted
 	 */
 	public void sub(Stats.StatType type, int order, double value) {
-		func(type, new SubtractFunction(order, value));
+		func(type, new SubtractFunction<Actor>(order, value));
 	}
 
 	/**
@@ -192,7 +192,7 @@ public class Stats {
 	 *            the value to be multiplied
 	 */
 	public void mult(Stats.StatType type, int order, double value) {
-		func(type, new MultiplicationFunction(order, value));
+		func(type, new MultiplicationFunction<Actor>(order, value));
 	}
 
 	/**
@@ -206,7 +206,7 @@ public class Stats {
 	 *            the value to be divided by
 	 */
 	public void div(Stats.StatType type, int order, double value) {
-		func(type, new DivisionFunction(order, value));
+		func(type, new DivisionFunction<Actor>(order, value));
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class Stats {
 		// TODO enchant operation for weapon
 	}
 
-	public void func(StatType type, Function<CalculatorContext> function) {
+	public void func(StatType type, Function<Actor> function) {
 		getMap(type).add(function);
 	}
 
@@ -234,8 +234,8 @@ public class Stats {
 	 *            the type
 	 * @return the order-operation map
 	 */
-	private List<Function<CalculatorContext>> getMap(Stats.StatType type) {
-		List<Function<CalculatorContext>> list = operations.get(type);
+	private List<Function<Actor>> getMap(Stats.StatType type) {
+		List<Function<Actor>> list = operations.get(type);
 		if (list == null) {
 			list = CollectionFactory.newList();
 			operations.put(type, list);
@@ -251,13 +251,11 @@ public class Stats {
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void calculator(Stats.StatType type,
-			Calculator<CalculatorContext> calculator) {
-		final List<Function<CalculatorContext>> operations = this.operations
-				.get(type);
+	public void calculator(Stats.StatType type, Calculator<Actor> calculator) {
+		final List<Function<Actor>> operations = this.operations.get(type);
 		if (operations == null || operations.size() == 0)
 			return;
-		for (final Function<CalculatorContext> func : operations) {
+		for (final Function<Actor> func : operations) {
 			calculator.add(func);
 		}
 	}

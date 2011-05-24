@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.world.character.calculator;
 
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.calculator.Calculator;
 import com.l2jserver.util.calculator.Function;
 
@@ -23,9 +24,9 @@ import com.l2jserver.util.calculator.Function;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class CharacterCalculator extends Calculator<CharacterCalculatorContext> {
+public class CharacterCalculator extends Calculator<L2Character> {
 	public CharacterCalculator(
-			Function<CharacterCalculatorContext>... functions) {
+			Function<L2Character>... functions) {
 		super(functions);
 	}
 }

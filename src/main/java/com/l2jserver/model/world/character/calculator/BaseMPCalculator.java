@@ -17,8 +17,10 @@
 package com.l2jserver.model.world.character.calculator;
 
 import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -27,28 +29,28 @@ import com.l2jserver.util.calculator.AbstractFunction;
 public class BaseMPCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")
 	public BaseMPCalculator() {
-		super(new AbstractFunction<CharacterCalculatorContext>(0x000) {
+		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result = ctx.character.getTemplate().getMpBase();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result = c.getTemplate().getMpBase();
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x100) {
+		}, new AbstractFunction<L2Character>(0x100) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				final CharacterTemplate template = ctx.character.getTemplate();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				final CharacterTemplate template = c.getTemplate();
 
-				int lvl = ctx.character.getLevel() - template.getMinimumLevel();
+				int lvl = c.getLevel() - template.getMinimumLevel();
 				double mod = template.getMpMultiplier() * lvl;
 				double max = (template.getMpAdd() + mod) * lvl;
 				double min = (template.getMpAdd() * lvl) + mod;
 
 				ctx.result += (max + min) / 2;
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x200) {
+		}, new AbstractFunction<L2Character>(0x200) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result *= BaseStats.MEN.calculateBonus(ctx.character
-						.getStats().getMentality());
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result *= BaseStats.MEN.calculateBonus(c.getStats()
+						.getMentality());
 			}
 		});
 	}

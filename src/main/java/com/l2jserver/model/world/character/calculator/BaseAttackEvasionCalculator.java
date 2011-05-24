@@ -20,6 +20,7 @@ import org.apache.commons.math.util.FastMath;
 
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -28,15 +29,14 @@ import com.l2jserver.util.calculator.AbstractFunction;
 public class BaseAttackEvasionCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")
 	public BaseAttackEvasionCalculator() {
-		super(new AbstractFunction<CharacterCalculatorContext>(0x000) {
+		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				ctx.result = ctx.character.getTemplate().getEvasionChance();
+			public void calculate(L2Character c, CalculatorContext ctx) {
+				ctx.result = c.getTemplate().getEvasionChance();
 			}
-		}, new AbstractFunction<CharacterCalculatorContext>(0x100) {
+		}, new AbstractFunction<L2Character>(0x100) {
 			@Override
-			public void calculate(CharacterCalculatorContext ctx) {
-				final L2Character c = ctx.character;
+			public void calculate(L2Character c, CalculatorContext ctx) {
 				final int level = c.getLevel();
 
 				ctx.result += FastMath.sqrt(c.getStats().getDexterity()) * 6;

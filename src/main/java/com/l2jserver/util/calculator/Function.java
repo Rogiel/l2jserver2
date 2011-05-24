@@ -16,12 +16,14 @@
  */
 package com.l2jserver.util.calculator;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * An function is nothing more than a mathematical operation.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Function<T extends CalculatorContext> {
+public interface Function<O extends Actor> {
 	/**
 	 * Performs the operation in the calculation process.
 	 * <p>
@@ -33,7 +35,7 @@ public interface Function<T extends CalculatorContext> {
 	 *            the input value
 	 * @return the output value
 	 */
-	void calculate(T ctx);
+	void calculate(O actor, CalculatorContext ctx);
 
 	/**
 	 * @return the order this function will be executed

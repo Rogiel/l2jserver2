@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -28,12 +29,11 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Calculator<T extends CalculatorContext> extends
-		AbstractFunction<T> {
+public class Calculator<O extends Actor> extends AbstractFunction<O> {
 	/**
 	 * List of operations in this calculator
 	 */
-	private final List<Function<T>> functions = CollectionFactory.newList();
+	private final List<Function<O>> functions = CollectionFactory.newList();
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using
@@ -50,9 +50,9 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param functions
 	 *            the calculator functions
 	 */
-	public Calculator(Function<T>... functions) {
+	public Calculator(Function<O>... functions) {
 		super(0x00);
-		for (final Function<T> func : functions) {
+		for (final Function<O> func : functions) {
 			this.functions.add(func);
 		}
 	}
@@ -68,7 +68,7 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param function
 	 *            the operation
 	 */
-	public void add(Function<T> function) {
+	public void add(Function<O> function) {
 		functions.add(function);
 		Collections.sort(functions, FunctionOrderComparator.SHARED_INSTANCE);
 	}
@@ -83,10 +83,10 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void importFunctions(Calculator<T> calculator) {
-		for (final Function<T> function : calculator.functions) {
+	public void importFunctions(Calculator<O> calculator) {
+		for (final Function<O> function : calculator.functions) {
 			if (function instanceof Calculator) {
-				importFunctions((Calculator<T>) function);
+				importFunctions((Calculator<O>) function);
 			} else {
 				functions.add(function);
 			}
@@ -101,10 +101,10 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void removeFunctions(Calculator<T> calculator) {
-		for (final Function<T> function : calculator.functions) {
+	public void removeFunctions(Calculator<O> calculator) {
+		for (final Function<O> function : calculator.functions) {
 			if (function instanceof Calculator) {
-				removeFunctions((Calculator<T>) function);
+				removeFunctions((Calculator<O>) function);
 			} else {
 				functions.remove(function);
 			}
@@ -112,9 +112,9 @@ public class Calculator<T extends CalculatorContext> extends
 	}
 
 	@Override
-	public void calculate(T ctx) {
-		for (final Function<T> function : functions) {
-			function.calculate(ctx);
+	public void calculate(O object, CalculatorContext ctx) {
+		for (final Function<O> function : functions) {
+			function.calculate(object, ctx);
 		}
 	}
 

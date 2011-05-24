@@ -77,7 +77,7 @@ public class ItemTemplateConversor {
 			return "";
 
 		if (property.contains("_")) {
-			System.out.println(property);
+			System.out.println(property + " -> " + value);
 			System.exit(0);
 		}
 
