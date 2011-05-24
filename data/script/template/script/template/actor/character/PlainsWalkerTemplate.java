@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class PlainsWalkerTemplate extends ElvenScoutTemplate {
 	@Inject
 	public PlainsWalkerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.PLAINS_WALKER.id),
-				CharacterClass.PLAINS_WALKER, Point
-						.fromXYZ(45978, 41196, -3440));
+		super(provider.createID(CharacterClass.PLAINS_WALKER.id), CharacterClass.PLAINS_WALKER,	Point.fromXYZ(45978, 41196, -3440));
+		
+		this.hpBase = 1024.200;
+		this.hpAdd = 46.800;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 359.100;
+		this.mpAdd = 19.500;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 563.310;
+		this.cpAdd = 25.740;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -46,15 +56,16 @@ public class PlainsWalkerTemplate extends ElvenScoutTemplate {
 		attributes.criticalChance = 46;
 		attributes.evasionChance = 36;
 		attributes.runSpeed = 125;
+		attributes.walkSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected PlainsWalkerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

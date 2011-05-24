@@ -19,12 +19,10 @@ package com.l2jserver.db.dao;
 import java.util.List;
 
 import com.l2jserver.model.id.AccountID;
-import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.cache.Cacheable;
-import com.l2jserver.service.cache.IgnoreCaching;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -61,12 +59,4 @@ public interface CharacterDAO extends
 	 *         characters.
 	 */
 	List<L2Character> selectByAccount(AccountID account);
-
-	/**
-	 * Loads an List of all {@link ID}s in the database
-	 * 
-	 * @return the list containing all ids
-	 */
-	@IgnoreCaching
-	List<CharacterID> listIDs();
 }

@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class WarcryerTemplate extends OrcShamanTemplate {
 	@Inject
 	public WarcryerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.WARCRYER.id),
-				CharacterClass.WARCRYER, Point.fromXYZ(-56682, -113730, -690));
+		super(provider.createID(CharacterClass.WARCRYER.id), CharacterClass.WARCRYER,	Point.fromXYZ(-56682, -113730, -690));
+		
+		this.hpBase = 1182.800;
+		this.hpAdd = 53.300;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 478.800;
+		this.mpAdd = 26.000;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 591.400;
+		this.cpAdd = 26.650;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 31;
 		attributes.strength = 27;
@@ -45,15 +56,16 @@ public class WarcryerTemplate extends OrcShamanTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
 		attributes.runSpeed = 121;
+		attributes.walkSpeed = 121;
 		attributes.maxWeigth = 68000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.0;
 		this.maleCollisionHeight = 27.5;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 25.5;
 	}
-
+	
 	protected WarcryerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

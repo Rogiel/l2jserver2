@@ -128,16 +128,16 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			buffer.writeInt(character.getPoint().getY()); // y
 			buffer.writeInt(character.getPoint().getZ()); // z
 
-			buffer.writeDouble(20); // hp cur
-			buffer.writeDouble(20); // mp cur
+			buffer.writeDouble(character.getHP()); // hp cur
+			buffer.writeDouble(character.getMP()); // mp cur
 
-			buffer.writeInt(320); // sp
-			buffer.writeLong(4640); // exp
-			buffer.writeInt(5); // level
+			buffer.writeInt(character.getSP()); // sp
+			buffer.writeLong(character.getExperience()); // exp
+			buffer.writeInt(character.getLevel()); // level
 
-			buffer.writeInt(0x00); // karma
-			buffer.writeInt(0x00); // pk
-			buffer.writeInt(0x00); // pvp
+			buffer.writeInt(character.getKarma()); // karma
+			buffer.writeInt(character.getPkKills()); // pk
+			buffer.writeInt(character.getPvpKills()); // pvp
 
 			for (int n = 0; n < 7; n++) {
 				buffer.writeInt(0x00); // unk
@@ -184,8 +184,8 @@ public class CharacterSelectionListPacket extends AbstractServerPacket {
 			// face
 			buffer.writeInt(character.getAppearance().getFace().option);
 
-			buffer.writeDouble(30); // hp max
-			buffer.writeDouble(30); // mp max
+			buffer.writeDouble(character.getStats().getMaxHP()); // hp max
+			buffer.writeDouble(character.getStats().getMaxMP()); // mp max
 
 			buffer.writeInt(0x0); // seconds left before delete
 			buffer.writeInt(character.getCharacterClass().id); // class

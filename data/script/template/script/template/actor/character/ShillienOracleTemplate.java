@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ShillienOracleTemplate extends DarkMysticTemplate {
 	@Inject
 	public ShillienOracleTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.SHILLIEN_ORACLE.id),
-				CharacterClass.SHILLIEN_ORACLE, Point.fromXYZ(28295, 11063,
-						-4224));
+		super(provider.createID(CharacterClass.SHILLIEN_ORACLE.id), CharacterClass.SHILLIEN_ORACLE,	Point.fromXYZ(28295, 11063, -4224));
+		
+		this.hpBase = 429.000;
+		this.hpAdd = 36.400;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 192.000;
+		this.mpAdd = 13.300;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 214.500;
+		this.cpAdd = 18.250;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 44;
 		attributes.strength = 23;
@@ -46,15 +56,16 @@ public class ShillienOracleTemplate extends DarkMysticTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 29;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected ShillienOracleTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class OrcShamanTemplate extends OrcMysticTemplate {
 	@Inject
 	public OrcShamanTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ORC_SHAMAN.id),
-				CharacterClass.ORC_SHAMAN, Point.fromXYZ(-56682, -113730, -690));
+		super(provider.createID(CharacterClass.ORC_SHAMAN.id), CharacterClass.ORC_SHAMAN,	Point.fromXYZ(-56682, -113730, -690));
+		
+		this.hpBase = 418.000;
+		this.hpAdd = 35.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 192.000;
+		this.mpAdd = 13.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 209.000;
+		this.cpAdd = 17.600;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 31;
 		attributes.strength = 27;
@@ -45,15 +56,16 @@ public class OrcShamanTemplate extends OrcMysticTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
 		attributes.runSpeed = 121;
+		attributes.walkSpeed = 121;
 		attributes.maxWeigth = 68000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.0;
 		this.maleCollisionHeight = 27.5;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 25.5;
 	}
-
+	
 	protected OrcShamanTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

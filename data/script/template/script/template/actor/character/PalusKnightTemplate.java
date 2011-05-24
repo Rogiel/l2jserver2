@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class PalusKnightTemplate extends DarkFighterTemplate {
 	@Inject
 	public PalusKnightTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.PALUS_KNIGHT.id),
-				CharacterClass.PALUS_KNIGHT, Point.fromXYZ(28377, 10916, -4224));
+		super(provider.createID(CharacterClass.PALUS_KNIGHT.id), CharacterClass.PALUS_KNIGHT,	Point.fromXYZ(28377, 10916, -4224));
+		
+		this.hpBase = 379.000;
+		this.hpAdd = 35.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 144.000;
+		this.mpAdd = 9.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 189.500;
+		this.cpAdd = 17.600;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class PalusKnightTemplate extends DarkFighterTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected PalusKnightTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

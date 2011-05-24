@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ArbalesterTemplate extends WarderTemplate {
 	@Inject
 	public ArbalesterTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ARBALESTER.id),
-				CharacterClass.ARBALESTER, Point.fromXYZ(-125533, 38114, 1142));
+		super(provider.createID(CharacterClass.ARBALESTER.id), CharacterClass.ARBALESTER,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 1139.740;
+		this.hpAdd = 57.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 487.030;
+		this.mpAdd = 19.500;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 569.870;
+		this.cpAdd = 28.600;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 28;
 		attributes.strength = 39;
@@ -45,15 +56,16 @@ public class ArbalesterTemplate extends WarderTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 22.6;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected ArbalesterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

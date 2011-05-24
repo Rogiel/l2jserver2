@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ShillienKnightTemplate extends PalusKnightTemplate {
 	@Inject
 	public ShillienKnightTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.SHILLIEN_KNIGHT.id),
-				CharacterClass.SHILLIEN_KNIGHT, Point.fromXYZ(28377, 10916,
-						-4224));
+		super(provider.createID(CharacterClass.SHILLIEN_KNIGHT.id), CharacterClass.SHILLIEN_KNIGHT,	Point.fromXYZ(28377, 10916, -4224));
+		
+		this.hpBase = 1143.800;
+		this.hpAdd = 54.600;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 359.100;
+		this.mpAdd = 19.500;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 686.200;
+		this.cpAdd = 32.760;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -46,15 +56,16 @@ public class ShillienKnightTemplate extends PalusKnightTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected ShillienKnightTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -9,6 +9,9 @@ CREATE TABLE IF NOT EXISTS `character` (
   `level` int(3) NOT NULL,
   `experience` int(15) NOT NULL,
   `sp` int(15) NOT NULL,
+  `hp` double NOT NULL,
+  `mp` double NOT NULL,
+  `cp` double NOT NULL,
   `point_x` int(10) NOT NULL,
   `point_y` int(10) NOT NULL,
   `point_z` int(10) NOT NULL,
@@ -21,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `character` (
   KEY `name` (`name`),
   KEY `clan_id` (`clan_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 --
 -- Temporary sample data
 --

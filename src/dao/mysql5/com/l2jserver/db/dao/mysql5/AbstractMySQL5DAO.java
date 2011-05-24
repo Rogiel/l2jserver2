@@ -30,9 +30,11 @@ import com.l2jserver.service.database.MySQLDatabaseService;
  * 
  * @param <T>
  *            the object for the DAO
+ * @param <I>
+ *            the object ID type
  */
-public abstract class AbstractMySQL5DAO<T extends Model<?>, I extends ID<?>> extends
-		AbstractDAO<T, I> {
+public abstract class AbstractMySQL5DAO<T extends Model<?>, I extends ID<?>>
+		extends AbstractDAO<T, I> {
 	/**
 	 * The MySQL Database Service
 	 */

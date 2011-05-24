@@ -16,21 +16,14 @@
  */
 package com.l2jserver.model.template.item;
 
-import java.util.Map;
-import java.util.Map.Entry;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.actor.stat.Stats;
+import com.l2jserver.model.world.actor.stat.Stats.StatType;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.calculator.Calculator;
-import com.l2jserver.util.calculator.DivisionFunction;
-import com.l2jserver.util.calculator.Function;
-import com.l2jserver.util.calculator.MultiplicationFunction;
-import com.l2jserver.util.calculator.SetFunction;
-import com.l2jserver.util.calculator.SubtractFunction;
-import com.l2jserver.util.calculator.SumFunction;
-import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * Template for Weapon {@link Item}
@@ -59,7 +52,7 @@ public abstract class WeaponTemplate extends ItemTemplate {
 	/**
 	 * The weapon's attributes
 	 */
-	protected final WeaponAttribute attribute = new WeaponAttribute();
+	protected final Stats stats = new Stats();
 
 	/**
 	 * This weapon random damage
@@ -130,145 +123,8 @@ public abstract class WeaponTemplate extends ItemTemplate {
 	 * @param calc
 	 *            the calculator
 	 */
-	public void calculator(WeaponAttributeType type, Calculator calc) {
-		attribute.calculator(type, calc);
-	}
-
-	/**
-	 * Attribute types for weapons
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public enum WeaponAttributeType {
-		PHYSICAL_ATTACK, MAGICAL_ATTACK, R_CRITICAL, PHYSICAL_ATTACK_SPEED;
-	}
-
-	/**
-	 * This class handles the Weapon attributes an can add operations to the
-	 * calculator
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public class WeaponAttribute {
-		private final Map<WeaponAttributeType, Map<Integer, Function<Double>>> operations = CollectionFactory
-				.newMap();
-
-		/**
-		 * Sets the result of an calculator
-		 * 
-		 * @param type
-		 *            the attribute type
-		 * @param order
-		 *            the calculation order
-		 * @param value
-		 *            the value to set
-		 */
-		public void set(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new SetFunction(value));
-		}
-
-		/**
-		 * Adds <tt>value</tt> to the result of an calculator
-		 * 
-		 * @param type
-		 *            the attribute type
-		 * @param order
-		 *            the calculation order
-		 * @param value
-		 *            the value to be summed
-		 */
-		public void add(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new SumFunction(value));
-		}
-
-		/**
-		 * Subtracts <tt>value</tt> from the result of an calculator
-		 * 
-		 * @param type
-		 *            the attribute type
-		 * @param order
-		 *            the calculation order
-		 * @param value
-		 *            the value to be subtracted
-		 */
-		public void sub(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new SubtractFunction(value));
-		}
-
-		/**
-		 * Multiply <tt>value</tt> the result of an calculator
-		 * 
-		 * @param type
-		 *            the attribute type
-		 * @param order
-		 *            the calculation order
-		 * @param value
-		 *            the value to be multiplied
-		 */
-		public void mult(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new MultiplicationFunction(value));
-		}
-
-		/**
-		 * Divides by <tt>value</tt> the result of an calculator
-		 * 
-		 * @param type
-		 *            the attribute type
-		 * @param order
-		 *            the calculation order
-		 * @param value
-		 *            the value to be divided by
-		 */
-		public void div(WeaponAttributeType type, int order, double value) {
-			getMap(type).put(order, new DivisionFunction(value));
-		}
-
-		/**
-		 * Performs an enchant operation. Note that this is not implemented yet!
-		 * 
-		 * @param type
-		 *            the attribute type
-		 * @param order
-		 *            the calculation order
-		 * @param value
-		 *            TODO
-		 */
-		public void enchant(WeaponAttributeType type, int order, double value) {
-			// TODO enchant operation for weapon
-		}
-
-		/**
-		 * Returns the Order-Operation map for <tt>type</tt>
-		 * 
-		 * @param type
-		 *            the type
-		 * @return the order-operation map
-		 */
-		private Map<Integer, Function<Double>> getMap(WeaponAttributeType type) {
-			Map<Integer, Function<Double>> map = operations.get(type);
-			if (map == null) {
-				map = CollectionFactory.newMap();
-				operations.put(type, map);
-			}
-			return map;
-		}
-
-		/**
-		 * Creates the calculator object for this weapon
-		 * 
-		 * @param type
-		 *            the type
-		 * @param calculator
-		 *            the calculator
-		 */
-		private void calculator(WeaponAttributeType type, Calculator calculator) {
-			final Map<Integer, Function<Double>> operations = this.operations
-					.get(type);
-			for (final Entry<Integer, Function<Double>> entry : operations
-					.entrySet()) {
-				calculator.add(entry.getKey(), entry.getValue());
-			}
-		}
+	public void calculator(StatType type, Calculator calc) {
+		stats.calculator(type, calc);
 	}
 
 	/**
@@ -409,7 +265,7 @@ public abstract class WeaponTemplate extends ItemTemplate {
 	/**
 	 * @return the attribute
 	 */
-	public WeaponAttribute getAttribute() {
-		return attribute;
+	public Stats getAttribute() {
+		return stats;
 	}
 }

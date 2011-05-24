@@ -92,6 +92,10 @@ public class MySQL5CharacterDAO extends
 	public static final String EXPERIENCE = "experience";
 	public static final String SP = "sp";
 
+	public static final String HP = "hp";
+	public static final String MP = "mp";
+	public static final String CP = "cp";
+
 	public static final String POINT_X = "point_x";
 	public static final String POINT_Y = "point_y";
 	public static final String POINT_Z = "point_z";
@@ -114,15 +118,20 @@ public class MySQL5CharacterDAO extends
 	}
 
 	/**
+	 * The mapper for {@link CharacterID}
+	 */
+	private final Mapper<CharacterID> idMapper = new Mapper<CharacterID>() {
+		@Override
+		public CharacterID map(ResultSet rs) throws SQLException {
+			return idFactory.createID(rs.getInt(CHAR_ID));
+		}
+	};
+
+	/**
 	 * The {@link Mapper} for {@link L2Character}
 	 */
 	private final Mapper<L2Character> mapper = new CachedMapper<L2Character, CharacterID>(
-			database) {
-		@Override
-		protected CharacterID createID(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CHAR_ID));
-		}
-
+			database, idMapper) {
 		@Override
 		protected L2Character map(CharacterID id, ResultSet rs)
 				throws SQLException {
@@ -148,8 +157,12 @@ public class MySQL5CharacterDAO extends
 			character.setSex(ActorSex.valueOf(rs.getString(SEX)));
 
 			character.setLevel(rs.getInt(LEVEL));
-			// TODO load experience
-			// TODO load sp
+			character.setExperience(rs.getLong(EXPERIENCE));
+			character.setSP(rs.getInt(SP));
+
+			character.setHP(rs.getDouble(HP));
+			character.setMP(rs.getDouble(MP));
+			character.setCP(rs.getDouble(CP));
 
 			character.setPoint(Point.fromXYZA(rs.getInt(POINT_X),
 					rs.getInt(POINT_Y), rs.getInt(POINT_Z),
@@ -166,16 +179,6 @@ public class MySQL5CharacterDAO extends
 					CharacterFace.valueOf(rs.getString(APPEARANCE_FACE)));
 
 			return character;
-		}
-	};
-
-	/**
-	 * The mapper for {@link CharacterID}
-	 */
-	private final Mapper<CharacterID> idMapper = new Mapper<CharacterID>() {
-		@Override
-		public CharacterID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CHAR_ID));
 		}
 	};
 
@@ -265,7 +268,7 @@ public class MySQL5CharacterDAO extends
 	}
 
 	@Override
-	public List<CharacterID> listIDs() {
+	public List<CharacterID> selectIDs() {
 		return database.query(new SelectListQuery<CharacterID>() {
 			@Override
 			protected String query() {
@@ -287,11 +290,12 @@ public class MySQL5CharacterDAO extends
 				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
 						+ ACCOUNT_ID + "`,`" + CLAN_ID + "`,`" + NAME + "`,`"
 						+ RACE + "`,`" + CLASS + "`,`" + SEX + "`,`" + LEVEL
-						+ "`,`" + POINT_X + "`,`" + POINT_Y + "`,`" + POINT_Z
-						+ "`,`" + POINT_ANGLE + "`,`" + APPEARANCE_HAIR_STYLE
-						+ "`,`" + APPEARANCE_HAIR_COLOR + "`,`"
-						+ APPEARANCE_FACE
-						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+						+ "`,`" + EXPERIENCE + "`,`" + SP + "`,`" + HP + "`,`"
+						+ MP + "`,`" + CP + "`,`" + POINT_X + "`,`" + POINT_Y
+						+ "`,`" + POINT_Z + "`,`" + POINT_ANGLE + "`,`"
+						+ APPEARANCE_HAIR_STYLE + "`,`" + APPEARANCE_HAIR_COLOR
+						+ "`,`" + APPEARANCE_FACE
+						+ "`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			}
 
 			@Override
@@ -315,8 +319,12 @@ public class MySQL5CharacterDAO extends
 				st.setString(i++, character.getSex().name());
 
 				st.setInt(i++, character.getLevel());
-				// TODO save experience
-				// TODO save sp
+				st.setLong(i++, character.getExperience());
+				st.setInt(i++, character.getSP());
+
+				st.setDouble(i++, character.getHP());
+				st.setDouble(i++, character.getMP());
+				st.setDouble(i++, character.getCP());
 
 				st.setInt(i++, character.getPoint().getX());
 				st.setInt(i++, character.getPoint().getY());
@@ -339,9 +347,11 @@ public class MySQL5CharacterDAO extends
 				return "UPDATE `" + TABLE + "` SET " + ACCOUNT_ID + "` = ?,`"
 						+ CLAN_ID + "` = ?,`" + NAME + "` = ?,`" + RACE
 						+ "` = ?,`" + CLASS + "` = ?,`" + SEX + "` = ?,`"
-						+ LEVEL + "` = ?,`" + POINT_X + "` = ?,`" + POINT_Y
-						+ "` = ?,`" + POINT_Z + "` = ?,`" + POINT_ANGLE
-						+ "` = ?,`" + APPEARANCE_HAIR_STYLE + "` = ?,`"
+						+ LEVEL + "` = ?,`" + EXPERIENCE + "` = ?,`" + SP
+						+ "` = ?,`" + HP + "` = ?,`" + MP + "` = ?,`" + CP
+						+ "` = ?,`" + POINT_X + "` = ?,`" + POINT_Y + "` = ?,`"
+						+ POINT_Z + "` = ?,`" + POINT_ANGLE + "` = ?,`"
+						+ APPEARANCE_HAIR_STYLE + "` = ?,`"
 						+ APPEARANCE_HAIR_COLOR + "` = ?,`" + APPEARANCE_FACE
 						+ "` = ? WHERE `" + CHAR_ID + "` = ?";
 			}
@@ -367,9 +377,14 @@ public class MySQL5CharacterDAO extends
 				st.setString(i++, character.getSex().name());
 
 				st.setInt(i++, character.getLevel());
-				// TODO save experience
-				// TODO save sp
+				st.setLong(i++, character.getExperience());
+				st.setInt(i++, character.getSP());
 
+				st.setDouble(i++, character.getHP());
+				st.setDouble(i++, character.getMP());
+				st.setDouble(i++, character.getCP());
+
+				// position
 				st.setInt(i++, character.getPoint().getX());
 				st.setInt(i++, character.getPoint().getY());
 				st.setInt(i++, character.getPoint().getZ());

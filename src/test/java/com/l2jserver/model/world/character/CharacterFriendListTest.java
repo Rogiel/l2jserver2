@@ -25,6 +25,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.db.dao.CharacterFriendDAO;
 import com.l2jserver.db.dao.MySQL5DAOModule;
+import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.provider.IDProviderModule;
@@ -55,7 +56,7 @@ public class CharacterFriendListTest {
 				.getInstance(CharacterFriendDAO.class);
 		friendDao.load(character);
 
-		for (final L2Character friend : character.getFriendList()) {
+		for (final CharacterFriend friend : character.getFriendList()) {
 			Assert.assertNotNull(friend);
 			Assert.assertNotSame(friend.getID(), character.getID());
 			Assert.assertFalse(friend.getID().equals(character.getID()));

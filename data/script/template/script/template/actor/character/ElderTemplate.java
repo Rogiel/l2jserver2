@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ElderTemplate extends OracleTemplate {
 	@Inject
 	public ElderTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ELDER.id), CharacterClass.ELDER,
-				Point.fromXYZ(46182, 41198, -3440));
+		super(provider.createID(CharacterClass.ELDER.id), CharacterClass.ELDER,	Point.fromXYZ(46182, 41198, -3440));
+		
+		this.hpBase = 1191.800;
+		this.hpAdd = 54.600;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 478.800;
+		this.mpAdd = 26.000;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1072.620;
+		this.cpAdd = 49.140;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 37;
 		attributes.strength = 21;
@@ -45,15 +56,16 @@ public class ElderTemplate extends OracleTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 62400;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected ElderTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

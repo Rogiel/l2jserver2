@@ -21,9 +21,13 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RoundFunction implements Function<Double> {
+public class RoundFunction extends AbstractFunction<CalculatorContext> {
+	public RoundFunction(int order) {
+		super(order);
+	}
+
 	@Override
-	public Double calculate(Double value) {
-		return (double) Math.round(value);
+	public void calculate(CalculatorContext ctx) {
+		ctx.result = Math.round(ctx.result);
 	}
 }

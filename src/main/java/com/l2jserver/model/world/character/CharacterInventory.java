@@ -65,6 +65,10 @@ public class CharacterInventory implements Iterable<Item> {
 		return null;
 	}
 
+	public boolean has(InventoryPaperdoll paperdoll) {
+		return getItem(paperdoll) != null;
+	}
+
 	/**
 	 * This method will add new items to the inventory. This is normally called
 	 * from the DAO object.

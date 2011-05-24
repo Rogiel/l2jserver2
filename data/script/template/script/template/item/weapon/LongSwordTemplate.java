@@ -16,13 +16,9 @@
  */
 package script.template.item.weapon;
 
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.MAGICAL_ATTACK;
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.PHYSICAL_ATTACK;
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.PHYSICAL_ATTACK_SPEED;
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.R_CRITICAL;
-
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.model.world.actor.stat.Stats.StatType;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 
 public class LongSwordTemplate extends AbstractNoGradeWeaponTemplate {
@@ -34,10 +30,10 @@ public class LongSwordTemplate extends AbstractNoGradeWeaponTemplate {
 				ItemMaterial.STEEL, InventoryPaperdoll.RIGHT_HAND,
 				WeaponType.SWORD);
 
-		attribute.set(PHYSICAL_ATTACK, 0x80, 24);
-		attribute.set(MAGICAL_ATTACK, 0x80, 17);
-		attribute.set(R_CRITICAL, 0x80, 8);
-		attribute.set(PHYSICAL_ATTACK_SPEED, 0x80, 379);
+		stats.set(StatType.POWER_ATTACK, 0x80, 24);
+		stats.set(StatType.MAGIC_ATTACK, 0x80, 17);
+		stats.set(StatType.CRITICAL_RATE, 0x80, 8);
+		stats.set(StatType.POWER_ATTACK_SPEED, 0x80, 379);
 
 		this.randomDamage = 10;
 		this.attackRange = 40;

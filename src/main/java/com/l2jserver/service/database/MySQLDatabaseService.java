@@ -41,9 +41,10 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
-import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.Model;
+import com.l2jserver.model.Model.ObjectState;
+import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
-import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -268,6 +269,11 @@ public class MySQLDatabaseService extends AbstractService implements
 				final PreparedStatement st = conn.prepareStatement(query());
 				this.parametize(st, object);
 				rows += st.executeUpdate();
+
+				// update object state
+				if (object instanceof Model)
+					((Model<?>) object).setObjectState(ObjectState.STORED);
+
 				final Mapper<T> mapper = keyMapper(object);
 				if (mapper == null)
 					continue;
@@ -330,8 +336,11 @@ public class MySQLDatabaseService extends AbstractService implements
 			final ResultSet rs = st.getResultSet();
 			while (rs.next()) {
 				final T obj = mapper().map(rs);
-				if (obj != null)
-					list.add(obj);
+				if (obj == null)
+					continue;
+				if (obj instanceof Model)
+					((Model<?>) obj).setObjectState(ObjectState.STORED);
+				list.add(obj);
 			}
 			return list;
 		}
@@ -385,7 +394,10 @@ public class MySQLDatabaseService extends AbstractService implements
 			st.execute();
 			final ResultSet rs = st.getResultSet();
 			while (rs.next()) {
-				return mapper().map(rs);
+				final T object = mapper().map(rs);
+				if (object instanceof Model)
+					((Model<?>) object).setObjectState(ObjectState.STORED);
+				return object;
 			}
 			return null;
 		}
@@ -456,12 +468,14 @@ public class MySQLDatabaseService extends AbstractService implements
 	 * @param <I>
 	 *            the id type
 	 */
-	public abstract static class CachedMapper<T extends WorldObject, I extends ObjectID<T>>
+	public abstract static class CachedMapper<T extends Model<?>, I extends ID<?>>
 			implements Mapper<T> {
 		/**
 		 * The database service instance
 		 */
 		private final MySQLDatabaseService database;
+
+		private final Mapper<I> idMapper;
 
 		/**
 		 * Creates a new instance
@@ -469,14 +483,15 @@ public class MySQLDatabaseService extends AbstractService implements
 		 * @param database
 		 *            the database service
 		 */
-		public CachedMapper(MySQLDatabaseService database) {
+		public CachedMapper(MySQLDatabaseService database, Mapper<I> idMapper) {
 			this.database = database;
+			this.idMapper = idMapper;
 		}
 
 		@Override
 		@SuppressWarnings("unchecked")
 		public final T map(ResultSet rs) throws SQLException {
-			final I id = createID(rs);
+			final I id = idMapper.map(rs);
 			Preconditions.checkNotNull(id, "id");
 
 			if (database.hasCachedObject(id))
@@ -487,16 +502,6 @@ public class MySQLDatabaseService extends AbstractService implements
 				database.updateCache(id, object);
 			return object;
 		}
-
-		/**
-		 * Creates an ID for an object
-		 * 
-		 * @param rs
-		 *            the jdbc result set
-		 * @return the id
-		 * @throws SQLException
-		 */
-		protected abstract I createID(ResultSet rs) throws SQLException;
 
 		/**
 		 * Maps an uncached object. Once mapping is complete, it will be added

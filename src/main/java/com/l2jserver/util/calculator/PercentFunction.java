@@ -26,7 +26,7 @@ public class PercentFunction extends MultiplicationFunction {
 	/**
 	 * The value
 	 */
-	public PercentFunction(double value) {
-		super(value / 100);
+	public PercentFunction(int order, double value) {
+		super(order, value / 100);
 	}
 }

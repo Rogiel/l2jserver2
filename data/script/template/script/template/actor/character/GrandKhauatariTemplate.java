@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class GrandKhauatariTemplate extends TyrantTemplate {
 	@Inject
 	public GrandKhauatariTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.GRAND_KHAUATARI.id),
-				CharacterClass.GRAND_KHAUATARI, Point.fromXYZ(-56693, -113610,
-						-690));
+		super(provider.createID(CharacterClass.GRAND_KHAUATARI.id), CharacterClass.GRAND_KHAUATARI,	Point.fromXYZ(-56693, -113610, -690));
+		
+		this.hpBase = 3293.200;
+		this.hpAdd = 69.620;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1155.600;
+		this.mpAdd = 24.800;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1646.600;
+		this.cpAdd = 34.760;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 18;
 		attributes.strength = 40;
@@ -46,15 +56,16 @@ public class GrandKhauatariTemplate extends TyrantTemplate {
 		attributes.criticalChance = 42;
 		attributes.evasionChance = 31;
 		attributes.runSpeed = 117;
+		attributes.walkSpeed = 117;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 11.0;
 		this.maleCollisionHeight = 28.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 27.0;
 	}
-
+	
 	protected GrandKhauatariTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class HumanMysticTemplate extends AbstractHumanCharacterTemplate {
 	@Inject
 	public HumanMysticTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.HUMAN_MYSTIC.id),
-				CharacterClass.HUMAN_MYSTIC, Point.fromXYZ(-90890, 248027,
-						-3570));
+		super(provider.createID(CharacterClass.HUMAN_MYSTIC.id), CharacterClass.HUMAN_MYSTIC,	Point.fromXYZ(-90890, 248027, -3570));
+		
+		this.hpBase = 101.000;
+		this.hpAdd = 15.570;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 40.000;
+		this.mpAdd = 7.380;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 50.500;
+		this.cpAdd = 7.840;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 1;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 41;
 		attributes.strength = 22;
@@ -46,15 +56,16 @@ public class HumanMysticTemplate extends AbstractHumanCharacterTemplate {
 		attributes.criticalChance = 40;
 		attributes.evasionChance = 28;
 		attributes.runSpeed = 120;
+		attributes.walkSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 22.8;
 		this.femaleCollisionRadius = 6.5;
 		this.femaleCollisionHeight = 22.5;
 	}
-
+	
 	protected HumanMysticTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

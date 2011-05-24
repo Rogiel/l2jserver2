@@ -20,4 +20,5 @@
 <scriptlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="../../contexts.xsd">
     <scriptinfo root="./data/script/template"/>
+    <compiler></compiler>
 </scriptlist>

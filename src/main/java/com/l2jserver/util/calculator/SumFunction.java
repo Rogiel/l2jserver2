@@ -22,18 +22,19 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SumFunction implements Function<Double> {
+public class SumFunction extends AbstractFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */
 	private final double value;
 
-	public SumFunction(double value) {
+	public SumFunction(int order, double value) {
+		super(order);
 		this.value = value;
 	}
 
 	@Override
-	public Double calculate(Double value) {
-		return value + this.value;
+	public void calculate(CalculatorContext ctx) {
+		ctx.result += value;
 	}
 }

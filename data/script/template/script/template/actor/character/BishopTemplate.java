@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class BishopTemplate extends ClericTemplate {
 	@Inject
 	public BishopTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.BISHOP.id),
-				CharacterClass.BISHOP, Point.fromXYZ(-90890, 248027, -3570));
+		super(provider.createID(CharacterClass.BISHOP.id), CharacterClass.BISHOP,	Point.fromXYZ(-90890, 248027, -3570));
+		
+		this.hpBase = 1164.900;
+		this.hpAdd = 49.400;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 478.800;
+		this.mpAdd = 26.000;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1048.410;
+		this.cpAdd = 44.460;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 41;
 		attributes.strength = 22;
@@ -45,15 +56,16 @@ public class BishopTemplate extends ClericTemplate {
 		attributes.criticalChance = 40;
 		attributes.evasionChance = 28;
 		attributes.runSpeed = 120;
+		attributes.walkSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 22.8;
 		this.femaleCollisionRadius = 6.5;
 		this.femaleCollisionHeight = 22.5;
 	}
-
+	
 	protected BishopTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

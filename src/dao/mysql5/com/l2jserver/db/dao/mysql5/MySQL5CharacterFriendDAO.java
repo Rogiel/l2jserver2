@@ -31,6 +31,7 @@ import com.l2jserver.model.id.provider.FriendIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.MySQLDatabaseService.CachedMapper;
 import com.l2jserver.service.database.MySQLDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.MySQLDatabaseService.Mapper;
 import com.l2jserver.service.database.MySQLDatabaseService.SelectListQuery;
@@ -72,17 +73,28 @@ public class MySQL5CharacterFriendDAO extends
 	}
 
 	/**
-	 * The {@link Mapper} for {@link CharacterID}
+	 * The {@link Mapper} for {@link FriendID}
 	 */
-	private final Mapper<CharacterFriend> mapper = new Mapper<CharacterFriend>() {
+	private final Mapper<FriendID> idMapper = new Mapper<FriendID>() {
 		@Override
-		public CharacterFriend map(ResultSet rs) throws SQLException {
+		public FriendID map(ResultSet rs) throws SQLException {
 			final CharacterID characterId = charIdProvider.createID(rs
 					.getInt(CHAR_ID));
 			final CharacterID friendId = charIdProvider.createID(rs
 					.getInt(CHAR_ID_FRIEND));
-			return new CharacterFriend(idProvider.createID(characterId,
-					friendId));
+			return idProvider.createID(characterId, friendId);
+		}
+	};
+
+	/**
+	 * The {@link Mapper} for {@link CharacterFriend}
+	 */
+	private final Mapper<CharacterFriend> mapper = new CachedMapper<CharacterFriend, FriendID>(
+			database, idMapper) {
+		@Override
+		protected CharacterFriend map(FriendID id, ResultSet rs)
+				throws SQLException {
+			return new CharacterFriend(id);
 		}
 	};
 
@@ -133,6 +145,21 @@ public class MySQL5CharacterFriendDAO extends
 	}
 
 	@Override
+	public List<FriendID> selectIDs() {
+		return database.query(new SelectListQuery<FriendID>() {
+			@Override
+			protected String query() {
+				return "SELECT * FROM `" + TABLE + "`";
+			}
+
+			@Override
+			protected Mapper<FriendID> mapper() {
+				return idMapper;
+			}
+		});
+	}
+
+	@Override
 	public boolean insert(CharacterFriend friend) {
 		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
 			@Override
@@ -152,8 +179,8 @@ public class MySQL5CharacterFriendDAO extends
 
 	@Override
 	public boolean update(CharacterFriend friend) {
-		// is not possible update friends, because it is only a ID and IDs are
-		// immutable
+		// it is not possible update friend objects, because they are only a ID
+		// pair and IDs are immutable
 		return false;
 	}
 

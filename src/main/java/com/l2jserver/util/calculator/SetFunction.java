@@ -17,23 +17,23 @@
 package com.l2jserver.util.calculator;
 
 /**
- * This function performs an set. It ignores the input value and return its
- * own.
+ * This function performs an set. It ignores the input value and return its own.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SetFunction implements Function<Double> {
+public class SetFunction extends AbstractFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */
 	private final double value;
 
-	public SetFunction(double value) {
+	public SetFunction(int order, double value) {
+		super(order);
 		this.value = value;
 	}
 
 	@Override
-	public Double calculate(Double value) {
-		return this.value;
+	public void calculate(CalculatorContext ctx) {
+		ctx.result = value;
 	}
 }

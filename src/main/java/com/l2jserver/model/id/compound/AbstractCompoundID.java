@@ -19,8 +19,9 @@ package com.l2jserver.model.id.compound;
 import com.l2jserver.model.id.ID;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * The compound {@link ID} is composed of two IDs.
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AbstractCompoundID<T1, T2> extends ID<AbstractCompoundID<T1, T2>> {
 	/**
@@ -33,8 +34,12 @@ public class AbstractCompoundID<T1, T2> extends ID<AbstractCompoundID<T1, T2>> {
 	private final T2 id2;
 
 	/**
+	 * Creates a new compound ID
+	 * 
 	 * @param id1
+	 *            the first id
 	 * @param id2
+	 *            the second id
 	 */
 	protected AbstractCompoundID(T1 id1, T2 id2) {
 		super(null);

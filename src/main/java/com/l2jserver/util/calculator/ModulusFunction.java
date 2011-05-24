@@ -22,11 +22,14 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ModulusFunction implements Function<Double> {
+public class ModulusFunction extends AbstractFunction<CalculatorContext> {
+	public ModulusFunction(int order) {
+		super(order);
+	}
+
 	@Override
-	public Double calculate(Double value) {
-		if (value < 0)
-			return value * -1;
-		return value;
+	public void calculate(CalculatorContext ctx) {
+		if (ctx.result < 0)
+			ctx.result *= -1;
 	}
 }

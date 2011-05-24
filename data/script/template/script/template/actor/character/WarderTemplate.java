@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class WarderTemplate extends FemaleSoldierTemplate {
 	@Inject
 	public WarderTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.WARDER.id),
-				CharacterClass.WARDER, Point.fromXYZ(-125533, 38114, 1142));
+		super(provider.createID(CharacterClass.WARDER.id), CharacterClass.WARDER,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 449.900;
+		this.hpAdd = 30.800;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 196.360;
+		this.mpAdd = 13.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 224.950;
+		this.cpAdd = 15.400;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 28;
 		attributes.strength = 39;
@@ -45,15 +56,16 @@ public class WarderTemplate extends FemaleSoldierTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 22.6;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected WarderTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -105,11 +105,21 @@ public abstract class Actor extends PositionableObject {
 	/**
 	 * The actor HP
 	 */
-	protected int hp;
+	protected double HP;
 	/**
 	 * The actor MP
 	 */
-	protected int mp;
+	protected double MP;
+
+	/**
+	 * The actor experience points
+	 */
+	protected long experience;
+	/**
+	 * The actor sp points
+	 */
+	protected int sp;
+
 	/**
 	 * The currently effects active on the actor
 	 */
@@ -119,31 +129,8 @@ public abstract class Actor extends PositionableObject {
 	 */
 	protected final ActorSkillContainer skills = new ActorSkillContainer(this);
 
-	public Actor(ActorTemplateID<?> templateID) {
+	protected Actor(ActorTemplateID<?> templateID) {
 		this.templateID = templateID;
-	}
-
-	public int getHP() {
-		return hp;
-	}
-
-	public void setHP(int hp) {
-		this.hp = hp;
-	}
-
-	/**
-	 * @return the mp
-	 */
-	public int getMP() {
-		return mp;
-	}
-
-	/**
-	 * @param mp
-	 *            the mp to set
-	 */
-	public void setMP(int mp) {
-		this.mp = mp;
 	}
 
 	/**
@@ -176,12 +163,79 @@ public abstract class Actor extends PositionableObject {
 		this.sex = sex;
 	}
 
+	/**
+	 * @return the level
+	 */
 	public int getLevel() {
 		return level;
 	}
 
+	/**
+	 * @param level
+	 *            the level to set
+	 */
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	/**
+	 * @return the hP
+	 */
+	public double getHP() {
+		return HP;
+	}
+
+	/**
+	 * @param hP
+	 *            the hP to set
+	 */
+	public void setHP(double hP) {
+		HP = hP;
+	}
+
+	/**
+	 * @return the mP
+	 */
+	public double getMP() {
+		return MP;
+	}
+
+	/**
+	 * @param mP
+	 *            the mP to set
+	 */
+	public void setMP(double mP) {
+		MP = mP;
+	}
+
+	/**
+	 * @return the experience
+	 */
+	public long getExperience() {
+		return experience;
+	}
+
+	/**
+	 * @param experience
+	 *            the experience to set
+	 */
+	public void setExperience(long experience) {
+		this.experience = experience;
+	}
+
+	/**
+	 * @return the sp
+	 */
+	public int getSP() {
+		return sp;
+	}
+
+	/**
+	 * @param sp
+	 *            the sp to set
+	 */
+	public void setSP(int sp) {
+		this.sp = sp;
 	}
 
 	/**

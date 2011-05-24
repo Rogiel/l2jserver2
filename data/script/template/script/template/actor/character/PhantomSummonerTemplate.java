@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class PhantomSummonerTemplate extends DarkWizardTemplate {
 	@Inject
 	public PhantomSummonerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.PHANTOM_SUMMONER.id),
-				CharacterClass.PHANTOM_SUMMONER, Point.fromXYZ(28295, 11063,
-						-4224));
+		super(provider.createID(CharacterClass.PHANTOM_SUMMONER.id), CharacterClass.PHANTOM_SUMMONER,	Point.fromXYZ(28295, 11063, -4224));
+		
+		this.hpBase = 1074.300;
+		this.hpAdd = 52.100;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 478.800;
+		this.mpAdd = 26.100;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 644.500;
+		this.cpAdd = 31.300;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 44;
 		attributes.strength = 23;
@@ -46,15 +56,16 @@ public class PhantomSummonerTemplate extends DarkWizardTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 29;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected PhantomSummonerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

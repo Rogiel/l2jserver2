@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class DarkMysticTemplate extends AbstractDarkElfCharacterTemplate {
 	@Inject
 	public DarkMysticTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.DARK_MYSTIC.id),
-				CharacterClass.DARK_MYSTIC, Point.fromXYZ(28295, 11063, -4224));
+		super(provider.createID(CharacterClass.DARK_MYSTIC.id), CharacterClass.DARK_MYSTIC,	Point.fromXYZ(28295, 11063, -4224));
+		
+		this.hpBase = 106.000;
+		this.hpAdd = 15.570;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 40.000;
+		this.mpAdd = 7.380;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 53.000;
+		this.cpAdd = 7.840;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 1;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 44;
 		attributes.strength = 23;
@@ -45,15 +56,16 @@ public class DarkMysticTemplate extends AbstractDarkElfCharacterTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 29;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected DarkMysticTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

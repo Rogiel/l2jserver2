@@ -16,14 +16,10 @@
  */
 package com.l2jserver.db.dao;
 
-import java.util.List;
-
-import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.cache.Cacheable;
-import com.l2jserver.service.cache.IgnoreCaching;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -41,12 +37,4 @@ public interface ItemDAO extends DataAccessObject<Item, ItemID>, Cacheable {
 	 * @return amount of items loaded
 	 */
 	int loadInventory(L2Character character);
-
-	/**
-	 * Loads an List of all {@link ID}s in the database
-	 * 
-	 * @return the list containing all ids
-	 */
-	@IgnoreCaching
-	List<ItemID> listIDs();
 }

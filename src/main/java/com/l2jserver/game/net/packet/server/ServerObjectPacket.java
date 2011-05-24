@@ -59,7 +59,7 @@ public class ServerObjectPacket extends AbstractServerPacket {
 		buffer.writeDouble(template.getAttackSpeedMultiplier());
 		buffer.writeDouble(template.getCollisionRadius()); // coll radius
 		buffer.writeDouble(template.getCollisionHeight()); // coll height
-		buffer.writeInt((template.isAttackable() ? npc.getHP() : 0x00));
+		buffer.writeInt((int) (template.isAttackable() ? npc.getHP() : 0x00));
 		buffer.writeInt((int) (template.isAttackable() ? template.getMaxHP()
 				: 0x00));
 		buffer.writeInt(0x01); // object type

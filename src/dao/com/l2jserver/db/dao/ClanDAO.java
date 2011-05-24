@@ -16,13 +16,9 @@
  */
 package com.l2jserver.db.dao;
 
-import java.util.List;
-
-import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.service.cache.Cacheable;
-import com.l2jserver.service.cache.IgnoreCaching;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -31,11 +27,4 @@ import com.l2jserver.service.database.DataAccessObject;
  * @author Rogiel
  */
 public interface ClanDAO extends DataAccessObject<Clan, ClanID>, Cacheable {
-	/**
-	 * Loads an List of all {@link ID}s in the database
-	 * 
-	 * @return the list containing all ids
-	 */
-	@IgnoreCaching
-	List<ClanID> listIDs();
 }

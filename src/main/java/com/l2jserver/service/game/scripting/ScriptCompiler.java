@@ -43,7 +43,7 @@ public interface ScriptCompiler {
 	 * @param files
 	 *            list of jar files
 	 */
-	void setLibraires(Iterable<File> files);
+	void setLibraries(Iterable<File> files);
 
 	/**
 	 * Compiles single class that is represented as string
@@ -51,10 +51,10 @@ public interface ScriptCompiler {
 	 * @param className
 	 *            class name
 	 * @param sourceCode
-	 *            class sourse code
+	 *            class source code
 	 * @return {@link CompilationResult}
 	 */
-	CompilationResult compile(String className, String sourceCode);
+	CompilationResult compile(String className, byte[] sourceCode);
 
 	/**
 	 * Compiles classes that are represented as strings
@@ -67,7 +67,7 @@ public interface ScriptCompiler {
 	 * @throws IllegalArgumentException
 	 *             if number of class names != number of sources
 	 */
-	CompilationResult compile(String[] className, String[] sourceCode)
+	CompilationResult compile(String[] className, byte[][] sourceCode)
 			throws IllegalArgumentException;
 
 	/**
@@ -80,7 +80,7 @@ public interface ScriptCompiler {
 	CompilationResult compile(Iterable<File> compilationUnits);
 
 	/**
-	 * Returns array of supported file types. This files will be threated as
+	 * Returns array of supported file types. This files will be treated as
 	 * source files.
 	 * 
 	 * @return array of supported file types.

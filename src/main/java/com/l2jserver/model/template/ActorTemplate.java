@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.model.id.template.ActorTemplateID;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.ActorAttributes;
+import com.l2jserver.model.world.actor.stat.Stats;
 
 /**
  * Template for {@link Actor}
@@ -72,6 +73,8 @@ public abstract class ActorTemplate<T extends Actor> extends
 	}
 
 	protected abstract T createInstance();
+	
+	public abstract Stats getTemplateStat();
 
 	/**
 	 * @return the baseAttributes
@@ -488,5 +491,4 @@ public abstract class ActorTemplate<T extends Actor> extends
 			return craft;
 		}
 	}
-
 }

@@ -22,18 +22,19 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class DivisionFunction implements Function<Double> {
+public class DivisionFunction extends AbstractFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */
 	private final double value;
 
-	public DivisionFunction(double value) {
+	public DivisionFunction(int order, double value) {
+		super(order);
 		this.value = value;
 	}
 
 	@Override
-	public Double calculate(Double value) {
-		return value / this.value;
+	public void calculate(CalculatorContext ctx) {
+		ctx.result /= this.value;
 	}
 }

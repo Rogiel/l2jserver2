@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class FemaleSoldierTemplate extends AbstractKamaelCharacterTemplate {
 	@Inject
 	public FemaleSoldierTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.FEMALE_SOLDIER.id),
-				CharacterClass.FEMALE_SOLDIER, Point.fromXYZ(-125517, 38267,
-						1176));
+		super(provider.createID(CharacterClass.FEMALE_SOLDIER.id), CharacterClass.FEMALE_SOLDIER,	Point.fromXYZ(-125517, 38267, 1176));
+		
+		this.hpBase = 97.000;
+		this.hpAdd = 16.380;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 40.000;
+		this.mpAdd = 7.280;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 48.500;
+		this.cpAdd = 8.190;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 1;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 28;
 		attributes.strength = 39;
@@ -46,15 +56,16 @@ public class FemaleSoldierTemplate extends AbstractKamaelCharacterTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 22.6;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected FemaleSoldierTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

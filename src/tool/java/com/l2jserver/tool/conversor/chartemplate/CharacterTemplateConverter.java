@@ -55,7 +55,8 @@ public class CharacterTemplateConverter {
 				JDBC_USERNAME, JDBC_PASSWORD);
 		try {
 			final PreparedStatement st = conn
-					.prepareStatement("SELECT *  FROM char_templates");
+					.prepareStatement("SELECT * FROM char_templates "
+							+ "LEFT JOIN lvlupgain ON (char_templates.Classid = lvlupgain.classid)");
 			try {
 				st.execute();
 				final ResultSet rs = st.getResultSet();

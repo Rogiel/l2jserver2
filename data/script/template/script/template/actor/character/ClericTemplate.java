@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ClericTemplate extends HumanMysticTemplate {
 	@Inject
 	public ClericTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.CLERIC.id),
-				CharacterClass.CLERIC, Point.fromXYZ(-90890, 248027, -3570));
+		super(provider.createID(CharacterClass.CLERIC.id), CharacterClass.CLERIC,	Point.fromXYZ(-90890, 248027, -3570));
+		
+		this.hpBase = 424.000;
+		this.hpAdd = 34.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 192.000;
+		this.mpAdd = 13.300;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 212.000;
+		this.cpAdd = 17.150;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 41;
 		attributes.strength = 22;
@@ -45,15 +56,16 @@ public class ClericTemplate extends HumanMysticTemplate {
 		attributes.criticalChance = 40;
 		attributes.evasionChance = 28;
 		attributes.runSpeed = 120;
+		attributes.walkSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 22.8;
 		this.femaleCollisionRadius = 6.5;
 		this.femaleCollisionHeight = 22.5;
 	}
-
+	
 	protected ClericTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

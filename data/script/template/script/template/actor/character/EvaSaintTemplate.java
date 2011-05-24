@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class EvaSaintTemplate extends ElderTemplate {
 	@Inject
 	public EvaSaintTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.EVA_SAINT.id),
-				CharacterClass.EVA_SAINT, Point.fromXYZ(46182, 41198, -3440));
+		super(provider.createID(CharacterClass.EVA_SAINT.id), CharacterClass.EVA_SAINT,	Point.fromXYZ(46182, 41198, -3440));
+		
+		this.hpBase = 3422.000;
+		this.hpAdd = 69.720;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1540.800;
+		this.mpAdd = 33.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 3079.800;
+		this.cpAdd = 62.748;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 37;
 		attributes.strength = 21;
@@ -45,15 +56,16 @@ public class EvaSaintTemplate extends ElderTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 62400;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected EvaSaintTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

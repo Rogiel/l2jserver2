@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class TitanTemplate extends DestroyerTemplate {
 	@Inject
 	public TitanTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.TITAN.id), CharacterClass.TITAN,
-				Point.fromXYZ(-56693, -113610, -690));
+		super(provider.createID(CharacterClass.TITAN.id), CharacterClass.TITAN,	Point.fromXYZ(-56693, -113610, -690));
+		
+		this.hpBase = 3447.200;
+		this.hpAdd = 72.940;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1155.600;
+		this.mpAdd = 24.800;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 2413.000;
+		this.cpAdd = 51.030;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 18;
 		attributes.strength = 40;
@@ -45,15 +56,16 @@ public class TitanTemplate extends DestroyerTemplate {
 		attributes.criticalChance = 42;
 		attributes.evasionChance = 31;
 		attributes.runSpeed = 117;
+		attributes.walkSpeed = 117;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 11.0;
 		this.maleCollisionHeight = 28.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 27.0;
 	}
-
+	
 	protected TitanTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

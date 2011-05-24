@@ -28,6 +28,7 @@ import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.actor.stat.Stats;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.network.NetworkService;
@@ -57,6 +58,8 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	 */
 	@Inject
 	protected ItemTemplateIDProvider itemTemplateIdProvider;
+	
+	protected Stats stats;
 
 	/**
 	 * The NPC name
@@ -118,7 +121,7 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	/**
 	 * The NPC sp
 	 */
-	protected long sp;
+	protected int sp;
 
 	/**
 	 * The NPC agressive state
@@ -228,10 +231,19 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	public void receiveAttack(NPC npc, Calculator calculator, Actor attacker) {
 		// TODO add attributes to calculator!
 	}
+	
 
 	@Override
 	public NPC createInstance() {
 		return new NPC(this.getID());
+	}
+	
+	@Override
+	public Stats getTemplateStat() {
+		
+		
+		
+		return null;
 	}
 
 	/**
@@ -328,7 +340,7 @@ public abstract class NPCTemplate extends ActorTemplate<NPC> implements
 	/**
 	 * @return the sp
 	 */
-	public long getSp() {
+	public int getSp() {
 		return sp;
 	}
 

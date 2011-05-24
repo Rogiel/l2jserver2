@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class HumanFighterTemplate extends AbstractHumanCharacterTemplate {
 	@Inject
 	public HumanFighterTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.HUMAN_FIGHTER.id),
-				CharacterClass.HUMAN_FIGHTER, Point.fromXYZ(-71338, 258271,
-						-3104));
+		super(provider.createID(CharacterClass.HUMAN_FIGHTER.id), CharacterClass.HUMAN_FIGHTER,	Point.fromXYZ(-71338, 258271, -3104));
+		
+		this.hpBase = 80.000;
+		this.hpAdd = 11.830;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 30.000;
+		this.mpAdd = 5.460;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 32.000;
+		this.cpAdd = 3.010;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 1;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -46,15 +56,16 @@ public class HumanFighterTemplate extends AbstractHumanCharacterTemplate {
 		attributes.criticalChance = 44;
 		attributes.evasionChance = 33;
 		attributes.runSpeed = 115;
+		attributes.walkSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 9.0;
 		this.maleCollisionHeight = 23.0;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected HumanFighterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

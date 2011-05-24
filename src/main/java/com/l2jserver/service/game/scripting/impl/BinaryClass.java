@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -58,8 +58,23 @@ public class BinaryClass implements JavaFileObject {
 	 * @param name
 	 *            class name
 	 */
-	protected BinaryClass(String name) {
+	public BinaryClass(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * Constructor that accepts class name as parameter
+	 * 
+	 * @param name
+	 *            class name
+	 */
+	public BinaryClass(String name, byte[] data) {
+		this.name = name;
+		try {
+			this.baos.write(data);
+		} catch (IOException e) {
+			throw new RuntimeException("Cannor write class data", e);
+		}
 	}
 
 	/**

@@ -33,7 +33,7 @@ public class ScriptingServiceImplTest {
 			.createInjector(new AbstractModule() {
 				@Override
 				protected void configure() {
-					bind(ScriptingService.class).to(PreCompiledScriptingService.class)
+					bind(ScriptingService.class).to(ScriptingServiceImpl.class)
 							.in(Scopes.SINGLETON);
 				}
 			});

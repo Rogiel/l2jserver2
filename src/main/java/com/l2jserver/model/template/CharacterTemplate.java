@@ -19,6 +19,7 @@ package com.l2jserver.model.template;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.world.Actor.ActorRace;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.actor.stat.Stats;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.dimensional.Point;
 
@@ -36,6 +37,20 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	 * The initial location for the character to be spawned
 	 */
 	protected final Point spawnLocation;
+
+	protected double hpBase;
+	protected double hpAdd;
+	protected double hpMultiplier;
+
+	protected double mpBase;
+	protected double mpAdd;
+	protected double mpMultiplier;
+
+	protected double cpBase;
+	protected double cpAdd;
+	protected double cpMultiplier;
+
+	protected int minimumLevel;
 
 	protected Integer attackDamage = null;
 	protected AttackType attackType;
@@ -70,13 +85,18 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 
 	@Override
 	public L2Character createInstance() {
-		final L2Character character = new L2Character(this.getID(), attributes);
+		final L2Character character = new L2Character(this.getID());
 
 		character.setRace(getRace());
 		character.setCharacterClass(characterClass);
 		character.setPoint(spawnLocation);
 
 		return character;
+	}
+
+	@Override
+	public Stats getTemplateStat() {
+		return null;
 	}
 
 	/**
@@ -98,6 +118,90 @@ public abstract class CharacterTemplate extends ActorTemplate<L2Character> {
 	 */
 	public Point getSpawnLocation() {
 		return spawnLocation;
+	}
+
+	/**
+	 * @return the hpBase
+	 */
+	public double getHpBase() {
+		return hpBase;
+	}
+
+	/**
+	 * @return the hpAdd
+	 */
+	public double getHpAdd() {
+		return hpAdd;
+	}
+
+	/**
+	 * @return the hpMultiplier
+	 */
+	public double getHpMultiplier() {
+		return hpMultiplier;
+	}
+
+	/**
+	 * @return the mpBase
+	 */
+	public double getMpBase() {
+		return mpBase;
+	}
+
+	/**
+	 * @return the mpAdd
+	 */
+	public double getMpAdd() {
+		return mpAdd;
+	}
+
+	/**
+	 * @return the mpMultiplier
+	 */
+	public double getMpMultiplier() {
+		return mpMultiplier;
+	}
+
+	/**
+	 * @return the cpBase
+	 */
+	public double getCpBase() {
+		return cpBase;
+	}
+
+	/**
+	 * @return the cpAdd
+	 */
+	public double getCpAdd() {
+		return cpAdd;
+	}
+
+	/**
+	 * @return the cpMultiplier
+	 */
+	public double getCpMultiplier() {
+		return cpMultiplier;
+	}
+
+	/**
+	 * @return the minimumLevel
+	 */
+	public int getMinimumLevel() {
+		return minimumLevel;
+	}
+
+	/**
+	 * @return the attackDamage
+	 */
+	public Integer getAttackDamage() {
+		return attackDamage;
+	}
+
+	/**
+	 * @return the attackType
+	 */
+	public AttackType getAttackType() {
+		return attackType;
 	}
 
 	/**

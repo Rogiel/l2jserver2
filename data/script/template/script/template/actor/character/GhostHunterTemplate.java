@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class GhostHunterTemplate extends AbyssWalkerTemplate {
 	@Inject
 	public GhostHunterTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.GHOST_HUNTER.id),
-				CharacterClass.GHOST_HUNTER, Point.fromXYZ(28377, 10916, -4224));
+		super(provider.createID(CharacterClass.GHOST_HUNTER.id), CharacterClass.GHOST_HUNTER,	Point.fromXYZ(28377, 10916, -4224));
+		
+		this.hpBase = 3113.800;
+		this.hpAdd = 63.080;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1155.600;
+		this.mpAdd = 24.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1712.590;
+		this.cpAdd = 34.694;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class GhostHunterTemplate extends AbyssWalkerTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected GhostHunterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

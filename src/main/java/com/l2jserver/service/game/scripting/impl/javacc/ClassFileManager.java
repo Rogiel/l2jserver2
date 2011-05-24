@@ -34,6 +34,7 @@ import javax.tools.JavaFileObject.Kind;
 import javax.tools.StandardLocation;
 
 import com.l2jserver.service.game.scripting.ScriptClassLoader;
+import com.l2jserver.service.game.scripting.impl.BinaryClass;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**

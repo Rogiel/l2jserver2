@@ -22,9 +22,13 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NegateFunction implements Function<Double> {
+public class NegateFunction extends AbstractFunction<CalculatorContext> {
+	public NegateFunction(int order) {
+		super(order);
+	}
+
 	@Override
-	public Double calculate(Double value) {
-		return -value;
+	public void calculate(CalculatorContext ctx) {
+		ctx.result = -ctx.result;
 	}
 }

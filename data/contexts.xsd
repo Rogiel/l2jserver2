@@ -30,6 +30,7 @@
         <xs:sequence>
             <xs:element ref="scriptinfo" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="library" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="compiler" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute name="root" type="xs:string" use="required"/>
     </xs:complexType>

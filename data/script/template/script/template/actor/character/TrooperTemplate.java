@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class TrooperTemplate extends MaleSoldierTemplate {
 	@Inject
 	public TrooperTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.TROOPER.id),
-				CharacterClass.TROOPER, Point.fromXYZ(-125533, 38114, 1142));
+		super(provider.createID(CharacterClass.TROOPER.id), CharacterClass.TROOPER,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 398.530;
+		this.hpAdd = 35.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 147.270;
+		this.mpAdd = 9.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 199.265;
+		this.cpAdd = 17.600;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 29;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class TrooperTemplate extends MaleSoldierTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 25.2;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected TrooperTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ElvenFighterTemplate extends AbstractElfCharacterTemplate {
 	@Inject
 	public ElvenFighterTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ELVEN_FIGHTER.id),
-				CharacterClass.ELVEN_FIGHTER, Point
-						.fromXYZ(45978, 41196, -3440));
+		super(provider.createID(CharacterClass.ELVEN_FIGHTER.id), CharacterClass.ELVEN_FIGHTER,	Point.fromXYZ(45978, 41196, -3440));
+		
+		this.hpBase = 89.000;
+		this.hpAdd = 12.740;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 30.000;
+		this.mpAdd = 5.460;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 36.100;
+		this.cpAdd = 3.380;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 1;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -46,15 +56,16 @@ public class ElvenFighterTemplate extends AbstractElfCharacterTemplate {
 		attributes.criticalChance = 46;
 		attributes.evasionChance = 36;
 		attributes.runSpeed = 125;
+		attributes.walkSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected ElvenFighterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

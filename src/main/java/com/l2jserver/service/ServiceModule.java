@@ -36,7 +36,7 @@ import com.l2jserver.service.game.npc.NPCServiceImpl;
 import com.l2jserver.service.game.pathing.MapperPathingService;
 import com.l2jserver.service.game.pathing.PathingService;
 import com.l2jserver.service.game.scripting.ScriptingService;
-import com.l2jserver.service.game.scripting.PreCompiledScriptingService;
+import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.spawn.SpawnServiceImpl;
 import com.l2jserver.service.game.template.ScriptTemplateService;
@@ -78,7 +78,7 @@ public class ServiceModule extends AbstractModule {
 				.in(Scopes.SINGLETON);
 		bind(NetworkService.class).to(NettyNetworkService.class).in(
 				Scopes.SINGLETON);
-		bind(ScriptingService.class).to(PreCompiledScriptingService.class).in(
+		bind(ScriptingService.class).to(ScriptingServiceImpl.class).in(
 				Scopes.SINGLETON);
 		bind(TemplateService.class).to(ScriptTemplateService.class).in(
 				Scopes.SINGLETON);

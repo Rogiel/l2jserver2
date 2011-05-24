@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl;
 
 import java.util.Locale;
 
@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * This class is simple compiler error listener that forwards errors to log4j
+ * This class is simple compiler error listener that forwards errors to slf4j
  * logger
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -40,7 +40,7 @@ public class ErrorListener implements DiagnosticListener<JavaFileObject> {
 			.getLogger(ErrorListener.class);
 
 	/**
-	 * Reports compilation errors to log4j
+	 * Reports compilation errors to slf4j
 	 * 
 	 * @param diagnostic
 	 *            compiler errors

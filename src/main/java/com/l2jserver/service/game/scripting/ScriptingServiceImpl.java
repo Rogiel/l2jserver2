@@ -48,13 +48,13 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends(LoggingService.class)
-public class PreCompiledScriptingService extends AbstractService implements
+public class ScriptingServiceImpl extends AbstractService implements
 		ScriptingService {
 	/**
 	 * Logger for script context
 	 */
 	private static final Logger log = LoggerFactory
-			.getLogger(PreCompiledScriptingService.class);
+			.getLogger(ScriptingServiceImpl.class);
 
 	private final Injector injector;
 
@@ -64,7 +64,7 @@ public class PreCompiledScriptingService extends AbstractService implements
 	private final Set<ScriptContext> contexts = CollectionFactory.newSet();
 
 	@Inject
-	public PreCompiledScriptingService(Injector injector) {
+	public ScriptingServiceImpl(Injector injector) {
 		this.injector = injector;
 	}
 

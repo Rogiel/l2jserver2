@@ -16,8 +16,8 @@
  */
 package com.l2jserver.util.calculator;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.l2jserver.util.factory.CollectionFactory;
@@ -28,18 +28,19 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Calculator implements Function<Double> {
+public class Calculator<T extends CalculatorContext> extends
+		AbstractFunction<T> {
 	/**
 	 * List of operations in this calculator
 	 */
-	private final List<FunctionContainer> functions = CollectionFactory
-			.newList();
+	private final List<Function<T>> functions = CollectionFactory.newList();
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using
 	 * {@link #add(int, Function)}.
 	 */
 	public Calculator() {
+		super(0x00);
 	}
 
 	/**
@@ -49,9 +50,10 @@ public class Calculator implements Function<Double> {
 	 * @param functions
 	 *            the calculator functions
 	 */
-	public Calculator(Function<Double>... functions) {
-		for (int i = 0; i < functions.length; i++) {
-			this.functions.add(new FunctionContainer(i, functions[i]));
+	public Calculator(Function<T>... functions) {
+		super(0x00);
+		for (final Function<T> func : functions) {
+			this.functions.add(func);
 		}
 	}
 
@@ -66,14 +68,14 @@ public class Calculator implements Function<Double> {
 	 * @param function
 	 *            the operation
 	 */
-	public void add(int order, Function<Double> function) {
-		functions.add(new FunctionContainer(order, function));
-		Collections.sort(functions);
+	public void add(Function<T> function) {
+		functions.add(function);
+		Collections.sort(functions, FunctionOrderComparator.SHARED_INSTANCE);
 	}
 
 	/**
-	 * Imports all functions in the given <tt>calculator</tt>. This is useful to
-	 * preserve right calculation ordering but changes to original
+	 * Imports all functions from the given <tt>calculator</tt>. This is useful
+	 * to preserve right calculation ordering but changes to original
 	 * <tt>calculator</tt> will no reflect in this one.
 	 * <p>
 	 * This method will heuristically search for nested calculators.
@@ -81,101 +83,48 @@ public class Calculator implements Function<Double> {
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void importFunctions(Calculator calculator) {
-		for (final FunctionContainer container : calculator.functions) {
-			if (container.function instanceof Calculator) {
-				importFunctions((Calculator) container.function);
+	public void importFunctions(Calculator<T> calculator) {
+		for (final Function<T> function : calculator.functions) {
+			if (function instanceof Calculator) {
+				importFunctions((Calculator<T>) function);
 			} else {
-				functions.add(container);
+				functions.add(function);
 			}
 		}
 	}
 
 	/**
-	 * Computes the result and output it. Input value is 0.
+	 * Removes all imported functions from the given <tt>calculator</tt>.
+	 * <p>
+	 * This method will heuristically search for nested calculators.
 	 * 
-	 * @return the computed value
-	 * @see #calculate(Double)
+	 * @param calculator
+	 *            the calculator
 	 */
-	public double calculate() {
-		return calculate(0.00);
+	public void removeFunctions(Calculator<T> calculator) {
+		for (final Function<T> function : calculator.functions) {
+			if (function instanceof Calculator) {
+				removeFunctions((Calculator<T>) function);
+			} else {
+				functions.remove(function);
+			}
+		}
 	}
 
 	@Override
-	public Double calculate(Double input) {
-		double result = input;
-		for (final FunctionContainer container : functions) {
-			result = container.function.calculate(result);
+	public void calculate(T ctx) {
+		for (final Function<T> function : functions) {
+			function.calculate(ctx);
 		}
-		return result;
 	}
 
-	/**
-	 * <h1>-- Internal use only --</h1> Container used to sort calculator
-	 * functions. This class implements {@link Comparable} and can be used to
-	 * sort lists using {@link Collections#sort(List)} or
-	 * {@link Arrays#sort(Object[])}.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	private static class FunctionContainer implements
-			Comparable<FunctionContainer> {
-		/**
-		 * The execution order
-		 */
-		protected final int order;
-		/**
-		 * The function object
-		 */
-		protected final Function<Double> function;
-
-		/**
-		 * Creates a new instance
-		 * 
-		 * @param order
-		 *            the execution order
-		 * @param function
-		 *            the function
-		 */
-		public FunctionContainer(int order, Function<Double> function) {
-			this.order = order;
-			this.function = function;
-		}
+	public static class FunctionOrderComparator implements
+			Comparator<Function<?>> {
+		public static final FunctionOrderComparator SHARED_INSTANCE = new FunctionOrderComparator();
 
 		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result
-					+ ((function == null) ? 0 : function.hashCode());
-			result = prime * result + order;
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			FunctionContainer other = (FunctionContainer) obj;
-			if (function == null) {
-				if (other.function != null)
-					return false;
-			} else if (!function.equals(other.function))
-				return false;
-			if (order != other.order)
-				return false;
-			return true;
-		}
-
-		@Override
-		public int compareTo(FunctionContainer o) {
-			if (this.equals(o))
-				return 0;
-			return this.order - o.order;
+		public int compare(Function<?> func1, Function<?> func2) {
+			return (func1.order() - func2.order());
 		}
 	}
 }

@@ -138,21 +138,22 @@ public class CharacterInformationBroadcastPacket extends AbstractServerPacket {
 		// end of t1 new h's
 
 		buffer.writeInt(0x00); // pvp flag
-		buffer.writeInt(0x00); // karma
+		buffer.writeInt(character.getKarma()); // karma
 
-		buffer.writeInt(character.getAttributes().getCastSpeed());
-		buffer.writeInt(character.getAttributes().getAttackSpeed());
+		buffer.writeInt(character.getStats().getMagicalAttackSpeed());
+		buffer.writeInt(character.getStats().getPhysicalAttackSpeed());
 
 		buffer.writeInt(0x00); // unk
 
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
+		// FIXME half of those are walk speed
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
 
 		buffer.writeDouble(0x01); // move speed multiplier
 		buffer.writeDouble(0x01); // attack speed multiplier
@@ -171,7 +172,7 @@ public class CharacterInformationBroadcastPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAppearance().getHairColor().option);
 		buffer.writeInt(character.getAppearance().getFace().option);
 
-		BufferUtils.writeString(buffer, "TODO"); // TODO title
+		BufferUtils.writeString(buffer, character.getTitle());
 
 		// dont send those 4 if using cursed weapon
 		buffer.writeInt(0); // clan id
@@ -182,11 +183,12 @@ public class CharacterInformationBroadcastPacket extends AbstractServerPacket {
 		buffer.writeByte(0x01); // sitting
 		buffer.writeByte((character.getMoveType() == CharacterMoveType.RUN ? 0x01
 				: 0x00));
-		buffer.writeByte(0x00); // is in combat
+		buffer.writeByte((character.isAttacking() ? 0x01 : 0x00)); // is in
+																	// combat
 
 		buffer.writeByte(0x00); // alike dead
 
-		buffer.writeByte(0x00); // invisible = 1 visible =0
+		buffer.writeByte((character.getAppearance().isVisible() ? 0x00 : 0x01));
 
 		// 1-on Strider, 2-on Wyvern,
 		// 3-on Great Wolf, 0-no mount
@@ -233,7 +235,6 @@ public class CharacterInformationBroadcastPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAppearance().getTitleColor().toInteger());
 
 		buffer.writeInt(0x00); // cursed weapon id
-
 		buffer.writeInt(0x00); // clan reputation
 
 		// T1

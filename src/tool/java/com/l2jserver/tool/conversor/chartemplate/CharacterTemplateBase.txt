@@ -27,6 +27,18 @@ public class ${javaClassName}Template extends ${parent}Template {
 	@Inject
 	public ${javaClassName}Template(CharacterTemplateIDProvider provider) {
 		super(provider.createID(${ClassId}.id), ${ClassId},	Point.fromXYZ(${x}, ${y}, ${z}));
+		
+		this.hpBase = ${defaulthpbase};
+		this.hpAdd = ${defaulthpadd};
+		this.hpMultiplier = ${defaulthpmod};
+		this.mpBase = ${defaultmpbase};
+		this.mpAdd = ${defaultmpadd};
+		this.mpMultiplier = ${defaultmpmod};
+		this.cpBase = ${defaultcpbase};
+		this.cpAdd = ${defaultcpadd};
+		this.cpMultiplier = ${defaultcpmod};
+		this.minimumLevel = ${class_lvl};
+		
 		// ATTRIBUTES
 		attributes.intelligence = ${_INT};
 		attributes.strength = ${STR};

@@ -21,7 +21,7 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Function<T extends Number> {
+public interface Function<T extends CalculatorContext> {
 	/**
 	 * Performs the operation in the calculation process.
 	 * <p>
@@ -33,5 +33,10 @@ public interface Function<T extends Number> {
 	 *            the input value
 	 * @return the output value
 	 */
-	T calculate(T value);
+	void calculate(T ctx);
+
+	/**
+	 * @return the order this function will be executed
+	 */
+	int order();
 }

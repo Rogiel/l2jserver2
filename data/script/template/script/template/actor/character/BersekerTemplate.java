@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class BersekerTemplate extends TrooperTemplate {
 	@Inject
 	public BersekerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.BERSEKER.id),
-				CharacterClass.BERSEKER, Point.fromXYZ(-125533, 38114, 1142));
+		super(provider.createID(CharacterClass.BERSEKER.id), CharacterClass.BERSEKER,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 1178.810;
+		this.hpAdd = 57.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 370.110;
+		this.mpAdd = 19.500;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 589.405;
+		this.cpAdd = 28.600;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 29;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class BersekerTemplate extends TrooperTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 25.2;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected BersekerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

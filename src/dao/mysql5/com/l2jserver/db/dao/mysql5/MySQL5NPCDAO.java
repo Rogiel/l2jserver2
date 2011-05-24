@@ -28,7 +28,6 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.model.id.object.NPCID;
-import com.l2jserver.model.id.object.allocator.IDAllocator;
 import com.l2jserver.model.id.object.provider.NPCIDProvider;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
@@ -83,16 +82,22 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC, NPCID> implements
 	}
 
 	/**
-	 * The {@link Mapper} for {@link NPC}
+	 * The {@link Mapper} for {@link NPCID}
 	 */
-	private final Mapper<NPC> mapper = new CachedMapper<NPC, NPCID>(database) {
+	private final Mapper<NPCID> idMapper = new Mapper<NPCID>() {
 		@Override
-		protected NPCID createID(ResultSet rs) throws SQLException {
-			if (rs.getInt(NPC_ID) < IDAllocator.FIRST_ID)
-				return idProvider.createID();
+		public NPCID map(ResultSet rs) throws SQLException {
+			if (rs.getString(NPC_ID) == null)
+				return null;
 			return idProvider.createID(rs.getInt(NPC_ID));
 		}
+	};
 
+	/**
+	 * The {@link Mapper} for {@link NPC}
+	 */
+	private final Mapper<NPC> mapper = new CachedMapper<NPC, NPCID>(database,
+			idMapper) {
 		@Override
 		protected NPC map(NPCID id, ResultSet rs) throws SQLException {
 			NPCTemplateID templateId = templateIdProvider.createID(rs
@@ -112,18 +117,6 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC, NPCID> implements
 					rs.getInt(POINT_Z), rs.getDouble(POINT_ANGLE)));
 
 			return npc;
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link NPCID}
-	 */
-	private final Mapper<NPCID> idMapper = new Mapper<NPCID>() {
-		@Override
-		public NPCID map(ResultSet rs) throws SQLException {
-			if (rs.getString(NPC_ID) == null)
-				return null;
-			return idProvider.createID(rs.getInt(NPC_ID));
 		}
 	};
 
@@ -185,7 +178,7 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC, NPCID> implements
 	}
 
 	@Override
-	public List<NPCID> listIDs() {
+	public List<NPCID> selectIDs() {
 		return database.query(new SelectListQuery<NPCID>() {
 			@Override
 			protected String query() {

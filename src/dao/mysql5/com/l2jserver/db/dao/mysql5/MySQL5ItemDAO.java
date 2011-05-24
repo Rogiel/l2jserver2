@@ -91,14 +91,20 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
 	}
 
 	/**
-	 * The {@link Mapper} instance
+	 * The {@link Mapper} for {@link ItemID}
 	 */
-	private final Mapper<Item> mapper = new CachedMapper<Item, ItemID>(database) {
+	private final Mapper<ItemID> idMapper = new Mapper<ItemID>() {
 		@Override
-		protected ItemID createID(ResultSet rs) throws SQLException {
+		public ItemID map(ResultSet rs) throws SQLException {
 			return idFactory.createID(rs.getInt(ITEM_ID));
 		}
+	};
 
+	/**
+	 * The {@link Mapper} instance
+	 */
+	private final Mapper<Item> mapper = new CachedMapper<Item, ItemID>(
+			database, idMapper) {
 		@Override
 		public Item map(ItemID id, ResultSet rs) throws SQLException {
 			final ItemTemplateID templateId = templateIdFactory.createID(rs
@@ -124,16 +130,6 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
 						rs.getInt(COORD_Y), rs.getInt(COORD_Z)));
 
 			return item;
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link ItemID}
-	 */
-	private final Mapper<ItemID> idMapper = new Mapper<ItemID>() {
-		@Override
-		public ItemID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(ITEM_ID));
 		}
 	};
 
@@ -183,7 +179,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
 	}
 
 	@Override
-	public List<ItemID> listIDs() {
+	public List<ItemID> selectIDs() {
 		return database.query(new SelectListQuery<ItemID>() {
 			@Override
 			protected String query() {

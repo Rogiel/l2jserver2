@@ -32,6 +32,7 @@ import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.model.world.character.CharacterShortcutContainer;
+import com.l2jserver.model.world.character.CharacterStats;
 import com.l2jserver.util.dimensional.Point;
 
 /**
@@ -84,9 +85,19 @@ public class L2Character extends Player {
 	 */
 	private String name;
 	/**
+	 * The character title. Can be null.
+	 */
+	private String title;
+	/**
 	 * The class of the character
 	 */
 	private CharacterClass characterClass;
+
+	/**
+	 * The character CP
+	 */
+	private double CP;
+
 	/**
 	 * The character's status
 	 */
@@ -95,6 +106,24 @@ public class L2Character extends Player {
 	 * Date of character's last access
 	 */
 	private Date lastAccess;
+
+	/**
+	 * The character stat
+	 */
+	private final CharacterStats stats = new CharacterStats(this);
+
+	/**
+	 * The character karma points
+	 */
+	private int karma;
+	/**
+	 * The character PK kills
+	 */
+	private int pkKills;
+	/**
+	 * The character PVP kills
+	 */
+	private int pvpKills;
 
 	// ////////////////////////////////////
 	// / RUNTIME
@@ -136,7 +165,26 @@ public class L2Character extends Player {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterState {
-		TELEPORTING, CASTING, ATTACKING, MOVING;
+		/**
+		 * This state indicates the character is being teleported
+		 */
+		TELEPORTING,
+		/**
+		 * This state indicates the character is casting a skill
+		 */
+		CASTING,
+		/**
+		 * This state indicates the character is attacking
+		 */
+		ATTACKING,
+		/**
+		 * This state indicates the character is moving
+		 */
+		MOVING,
+		/**
+		 * This state indicates the character is dead
+		 */
+		DEAD;
 	}
 
 	/**
@@ -150,10 +198,9 @@ public class L2Character extends Player {
 	 * @param baseAttributes
 	 *            the base attribute for this character
 	 */
-	public L2Character(CharacterTemplateID templateID,
-			CharacterTemplate.ActorBaseAttributes baseAttributes) {
+	public L2Character(CharacterTemplateID templateID) {
 		super(templateID);
-		this.baseAttributes = baseAttributes;
+		this.baseAttributes = templateID.getTemplate().getBaseAttributes();
 		this.attributes = new CharacterCalculatedAttributes(this);
 	}
 
@@ -236,6 +283,21 @@ public class L2Character extends Player {
 	}
 
 	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title
+	 *            the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
 	 * @return the characterClass
 	 */
 	public CharacterClass getCharacterClass() {
@@ -248,6 +310,21 @@ public class L2Character extends Player {
 	 */
 	public void setCharacterClass(CharacterClass characterClass) {
 		this.characterClass = characterClass;
+	}
+
+	/**
+	 * @return the character CP
+	 */
+	public double getCP() {
+		return CP;
+	}
+
+	/**
+	 * @param CP
+	 *            the character CP to set
+	 */
+	public void setCP(double CP) {
+		this.CP = CP;
 	}
 
 	/**
@@ -278,6 +355,58 @@ public class L2Character extends Player {
 	 */
 	public void setLastAccess(Date lastAccess) {
 		this.lastAccess = lastAccess;
+	}
+
+	/**
+	 * @return the stats
+	 */
+	public CharacterStats getStats() {
+		return stats;
+	}
+
+	/**
+	 * @return the character karma points
+	 */
+	public int getKarma() {
+		return karma;
+	}
+
+	/**
+	 * @param karma
+	 *            the character karma points to set
+	 */
+	public void setKarma(int karma) {
+		this.karma = karma;
+	}
+
+	/**
+	 * @return the character PK kills
+	 */
+	public int getPkKills() {
+		return pkKills;
+	}
+
+	/**
+	 * @param pkKills
+	 *            the character PK kills to set
+	 */
+	public void setPkKills(int pkKills) {
+		this.pkKills = pkKills;
+	}
+
+	/**
+	 * @return the character PVP kills
+	 */
+	public int getPvpKills() {
+		return pvpKills;
+	}
+
+	/**
+	 * @param pvpKills
+	 *            the character PVP kills to set
+	 */
+	public void setPvpKills(int pvpKills) {
+		this.pvpKills = pvpKills;
 	}
 
 	/**
@@ -346,6 +475,34 @@ public class L2Character extends Player {
 	 */
 	public boolean isMoving() {
 		return state == CharacterState.MOVING;
+	}
+
+	/**
+	 * @return true if character is dead
+	 */
+	public boolean isDead() {
+		return state == CharacterState.DEAD;
+	}
+
+	/**
+	 * @return true if character is casting
+	 */
+	public boolean isCasting() {
+		return state == CharacterState.CASTING;
+	}
+
+	/**
+	 * @return true if character is attacking
+	 */
+	public boolean isAttacking() {
+		return state == CharacterState.ATTACKING;
+	}
+
+	/**
+	 * @return true if character is alive
+	 */
+	public boolean isAlive() {
+		return !isDead();
 	}
 
 	/**

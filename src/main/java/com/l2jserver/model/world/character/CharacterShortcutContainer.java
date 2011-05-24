@@ -17,6 +17,8 @@
 package com.l2jserver.model.world.character;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -57,6 +59,7 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 */
 	public void register(Shortcut shortcut) {
 		shortcuts.add(shortcut);
+		Collections.sort(shortcuts, new ShortcutSlotComparator());
 	}
 
 	/**
@@ -67,6 +70,7 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 */
 	public void unregister(Shortcut shortcut) {
 		shortcuts.remove(shortcut);
+		Collections.sort(shortcuts, new ShortcutSlotComparator());
 	}
 
 	/**
@@ -90,6 +94,8 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 		shortcut1.setPage(shortcut2.getPage());
 		shortcut2.setSlot(slot1);
 		shortcut2.setPage(page1);
+		
+		Collections.sort(shortcuts, new ShortcutSlotComparator());
 	}
 
 	/**
@@ -115,6 +121,7 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 */
 	public void load(Collection<Shortcut> shortcuts) {
 		this.shortcuts.addAll(shortcuts);
+		Collections.sort(this.shortcuts, new ShortcutSlotComparator());
 	}
 
 	@Override
@@ -127,5 +134,13 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 */
 	public L2Character getCharacter() {
 		return character;
+	}
+
+	public static class ShortcutSlotComparator implements Comparator<Shortcut> {
+		@Override
+		public int compare(Shortcut o1, Shortcut o2) {
+			return ((o1.getPage() * o1.getSlot()) - (o2.getPage() * o2
+					.getSlot()));
+		}
 	}
 }

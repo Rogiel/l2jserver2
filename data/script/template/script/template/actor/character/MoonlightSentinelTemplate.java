@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class MoonlightSentinelTemplate extends SilverRangerTemplate {
 	@Inject
 	public MoonlightSentinelTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.MOONLIGHT_SENTINEL.id),
-				CharacterClass.MOONLIGHT_SENTINEL, Point.fromXYZ(45978, 41196,
-						-3440));
+		super(provider.createID(CharacterClass.MOONLIGHT_SENTINEL.id), CharacterClass.MOONLIGHT_SENTINEL,	Point.fromXYZ(45978, 41196, -3440));
+		
+		this.hpBase = 3042.000;
+		this.hpAdd = 63.080;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1155.600;
+		this.mpAdd = 24.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1521.000;
+		this.cpAdd = 31.540;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -46,15 +56,16 @@ public class MoonlightSentinelTemplate extends SilverRangerTemplate {
 		attributes.criticalChance = 46;
 		attributes.evasionChance = 36;
 		attributes.runSpeed = 125;
+		attributes.walkSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected MoonlightSentinelTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

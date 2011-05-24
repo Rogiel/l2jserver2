@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class MaleSouldhoundTemplate extends MaleSoulbreakerTemplate {
 	@Inject
 	public MaleSouldhoundTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.MALE_SOULDHOUND.id),
-				CharacterClass.MALE_SOULDHOUND, Point.fromXYZ(-125533, 38114,
-						1142));
+		super(provider.createID(CharacterClass.MALE_SOULDHOUND.id), CharacterClass.MALE_SOULDHOUND,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 3297.650;
+		this.hpAdd = 66.400;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1438.560;
+		this.mpAdd = 33.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1648.825;
+		this.cpAdd = 33.200;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 29;
 		attributes.strength = 41;
@@ -46,15 +56,16 @@ public class MaleSouldhoundTemplate extends MaleSoulbreakerTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 25.2;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected MaleSouldhoundTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

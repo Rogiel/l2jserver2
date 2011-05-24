@@ -4,7 +4,7 @@
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
 	<classpathentry excluding="mysql5/|db4o/" kind="src" path="src/dao"/>
 	<classpathentry kind="src" path="src/dao/mysql5"/>
-	<classpathentry kind="src" output="target/scripts" path="data/script/template"/>
+	<classpathentry kind="src" output="target/templates" path="data/script/template"/>
 	<classpathentry kind="src" output="target/scripts" path="data/script/quest"/>
 	<classpathentry kind="src" output="target/scripts" path="data/script/ai"/>
 	<classpathentry kind="src" output="target/scripts" path="data/plugin"/>

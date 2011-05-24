@@ -157,6 +157,10 @@ public class CharacterAppearance {
 	 * <b>This is not persisted!</b>
 	 */
 	private RGBColor titleColor = RGBColor.fromInteger(0xFFFF77);
+	/**
+	 * The visibility status
+	 */
+	private boolean visible;
 
 	public CharacterAppearance(L2Character character) {
 		this.character = character;
@@ -265,6 +269,21 @@ public class CharacterAppearance {
 	 */
 	public void setTitleColor(RGBColor titleColor) {
 		this.titleColor = titleColor;
+	}
+
+	/**
+	 * @return the visibility state
+	 */
+	public boolean isVisible() {
+		return visible;
+	}
+
+	/**
+	 * @param visible
+	 *            the visibility state to set
+	 */
+	public void setVisible(boolean visible) {
+		this.visible = visible;
 	}
 
 	/**

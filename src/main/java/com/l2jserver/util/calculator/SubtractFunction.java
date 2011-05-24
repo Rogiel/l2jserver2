@@ -22,18 +22,19 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SubtractFunction implements Function<Double> {
+public class SubtractFunction extends AbstractFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */
 	private final double value;
 
-	public SubtractFunction(double value) {
+	public SubtractFunction(int order, double value) {
+		super(order);
 		this.value = value;
 	}
 
 	@Override
-	public Double calculate(Double value) {
-		return value - this.value;
+	public void calculate(CalculatorContext ctx) {
+		ctx.result -= value;
 	}
 }

@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class DarkFighterTemplate extends AbstractDarkElfCharacterTemplate {
 	@Inject
 	public DarkFighterTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.DARK_FIGHTER.id),
-				CharacterClass.DARK_FIGHTER, Point.fromXYZ(28377, 10916, -4224));
+		super(provider.createID(CharacterClass.DARK_FIGHTER.id), CharacterClass.DARK_FIGHTER,	Point.fromXYZ(28377, 10916, -4224));
+		
+		this.hpBase = 94.000;
+		this.hpAdd = 13.650;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 30.000;
+		this.mpAdd = 5.460;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 37.600;
+		this.cpAdd = 3.800;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 1;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class DarkFighterTemplate extends AbstractDarkElfCharacterTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected DarkFighterTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

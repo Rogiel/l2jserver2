@@ -16,13 +16,9 @@
  */
 package script.template.item.weapon;
 
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.MAGICAL_ATTACK;
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.PHYSICAL_ATTACK;
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.PHYSICAL_ATTACK_SPEED;
-import static com.l2jserver.model.template.item.WeaponTemplate.WeaponAttributeType.R_CRITICAL;
-
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.model.world.actor.stat.Stats.StatType;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 
 public class ShortSwordTemplate extends AbstractNoGradeWeaponTemplate {
@@ -34,10 +30,10 @@ public class ShortSwordTemplate extends AbstractNoGradeWeaponTemplate {
 				ItemMaterial.STEEL, InventoryPaperdoll.RIGHT_HAND,
 				WeaponType.SWORD);
 
-		attribute.set(PHYSICAL_ATTACK, 0x08, 8);
-		attribute.set(MAGICAL_ATTACK, 0x08, 6);
-		attribute.set(R_CRITICAL, 0x08, 8);
-		attribute.set(PHYSICAL_ATTACK_SPEED, 0x08, 379);
+		stats.set(StatType.POWER_ATTACK, 0x08, 8);
+		stats.set(StatType.MAGIC_ATTACK, 0x08, 6);
+		stats.set(StatType.CRITICAL_RATE, 0x08, 8);
+		stats.set(StatType.POWER_ATTACK_SPEED, 0x08, 379);
 
 		this.type = WeaponType.SWORD;
 		this.paperdoll = InventoryPaperdoll.RIGHT_HAND;

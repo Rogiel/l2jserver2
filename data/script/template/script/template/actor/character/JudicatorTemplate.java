@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class JudicatorTemplate extends InspectorTemplate {
 	@Inject
 	public JudicatorTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.JUDICATOR.id),
-				CharacterClass.JUDICATOR, Point.fromXYZ(-125533, 38114, 1142));
+		super(provider.createID(CharacterClass.JUDICATOR.id), CharacterClass.JUDICATOR,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 3312.970;
+		this.hpAdd = 68.060;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1555.480;
+		this.mpAdd = 33.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1656.485;
+		this.cpAdd = 34.030;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 28;
 		attributes.strength = 39;
@@ -45,15 +56,16 @@ public class JudicatorTemplate extends InspectorTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 25.2;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected JudicatorTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

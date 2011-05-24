@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class FemaleSoulbreakerTemplate extends WarderTemplate {
 	@Inject
 	public FemaleSoulbreakerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.FEMALE_SOULBREAKER.id),
-				CharacterClass.FEMALE_SOULBREAKER, Point.fromXYZ(-125533,
-						38114, 1142));
+		super(provider.createID(CharacterClass.FEMALE_SOULBREAKER.id), CharacterClass.FEMALE_SOULBREAKER,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 1134.580;
+		this.hpAdd = 52.000;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 493.480;
+		this.mpAdd = 26.000;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 567.290;
+		this.cpAdd = 26.000;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 28;
 		attributes.strength = 39;
@@ -46,15 +56,16 @@ public class FemaleSoulbreakerTemplate extends WarderTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 22.6;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected FemaleSoulbreakerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

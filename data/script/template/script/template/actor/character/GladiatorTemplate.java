@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class GladiatorTemplate extends WarriorTemplate {
 	@Inject
 	public GladiatorTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.GLADIATOR.id),
-				CharacterClass.GLADIATOR, Point.fromXYZ(-71338, 258271, -3104));
+		super(provider.createID(CharacterClass.GLADIATOR.id), CharacterClass.GLADIATOR,	Point.fromXYZ(-71338, 258271, -3104));
+		
+		this.hpBase = 1044.000;
+		this.hpAdd = 49.400;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 359.100;
+		this.mpAdd = 19.500;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 939.600;
+		this.cpAdd = 44.460;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -45,15 +56,16 @@ public class GladiatorTemplate extends WarriorTemplate {
 		attributes.criticalChance = 44;
 		attributes.evasionChance = 33;
 		attributes.runSpeed = 115;
+		attributes.walkSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 9.0;
 		this.maleCollisionHeight = 23.0;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected GladiatorTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

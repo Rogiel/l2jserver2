@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ProphetTemplate extends ClericTemplate {
 	@Inject
 	public ProphetTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.PROPHET.id),
-				CharacterClass.PROPHET, Point.fromXYZ(-90890, 248027, -3570));
+		super(provider.createID(CharacterClass.PROPHET.id), CharacterClass.PROPHET,	Point.fromXYZ(-90890, 248027, -3570));
+		
+		this.hpBase = 1164.900;
+		this.hpAdd = 53.400;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 478.800;
+		this.mpAdd = 26.100;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 582.400;
+		this.cpAdd = 26.750;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 41;
 		attributes.strength = 22;
@@ -45,15 +56,16 @@ public class ProphetTemplate extends ClericTemplate {
 		attributes.criticalChance = 40;
 		attributes.evasionChance = 28;
 		attributes.runSpeed = 120;
+		attributes.walkSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 22.8;
 		this.femaleCollisionRadius = 6.5;
 		this.femaleCollisionHeight = 22.5;
 	}
-
+	
 	protected ProphetTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -33,6 +33,9 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.service.game.scripting.CompilationResult;
 import com.l2jserver.service.game.scripting.ScriptClassLoader;
 import com.l2jserver.service.game.scripting.ScriptCompiler;
+import com.l2jserver.service.game.scripting.impl.ErrorListener;
+import com.l2jserver.service.game.scripting.impl.JavaSourceFromByteArray;
+import com.l2jserver.service.game.scripting.impl.JavaSourceFromFile;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -41,7 +44,6 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ScriptCompilerImpl implements ScriptCompiler {
-
 	/**
 	 * Logger for this class
 	 */
@@ -99,7 +101,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 *            list of jar files
 	 */
 	@Override
-	public void setLibraires(Iterable<File> files) {
+	public void setLibraries(Iterable<File> files) {
 		libraries = files;
 	}
 
@@ -115,8 +117,8 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 *             if compilation failed with errros
 	 */
 	@Override
-	public CompilationResult compile(String className, String sourceCode) {
-		return compile(new String[] { className }, new String[] { sourceCode });
+	public CompilationResult compile(String className, byte[] sourceCode) {
+		return compile(new String[] { className }, new byte[][] { sourceCode });
 	}
 
 	/**
@@ -134,7 +136,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 *             if compilation failed with errros
 	 */
 	@Override
-	public CompilationResult compile(String[] classNames, String[] sourceCode)
+	public CompilationResult compile(String[] classNames, byte[][] sourceCode)
 			throws IllegalArgumentException {
 
 		if (classNames.length != sourceCode.length) {
@@ -145,7 +147,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 		List<JavaFileObject> compilationUnits = CollectionFactory.newList();
 
 		for (int i = 0; i < classNames.length; i++) {
-			JavaFileObject compilationUnit = new JavaSourceFromString(
+			JavaFileObject compilationUnit = new JavaSourceFromByteArray(
 					classNames[i], sourceCode[i]);
 			compilationUnits.add(compilationUnit);
 		}
@@ -212,7 +214,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	}
 
 	/**
-	 * Reolves list of classes by their names
+	 * Resolves list of classes by their names
 	 * 
 	 * @param classNames
 	 *            names of the classes

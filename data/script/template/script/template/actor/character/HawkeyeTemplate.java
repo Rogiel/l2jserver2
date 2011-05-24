@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class HawkeyeTemplate extends RogueTemplate {
 	@Inject
 	public HawkeyeTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.HAWKEYE.id),
-				CharacterClass.HAWKEYE, Point.fromXYZ(-71338, 258271, -3104));
+		super(provider.createID(CharacterClass.HAWKEYE.id), CharacterClass.HAWKEYE,	Point.fromXYZ(-71338, 258271, -3104));
+		
+		this.hpBase = 924.500;
+		this.hpAdd = 44.200;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 359.100;
+		this.mpAdd = 19.500;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 647.100;
+		this.cpAdd = 30.940;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 40;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -45,15 +56,16 @@ public class HawkeyeTemplate extends RogueTemplate {
 		attributes.criticalChance = 44;
 		attributes.evasionChance = 33;
 		attributes.runSpeed = 115;
+		attributes.walkSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 9.0;
 		this.maleCollisionHeight = 23.0;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected HawkeyeTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

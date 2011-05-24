@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class DoombringerTemplate extends BersekerTemplate {
 	@Inject
 	public DoombringerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.DOOMBRINGER.id),
-				CharacterClass.DOOMBRINGER, Point.fromXYZ(-125533, 38114, 1142));
+		super(provider.createID(CharacterClass.DOOMBRINGER.id), CharacterClass.DOOMBRINGER,	Point.fromXYZ(-125533, 38114, 1142));
+		
+		this.hpBase = 3515.210;
+		this.hpAdd = 73.040;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1166.610;
+		this.mpAdd = 24.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1757.605;
+		this.cpAdd = 36.520;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 29;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class DoombringerTemplate extends BersekerTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 87000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 8.0;
 		this.maleCollisionHeight = 25.2;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 22.6;
 	}
-
+	
 	protected DoombringerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

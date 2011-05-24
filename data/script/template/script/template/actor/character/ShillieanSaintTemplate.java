@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ShillieanSaintTemplate extends ShillienElderTemplate {
 	@Inject
 	public ShillieanSaintTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.SHILLIEAN_SAINT.id),
-				CharacterClass.SHILLIEAN_SAINT, Point.fromXYZ(28295, 11063,
-						-4224));
+		super(provider.createID(CharacterClass.SHILLIEAN_SAINT.id), CharacterClass.SHILLIEAN_SAINT,	Point.fromXYZ(28295, 11063, -4224));
+		
+		this.hpBase = 3447.900;
+		this.hpAdd = 69.720;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1540.800;
+		this.mpAdd = 33.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 3103.110;
+		this.cpAdd = 62.748;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 44;
 		attributes.strength = 23;
@@ -46,15 +56,16 @@ public class ShillieanSaintTemplate extends ShillienElderTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 29;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 61000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected ShillieanSaintTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

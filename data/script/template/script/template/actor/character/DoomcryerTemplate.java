@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class DoomcryerTemplate extends WarcryerTemplate {
 	@Inject
 	public DoomcryerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.DOOMCRYER.id),
-				CharacterClass.DOOMCRYER, Point.fromXYZ(-56682, -113730, -690));
+		super(provider.createID(CharacterClass.DOOMCRYER.id), CharacterClass.DOOMCRYER,	Point.fromXYZ(-56682, -113730, -690));
+		
+		this.hpBase = 3359.900;
+		this.hpAdd = 67.960;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1540.800;
+		this.mpAdd = 33.100;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1679.900;
+		this.cpAdd = 33.930;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 31;
 		attributes.strength = 27;
@@ -45,15 +56,16 @@ public class DoomcryerTemplate extends WarcryerTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
 		attributes.runSpeed = 121;
+		attributes.walkSpeed = 121;
 		attributes.maxWeigth = 68000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.0;
 		this.maleCollisionHeight = 27.5;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 25.5;
 	}
-
+	
 	protected DoomcryerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

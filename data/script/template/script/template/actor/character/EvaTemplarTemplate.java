@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class EvaTemplarTemplate extends TempleKnightTemplate {
 	@Inject
 	public EvaTemplarTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.EVA_TEMPLAR.id),
-				CharacterClass.EVA_TEMPLAR, Point.fromXYZ(45978, 41196, -3440));
+		super(provider.createID(CharacterClass.EVA_TEMPLAR.id), CharacterClass.EVA_TEMPLAR,	Point.fromXYZ(45978, 41196, -3440));
+		
+		this.hpBase = 3196.000;
+		this.hpAdd = 66.400;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1155.600;
+		this.mpAdd = 24.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1917.600;
+		this.cpAdd = 39.840;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 23;
 		attributes.strength = 36;
@@ -45,15 +56,16 @@ public class EvaTemplarTemplate extends TempleKnightTemplate {
 		attributes.criticalChance = 46;
 		attributes.evasionChance = 36;
 		attributes.runSpeed = 125;
+		attributes.walkSpeed = 125;
 		attributes.maxWeigth = 73000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected EvaTemplarTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

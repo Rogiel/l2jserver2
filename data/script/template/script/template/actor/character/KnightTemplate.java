@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class KnightTemplate extends HumanFighterTemplate {
 	@Inject
 	public KnightTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.KNIGHT.id),
-				CharacterClass.KNIGHT, Point.fromXYZ(-71338, 258271, -3104));
+		super(provider.createID(CharacterClass.KNIGHT.id), CharacterClass.KNIGHT,	Point.fromXYZ(-71338, 258271, -3104));
+		
+		this.hpBase = 327.000;
+		this.hpAdd = 29.700;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 144.000;
+		this.mpAdd = 9.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 196.200;
+		this.cpAdd = 17.820;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 21;
 		attributes.strength = 40;
@@ -45,15 +56,16 @@ public class KnightTemplate extends HumanFighterTemplate {
 		attributes.criticalChance = 44;
 		attributes.evasionChance = 33;
 		attributes.runSpeed = 115;
+		attributes.walkSpeed = 115;
 		attributes.maxWeigth = 81900;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 9.0;
 		this.maleCollisionHeight = 23.0;
 		this.femaleCollisionRadius = 8.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected KnightTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

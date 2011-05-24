@@ -31,7 +31,6 @@ import java.util.Set;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ScriptClassLoader extends URLClassLoader {
-
 	/**
 	 * Just for compatibility with {@link URLClassLoader}
 	 * 

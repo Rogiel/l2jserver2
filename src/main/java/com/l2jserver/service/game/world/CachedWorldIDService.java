@@ -82,7 +82,8 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Inject
 	public CachedWorldIDService(CacheService cacheService,
-			IDAllocator allocator, CharacterDAO characterDao, ItemDAO itemDao, NPCDAO npcDao) {
+			IDAllocator allocator, CharacterDAO characterDao, ItemDAO itemDao,
+			NPCDAO npcDao) {
 		this.cacheService = cacheService;
 		this.allocator = allocator;
 		this.characterDao = characterDao;
@@ -103,9 +104,9 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	public void load() {
-		load(characterDao.listIDs());
-		load(itemDao.listIDs());
-		//load(npcDao.listIDs());
+		load(characterDao.selectIDs());
+		load(itemDao.selectIDs());
+		load(npcDao.selectIDs());
 		loaded = true;
 	}
 

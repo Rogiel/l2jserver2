@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class ArcanaLordTemplate extends WarlockTemplate {
 	@Inject
 	public ArcanaLordTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ARCANA_LORD.id),
-				CharacterClass.ARCANA_LORD, Point
-						.fromXYZ(-90890, 248027, -3570));
+		super(provider.createID(CharacterClass.ARCANA_LORD.id), CharacterClass.ARCANA_LORD,	Point.fromXYZ(-90890, 248027, -3570));
+		
+		this.hpBase = 3039.300;
+		this.hpAdd = 63.080;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1540.800;
+		this.mpAdd = 33.200;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 1823.500;
+		this.cpAdd = 37.850;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 41;
 		attributes.strength = 22;
@@ -46,15 +56,16 @@ public class ArcanaLordTemplate extends WarlockTemplate {
 		attributes.criticalChance = 40;
 		attributes.evasionChance = 28;
 		attributes.runSpeed = 120;
+		attributes.walkSpeed = 120;
 		attributes.maxWeigth = 62500;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 22.8;
 		this.femaleCollisionRadius = 6.5;
 		this.femaleCollisionHeight = 22.5;
 	}
-
+	
 	protected ArcanaLordTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class OracleTemplate extends ElvenMysticTemplate {
 	@Inject
 	public OracleTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ORACLE.id),
-				CharacterClass.ORACLE, Point.fromXYZ(46182, 41198, -3440));
+		super(provider.createID(CharacterClass.ORACLE.id), CharacterClass.ORACLE,	Point.fromXYZ(46182, 41198, -3440));
+		
+		this.hpBase = 427.000;
+		this.hpAdd = 35.300;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 192.000;
+		this.mpAdd = 13.300;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 213.500;
+		this.cpAdd = 17.700;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 37;
 		attributes.strength = 21;
@@ -45,15 +56,16 @@ public class OracleTemplate extends ElvenMysticTemplate {
 		attributes.criticalChance = 41;
 		attributes.evasionChance = 30;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 62400;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.5;
 		this.femaleCollisionHeight = 23.0;
 	}
-
+	
 	protected OracleTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

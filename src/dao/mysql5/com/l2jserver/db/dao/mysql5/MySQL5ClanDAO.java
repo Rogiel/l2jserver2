@@ -69,29 +69,25 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan, ClanID> implements
 	}
 
 	/**
-	 * The {@link Mapper} for {@link Clan}
-	 */
-	private final Mapper<Clan> mapper = new CachedMapper<Clan, ClanID>(database) {
-		@Override
-		protected ClanID createID(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CLAN_ID));
-		}
-
-		@Override
-		protected Clan map(ClanID id, ResultSet rs) throws SQLException {
-			final Clan clan = new Clan();
-			clan.setID(id);
-			return clan;
-		}
-	};
-
-	/**
 	 * The {@link Mapper} for {@link ClanID}
 	 */
 	private final Mapper<ClanID> idMapper = new Mapper<ClanID>() {
 		@Override
 		public ClanID map(ResultSet rs) throws SQLException {
 			return idFactory.createID(rs.getInt(CLAN_ID));
+		}
+	};
+
+	/**
+	 * The {@link Mapper} for {@link Clan}
+	 */
+	private final Mapper<Clan> mapper = new CachedMapper<Clan, ClanID>(
+			database, idMapper) {
+		@Override
+		protected Clan map(ClanID id, ResultSet rs) throws SQLException {
+			final Clan clan = new Clan();
+			clan.setID(id);
+			return clan;
 		}
 	};
 
@@ -117,7 +113,7 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan, ClanID> implements
 	}
 
 	@Override
-	public List<ClanID> listIDs() {
+	public List<ClanID> selectIDs() {
 		return database.query(new SelectListQuery<ClanID>() {
 			@Override
 			protected String query() {

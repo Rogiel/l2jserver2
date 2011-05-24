@@ -14,48 +14,46 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl;
 
-import java.net.URI;
+import java.io.File;
+import java.io.IOException;
 
-import javax.tools.JavaFileObject;
 import javax.tools.SimpleJavaFileObject;
 
+import org.apache.commons.io.FileUtils;
+
 /**
- * This class allows us to compile sources that are located only in memory.
+ * This class is simple wrapper for SimpleJavaFileObject that load class source
+ * from file sytem
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JavaSourceFromString extends SimpleJavaFileObject {
+public class JavaSourceFromFile extends SimpleJavaFileObject {
 	/**
-	 * Source code of the class
-	 */
-	private final String code;
-
-	/**
-	 * Creates new object that contains sources of java class
+	 * Construct a JavaFileObject of the given kind and with the given File.
 	 * 
-	 * @param className
-	 *            class name of class
-	 * @param code
-	 *            source code of class
+	 * @param file
+	 *            the file with source of this file object
+	 * @param kind
+	 *            the kind of this file object
 	 */
-	public JavaSourceFromString(String className, String code) {
-		super(URI.create("string:///" + className.replace('.', '/')
-				+ JavaFileObject.Kind.SOURCE.extension),
-				JavaFileObject.Kind.SOURCE);
-		this.code = code;
+	public JavaSourceFromFile(File file, Kind kind) {
+		super(file.toURI(), kind);
 	}
 
 	/**
-	 * Returns class source code
+	 * Returns class source represented as string.
 	 * 
 	 * @param ignoreEncodingErrors
 	 *            not used
-	 * @return class source code
+	 * @return class source
+	 * @throws IOException
+	 *             if something goes wrong
 	 */
 	@Override
-	public CharSequence getCharContent(boolean ignoreEncodingErrors) {
-		return code;
+	public CharSequence getCharContent(boolean ignoreEncodingErrors)
+			throws IOException {
+		return FileUtils.readFileToString(new File(this.toUri()));
 	}
 }

@@ -46,9 +46,9 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.actor.ActorExperience;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.util.BufferUtils;
@@ -89,17 +89,17 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 
 		buffer.writeInt(character.getLevel());
 		buffer.writeLong(ActorExperience.LEVEL_1.experience);
-		buffer.writeInt(character.getAttributes().getStrength());
-		buffer.writeInt(character.getAttributes().getDexterity());
-		buffer.writeInt(character.getAttributes().getConcentration());
-		buffer.writeInt(character.getAttributes().getIntelligence());
-		buffer.writeInt(character.getAttributes().getWitness());
-		buffer.writeInt(character.getAttributes().getMentality());
-		buffer.writeInt(200); // max hp
-		buffer.writeInt(character.getHP()); // cur hp
-		buffer.writeInt(200); // max mp
-		buffer.writeInt((int) 200); // cur mp
-		buffer.writeInt(0); // sp
+		buffer.writeInt(character.getStats().getStrength());
+		buffer.writeInt(character.getStats().getDexterity());
+		buffer.writeInt(character.getStats().getConcentration());
+		buffer.writeInt(character.getStats().getIntelligence());
+		buffer.writeInt(character.getStats().getWitness());
+		buffer.writeInt(character.getStats().getMentality());
+		buffer.writeInt(character.getStats().getMaxHP()); // max hp
+		buffer.writeInt((int) character.getHP()); // cur hp
+		buffer.writeInt(character.getStats().getMaxMP()); // max mp
+		buffer.writeInt((int) character.getMP()); // cur mp
+		buffer.writeInt(character.getSP()); // sp
 		buffer.writeInt(0); // load
 		buffer.writeInt(character.getAttributes().getMaxWeigth()); // max load
 
@@ -189,26 +189,26 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 
 		buffer.writeInt(0x00); // (max?) talismans count
 		buffer.writeInt(0x00); // cloak sratus
-		buffer.writeInt((int) character.getAttributes().getPhysicalAttack());
-		buffer.writeInt(character.getAttributes().getAttackSpeed());
-		buffer.writeInt((int) character.getAttributes().getPhysicalDefense());
+		buffer.writeInt(character.getStats().getPhysicalAttack());
+		buffer.writeInt(character.getStats().getPhysicalAttackSpeed());
+		buffer.writeInt(character.getStats().getPhysicalDefense());
 
-		buffer.writeInt(character.getAttributes().getEvasionChance()); // evasion
-		buffer.writeInt(character.getAttributes().getAccuracy());
-		buffer.writeInt(character.getAttributes().getCriticalChance());
+		buffer.writeInt(character.getStats().getEvasionRate()); // evasion
+		buffer.writeInt(character.getStats().getAccuracy());
+		buffer.writeInt(character.getStats().getPhysicalCriticalRate());
 
-		buffer.writeInt((int) character.getAttributes().getMagicalAttack());
-		buffer.writeInt(character.getAttributes().getCastSpeed());
-		buffer.writeInt(character.getAttributes().getAttackSpeed());
-		buffer.writeInt((int) character.getAttributes().getMagicalDefense());
+		buffer.writeInt(character.getStats().getMagicalAttack());
+		buffer.writeInt(character.getStats().getMagicalAttackSpeed());
+		buffer.writeInt(character.getStats().getPhysicalAttackSpeed());
+		buffer.writeInt(character.getStats().getMagicalDefense());
 
 		buffer.writeInt(0x00); // 0-non-pvp 1-pvp = violett name
-		buffer.writeInt(0x00); // karma
+		buffer.writeInt(character.getKarma()); // karma
 
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getWalkSpeed());
-		buffer.writeInt((int) character.getAttributes().getRunSpeed());
-		buffer.writeInt((int) character.getAttributes().getWalkSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getWalkSpeed());
+		buffer.writeInt((int) character.getStats().getRunSpeed());
+		buffer.writeInt((int) character.getStats().getWalkSpeed());
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // unk
 		buffer.writeInt(0); // fly speed -only if flying
@@ -243,8 +243,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(character.getAppearance().getFace().option);
 		buffer.writeInt(0x01); // is gm
 
-		String title = "Testing"; // title
-		BufferUtils.writeString(buffer, title);
+		BufferUtils.writeString(buffer, character.getTitle());
 
 		buffer.writeInt((character.getClanID() != null ? character.getClanID()
 				.getID() : 0x00)); // clanid
@@ -258,8 +257,8 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeByte(0x00); // mount type
 		buffer.writeByte(0x00); // private store type
 		buffer.writeByte(0x00); // dwarven craft
-		buffer.writeInt(0x00); // pk kills
-		buffer.writeInt(0x00); // pvp kills
+		buffer.writeInt(character.getPkKills()); // pk kills
+		buffer.writeInt(character.getPvpKills()); // pvp kills
 
 		buffer.writeShort(0x00); // cubics size
 		// short:cubicsid[cubicssize]
@@ -279,8 +278,8 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 
 		buffer.writeInt(character.getCharacterClass().id);
 		buffer.writeInt(0x00); // special effects? circles around player...
-		buffer.writeInt(200); // max cp
-		buffer.writeInt(200); // cur cp
+		buffer.writeInt(character.getStats().getMaxCP());
+		buffer.writeInt((int) character.getCP()); // cur cp
 		buffer.writeByte(0x00); // is mount or is airshilhelp = 0; otherwise
 								// enchant effect (minimum 127)
 

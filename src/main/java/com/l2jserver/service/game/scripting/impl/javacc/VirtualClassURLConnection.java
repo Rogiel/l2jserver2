@@ -22,6 +22,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import com.l2jserver.service.game.scripting.impl.BinaryClass;
+
 /**
  * This class represents URL Connection that is used to "connect" to scripts
  * binary data that was loaded by specified {@link ScriptCompilerImpl}.<br>

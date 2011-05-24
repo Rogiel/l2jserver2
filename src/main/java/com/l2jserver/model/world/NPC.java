@@ -30,11 +30,6 @@ import com.l2jserver.service.game.ai.AIScript;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPC extends Actor {
-	public int oldId;
-	public int tpl;
-	
-	
-	
 	/**
 	 * Creates a new instance
 	 * 
@@ -43,6 +38,62 @@ public class NPC extends Actor {
 	 */
 	public NPC(NPCTemplateID templateID) {
 		super(templateID);
+	}
+
+	@Override
+	public ActorSex getSex() {
+		return this.getTemplate().getSex();
+	}
+
+	@Override
+	public void setSex(ActorSex sex) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public int getLevel() {
+		return this.getTemplate().getLevel();
+	}
+
+	@Override
+	public void setLevel(int level) {
+		throw new UnsupportedOperationException();
+	}
+
+	public double getMaxHP() {
+		return this.getTemplate().getMaxHP();
+	}
+
+	public void setMaxHP(double maxHP) {
+		throw new UnsupportedOperationException();
+	}
+
+	public double getMaxMP() {
+		return this.getTemplate().getMaxHP();
+	}
+
+	public void setMaxMP(double maxMP) {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public long getExperience() {
+		return this.getTemplate().getExperience();
+	}
+
+	@Override
+	public void setExperience(long experience) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public int getSP() {
+		return this.getTemplate().getSp();
+	}
+
+	@Override
+	public void setSP(int sp) {
+		throw new UnsupportedOperationException();
 	}
 
 	/**

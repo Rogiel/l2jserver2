@@ -26,9 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class FortuneSeekerTemplate extends BountyHunterTemplate {
 	@Inject
 	public FortuneSeekerTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.FORTUNE_SEEKER.id),
-				CharacterClass.FORTUNE_SEEKER, Point.fromXYZ(108512, -174026,
-						-400));
+		super(provider.createID(CharacterClass.FORTUNE_SEEKER.id), CharacterClass.FORTUNE_SEEKER,	Point.fromXYZ(108512, -174026, -400));
+		
+		this.hpBase = 3447.200;
+		this.hpAdd = 72.940;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 1155.600;
+		this.mpAdd = 24.800;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 2413.000;
+		this.cpAdd = 51.030;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 76;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 20;
 		attributes.strength = 39;
@@ -46,15 +56,16 @@ public class FortuneSeekerTemplate extends BountyHunterTemplate {
 		attributes.criticalChance = 43;
 		attributes.evasionChance = 33;
 		attributes.runSpeed = 115;
+		attributes.walkSpeed = 115;
 		attributes.maxWeigth = 83000;
 		attributes.craft = true;
-
+		
 		this.maleCollisionRadius = 9.0;
 		this.maleCollisionHeight = 18.0;
 		this.femaleCollisionRadius = 5.0;
 		this.femaleCollisionHeight = 19.0;
 	}
-
+	
 	protected FortuneSeekerTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);

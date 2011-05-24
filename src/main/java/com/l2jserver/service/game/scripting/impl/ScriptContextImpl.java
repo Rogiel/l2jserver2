@@ -143,7 +143,7 @@ public class ScriptContextImpl implements ScriptContext {
 					.getCompilationResult().getClassLoader());
 		}
 
-		scriptCompiler.setLibraires(libraries);
+		scriptCompiler.setLibraries(libraries);
 		compilationResult = scriptCompiler.compile(files);
 
 		getClassListener().postLoad(compilationResult.getCompiledClasses());

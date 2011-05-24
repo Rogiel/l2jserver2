@@ -16,17 +16,23 @@
  */
 package com.l2jserver.service.database;
 
+import java.util.Iterator;
+
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 
 /**
  * Abstract DAO implementations. Store an instance of {@link DatabaseService}.
+ * Default {@link Iterator} implementation in this class supports
+ * {@link Iterator#remove()} and will delete the row from the database.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  * @param <T>
  *            the dao object type
+ * @param <I>
+ *            the object id type
  */
 public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 		implements DataAccessObject<T, I> {
@@ -51,6 +57,39 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 			return delete(object);
 		}
 		return false;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return new Iterator<T>() {
+			/**
+			 * The Iterator that will return the ID objects
+			 */
+			private final Iterator<I> iterator = AbstractDAO.this.selectIDs()
+					.iterator();
+			/**
+			 * The last used ID (will be used to remove the last element)
+			 */
+			private I lastID;
+
+			@Override
+			public boolean hasNext() {
+				return iterator.hasNext();
+			}
+
+			@Override
+			public T next() {
+				lastID = iterator.next();
+				if (lastID == null)
+					return null;
+				return select(lastID);
+			}
+
+			@Override
+			public void remove() {
+				AbstractDAO.this.delete(select(lastID));
+			}
+		};
 	}
 
 	/**

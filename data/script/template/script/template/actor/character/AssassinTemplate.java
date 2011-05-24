@@ -26,8 +26,19 @@ import com.l2jserver.util.dimensional.Point;
 public class AssassinTemplate extends DarkFighterTemplate {
 	@Inject
 	public AssassinTemplate(CharacterTemplateIDProvider provider) {
-		super(provider.createID(CharacterClass.ASSASSIN.id),
-				CharacterClass.ASSASSIN, Point.fromXYZ(28377, 10916, -4224));
+		super(provider.createID(CharacterClass.ASSASSIN.id), CharacterClass.ASSASSIN,	Point.fromXYZ(28377, 10916, -4224));
+		
+		this.hpBase = 379.000;
+		this.hpAdd = 33.000;
+		this.hpMultiplier = 0.37;
+		this.mpBase = 144.000;
+		this.mpAdd = 9.900;
+		this.mpMultiplier = 0.14;
+		this.cpBase = 185.100;
+		this.cpAdd = 15.800;
+		this.cpMultiplier = 0.22;
+		this.minimumLevel = 20;
+		
 		// ATTRIBUTES
 		attributes.intelligence = 25;
 		attributes.strength = 41;
@@ -45,15 +56,16 @@ public class AssassinTemplate extends DarkFighterTemplate {
 		attributes.criticalChance = 45;
 		attributes.evasionChance = 35;
 		attributes.runSpeed = 122;
+		attributes.walkSpeed = 122;
 		attributes.maxWeigth = 69000;
 		attributes.craft = false;
-
+		
 		this.maleCollisionRadius = 7.5;
 		this.maleCollisionHeight = 24.0;
 		this.femaleCollisionRadius = 7.0;
 		this.femaleCollisionHeight = 23.5;
 	}
-
+	
 	protected AssassinTemplate(CharacterTemplateID id,
 			CharacterClass characterClass, Point spawnLocation) {
 		super(id, characterClass, spawnLocation);
