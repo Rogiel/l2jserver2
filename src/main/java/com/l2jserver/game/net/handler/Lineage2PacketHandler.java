@@ -100,29 +100,33 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent event)
 			throws Exception {
 		final Throwable e = event.getCause();
-		if (e instanceof ChannelException)
-			return;
-		if (e instanceof IOException)
-			return;
-		if (!connection.isConnected())
-			// no point sending error messages if the client is disconnected
-			return;
-
-		// TODO only send exception stack trace in development mode!
-		final String exception = Throwables.getStackTraceAsString(e)
-				.replaceAll("\n", "<br>").replace("	", "");
-		final HtmlTemplate template = new HtmlTemplate("Java Exception") {
-			@Override
-			public void build(MarkupTag body) {
-				body.text(exception);
+		try {
+			if (e instanceof ChannelException)
+				return;
+			if (e instanceof IOException)
+				return;
+			if (!connection.isConnected())
+				// no point sending error messages if the client is disconnected
+				return;
+	
+			// TODO only send exception stack trace in development mode!
+			final String exception = Throwables.getStackTraceAsString(e)
+					.replaceAll("\n", "<br>").replace("	", "");
+			final HtmlTemplate template = new HtmlTemplate("Java Exception") {
+				@Override
+				public void build(MarkupTag body) {
+					body.text(exception);
+				}
+			};
+			connection.write(new NPCHtmlMessagePacket(null, template));
+			connection.sendActionFailed(); // order client not to wait any packet
+	
+			final String[] lines = Throwables.getStackTraceAsString(e).split("\n");
+			for(final String line : lines) {
+				connection.sendMessage(line);
 			}
-		};
-		connection.write(new NPCHtmlMessagePacket(null, template));
-		connection.sendActionFailed(); // order client not to wait any packet
-
-		final String[] lines = Throwables.getStackTraceAsString(e).split("\n");
-		for(final String line : lines) {
-			connection.sendMessage(line);
+		} finally {
+			e.printStackTrace();
 		}
 	}
 }

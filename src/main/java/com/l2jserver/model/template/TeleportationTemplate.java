@@ -16,6 +16,8 @@
  */
 package com.l2jserver.model.template;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -24,9 +26,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.jaxb.CoordinateAdapter;
+import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
 /**
@@ -40,12 +44,25 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 public class TeleportationTemplate extends AbstractTemplate<Coordinate> {
 	@XmlAttribute(name = "id")
 	@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
-	private TeleportationTemplateID id;
-	@XmlElement(name = "name")
-	private String name;
-	@XmlElement(name = "coordinate")
+	protected TeleportationTemplateID id;
+	@XmlAttribute(name = "name")
+	protected String name;
+
+	@XmlAttribute(name = "item")
+	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
+	protected ItemTemplateID itemTemplateID;
+	@XmlAttribute(name = "price")
+	protected int price;
+
+	@XmlElement(name = "point")
 	@XmlJavaTypeAdapter(CoordinateAdapter.class)
-	private Coordinate coordinate;
+	protected Coordinate coordinate;
+
+	protected List<TeleportRestriction> restrictions;
+
+	public enum TeleportRestriction {
+		NOBLE;
+	}
 
 	@Override
 	public Coordinate create() {
@@ -57,6 +74,27 @@ public class TeleportationTemplate extends AbstractTemplate<Coordinate> {
 	 */
 	public String getName() {
 		return name;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public TeleportationTemplateID getId() {
+		return id;
+	}
+
+	/**
+	 * @return the itemTemplateID
+	 */
+	public ItemTemplateID getItemTemplateID() {
+		return itemTemplateID;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public int getPrice() {
+		return price;
 	}
 
 	/**

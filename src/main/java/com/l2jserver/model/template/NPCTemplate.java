@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model.template;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -33,19 +32,16 @@ import org.eclipse.persistence.oxm.annotations.XmlCDATA;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
-import com.l2jserver.model.id.template.TeleportationTemplateID;
-import com.l2jserver.model.template.NPCTemplate.TeleporterMetadata.TeleporterTeleportMetadata;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
-import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @XmlRootElement(name = "npc")
-@XmlType(namespace = "npc")
+@XmlType(namespace = "npc", name = "npc")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NPCTemplate extends ActorTemplate<NPC> {
 	@XmlAttribute(name = "id")
@@ -224,60 +220,6 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 	protected static class AIMetadata {
 		@XmlAttribute(name = "script")
 		protected String script = null;
-	}
-
-	@XmlElement(name = "teleporter")
-	protected TeleporterMetadata teleporter = null;
-
-	@XmlType(namespace = "npc")
-	protected static class TeleporterMetadata {
-		@XmlAttribute(name = "default")
-		protected String defaultTeleport = null;
-		@XmlElement(name = "teleport")
-		protected List<TeleporterTeleportMetadata> teleports = null;
-
-		@XmlType(namespace = "npc")
-		protected static class TeleporterTeleportMetadata {
-			@XmlAttribute(name = "id")
-			protected String id;
-			@XmlElement(name = "region")
-			protected List<TeleportRegion> regions = null;
-		}
-	}
-
-	@XmlType(namespace = "npc")
-	public static class TeleportRegion {
-		@XmlAttribute(name = "id")
-		@XmlJavaTypeAdapter(value = TeleportationTemplateIDAdapter.class)
-		protected TeleportationTemplateID id;
-		@XmlAttribute(name = "price")
-		protected int price = 0;
-		@XmlAttribute(name = "item")
-		@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
-		protected ItemTemplateID item;
-
-		/**
-		 * @return the id
-		 */
-		public TeleportationTemplateID getID() {
-			return id;
-		}
-
-		/**
-		 * @return the price
-		 */
-		public int getPrice() {
-			return price;
-		}
-
-		/**
-		 * @return the item
-		 */
-		public ItemTemplateID getItem() {
-			return item;
-		}
-
-		// TODO implement conditions
 	}
 
 	@XmlElement(name = "talk")
@@ -744,28 +686,6 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		if (ai == null)
 			return null;
 		return ai.script;
-	}
-
-	public List<TeleportRegion> getTeleportRegions(String id) {
-		if (teleporter == null)
-			return Collections.emptyList();
-		for (final TeleporterTeleportMetadata teleport : teleporter.teleports) {
-			if (teleport.id.equals(id)) {
-				return Collections.unmodifiableList(teleport.regions);
-			}
-		}
-		return null;
-	}
-
-	public List<TeleportRegion> getTeleportRegions() {
-		if (teleporter == null)
-			return Collections.emptyList();
-		for (final TeleporterTeleportMetadata teleport : teleporter.teleports) {
-			if (teleport.id.equals(teleporter.defaultTeleport)) {
-				return Collections.unmodifiableList(teleport.regions);
-			}
-		}
-		return null;
 	}
 
 	public String getHTML(String id) {

@@ -33,14 +33,14 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
  */
 @XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
 public class TeleportationTemplateID extends
-		TemplateID<TeleportationTemplate, String> {
+		TemplateID<TeleportationTemplate, Integer> {
 	/**
 	 * The template service
 	 */
 	private final TemplateService templateService;
 
 	@Inject
-	public TeleportationTemplateID(@Assisted String id,
+	public TeleportationTemplateID(@Assisted int id,
 			TemplateService templateService) {
 		super(id);
 		this.templateService = templateService;

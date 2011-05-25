@@ -163,6 +163,6 @@ public class XMLTemplateService extends AbstractService implements
 	@XmlType(namespace = "teleports")
 	public static class TeleportationTemplateContainer {
 		@XmlElement(name = "teleport")
-		private List<TeleportationTemplate> templates;
+		public List<TeleportationTemplate> templates;
 	}
 }

@@ -25,6 +25,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -32,7 +33,6 @@ import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.MarshalException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
@@ -42,6 +42,7 @@ import org.apache.commons.io.FileUtils;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.id.template.TeleportationTemplateID;
 import com.l2jserver.model.template.NPCTemplate.Chat;
 import com.l2jserver.model.template.NPCTemplate.DropItemMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata;
@@ -58,7 +59,10 @@ import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsM
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.Stat;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
 import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
+import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.world.Actor.ActorSex;
+import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTemplateContainer;
+import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
@@ -72,6 +76,7 @@ public class NPCTemplateConverter {
 
 	private static List<NPCTemplate> templates = CollectionFactory.newList();
 	private static Collection<File> htmlScannedFiles;
+	private static TeleportationTemplateContainer teleportation = new TeleportationTemplateContainer();
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws SQLException, IOException,
@@ -83,24 +88,63 @@ public class NPCTemplateConverter {
 		htmlScannedFiles = FileUtils.listFiles(L2J_HTML_FOLDER, new String[] {
 				"html", "htm" }, true);
 
-		System.out.println("Generating template XML files...");
+		final JAXBContext c = JAXBContext.newInstance(NPCTemplate.class,
+				TeleportationTemplateContainer.class);
 
-		final JAXBContext c = JAXBContext.newInstance(NPCTemplate.class);
+		final Connection conn = DriverManager.getConnection(JDBC_URL,
+				JDBC_USERNAME, JDBC_PASSWORD);
+		{
+			System.out.println("Converting teleport templates...");
+			teleportation.templates = CollectionFactory.newList();
+
+			final Marshaller m = c.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION,
+					"teleportation");
+			m.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
+					"teleportation teleportation.xsd");
+
+			final PreparedStatement st = conn
+					.prepareStatement("SELECT * FROM teleport");
+			st.execute();
+			final ResultSet rs = st.getResultSet();
+			while (rs.next()) {
+				final TeleportationTemplate template = new TeleportationTemplate();
+
+				template.id = new TeleportationTemplateID(rs.getInt("id"), null);
+				template.name = rs.getString("Description");
+				template.coordinate = Coordinate.fromXYZ(rs.getInt("loc_x"),
+						rs.getInt("loc_y"), rs.getInt("loc_z"));
+				template.price = rs.getInt("price");
+				template.itemTemplateID = new ItemTemplateID(
+						rs.getInt("itemId"), null);
+				if (rs.getBoolean("fornoble")) {
+					template.restrictions = Arrays
+							.asList(TeleportRestriction.NOBLE);
+				}
+				teleportation.templates.add(template);
+			}
+			m.marshal(teleportation, getXMLSerializer(new FileOutputStream(
+					new File(target, "../teleports.xml"))));
+			// System.exit(0);
+		}
+
+		System.out.println("Generating template XML files...");
 		c.generateSchema(new SchemaOutputResolver() {
 			@Override
 			public Result createOutput(String namespaceUri,
 					String suggestedFileName) throws IOException {
-				return new StreamResult(new File(target, "npc.xsd"));
+				// System.out.println(new File(target, suggestedFileName));
+				// return null;
+				return new StreamResult(new File(target, suggestedFileName));
 			}
 		});
 
-		final Marshaller m = c.createMarshaller();
-		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "npc");
-
-		final Connection conn = DriverManager.getConnection(JDBC_URL,
-				JDBC_USERNAME, JDBC_PASSWORD);
 		try {
+			final Marshaller m = c.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "npc");
+
 			final PreparedStatement st = conn
 					.prepareStatement("SELECT *  FROM npc");
 			st.execute();
@@ -127,19 +171,14 @@ public class NPCTemplateConverter {
 				file.getParentFile().mkdirs();
 				templates.add(t);
 
-				// if (t.id.getID() == 30059) {
-				// m.marshal(t, getXMLSerializer(System.out));
-				// System.exit(0);
+				// try {
+				// m.marshal(t, getXMLSerializer(new FileOutputStream(file)));
+				// } catch (MarshalException e) {
+				// System.err
+				// .println("Could not generate XML template file for "
+				// + t.getName() + " - " + t.getID());
+				// file.delete();
 				// }
-
-				try {
-					m.marshal(t, getXMLSerializer(new FileOutputStream(file)));
-				} catch (MarshalException e) {
-					System.err
-							.println("Could not generate XML template file for "
-									+ t.getName() + " - " + t.getID());
-					file.delete();
-				}
 			}
 
 			System.out.println("Generated " + templates.size() + " templates");
@@ -168,6 +207,7 @@ public class NPCTemplateConverter {
 			IOException {
 		final NPCTemplate template = new NPCTemplate();
 		template.id = new NPCTemplateID(rs.getInt("idTemplate"), null);
+
 		template.type = createParentType(rs.getString("type"));
 		template.info = new NPCInformationMetadata();
 
@@ -248,8 +288,6 @@ public class NPCTemplateConverter {
 		template.info.collision = new CollisionMetadata();
 		template.info.collision.radius = rs.getDouble("collision_radius");
 		template.info.collision.height = rs.getDouble("collision_height");
-
-		// TODO import teleporter data
 
 		template.droplist = fillDropList(rs, template.id.getID());
 		template.talk = fillHtmlChat(template.id.getID());

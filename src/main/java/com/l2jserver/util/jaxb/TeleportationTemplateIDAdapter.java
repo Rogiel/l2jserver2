@@ -29,7 +29,7 @@ import com.l2jserver.model.id.template.provider.TeleportationTemplateIDProvider;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class TeleportationTemplateIDAdapter extends
-		XmlAdapter<String, TeleportationTemplateID> {
+		XmlAdapter<Integer, TeleportationTemplateID> {
 	private final TeleportationTemplateIDProvider provider;
 
 	public TeleportationTemplateIDAdapter() {
@@ -43,7 +43,7 @@ public class TeleportationTemplateIDAdapter extends
 	}
 
 	@Override
-	public TeleportationTemplateID unmarshal(String v) throws Exception {
+	public TeleportationTemplateID unmarshal(Integer v) throws Exception {
 		if (v == null)
 			return null;
 		if (provider == null)
@@ -52,7 +52,7 @@ public class TeleportationTemplateIDAdapter extends
 	}
 
 	@Override
-	public String marshal(TeleportationTemplateID v) throws Exception {
+	public Integer marshal(TeleportationTemplateID v) throws Exception {
 		if (v == null)
 			return null;
 		return v.getID();

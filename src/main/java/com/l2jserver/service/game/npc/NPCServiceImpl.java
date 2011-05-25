@@ -53,7 +53,11 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 */
 	private final NPCDAO npcDao;
 
-	private final TeleporterController controller = new TeleporterController();
+	/**
+	 * Temporary only
+	 */
+	@Inject
+	private TeleporterController controller;
 
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,

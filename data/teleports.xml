@@ -1,10 +1,3405 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<teleports  xsi:noNamespaceSchemaLocation="teleports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<teleport id="TOWN_OF_GLUDIO" name="The Town of Gludio">
-		<coordinate x="-12787" y="122779" z="-3112" />
-	</teleport>
-
-	<teleport id="ELVEN_FOREST" name="Elven Forest">
-		<coordinate x="21362" y="51122" z="-3688" />
-	</teleport>
+<teleports xsi:schemaLocation="teleportation teleportation.xsd"
+    xsi:noNamespaceSchemaLocation="teleportation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <teleport price="10000" item="57"
+        name="DE Village -> Town of Gludio" id="1">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="9200" item="57"
+        name="Elven Village -> Town of Gludio" id="2">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="710" item="57" name="Elven Village -> Elven Forest" id="468">
+        <point z="-3688" y="51122" x="21362"/>
+    </teleport>
+    <teleport price="820" item="57"
+        name="Elven Village -> Elven Fortress" id="470">
+        <point z="-3776" y="74968" x="29294"/>
+    </teleport>
+    <teleport price="9200" item="57" name="Gludio -> Elven Village" id="3">
+        <point z="-2976" y="51550" x="46951"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Gludio -> DE Village" id="4">
+        <point z="-4568" y="15566" x="9709"/>
+    </teleport>
+    <teleport price="7300" item="57" name="Gludio -> Gludin" id="5">
+        <point z="-3040" y="149770" x="-80684"/>
+    </teleport>
+    <teleport price="3400" item="57" name="Gludio -> Dion" id="6">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="26000" item="57" name="Gludin -> Orc village" id="7">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="38000" item="57" name="Gludin -> Dwarven village" id="8">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="9400" item="57" name="Gludin -> TI Village" id="9">
+        <point z="-3728" y="244623" x="-84141"/>
+    </teleport>
+    <teleport price="16000" item="57" name="Gludin -> Elven Village" id="10">
+        <point z="-2976" y="51550" x="46951"/>
+    </teleport>
+    <teleport price="16000" item="57" name="Gludin -> DE Village" id="11">
+        <point z="-4568" y="15566" x="9709"/>
+    </teleport>
+    <teleport price="7300" item="57" name="Gludin -> Town of Gludio" id="12">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="3400" item="57" name="Gludin -> Wastelands" id="13">
+        <point z="-3664" y="208032" x="-16526"/>
+    </teleport>
+    <teleport price="890" item="57" name="DE Village -> Dark Forest" id="464">
+        <point z="-3232" y="14168" x="-22224"/>
+    </teleport>
+    <teleport price="3600" item="57" name="DE Village -> Spider Nest" id="465">
+        <point z="-3352" y="75104" x="-61095"/>
+    </teleport>
+    <teleport price="1100" item="57" name="DE Village -> Swampland" id="466">
+        <point z="-3192" y="40544" x="-21966"/>
+    </teleport>
+    <teleport price="1700" item="57" name="DE Village -> Neutral Zone" id="467">
+        <point z="-3592" y="75881" x="-10612"/>
+    </teleport>
+    <teleport price="18000" item="57" name="TI -> Village of Gludin" id="15">
+        <point z="-3040" y="149770" x="-80684"/>
+    </teleport>
+    <teleport price="470" item="57" name="TI -> Obelisk of Victory" id="1001">
+        <point z="-3568" y="237637" x="-99586"/>
+    </teleport>
+    <teleport price="1000" item="57" name="TI -> Western Territory" id="1002">
+        <point z="-3424" y="214691" x="-106696"/>
+    </teleport>
+    <teleport price="830" item="57" name="TI -> Elven Ruins" id="1003">
+        <point z="-3688" y="234703" x="-112367"/>
+    </teleport>
+    <teleport price="770" item="57" name="TI -> Singing Waterfall" id="1004">
+        <point z="-3448" y="244330" x="-111728"/>
+    </teleport>
+    <teleport price="32000" item="57"
+        name="Dwarven Village -> Town of Gludio" id="16">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="2400" item="57"
+        name="Dwarven Village -> Eastern Mining Zone (Northeastern Shore)" id="17">
+        <point z="-3504" y="-208272" x="169008"/>
+    </teleport>
+    <teleport price="690" item="57"
+        name="Dwarven Village -> Abandoned Coal Mines" id="418">
+        <point z="-1536" y="-177456" x="139714"/>
+    </teleport>
+    <teleport price="11000" item="57"
+        name="Dwarven Village -> Mithril Mines Western Entrance" id="419">
+        <point z="3440" y="-173352" x="171946"/>
+    </teleport>
+    <teleport price="12000" item="57"
+        name="Dwarven Village -> Mithril Mines Eastern Entrance" id="137">
+        <point z="-360" y="-184615" x="178591"/>
+    </teleport>
+    <teleport price="3400" item="57" name="Dion -> Town of Gludio" id="18">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="6800" item="57" name="Dion -> Town of Giran" id="19">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cruma Tower 1st floor -> Cruma Tower Entrance" id="22">
+        <point z="-3440" y="114232" x="17253"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cruma Tower 1st floor -> Cruma Tower 2nd floor" id="23">
+        <point z="-9056" y="108288" x="17776"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cruma Tower 2nd floor -> Cruma Tower 1st floor" id="24">
+        <point z="-11672" y="113999" x="17781"/>
+    </teleport>
+    <teleport price="6800" item="57" name="Giran -> Dion" id="25">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="9400" item="57" name="Giran -> Oren" id="26">
+        <point z="-1495" y="53162" x="82956"/>
+    </teleport>
+    <teleport price="4400" item="57"
+        name="Giran -> Hardin's Private Academy" id="28">
+        <point z="-3192" y="109759" x="105918"/>
+    </teleport>
+    <teleport price="0" item="57" name="TI Dungeon inside -> outside" id="29">
+        <point z="-3688" y="234942" x="-112899"/>
+    </teleport>
+    <teleport price="0" item="57" name="TI Dungeon outside -> inside" id="30">
+        <point z="-6160" y="248459" x="48586"/>
+    </teleport>
+    <teleport price="0" item="57" name="Ivory Tower Basement" id="31">
+        <point z="-4294" y="15969" x="84915"/>
+    </teleport>
+    <teleport price="0" item="57" name="Ivory Tower Ground Floor" id="32">
+        <point z="-3679" y="16197" x="85399"/>
+    </teleport>
+    <teleport price="0" item="57" name="Ivory Tower 1st Floor" id="33">
+        <point z="-2809" y="16197" x="85399"/>
+    </teleport>
+    <teleport price="0" item="57" name="Ivory Tower 2nd Floor" id="34">
+        <point z="-2293" y="16197" x="85399"/>
+    </teleport>
+    <teleport price="0" item="57" name="Ivory Tower 3th Floor" id="35">
+        <point z="-1776" y="16197" x="85399"/>
+    </teleport>
+    <teleport price="3700" item="57"
+        name="Ivory Tower Ground Floor -> Oren Castle Town" id="36">
+        <point z="-1495" y="53162" x="82956"/>
+    </teleport>
+    <teleport price="6800" item="57"
+        name="Ivory Tower Ground Floor -> Hunter's Village" id="37">
+        <point z="-2714" y="76994" x="116819"/>
+    </teleport>
+    <teleport price="6200" item="57"
+        name="Ivory Tower Ground Floor -> Aden Castle Town" id="38">
+        <point z="-2018" y="25762" x="146331"/>
+    </teleport>
+    <teleport price="6900" item="57" name="Aden -> Oren Town" id="40">
+        <point z="-1470" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="5900" item="57" name="Aden -> Hunter's Village" id="41">
+        <point z="-2688" y="76931" x="117088"/>
+    </teleport>
+    <teleport price="4100" item="57" name="Hunters -> Oren Town" id="43">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="3400" item="57"
+        name="Hunters -> Hardin's Private Academy" id="45">
+        <point z="-3192" y="109759" x="105918"/>
+    </teleport>
+    <teleport price="5900" item="57" name="Hunters -> Aden Town" id="46">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="9400" item="57" name="Oren -> Giran Town" id="47">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="3700" item="57" name="Oren -> Ivory Tower" id="48">
+        <point z="-3672" y="16228" x="85391"/>
+    </teleport>
+    <teleport price="4100" item="57" name="Oren -> Hunter's Village" id="49">
+        <point z="-2688" y="76931" x="117088"/>
+    </teleport>
+    <teleport price="6100" item="57"
+        name="Oren -> Hardin's Private Academy" id="50">
+        <point z="-3192" y="109759" x="105918"/>
+    </teleport>
+    <teleport price="6900" item="57" name="Oren -> Aden Town" id="51">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="4400" item="57"
+        name="Hardin's Private Academy -> Giran Town" id="52">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="6100" item="57"
+        name="Hardin's Private Academy -> Oren Town" id="53">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="3400" item="57"
+        name="Hardin's Private Academy -> Hunter's Village" id="54">
+        <point z="-2688" y="76931" x="117088"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cruma level 2 -> Cruma level 3" id="55">
+        <point z="-6584" y="115590" x="17719"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cruma level 3 -> Cruma Core" id="56">
+        <point z="-6583" y="111726" x="17691"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cruma core -> Cruma level 3" id="57">
+        <point z="-6584" y="115590" x="17719"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cruma Tower 3rd floor -> Cruma Tower 2nd Floor" id="58">
+        <point z="-9067" y="119465" x="17731"/>
+    </teleport>
+    <teleport price="7600" item="57" name="Heine -> The Town of Giran" id="59">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="7100" item="57" name="Heine -> Giran Harbor" id="60">
+        <point z="-3480" y="186864" x="47938"/>
+    </teleport>
+    <teleport price="6300" item="57" name="Giran Harbor -> Giran Town" id="63">
+        <point z="-3400" y="147942" x="83551"/>
+    </teleport>
+    <teleport price="8500" item="57" name="Giran Harbor -> Heine" id="107">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="12000" item="57" name="Heine -> The Town of Dion" id="65">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="12000" item="57" name="Heine -> Field of Silence" id="66">
+        <point z="-3563" y="162835" x="87691"/>
+    </teleport>
+    <teleport price="5900" item="57" name="Heine -> Field of Whispers" id="67">
+        <point z="-3664" y="226128" x="82192"/>
+    </teleport>
+    <teleport price="2100" item="57"
+        name="Heine -> Entrance to Alligator Islands" id="68">
+        <point z="-3488" y="192261" x="115583"/>
+    </teleport>
+    <teleport price="1800" item="57" name="Giran -> Dragon Valley" id="69">
+        <point z="-3688" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="7600" item="57" name="Giran -> Heine" id="70">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="2000" item="57" name="Aden -> Coliseum" id="76">
+        <point z="-3432" y="46723" x="146440"/>
+    </teleport>
+    <teleport price="6800" item="57" name="Aden -> Blazing Swamp" id="81">
+        <point z="-3320" y="-16339" x="155310"/>
+    </teleport>
+    <teleport price="1900" item="57" name="Aden -> Forsaken Plains" id="84">
+        <point z="-4072" y="37990" x="168217"/>
+    </teleport>
+    <teleport price="12000" item="57" name="Dion -> Heine" id="85">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="1700" item="57"
+        name="Dion -> Fortress of Resistance" id="86">
+        <point z="-2104" y="111278" x="47382"/>
+    </teleport>
+    <teleport price="2900" item="57" name="Dion -> Bee Hive" id="87">
+        <point z="-2976" y="188095" x="34475"/>
+    </teleport>
+    <teleport price="1400" item="57" name="Gludio -> Windawood Manor" id="88">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="1200" item="57" name="Gludin -> Abandoned Camp" id="90">
+        <point z="-2784" y="147089" x="-49853"/>
+    </teleport>
+    <teleport price="1400" item="57"
+        name="Gludin -> Fellmere Harvest Grounds" id="91">
+        <point z="-3552" y="101522" x="-63736"/>
+    </teleport>
+    <teleport price="1800" item="57"
+        name="Gludin -> Langk Lizardman Dwelling" id="92">
+        <point z="-3592" y="203497" x="-44763"/>
+    </teleport>
+    <teleport price="960" item="57"
+        name="Orc Village -> The Immortal Plateau" id="93">
+        <point z="-2464" y="-117484" x="-10983"/>
+    </teleport>
+    <teleport price="2000" item="57"
+        name="Orc Village -> Immortal Plateau,Southern Region" id="94">
+        <point z="-2696" y="-80040" x="-4190"/>
+    </teleport>
+    <teleport price="1600" item="57"
+        name="Orc Village -> Frozen Waterfall" id="96">
+        <point z="-1144" y="-139941" x="8652"/>
+    </teleport>
+    <teleport price="1500" item="57"
+        name="Orc Village -> Cave of Trials" id="471">
+        <point z="-2536" y="-112509" x="9340"/>
+    </teleport>
+    <teleport price="1900" item="57" name="Oren -> Plains of Lizardmen" id="97">
+        <point z="-3056" y="85514" x="87252"/>
+    </teleport>
+    <teleport price="2500" item="57" name="Oren -> Sea of Spores" id="98">
+        <point z="-3768" y="26803" x="64328"/>
+    </teleport>
+    <teleport price="5200" item="57" name="Oren -> Outlaw Forest" id="1077">
+        <point z="-2440" y="-12204" x="91539"/>
+    </teleport>
+    <teleport price="3600" item="57"
+        name="Hunters -> Northern Pathway of Enchanted Valley" id="99">
+        <point z="-3800" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="1300" item="57"
+        name="Hunters -> Southern Pathway of Enchanted Valley" id="100">
+        <point z="-3920" y="61992" x="124904"/>
+    </teleport>
+    <teleport price="2000" item="57"
+        name="Hunters -> Entrance to the Forest of Mirrors" id="101">
+        <point z="-3000" y="81300" x="142065"/>
+    </teleport>
+    <teleport price="8100" item="57" name="Goddard -> Aden Castle Town" id="132">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Goddard -> Rune Township" id="108">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="4200" item="57"
+        name="Goddard -> Varka Silenos Stronghold" id="109">
+        <point z="-3736" y="-40864" x="125740"/>
+    </teleport>
+    <teleport price="1800" item="57" name="Goddard -> Ketra Orc Outpost" id="110">
+        <point z="-3640" y="-67128" x="146990"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="Rune Township -> Town of Goddard" id="119">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="59000" item="57"
+        name="Rune Township -> The Town of Giran" id="120">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="37000" item="57" name="Rune -> Aden Castle Town" id="121">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="150" item="57"
+        name="Rune -> Rune Castle Town Guild" id="122">
+        <point z="-1152" y="-48216" x="38316"/>
+    </teleport>
+    <teleport price="150" item="57"
+        name="Rune -> Rune Castle Town Temple" id="123">
+        <point z="896" y="-48040" x="38303"/>
+    </teleport>
+    <teleport price="1200" item="57" name="Rune -> Forest of the Dead" id="124">
+        <point z="-3152" y="-54328" x="52107"/>
+    </teleport>
+    <teleport price="3000" item="57" name="Rune -> Swamp of Screams" id="125">
+        <point z="-3288" y="-50203" x="69340"/>
+    </teleport>
+    <teleport price="37000" item="57" name="Aden -> Rune" id="134">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="8100" item="57" name="Aden -> Goddard" id="135">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="5200" item="57" name="Giran -> Giran Harbor" id="136">
+        <point z="-3480" y="186864" x="47938"/>
+    </teleport>
+    <teleport price="100000" item="57" name="TOI - 1st Floor" id="201">
+        <point z="-5100" y="16022" x="115168"/>
+    </teleport>
+    <teleport price="150000" item="57" name="TOI - 2nd Floor" id="202">
+        <point z="-3609" y="18587" x="114649"/>
+    </teleport>
+    <teleport price="200000" item="57" name="TOI - 3rd Floor" id="203">
+        <point z="-2127" y="16039" x="117918"/>
+    </teleport>
+    <teleport price="250000" item="57" name="TOI - 4th Floor" id="204">
+        <point z="-645" y="12946" x="114622"/>
+    </teleport>
+    <teleport price="300000" item="57" name="TOI - 5th Floor" id="205">
+        <point z="928" y="16078" x="112209"/>
+    </teleport>
+    <teleport price="350000" item="57" name="TOI - 6th Floor" id="206">
+        <point z="1947" y="16099" x="112376"/>
+    </teleport>
+    <teleport price="400000" item="57" name="TOI - 7th Floor" id="207">
+        <point z="2994" y="16175" x="114448"/>
+    </teleport>
+    <teleport price="450000" item="57" name="TOI - 8th Floor" id="208">
+        <point z="3967" y="16118" x="111063"/>
+    </teleport>
+    <teleport price="500000" item="57" name="TOI - 9th Floor" id="209">
+        <point z="4977" y="18415" x="117147"/>
+    </teleport>
+    <teleport price="550000" item="57" name="TOI - 10th Floor" id="210">
+        <point z="5987" y="15973" x="118374"/>
+    </teleport>
+    <teleport price="600000" item="57" name="TOI - 11th Floor" id="211">
+        <point z="7028" y="16078" x="112209"/>
+    </teleport>
+    <teleport price="650000" item="57" name="TOI - 12th Floor" id="212">
+        <point z="7996" y="18711" x="114809"/>
+    </teleport>
+    <teleport price="700000" item="57" name="TOI - 13th Floor" id="213">
+        <point z="9007" y="16989" x="115178"/>
+    </teleport>
+    <teleport price="800000" item="57"
+        name="TOI - 14th Floor Outside Door" id="214">
+        <point z="10077" y="14111" x="112714"/>
+    </teleport>
+    <teleport price="900000" item="57"
+        name="TOI - 14th Floor Inside On Roof" id="215">
+        <point z="10077" y="14532" x="113098"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Heretics Entrance" id="250">
+        <point z="-7911" y="-250275" x="-53174"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Heretics Exit" id="251">
+        <point z="-5385" y="143917" x="42514"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Branded Entrance" id="252">
+        <point z="-4983" y="170290" x="46217"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Branded Exit" id="253">
+        <point z="-4985" y="170299" x="45770"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Apostate Entrance" id="254">
+        <point z="-8168" y="-250780" x="-20230"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Apostate Exit" id="255">
+        <point z="-5119" y="78362" x="77225"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Witch Entrance" id="256">
+        <point z="-5431" y="79678" x="140404"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat Witch Exit" id="257">
+        <point z="-5433" y="79678" x="139965"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat DarkOmen Entrance" id="258">
+        <point z="-4905" y="13508" x="-19500"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat DarkOmen Exit" id="259">
+        <point z="-4905" y="13502" x="-19931"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat ForbiddenPath Entrance" id="260">
+        <point z="-9585" y="-248481" x="12521"/>
+    </teleport>
+    <teleport price="0" item="57" name="Cat ForbiddenPath Exit" id="261">
+        <point z="-6545" y="84540" x="113429"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Sacrifice Entrance" id="262">
+        <point z="-5089" y="209785" x="-41570"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Sacrifice Exit" id="263">
+        <point z="-5091" y="209292" x="-41567"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Pilgrims Entrance" id="264">
+        <point z="-5415" y="123890" x="45251"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Pilgrims Exit" id="265">
+        <point z="-5417" y="124366" x="45250"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Worshippers Entrance" id="266">
+        <point z="-5417" y="174015" x="111273"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Worshippers Exit" id="267">
+        <point z="-5443" y="174010" x="110818"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Patriots Entrance" id="268">
+        <point z="-5177" y="77385" x="-21726"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Patriots Exit" id="269">
+        <point z="-5177" y="77369" x="-22197"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Ascetics Entrance" id="270">
+        <point z="-4743" y="79103" x="-52254"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Ascetics Exit" id="271">
+        <point z="-4745" y="79106" x="-52716"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Martyrs Entrance" id="272">
+        <point z="-4833" y="132800" x="118308"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Martyrs Exit" id="273">
+        <point z="-4835" y="132810" x="117793"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Saints Entrance" id="274">
+        <point z="-5443" y="209213" x="83000"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Saints Exit" id="275">
+        <point z="-5443" y="209225" x="82608"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Disciples Entrance" id="276">
+        <point z="-4903" y="-17605" x="172251"/>
+    </teleport>
+    <teleport price="0" item="57" name="Necro Disciples Exit" id="277">
+        <point z="-4905" y="-17595" x="171902"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(artifact -> out)" id="350">
+        <point z="-2954" y="157715" x="22967"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(artifact -> hall)" id="351">
+        <point z="-2711" y="159871" x="22090"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(artifact -> outofcastle)" id="352">
+        <point z="-2958" y="155798" x="22448"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(in -> artifact)" id="353">
+        <point z="-2775" y="161530" x="22592"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(in -> out)" id="354">
+        <point z="-2954" y="157715" x="22967"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(in -> outofcastle)" id="355">
+        <point z="-2958" y="155798" x="22448"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(out -> artifact)" id="356">
+        <point z="-2775" y="161530" x="22592"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(out -> hall)" id="357">
+        <point z="-2711" y="159871" x="22090"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(out -> outofcastle)" id="358">
+        <point z="-2958" y="155798" x="22448"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(outofcastle -> artifact)" id="359">
+        <point z="-2775" y="161530" x="22592"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(outofcastle -> out)" id="360">
+        <point z="-2954" y="157715" x="22967"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion(outofcastle -> hall)" id="361">
+        <point z="-2711" y="159871" x="22090"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(artifact -> out)" id="362">
+        <point z="-2714" y="144175" x="113892"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(artifact -> hall)" id="363">
+        <point z="-2584" y="145073" x="115984"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(artifact -> outofcastle)" id="364">
+        <point z="-2833" y="144682" x="112016"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(in -> artifact)" id="365">
+        <point z="-2648" y="144564" x="117619"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(in -> out)" id="366">
+        <point z="-2714" y="144175" x="113892"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(in -> outofcastle)" id="367">
+        <point z="-2833" y="144682" x="112016"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(out -> artifact)" id="368">
+        <point z="-2648" y="144564" x="117619"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(out -> hall)" id="369">
+        <point z="-2584" y="145073" x="115984"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(out -> outofcastle)" id="370">
+        <point z="-2833" y="144682" x="112016"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(outofcastle -> artifact)" id="371">
+        <point z="-2648" y="144564" x="117619"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(outofcastle -> out)" id="372">
+        <point z="-2714" y="144175" x="113892"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran(outofcastle -> hall)" id="373">
+        <point z="-2584" y="145073" x="115984"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(artifact -> out)" id="374">
+        <point z="-2532" y="36351" x="79956"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(artifact -> hall)" id="375">
+        <point z="-2311" y="37217" x="82113"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(artifact -> outofcastle)" id="376">
+        <point z="-2566" y="36809" x="78079"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(in -> artifact)" id="377">
+        <point z="-2375" y="36713" x="83710"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(in -> out)" id="378">
+        <point z="-2532" y="36351" x="79956"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(in -> outofcastle)" id="379">
+        <point z="-2566" y="36809" x="78079"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(out -> artifact)" id="380">
+        <point z="-2375" y="36713" x="83710"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(out -> hall)" id="381">
+        <point z="-2311" y="37217" x="82113"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(out -> outofcastle)" id="382">
+        <point z="-2566" y="36809" x="78079"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(outofcastle -> artifact)" id="383">
+        <point z="-2375" y="36713" x="83710"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(outofcastle -> out)" id="384">
+        <point z="-2532" y="36351" x="79956"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren(outofcastle -> hall)" id="385">
+        <point z="-2311" y="37217" x="82113"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(artifact -> out)" id="386">
+        <point z="-2762" y="112085" x="-18941"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(artifact -> hall)" id="387">
+        <point z="-2517" y="109898" x="-18129"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(artifact -> outofcastle)" id="388">
+        <point z="-2772" y="113897" x="-18484"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(in -> artifact)" id="389">
+        <point z="-2581" y="108271" x="-18592"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(in -> out)" id="390">
+        <point z="-2762" y="112085" x="-18941"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(in -> outofcastle)" id="391">
+        <point z="-2772" y="113897" x="-18484"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(out -> artifact)" id="392">
+        <point z="-2581" y="108271" x="-18592"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(out -> hall)" id="393">
+        <point z="-2517" y="109898" x="-18129"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(out -> outofcastle)" id="394">
+        <point z="-2772" y="113897" x="-18484"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(outofcastle -> artifact)" id="395">
+        <point z="-2581" y="108271" x="-18592"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(outofcastle -> out)" id="396">
+        <point z="-2762" y="112085" x="-18941"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio(outofcastle -> hall)" id="397">
+        <point z="-2517" y="109898" x="-18129"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(artifact -> out)" id="398">
+        <point z="-475" y="7916" x="147723"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(artifact -> in)" id="399">
+        <point z="-408" y="4578" x="148580"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(artifact -> outofcastle)" id="400">
+        <point z="-496" y="8753" x="147582"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(artifact -> hall)" id="401">
+        <point z="-409" y="6107" x="147520"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(in -> artifact)" id="402">
+        <point z="-473" y="2544" x="1147499"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(in -> out)" id="403">
+        <point z="-475" y="7916" x="147723"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(in -> outofcastle)" id="404">
+        <point z="-496" y="8753" x="147582"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(in -> hall)" id="405">
+        <point z="-409" y="6107" x="147520"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(out -> artifact)" id="406">
+        <point z="-473" y="2544" x="147499"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(out -> in)" id="407">
+        <point z="-408" y="4578" x="148580"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(out -> outofcastle)" id="408">
+        <point z="-496" y="8753" x="147582"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(out -> hall)" id="409">
+        <point z="-409" y="6107" x="147520"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(outofcastle -> artifact)" id="410">
+        <point z="-473" y="2544" x="147499"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(outofcastle -> out)" id="411">
+        <point z="-475" y="7916" x="147723"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(outofcastle -> in)" id="412">
+        <point z="-408" y="4578" x="148580"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(outofcastle -> hall)" id="413">
+        <point z="-409" y="6107" x="147520"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(hall) -> artifact)" id="414">
+        <point z="-473" y="2544" x="147499"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(hall) -> out)" id="415">
+        <point z="-475" y="7916" x="147723"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(hall) -> in)" id="416">
+        <point z="-408" y="4578" x="148580"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden(hall) -> outofcastle)" id="417">
+        <point z="-496" y="8753" x="147582"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Disciples Necropolis -> Anakim/Lilith" id="450">
+        <point z="-5492" y="-9612" x="185061"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Anakim/Lilith -> Disciples Necropolis" id="451">
+        <point z="-4897" y="-11911" x="183225"/>
+    </teleport>
+    <teleport price="24000" item="57" name="TI -> DE Village" id="1005">
+        <point z="-4568" y="15566" x="9709"/>
+    </teleport>
+    <teleport price="46000" item="57" name="TI -> Dwarven Village" id="1006">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="23000" item="57" name="TI -> Elven Village" id="1007">
+        <point z="-2976" y="51550" x="46951"/>
+    </teleport>
+    <teleport price="35000" item="57" name="TI -> Orc Village" id="1008">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="22000" item="57"
+        name="DE Village -> Dwarven Village" id="1009">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="24000" item="57" name="DE Village -> TI Village" id="1010">
+        <point z="-3728" y="244623" x="-84141"/>
+    </teleport>
+    <teleport price="2600" item="57" name="Gludin -> Windy Hill" id="1121">
+        <point z="-2864" y="83389" x="-88539"/>
+    </teleport>
+    <teleport price="13000" item="57" name="DE Village -> Orc Village" id="1012">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="1700" item="57"
+        name="Elven Village -> Neutral Zone" id="1013">
+        <point z="-3592" y="75881" x="-10612"/>
+    </teleport>
+    <teleport price="23000" item="57"
+        name="Elven Village -> Dwarven Village" id="1014">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="23000" item="57" name="Elven Village -> TI Village" id="1015">
+        <point z="-3728" y="244623" x="-84141"/>
+    </teleport>
+    <teleport price="18000" item="57"
+        name="Elven Village -> Orc Village" id="1016">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="22000" item="57"
+        name="Dwarven Village -> DE Village" id="1017">
+        <point z="-4568" y="15566" x="9709"/>
+    </teleport>
+    <teleport price="23000" item="57"
+        name="Dwarven Village -> Elven Village" id="1018">
+        <point z="-2976" y="51550" x="46951"/>
+    </teleport>
+    <teleport price="46000" item="57"
+        name="Dwarven Village -> TI Village" id="1019">
+        <point z="-3728" y="244623" x="-84141"/>
+    </teleport>
+    <teleport price="4400" item="57"
+        name="Dwarven Village -> Schuttgart" id="1020">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="17000" item="57"
+        name="Dwarven Village -> Orc Village" id="1021">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="970" item="57"
+        name="Dwarven Village -> Western Mining Zone (Central Shore)" id="1022">
+        <point z="-3664" y="-205082" x="136910"/>
+    </teleport>
+    <teleport price="23000" item="57"
+        name="Orc Village -> Town of Gludio" id="1023">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="13000" item="57" name="Orc Village -> Schuttgart" id="1024">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="13000" item="57" name="Orc Village -> DE Village" id="1025">
+        <point z="-4568" y="15566" x="9709"/>
+    </teleport>
+    <teleport price="17000" item="57"
+        name="Orc Village -> Dwarven Village" id="1026">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="35000" item="57" name="Orc Village -> TI Village" id="1027">
+        <point z="-3728" y="244623" x="-84141"/>
+    </teleport>
+    <teleport price="18000" item="57"
+        name="Orc Village -> Elven Village" id="1028">
+        <point z="-2976" y="51550" x="46951"/>
+    </teleport>
+    <teleport price="23000" item="57" name="Gludio -> Orc Village" id="1033">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="550" item="57" name="Gludin -> Windmill Hill" id="1029">
+        <point z="-3632" y="168800" x="-75437"/>
+    </teleport>
+    <teleport price="2000" item="57" name="Gludin -> Forgotten Temple" id="1030">
+        <point z="-3568" y="191425" x="-53001"/>
+    </teleport>
+    <teleport price="2100" item="57" name="Gludio -> Ant Cave" id="1031">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="3700" item="57" name="Gludin -> Red Rock Ridge" id="1032">
+        <point z="-2800" y="198333" x="-42256"/>
+    </teleport>
+    <teleport price="32000" item="57" name="Gludio -> Dwarven Village" id="1034">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="85000" item="57" name="Gludio -> Schuttgart" id="1035">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="47000" item="57" name="Gludio -> Heine" id="1036">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="56000" item="57" name="Gludio -> Aden" id="1037">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="35000" item="57" name="Gludio -> Oren" id="1038">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="71000" item="57" name="Gludio -> Goddard" id="1039">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="29000" item="57" name="Gludio -> Giran" id="1040">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="53000" item="57" name="Gludio -> Rune" id="1041">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="790" item="57" name="Gludio -> Ruins of Agony" id="1042">
+        <point z="-2904" y="122848" x="-41248"/>
+    </teleport>
+    <teleport price="610" item="57" name="Gludio -> Ruins of Despair" id="1043">
+        <point z="-3752" y="136816" x="-19120"/>
+    </teleport>
+    <teleport price="1800" item="57" name="Gludin -> Orc Barracks" id="1044">
+        <point z="-3576" y="105359" x="-89763"/>
+    </teleport>
+    <teleport price="71000" item="57" name="Dion -> Goddard" id="1046">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="57000" item="57" name="Dion -> Rune" id="1047">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="88000" item="57" name="Dion -> Schuttgart" id="1048">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="52000" item="57" name="Dion -> Aden" id="1049">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="33000" item="57" name="Dion -> Oren" id="1050">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="760" item="57" name="Dion -> Cruma Marshlands" id="1051">
+        <point z="-3664" y="126916" x="5106"/>
+    </teleport>
+    <teleport price="2300" item="57" name="Dion -> Cruma Tower" id="1052">
+        <point z="-3440" y="114173" x="17225"/>
+    </teleport>
+    <teleport price="1500" item="57" name="Dion -> Plains of Dion" id="1053">
+        <point z="-3720" y="179184" x="630"/>
+    </teleport>
+    <teleport price="3900" item="57" name="Dion -> Tanor Canyon" id="1054">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="29000" item="57" name="Giran -> Gludio" id="1055">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="63000" item="57" name="Giran -> Goddard" id="1056">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="59000" item="57" name="Giran -> Rune" id="1057">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="87000" item="57" name="Giran -> Schuttgart" id="1058">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="13000" item="57" name="Giran -> Aden" id="1059">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="7000" item="57" name="Giran -> Antharas Lair" id="1060">
+        <point z="-3712" y="114509" x="131557"/>
+    </teleport>
+    <teleport price="5700" item="57" name="Giran -> Devil Isle" id="1061">
+        <point z="-3752" y="206881" x="43408"/>
+    </teleport>
+    <teleport price="1000" item="57" name="Giran -> Brekas Stronghold" id="1062">
+        <point z="-3672" y="131328" x="85546"/>
+    </teleport>
+    <teleport price="50000" item="57" name="Heine -> Oren" id="1063">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="59000" item="57" name="Heine -> Aden" id="1064">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="83000" item="57" name="Heine -> Goddard" id="1065">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="82000" item="57" name="Heine -> Rune" id="1066">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="100000" item="57" name="Heine -> Schuttgart" id="1067">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="47000" item="57" name="Heine -> Gludio" id="1068">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="2400" item="57" name="Heine -> Garden of Eva" id="1069">
+        <point z="-3656" y="234334" x="84413"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Oren -> Rune" id="1070">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="12000" item="57" name="Oren -> Goddard" id="1071">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="16000" item="57" name="Oren -> Heine" id="1072">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="11000" item="57" name="Oren -> Dion" id="1073">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="19000" item="57" name="Oren -> Schuttgart" id="1074">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="11000" item="57" name="Oren -> Gludio" id="1075">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="13000" item="57" name="Aden -> Giran" id="1078">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="59000" item="57" name="Aden -> Heine" id="1079">
+        <point z="-3546" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="53000" item="57" name="Aden -> Schuttgart" id="1080">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="52000" item="57" name="Aden -> Dion" id="1081">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="56000" item="57" name="Aden -> Gludio" id="1082">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="3000" item="57" name="Aden -> Seal of Shilen" id="1083">
+        <point z="-3168" y="19745" x="184742"/>
+    </teleport>
+    <teleport price="4400" item="57" name="Aden -> Forest of Mirrors" id="1084">
+        <point z="-3000" y="81300" x="142065"/>
+    </teleport>
+    <teleport price="6500" item="57" name="Aden -> Fields of Massacre" id="1085">
+        <point z="-2776" y="-14974" x="183543"/>
+    </teleport>
+    <teleport price="5900" item="57" name="Aden -> Ancient Battleground" id="1086">
+        <point z="-3416" y="-2871" x="106517"/>
+    </teleport>
+    <teleport price="6100" item="57" name="Aden -> Silent Valley" id="1087">
+        <point z="-5280" y="55776" x="170838"/>
+    </teleport>
+    <teleport price="4200" item="57" name="Aden -> ToI" id="1088">
+        <point z="-5120" y="11115" x="114649"/>
+    </teleport>
+    <teleport price="71000" item="57" name="Goddard -> Gludio" id="1089">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="63000" item="57" name="Goddard -> Giran" id="1090">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="71000" item="57" name="Goddard -> Dion" id="1091">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="83000" item="57" name="Goddard -> Heine" id="1092">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Goddard -> Schuttgart" id="1093">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="37000" item="57" name="Goddard -> Oren" id="1094">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="9300" item="57" name="Goddard -> Hot Springs" id="1095">
+        <point z="-2560" y="-113468" x="144880"/>
+    </teleport>
+    <teleport price="2200" item="57" name="Goddard -> Wall of Argos" id="1096">
+        <point z="-3560" y="-47861" x="165054"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="Goddard -> Monastery of silence" id="1097">
+        <point z="-2920" y="-87799" x="106414"/>
+    </teleport>
+    <teleport price="57000" item="57" name="Rune -> Dion" id="1098">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="53000" item="57"
+        name="Rune Township -> The Town of Gludio" id="1099">
+        <point z="-3114" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="82000" item="57" name="Rune -> Heine" id="1100">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Rune -> Schuttgart" id="1101">
+        <point z="-1288" y="-143520" x="87126"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Rune -> Oren" id="1102">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="7200" item="57" name="Rune -> Wild Beast Pastures" id="1103">
+        <point z="-2700" y="-82831" x="53516"/>
+    </teleport>
+    <teleport price="3800" item="57" name="Rune -> Valley of Saints" id="1104">
+        <point z="-3688" y="-71445" x="65307"/>
+    </teleport>
+    <teleport price="14000" item="57"
+        name="Rune -> Monastery of Silence" id="1105">
+        <point z="-2920" y="-87799" x="106414"/>
+    </teleport>
+    <teleport price="5300" item="57" name="Schuttgart -> Rune" id="1106">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="10000" item="57" name="Schuttgart -> Goddard" id="1107">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="17000" item="57" name="Schuttgart -> Aden" id="1108">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="19000" item="57" name="Schuttgart -> Oren" id="1109">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="36000" item="57" name="Schuttgart -> Heine" id="1110">
+        <point z="-3544" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="29000" item="57" name="Schuttgart -> Giran" id="1111">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="29000" item="57" name="Schuttgart -> Dion" id="1112">
+        <point z="-2688" y="142880" x="15472"/>
+    </teleport>
+    <teleport price="28000" item="57" name="Schuttgart -> Gludio" id="1113">
+        <point z="-3112" y="122779" x="-12787"/>
+    </teleport>
+    <teleport price="13000" item="57" name="Schuttgart -> Orc Village" id="1114">
+        <point z="-240" y="-112583" x="-45158"/>
+    </teleport>
+    <teleport price="4400" item="57"
+        name="Schuttgart -> Dwarven Village" id="1115">
+        <point z="-880" y="-178224" x="115120"/>
+    </teleport>
+    <teleport price="7500" item="57" name="Schuttgart -> Den of Evil" id="1116">
+        <point z="-1904" y="-110438" x="68693"/>
+    </teleport>
+    <teleport price="1600" item="57"
+        name="Schuttgart -> Plunderous Plains" id="1117">
+        <point z="-1528" y="-154172" x="111965"/>
+    </teleport>
+    <teleport price="3500" item="57"
+        name="Schuttgart -> Ice Merchant Cabin" id="1118">
+        <point z="-856" y="-108752" x="113903"/>
+    </teleport>
+    <teleport price="9600" item="57"
+        name="Schuttgart -> Crypt of Disgrace" id="1119">
+        <point z="-3744" y="-115745" x="47692"/>
+    </teleport>
+    <teleport price="5300" item="57" name="Schuttgart -> Pavel Ruins" id="1120">
+        <point z="-3928" y="-117152" x="91280"/>
+    </teleport>
+    <teleport price="12000" item="57"
+        name="Kamael Vilage -> The Town of Gludio" id="1139">
+        <point z="-3116" y="122776" x="-12672"/>
+    </teleport>
+    <teleport price="26000" item="57"
+        name="Kamael Vilage -> Town of Aden" id="1122">
+        <point z="-2018" y="25762" x="146331"/>
+    </teleport>
+    <teleport price="20000" item="57"
+        name="Kamael Vilage -> Talking Island Village" id="1123">
+        <point z="-3730" y="244579" x="-84318"/>
+    </teleport>
+    <teleport price="13000" item="57"
+        name="Kamael Vilage -> Dark Elf Village" id="1124">
+        <point z="-4574" y="15606" x="9745"/>
+    </teleport>
+    <teleport price="16000" item="57"
+        name="Kamael Vilage -> Elven Village" id="1125">
+        <point z="-2977" y="51467" x="46934"/>
+    </teleport>
+    <teleport price="32000" item="57"
+        name="Kamael Vilage -> Dwarven Village" id="1126">
+        <point z="-901" y="-178212" x="115113"/>
+    </teleport>
+    <teleport price="17000" item="57"
+        name="Kamael Vilage -> Orc Village" id="1127">
+        <point z="-235" y="-112524" x="-44836"/>
+    </teleport>
+    <teleport price="2600" item="57"
+        name="Kamael Vilage -> Stronghold I" id="1128">
+        <point z="-2872" y="73205" x="-122410"/>
+    </teleport>
+    <teleport price="2200" item="57"
+        name="Kamael Vilage -> Stronghold II" id="1129">
+        <point z="-2024" y="52150" x="-95540"/>
+    </teleport>
+    <teleport price="3200" item="57"
+        name="Kamael Vilage -> Stronghold III" id="1130">
+        <point z="-2048" y="37095" x="-85928"/>
+    </teleport>
+    <teleport price="4300" item="57"
+        name="Kamael Vilage -> Isle of Souls Harbor" id="1131">
+        <point z="-3680" y="51932" x="-74016"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Kamael Vilage -> Stronghold I free" id="1132">
+        <point z="-2872" y="73205" x="-122410"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Kamael Vilage -> Stronghold II free" id="1133">
+        <point z="-2024" y="52150" x="-95540"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Kamael Vilage -> Stronghold III free" id="1134">
+        <point z="-2048" y="37095" x="-85928"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Strongolds -> Kamael Village free" id="1135">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="9300" item="57"
+        name="Soul Isle Harbor -> The Town of Gludio" id="1136">
+        <point z="-3116" y="122776" x="-12672"/>
+    </teleport>
+    <teleport price="22000" item="57"
+        name="Soul Isle Harbor -> Town of Aden" id="1137">
+        <point z="-2018" y="25762" x="146331"/>
+    </teleport>
+    <teleport price="4300" item="57"
+        name="Soul Isle Harbor -> The Town of Gludio" id="1138">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="0" item="57" name="Pagan Temple - > exit" id="11999">
+        <point z="-10725" y="-36591" x="-16307"/>
+    </teleport>
+    <teleport price="0" item="57" name="Pagan Chapel - > exit" id="11998">
+        <point z="-10725" y="-43803" x="-16359"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="500">
+        <point z="-3144" y="123671" x="-14393"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="501">
+        <point z="-3079" y="123652" x="-11817"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="502">
+        <point z="-3127" y="124108" x="-16796"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="503">
+        <point z="-3151" y="126547" x="-14207"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="504">
+        <point z="-2990" y="121024" x="-14591"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Ruins of Agony" id="505">
+        <point z="-2912" y="122848" x="-41248"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Ruins of Despair" id="506">
+        <point z="-3762" y="136816" x="-19120"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> The Ant Nest" id="507">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Windawood Manor" id="508">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="509">
+        <point z="-3129" y="150788" x="-82445"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="510">
+        <point z="-3148" y="148563" x="-83331"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="511">
+        <point z="-3181" y="152723" x="-78405"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="512">
+        <point z="-3194" y="155995" x="-77460"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="513">
+        <point z="-3160" y="152749" x="-85138"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Windmill Hill" id="514">
+        <point z="-3632" y="168800" x="-75437"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Fellmere Harvesting Grounds" id="515">
+        <point z="-3552" y="101522" x="-63736"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Windy Hill" id="516">
+        <point z="-2864" y="83389" x="-88539"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Abandoned Camp" id="517">
+        <point z="-2784" y="147089" x="-49853"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Wastelands" id="518">
+        <point z="-3664" y="208032" x="-16526"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="519">
+        <point z="-3107" y="145245" x="19025"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="520">
+        <point z="-3153" y="145866" x="21511"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="521">
+        <point z="-3051" y="142365" x="18891"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="522">
+        <point z="-3129" y="147593" x="17394"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="523">
+        <point z="-2960" y="144130" x="16582"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Cruma Marshlands" id="524">
+        <point z="-3664" y="126916" x="5106"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Fortress of Resistance" id="525">
+        <point z="-2104" y="111278" x="47382"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Plains of Dion" id="526">
+        <point z="-3720" y="179184" x="630"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Tanor Canyon" id="527">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Entrance to Floran Village" id="528">
+        <point z="-3506" y="170103" x="17430"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="529">
+        <point z="-2294" y="28081" x="147450"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="530">
+        <point z="-2172" y="25094" x="151950"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="531">
+        <point z="-2425" y="26344" x="142593"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="532">
+        <point z="-2501" y="32299" x="147503"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="533">
+        <point z="-2130" y="20737" x="147465"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Ancient Battleground" id="534">
+        <point z="-3454" y="-2871" x="106517"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Enchanted Valley, Southern Region" id="535">
+        <point z="-3973" y="61992" x="124904"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Enchanted Valley, Northern Region" id="536">
+        <point z="-3825" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Blazing Swamp" id="537">
+        <point z="-3320" y="-16339" x="155310"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Forest of Mirrors" id="538">
+        <point z="-3000" y="81300" x="142065"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Anghel Waterfall" id="539">
+        <point z="-3168" y="91560" x="166182"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> South Entrance of Devastated Castle" id="540">
+        <point z="-3464" y="-7524" x="181726"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> West Area of the Devastated Castle" id="541">
+        <point z="-3184" y="-18790" x="168779"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Seal of Shilen" id="542">
+        <point z="-3168" y="19745" x="184742"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Forsaken Plains" id="543">
+        <point z="-4072" y="37990" x="168217"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Tower of Insolence" id="544">
+        <point z="-5120" y="11115" x="114649"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> The Giants Cave Upper Layer" id="545">
+        <point z="-3992" y="61424" x="183985"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> The Giants Cave Lower Layer" id="546">
+        <point z="-7624" y="56760" x="191754"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="547">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="548">
+        <point z="-3528" y="143821" x="81525"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="549">
+        <point z="-3400" y="147329" x="88342"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="550">
+        <point z="-3528" y="152633" x="81548"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="551">
+        <point z="-3592" y="148636" x="77305"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Brekas Stronghold" id="552">
+        <point z="-3672" y="131328" x="85546"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Devils Isle" id="553">
+        <point z="-3752" y="206881" x="43408"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Dragon Valley" id="554">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Tanor Canyon" id="555">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="556">
+        <point z="-2776" y="-56331" x="147728"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="557">
+        <point z="-2976" y="-58930" x="147731"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="558">
+        <point z="-2976" y="-57489" x="150561"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="559">
+        <point z="-2976" y="-57464" x="144866"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Varka Silenos Stronghold" id="560">
+        <point z="-3736" y="-40864" x="125740"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Ketra Orc Outpost" id="561">
+        <point z="-3640" y="-67128" x="146990"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Entrance to the Forge of the Gods" id="562">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Wall of Argos" id="563">
+        <point z="-3560" y="-47861" x="165054"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Hot Springs" id="564">
+        <point z="-2560" y="-113468" x="144880"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="565">
+        <point z="-792" y="-49101" x="43889"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="566">
+        <point z="-816" y="-46563" x="43307"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> North Gate Entrance" id="567">
+        <point z="-896" y="-52670" x="40909"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Forest of the Dea" id="568">
+        <point z="-3158" y="-54328" x="52107"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Wild Beast Pastures" id="569">
+        <point z="-2780" y="-88010" x="43805"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Swamp of Screams" id="570">
+        <point z="-3314" y="-50203" x="69340"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Valley of Saints" id="571">
+        <point z="-3696" y="-71445" x="65307"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Monastery of Silence" id="572">
+        <point z="-2949" y="-87799" x="106414"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Shyeeds Cavern" id="573">
+        <point z="-5824" y="-55295" x="76911"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> Village Square" id="574">
+        <point z="-1336" y="-142322" x="87379"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> West Gate Entrance" id="575">
+        <point z="-1536" y="-141051" x="84753"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Clan Hall -> South Gate Entrance" id="576">
+        <point z="-1536" y="-139802" x="87347"/>
+    </teleport>
+    <teleport price="0" item="57" name="Clan Hall -> East Gate Entrance" id="577">
+        <point z="-1536" y="-141034" x="89959"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Crypts of Disgrace" id="578">
+        <point z="-3744" y="-115745" x="47692"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Plunderous Plains" id="579">
+        <point z="-1528" y="-154172" x="111965"/>
+    </teleport>
+    <teleport price="500" item="57" name="Clan Hall -> Den of Evil" id="580">
+        <point z="-1946" y="-110438" x="68693"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Clan Hall -> Ice Merchant Cabin" id="581">
+        <point z="-860" y="-108752" x="113903"/>
+    </teleport>
+    <teleport price="1000" item="57" name="Gludin Arena - 1000 adena" id="9000">
+        <point z="-3640" y="142266" x="-87328"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Coliseum - 1000 adena" id="9001">
+        <point z="-3400" y="46723" x="146440"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Giran Arena - 1000 adena" id="9002">
+        <point z="-3768" y="142709" x="73579"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Center of the Forgotten Temple - 1000 adena" id="9010">
+        <point z="-4650" y="179504" x="-54026"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Wastelands, Western Region  - 1000 adena" id="9011">
+        <point z="-3669" y="179572" x="-47506"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Giant's Cave Upper Layer - 1000 adena" id="9020">
+        <point z="-3992" y="61424" x="183985"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Plains of Glory - 1000 adena" id="9021">
+        <point z="-3424" y="19467" x="135580"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="War-Torn Plains - 1000 adena" id="9022">
+        <point z="-4032" y="11217" x="156898"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Tower of Insolence, 3rd Floor - 1000 adena" id="9023">
+        <point z="-2120" y="16154" x="110848"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Tower of Insolence, 5th Floor - 1000 adena" id="9024">
+        <point z="832" y="15988" x="118404"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Tower of Insolence, 7th Floor - 1000 adena" id="9025">
+        <point z="2960" y="12181" x="115064"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Tower of Insolence. 10th Floor - 1000 adena" id="9026">
+        <point z="5984" y="16455" x="118525"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Tower of Insolence. 13th Floor - 1000 adena" id="9027">
+        <point z="9000" y="16820" x="115384"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Hunters Valley - 1000 adena" id="9028">
+        <point z="-3112" y="86573" x="114306"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Anghel Waterfall - 1000 adena" id="9029">
+        <point z="-3168" y="91560" x="166182"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Forest of Mirrors - 1000 adena" id="9030">
+        <point z="-2992" y="75574" x="166080"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Enchanted Valley - 1000 adena" id="9031">
+        <point z="-3376" y="44150" x="114674"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Hunters Valley - 1000 adena" id="9032">
+        <point z="-3112" y="86573" x="114306"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Giant's Cave Lower Layer - 1000 adena" id="9033">
+        <point z="-7624" y="56760" x="191754"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Gorgon Flower Garden - 1000 adena" id="9040">
+        <point z="-3540" y="134813" x="113553"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Antharas' Lair - 1st Level - 1000 adena" id="9041">
+        <point z="-4520" y="120156" x="147071"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Antharas' Lair - 2nd Level - 1000 adena" id="9042">
+        <point z="-5520" y="112977" x="151835"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Antharas' Lair -  Magic Force Field Bridge - 1000 adena" id="9043">
+        <point z="-3448" y="109285" x="146494"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Heart of Antharas' Lair - 1000 adena" id="9044">
+        <point z="-3808" y="121235" x="154396"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of Dragon Valley - 1000 adena" id="9045">
+        <point z="-3808" y="110836" x="122824"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Hardin's Private Academy - 1000 adena" id="9046">
+        <point z="-3170" y="109759" x="105918"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Forest of the Dead - 1000 adena" id="9050">
+        <point z="-3072" y="-41692" x="54425"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Valley of Saints - 1000 adena" id="9051">
+        <point z="-3504" y="-80084" x="84092"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Cursed Village - 1000 adena" id="9052">
+        <point z="-2802" y="-40935" x="62084"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Shyeed's Cavern - 1000 adena" id="9053">
+        <point z="-5824" y="-55295" x="76911"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Monastery of Silence - 1000 adena" id="9054">
+        <point z="-2949" y="-87799" x="106414"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Varka Silenos Village - 1000 adena" id="9060">
+        <point z="-2408" y="-52248" x="107929"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Ketra Orc Village - 1000 adena" id="9061">
+        <point z="-5576" y="-80053" x="149817"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Devil's Pass - 1000 adena" id="9062">
+        <point z="-2904" y="-61870" x="106349"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Garden of Wild Beasts - 1000 adena" id="9063">
+        <point z="-2960" y="-60608" x="132997"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Hot Springs - 1000 adena" id="9064">
+        <point z="-3384" y="-101291" x="144625"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Wall of Argos - 1000 adena" id="9065">
+        <point z="-1896" y="-53307" x="183140"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Shrine of Loyalty - 1000 adena" id="9066">
+        <point z="-2898" y="-59388" x="191257"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Four Sepulchers - 1000 adena" id="9067">
+        <point z="-7215" y="-84435" x="178127"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Imperial Tomb - 1000 adena" id="9068">
+        <point z="-2826" y="-75915" x="186699"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Forge of the Gods - Top Level - 1000 adena" id="9070">
+        <point z="-3680" y="-112725" x="173436"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Forge of the Gods - Lower Level - 1000 adena" id="9071">
+        <point z="-5851" y="-111913" x="180260"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Execution Grounds - 1000 adena" id="9080">
+        <point z="-2656" y="152408" x="50568"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Floran Agricultural Area - 1000 adena" id="9081">
+        <point z="-3376" y="172787" x="26810"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Cruma Marshlands - 1000 adena" id="9082">
+        <point z="-3400" y="125455" x="5941"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Frost Lake - 1000 adena" id="9090">
+        <point z="-3632" y="-122392" x="107577"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Grave Robber Hideout - 1000 adena" id="9091">
+        <point z="-2784" y="-114232" x="44221"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Sky Wagon Relic - 1000 adena" id="9092">
+        <point z="-1496" y="-141554" x="121618"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Evil Hunting Grounds - 1000 adena" id="9100">
+        <point z="-3040" y="109503" x="-6989"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Neutral Zone - 1000 adena" id="9101">
+        <point z="-3680" y="85624" x="-18415"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Dark Forest - 1000 adena" id="9102">
+        <point z="-3680" y="27094" x="-14129"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Center of the School of Dark Arts - 1000 adena" id="9103">
+        <point z="-5912" y="49441" x="-49185"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Center of the Elven Ruins - 1000 adena" id="9104">
+        <point z="-5960" y="248452" x="49315"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Immortal Plateau, Northern Region - 1000 adena" id="9105">
+        <point z="-680" y="-131569" x="-25309"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Mithril Mines - 1000 adena" id="9106">
+        <point z="-904" y="-181586" x="175499"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of the Abandoned Coal Mines - 1000 adena" id="9107">
+        <point z="-1520" y="-173223" x="144706"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Forest of Evil - 1000 adena" id="9110">
+        <point z="-3904" y="16969" x="93218"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Timak Outpost - 1000 adena" id="9111">
+        <point z="-3648" y="68815" x="67097"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57" name="Altar of Rites - 1000 adena" id="9112">
+        <point z="-3736" y="77508" x="-44566"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Field of Silence (Western Section) - 1000 adena" id="9120">
+        <point z="-3000" y="195263" x="75387"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Field of Whispers (Eastern Section) - 1000 adena" id="9121">
+        <point z="-3040" y="209303" x="97786"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="The Center of Alligator Island - 1000 adena" id="9122">
+        <point z="-3232" y="178387" x="113708"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Inside the Garden of Eva - 1000 adena" id="9123">
+        <point z="-6712" y="242220" x="82693"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Garden of Eva - 2nd Level - 1000 adena" id="9124">
+        <point z="-8816" y="247390" x="79248"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Garden of Eva - 3rd Level - 1000 adena" id="9125">
+        <point z="-9328" y="250400" x="77868"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Garden of Eva - 4th Level - 1000 adena" id="9126">
+        <point z="-9840" y="253309" x="78721"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Garden of Eva - 5th Level - 1000 adena" id="9127">
+        <point z="-10592" y="252354" x="82951"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Field of Silence Center - 1000 adena" id="9128">
+        <point z="-3504" y="182423" x="80987"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1000" item="57"
+        name="Field of Whispers Center - 1000 adena" id="9129">
+        <point z="-3592" y="218268" x="86147"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Gludin Arena - 1 Olympiad Token" id="9900">
+        <point z="-3640" y="142266" x="-87328"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722" name="Coliseum - 1 Olympiad Token" id="9901">
+        <point z="-3400" y="46723" x="146440"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Giran Arena - 1 Olympiad Token" id="9902">
+        <point z="-3768" y="142709" x="73579"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Center of the Forgotten Temple - 1 Olympiad Token" id="9910">
+        <point z="-4650" y="179504" x="-54026"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Wastelands, Western Region  - 1 Olympiad Token" id="9911">
+        <point z="-3669" y="179572" x="-47506"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Giant's Cave Upper Layer - 1 Olympiad Token" id="9920">
+        <point z="-3992" y="61424" x="183985"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Plains of Glory - 1 Olympiad Token" id="9921">
+        <point z="-3424" y="19467" x="135580"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="War-Torn Plains - 1 Olympiad Token" id="9922">
+        <point z="-4032" y="11217" x="156898"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Tower of Insolence, 3rd Floor - 1 Olympiad Token" id="9923">
+        <point z="-2120" y="16154" x="110848"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Tower of Insolence, 5th Floor - 1 Olympiad Token" id="9924">
+        <point z="832" y="15988" x="118404"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Tower of Insolence, 7th Floor - 1 Olympiad Token" id="9925">
+        <point z="2960" y="12181" x="115064"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Tower of Insolence. 10th Floor - 1 Olympiad Token" id="9926">
+        <point z="5984" y="16455" x="118525"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Tower of Insolence. 13th Floor - 1 Olympiad Token" id="9927">
+        <point z="9000" y="16820" x="115384"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Hunters Valley - 1 Olympiad Token" id="9928">
+        <point z="-3112" y="86573" x="114306"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Anghel Waterfall - 1 Olympiad Token" id="9929">
+        <point z="-3168" y="91560" x="166182"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Forest of Mirrors - 1 Olympiad Token" id="9930">
+        <point z="-2992" y="75574" x="166080"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Enchanted Valley - 1 Olympiad Token" id="9931">
+        <point z="-3376" y="44150" x="114674"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Hunters Valley - 1 Olympiad Token" id="9932">
+        <point z="-3112" y="86573" x="114306"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Giant's Cave Lower Layer - 1 Olympiad Token" id="9933">
+        <point z="-7624" y="56760" x="191754"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Gorgon Flower Garden - 1 Olympiad Token" id="9940">
+        <point z="-3540" y="134813" x="113553"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Antharas' Lair - 1st Level - 1 Olympiad Token" id="9941">
+        <point z="-4520" y="120156" x="147071"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Antharas' Lair - 2nd Level - 1 Olympiad Token" id="9942">
+        <point z="-5520" y="112977" x="151835"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Antharas Lair, Magic Force Field Bridge - 1 Olympiad Token" id="9943">
+        <point z="-3448" y="109285" x="146494"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Heart of Antharas' Lair - 1 Olympiad Token" id="9944">
+        <point z="-3808" y="121235" x="154396"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of Dragon Valley - 1 Olympiad Token" id="9945">
+        <point z="-3720" y="110836" x="122824"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Hardin's Private Academy - 1 Olympiad Token" id="9946">
+        <point z="-3170" y="109759" x="105918"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Forest of the Dead - 1 Olympiad Token" id="9950">
+        <point z="-3072" y="-41692" x="54425"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Valley of Saints - 1 Olympiad Token" id="9951">
+        <point z="-3504" y="-80084" x="84092"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Cursed Village - 1 Olympiad Token" id="9952">
+        <point z="-2802" y="-40935" x="62084"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Shyeed's Cavern - 1 Olympiad Token" id="9953">
+        <point z="-5824" y="-55295" x="76911"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Monastery of Silence - 1 Olympiad Token" id="9954">
+        <point z="-2949" y="-87799" x="106414"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Varka Silenos Village - 1000 adena" id="9960">
+        <point z="-2408" y="-52248" x="107929"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Ketra Orc Village - 1000 adena" id="9961">
+        <point z="-5576" y="-80053" x="149817"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722" name="Devil's Pass - 1000 adena" id="9962">
+        <point z="-2904" y="-61870" x="106349"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Garden of Wild Beasts - 1000 adena" id="9963">
+        <point z="-2960" y="-60608" x="132997"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Hot Springs - 1000 adena" id="9964">
+        <point z="-3384" y="-101291" x="144625"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Wall of Argos - 1000 adena" id="9965">
+        <point z="-1896" y="-53307" x="183140"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Shrine of Loyalty - 1000 adena" id="9966">
+        <point z="-2898" y="-59388" x="191257"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722" name="Four Sepulchers - 1000 adena" id="9967">
+        <point z="-7215" y="-84435" x="178127"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722" name="Imperial Tomb - 1000 adena" id="9968">
+        <point z="-2826" y="-75915" x="186699"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Forge of the Gods - Top Level - 1000 adena" id="9970">
+        <point z="-3680" y="-112725" x="173436"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Forge of the Gods - Lower Level - 1000 adena" id="9971">
+        <point z="-5851" y="-111913" x="180260"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Execution Grounds - 1 Olympiad Token" id="9980">
+        <point z="-2656" y="152408" x="50568"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Floran Agricultural Area - 1 Olympiad Token" id="9981">
+        <point z="-3376" y="172787" x="26810"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Cruma Marshlands - 1 Olympiad Token" id="9982">
+        <point z="-3400" y="125455" x="5941"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Frost Lake - 1 Olympiad Token" id="9990">
+        <point z="-3632" y="-122392" x="107577"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Grave Robber Hideout - 1 Olympiad Token" id="9991">
+        <point z="-2784" y="-114232" x="44221"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Sky Wagon Relic - 1 Olympiad Token" id="9992">
+        <point z="-1496" y="-141554" x="121618"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Evil Hunting Grounds - 1 Olympiad Token" id="10000">
+        <point z="-3040" y="109503" x="-6989"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Neutral Zone - 1 Olympiad Token" id="10001">
+        <point z="-3680" y="85624" x="-18415"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Dark Forest - 1 Olympiad Token" id="10002">
+        <point z="-3680" y="27094" x="-14129"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Center of the School of Dark Arts - 1 Olympiad Token" id="10003">
+        <point z="-5912" y="49441" x="-49185"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Center of the Elven Ruins - 1 Olympiad Token" id="10004">
+        <point z="-5960" y="248452" x="49315"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Immortal Plateau, Northern Region - 1 Olympiad Token" id="10005">
+        <point z="-680" y="-131569" x="-25309"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Mithril Mines - 1 Olympiad Token" id="10006">
+        <point z="-904" y="-181586" x="175499"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of the Abandoned Coal Mines - 1 Olympiad Token" id="10007">
+        <point z="-1520" y="-173223" x="144706"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Forest of Evil - 1 Olympiad Token" id="10010">
+        <point z="-3904" y="16969" x="93218"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Timak Outpost - 1 Olympiad Token" id="10011">
+        <point z="-3648" y="68815" x="67097"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Altar of Rites - 1 Olympiad Token" id="10012">
+        <point z="-3736" y="77508" x="-44566"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Field of Silence (Western Section) - 1 Olympiad Token" id="10020">
+        <point z="-3000" y="195263" x="75387"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Field of Whispers (Eastern Section) - 1 Olympiad Token" id="10021">
+        <point z="-3040" y="209303" x="97786"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="The Center of Alligator Island - 1 Olympiad Token" id="10022">
+        <point z="-3232" y="178387" x="113708"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Inside the Garden of Eva - 1 Olympiad Token" id="10023">
+        <point z="-6712" y="242220" x="82693"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Garden of Eva - 2nd Level - 1 Olympiad Token" id="10024">
+        <point z="-8816" y="247390" x="79248"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Garden of Eva - 3rd Level - 1 Olympiad Token" id="10025">
+        <point z="-9328" y="250400" x="77868"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Garden of Eva - 4th Level - 1 Olympiad Token" id="10026">
+        <point z="-9840" y="253309" x="78721"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Garden of Eva - 5th Level - 1 Olympiad Token" id="10027">
+        <point z="-10592" y="252354" x="82951"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="4900" item="57"
+        name="Ketra teleport - Goddard Castle Town" id="10028">
+        <point z="-2728" y="-55408" x="147978"/>
+    </teleport>
+    <teleport price="22000" item="57"
+        name="Ketra teleport - Rune Castle Town" id="10029">
+        <point z="-792" y="-47877" x="43849"/>
+    </teleport>
+    <teleport price="21000" item="57"
+        name="Ketra teleport - Aden Castle Town" id="10030">
+        <point z="-2000" y="25840" x="146705"/>
+    </teleport>
+    <teleport price="7000" item="57"
+        name="Ketra teleport - Wall of Argos" id="10031">
+        <point z="-3536" y="-48145" x="164564"/>
+    </teleport>
+    <teleport price="6700" item="57" name="Ketra teleport - Hot Springs" id="10032">
+        <point z="-2560" y="-113468" x="144880"/>
+    </teleport>
+    <teleport price="8000" item="57"
+        name="Varka teleport - Goddard Castle Town" id="10033">
+        <point z="-2728" y="-55408" x="147978"/>
+    </teleport>
+    <teleport price="12000" item="57"
+        name="Varka teleport - Rune Castle Town" id="10034">
+        <point z="-792" y="-47877" x="43849"/>
+    </teleport>
+    <teleport price="17000" item="57"
+        name="Varka teleport - Aden Castle Town" id="10035">
+        <point z="-2000" y="25840" x="146705"/>
+    </teleport>
+    <teleport price="11000" item="57"
+        name="Varka teleport - Wall of Argos" id="10036">
+        <point z="-3536" y="-48145" x="164564"/>
+    </teleport>
+    <teleport price="14000" item="57"
+        name="Varka teleport - Hot Springs" id="10037">
+        <point z="-2560" y="-113468" x="144880"/>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Field of Silence Center - 1000 adena" id="10038">
+        <point z="-3504" y="182423" x="80987"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="1" item="13722"
+        name="Field of Whispers Center - 1000 adena" id="10039">
+        <point z="-3592" y="218268" x="86147"/>
+        <restrictions>NOBLE</restrictions>
+    </teleport>
+    <teleport price="12000" item="57" name="Gludio -> Kamael Village" id="12050">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="13000" item="57"
+        name="Dark Elf Village -> Kamael Village" id="12051">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="17000" item="57"
+        name="Orc Village -> Kamael Village" id="12052">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="16000" item="57"
+        name="Elven Village -> Kamael Village" id="12053">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="26000" item="57"
+        name="Town of Aden -> Kamael Village" id="12054">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="Talking Village -> Kamael Village" id="12055">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="32000" item="57"
+        name="Dwarven Village -> Kamael Village" id="12056">
+        <point z="360" y="46771" x="-117251"/>
+    </teleport>
+    <teleport price="0" item="57" name="Soul Harbor -> Nornil's Garden" id="12057">
+        <point z="-12593" y="87176" x="-119534"/>
+    </teleport>
+    <teleport price="0" item="57" name="Nornil's Garden -> Soul Harbor" id="12058">
+        <point z="-3680" y="53507" x="-73494"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Underground Coliseum -> Fantasy Isle" id="12059">
+        <point z="-2032" y="-56837" x="-59224"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Fantasy Isle -> Underground Coliseum" id="12060">
+        <point z="-10352" y="-49167" x="-81490"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dragonspine Fort -> Fort North Gate" id="12100">
+        <point z="-3424" y="93196" x="12468"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dragonspine Fort -> Fort South Gate" id="12101">
+        <point z="-3424" y="96881" x="10494"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dragonspine Fort -> Dion Town Square" id="12102">
+        <point z="-3107" y="145245" x="19025"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dragonspine Fort -> Oren Town Square" id="12103">
+        <point z="-1480" y="55466" x="82323"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Dragonspine Fort -> The Ant Nest" id="12104">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Dragonspine Fort -> Windawood Manor" id="12105">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Dragonspine Fort -> Sea of Spores" id="12106">
+        <point z="-3768" y="26803" x="64328"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Dragonspine Fort -> Ancient Battleground" id="12107">
+        <point z="-4000" y="-4779" x="118509"/>
+    </teleport>
+    <teleport price="0" item="57" name="Fantasy Isle -> Krateis Cube" id="12108">
+        <point z="-1416" y="-71029" x="-70293"/>
+    </teleport>
+    <teleport price="0" item="57" name="Krateis Cube -> Fantasy Isle" id="12109">
+        <point z="-2032" y="-56837" x="-59224"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Demon Fort -> Fortress West Gate" id="12110">
+        <point z="-624" y="-56423" x="98920"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Demon Fort -> Fortress East Gate" id="12111">
+        <point z="-632" y="-54320" x="102390"/>
+    </teleport>
+    <teleport price="0" item="57" name="Demon Fort -> Rune Town Square" id="12112">
+        <point z="-792" y="-49101" x="43889"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Demon Fort -> Goddard Town Square" id="12113">
+        <point z="-2776" y="-56331" x="147728"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Demon Fort -> Swamp of Screams" id="12114">
+        <point z="-3314" y="-50203" x="69340"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Demon Fort -> Valley of Saints" id="12115">
+        <point z="-3696" y="-71445" x="65307"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Demon Fort -> Entrance to the Forge of the Gods" id="12116">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="500" item="57" name="Demon Fort -> Wall of Argos" id="12117">
+        <point z="-3560" y="-47861" x="165054"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio -> Airship dock" id="12118">
+        <point z="-80" y="255247" x="-149406"/>
+    </teleport>
+    <teleport price="0" item="57" name="Airship dock -> Talking Island" id="12119">
+        <point z="-3728" y="243122" x="-84752"/>
+    </teleport>
+    <teleport price="0" item="57" name="Talking Island -> Airship dock" id="12120">
+        <point z="-80" y="255247" x="-149406"/>
+    </teleport>
+    <teleport price="0" item="57" name="Fantasy Isle -> Handys Block" id="12121">
+        <point z="-2360" y="-60566" x="-57328"/>
+    </teleport>
+    <teleport price="0" item="57" name="Keucereus -> Heart of Infinity" id="12122">
+        <point z="1744" y="242026" x="-204288"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Guide of Immortality -> Seed of Infinity" id="14000">
+        <point z="-12888" y="206063" x="-183292"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Gatekeeper of the Abyss -> Seed of Infinity" id="14001">
+        <point z="4288" y="209824" x="-212836"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Valley Fort -> Fortress North Gate" id="12123">
+        <point z="-2584" y="120350" x="126066"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Valley Fort -> Fortress South Gate" id="12124">
+        <point z="-2584" y="125853" x="126023"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Valley Fort -> Giran Town Square" id="12125">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Valley Fort -> Front of the Giran Castle Gate" id="12126">
+        <point z="-3224" y="145841" x="107954"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Valley Fort -> Brekas Stronghold" id="12127">
+        <point z="-3672" y="131328" x="85546"/>
+    </teleport>
+    <teleport price="500" item="57" name="Valley Fort -> Devils Isle" id="12128">
+        <point z="-3752" y="206811" x="43408"/>
+    </teleport>
+    <teleport price="500" item="57" name="Valley Fort -> Dragon Valley" id="12129">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57" name="Valley Fort -> Tanor Canyon" id="12130">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Tanor Fort -> Fortress North Gate" id="12131">
+        <point z="-1752" y="137789" x="58923"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Tanor Fort -> Fortress South Gate" id="12132">
+        <point z="-1752" y="141036" x="61551"/>
+    </teleport>
+    <teleport price="0" item="57" name="Tanor Fort -> Dion Town Square" id="12133">
+        <point z="-3107" y="145245" x="19025"/>
+    </teleport>
+    <teleport price="0" item="57" name="Tanor Fort -> Giran Town Square" id="12134">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="500" item="57" name="Tanor Fort -> The Ant Nest" id="12135">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57" name="Tanor Fort -> Windawood Manor" id="12136">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="500" item="57" name="Tanor Fort -> Dragon Valley" id="12137">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57" name="Tanor Fort -> Tanor Canyon" id="12138">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57" name="Handys Block -> Fantasy Isle" id="12139">
+        <point z="-2032" y="-56906" x="-59157"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Monastic Fort -> Fortress North Gate" id="12140">
+        <point z="-1424" y="-96770" x="72388"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Monastic Fort -> Fortress South Gate" id="12141">
+        <point z="-1416" y="-92600" x="71937"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Monastic Fort -> Rune Town Square" id="12142">
+        <point z="-792" y="-49101" x="43889"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Monastic Fort -> Schuttgart Town Square" id="12143">
+        <point z="-1336" y="-142322" x="87379"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Monastic Fort -> Swamp of Screams" id="12144">
+        <point z="-3314" y="-50203" x="69340"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Monastic Fort -> Valley of Saints" id="12145">
+        <point z="-3696" y="-71445" x="65307"/>
+    </teleport>
+    <teleport price="500" item="57" name="Monastic Fort -> Den of Evil" id="12146">
+        <point z="-1946" y="-110438" x="68693"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Monastic Fort -> Ice Merchant Cabin" id="12147">
+        <point z="-860" y="-108752" x="113903"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Narsell Fortress -> Fortress West Gate" id="12148">
+        <point z="-3256" y="56872" x="153112"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Narsell Fortress -> Fortress East Gate" id="12149">
+        <point z="-3256" y="53921" x="156730"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Narsell Fortress -> Aden Town Square" id="12150">
+        <point z="-2294" y="28081" x="147450"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Narsell Fortress -> Front of the Aden Castle Gate" id="12151">
+        <point z="-2008" y="20161" x="147428"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Narsell Fortress -> Ancient Battleground" id="12152">
+        <point z="-4000" y="-4779" x="118509"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Narsell Fortress -> Enchanted Valley, Southern Region" id="12153">
+        <point z="-3973" y="61992" x="124904"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Narsell Fortress -> Enchanted Valley, Northern Region" id="12154">
+        <point z="-3825" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Narsell Fortress -> Blazing Swamp" id="12155">
+        <point z="-3320" y="-16339" x="155310"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hive Fortress -> Fortress North Gate" id="12156">
+        <point z="-2920" y="186025" x="15383"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hive Fortress -> Fortress South Gate" id="12157">
+        <point z="-2920" y="190017" x="18046"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hive Fortress -> Dion Town Square" id="12158">
+        <point z="-3107" y="145245" x="19025"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hive Fortress -> Front of the Dion Castle Gate" id="12159">
+        <point z="-3144" y="153395" x="19888"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hive Fortress -> Cruma Marshlands" id="12160">
+        <point z="-3664" y="126916" x="5106"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hive Fortress -> Fortress of Resistance" id="12161">
+        <point z="-2104" y="111278" x="47382"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hive Fortress -> Plains of Dion" id="12162">
+        <point z="-3720" y="179184" x="630"/>
+    </teleport>
+    <teleport price="500" item="57" name="Hive Fortress -> Tanor Canyon" id="12163">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="White Sands Fortress -> Fortress West Gate" id="12164">
+        <point z="-3336" y="203775" x="116336"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="White Sands Fortress -> Fortress East Gate" id="12165">
+        <point z="-3336" y="206093" x="120487"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="White Sands Fortress -> Heine Town Square" id="12166">
+        <point z="-3546" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="White Sands Fortress -> Front of the Innadril Castle Gate" id="12167">
+        <point z="-1408" y="241660" x="117608"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="White Sands Fortress -> Field of Silence (Western Section)" id="12168">
+        <point z="-3504" y="182423" x="80987"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="White Sands Fortress -> Field of Whispers (Eastern Section)" id="12169">
+        <point z="-3592" y="218268" x="86147"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="White Sands Fortress -> The Center of Alligator Island" id="12170">
+        <point z="-3232" y="178387" x="113708"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="White Sands Fortress -> Inside the Garden of Eva" id="12171">
+        <point z="-6712" y="242220" x="82693"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Archaic Fortress -> Fortress West Gate" id="12172">
+        <point z="-2960" y="-140450" x="107248"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Archaic Fortress -> Fortress East Gate" id="12173">
+        <point z="-2920" y="-141775" x="111769"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Archaic Fortress -> Schuttgart Town Square" id="12174">
+        <point z="-1336" y="-142322" x="87379"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Archaic Fortress -> Front of the Schuttgart Castle Gate" id="12175">
+        <point z="-1176" y="-145548" x="76358"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Archaic Fortress -> Crypts of Disgrace" id="12176">
+        <point z="-3744" y="-115745" x="47692"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Archaic Fortress -> Plunderous Plains" id="12177">
+        <point z="-1528" y="-154172" x="111965"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Archaic Fortress -> Den of Evil" id="12178">
+        <point z="-1946" y="-110438" x="68693"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Archaic Fortress -> Ice Merchant Cabin" id="12179">
+        <point z="-860" y="-108752" x="113903"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Shanty Fortress -> Fortress West Gate" id="12180">
+        <point z="-2048" y="157193" x="-55240"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Shanty Fortress -> Fortress East Gate" id="12181">
+        <point z="-2056" y="155793" x="-50296"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Shanty Fortress -> Gludio Town Square" id="12182">
+        <point z="-3144" y="123671" x="-14393"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Shanty Fortress -> Front of the Gludio Castle Gate" id="12183">
+        <point z="-3208" y="116596" x="-15043"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Shanty Fortress -> Ruins of Agony" id="12184">
+        <point z="-2912" y="122848" x="-41248"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Shanty Fortress -> Ruins of Despair" id="12185">
+        <point z="-3762" y="136816" x="-19120"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Shanty Fortress -> The Ant Nest" id="12186">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Shanty Fortress -> Windawood Manor" id="12187">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Ivory Fortress -> Fortress North Gate" id="12188">
+        <point z="-3040" y="2533" x="74367"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Ivory Fortress -> Fortress South Gate" id="12189">
+        <point z="-3032" y="6235" x="71388"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Ivory Fortress -> Oren Town Square" id="12190">
+        <point z="-1480" y="55466" x="82323"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Ivory Fortress -> Front of the Oren Castle Gate" id="12191">
+        <point z="-2952" y="39380" x="75648"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Ivory Fortress -> Sea of Spores" id="12192">
+        <point z="-3768" y="26803" x="64328"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Ivory Fortress -> Enchanted Valley, Southern Region" id="12193">
+        <point z="-3973" y="61992" x="124904"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Ivory Fortress -> Enchanted Valley, Northern Region" id="12194">
+        <point z="-3825" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Ivory Fortress -> Ancient Battleground" id="12195">
+        <point z="-4000" y="-4779" x="118509"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Gludio Castle -> Front of the Gludio Castle" id="13000">
+        <point z="-3208" y="116596" x="-15043"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Gludio Castle -> Gludio Town Square" id="13001">
+        <point z="-3144" y="123671" x="-14393"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Gludio Castle -> Front of the Shanty Fortress" id="13002">
+        <point z="-2701" y="154663" x="-58761"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Gludio Castle -> Front of the Southern Fortress" id="13003">
+        <point z="-3680" y="214275" x="-29856"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Gludio Castle -> Ruins of Agony" id="13004">
+        <point z="-2912" y="122848" x="-41248"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Gludio Castle -> Ruins of Despair" id="13005">
+        <point z="-3762" y="136816" x="-19120"/>
+    </teleport>
+    <teleport price="500" item="57" name="Gludio Castle -> The Ant Nest" id="13006">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Gludio Castle -> Windawood Manor" id="13007">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dion Castle -> Front of Dion Castle" id="13008">
+        <point z="-3144" y="153395" x="19888"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion Castle -> Dion Town Square" id="13009">
+        <point z="-3107" y="145245" x="19025"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dion Castle -> Front of the Hive Fortress" id="13010">
+        <point z="-3392" y="188254" x="20126"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Dion Castle -> Entrance to Floran Village" id="13011">
+        <point z="-3506" y="170103" x="17430"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Dion Castle -> Cruma Marshlands" id="13012">
+        <point z="-3664" y="126916" x="5106"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Dion Castle -> Fortress of Resistance" id="13013">
+        <point z="-2104" y="111278" x="47382"/>
+    </teleport>
+    <teleport price="500" item="57" name="Dion Castle -> Plains of Dion" id="13014">
+        <point z="-3720" y="179184" x="630"/>
+    </teleport>
+    <teleport price="500" item="57" name="Dion Castle -> Tanor Canyon" id="13015">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Giran Castle -> Front of Giran Castle" id="13016">
+        <point z="-3224" y="145841" x="107954"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Giran Castle -> Giran Town Square" id="13017">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Giran Castle -> Front of the Valley Fortress" id="13018">
+        <point z="-3080" y="118277" x="125934"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran Castle -> Giran Harbor" id="13019">
+        <point z="-3420" y="186864" x="47938"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Giran Castle -> Brekas Stronghold" id="13020">
+        <point z="-3672" y="131328" x="85546"/>
+    </teleport>
+    <teleport price="500" item="57" name="Giran Castle -> Devils Isle" id="13021">
+        <point z="-3752" y="206881" x="43408"/>
+    </teleport>
+    <teleport price="500" item="57" name="Giran Castle -> Dragon Valley" id="13022">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57" name="Giran Castle -> Tanor Canyon" id="13023">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Oren Castle -> Front of Oren Castle" id="13024">
+        <point z="-2952" y="39380" x="75648"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren Castle -> Oren Town Square" id="13025">
+        <point z="-1480" y="55466" x="82323"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Oren Castle -> Front of the Ivory Fortress" id="13026">
+        <point z="-3608" y="1591" x="77023"/>
+    </teleport>
+    <teleport price="500" item="57" name="Oren Castle -> Ivory Tower" id="13027">
+        <point z="-3640" y="16228" x="85391"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Oren Castle -> Near the frontier post" id="13028">
+        <point z="-2800" y="7394" x="109721"/>
+    </teleport>
+    <teleport price="500" item="57" name="Oren Castle -> Sea of Spores" id="13029">
+        <point z="-3768" y="26803" x="64328"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Oren Castle -> Enchanted Valley, Southern Region" id="13030">
+        <point z="-3973" y="61992" x="124904"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Oren Castle -> Ancient Battleground" id="13031">
+        <point z="-4000" y="4779" x="118509"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aden Castle -> Front of Aden Castle" id="13032">
+        <point z="-2008" y="20161" x="147428"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Castle -> Aden Town Square" id="13033">
+        <point z="-2294" y="28081" x="147450"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aden Castle -> Front of the Narsell Fortress" id="13034">
+        <point z="-3512" y="51661" x="160702"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aden Castle -> Front of the Basin Fortress" id="13035">
+        <point z="-4264" y="46042" x="189664"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aden Castle -> Enchanted Valley, Northen Region" id="13036">
+        <point z="-3825" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="500" item="57" name="Aden Castle -> Blazing Swamp" id="13071">
+        <point z="-3320" y="-16339" x="155310"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aden Castle -> Forest of Mirrors" id="13038">
+        <point z="-3000" y="81300" x="142065"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aden Castle -> Anghel Waterfall" id="13039">
+        <point z="-3168" y="91560" x="166182"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aden Castle -> The Giants Cave Upper Layer" id="13072">
+        <point z="-3992" y="61424" x="183985"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aden Castle -> The Giants Cave Lower Layer" id="13073">
+        <point z="-7624" y="56760" x="191754"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Innadril Castle -> Front of Innadril Castle" id="13040">
+        <point z="-1408" y="241660" x="117608"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Innadril Castle -> Innadril Town Square" id="13041">
+        <point z="-3546" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Innadril Castle -> Front of the White Sands Fortress" id="13042">
+        <point z="-3184" y="207877" x="124651"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Innadril Castle -> The Center of Alligator Island" id="13043">
+        <point z="-3232" y="178387" x="113708"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Innadril Castle -> Field of Silence" id="13044">
+        <point z="-3504" y="182423" x="80987"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Innadril Castle -> Field of Whispers" id="13045">
+        <point z="-3592" y="218268" x="86147"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Innadril Castle -> Inside the Garden of Eva" id="13046">
+        <point z="-6712" y="242220" x="82693"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Goddard Castle -> Front of Goddard Castle" id="13047">
+        <point z="-2992" y="-50182" x="153996"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Goddard Castle -> Goddard Town Square" id="13048">
+        <point z="-2776" y="-56331" x="147728"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Goddard Castle -> Front of the Borderland Fortress" id="13049">
+        <point z="-3312" y="-70055" x="153460"/>
+    </teleport>
+    <teleport price="500" item="57" name="Goddard Castle -> Hot Springs" id="13050">
+        <point z="-2560" y="-113468" x="144880"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Goddard Castle -> Varka Silenos Stronghold" id="13051">
+        <point z="-3736" y="-40864" x="125740"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Goddard Castle -> Ketra Orc Outpost" id="13052">
+        <point z="-3640" y="-67128" x="146990"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Goddard Castle -> Entrance to the Forge of the Gods" id="13053">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Goddard Castle -> Wall of Argos" id="13054">
+        <point z="-3560" y="-47861" x="165054"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Rune Castle -> Front of Rune Castle" id="13055">
+        <point z="-1320" y="-49180" x="27400"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Castle -> Rune Town Square" id="13056">
+        <point z="-792" y="-49101" x="43889"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Rune Castle -> Front of the Swamp Fortress" id="13057">
+        <point z="-3088" y="-57054" x="71814"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Rune Castle -> Forest of the Dead" id="13058">
+        <point z="-3158" y="-54328" x="52107"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Rune Castle -> Wild Beast Pastures" id="13059">
+        <point z="-2780" y="-88010" x="43805"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Rune Castle -> Swamp of Screams" id="13060">
+        <point z="-3314" y="-50203" x="69340"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Rune Castle -> Valley of Saints" id="13061">
+        <point z="-3696" y="-71445" x="65307"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Rune Castle -> Monastery of Silence" id="13062">
+        <point z="-2949" y="-87799" x="106414"/>
+    </teleport>
+    <teleport price="500" item="57" name="Rune Castle -> Shyeeds Cavern" id="14063">
+        <point z="-5824" y="-55295" x="76911"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Schuttgart Castle -> Front of Schuttgart Castle" id="13063">
+        <point z="-1176" y="-145548" x="76358"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Schuttgart Castle -> Schuttgart Town Square" id="13064">
+        <point z="-1336" y="-142322" x="87379"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Schuttgart Castle -> Front of the Archaic Fortress" id="13065">
+        <point z="-3360" y="-140874" x="105007"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Schuttgart Castle -> The Center of the Abandoned Coal Mines" id="13066">
+        <point z="-1520" y="-173223" x="144706"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Schuttgart Castle -> Plunderous Plains" id="13067">
+        <point z="-1528" y="-154172" x="111965"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Schuttgart Castle -> Den of Evil" id="13068">
+        <point z="-1946" y="-110438" x="68693"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Schuttgart Castle -> Ice Merchant Cabin" id="13069">
+        <point z="-860" y="-108752" x="113903"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Schuttgart Castle -> Crypts of Disgrace" id="13070">
+        <point z="-3744" y="-115745" x="47692"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Borderland Fort -> Fortress West Gate" id="14071">
+        <point z="-2864" y="-68977" x="157017"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Borderland Fort -> Fortress East Gate" id="14064">
+        <point z="-2864" y="-72057" x="161618"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Borderland Fort -> Goddard Town Square" id="14065">
+        <point z="-2776" y="-56331" x="147728"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Borderland Fort -> Front of Goddard Castle" id="14066">
+        <point z="-2992" y="-50182" x="153996"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Borderland Fort -> Varka Silenos Stronghold" id="14067">
+        <point z="-3736" y="-40864" x="125740"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Borderland Fort -> Ketra Orc Outpost" id="14068">
+        <point z="-3640" y="-67128" x="146990"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Borderland Fort -> Forge of the Gods Entrance" id="14069">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Borderland Fort -> Wall of Argos" id="14070">
+        <point z="-3560" y="-47861" x="165054"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Floran Fort -> Fortress West Gate" id="14072">
+        <point z="-2888" y="148797" x="3798"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Floran Fort -> Fortress East Gate" id="14073">
+        <point z="-2888" y="150682" x="7693"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Floran Fort -> Gludio Town Square" id="14074">
+        <point z="-3144" y="123671" x="-14393"/>
+    </teleport>
+    <teleport price="0" item="57" name="Floran Fort -> Dion Town Square" id="14075">
+        <point z="-3107" y="145245" x="19025"/>
+    </teleport>
+    <teleport price="500" item="57" name="Floran Fort -> The Ant Nest" id="14076">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Floran Fort -> Windawood Manor" id="14077">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="500" item="57" name="Floran Fort -> Plains of Dion" id="14078">
+        <point z="-3720" y="179184" x="630"/>
+    </teleport>
+    <teleport price="500" item="57" name="Floran Fort -> Tanor Canyon" id="14079">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Swamp Fortress -> Fortress North Gate" id="14080">
+        <point z="-2784" y="-63928" x="68692"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Swamp Fortress -> Fortress South Gate" id="14081">
+        <point z="-2784" y="-58862" x="70820"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Swamp Fortress -> Rune Town Square" id="14082">
+        <point z="-792" y="-49101" x="43889"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Swamp Fortress -> Front of the Rune Castle Gate" id="14083">
+        <point z="-1320" y="-49180" x="27400"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Swamp Fortress -> Forest of the Dead" id="14084">
+        <point z="-3158" y="-54328" x="52107"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Swamp Fortress -> Wild Beast Pastures" id="14085">
+        <point z="-2780" y="-88010" x="43805"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Swamp Fortress -> Swamp of Screams" id="14086">
+        <point z="-3314" y="-50203" x="69340"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Swamp Fortress -> Valley of Saints" id="14087">
+        <point z="-3696" y="-71445" x="65307"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Swamp Fortress -> Shyeeds Cavern" id="14088">
+        <point z="-5824" y="-55295" x="76911"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cloud Mountain -> Fortress North Gate" id="14089">
+        <point z="-2824" y="89255" x="-54275"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cloud Mountain -> Fortress South Gate" id="14090">
+        <point z="-2816" y="93334" x="-52274"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cloud Mountain -> Gludio Town Square" id="14091">
+        <point z="-3144" y="123671" x="-14393"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Cloud Mountain -> Oren Town Square" id="14092">
+        <point z="-1480" y="55466" x="82323"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Cloud Mountain -> The Ant Nest" id="14093">
+        <point z="-4160" y="176184" x="-9959"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Cloud Mountain -> Windawood Manor" id="14094">
+        <point z="-3496" y="155125" x="-28327"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Cloud Mountain -> Sea of Spores" id="14095">
+        <point z="-3768" y="26803" x="64328"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Cloud Mountain -> Ancient Battleground" id="14096">
+        <point z="-4000" y="-4779" x="118509"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Antharas Fortress -> Fortress West Gate" id="14097">
+        <point z="-2880" y="89176" x="77834"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Antharas Fortress -> Fortress East Gate" id="14098">
+        <point z="-2880" y="92831" x="80441"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Antharas Fortress -> Oren Town Square" id="14099">
+        <point z="-1480" y="55466" x="82323"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Antharas Fortress -> Giran Town Square" id="14100">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Antharas Fortress -> Sea of Spores" id="14101">
+        <point z="-3768" y="26803" x="64328"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Antharas Fortress -> Ancient Battleground" id="14102">
+        <point z="-4000" y="-4779" x="118509"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Antharas Fortress -> Dragon Valley" id="14103">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Antharas Fortress -> Tanor Canyon" id="14104">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Western Fortress -> Fortress North Gate" id="14105">
+        <point z="-992" y="-17243" x="112356"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Western Fortress -> Fortress South Gate" id="14106">
+        <point z="-922" y="-13288" x="110349"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Western Fortress -> Aden Town Square" id="14107">
+        <point z="-2294" y="28081" x="147450"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Western Fortress -> Oren Town Square" id="14108">
+        <point z="-1480" y="55466" x="82323"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Western Fortress -> Goddard Town Square" id="14109">
+        <point z="-2776" y="-56331" x="147728"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> Enchanted Valley, Northern Region" id="14110">
+        <point z="-3825" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> Blazing Swamp" id="14111">
+        <point z="-3320" y="-16339" x="155310"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> Ancient Battleground" id="14112">
+        <point z="-4000" y="4779" x="118509"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> Entrance to the Forge of the Gods" id="14113">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> Wall of Argos" id="14114">
+        <point z="-3560" y="-47861" x="165054"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> The Giants Cave Upper Layer" id="14115">
+        <point z="-3992" y="61424" x="183985"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Western Fortress -> The Giants Cave Lower Layer" id="14116">
+        <point z="-7624" y="56760" x="191754"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hunters Fortress -> Fortress North Gate" id="14117">
+        <point z="-2144" y="93249" x="124180"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hunters Fortress -> Fortress South Gate" id="14118">
+        <point z="-2144" y="97124" x="126155"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hunters Fortress -> Aden Town Square" id="14119">
+        <point z="-2294" y="28081" x="147450"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Hunters Fortress -> Giran Town Square" id="14120">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hunters Fortress -> Enchanted Valley, Northern Region" id="14121">
+        <point z="-3825" y="33746" x="104426"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hunters Fortress -> Blazing Swamp" id="14122">
+        <point z="-3320" y="-16339" x="155310"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hunters Fortress -> Dragon Valley" id="14123">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hunters Fortress -> Tanor Canyon" id="14124">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hunters Fortress -> The Giants Cave Upper Layer" id="14125">
+        <point z="-3992" y="61424" x="183985"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Hunters Fortress -> The Giants Cave Lower Layer" id="14126">
+        <point z="-7624" y="56760" x="191754"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aaru Fortress -> Fortress North Gate" id="14127">
+        <point z="-2584" y="183893" x="73205"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aaru Fortress -> Fortress South Gate" id="14128">
+        <point z="-2584" y="188128" x="72822"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aaru Fortress -> Heine Town Square" id="14129">
+        <point z="-3546" y="219400" x="111455"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Aaru Fortress -> Giran Town Square" id="14130">
+        <point z="-3464" y="149171" x="81749"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aaru Fortress -> Inside the Garden of Eva" id="14131">
+        <point z="-6712" y="242220" x="82693"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aaru Fortress -> The Center of Alligator Island" id="14132">
+        <point z="-3232" y="178387" x="113708"/>
+    </teleport>
+    <teleport price="500" item="57"
+        name="Aaru Fortress -> Dragon Valley" id="14133">
+        <point z="-3720" y="118485" x="73024"/>
+    </teleport>
+    <teleport price="500" item="57" name="Aaru Fortress -> Tanor Canyon" id="14134">
+        <point z="-2856" y="164301" x="60374"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio Outer -> Out" id="2001">
+        <point z="-2760" y="113315" x="-18372"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio Outer -> In" id="2002">
+        <point z="-2768" y="112831" x="-18395"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio Inner -> Out" id="2003">
+        <point z="-2528" y="110679" x="-18115"/>
+    </teleport>
+    <teleport price="0" item="57" name="Gludio Inner -> In" id="2004">
+        <point z="-2512" y="110210" x="-18123"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion Outer -> Out" id="2005">
+        <point z="-2962" y="156447" x="22315"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion Outer -> In" id="2006">
+        <point z="-2962" y="156909" x="22315"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion Inner -> Out" id="2007">
+        <point z="-2725" y="159057" x="22073"/>
+    </teleport>
+    <teleport price="0" item="57" name="Dion Inner -> In" id="2008">
+        <point z="-2706" y="159516" x="22073"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran Outer -> Out" id="2009">
+        <point z="-2835" y="144869" x="112568"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran Outer -> In" id="2010">
+        <point z="-2835" y="144869" x="113123"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran Inner -> Out" id="2011">
+        <point z="-2604" y="145089" x="115209"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran Inner -> In" id="2012">
+        <point z="-2579" y="145096" x="115727"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren Outer -> Out" id="2013">
+        <point z="-2562" y="36955" x="78618"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren Outer -> In" id="2014">
+        <point z="-2562" y="36955" x="79211"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren Inner -> Out" id="2015">
+        <point z="-2337" y="37190" x="81285"/>
+    </teleport>
+    <teleport price="0" item="57" name="Oren Inner -> In" id="2016">
+        <point z="-2306" y="37190" x="81789"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Outer -> Out" id="2017">
+        <point z="-495" y="8808" x="147455"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Outer -> In" id="2018">
+        <point z="-470" y="7966" x="147455"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Inner -> Out" id="2019">
+        <point z="-436" y="4614" x="145616"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Inner -> In" id="2020">
+        <point z="-403" y="4599" x="146374"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Inner -> Out" id="2021">
+        <point z="-432" y="4610" x="149283"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Inner -> In" id="2022">
+        <point z="-403" y="4607" x="148575"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Hall -> Out" id="2023">
+        <point z="-407" y="6357" x="147456"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Hall -> In" id="2024">
+        <point z="-407" y="6058" x="147456"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Terrace -> Out" id="2025">
+        <point z="217" y="2010" x="147458"/>
+    </teleport>
+    <teleport price="0" item="57" name="Aden Terrace -> In" id="2026">
+        <point z="219" y="2408" x="147458"/>
+    </teleport>
+    <teleport price="0" item="57" name="Innadril Outer -> Out" id="2027">
+        <point z="-1058" y="245174" x="116263"/>
+    </teleport>
+    <teleport price="0" item="57" name="Innadril Outer -> In" id="2028">
+        <point z="-1058" y="245750" x="116263"/>
+    </teleport>
+    <teleport price="0" item="57" name="Innadril Inner -> Out" id="2029">
+        <point z="-826" y="247821" x="116021"/>
+    </teleport>
+    <teleport price="0" item="57" name="Innadril Inner -> In" id="2030">
+        <point z="-805" y="248272" x="116021"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Outer -> Out" id="2031">
+        <point z="-2084" y="-45221" x="147459"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Outer -> In" id="2032">
+        <point z="-2084" y="-45789" x="147459"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Inner -> Out" id="2033">
+        <point z="-2383" y="-48241" x="145514"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Inner -> In" id="2034">
+        <point z="-2383" y="-48241" x="146026"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Inner -> Out" id="2035">
+        <point z="-2383" y="-48245" x="149430"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Inner -> In" id="2036">
+        <point z="-2383" y="-48245" x="148928"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Terrace -> Out" id="2037">
+        <point z="-687" y="-48951" x="148748"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Terrace -> In" id="2038">
+        <point z="-688" y="-49201" x="148736"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Terrace -> Out" id="2039">
+        <point z="-687" y="-48942" x="146177"/>
+    </teleport>
+    <teleport price="0" item="57" name="Goddard Terrace -> In" id="2040">
+        <point z="-686" y="-49209" x="146181"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Outer -> Out" id="2041">
+        <point z="-1240" y="-49149" x="18788"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Outer -> In" id="2042">
+        <point z="-1190" y="-49149" x="17716"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Inner -> Out" id="2043">
+        <point z="-1060" y="-49149" x="16037"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Inner -> In" id="2044">
+        <point z="-1058" y="-49162" x="15573"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Inner -> Out" id="2045">
+        <point z="-1089" y="-51332" x="12858"/>
+    </teleport>
+    <teleport price="0" item="57" name="Rune Inner -> In" id="2046">
+        <point z="-1089" y="-50860" x="12858"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Outer -> Out" id="2047">
+        <point z="-355" y="-149250" x="77544"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Outer -> In" id="2048">
+        <point z="-355" y="-149869" x="77544"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Inner -> Out" id="2049">
+        <point z="-651" y="-152303" x="75577"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Inner -> In" id="2050">
+        <point z="-651" y="-152303" x="76091"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Inner -> Out" id="2051">
+        <point z="-651" y="-152303" x="79519"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Inner -> In" id="2052">
+        <point z="-651" y="-152303" x="79009"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Terrace -> Out" id="2053">
+        <point z="1044" y="-152991" x="76260"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Terrace -> In" id="2054">
+        <point z="1044" y="-153275" x="76267"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Terrace -> Out" id="2055">
+        <point z="1044" y="-153008" x="78843"/>
+    </teleport>
+    <teleport price="0" item="57" name="Schuttgart Terrace -> In" id="2056">
+        <point z="1044" y="-153271" x="78832"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Forge of the Gods" id="200901">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Primeval Isle Wharf" id="200902">
+        <point z="-3640" y="-24026" x="11235"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> The Giant's Cave" id="200903">
+        <point z="-4360" y="50942" x="174491"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Den of Evil" id="200904">
+        <point z="-1904" y="-110438" x="68693"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Mithril Mines Western Entrance" id="200905">
+        <point z="3440" y="-173352" x="171946"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Mithril Mines Eastern Entrance" id="200906">
+        <point z="360" y="-184615" x="178591"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Field of Silence" id="200907">
+        <point z="-3520" y="162835" x="87691"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Field of Whispers" id="200908">
+        <point z="-3656" y="226128" x="82192"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Crypts of Disgrace" id="200909">
+        <point z="-3744" y="-115745" x="47692"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="News Informer -> Stakato Nest" id="200910">
+        <point z="-2136" y="-44800" x="89513"/>
+    </teleport>
+    <teleport price="100000" item="57"
+        name="News Informer -> Town of Giran" id="200911">
+        <point z="-3400" y="147945" x="83551"/>
+    </teleport>
+    <teleport price="100000" item="57"
+        name="News Informer -> Town of Aden" id="200912">
+        <point z="-2008" y="25808" x="146783"/>
+    </teleport>
+    <teleport price="100000" item="57"
+        name="News Informer -> Town of Oren" id="200913">
+        <point z="-1488" y="53207" x="82971"/>
+    </teleport>
+    <teleport price="100000" item="57"
+        name="News Informer -> Rune Township" id="200914">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="100000" item="57"
+        name="News Informer -> Town of Goddard" id="200915">
+        <point z="-2728" y="-55281" x="148024"/>
+    </teleport>
+    <teleport price="50000" item="57"
+        name="Primeval Isle -> Rune Township" id="200916">
+        <point z="-792" y="-47749" x="43835"/>
+    </teleport>
+    <teleport price="6400" item="57"
+        name="Rune Township -> Primeval Isle" id="200917">
+        <point z="-3640" y="-24026" x="11235"/>
+    </teleport>
+    <teleport price="7200" item="57" name="Heine -> Isle of Prayer" id="200918">
+        <point z="-3736" y="195280" x="149518"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giant's Cave -> Lower" id="200919">
+        <point z="-7624" y="56760" x="191754"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giant's Cave -> Upper" id="200920">
+        <point z="-3992" y="61424" x="183985"/>
+    </teleport>
+    <teleport price="0" item="57" name="Giran Harbor -> Pirate's Palace" id="200921">
+        <point z="-3224" y="218775" x="52241"/>
+    </teleport>
+    <teleport price="7400" item="57" name="Aden GK -> The Giant's Cave" id="200922">
+        <point z="-4360" y="50942" x="174491"/>
+    </teleport>
+    <teleport price="0" item="57" name="FoG Entrance -> FoG Upper Level" id="200923">
+        <point z="-5192" y="-112272" x="173492"/>
+    </teleport>
+    <teleport price="0" item="57" name="Krun -> Enter Mines " id="200924">
+        <point z="3480" y="-174011" x="173462"/>
+    </teleport>
+    <teleport price="0" item="57" name="Tarum -> Enter Mines " id="200925">
+        <point z="-224" y="-182831" x="179299"/>
+    </teleport>
+    <teleport price="10000" item="57"
+        name="Goddard -> Forge of the Gods" id="200926">
+        <point z="-2432" y="-116303" x="169018"/>
+    </teleport>
+    <teleport price="9100" item="57" name="Rune -> Stakato Nest" id="126">
+        <point z="-2136" y="-44800" x="89513"/>
+    </teleport>
+    <teleport price="2400" item="57"
+        name="Oren -> Sel Mahum Training Grounds (West Gate)" id="15000">
+        <point z="-3648" y="63851" x="76839"/>
+    </teleport>
+    <teleport price="3700" item="57"
+        name="Oren -> Sel Mahum Training Grounds (South Gate)" id="15001">
+        <point z="-3448" y="71496" x="79414"/>
+    </teleport>
+    <teleport price="1800" item="57"
+        name="Oren -> Sel Mahum Training Grounds (Center)" id="15002">
+        <point z="-3664" y="61460" x="87448"/>
+    </teleport>
+    <teleport price="5300" item="57" name="Schuttgart -> Mithril Mines" id="15003">
+        <point z="3440" y="-173352" x="171946"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Entrance SOA -> Enter the Seed of Annihilation" id="15004">
+        <point z="-10576" y="185923" x="-180218"/>
+    </teleport>
+    <teleport price="0" item="57"
+        name="Enter the Seed of Annihilation -> Entrance SOA" id="15005">
+        <point z="2472" y="153430" x="-178262"/>
+    </teleport>
+    <teleport price="150000" item="57" name="Seed of Infinity Dock" id="15006">
+        <point z="4280" y="209695" x="-212843"/>
+    </teleport>
+    <teleport price="150000" item="57" name="Seed of Destruction Dock" id="15007">
+        <point z="4336" y="250273" x="-248535"/>
+    </teleport>
+    <teleport price="150000" item="57" name="Seed of Annihilation Dock" id="15008">
+        <point z="2712" y="154505" x="-175520"/>
+    </teleport>
 </teleports>
