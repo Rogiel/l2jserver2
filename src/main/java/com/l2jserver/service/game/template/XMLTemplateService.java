@@ -18,11 +18,17 @@ package com.l2jserver.service.game.template;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.io.FileUtils;
 
@@ -79,7 +85,7 @@ public class XMLTemplateService extends AbstractService implements
 		try {
 			context = JAXBContext.newInstance(CharacterTemplate.class,
 					NPCTemplate.class, ItemTemplate.class,
-					TeleportationTemplate.class);
+					TeleportationTemplateContainer.class);
 			unmarshaller = context.createUnmarshaller();
 
 			unmarshaller.setAdapter(NPCTemplateIDAdapter.class,
@@ -97,6 +103,12 @@ public class XMLTemplateService extends AbstractService implements
 							new String[] { "xml" }, true);
 			for (final File file : files) {
 				loadTemplate(file);
+			}
+			TeleportationTemplateContainer container = (TeleportationTemplateContainer) unmarshaller
+					.unmarshal(new File(config.getTemplateDirectory(),
+							"../teleports.xml"));
+			for (final TeleportationTemplate template : container.templates) {
+				templates.put(template.getID(), template);
 			}
 		} catch (JAXBException e) {
 			throw new ServiceStartException(e);
@@ -133,5 +145,13 @@ public class XMLTemplateService extends AbstractService implements
 		templates.clear();
 		unmarshaller = null;
 		context = null;
+	}
+
+	@XmlRootElement(name = "teleports")
+	@XmlAccessorType(XmlAccessType.FIELD)
+	@XmlType(namespace = "teleports")
+	public static class TeleportationTemplateContainer {
+		@XmlElement(name = "teleport")
+		private List<TeleportationTemplate> templates;
 	}
 }

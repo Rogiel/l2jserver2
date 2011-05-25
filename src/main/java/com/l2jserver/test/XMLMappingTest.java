@@ -27,9 +27,12 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.GameServerModule;
 import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.TeleportationTemplate;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
+import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -44,7 +47,8 @@ public class XMLMappingTest {
 	public static void main(String[] args) throws JAXBException, IOException {
 		// final List<NPCTemplate> templates = CollectionFactory.newList();
 
-		final JAXBContext c = JAXBContext.newInstance(CharacterTemplate.class);
+		final JAXBContext c = JAXBContext.newInstance(CharacterTemplate.class,
+				NPCTemplate.class, TeleportationTemplate.class);
 		final Unmarshaller u = c.createUnmarshaller();
 
 		final Injector injector = Guice.createInjector(new GameServerModule());
@@ -54,6 +58,8 @@ public class XMLMappingTest {
 				injector.getInstance(ItemTemplateIDAdapter.class));
 		u.setAdapter(CharacterTemplateIDAdapter.class,
 				injector.getInstance(CharacterTemplateIDAdapter.class));
+		u.setAdapter(TeleportationTemplateIDAdapter.class,
+				injector.getInstance(TeleportationTemplateIDAdapter.class));
 
 		// long start = System.currentTimeMillis();
 		// for (int i = 0; i < 200 * 1000; i++) {
@@ -65,8 +71,8 @@ public class XMLMappingTest {
 		//
 		// System.out.println("Took " + ((end - start) / 1000) + " seconds");
 
-		final CharacterTemplate t = (CharacterTemplate) u.unmarshal(new File(
-				"data/templates/character/Adventurer.xml"));
-		System.out.println(t.getFemaleCollisionHeight());
+		final TeleportationTemplate t = (TeleportationTemplate) u
+				.unmarshal(new File("data/templates/teleports.xml"));
+		System.out.println(t.getName());
 	}
 }

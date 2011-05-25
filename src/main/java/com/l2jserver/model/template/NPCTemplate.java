@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.template;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,6 +32,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
+import com.l2jserver.model.template.NPCTemplate.TeleporterMetadata.TeleporterTeleportMetadata;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
@@ -227,29 +229,53 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 
 	@XmlType(namespace = "npc")
 	protected static class TeleporterMetadata {
+		@XmlAttribute(name = "default")
+		protected String defaultTeleport = null;
 		@XmlElement(name = "teleport")
 		protected List<TeleporterTeleportMetadata> teleports = null;
 
 		@XmlType(namespace = "npc")
 		protected static class TeleporterTeleportMetadata {
 			@XmlAttribute(name = "id")
-			@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
-			protected TeleportationTemplateID id;
+			protected String id;
 			@XmlElement(name = "region")
-			protected List<TeleporterRegionMetadata> regions = null;
-
-			@XmlType(namespace = "npc")
-			protected static class TeleporterRegionMetadata {
-				@XmlAttribute(name = "id")
-				protected String id = null;
-				@XmlAttribute(name = "price")
-				protected int price = 0;
-				@XmlAttribute(name = "item")
-				protected int item = 57;
-
-				// TODO implement conditions
-			}
+			protected List<TeleportRegion> regions = null;
 		}
+	}
+
+	@XmlType(namespace = "npc")
+	public static class TeleportRegion {
+		@XmlAttribute(name = "id")
+		@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
+		protected TeleportationTemplateID id;
+		@XmlAttribute(name = "price")
+		protected int price = 0;
+		@XmlAttribute(name = "item")
+		@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
+		protected ItemTemplateID item;
+
+		/**
+		 * @return the id
+		 */
+		public TeleportationTemplateID getID() {
+			return id;
+		}
+
+		/**
+		 * @return the price
+		 */
+		public int getPrice() {
+			return price;
+		}
+
+		/**
+		 * @return the item
+		 */
+		public ItemTemplateID getItem() {
+			return item;
+		}
+
+		// TODO implement conditions
 	}
 
 	@XmlElement(name = "talk")
@@ -271,7 +297,7 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		@XmlValue
 		protected String html = null;
 	}
-	
+
 	@XmlElementWrapper(name = "droplist")
 	@XmlElement(name = "item")
 	protected List<DropItemMetadata> droplist = null;
@@ -715,6 +741,46 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		if (ai == null)
 			return null;
 		return ai.script;
+	}
+
+	public List<TeleportRegion> getTeleportRegions(String id) {
+		if (teleporter == null)
+			return Collections.emptyList();
+		for (final TeleporterTeleportMetadata teleport : teleporter.teleports) {
+			if (teleport.id.equals(id)) {
+				return Collections.unmodifiableList(teleport.regions);
+			}
+		}
+		return null;
+	}
+
+	public List<TeleportRegion> getTeleportRegions() {
+		if (teleporter == null)
+			return Collections.emptyList();
+		for (final TeleporterTeleportMetadata teleport : teleporter.teleports) {
+			if (teleport.id.equals(teleporter.defaultTeleport)) {
+				return Collections.unmodifiableList(teleport.regions);
+			}
+		}
+		return null;
+	}
+
+	public String getHTML(String id) {
+		if (talk == null)
+			return null;
+		if (id == null)
+			id = talk.defaultChat;
+		for (final Chat chat : this.talk.chats) {
+			if (chat.id.equals(id))
+				return chat.html;
+		}
+		return null;
+	}
+
+	public String getDefaultHTML() {
+		if (talk == null)
+			return null;
+		return getHTML(talk.defaultChat);
 	}
 
 	@Override

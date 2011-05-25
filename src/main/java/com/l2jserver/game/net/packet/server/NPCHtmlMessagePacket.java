@@ -45,6 +45,12 @@ public class NPCHtmlMessagePacket extends AbstractServerPacket {
 	 */
 	private final String html;
 
+	public NPCHtmlMessagePacket(NPC npc, String html) {
+		super(OPCODE);
+		this.npc = npc;
+		this.html = html;
+	}
+
 	public NPCHtmlMessagePacket(NPC npc, Html html) {
 		super(OPCODE);
 		this.npc = npc;

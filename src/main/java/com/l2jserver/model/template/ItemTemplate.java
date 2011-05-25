@@ -50,6 +50,8 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
 	protected ItemTemplateID id;
 
+	@XmlAttribute(name = "name")
+	protected String name;
 	@XmlElement(name = "weight")
 	protected int weight = 0;
 	@XmlElement(name = "price")
@@ -79,6 +81,13 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	public Item create() {
 		log.debug("Creating a new Item instance with template {}", this);
 		return new Item(id);
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
 	}
 
 	/**

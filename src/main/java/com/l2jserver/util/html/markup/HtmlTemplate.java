@@ -113,8 +113,9 @@ public abstract class HtmlTemplate {
 	 * @param value
 	 *            the value
 	 */
-	public void register(String name, String value) {
+	public HtmlTemplate register(String name, String value) {
 		variables.put(name, value);
+		return this;
 	}
 	
 	/**

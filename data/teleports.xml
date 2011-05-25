@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teleports  xsi:noNamespaceSchemaLocation="teleports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<teleport id="TOWN_OF_GLUDIO" name="The Town of Gludio">
+		<coordinate x="-12787" y="122779" z="-3112" />
+	</teleport>
+
+	<teleport id="ELVEN_FOREST" name="Elven Forest">
+		<coordinate x="21362" y="51122" z="-3688" />
+	</teleport>
+</teleports>
