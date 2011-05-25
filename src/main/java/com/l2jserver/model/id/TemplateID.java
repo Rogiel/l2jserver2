@@ -24,14 +24,14 @@ import com.l2jserver.model.template.Template;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class TemplateID<T extends Template<?>> extends ID<Integer> {
+public abstract class TemplateID<T extends Template<?>, I> extends ID<I> {
 	/**
 	 * Creates a new instance
 	 * 
 	 * @param id
 	 *            the raw id
 	 */
-	public TemplateID(int id) {
+	public TemplateID(I id) {
 		super(id);
 	}
 

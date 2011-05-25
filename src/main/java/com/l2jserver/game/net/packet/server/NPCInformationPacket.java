@@ -102,8 +102,8 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(0x00); // C6 -- is flying
 		buffer.writeInt(0x00); // unk
 		buffer.writeInt(0x00);// CT1.5 Pet form and skills, Color effect
-		buffer.writeByte(0x00); // hide name
-		buffer.writeByte(0x00); // hide name, again
+		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide name
+		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide name, again
 
 		buffer.writeInt(0x00); // special effects
 		buffer.writeInt(0x00); // display effect

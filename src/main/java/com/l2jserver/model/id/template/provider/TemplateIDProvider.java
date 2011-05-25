@@ -27,6 +27,6 @@ import com.l2jserver.model.id.provider.IDProvider;
  * @param <T>
  *            the subclass of {@link TemplateID} that will be createdF
  */
-public interface TemplateIDProvider<T extends TemplateID<?>> extends
-		IDProvider<Integer, T> {
+public interface TemplateIDProvider<I, T extends TemplateID<?, I>> extends
+		IDProvider<I, T> {
 }

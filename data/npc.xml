@@ -36,7 +36,6 @@
 		</teleport>
 	</teleporter>
 	<talk default="welcome">
-		<!-- messages are post processed and trimmed -->
 		<chat id="welcome"><![CDATA[<html>
 					<body>
 						Hello, my name is ${info.name}!<br>

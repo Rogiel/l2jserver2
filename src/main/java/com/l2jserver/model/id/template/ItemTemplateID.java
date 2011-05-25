@@ -27,7 +27,7 @@ import com.l2jserver.service.game.template.TemplateService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ItemTemplateID extends TemplateID<ItemTemplate> {
+public class ItemTemplateID extends TemplateID<ItemTemplate, Integer> {
 	/**
 	 * The template service
 	 */

@@ -73,7 +73,7 @@ public class ScriptTemplateService extends AbstractService implements
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends Template<?>> T getTemplate(TemplateID<T> id) {
+	public <T extends Template<?>> T getTemplate(TemplateID<T, ?> id) {
 		Preconditions.checkNotNull(id, "id");
 		return (T) templates.get(id);
 	}

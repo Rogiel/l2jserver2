@@ -24,5 +24,5 @@ import com.l2jserver.model.id.template.NPCTemplateID;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface NPCTemplateIDProvider extends
-		TemplateIDProvider<NPCTemplateID> {
+		TemplateIDProvider<Integer, NPCTemplateID> {
 }

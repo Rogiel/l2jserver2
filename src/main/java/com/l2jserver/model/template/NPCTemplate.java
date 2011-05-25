@@ -28,13 +28,14 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.id.template.TeleportationTemplateID;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
+import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -202,7 +203,7 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 
 		@XmlElement(name = "collision")
 		protected CollisionMetadata collision = null;
-		
+
 		@XmlType(namespace = "npc")
 		protected static class CollisionMetadata {
 			@XmlAttribute(name = "radius")
@@ -232,7 +233,8 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		@XmlType(namespace = "npc")
 		protected static class TeleporterTeleportMetadata {
 			@XmlAttribute(name = "id")
-			protected String id = null;
+			@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
+			protected TeleportationTemplateID id;
 			@XmlElement(name = "region")
 			protected List<TeleporterRegionMetadata> regions = null;
 
@@ -259,17 +261,17 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		protected String defaultChat = null;
 
 		@XmlElement(name = "chat")
-		protected List<ChatMetadata> chats = null;
-
-		@XmlType(namespace = "npc")
-		protected static class ChatMetadata {
-			@XmlAttribute(name = "id")
-			protected String id = null;
-			@XmlValue
-			protected String html = null;
-		}
+		protected List<Chat> chats = null;
 	}
 
+	@XmlType(namespace = "npc")
+	public static class Chat {
+		@XmlAttribute(name = "id")
+		protected String id = null;
+		@XmlValue
+		protected String html = null;
+	}
+	
 	@XmlElementWrapper(name = "droplist")
 	@XmlElement(name = "item")
 	protected List<DropItemMetadata> droplist = null;
@@ -716,7 +718,7 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 	}
 
 	@Override
-	public TemplateID<?> getID() {
+	public NPCTemplateID getID() {
 		return id;
 	}
 }

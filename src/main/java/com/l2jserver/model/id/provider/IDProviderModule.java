@@ -35,6 +35,7 @@ import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
+import com.l2jserver.model.id.template.provider.TeleportationTemplateIDProvider;
 
 /**
  * Google Guice {@link IDProvider} {@link Module}
@@ -76,5 +77,7 @@ public class IDProviderModule extends AbstractModule {
 		install(new FactoryModuleBuilder()
 				.build(CharacterTemplateIDProvider.class));
 		install(new FactoryModuleBuilder().build(NPCTemplateIDProvider.class));
+		install(new FactoryModuleBuilder()
+				.build(TeleportationTemplateIDProvider.class));
 	}
 }

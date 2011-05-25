@@ -31,6 +31,8 @@ import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 
 /**
+ * The {@link L2Character} template. Each character instance is backed by an template.
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @XmlRootElement(name = "character")

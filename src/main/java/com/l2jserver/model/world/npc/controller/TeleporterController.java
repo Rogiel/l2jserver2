@@ -16,23 +16,19 @@
  */
 package com.l2jserver.model.world.npc.controller;
 
-import com.l2jserver.model.world.NPC;
+import com.google.inject.Inject;
 import com.l2jserver.service.game.spawn.SpawnService;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * This controller is used to control teleporters (e.g. gatekeepers)
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class TeleporterController extends NPCController {
+public class TeleporterController extends AbstractNPCController {
 	/**
 	 * The {@link SpawnService}
 	 */
+	@Inject
 	protected SpawnService spawnService;
 
-	/**
-	 * @param npc
-	 */
-	public TeleporterController(NPC npc) {
-		super(npc);
-	}
 }

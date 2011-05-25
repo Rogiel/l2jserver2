@@ -32,6 +32,7 @@ import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.TeleportationTemplate;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -43,6 +44,7 @@ import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
+import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
 @Depends({ LoggingService.class, ConfigurationService.class })
 public class XMLTemplateService extends AbstractService implements
@@ -51,6 +53,7 @@ public class XMLTemplateService extends AbstractService implements
 	private final NPCTemplateIDAdapter npcTemplateIdAdapter;
 	private final ItemTemplateIDAdapter itemTemplateIdAdapter;
 	private final CharacterTemplateIDAdapter charIdTemplateAdapter;
+	private final TeleportationTemplateIDAdapter teleportationIdTemplateAdapter;
 
 	private JAXBContext context;
 	private Unmarshaller unmarshaller;
@@ -62,18 +65,21 @@ public class XMLTemplateService extends AbstractService implements
 	public XMLTemplateService(ConfigurationService configService,
 			NPCTemplateIDAdapter npcTemplateIdAdapter,
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
-			CharacterTemplateIDAdapter charIdTemplateAdapter) {
+			CharacterTemplateIDAdapter charIdTemplateAdapter,
+			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
 		this.config = configService.get(XMLTemplateServiceConfiguration.class);
 		this.npcTemplateIdAdapter = npcTemplateIdAdapter;
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
 		this.charIdTemplateAdapter = charIdTemplateAdapter;
+		this.teleportationIdTemplateAdapter = teleportationIdTemplateAdapter;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
 		try {
 			context = JAXBContext.newInstance(CharacterTemplate.class,
-					NPCTemplate.class, ItemTemplate.class);
+					NPCTemplate.class, ItemTemplate.class,
+					TeleportationTemplate.class);
 			unmarshaller = context.createUnmarshaller();
 
 			unmarshaller.setAdapter(NPCTemplateIDAdapter.class,
@@ -82,6 +88,8 @@ public class XMLTemplateService extends AbstractService implements
 					itemTemplateIdAdapter);
 			unmarshaller.setAdapter(CharacterTemplateIDAdapter.class,
 					charIdTemplateAdapter);
+			unmarshaller.setAdapter(TeleportationTemplateIDAdapter.class,
+					teleportationIdTemplateAdapter);
 
 			@SuppressWarnings("unchecked")
 			Collection<File> files = FileUtils
@@ -97,7 +105,7 @@ public class XMLTemplateService extends AbstractService implements
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends Template<?>> T getTemplate(TemplateID<T> id) {
+	public <T extends Template<?>> T getTemplate(TemplateID<T, ?> id) {
 		Preconditions.checkNotNull(id, "id");
 		return (T) templates.get(id);
 	}

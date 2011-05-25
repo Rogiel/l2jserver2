@@ -42,5 +42,5 @@ public abstract class AbstractTemplate<T> implements Template<T> {
 	// }
 
 	@Override
-	public abstract TemplateID<?> getID();
+	public abstract TemplateID<?, ?> getID();
 }

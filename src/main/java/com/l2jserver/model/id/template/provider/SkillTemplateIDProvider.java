@@ -24,5 +24,5 @@ import com.l2jserver.model.id.template.SkillTemplateID;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface SkillTemplateIDProvider extends
-		TemplateIDProvider<SkillTemplateID> {
+		TemplateIDProvider<Integer, SkillTemplateID> {
 }

@@ -42,5 +42,5 @@ public interface Template<T> {
 	 * 
 	 * @return the template id
 	 */
-	TemplateID<?> getID();
+	TemplateID<?, ?> getID();
 }

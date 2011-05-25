@@ -17,19 +17,27 @@
 package com.l2jserver.model.world.npc.controller;
 
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.exception.L2Exception;
+import com.l2jserver.util.html.markup.HtmlTemplate;
+import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
- * The {@link NPC} controller is used to control any given NPC. Implementations
- * will add behaviors to each NPC.
+ * The {@link AbstractNPCController} handful methods for controlling NPCs.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface NPCController {
+public class AbstractNPCController implements NPCController {
+	@Override
+	public void action(NPC npc, Lineage2Connection conn, L2Character character,
+			String... args) throws L2Exception {
+
+	}
+
 	/**
-	 * Performs an interaction with this {@link NPC}.
+	 * Talks with this NPC
 	 * 
 	 * @param npc
 	 *            the {@link NPC} instance
@@ -40,8 +48,18 @@ public interface NPCController {
 	 * @param args
 	 *            the action arguments
 	 * @throws L2Exception
-	 *             any {@link L2Exception}
 	 */
-	void action(NPC npc, Lineage2Connection conn, L2Character character,
-			String... args) throws L2Exception;
+	protected void talk(NPC npc, Lineage2Connection conn,
+			L2Character character, String... args) throws L2Exception {
+		// not yet available message
+		final HtmlTemplate template = new HtmlTemplate() {
+			@Override
+			protected void build(MarkupTag body) {
+				body.text("Sorry, but I'm not implemented yet!");
+			}
+		};
+
+		conn.write(new NPCHtmlMessagePacket(npc, template));
+		conn.sendActionFailed();
+	}
 }
