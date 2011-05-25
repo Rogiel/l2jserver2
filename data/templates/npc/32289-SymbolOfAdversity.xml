@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32289" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32289" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Symbol of Adversity</name>
         <level>70</level>
@@ -22,4 +23,12 @@
         <sp>0</sp>
         <collision heigth="37.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Symbol of Adversity:<br>
+I knew you would succeed!<br>
+However, there are still two tests left, so be alert -- they will be more challenging than the tests you have already passed.<br>
+But first I shall grant you a reward. You have proven your trustworthiness, and its a show of gratitude on behalf of those you have helped, I give you this advice.<br>
+Go to the Island of Prayer and find a man named <font color="LEVEL">Ringos</font>. Accept his offer, though it may seem strange, and you shall earn a secret key that will prove essential at the Emerald Square.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32469" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32469" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Eindburgh</name>
         <title send="false">Vice Hierarch</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="17.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Vice Hierarch Eindburgh:<br>
+The Kamael have had the same Elders for ages. Except for me...<br>
+Why am I the exception? Ah! I am Kekropus' opposite number. I can do the one thing that he cannot. What is that, you ask? Make trouble! Ha!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a><br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

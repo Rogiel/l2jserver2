@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30884" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30884" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Frontier Guard</name>
         <level>80</level>
@@ -23,4 +24,10 @@
         <item lefthand="0" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Border Guard Dino:<br>
+Stop! You can't go this way. The border is sealed.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

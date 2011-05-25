@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30465" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30465" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Herven</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Herven:<br>
+You are a new face. Have you come from foreign lands? You must know that Dion s local specialty is the <font color="LEVEL">mandragora!</font> Well then, do you know where the largest Mandragora Farm in Dion is? If you just follow the road in front of me, you can take a look at <font color="LEVEL">Aaron Nightshade's</font> Mandragora Farm, the largest mandragora operation in Dion.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about 'mandragoras'.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Herven:<br>
+You don't know anything, do you? To think that you are unfamiliar with mandragoras. Listen carefully -- the extract and leaves of a mandragora have the ability to make a dying man jump right out of his bed. It also has many other mysterious powers -- Mystics are always conducting research on it, but they say there is still much left to be learned.<br>
+Growing mandragoras definitely guarantees a high profit, but if you are not careful you could lose your life. It is a dangerous plant. When you pass the Mandragora Farm, make sure to cover your ears, or their cries will rip your eardrums.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

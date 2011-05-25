@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31950" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31950" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mailland</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Mailland:<br><br>
+You must have a good eye for quality, since you stopped in here -- mark my words, too many adventurers these days choose accessories based solely on appearance. With that in mind, I'd steer clear of that Human woman's accessory shop if I were you. They say she keeps the good items for herself. That's not the way we do business here!<br>
+<a action="bypass -h npc_%objectId%_Buy 3195000">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3195001">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

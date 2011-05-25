@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13131" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="13131" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Grizzly Bear</name>
         <level>55</level>
@@ -22,4 +23,13 @@
         <sp>0</sp>
         <collision heigth="40.0" radius="21.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Temple Book of Secrets:<br>
+You can use the Essence of Water to craft a stronger weapon.<br>
+The Temple Inspector will help you.<br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

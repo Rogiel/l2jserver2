@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30765" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30765" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Imperial Coffer</name>
         <level>70</level>
@@ -21,4 +22,20 @@
         <sp>0</sp>
         <collision heigth="9.5" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Imperial Coffer:<br><br>
+
+There is nothing inside.
+</body></html>
+]]></chat>
+        <chat id="default"><![CDATA[<html><body>Imperial Coffer:<br><br>
+
+Large box in which an exquisite decorative pattern is carved. It is fastened with six locks.<br><br>
+
+<a action="bypass -h npc_%objectId%_Quest">
+Open coffer.</a><br>
+
+</body></html>
+]]></chat>
+    </talk>
 </npc>

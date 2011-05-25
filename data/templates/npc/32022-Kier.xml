@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32022" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32022" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kier</name>
         <level>70</level>
@@ -21,4 +22,10 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Kierre:<br>
+This sculpture looks very different from the others. It looks so sad, standing all alone in a desolate place like this.<br>
+<a action="bypass -h npc_%objectId%_Quest">Look around.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

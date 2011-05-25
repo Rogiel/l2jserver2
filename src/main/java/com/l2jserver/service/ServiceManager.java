@@ -57,7 +57,7 @@ public class ServiceManager {
 		}
 		logger = LoggerFactory.getLogger(ServiceManager.class);
 	}
-	
+
 	public <T extends Service> T get(Class<T> serviceClass) {
 		return injector.getInstance(serviceClass);
 	}
@@ -81,6 +81,10 @@ public class ServiceManager {
 			logger.error("{}: Error starting service: {}",
 					serviceClass.getCanonicalName(), e);
 			throw e;
+		} catch (Exception e) {
+			logger.error("{}: Error starting service: {}",
+					serviceClass.getCanonicalName(), e);
+			throw new ServiceStartException(e);
 		}
 	}
 

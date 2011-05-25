@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31307" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31307" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Weber</name>
         <title send="false">Grocer</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Weber:<br>
+How does a criminal like you come to be strolling the streets of this village?! This is unbelievable!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Weber:<br>
+The power of pigments is a double-edged sword. If you want to be more powerful, you must make certain...sacrifices. But for a must-have item, it's probably worth it, eh?<br>
+I guarantee the quality of these pigments here. After all, I am the most trusted pigment trader in the entire kingdom...<br>
+<a action="bypass -h npc_%objectId%_Buy 3130700">Buy dyes.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130701">Buy supplies.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

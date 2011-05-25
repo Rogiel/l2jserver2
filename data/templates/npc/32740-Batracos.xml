@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32740" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32740" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Batracos</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="44.0" radius="29.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Gatekeeper Batracos:<br>
+You look too inexperienced to make a journey to see Tanta Seer Ugoros. If you can convince Chief Investigator Johnny that you should go, then I will let you pass. Johnny has been everywhere and done everything. He may not be of my people but he has my respect, and anyone who has his will in turn have mine as well.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Batracos:<br>
+Welcome. These are the tribal lands of the Seer Uguros of Tanta. I, the Gatekeeper Batracos, decide who is able to see the seer and who does not. Judging by the looks of you, I have some advice - turn back and keep your life. That shiny armor won't protect you here.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Continue to listen</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask him to send you to Tanta Seer Ugoros</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Gatekeeper Batracos:<br>
+There's something about this place, an unescapable feeling of peace. I used to know that feeling very well here. Unfortunately, the truth behind my people's past keeps me from enjoying that feeling anymore. You see, the Plains have been showered with the blood of my people. In the wake of Antharas' death, we struggled for this land, bloodlust fueling brother against brother, father against son.<br>It was the Seer who united the new tribe of Tanta to defeat the Leto. He is known amongst my people as a great leader, but he also kills any who oppose him.<br>
+I can't just sit back and watch anymore. But I won't send someone to be slaughtered either. I must know you can handle Ugoros in battle!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

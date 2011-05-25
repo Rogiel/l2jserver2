@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ClanTrader" id="32025" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="ClanTrader" id="32025" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ilia</name>
         <title send="false">Clan Trader</title>
@@ -23,4 +24,39 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Clan Trader Ilia:<br>
+Ah! A resolution pledged with blood, and a pledge to unite. Since you are a master of that pledge, what is it you wish from me?<br>
+<a action="bypass -h npc_%objectId%_multisell 1235">Buy clan items.</a><br>
+<a action="bypass -h npc_%objectId%_crp">Ask about clan reputation.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="no"><![CDATA[<html><body>Clan Trader Ilia:<br>
+I seek a partner to a blood oath, the most sacred pledge of allegiance!<br>
+I will not release any item to anyone else! Our reputation depends on it!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Clan Trader Ilia:<br>
+The maximum clan level for raising reputation is 5.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Clan Trader Ilia:<br>
+There are many ways to increase your clan's reputation, from capturing a castle or fortress in battle, to helping our wandering newbies. Protection a territory is also laudable, and in that spirit I wish to make you an offer if you can bring me these items:<br>
+<font color="LEVEL">1 Blood Alliance</font> to prove that you have successfully defended a castle, <font color="LEVEL">10 Blood Oaths gained by preserving civic order in a territory</font>, and finally <font color="LEVEL">100 Knight's Epaulettes to prove that you are invincible in battle</font>.<br>
+Bring me these things, and I will personally see to it that your reputation increases.<br>
+<a action="bypass -h npc_%objectId%_exchange 9911">Provide 1 Blood Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_exchange 9910">Provide 10 Blood Oaths.</a><br>
+<a action="bypass -h npc_%objectId%_exchange 9912">Provide 100 Knight's Epaulettes.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="ExchangeFailed"><![CDATA[<html><body>Clan Trader Ilia:<br>
+You have not brought a sufficient number of the items I requested to justify an increase in reputation.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="ExchangeSuccess"><![CDATA[<html><body>Clan Trader Ilia:<br>
+You have successfully increase your clan reputation score.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

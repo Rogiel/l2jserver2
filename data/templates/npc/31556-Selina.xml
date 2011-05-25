@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31556" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31556" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Selina</name>
         <title send="false">Mercenary Medic</title>
@@ -24,4 +25,11 @@
         <item lefthand="659" righthand="189"/>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mercenary Medic Selina:<br>
+Hey, you're not my boyfriend! You don't even belong to the Golden Ram Mercenary force! Get away from me!<br>
+If you want to join our force go talk to that rough-looking Orc over there.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

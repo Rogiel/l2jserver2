@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31986" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31986" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Erstack</name>
         <title send="false">Guard</title>
@@ -24,4 +25,23 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Guard Erstack:<br>
+The shallow graves of exiled Tribal Chiefts! Most of those chiefs were murdered, but death could not contain their vengeful fury!<br>
+What? ...The Immortal Plateau? Who cares about Orcish tombs, anyway. A tomb's a tomb, right? We'll all get one eventually! Gah, it's cold! I just want a swig of Kofporch and my bed!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Erstack:<br>
+Hmm, how to explain it.... Basically, the ruins are haunted! At one time it was a thriving Orcish city, but now it's just a shell of its former self. Only inhabitants you'll find out there are evil spirits and insects! They say that if you bury a bottle of liquor under the ruins, you'll get an amazing Kofporch! I've heard there's even an old Kofporch jug buried under the Beacon Mound of Pa'agrio! If I could have a glass of that, I'd die a warm and happy man!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Erstack:<br>
+Brrr! It's freezing out here! Nothing like a mug of Kofporch to thicken the blood on a day like this. What? You've never heard of Kofporch? Where've you been, kiddo? Were you born yesterday?<br>
+Kofporch is only brewed in a few areas in Schuttgart Territory. The best kinds are then hauled out and left to age in either the<font color="LEVEL"> Den of Evil</font> or the<font color="LEVEL"> Crypts of Disgrace</font>. Dangerous? Sure! But believe you me, no imitation even comes close!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Den of Evil."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Tell me about the Crypts of Disgrace."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

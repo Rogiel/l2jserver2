@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32642" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32642" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Broken Golem Control Device</name>
         <level>80</level>
@@ -21,4 +22,9 @@
         <sp>0</sp>
         <collision heigth="15.5" radius="16.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Broken Golem Controller:<br>
+...
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31033" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31033" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Sentinel</name>
         <level>80</level>
@@ -23,4 +24,10 @@
         <item lefthand="0" righthand="276"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard:<br>
+You must use extreme caution, sir! There have been reports of roaming thugs in this area, who think nothing of killing for the sheer pleasure of it. Please let me know if you see any of them. My bow will protect you from these murderers.<br>
+May the divine protection of Eva be with you always.
+</body></html>]]></chat>
+    </talk>
 </npc>

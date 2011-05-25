@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31329" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31329" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Eliyah</name>
         <title send="false">Priest</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Eliyah:<br>
+Great Einhasad, lead us with your light... Ah! I'm sorry. I was praying...<br>
+Are you returning from the upper floor of the tower? That is no place to learn the teachings of the goddess. Here, though, you may meditate on the value of a life of service and devotion. Perhaps you'd care to join me in prayer?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Eliyah:<br>
+Oh, that's too bad. I'm sorry, but I don't feel any pity for you. Seek understanding from the god you serve. May his blessing be upon you.
+</body></html>]]></chat>
+    </talk>
 </npc>

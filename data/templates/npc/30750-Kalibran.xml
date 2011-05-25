@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30750" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30750" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kalibran</name>
         <title send="false">Drake</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="100.0" radius="30.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Drake Kalibran:<br>
+The towers and transparent barrier that appear far to the west are things that not even creatures such as myself with large wings and strong power can penetrate. Sea of Spores...<br>
+I, Kalibran, am a wretched drake who has lost my offspring, my babies.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Fisherman" id="32348" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Fisherman" id="32348" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Burang</name>
         <title send="false">Fishing Guild Member</title>
@@ -24,4 +25,20 @@
         <item lefthand="0" righthand="7560"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Fishing Guild Member Burang:<br>
+We don't cater to the likes of you!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Fishing Guild Member Brang:<br>
+Some call me the "doctor of fishing," some think I'm just all wet. Ha ha!<br>
+Of course, I sell fishing gear and teach a variety of fishing techniques. I'll also buy any fish you've caught!<br>
+<a action="bypass player_help 7561.htm#7561">Ask how to fish.</a><br>
+<a action="bypass -h npc_%objectId%_Link fisherman/fishing_championship.htm">Fishing Contest</a><br>
+<a action="bypass -h npc_%objectId%_FishSkillList">Learn fishing skill.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3234800">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 009">Sell fish.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32503" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32503" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Entrance Manager</name>
         <title send="false">Kratei's Cube</title>
@@ -23,4 +24,47 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+You are registered for the competition. Stay close to me and I will send you to the match manager when it's time for the competition to begin. Don't wander too far away!
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+A match is already in progress. Would you like to register for the next match?<br>
+<a action="bypass -h npc_%objectId%_TryRegister">Register.</a>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+Your level doesn't match the range you chose. Please select the correct range.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+Kratei's Cube allows <font color="LEVEL">25 warriors who are level 70 and above to compete for 20 minutes</font> to see who is the strongest. Warriors advance through the rooms of the Cube, encountering hordes of monsters as they go. Defeat as many monsters and other warriors as possible within the time limit; whoever defeats the most wins.<br>
+If you are killed, you will be teleported back to the Match Manager after 10 seconds.  If the match hasn't ended, you may re-enter. <font color="LEVEL">Doing so will not decrease your experience score.</font><br>The 20-minute competitions start exactly on each hour and half-hour, and you can normally register up until 3 minutes before they begin. (If there was no competition in the previous time slot, you can only register between 20-27 minutes after the hour or 50-57 minutes after the hour.) Registration and admission are impossible in the 3 minutes immediately before a competition begins.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="9"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+You are too encumbered to enter! Perhaps you should discard some items first.
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+You are already registered.
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+What level are you?<br>
+<a action="bypass -h npc_%objectId%_Register 1">Level 70-75.</a><br>
+<a action="bypass -h npc_%objectId%_Register 2">Level 76-79.<br>
+<a action="bypass -h npc_%objectId%_Register 3">Level 80.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+Welcome to Kratei's Cube! Only the strongest win here.<br>
+Do you feel lucky?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Learn more about Kratei's Cube.</a><br>
+<a action="bypass -h npc_%objectId%_TryEnter">Enter Kratei's Cube.</a><br>
+<a action="bypass -h npc_%objectId%_Cancel">Cancel registration for Kratei's Cube competition.<br>
+<a action="bypass -h npc_%objectId%_goto 12109">Teleport to Fantasy Isle.</a>
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+Your registration for this match has been canceled.
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body>Kratei's Cube Entrance Manager:<br>
+Match preparations are under way... Registration for this match has now ended; the match will begin in 3 minutes.
+</body></html>]]></chat>
+    </talk>
 </npc>

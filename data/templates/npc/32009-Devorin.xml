@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32009" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32009" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Devorin</name>
         <title send="false">Nurse</title>
@@ -23,4 +24,10 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Nurse Devorin:<br>
+Doesn't he look handsome in this portrait? And he was just as handsome in the flesh. That is Frintezza, the last imperial prince of the Elmoreden empire. He was the son of Emperor Baium. We don't know where he is now, but...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

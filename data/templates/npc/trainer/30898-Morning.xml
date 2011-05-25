@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30898" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30898" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Morning</name>
         <title send="false">Blacksmith</title>
@@ -23,4 +24,24 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Blacksmith Morning:<br>
+What a nerve! Can't you see how busy I am? What with creating and selling my wares, how would I find the time to teach anyone?<br>
+Wait, are you a Dwarf? Hmm... I see. If you're an Artisan or a Warsmith, I suppose I could spare enough time to give you a lesson... But it won't come cheap... Tell you what, give me 100 milion adena and I will give you a special lesson while the Head Blacksmith is away...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Blacksmith Morning:<br>
+Welcome! I sense that you've come here to ask a favor of me, the best blacksmith in Innadril, right? Well, anybody is welcome...if they have money and are willing to buy!<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Craft a Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/weapon_sa_01.htm">Bestow a special ability on a weapon.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Craft an item.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1002">Release the seal on B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1003">Reseal B-grade gloves and weapons.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_01.htm">Smelt an item.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_02.htm">Cancel smelting.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

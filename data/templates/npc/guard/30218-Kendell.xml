@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30218" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30218" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Kendell</name>
         <title send="false">Sentinel</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="276"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sentinel Kendell:<br>
+May the smile of Eva be your peace and repose. I am Kendell, one of the Sentinels. Our task is to protect the beautiful <font color="LEVEL">Elven Forest</font> and the most holy Mother Tree Glade that you see down there.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Elven Forest.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sentinel Kendell:<br>
+This forest may seem peaceful at first glance, but terrible enemies lurk within. For hundreds of years, our kingdom was under attack by the Orcs of the Misty Mountains, the fungus from the Sea of Spores, and the giant spiders from the Wasteland of Gludio.<br>
+When you travel in the forest, you must not forget for one moment the threats that hide behind the lovely scenery.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

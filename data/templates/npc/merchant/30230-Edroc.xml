@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30230" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30230" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Edroc</name>
         <title send="false">Trader</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Edroc:<br>
+You must leave this place immediately. There are far too many Bounty Hunters around here... If you are discovered you will be killed instantly!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Edroc:<br>
+Is this your first time in Hunters Village? Then let me give you a bit of information about this town...<br>
+Originally, hunters chasing rare prey broke new ground in this village. By rare game, I mean creatures that were difficult and dangerous to hunt. So don't imagine people catching rabbits in the hills when you hear about the "hunters" here. They're rough enough to deal squarely even with the royal house!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3023000">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3023001">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Edroc:<br>
+Can I sell you something, friend? Please tell me if you see something you like.<br>
+<a action="bypass -h npc_%objectId%_Buy 3023000">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3023001">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3023002">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3023003">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

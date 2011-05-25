@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31263" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31263" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Liesel</name>
         <title send="false">Grocer</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Liesel:<br>
+I don't have anything to sell you. Don't come back!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Liesel:<br>
+In our shop we carry a large number of pigments that have various effects. There must be one that suits you best, so please take a look around.<br>
+<a action="bypass -h npc_%objectId%_Buy 3126300">Buy dyes.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3126301">Buy supplies.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

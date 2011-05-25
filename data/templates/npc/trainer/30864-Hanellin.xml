@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30864" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30864" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hanellin</name>
         <title send="false">Magister</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Magister Hanellin:<br>
+The king of this country so focused on foreign intrigues that he is blind to the revolt brewing in his own capital!<br>
+There are dozens of plots, cabals and conspiracies to dethrone him and take over this castle. Those self-righteous Elves may frown and sniff at the goings-on, but we Dark Elves would never criticize. It's just the way of things. Humans may talk like Elves, but they inevitably behave like Dark Elves. It's just their nature...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Hanellin:<br>
+People say this town is the center of culture and religion, but to me it feels like like a piece of rotten wood -- ready to collapse at the slightest push. Humans are closer to Dark Elves than they think...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"How can you say that?"</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Henellin:<br>
+I'm dreadfully sorry but I only teach Dark Elven mages. You should talk to that serious-looking fellow over there. He specializes in Dark Elven warriors. Only Dark Elves are allows in this guild.
+</body></html>]]></chat>
+    </talk>
 </npc>

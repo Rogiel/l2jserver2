@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Fisherman" id="31570" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Fisherman" id="31570" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lanosco</name>
         <title send="false">Fishing Guild Member</title>
@@ -24,4 +25,21 @@
         <item lefthand="0" righthand="7560"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Fishermen's Guild Member Lanosco:<br>
+We don't cater to the likes of you!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Fishing Guild Member Lanosco:<br>
+So did you hook a big one?<br>
+Fishing isn't as easy as it looks. If you want to be successful, you need to use the right bait at the right spot at the right time.<br>
+Come see me when you need the right equipment and I'll set you up.<br>
+<a action="bypass player_help 7561.htm#7561">Ask how to fish.</a><br>
+<a action="bypass -h npc_%objectId%_Link fisherman/fishing_championship.htm">Fishing Contest</a><br>
+<a action="bypass -h npc_%objectId%_FishSkillList">Learn fishing skill.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3157000">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 009">Sell fish.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

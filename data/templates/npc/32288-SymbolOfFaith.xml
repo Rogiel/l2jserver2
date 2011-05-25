@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32288" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32288" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Symbol of Faith</name>
         <level>70</level>
@@ -22,4 +23,12 @@
         <sp>0</sp>
         <collision heigth="37.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Symbol of Faith:<br>
+You have proven your trustworthiness...<br>
+I have a secret to tell you about the demons.<br>
+You may find <font color="LEVEL">Water Dragon Scales</font> in the Chromatic Highlands. This is a symbol that signified those who long ago followed the Water Dragon, Fafurion. It is an excellent cure for those who have been driven insane by the demons.<br>
+Perhaps you can use it on Tears, who was once Parme's best water spirit, but is now a demon henchman. You will find Tears in the Coral Garden.
+</body></html>]]></chat>
+    </talk>
 </npc>

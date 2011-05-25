@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="32172" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="32172" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Saylem</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Freighter Sailor:<br>
+You want me to teach you Dwarven skills? Ha ha! I thought you came here to flirt with me...<br>
+No? Well, well! You should have know not to expect to learn anything here. Right?
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Freighter Sailor:<br>
+Why, hello there! Welcome to the Iron Gate Guild.<br>
+We would be happy to store your valuables for a very reasonable rate. Even better, you can reclaim them at any one of our locations. Now then, what can I do for you today?<br>
+<center>
+<a action="bypass -h npc_%objectId%_Link warehouse/privatewh.htm">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link warehouse/clanwh.htm">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

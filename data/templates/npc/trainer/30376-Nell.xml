@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30376" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30376" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nell</name>
         <title send="false">Magister</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Nell:<br>
+Greetings! Gludio is the most beautiful land I've visited outside the Elven Forest. I especially love the sea. Whenever my spirit is troubled, I find I can calm it just by watching the waves upon the sand. Now then, how can I help you? Speak up!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Lean skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Nell:<br>
+I don't know how you've come here, but there is nothing I can do to help you. Among Eva's children, I only help Elves. I hope you will find the right Master for you.
+</body></html>]]></chat>
+    </talk>
 </npc>

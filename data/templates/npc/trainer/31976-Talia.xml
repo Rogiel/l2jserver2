@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31976" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31976" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Talia</name>
         <title send="false">Magister</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="204"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Talia:<br>
+We're following different paths and must seek different teachers. I hope you find a suitable teacher.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Talia:<br>
+Serve Gran Kain and through him we will end this reign of oppression and usher in a new and glorious age.<br>
+Brothers and sisters! When that day comes, those who betrayed us will face judgment from which they cannot hide, and our sorrow will be changed to everlasting joy!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

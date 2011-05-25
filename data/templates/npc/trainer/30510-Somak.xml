@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30510" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30510" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Somak</name>
         <title send="false">Seer</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="29.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Seer Somak:<br>
+Stop!<br>
+Be silent! Be still!<br>
+Do not search for enlightenment in books or silver-tongued charlatans. Instead, look within yourself!<br>
+Listen to the voices of our ancestors that reside in your heart!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Seer Somak:<br>
+You are someone unable to hear spiritual sound.<br>
+There is nothing to teach you.
+</body></html>]]></chat>
+    </talk>
 </npc>

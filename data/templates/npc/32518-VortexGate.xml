@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32518" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32518" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="false" send="false">Vortex Gate</name>
         <title send="false">Aerial Cleft</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="130.0" radius="300.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Vortex:<br>
+Vortex of confusion... One piece... Mysterious power... You would get something from here.<br>
+(This place is for <font color="00FFFF">those who are able to transform into Flying Transformed Objects.)</font><br><br>
+<a action="bypass -h npc_%objectId%_Quest">Register for battle.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Learn about this place.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>
+Vortex:<br>
+Vortex of confusion... One piece... Mysterious power...<br>
+Aerial Cleft... This place is a battlefield where one can enter through a small vortex hall, which releases mysterious energy. When you register, you can choose between red and blue teams. When a number of members for each team is over 9, the battle field automatically becomes active.<br>
+You must be able to transform into a <font color="00FFFF">Flying Transformed Object</font> to move onto the battlefield. Members of each team acquire points by attacking the other team's PCs or destroying a compressor located on the battlefield. If energy is focused on one member, they become a concentrated attack target (CAT). When you drop that target, you can gain bonus points.<br>
+The winning team obtains emery pieces and star stones. Combine them with seed energy and you can change them into powerful attribute crystals using a created converter.
+</body></html>]]></chat>
+    </talk>
 </npc>

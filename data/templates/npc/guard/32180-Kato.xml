@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32180" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32180" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kato</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="9645"/>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Marksman Kato:<br>
+The harbor was originally made to allow contact between the Isle of Souls and the mainland.<br>
+Initially, there were many goods that flowed through here, but no ships come here now. It is better, you see, for the adventurers who come here to use the gatekeeper's side. <br>
+If you go there, I'm sure you will find a gatekeeper preparing to go to the mainland.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Marksman Kato:<br>
+Yes, this is Kamael Village. If you go back the way you came,<font color="LEVEL">you will pass Mimir's Forest</font> and arrive at the <font color="LEVEL">harbor.</font> You should also pass Nornil's Cave.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the harbor.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See information on permanent residence and tax rates.</a><br>
+<a action="bypass -h npc_%objectId%_Quest"> Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

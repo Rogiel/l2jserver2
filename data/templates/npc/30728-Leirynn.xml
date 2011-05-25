@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30728" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30728" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Leirynn</name>
         <title send="false">Militiaman</title>
@@ -24,4 +25,11 @@
         <item lefthand="0" righthand="93"/>
         <collision heigth="22.4" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Militiaman Leirynn:<br>
+Nice to meet you, stranger. My name is Leirynn and I am a militiamen in the village army of Floran.<br>
+Floran is a place where people who refuse to live under the harsh ruling of the coutry's leader gather and try to live peacefully according to their own rules and laws. Therefore, those who claim the order of the kingdom, or the lord's laws just, are not at all welcome.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

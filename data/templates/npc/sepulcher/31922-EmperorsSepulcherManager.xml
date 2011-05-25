@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Sepulcher" id="31922" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Sepulcher" id="31922" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Emperors' Sepulcher Manager</name>
         <level>70</level>
@@ -22,4 +23,31 @@
         <sp>0</sp>
         <collision heigth="21.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="NL"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+The stone statue will only respond to the hand of the party leader.
+</body></html>]]></chat>
+        <chat id="OK"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+Enter.
+</body></html>]]></chat>
+        <chat id="FULL"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+Another party has already entered the sepulcher. Try again later.
+</body></html>]]></chat>
+        <chat id="NS"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+%member% needs to speak with the nameless soul to gain entry.
+</body></html>]]></chat>
+        <chat id="SP"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+To gain entry, a party must consist of at least four members.
+</body></html>]]></chat>
+        <chat id="SE"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+%member% doesn't have a pass.
+</body></html>]]></chat>
+        <chat id="NE"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+Entry forbidden at this time. Try again later.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Emperors' Sepulcher Manager:<br>
+A weird-looking statue.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

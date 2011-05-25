@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32245" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32245" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Matras</name>
         <level>70</level>
@@ -22,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Matras:<br>
+ I am Matras, the famous architect. You have heard of me, I trust? No? Ah, well... See that building over there? I designed it! What do you think of that? <br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

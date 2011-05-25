@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32174" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32174" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Maddy</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,19 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="22.5" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Marksman Maddy:<br>
+Once you leave the village, the only person who can guarantee your safety is you.<br>
+The main threat is monsters, but there are also some adventurers out there that may attack you.<br>
+If you choose to fight a monster, well, that's your choice and I wish you well. But if you are being chased by a murderer, I don't think there's any shame in you trying to flee back to the safety of the village.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Marksman Maddy:<br>
+Do you have some business with me?<br>
+I am Maddy, the Marksman who protects this place. Past here, all the way to the outskirts of the village, you'll find the area swarming with monsters. Unless you're prepared to protect yourself, I wouldn't advise venturing out there recklessly.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about outside the village.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View the information about the lord and manor tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

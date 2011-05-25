@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="30845" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="30845"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Klump</name>
         <title send="false">Warehouse Chief</title>
@@ -23,4 +25,15 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Chief Klump:<br>
+Pleased to meet you. I am Warehouse Chief Klump of the Iron Gate Guild. Giran is the center of our craft, of course, but the river of wealth that flows to us here in Aden Castle Town is scarcely less deep. Of course, here we focus more on decorative and artistic pieces rather than everyday items.<br>
+<a action="bypass -h npc_%objectId%_Quest dwarven_occupation_change">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

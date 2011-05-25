@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30558" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30558" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Jakal</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Jakal:<br>
+What are you looking for, my friend?<br>
+<a action="bypass -h npc_%objectId%_Buy 3055800">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3055801">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Jakal:<br>
+I see you are well endowed with courage, ha ha ha! I like you. I really do like you.<br>
+But, sweetie, do you know what you've gotten yourself into? You better go away before I get very upset!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Jakal:<br>
+Hail the eternal glory of the Flame! How are you, friend?<br>
+What do you need? Please take a look! Nothing is worthless in my shop. And there is nothing that I cannot get for you! It's an old truth, that adventure requires preparation to succeed. Even we Orcs would do well to heed the ancient wisdom of those words!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3055800">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3055801">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30635" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30635" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Almors</name>
         <title send="false">Summoner</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Summoner Almors:<br>
+How do you do? My name is Almors. Such as it is, I am a Summoner in the Ivory Tower in Oren. Lying beside me is my partner, Pacco the cat.<br>
+I am in the middle of recuperating here in my aunt's house, since the cold weather in Oren worsened my condition. Although I wish I could return to the Ivory Tower soon to finish my project... It isn't bad at all to spend the days here...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

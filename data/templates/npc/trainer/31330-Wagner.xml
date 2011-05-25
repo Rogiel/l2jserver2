@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31330" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31330" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Wagner</name>
         <title send="false">Priest</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Wagner:<br>
+May Eva's protection be with you!<br>
+This may be a library, but any place where knowledge is prized is a suitable spot for religious discussions, meditations and even worship. I know some of the Humans here do not share those views, but I have learned that it is better sometimes to bend like the reed than break like the oak...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Wagner:<br>
+I see that you are not quite ready to receive Elvis's... I mean, Eva's teaching yet! Follow your own fate! You have many teachers to choose from. I'm not one.
+</body></html>]]></chat>
+    </talk>
 </npc>

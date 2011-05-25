@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30014" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30014" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Celma</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.4" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Celma:<br>
+I am Celma, master of the Fighters Guild here. This harbor city is filled with the energy of many people from many lands. Frankly, I prefer training others here than wandering the wide world looking for adventure! Now then, what can I do for you?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Celma:<br>
+Ke-ke-ke... ah, I can't help laughing. There are always people like you! Ke-ke-ke... Are you sure that this is the right place for you to look for your master? Open your eyes and look around you. Who am I? I'm in charge of the Human fighters of the Fighters Guild.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

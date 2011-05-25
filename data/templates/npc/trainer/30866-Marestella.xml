@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30866" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30866" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Marestella</name>
         <title send="false">Prefect</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Prefect Marestella:<br>
+I cannot teach you. I only teach Orcs that have chosen the bloody path of endless battle.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Prefect Marestella:<br>
+We Orcs came to Aden at the request of the weak Human king. Some of my brethren believe this shows that the Humans have finally realized their inadequacies. I prefer to be more cautious, however.<br>
+The Humans have a long history of treachery when it comes to their dealings with the Orcs.<br>
+While we are here, then, I will act as the eyes and ears of my people to ensure we are dealt with honorably...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

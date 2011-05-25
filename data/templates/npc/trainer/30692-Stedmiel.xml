@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30692" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30692" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Stedmiel</name>
         <title send="false">Master</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Stedmiel:<br>
+Unfortunately I can only teach Elven Fighters.<br>
+There are many excellent teachers in this village so keep looking, you'll find the right one. May the blessing of starligh be with you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Stedmiel:<br>
+Have you been to the Enchanted Valley? They say that there are still Fairies secretly living there. In the ancient Elmoreden Empire, Fairies were hunted as exotic trinkets. Finally they fled into the deepest recesses of the forest there...<br>
+If those legends are true, how fearful they must have been! I hope they at least find joy in the songs of the stars...<br>
+Now, what can I do for you?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

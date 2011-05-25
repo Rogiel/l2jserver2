@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30073" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30073" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Jacob</name>
         <title send="false">Guard</title>
@@ -24,4 +25,23 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Jacob:<br>
+How do you do, honored traveler? Have you come to our village to see the great shell of <font color="LEVEL">cruma</font>? If you have, then you'd be well advised to give up your search. Many have come to this village to view the shell of cruma, but I have rarely seen anyone return from that place intact. The <font color="LEVEL">Marshlands</font> where the shell of cruma lies have for ages been a place teeming with monsters -- even our guards don't like to go near there.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about cruma</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Marshlands</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Jacob:<br>
+The marshlands are where the cruma's shell is, so they are called the the Cruma Marshlands. The Marshlands are beyond that temple over there. If you keep walking north, you can easily find them. However, there are rarely people there and the place is swarming with frightening monsters. I think it is rash to go there alone.<br>
+I've warned you in no uncertain terms. Please don't reproach me for the consequences if you choose to disregard my advice.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Jacob:<br>
+Crumas were a mystical race of beings, one of the first animals to be created in the beginning. They looked like turtles, and there were four crumas in all. Now they have all disappeared and only their shells remain, so we can only imagine what they must have been like. I have heard travelers' rumors that somewhere a cruma still lives, but I do not know whether they are true.<br>
+I tell you again, the marshlands where the cruma lived are very, very dangerous. I think it is better to give up going there.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

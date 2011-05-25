@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32779" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32779" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Airship Controller</name>
         <level>80</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="19.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Airship Controller:<br>
+You see a floating piece of stone filled with a mysterious power. The green light is flashing, so there doesn't appear to be anything wrong with its function.<br><br>
+By manipulating this, you should be able to control the Airship.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Board the Airship.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Summon the Airship.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Register summoning license.</a><br>
+<br><a action="bypass -h talk_select">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

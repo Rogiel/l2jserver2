@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Adventurer" id="32337" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Adventurer" id="32337" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Adventure Guildsman</name>
         <level>70</level>
@@ -23,4 +24,13 @@
         <item lefthand="0" righthand="130"/>
         <collision heigth="21.0" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventure Guildsman:<br>
+Are you searching for thrills and adventure? Winning fame and fortune demands time, effort and risk, but I think you'll agree that it is well worth it. I see from your eager expression that you too are ready to venture into the world and find that perfect adventure! Well, my friend, you've come to the right place!  <br>
+I'm sure that we have something here to interest you. May you enjoy Eva's protection as you embark on the challenge of your choice! <br>
+<a action="bypass -h npc_%objectId%_questlist">Quest Information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest RaidbossInfo">Raid Monster Information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

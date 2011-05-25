@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32290" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32290" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Symbol of Adventure</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="37.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Symbol of Anventure:<br>
+You have succeeded again...<br>
+Now comes the final test.<br>
+It is rumored that when Parme was captured by the Demon Beleth, one of her maids hid some valuable items in the <font color="LEVEL">boxes on the bed of the Crystal Lake</font>. She hoped that adventurers like you would find them and use them to help rescue Parme.
+</body></html>]]></chat>
+    </talk>
 </npc>

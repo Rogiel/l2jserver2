@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30695" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30695" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Moses</name>
         <title send="false">Magister</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Moses:<br>
+Hey, what are you doing here? Have you really come to learn magic? Any student know the name of his teacher! Who are you?
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Moses:<br>
+Welcome to the Wizards Guild of Hunters Village. Don't be fooled by this village's apparently peaceful and prosperous facade! There is much more than meets the eye, and you would do well to be very careful during your stay here. I have even heard rumors that the Assassin Squad is headquartered here.<br>
+Shh! Don't repeat that. If a member of the Assassin Squad were to hear you, neither of us would be safe.<br>
+Perhaps we should just stop talking about these matters...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

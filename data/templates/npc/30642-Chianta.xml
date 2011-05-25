@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30642" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30642" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Chianta</name>
         <title send="false">Gandi Chief</title>
@@ -24,4 +25,11 @@
         <item lefthand="0" righthand="175"/>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gandi Chief Chianta:<br>
+Hear the cries of the wind! Feel the trembling of the earth! And know the fire of the war spirit that burns within you.<br>
+The time of chaos is at hand, and will bring endless war, confusion, massacre, and battle! I, Gandi Chief Chianta, declare! You must become strong in order to live! Only the powerful shall become the owners of the new age!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

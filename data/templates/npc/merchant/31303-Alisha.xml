@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31303" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31303" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Alisha</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,23 @@
         <sp>0</sp>
         <collision heigth="25.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trade Alisha:<br>
+I have all kinds of goods over here.. If you have anything to sell, I also buy items for a very generous price! See anything you like, stranger?<br>
+<a action="bypass -h npc_%objectId%_Buy 3130300">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130301">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130302">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130303">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Alisha:<br>
+You've come to the right place! I'm so pleased to see you here. Is there something you'd like to get a closer look of?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3130301">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Alisha:<br>
+You're an evil man! Get out of here before I call my uncle Vladimir! Do you want to get your blood sucked by a vampire and live a hellish eternal life?
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30473" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30473" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Bandellos</name>
         <title send="false">Priest</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Bandellos:<br>
+Welcome, child of the forest. This temple is where the Humans serve Einhasad. We Elves, who worship under the trees of the forest and the starry skies, have difficulty understanding how they can commune with the gods from within a building of stone and brick, but each race has its own customs.<br>
+While here, we should follow the ways of the Human world, don't you think? Let us begin.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Bandellos:<br>
+May the blessing of starlight rest upon you.<br>
+I teach healing and preservation magic to Mystics of the Elven race. I would like to teach you the holy songs of Einhasad and Eva, but the religious commandments forbid me to. I am sorry.
+</body></html>]]></chat>
+    </talk>
 </npc>

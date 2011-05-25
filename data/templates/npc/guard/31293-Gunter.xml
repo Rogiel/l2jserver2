@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31293" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31293" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Gunter</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Gunter:<br>
+The village is divided into two levels. The lower level consists of residential housing, stores and various race guilds. The upper level features upscale housing, a temple and various clan halls.<br>
+The elite classes here aren't as liberal as what you'll find elsewhere in Aden. Here, they take themselves quite seriously. They're quite particular about who they allow on the upper level. But an adventurer like yourself shouldn't have any problems!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Gunter:<br>
+Halt! Who goes there?<br>
+Oh, are you an adventurer? What are you doing here? Are you lost? Obviously, this village has an<font color="LEVEL"> upper level and a lower level</font>. It's unlike any of the other villages of Aden kingdom! Strangers tend to get lost here.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the upper and lower levels."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

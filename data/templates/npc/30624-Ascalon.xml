@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30624" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30624" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ascalon</name>
         <title send="false">Veteran</title>
@@ -24,4 +25,11 @@
         <item lefthand="0" righthand="16"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Veteran Ascalon:<br>
+Would you like to hear stories of my splendid past? In my youth I was a soldier of fortune, wandering freely, fighting aliens and making love to women with foreign names. There were some hard times, but my blazing Warrior spirit kept me going. The deep brotherhood among comrades, struggles, fierce battles, love, romance, I experience it all. I was truly a Warrior.<br>
+But now I am old. If I cold find a talented young fellow to succeed me, I would retire in peace.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30382" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30382" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Leikan</name>
         <title send="false">Guard</title>
@@ -24,4 +25,30 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Guard Leikan:<br>
+It is a vast forest to the northeast in Oren and is the headquarters of the Dark Elves. They have a deep-rooted feud against the Elves of light, and so the two enemies have come to blows on occasion, but now they have signed a peace agreement.<br>
+I shudder when I look at the Dark Elves, with their ash-colored skin and dark eyes, but I also feel a strange fascination. They say there is a guild building where Dark Elves gather, somewhere in this village ...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Guard Leikan:<br>
+When the war broke out, the people who were unable to escape to Gludio Castle all flocked to the village of Bernice. They thought they could withstand the attack of the invaders because the village had a stone outer wall. The lord's men, who suffered retreat after retreat, positioned themselves using the village as a stronghold. Einhasad's priests who were healing the wounded also stayed at the village.<br>
+The troops fought off the attack of the Gracian army a few times, and began to hope that the villagers would live. However, it was of no use. The Gracian army had joined forces with the foreign troops of ol mahum. Those violent degenerates broke the outer wall and swarmed into the village, slaughtering soldiers, priests, farmers and anyone else in sight. They also set all the buildings on fire.<br>
+In just one night, the village of Bernice was devastated. Its murdered people could not rest and rose again as the undead, filled with hatred.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Leikan:<br>
+The Ruins of Agony used to be a vineyard. It was a beautiful, peaceful place where they tended grapevines and olive trees. However, the village was burnt by the Gracian army, led by ol mahum mercenaries, and most of the people were slaughtered.<br>
+Recently, the lord sent engineers to the ruins to restore the village as a part of the region's reconstruction, but they were all killed by the <font color="LEVEL">undead</font>. If you are thinking of going near there, please be careful.<br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask about the undead</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Leikan:<br>
+If you follow this road northeast, you will come to the Ruins of Agony. Originally, it was the village of Bernice, where I was born, but it was reduced to ashes by the war. If you see its ghastly state, you will understand why it's now called the <font color="LEVEL">Ruins of Agony.</font><br>
+If you pass the ruins and continue north, you will arrive at the <font color="LEVEL">forest where the Dark Elves live</font>. Although I've never gone there myself... Travelers say that it is dark and eerie in a very unnatural way. <br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the 'Ruins of Agony'.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Dark Forest.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

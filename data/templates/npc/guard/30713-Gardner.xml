@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30713" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30713" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Gardner</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Gardner:<br>
+Hello, do you wish to journey to the east? Then you might pass through the Forest of Mirrors... If you hear a voice behind you while traveling through the Forest of Mirrors, never look back.<br>
+Have a nice trip...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the strange greeting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Gardner:<br>
+In the past it was known as the Forest of Doppelgangers. Monsters there masqueraded as known Men and attacked unwary victims... Honestly I have never seen my doppelganger. It is said the you will die instantly if you do...<br>
+However I am fairly sure that these monsters existed in the past. Everyone knows that if you hear someone following you through the woods you must never look back but run away with your eyes covered...<br>
+Don't worry, no reason to believe they are still around, but actually no reason to think they are extinct, either... I wonder why they would become extinct? If so, what sort of creatures might live in the Forest of Mirrors?
+</body></html>]]></chat>
+    </talk>
 </npc>

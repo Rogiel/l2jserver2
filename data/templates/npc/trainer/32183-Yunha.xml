@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32183" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32183" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Yunha</name>
         <title send="false">Master</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="23.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Yunha:<br>
+Are you curious about the Golden Hills? They are the legendary spot where our ancient Kamael heroes rescued our people from an invading army. It is said that one of the heroes used a magical golden shield to ward off the enemies' attack. The story has become so widely known that the place itself is becoming a tourist destination. Well, now that I've satisfied your curiosity, what else can I for you?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Yunha:<br>
+You wish to learn skills from me? Perhaps if you were a female Kamael soldier or a Warder... But since you are not, please leave -- you have nothing to gain from me.
+</body></html>]]></chat>
+    </talk>
 </npc>

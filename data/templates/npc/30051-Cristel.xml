@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30051" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30051" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Cristel</name>
         <level>70</level>
@@ -22,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Widow Cristel:<br>
+You look like a nice, young adventurer. Youth is a good thing. As I grow older, I think more of my younger days... with my dearly departed husband. Nowadays, there's not much I can do to earn a living, that is why I spin yarn out of animal fur and make cloth from that. It's not so bad, I actually really enjoy it.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DElfVillageMaster" id="30358" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DElfVillageMaster" id="30358"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Thifiell</name>
         <title send="false">Tetrarch</title>
@@ -23,4 +25,20 @@
         <sp>0</sp>
         <collision heigth="23.8" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Tetrarch Thifiell:<br>
+May Shilen's power shade you from the harshness of the light!<br>
+On behalf of the Hierarch, who was sealed by those despicable servants of the light, I represent the senior council that governs the race of darkness. It was I, Tetrarch Thifiell -- chosen by Gran Kain, the father of shadow, and Shilen, the mother of the abyss -- who led our brothers out of their underground exile and recaptured the Forest of Shadow from those moon-faced Elves of light! You, child of Shilen! What is it that you wish to know?<br>
+<a action="bypass -h npc_%objectId%_Quest 30358_thifiell_occupation_change">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the current situation.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Tetrarch Thifiell:<br>
+The Holy War of Darkness continues even now, to punish the Humans who deceived and betrayed us, and the Elves of light, who persecuted and oppressed us. Our revenge is not over yet. Living a long time in the dark, we realize the truths hidden in shadows more readily than anyone else. Based on the true power of darkness, there will come a day when we conquer the continent. This is the fate and future of all Dark Elves.<br>
+Preparing for the final holy war, our brothers are going out into the Human world this very moment and quietly, but certainly, are gathering their strength and expanding their powers. There is no future for those who fear to leave the forest. Bear in mind that only those who go out into the outside world without fear will receive the opportunities to obtain new powers. Don't forget this!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

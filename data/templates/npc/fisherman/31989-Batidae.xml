@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Fisherman" id="31989" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Fisherman" id="31989" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Batidae</name>
         <title send="false">Fishing Guild Member</title>
@@ -24,4 +25,20 @@
         <item lefthand="0" righthand="7560"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Fishing Guild Member Batidae:<br>
+We don't cater to the likes of you!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Fishing Guild Member Batidae:<br>
+Hey, good to see you! You came here to fish, right?<br>
+Well, it's a better way to spend an afternoon than breaking your back in some dark and dank mine!<br>
+<a action="bypass player_help 7561.htm#7561">Ask how to fish.</a><br>
+<a action="bypass -h npc_%objectId%_Link fisherman/fishing_championship.htm">Fishing Contest</a><br>
+<a action="bypass -h npc_%objectId%_FishSkillList">Learn fishing skill.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3198900">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 009">Sell fish.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

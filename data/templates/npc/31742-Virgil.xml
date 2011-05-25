@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31742" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31742" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Virgil</name>
         <level>70</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Virgil:<br>
+Hey, young man! Would you like to hear an old trader's story?<br>
+I devoted my entire life to making a profit. Now I'm one of the wealthiest Dwarves ever! My fortune will support my family for generations to come! My wealth is truly great!<br>
+But no matter how much money I make, the emptiness I've been feeling has never been filled up! How should I describe it... I feel something lacking, you know?<br>
+There's got to be something... something greater and more precious, something noble that will never change even with the passage of time!<br>
+I believe I'll find the answer from young people like you!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

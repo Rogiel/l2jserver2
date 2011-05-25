@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32327" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32327" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Adventurers' Guide</name>
         <level>70</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventurers' Guide:<br>
+Are you weary from your long journey?<br>
+Perhaps I can help strengthen you in your never-ending battle against the forces of evil.<br>
+Even now, the monster attacks on this village grow stronger each day; it is only due to your tireless efforts that we have remained safe this long.<br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagic.htm">Check the list of available supplemental magic.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagicServitor.htm">Check the list of supplement magic available for servitors.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/BlessingOfProtection.htm">Receive Blessing of Protection.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

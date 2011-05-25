@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31424" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31424" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shantra</name>
         <title send="false">Amulet Seller</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Amulet Seller Shantra:<br>
+Tejakar Pa'agrio! The fire welcomes you, dear brother! You look like you could use some time off of your feet!<br>
+You know, of course, that a true understanding of fire is essential for success in this world. This amulet should suit you perfectly!<br>
+<a action="bypass -h npc_%objectId%_Buy 3142400">Buy</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="30256" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="30256" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Bella</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,60 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Bella:<br>
+Welcome! Isn't the weather beautiful today? You should take a trip using teleportation. Where would you like to go?<br>
+<a action="bypass -h npc_%objectId%_Chat 4">Gludio Airship Field.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1101_teleport_to_race_track" msg="811;Monster Racetrack">Move to Monster Race Track (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1106_teleport_to_fantasy_isle" msg="811;Fantasy Isle">Move to Fantasy Isle (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Gatekeeper Bella:<br>
+Here in Gludio there is an <font color="LEVEL">Airship Dock</font> for Airships heading to Gracia. <br>
+Gracia is surrounded by a powerful magic force field, so it's impossible to enter it via teleportation or by sea. Only Airships made in Gracia are able to safely travel between the two continents.<br>
+A dock made from floating stones was constructed nearby; it took years of work, believe me. Boarding is conducted through the <font color="LEVEL">Airship Controller</font>.<br>
+The only way to journey to the Gracia Continent is to use this dock. If you wish, I can teleport you there now.<br>
+<a action="bypass -h npc_%objectId%_goto 12118">Teleport to Gludio Airship Field.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10000" msg="811;Evil Hunting Grounds">Evil Hunting Grounds - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9100" msg="811;Evil Hunting Grounds">Evil Hunting Grounds - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 1035" msg="811;Town of Schuttgart">Town of Schuttgart - 85000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1036" msg="811;Heine">Heine - 47000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1037" msg="811;Town of Aden">Town of Aden - 56000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1038" msg="811;Town of Oren">Town of Oren - 35000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 6" msg="811;The Town of Dion">The Town of Dion - 3400 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1039" msg="811;Town of Goddard">Town of Goddard - 71000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1040" msg="811;The Town of Giran">The Town of Giran - 29000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1041" msg="811;Rune Township">Rune Township - 53000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 5" msg="811;The Village of Gludin">The Village of Gludin - 7300 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 3" msg="811;Elven Village">Elven Village - 9200 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 4" msg="811;Dark Elven Village">Dark Elf Village - 10000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1034" msg="811;Dwarven Village">Dwarven Village - 32000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1033" msg="811;Orc Village">Orc Village - 23000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12050" msg="811;Kamael Village">Kamael Village - 12000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1042" msg="811;Ruins of Agony">Ruins of Agony - 790 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1043" msg="811;Ruins of Despair">Ruins of Despair - 610 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1031" msg="811;The Ant Nest">The Ant Nest - 2100 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 88" msg="811;Windawood Manor">Windawood Manor - 1400 Adena</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Bella:<br>
+Someone of your character is not permitted to pass through the gate. Next, please.
+</body></html>]]></chat>
+    </talk>
 </npc>

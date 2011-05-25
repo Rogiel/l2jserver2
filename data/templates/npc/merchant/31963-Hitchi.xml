@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31963" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31963" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hitchi</name>
         <title send="false">Mineral Trader</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mineral Trader Hitchi:<br>
+Nice to meet you! I'm Mineral Trader Hitchi.<br>
+I'm not bragging, but our family has operated a mineral trading business for 4 generations. When the train was still working, people came from the ends of Aden to buy from us. Business is a little slower now, but the quality of our minerals is just as good! Now then, how may I serve you today?<br>
+<a action="bypass -h npc_%objectId%_Buy 3196300">Trade</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

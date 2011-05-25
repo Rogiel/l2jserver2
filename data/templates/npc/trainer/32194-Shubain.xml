@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32194" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32194" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shubain</name>
         <title send="false">Master</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="25.0" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Shubain:<br>
+I am Master Shubain of the Kamael Guild. You wish to know what we do here? Much of that information is classified, I'm afraid. But I can tell you that one of our duties is to help train our brethren. Now then, how can I help you?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Shubain:<br>
+I am afraid that I cannot help you. I only train male Kamael Soldiers or Trooperss. Please excuse me.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32200" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32200" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Entien</name>
         <title send="false">Master</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="25.0" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Entien:<br>
+My training regimen is not for the faint of heart or the weak of body. But if you succeed, you will be stronger than you ever believed you could be...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Entien:<br>
+Although I teach Kamael Soldiers and Troopers, I have no skill to teach others. You should look for a more suitable mentor.
+</body></html>]]></chat>
+    </talk>
 </npc>

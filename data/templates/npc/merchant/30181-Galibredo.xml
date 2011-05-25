@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30181" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30181" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Galibredo</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Merchant Galibredo:<br>
+Where are you from, youngster? What are you looking for?<br>
+No, no, I'm not talking about goods... I want to know why you came here...<br>
+Sorry -- I'm not speaking very clearly. Never mind!<br>
+Can I help you find anything today?<br>
+<a action="bypass -h npc_%objectId%_Buy 3018100">Trade accessories.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3018102">Trade a basic type accessory.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

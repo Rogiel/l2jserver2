@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32615" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32615" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ishuma</name>
         <title send="false">Maestro</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Maestro Ishuma:<br>
+Mammon Tribe is mistaken. People should go with the flow into the world, not the other way around. A blacksmith should learn the steel, they can't make a top quality by treating it as they wish.<br>
+The boats from here go to Gracia? There aren't many people in the current Black Anvil who can deal the items coming from Gracia. Even if they can, they won't easily come forth because they have other duties to perform. But it's a different story for members of Mammon.<br>
+Fortunately, I have the skills without any duties I'm responsible for, so I believe I can do what you want. Let's see, do you need anything?<br>
+<a action="bypass -h npc_%objectId%_multisell 326150001">Craft a dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150002">Bestow special features on a weapon.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150003">Remove a weapon's special capability.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150004">Release seal on armor.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150005">Release seal on an accessory.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150006">Upgrade Vesper armor.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150007">Remove rare options on rare items.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326150008">Change the class of Dynasty High Grade Armor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

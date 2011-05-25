@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30853" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30853" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Raien</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="25.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Raien:<br>
+What is your hurry? You have your choice of many suitable masters. If you wish to become a Mystic, you should visit the Mystics guild or the Temple of Einhasad... You also have the option of joining the guild of other races.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Raien:<br>
+This Human King, though young, is said to be an excellent diplomat and strategist. If that is true, then he will no doubt quickly try to establish strong ties to the other races. Elmore is not the only enemy we face...<br>
+Ah, but that is a story for another day!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

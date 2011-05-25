@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30208" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30208" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Damion</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Damion:<br>
+What would you like to purchase?<br>
+<a action="bypass -h npc_%objectId%_Buy 3020800">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3020801">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3020802">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3020803">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Damion:<br>
+Courtesy is our motto, but we cannot accept customers like you. Good day to you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Damion:<br>
+Welcome! Good prices and excellent service, that's our motto. Take a look around and see if there's anything you like. No pressure! Take your time and browse...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3020800">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3020801">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

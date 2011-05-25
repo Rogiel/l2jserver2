@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30090" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30090" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sandra</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Sandra:<br>
+There are so many amazing things in this world! I've never seen them, but I've heard about blazing swords and magic shoes that can make you fly! Do you believe that these things really exist? Have you seen them? We have many amazing accessories here, but those items seem almost unreal... Oh, I'm sorry! I've talked too much. What can I do for you?<br>
+<a action="bypass -h npc_%objectId%_Buy 3009000">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 300900001">Buy bracelet or talisman.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3009001">Buy basic-type accessory.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

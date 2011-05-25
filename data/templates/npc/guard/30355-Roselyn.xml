@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30355" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30355" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Roselyn</name>
         <title send="false">Sentry</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="277"/>
         <collision heigth="25.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Sentry Roselyn:<br>
+The temple serves Shilen, mother of the abyss. It is not only a sacred temple where rituals are held for the goddess, but also a place where young Dark Elves learn discipline, basic combat skills and magic.<br>
+Within the deepest parts of the temple lies Patriarch Mitraell. To get to the temple, go up to the surface and then just a bit to the left.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Sentry Roselyn:<br>
+May the blessing of darkness shelter you. I am Sentry Roselyn, one of the members of the glorious corps of sentries, who protect the Temple of Shilen and guard her people.<br>
+This path that I am in charge of leads to the surface. Follow the path and go outside to get to the most sacred site for our race, the <font color="LEVEL">Temple of Shilen.</font><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Shilen Temple.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

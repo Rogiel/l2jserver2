@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32204" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32204" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Fiske</name>
         <title send="false">Master</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="23.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Fiske:<br>
+Remember that wherever you are, our ancestors watch all our actions. Behave accordingly! I know that thought comforts me and keeps me focused on my duties.<br>
+That is also why I am eager to share our Kamael teachings.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Fiske:<br>
+I always pledge to do my best, but to help you is beyond the scope of my authority. Please seek out a more appropriate teacher.
+</body></html>]]></chat>
+    </talk>
 </npc>

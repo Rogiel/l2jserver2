@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31545" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31545" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Crocus</name>
         <level>70</level>
@@ -22,4 +23,20 @@
         <sp>0</sp>
         <collision heigth="16.3" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Crocus:<br>
+Jeffrey is an outstanding chef as well as an excellent businessman!<br>
+A food delivery service! What a great idea!<br>
+Deliver delicious food quickly to customers so they need not risk being attacked by dangerous beasts! Isn't that an awesome idea?<br>
+I think I might start a business like that when I get home!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the hot springs."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Crocus:<br>
+Did you know that these hot springs are a very effective treatment for many abnormal conditions?<br>
+The red hot spring is good for cholera and malaria, the yellow for rheumatism and malaria, and the green one for influenza and malaria!<br>
+Even if you're just tired, enjoy a bath in the hot springs!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30190" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30190" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Phanovia</name>
         <title send="false">Magister</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Phanovia:<br>
+Welcome, seeker of knowledge. I am Magister Phanovia.<br>
+Was it difficult finding this place? We have long taught under the roof of the Temple of Einhasad. Of course, Grand Magister Valleria and others of her school teach at the Ivory Tower...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Phanovia:<br>
+I cannot teach you. Look for another Master. I only teach Human Mystics.
+</body></html>]]></chat>
+    </talk>
 </npc>

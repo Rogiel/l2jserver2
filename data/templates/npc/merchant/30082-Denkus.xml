@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30082" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30082" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Denkus</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Denkus:<br>
+Welcome, customer! In the market for accessories guaranteed to improve your beauty and increase your presence? You've come to the right place! We offer a better selection than anyone in Aden -- if you can't find it here, you won't find it anywhere.<br>
+<a action="bypass -h npc_%objectId%_Buy 3008200">Trade accessories.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3008202">Trade a basic-type accessory.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

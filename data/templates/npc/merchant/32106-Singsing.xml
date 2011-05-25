@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32106" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32106" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Singsing</name>
         <level>70</level>
@@ -22,4 +23,13 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Singsing:<br>
+I don't know if you know this, but this wharf was once so ridiculously shabby it couldn't even be properly called a wharf! Compared to then, it's a heck of a lot better now.<br>
+I still get a chill down my back thinking about those days...<br>
+From time to time, those horrifying dinosaurs would even charge down from the jungle to devour the settlers. Now you see me as an old wharf manager, but back then I was just a hot-blooded young adventurer like you spoiling for a fight! Some days I was ready to tear into them with my bare hands. Of course, then I saw what they could do to the unskilled... Ah, but I still miss the days of my youth.<br>
+<a action="bypass -h npc_%objectId%_Buy 3210600">Buy a ticket.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

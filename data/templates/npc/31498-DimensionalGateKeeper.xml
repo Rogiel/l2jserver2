@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31498" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31498" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dimensional Gate Keeper</name>
         <level>70</level>
@@ -22,4 +23,19 @@
         <sp>0</sp>
         <collision heigth="120.5" radius="38.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Dimension Keeper:<br>
+Did you know that these catacombs and necropolises were originally sealed in another dimension by the seal of Shunaiman, along with the magic that obscured the chasm that Lilith created to entice Shilen?<br>
+When the seal was broken, these structures appeared in this dimension! As a result, the power that was the seal exploded, and its fragments were scattered throughout the area. Part of that power collided with the wall of dimension and created a tiny crack in it. Through this crevice, a pathway formed between purgatory and this world! This is what we call a dimension gap!<br>
+Time and space are practically unrecognizable there, so it's wise not to stay in any one place too long! One must have a<font color="LEVEL"> dimension fragment</font> in order to enter there. This fragment was created from the force released when the seal was shattered.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Dimension Keeper:<br>
+I exist to guard this world.<br>
+You're fighting to get the power of the seal, aren't you? Do you have any idea of the peril you're putting us in? You probably don't know this, but the seal has been broken before! It opened a dimension gap, through which escaped terrible demons from the depths of hell! The few who are aware of this terrible danger have managed to forestall the invasion thus far...<br>
+...But our forces are over-stretched! Will you join our fight against this ghastly threat?<br>
+<a action="bypass -h npc_%objectId%_Quest OracleTeleport">"I'll join the fight!"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">"What is a dimension gap?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest 634_InSearchofDimensionalFragments">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

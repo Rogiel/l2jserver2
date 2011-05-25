@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30568" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30568" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hatos</name>
         <title send="false">Urutu Chief</title>
@@ -24,4 +25,14 @@
         <item lefthand="0" righthand="202"/>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Urutu Chief Hatos:<br>
+Hestui, Atuba, Neruga, Gandi, Duda-Mara, and Urutu!!! Praise the great Orc tribes!<br>
+I, the son of Haros, the shield of Uruchatte, and one of the 6 great heroes, remember!<br>
+The stories of our ancestors passed on from fathers to their sons and to the sons of their sons...!<br>
+Do not forget! The story that we ruled the world and brought others to their knees with our power...<br>
+Do not forget! The story of our burned cities and our people who were slain with the spears and swords of our enemies... I, Hatos, declare! The Urutu will only seek war until we have avenged them with blood and restored our glory!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

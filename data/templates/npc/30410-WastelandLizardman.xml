@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30410" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30410" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Wasteland Lizardman</name>
         <level>70</level>
@@ -22,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Lizardman of the Wastelands:<br>
+Nice to meet you, Human. I am a minstrel who savors the music in nature and loves to sing loudly. I regret that I cannot chat with you long. I am in the middle of listening to the song brought to me by the winds of the Wasteland.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

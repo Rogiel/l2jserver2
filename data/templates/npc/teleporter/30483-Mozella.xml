@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="30483" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="30483" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mozella</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Mozella:<br>
+My name is Mozella. I am one of the researchers dispatched from Oren's Ivory Tower to search for the secrets lost in the Tower of the Giants. We recently discovered what we think is a device used by the Giants in a bygone age to travel through space and time, and we are trying to unlock its secrets. Fortunately, this place was untouched by the outside world during the long years, so the mysteries of the Giants have remained undisturbed until our arrival. Unfortunately, however, the Tower is also inhabited by a number of frightful monsters.<br>
+If you wish to brave the dangers to explore these mysterious ruins, however, I will open the door of space and time and admit you to the Tower's interior.<br>
+<a action="bypass -h npc_%objectId%_Quest 1107_CrumaTower">Teleport into the Tower.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

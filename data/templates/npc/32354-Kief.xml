@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32354" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32354" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kief</name>
         <level>70</level>
@@ -22,4 +23,9 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Kief:<br>
+Due to the newcomers from the continent, Darion's military power has been weakened. But it is rumored that they are attempting to after the Magic Fields.
+</body></html>]]></chat>
+    </talk>
 </npc>

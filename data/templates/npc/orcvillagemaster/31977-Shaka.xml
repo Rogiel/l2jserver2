@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="OrcVillageMaster" id="31977" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="OrcVillageMaster" id="31977"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shaka</name>
         <title send="false">High Prefect</title>
@@ -23,4 +25,16 @@
         <sp>0</sp>
         <collision heigth="26.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Prefect Shaka:<br>
+My Orc comrade! Are you ready to be reborn in blood and fire as a true warrior of our kind? Schuttgart Territory is necessary if our race is to regain our former glory.<br>
+How long must we suffer the disdain of those puny Dwarves and moon-faced Elves? Young Orc! Schuttgart may well become a key strategic position for the warriors of the Elmorean kingdom. If we Orcs unite, it will be a trivial matter to occupy this defenseless place. Stoke up your smoldering vengeance! The time to strike swift and hard will soon be at hand.<br>
+<a action="bypass -h npc_%objectId%_Quest orc_occupation_change_2">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

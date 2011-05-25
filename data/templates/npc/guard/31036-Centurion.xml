@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31036" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31036" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Centurion</name>
         <level>80</level>
@@ -23,4 +24,9 @@
         <item lefthand="0" righthand="273"/>
         <collision heigth="27.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard:<br>
+I am sworn by the will of Paagrio to destroy all evildoers! If you see any of them, tell me. My bow will put an end to their treachery!
+</body></html>]]></chat>
+    </talk>
 </npc>

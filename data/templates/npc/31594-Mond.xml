@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31594" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31594" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mond</name>
         <title send="false">Chief Inspector</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="19.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Chief Inspector Mond:<br>
+Hmm... I don't see anything amiss... Next accounting book please! What's taking so long? Hurry up!<br>
+Dammit...! At this rate, I won't finish even if I work all night!<br>
+Ah, a customer? I'm sorry. We're conducting an audit and this place is a madhouse! Thank you for your patience.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30207" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30207" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Arodin</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Arodin:<br>
+Our shop has a proud tradition, and does not trade with people like you. Please leave before I call the guards.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Arodin:<br>
+What would you like to purchase?<br>
+<a action="bypass -h npc_%objectId%_Buy 3020700">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3020701">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3020702">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3020703">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Arodin:<br>
+Welcome! Welcome to our shop, filled with 100 years of tradition. We have all the weapons any adventurer could ever need, so please take your time and have a look around. Just so you know, I've heard that undead monsters have been more frequently spotted in the ruins after the war with Gracia, so I'd suggest buying weapons capable of dealing with them.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3020700">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3020701">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

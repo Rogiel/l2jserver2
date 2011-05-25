@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32482" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32482" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Emdrere</name>
         <title send="false">Guard</title>
@@ -24,4 +25,12 @@
         <item lefthand="102" righthand="129"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Emdrere:<br>
+Halt! Welcome to the Town of Oren. Even in our fair city, there are several dangerous areas -- for your safety, ask before you venture blindly into a hazardous situation. There isn't anything dangerous to the west, fortunately. The Elven Forest, home to all the Elves, lies not too far away.<br>
+I hear it's beautiful. I'd even like to visit it sometime. However, the Dragon Claw Mountains lie between Oren and the Elven Forest, so even though the distance isn't great, traveling there isn't easy.<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

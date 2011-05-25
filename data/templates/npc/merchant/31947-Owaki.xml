@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31947" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31947" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Owaki</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Owaki:<br><br>
+Welcome. Are you looking for something special?<br>
+You haven't done much trading in this village, have you? Don't be so nervous! The weather may be cold, but the deals are red-hot. Just speak up and tell me what you need. How can I help you?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3194700">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3194701">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Owaki:<br>
+What is it that you need?<br>
+<a action="bypass -h npc_%objectId%_Buy 3194700">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194701">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194702">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194703">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

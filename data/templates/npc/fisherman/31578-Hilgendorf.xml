@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Fisherman" id="31578" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Fisherman" id="31578" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hilgendorf</name>
         <title send="false">Fishing Guild Member</title>
@@ -24,4 +25,20 @@
         <item lefthand="0" righthand="7560"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Fishermen's Guild Member Hilgendorf:<br>
+We don't cater to the likes of you!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Fishing Guild Member Hilgendorf:<br>
+Welcome, my young friend! Nice to meet you! It's a great day to go fishing!<br>
+My family have been members of the fishing guild since my great-grandfather joined. In fact, that's why I was sent here to Rune. Not only is the fishing particularly challenging here, but it's become something of a hobby among the elite.<br>
+<a action="bypass player_help 7561.htm#7561">Ask how to fish.</a><br>
+<a action="bypass -h npc_%objectId%_Link fisherman/fishing_championship.htm">Fishing Contest</a><br>
+<a action="bypass -h npc_%objectId%_FishSkillList">Learn fishing skill.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3157800">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 009">Sell fish.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

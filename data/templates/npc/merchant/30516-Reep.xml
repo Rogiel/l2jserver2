@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30516" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30516" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Reep</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Weapon Merchant Reep:<br>
+Welcome, customer! I am Reep, the manager of this branch of the Golden Wheel guild.<br>
+Remember, the price of armor and weapons doesn't always reflect their quality. Am I saying that it doesn't matter? Of course not! But you should judge them independently of the cost.<br>
+For someone like you, that shouldn't be a problem.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3051600">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3051601">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Weapon Merchant Reep:<br>
+What can I do for you, customer? I'll tell you again that the most important thing is an appreciative eye.<br>
+<a action="bypass -h npc_%objectId%_Buy 3051600">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3051601">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Weapon Merchant Reep:<br>
+Our policy is not to sell items to people who do not recognize their value. I do feel bad ... I personally would prefer to show you many items, but, oh well, that is the discipline of business, right? I am very sorry.
+</body></html>]]></chat>
+    </talk>
 </npc>

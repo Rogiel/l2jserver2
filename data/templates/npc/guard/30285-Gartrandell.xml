@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30285" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30285" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Gartrandell</name>
         <title send="false">Sentinel</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="130"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sentinel Gartrandell:<br>
+May the blessing of the starlight fall upon you. My name is Gartrandell, one of the sentinels who guard the forest and the Mother Tree Glade. I left the forefront because I was injured in the war with the Dark Elves, and now I guard the <font color="LEVEL">Sanctum of Eva.</font><br>
+The Sanctum of Eva is home to splendid Elven cultural relics, so I am proud of my job. I am also pleased that I can stay a little closer to my sweetheart.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Sanctum of Eva.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sentinel Gartrandell:<br>
+The Sanctum of Eva is where young Elves come to learn swordsmanship and magic. Masters Cobendell and Ellenia teach Fighters how to use the sword and the bow. Sorcerer Esrandell and my sweetheart, Greenis, who is also a sorceress, teach the Mystics. Hierarch Asterios advises on changes of profession.<br>
+It is because of their efforts that the knowledge and experience collected by our ancestors for thousands of years are passed on to the next generation.
+</body></html>]]></chat>
+    </talk>
 </npc>

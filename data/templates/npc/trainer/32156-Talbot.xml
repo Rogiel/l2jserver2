@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32156" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32156" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Talbot</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Talbot:<br>
+Welcome, child of the blade! All those who walk the path of the sword are brethren, members of the same family!<br>
+Remember that. Others will never understand the ties that bind us together: the long hours of training, the dedication to our craft, the ability to honor a foe even as you strike him down. You must remember your obligations to this fraternity of warriors, even as you advance in rank and prestige...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Talbot:<br>
+Hmm... Do you really want to learn swordsmanship from me? I don't think that is a good idea. I am sure that there must be teachers better suited to your needs...
+</body></html>]]></chat>
+    </talk>
 </npc>

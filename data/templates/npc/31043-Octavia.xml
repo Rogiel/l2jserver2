@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31043" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31043" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Octavia</name>
         <title send="false">Melody Maestro</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Melody Maestro Octavia:<br>
+I am a magician of melody! I put music into crystals for your listning pleasure!<br>
+Tra La La~! What sound would you like me to put into a crystal~? It only costs 200 adena, a very reasonable price!<br><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Travel Theme]</a><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Battle Theme]</a><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Love Theme]</a><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Theme of Solitude]</a><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Theme of the Feast]</a><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Comedy Theme]</a><br>
+<a action="bypass -h npc_%objectId%_Quest EchoCrystals">[Create an Echo Crystal - Celebration Theme]</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

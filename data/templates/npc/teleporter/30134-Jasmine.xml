@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="30134" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="30134" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Jasmine</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,44 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 1" msg="811;The Town of Gludio">The Town of Gludio - 10000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1009" msg="811;The Dwarven Village">Dwarven Village - 22000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1010" msg="811;Talking Island Village">Talking Island Village - 24000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1012" msg="811;The Orc Village">Orc Village - 13000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12051" msg="811;Kamael Village">Kamael Village - 13000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 464" msg="811;Dark Forest">Dark Forest - 890 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 466" msg="811;Swampland">Swampland - 1100 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 465" msg="811;Spider Nest">Spider Nest - 3600 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 467" msg="811;Neutral Zone">Neutral Zone - 1700 Adena</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9101" msg="811;The Center of the Neutral Zone">The Center of the Neutral Zone - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9102" msg="811;The Center of the Dark Forest">The Center of the Dark Forest - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9103" msg="811;Center of the School of Dark Arts">Center of the School of Dark Arts - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Jasmine:<br>
+The Gatekeeper Guild stewards the doors of time and space that connects a multitude of locations on the continent. Do you wish to leave this forest and seek your dreams in the wide world beyond? If you wish it, I can send you to an exotic land filled with romance and adventure!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Jasmine:<br>
+I cannot open the doors of space and time to a villain like you. This is the rule of the gatekeepers guild, as well as my own personal choice. Please do not return.
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10001" msg="811;The Center of the Neutral Zone">The Center of the Neutral Zone - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10002" msg="811;The Center of the Dark Forest">The Center of the Dark Forest - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10003" msg="811;Center of the School of Dark Arts">Center of the School of Dark Arts - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30861" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30861" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Leonard</name>
         <title send="false">Priest</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Linette:<br>
+May Eva smile upon you. Oh! I feel a bit embarrassed to utter this greeting in the Temple of Einhasad. But I suppose if Giran is the center of commerce and Oren is the center of military might, then Aden is the center of culture and religion.<br>
+Now what can I do for you, my child?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Leonard:<br>
+I must apologize in advance for my empty, flowery platitudes. You won't  hear this much around here, but that sort of thing is mostly useless. You would be better off finding some other guild.
+</body></html>]]></chat>
+    </talk>
 </npc>

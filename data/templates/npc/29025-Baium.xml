@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="29025" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="29025" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Baium</name>
         <level>75</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="82.0" radius="65.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>
+As you approach the statue, you hear a familiar voice whispering in your ear. It says,<br>
+<font color="LEVEL">All right. It's almost completed... If you wish to possess the secret of immortality, ancient treasures, and the secret of the seal, then call his name...</font><br>
+<a action="bypass -h npc_%objectId%_Quest baium">Wake Baium</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

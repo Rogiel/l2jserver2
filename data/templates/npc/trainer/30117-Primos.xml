@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30117" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30117" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Primos</name>
         <title send="false">Priest</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Primoz:<br>
+Welcome to the temple of Einhasad!<br>
+Giran is more peaceful and prosperous than ever before. But we must be wary of the forces of evil that seek to destroy the virtuous -- especially in times like these!<br>
+Only the holy light of the goddess can withstand the rising tide of darkness.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Primos:<br>
+Traveler, welcome to the temple of light! The doors here are always open to those who wish to meditate on Einhasad's will.<br>
+However, the magic of light that the priests teach here cannot be taught to just anyone. Only Mystis of Human birth, and among them only those who seek divine truth, can receive lessons here.
+</body></html>]]></chat>
+    </talk>
 </npc>

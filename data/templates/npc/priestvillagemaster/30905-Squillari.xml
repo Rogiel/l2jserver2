@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PriestVillageMaster" id="30905" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PriestVillageMaster" id="30905"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Squillari</name>
         <title send="false">High Priest</title>
@@ -23,4 +25,15 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Priest Squillari:<br>
+Welcome, traveler. May the goddess of light's providence be always with you. I am Squillari, a servant of Einhasad, who lives to help fulfill the will of the goddess of light in this land of water. Traveler, it would be a blessing if I could help you in your search for instruction.<br>
+<a action="bypass -h npc_%objectId%_Quest elven_human_buffers_2">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

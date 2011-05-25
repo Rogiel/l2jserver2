@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30425" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30425" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Neti</name>
         <level>70</level>
@@ -22,4 +23,16 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Neti:<br>
+I was also a famous Treasure Hunter when I was  young... I was the one who retrieved the legendary Star Sapphire Crown from the Lost Harenak. In those days, they called me Aden's silver fox.<br>
+You've never heard of that name? Sigh... Well, it was a very long time ago...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Neti:<br>
+Why, greetings! I see you are a frequent traveler. Well, have you been here and there?<br>
+Since I got married, I am at home all day long, so sometimes I feel stifled. These days, I recollect the old memories of when I roamed around the kingdom. There were many hardships, but I miss the days when I could enjoy adventure and romance ...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about old memories.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

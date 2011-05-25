@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30567" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30567" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tantus</name>
         <title send="false">Neruga Chief</title>
@@ -24,4 +25,21 @@
         <item lefthand="0" righthand="175"/>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Neruga Chief Tantus:<br>
+Tejakar Paagrio! Praise the name of the Flame! This Immortal Plateau has been our sacred ground from ancient times, but while I, Tantus, was living among the humans of the <font color="LEVEL">Kingdom of Elmore</font>, foreign invaders and Orc traitors brought disgrace to this land!<br>
+Now I am back, and I will not forgive those who disgraced our sacred place!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about foreign invasions</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Kingdom of Elmore</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Neruga Chief Tantus:<br>
+Dirty goblins! Imps with their bizarre rake hands! And impudent wolves of Maraku! I cannot believe there are so many invaders on the most sacred ground! I, Tantus, the chief of Neruga, will not accept this situation!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Neruga Chief Tantus:<br>
+Elmore is the Kingdom of the Humans that controls the northern part of the continent -- land that used to be under our control! This inferior race, who used to be our humble slaves, now dominates the continent. How ridiculous! But they will not last long! The legions of the Orcs will march from the Immortal Plateau and subjugate all races of all nations!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

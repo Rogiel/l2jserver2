@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30548" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30548" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Nathan</name>
         <title send="false">Defender</title>
@@ -24,4 +25,13 @@
         <item lefthand="0" righthand="296"/>
         <collision heigth="19.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Defender Nathan:<br>
+I see  that the Spine Mountains are already covered with snow... It makes me realize how we Dwarves are just a small part of a much larger universe!<br>
+Go ahead, take a good look at the mountains... Don't wealth and fame seem insignificant now?<br>
+Oh, I should introduce myself! I'm  Nathan, a Defender of  this village. I must stand guard no matter how cold the winter gets!
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

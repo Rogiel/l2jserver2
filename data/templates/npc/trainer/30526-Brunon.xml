@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30526" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30526" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Brunon</name>
         <title send="false">Blacksmith</title>
@@ -24,4 +25,25 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Blacksmith Brunon:<br>
+Hail and well met! I'm Blacksmith Brunon of the <font color="LEVEL">Black Anvil Guild</font>. What business brings you here today?<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Craft a Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Craft an item.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Black Anvil Guild.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Blacksmith Brunon:<br>
+I told you I was busy. Stop bothering me! Off with ye, now!
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Blacksmith Brunon:<br>
+Always happy to boast about our guild!<br>
+While the other races were still throwing bamboo spears and swinging stone axes, our ancestors had mastered bronze tools and begun crafting steel weapons. Only the best craftsmen are allowed entry into the Black Anvil Guild. We, in turn, have fashioned mithril weapons and adamantite armor worn by kings and princes.<br>
+But beyond that, we have been researching the ancient devices of the Giants. Our fearsome Siege Golems and revoluntionary airships are the results of those studies. Astounding, isn't it?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30093" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30093" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Groot</name>
         <title send="false">Dye Merchant</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Groot:<br>
+Hello! Thank you very much for coming to our shop. What brought you here? If you can't find something in our establishment, I promise you won't find it anywhere else in the Kingdom of Aden. Now, what do you need?<br>
+<a action="bypass -h npc_%objectId%_Buy 3009300">Buy/Sell/Refund Dyes.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

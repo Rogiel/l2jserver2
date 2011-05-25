@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30385" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30385" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Weisz</name>
         <title send="false">Guard</title>
@@ -24,4 +25,22 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Weisz:<br>
+They say Giran is the wealthiest region in the kingdom. Once, I traveled to Giran escorting the coaches of some traders, and their market was enormous. Traders from all over the continent were selling all sorts of novelties. I am thinking of going back there someday to buy a dress of Avella silk for my wife.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Weisz:<br>
+Be careful! This place is very crowded because of construction on the village wall. Wooden props may collapse or bricks may fall, so be on alert.<br>
+Many are experiencing discomfort due to the construction. In particular, the Traders from <font color="LEVEL">Giran</font> have many complaints. I hope the construction is finished quickly so that the travelers can enter the village through a proper gate.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Giran.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about Forgotten Temple.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Weisz:<br>
+Recently a very interesting archeological site has been discovered whose origins are still unclear. People who have seen it say that it is divided in two, a Temple of Fire and a Temple of Water. By all accounts the place is swarming with monsters.<br>If you are interested, you should visit <font color="LEVEL">Magister Nell</font> of the Mystics Guild. They are trying to hire someone to investigate the site for them.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

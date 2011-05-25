@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30655" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30655" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Isael Silvershadow</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="22.4" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Isael Silvershadow:<br>
+May the blessings of the starlight shine upon you. Hello, young traveler. Welcome to the Hunters Village.<br>
+My name is Isael Silvershadow. I am a Knight of the Order of the Rose, who once fought alongside Grand Master Hannavalt. But now I am retired and live a quiet life here.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

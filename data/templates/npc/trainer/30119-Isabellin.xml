@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30119" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30119" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Isabellin</name>
         <title send="false">Priestess</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Priestess Isabellin:<br>
+The students under my supervision are Elven Mystics who follow the principles of harmony and preservation. I am sorry, but I cannot accept you as student.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Priest Isabellin:<br>
+Welcome, brother of the forest. Always pleasant to meet a fellow Elf in this far foreign land.<br>
+Although we may not enjoy the shade of the Mother Tree here, we should never forget the path of harmony that Einhasad and Eva teach us. Our magic, after all, is derived from those principles.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

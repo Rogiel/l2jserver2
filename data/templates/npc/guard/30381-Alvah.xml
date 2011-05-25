@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30381" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30381" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Alvah</name>
         <title send="false">Guard</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Alvah:<br>
+Long ago, Orc tribes lived freely in Gludio. When we Humans came to this place we drove them out. As of yet there have been no reprisals for our actions. But now they are under the sway of a new chief, Burai, and the situation has changed. They now occupy the fertile farmland located in northwest Gludio and are staging a sit-in! Truly, I do sympathize with their cause, but this act of aggression cannot go unanswered. We have spent too many years cultivating that farmland...<br>
+Under normal circumstances we would send in the army, but obviously, these are anything but normal circumstances! Still, something must be done!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Alvah:<br>
+Young traveler, welcome to the most historic village in Gludio! This is the first village that the Humans established after moving to this area and driving out the lizardmen and the orcs. We have been through great misfortune, such as the domination of the demon Beleth and the battle with Gracia, but each time our people have defended this village with courage and spirit.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about Turek orcs."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -32,6 +32,10 @@ public class TeleportationTemplateIDAdapter extends
 		XmlAdapter<String, TeleportationTemplateID> {
 	private final TeleportationTemplateIDProvider provider;
 
+	public TeleportationTemplateIDAdapter() {
+		provider = null;
+	}
+
 	@Inject
 	public TeleportationTemplateIDAdapter(
 			TeleportationTemplateIDProvider provider) {
@@ -42,6 +46,8 @@ public class TeleportationTemplateIDAdapter extends
 	public TeleportationTemplateID unmarshal(String v) throws Exception {
 		if (v == null)
 			return null;
+		if (provider == null)
+			return new TeleportationTemplateID(v, null);
 		return provider.createID(v);
 	}
 

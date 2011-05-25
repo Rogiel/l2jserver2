@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31592" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31592" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Telson</name>
         <title send="false">Chief Golem Crafter</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="19.7" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Chief Golem Crafter Telson:<br>
+Hi, youngster! I'm Telson, a member of the Black Anvil guild!<br>
+Have you ever been in a siege war? Well, you must've seen one, right? The power of a siege golem is awesome to behold! A castle gate that can withstand dozens of ordinary fighters crumbles before them! Ah, what will Dwarven technology come up with next...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32166" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32166" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Trevor</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Trevor:<br>
+Welcome, how can I help you? We have every accessory you might need!<br>
+If you're planning a long journey, don't leave without something from our shop.<br>
+<a action="bypass -h npc_%objectId%_Buy 3216600">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

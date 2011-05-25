@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30835" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30835" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Icarus</name>
         <title send="false">Lich King</title>
@@ -24,4 +25,29 @@
         <item lefthand="0" righthand="212"/>
         <collision heigth="40.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Lich King Icarus:<br>
+I've never seen you before, have I? Ah, yours is a face full of vitality and life. I like it very much. Perhaps I might sample your inner self as well...<br>
+My, my, what a shocked expression you wear! Ha ha! I am Icarus, the sole survivor of the 13 Lich Kings who once shook the Elmoreden Empire to its very foundations... Ah, but perhaps the word "survivor" is somewhat inaccurate, eh?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"What is a Lich doing here?"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Who is Hardin?"</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Lich King Icarus:<br>
+Bwa ha ha! You must be insane, just like that old Hardin!<br>
+What do you think I can teach you? Although I'm dead now, in my former life I acquired Human mystical skills! SO i can only teach Human mystics! Why don't you go look for a teacher who would be more suitable for you?
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Lich King Icarus:<br>
+Hardin? I've known him for years. But even after all that time, I don't suppose I can say I really know him well. Often he wanders off suddenly, leaving this Academy virtually empty. Where he goes and what he does, I have no idea. No doubt something that would shock and amaze you...<br>
+In terms of behavior, he always appears to act politely, even honorably. But don't be fooled. A man like him always believes he is above any law, any code of ethics, any "civilized" standard of behavior.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Lich King Icarus:<br>
+What do you think I am doing here? Fool! I teach the skills I learned as a Necromancer.<br>
+No, don't look so afraid. Liches rarely eat Human flesh...although to be honest it IS something of a delicacy... Actually, we undead have no need to eat at all. No, we try to be fairly...civilized here, you know.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

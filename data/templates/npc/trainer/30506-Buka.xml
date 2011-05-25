@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30506" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30506" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Buka</name>
         <title send="false">Prefect</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Prefect Buka:<br>
+Bow respectfully to the name of the Flame!<br>
+I, Prefect Buka, teach Fighters! I do not need to concern myself anything else! Do not upset me! Just go away!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Prefect Buka:<br>
+O follower of the Flame!<br>
+Be welcome here! I have been dispatched here to the Town of Gludio, but I have not forgotten our pride, honor and glory. The same cannot be said of the wretched Turek, Enku and Vuku tribes. They deserved to be cursed forever! Do not follow their example. Be true to your heritage!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

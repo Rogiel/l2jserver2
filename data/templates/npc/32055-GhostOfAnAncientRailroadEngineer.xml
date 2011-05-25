@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32055" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32055" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ghost of an Ancient Railroad Engineer</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="9.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Ghost of an Ancient Railraod Engineer:<Br>
+It's so cold... and i am so very tired.<br>
+How long must I remain like this? Why haven't I gone mad like all the others? Why am i trapped here?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

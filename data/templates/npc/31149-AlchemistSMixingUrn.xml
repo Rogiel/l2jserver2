@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31149" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31149" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Alchemist's Mixing Urn</name>
         <level>70</level>
@@ -21,4 +22,11 @@
         <sp>0</sp>
         <collision heigth="15.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Alchemical Mixing Urn:<br>
+A plain-looking clay urn used for magic research and creating various reagents.<br>
+<a action="bypass -h player_help 6317.htm">Read the memo.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

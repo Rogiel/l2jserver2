@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32282" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32282" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Yiyen</name>
         <title send="false">Archaeologist</title>
@@ -23,4 +24,41 @@
         <sp>0</sp>
         <collision heigth="21.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>Yiyen:<br>
+<a action="bypass -h npc_%objectId%_Quest DarkCloudMansion">Enter the Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Yiyen:<br>
+Ah, that is... I'm sorry. To tell you the truth, I haven't actually been inside either. Perhaps I should have gone in, but I've been so busy investigating the surroundings, finding a place to stay and writing letters to my father. I've been procrastinating, I know.<br>
+...<br>
+No, no, no -- it's not because I'm scared...<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Enter the Dark Cloud Mansion</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Yiyen:<br>
+So impatient! Good manners never hurt anyone, you know... Oh, well, so you wish to know about the requirements for entry? Very well.<br>
+First of all, the magical characters above the entrance signify two people holding hands. I interpret this to mean that one person alone will not be granted entry. This glyph here...represents "mighty power." Perhaps the ones who enter must possess a certain level of strength.<br>
+Hmm...you can ignore the rest of these symbols; I'm sure they have no bearing on this subject.<br>
+...<br>
+To be perfectly honest with you, I can't actually read the rest yet -- but they don't seem very important based on their position.<br>
+(To enter, form a party of two characters who are over level 78.)<br>
+<a action="bypass -h npc_%objectId%_Quest DarkCloudMansion">Enter the Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Yiyen:<br>
+Yikes! That was a surprise.<br>
+...<br>
+I'm sorry. I didn't mean to act so shocked -- it's just so unusual to see people in this area...<br>
+My name is Yiyen, and I'm an archeologist searching for a magical ruin that may be responsible for some strange phenomena on the Isle of Prayer. Thank the gods, I think I've finally found it.<br>
+It is called the <font color="LEVEL">Darkcloud Mansion</font>, if I have translated the name correctly...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the interior of the Mansion.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ignore her and enter the Darkcloud Mansion.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Yiyen:<br>
+Ah, wait! There is a force field within the building. You may only enter under certain conditions.<br>
+Did i already tell you about this? Did you find out from someone else?<br>
+...<br>
+I'm so absent-minded these days<br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask about how to enter the Mansion.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">Ignore her and enter the Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PriestVillageMaster" id="32153" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PriestVillageMaster" id="32153"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Prana</name>
         <title send="false">High Priest</title>
@@ -23,4 +25,13 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Priest Prana:<br>
+May the great glory of light surround you always... Life has brought me to this countryside setting in order to teach people. Even so, piety can be found anywhere. But where religious feeling is strong, the work is all the more rewarding. Since I am here representing the Humans, I cannot complain in any event -- leaving such a sensitive task in the hands of an inexperience slip of a girl would make me far too anxious.<br>
+<a action="bypass -h npc_%objectId%_Quest elven_human_mystics_1">Hear information about the class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Blood pledge.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

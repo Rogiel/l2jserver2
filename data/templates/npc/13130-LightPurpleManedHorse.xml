@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13130" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="13130" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Light Purple Maned Horse</name>
         <level>55</level>
@@ -22,4 +23,13 @@
         <sp>0</sp>
         <collision heigth="32.5" radius="31.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Temple Book of Secrets:<br>
+The power of the Essence of Water can be felt not far from here.<br>
+In a cave of water, where even left and right are unbalanced, you will find that reckless Water Sprite, Hillas, waiting for you.<br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

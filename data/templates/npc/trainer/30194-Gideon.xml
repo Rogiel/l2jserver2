@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30194" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30194" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gideon</name>
         <title send="false">Magister</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="22.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Gideon:<br>
+Get out of my way! I teach only Dark Elven Mystics.<br>
+Heed my words: if you keep annoying me, I'll teach you a lesson you'll never forget!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Gideon:<br>
+For all my travels and experiences, there is still one thing I cannot understand. Why does even the mention of Dark Magic send Humans into such an uproar?<br>
+They have no trouble killing each other with sword and spear, so scruples about plotting and scheming...<br>
+There must be more to this, perhaps some sort of conspiracy to learn its secrets and keep them from the other races. I wouldn't be surprised if the Ivory Tower even has a secret facility for studying the Dark Arts...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

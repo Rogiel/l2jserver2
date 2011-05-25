@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30002" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30002" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Jackson</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Armor Merchant Jackson:<br>
+Welcome! What can I do for you? Have a look around. We carry a wide selection. My advice is to always buy the best weaponry and armor you can afford -- it'll make you much more effective in battle!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refunds</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3000200">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3000201">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Armor Merchant Jackson:<br>
+What would you like to trade?<br>
+<a action="bypass -h npc_%objectId%_Buy 3000200">Trade Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3000201">Trade Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

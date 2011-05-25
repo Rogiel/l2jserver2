@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32148" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32148" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Cindet</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Cidnet:<br>
+May Einhasad and Eva bless your sword and guide your steps.<br>
+I am Master Cidnet, and I teach swordsmanship to young Elves. There is nothing more graceful--or deadly--than the rhythmic, flashing movements of Elven swordplay. No other race can imitate it...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Cindet:<br>
+Did you come here to learn some skills from me? You wasted your time, then. The sword skill of the great Elves requires natural grace and agility. It cannot be taught, any more than the graceful trout is taught to swim -- it is inborn.
+</body></html>]]></chat>
+    </talk>
 </npc>

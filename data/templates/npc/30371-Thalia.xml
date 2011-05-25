@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30371" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30371" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Thalia</name>
         <level>70</level>
@@ -22,4 +23,15 @@
         <sp>0</sp>
         <collision heigth="25.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Thalia:<br>
+Actually, I myself do not know the details. According to what I've heard, we Elves used forbidden magic while fighting with the Humans, who had betrayed us, and as a result a large area of land became a wasteland. The polluted land is called the <font color="LEVEL">Sea of Spores</font>, and it keeps growing even today. At this rate, it may even swallow up the Elven Forest someday.<br>
+It is ironic that only the power of the Humans is blocking the expansion of the Sea of Spores. In that sense, the Sea of Spores is the consequence of the mistake that we Elves made.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Thalia:<br>
+Hello. I am Thalia, guardian of The Mother Tree Glade. I am in great distress because The Mother Tree is withering. Perhaps it is because of the force that drifts out of the Sea of Spores and crosses over those mountains. The saddest thing is that these things were caused because we used <font color="LEVEL">forbidden magic</font> during the war with the Humans a long time ago.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the forbidden magic.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

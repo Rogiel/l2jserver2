@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30165" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30165" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ralford</name>
         <title send="false">Trader</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Merchant Rapin:<br>
+You look like you've been doing some traveling, eh! Did you pass by the Elven Village? How are things there? Ah, I miss it so much...<br>
+Oh, pardon me for indulging my nostalgia. It is a common failing we Elves have, you know...<br>
+<a action="bypass -h npc_%objectId%_Buy 3016500">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3016501">Buy supplies.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3016502">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

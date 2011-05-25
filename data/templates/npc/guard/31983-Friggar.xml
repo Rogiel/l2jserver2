@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31983" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31983" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Friggar</name>
         <title send="false">Guard</title>
@@ -24,4 +25,13 @@
         <item lefthand="0" righthand="94"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Friggar:<br>
+Hey, stranger! Stop nosing around and get over here!<br>
+Ha! You don't like being talked to like that, do you? Well, when I was defeating those thieves in Dion with my bare hands, you were still in diapers! So what if you're older than me? You look much younger!<br>
+Enough of this foolishness! You're an adventurer, aren't you? Have you been to the Lair of Antharas? Hmm... I've been so close to that dragon I could feel the hot breath from his nose! Ah, yes, those were the days! If only I hadn't injured my legs... I wouldn't have to be a guard!<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

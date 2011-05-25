@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31299" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31299" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Eugen</name>
         <title send="false">Guard</title>
@@ -24,4 +25,16 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Eugen:<br>
+I've never been there myself, but I've heard that it's a huge underground catacomb north of Argos Wall. I don't know any more, except that many graverobbers have been seen there, drawn by rumors of treasure and relics from the empire. I seriously doubt if any imperial remnants remain there.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Eugen:<br>
+Welcome, stranger! Our kingdom traces its ancestry directly to the ancient Elmoreden empire! Relics of the empire have been discovered in many parts of our kingdom. Many of our ancient emperors rest nearby in the<font color="LEVEL"> Imperial Tomb</font>. It makes that tower look like a decrepit stump!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about Imperial Tomb."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30926" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30926" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Restina</name>
         <title send="false">Priestess</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Priestess Restina:<br>
+The "Lady of the Lake" is Eva, the mother of all Elves. Even before the Elven migration, the people of Innadril knew the goddess of water well. There was a time when Elves regarded Eva as unapproachable and sacred, and this is still true in most parts of the Elven Forest. But due to the influence of the indigenous religion of this area, Eva is a much more accessible and personal goddess to us.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Priestess Restina:<br>
+The Elves of Innadril originally came here from the Elven Forest around ED. 1200. Tetrarch Terestien and his young followers settled in the Emerald Forest near Innadril Lake. This was the beginning of the Elven migration to Innadril. Since our peoples share a devotion to the goddess we have always gotten along well. Over time intermarriage between the races has given most of the people of this area some Elven ancestry. This has enhanced both their beauty and lifespan.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Priestess Restina:<br>
+May the smile of Eva give you peace! I am Priestess Restina. What do you seek?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about Innadril and the Elves who live there."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Tell me about the Lady of the Lake."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

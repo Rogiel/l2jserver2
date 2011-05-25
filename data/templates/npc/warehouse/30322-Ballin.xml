@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="30322" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="30322" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ballin</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Keeper Balcon:<br>
+I only teach Dwarven fighters, scavengers and bounty hunters. GO to a blacksmith if you're an artisan or warsmith.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Balcon:<br>
+Welcome, youngster. You look like you're making decent money these days, eh? Maybe you should consider storing some of your valuables here at the Iron Gate Guild. For a small fee, we can give you peace of mind!<br>
+Anything stored here can be recovered at any time by you or an authorized agent. What do you think?<br>
+<center>
+<a action="bypass -h npc_%objectId%_Link warehouse/privatewh.htm">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link warehouse/clanwh.htm">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

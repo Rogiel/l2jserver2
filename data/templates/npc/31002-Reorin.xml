@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31002" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31002" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Reorin</name>
         <title send="false">Maestro</title>
@@ -23,4 +24,42 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>Maestro Reorin:<br>
+I was not satisfied. I had enough adena that I never needed to work again. I could have retired with my lovely wife to a life of leisure. I was highly respected by all, but still I wanted more. I dreamed of creating a masterpiece that would go down in history. It was all I could think of. It even kept me awake at night! Soon I became as a man possessed, ignoring my apprentices and worst of all my adoring wife. In the midst of this obsession, demons whispered in my ear their words of temptation...<br>
+<a action="bypass -h npc_%objectId%_Chat 5">"How did they tempt you?"</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Maestro Reorin:<br>
+Well, lets see... About 50 years ago I became the youngest blacksmith in the history of the Black Anvil Guild to earn the postition of Maestro! I truly was at the pinnacle of success!<br>
+Many heroes of that day would trust only me for thier weapons and armor. I made the sword of Sir Cedric Athebalt, and the spear of Helena Blackbird, the female general! All of my products sold for high prices as soon as they went on the market.<br>
+Everyone wanted to be my apprentice but I had to send most of them away. I eventually had over 30 apprentices working for me.<br>
+And then... I met and married the most beautifull girl in Schuttgart... But...<br>
+<a action="bypass -h npc_%objectId%_Chat 4">"But...?"</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Maestro Reorin:<br>
+Hiccup~! Are you lost? I know how that feels!<br>
+Hiccup~ Well, let's see... if you look to the west you will see Oren Castle Town...<br>
+And that castle to north? That is Oren Castle... Hiccup~!<br>
+Past the castle, cross the river and keep heading north... you will reach the Ivory Tower, home to the Mystics...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">"Return"</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Maestro Reorin:<br>
+Hiccup~ Who goes there?... What could you possibly want from me, the "Blacksmith of Demons"?<br>
+Sorry, but the shop is closed! Permanently! Hey, buddy, you don't have any liquor on you, by chance? I could really use a drink!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"I need directions."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Why are you a drunk?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">"Quest"</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Maestro Reorin:<br>
+Hiccup~! Are you sure you want to hear such a sad story? I, who at one time was a prominent maestro... How the mighty have fallen... Thrown out of the guild and seduced by demons. Are you sure you want to hear all of this<br>
+<a action="bypass -h npc_%objectId%_Chat 3">"Tell me everything."</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>Maestro Reorin:<br>
+It was the evil Death Lord Hallate. He who leads the army of darkness... He who is known as the insolent invader or the archenemy of the angels. He made me an offer that I couldn't refuse. He promised me that he would help me to create a masterpiece that would go down in history. Ignoring the entreaties of my darling wife I went along with it... and fell into the demon's trap...<br>
+This led to his taking of my beloved wife Reiria... Hicupp~!<br>
+Oh, what the?! I can't bear to think of it anymore! Hiccup~!<br>
+Please leave me alone!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">"Return"</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

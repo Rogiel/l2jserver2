@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30598" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30598" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Newbie Guide</name>
         <level>70</level>
@@ -22,4 +23,67 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="5"><![CDATA[<html><body>You can begin to learn skills when you reach level 5. You will receive instruction in new skills from the Masters of the Warriors Guild. The guildhall lies to the east, near the tower at the crossroads in the center of the village<br>
+Now, pay attention; you'll need<font color="LEVEL"> SP</font> to gain your skills, SP is short for skill ponits, and they're earned along with experience whenever you defeat a monster, SP are deducted whenever you learn a new skill. You can check your SP by clicking the Character Status button, the on the Status tab in the window. Of course, the number of SP you need will vary, depending on the skill you're after.<br>
+<a action="bypass -h npc_%objectId%_Chat 7">I want to know more about skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Begin by hunting keltirs, elder keltirs or wolves near the village. The wolves are the most dangerous, so take care.<br>
+When you target a monster, the monster's name appears in the upper central portion of the screen. The color of the name tells you the monster's difficulty. For now, hunt those that appear in white or sky blue. Those that appear in red or yellow are much stronger than you, so leave them alone.<br>
+And I warn you, don't try to tangle with the orcs yet. Orcs are smarter and stonger than you think, but the most dangerous thing is that they know about teamwork -- if you attack one, several others may come to its aid. Even if you might have a chance against a single orc, you won't be able to stand against two or three.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>I suppose you're using the weapons and armor you were issued. That's unless you have rich friends, of course, eh?<br>
+Whatever you have is fine for now. Remember to pay attention to what you find while hunting monsters -- you can find armor, and sometimes even weapons, in the wild. If you're lucky, you might find<font color="LEVEL"> cloth shoes,</font> apprentice's shoes or a cloth cap.<br>
+You should have been given two weapons, a dagger and a squire's sword. Perhaps you have already noticed that daggers and swords perform differenty in battle. the dagger is swift, but its accuracy suffers, while the squire's sword is noticeably slower than the dagger, but strikes with greater accuracy. Remember that different weapons may call upon different skills in their use. Either is a worthy weapon; it is up to you to decide which suits you best.<br>
+Come back when you have reached level 6 and we'll talk more about weapons.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>My word, you've made progress all right! But so far you haven't had to use your head must at all -- from now on, you'll need to think and plan if you want to survive. In particular, I want you to ask me questions now, and remember the answers -- this is very important stuff. And when you reach level 11, I'll have more information for you.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">What should I do now?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">What is the best equipment for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">What is the best hunting site for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 5">Tell me about skills.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 6">Which quests are available to me?</a>
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body>I'll tell you about all the quests I know of, but I don't know about them all. You should talk to all the villagers you can.<br>
+First, you see this young fellow here next to me? His name is Darin, and he seems to be worried about something. wht don't you see if he could use your help? He could at least use someone to talk to, I think.<br>
+Also, Guard Arnold, stationed at the south gate of the village, is looking for someone to deliver items he recovered from a shipwreck. I belive he'd willing to pay, so see what you can do for him.</td></tr><br>
+Have you been to the weapon shop yet? Trader Lector, Keeper of the weapon store, is a famous leatherworker, I'm told he's making something out of wolf pelts. Since you're hunting wolves anyway, why don't you work with Lector and increase you profits? He can fill you in on the details.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>It's never too early to think about your long-term goals. The Kingdom of Aden is in chaos, because they are at war with Elmore to the north and Gracia across the sea, Remember, there are always opportunities during times of chaos. Now you are merely a novice Fighter, but if you train hard and learn much, there is nothing to stop you from becoming a Lord or a King<br>
+You must begin by familiarizing yourself with the gear you already have. Whether you seek to become a dragon slayer or the Lord of a castle, or even a force for world peace, it all begins with your training here.<br>
+Start out by hunting keltirs or wolves around the village. When you find an item left behind by a monster you slay, try equipping the armor or weapon, and see if it's better than what you already have. If you have no other use for it, you can always sell it at the shop.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body>If you use your head while hunting, you should have about 60 SP by the time you reach level 5,<font color="LEVEL"> Master Pintage</font> or Master Gwinter can tell you the skill in which you can train.<br>
+Skills are divided into active and passive skills. Active skills require that you intentionally use them, while passive skills increase your basic abilities from the moment you learn them. When you reach level 5, you'll want to learn active offensive skills first, Power strike, Mortal Blow, and Power Shot are your choices. Power Strike is for those who fight with a sword, Mortal Blow for dagger fighters, and Power Shot for those who use the bow. Power Shot deals a great deal of damage, but also consumes a great quantity of MP, so it has to be used wisely.<br>
+Make sure you choose the skill you really want.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Newbie Guide:<br>
+If you need advice, please do not hesitate to ask me! I'll try my very best to help you.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask for advice.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NpcLocationInfo">NPC location information.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/BlessingOfProtection.htm">Receive blessing of protection.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 12">Ask about the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1104_NewbieTravelToken">Teleport using the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagic.htm">Check list of available support magic.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NewbieCoupons">Ask for help with a newbie item.</a>
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body>Several of the villagers here could use you help. Talk to them and click on Quest to see what missions they have to offer.<br>
+Of course, even if they're looking for help they're not going to offer you a mission that's beyond your capablities. If they refuse to offer you anything, it means you need to get more experience first. Nobody wants you to get into trouble you can't get out of.<br>
+And remember -- some quests can only be compleated once, but others can be done several times.<br>
+<a action="bypass -h npc_%objectId%_Chat 8">Tell me more about quests</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="12"><![CDATA[<html><body>Newbie Guide:<br>
+The Newbie Travel Token is reserved for players of level 20 or below.<br>
+It allows the player to move to the start town of another tribe via the<font color="LEVEL"> Newbie Guides</font> in each town<br>
+Be cautionus, for in many cases, you may learn and practice certain skills and quests that are unique to the own of each tribe.<br>
+Once a player reaches level 20, he is no longer able to teleport using the Newbie Travel Token.
+</body></html>]]></chat>
+    </talk>
 </npc>

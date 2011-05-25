@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="35626" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="35626" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Outer Doorman</name>
         <level>75</level>
@@ -22,4 +23,9 @@
         <sp>0</sp>
         <collision heigth="32.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>You look suspicious...<br>
+If you're here to steal a beast, don't even think about it!
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Sepulcher" id="31920" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Sepulcher" id="31920" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ghost Chamberlain of Elmoreden</name>
         <level>70</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Ghost Chamberlain of Elmoreden:<br>
+Woooo!  I'm a ghost page of the ancient Elmoreden Empire!  I worked in the cemetery when I was a mortal being. Now I'm here to help travelers going to the Elmoreden Cemetery.<br>
+My boss is in the Pilgrim's Necropolis. He also helps people visit the cemetery.<br>
+Would you like to visit the cemetery of the Elmoreden empire?  <br>
+<a action="bypass -h Quest 620_FourGoblets 15">"I want to visit the 4th sepulcher."</a><br>
+<a action="bypass -h Quest 620_FourGoblets 16">"I want to visit the entrance to the Elmoreden Cemetery."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

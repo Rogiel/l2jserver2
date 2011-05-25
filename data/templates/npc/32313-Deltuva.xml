@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32313" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32313" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Deltuva</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Deltuva:<br>
+Welcome, traveler! I am assuming that since you know this place you must have heard about me from someone. I am here to help adventurers secretly enter the Steel Citadel. Unless you are already familiar with the Steel Citadel, however, I cannot permit you to go inside. It is simply too dangerous for the inexperienced. So, then...what would you like to do?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">"Let me into the Steel Citadel."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30956" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30956" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nanarin</name>
         <title send="false">Musician</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="325"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Musician Nanarin:<br>
+The man I love has broad shoulders, a thick, lush beard and a beautifully weathered face, seasoned by a life of adventure. Why? Does this shock you?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Musician Nanarin:<br>
+Everyone in this world has a soul mate, another half, their lifelong companion, their true love. This may sound like a silly love song, but it's true. Once more I am dreaming of my prince with a song in my heart.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about your prince."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

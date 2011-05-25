@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30922" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30922" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Cage</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="102" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Cage:<br>
+As the name suggests, the island is swarming with alligators! It is a popular tourist destination, where travelers go to sample the delicious meet or collect the valuable pelts of these reptiles.<br>
+Besides alligators there are also beasts on the island called <font color="LEVEL">crokians</font>. Their apperance is similar to that of alligators, but they walk on two legs and use their hands to wield weapons! They are related to lizardmen and consider alligators sacred... These crokians make the island a very dangerous place, even for the most experienced hunter.<br>
+If you're going there, I heard that Grocer Enverun is currently looking for someone to go to the island on his behalf...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Cage:<br>
+Greetings! Isn't it a beautiful day? This road goes by <font color="LEVEL">Alligator Island</font>. I'm an expert on the island if you are interested in going there.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about Alligator Island."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

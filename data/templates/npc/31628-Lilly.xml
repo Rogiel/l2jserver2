@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31628" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31628" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lilly</name>
         <title send="false">Mist's Granddaughter</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mist's Granddaughter Lilly:<br>
+I don't understand you at all, Grandpa! Why do you like hot water so much?<br>
+Grandpa! I'm talking to you! I want some Ice Cream! Or a popcicle!<br>
+You promised! You said you'd make it for me!<br>
+Make it for me or I'll never speak to you again!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

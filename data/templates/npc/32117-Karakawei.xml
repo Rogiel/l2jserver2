@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32117" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32117" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Karakawei</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="33.0" radius="25.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Karakawei:<br>
+Shilen's children, listen.<br>
+Be not afraid of her, even though she is surrounded by the coldness of death. I, Karakawei, shaman of the Elroki tribem tell you truly that one day, she will again rise and be enthroned in the heavens, and on that day will again take your hand in hers. Thus it has been revealed to me -- hear the words of Shilen!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

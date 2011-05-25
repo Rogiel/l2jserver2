@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="30844" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="30844" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Walderal</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,33 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Warehouse Keeper Walderal:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositC" msg="1039">Deposit an item. (Clan Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawC">Withdraw an item. (Clan Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Warehouse Keeper Walderal:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositP">Deposit an item. (Private Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawP">Withdraw an item. (Private Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Walderal:<br>
+In running a warehouse, I sometimes learn other people's secrets even when I don't want to. A few days ago, for example, a nobleman whose name I cannot tell you deposited a little rag doll. It was pretty well made, but certainly not remotely worth the deposit fee. What do you think that means? Heh...<br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 1">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Keeper Walderal:<br>
+I only teach Dwarves. And even among Dwarves I only teach Dwarven Fighters, Scavengers and Bounty Hunters. You should find another master.
+</body></html>]]></chat>
+    </talk>
 </npc>

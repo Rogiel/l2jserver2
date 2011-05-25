@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="30055" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="30055" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rolfe</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,29 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Rolfe:<br>
+Welcome, my young friend! I'm Rolfe. What can I do for you? You need 30 Adena to deposit an item.<br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 1">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Warehouse Keeper Rolfe:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositC" msg="1039">Deposit an item. (Clan Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawC">Withdraw an item. (Clan Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Warehouse Keeper Rolfe:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositP">Deposit an item. (Private Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawP">Withdraw an item. (Private Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

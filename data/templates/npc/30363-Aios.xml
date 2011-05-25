@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30363" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30363" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Aios</name>
         <title send="false">Blacksmith</title>
@@ -23,4 +24,93 @@
         <sp>0</sp>
         <collision heigth="21.0" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Blacksmith Aios:<br>
+May the splendor of mithril forever shine on the forest and lake! I am a blacksmith and I look over the weapons and armor of my Elven brothers. I have just returned from the Dwarven Kingdom in the north where I learned how to process adamantium and oriharukon.<br>
+I have finished setting up my shop and am ready to start work. Now, what do you need?<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Create Double-blade</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Create Item</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html>
+<body>
+<center><tr><td>[Create Braided Hemp]</td></tr></center>
+<br>
+<tr><td>Used in the manufacture of necklaces, bows,</td></tr>
+<tr><td>one-piece magic robes, armor and magical</td></tr>
+<tr><td>weapons. Also commonly used as a material</td></tr>
+<tr><td>for Frames and Compound Braids, which are</td></tr>
+<tr><td>used to create other items.</td></tr>
+<br>
+<br>
+<tr><td>Materials</td></tr>
+<br>
+<tr><td>5 Wood Stems</td></tr>
+<br>
+<br>
+<tr><td>Fee</td></tr>
+<br>
+<tr><td>1 Recipe - Create Braided Hemp, 100 adena</td></tr>
+<br>
+<br>
+<tr><td>Result</td></tr>
+<br>
+<tr><td>1 Braided Hemp</td></tr>
+<br>
+<br>
+<tr><td>Consumed MP: 30</td></tr>
+<br>
+<tr><td>Compound Success Rate : 100%</td></tr>
+<br>
+<br>
+<tr><td>would you like to proceed?</td></tr>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html>
+<body> 
+<center><tr><td>[Create]</td></tr></center> 
+<tr><td>Our Blacksmith Guild creates items at a very</td></tr> 
+<tr><td>reasonable price.</td></tr>
+<br>
+<tr><td>You may entrust your precious materials to our</td></tr> 
+<tr><td>Blacksmiths. They have a long-standing</td></tr> 
+<tr><td>tradition of integrity.</td></tr>
+<br>
+<tr><td>We will do our best to serve you.</td></tr>
+<br>
+<tr><td><font color="LEVEL">Creation lists to be done.</font></td></tr>
+<br>
+<center><a action="bypass -h npc_%objectId%_Chat 3">[Create Braided Hemp]</a></center>
+<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html> 
+<body> 
+<tr><td>It is only natural that in order to create a duel</td></tr> 
+<tr><td>sword, you'd need the two single swords which</td></tr> 
+<tr><td>being combined.</td></tr>
+<br>
+<tr><td>Of course, I charge a small fee since I'm not</td></tr> 
+<tr><td>working for charity and all. And heating costs</td></tr> 
+<tr><td>for stoking the fire are pretty steep...</td></tr>
+<br>
+<tr><td>As you may know, it is not easy to handle the</td></tr> 
+<tr><td>sword unless the balance between both hands</td></tr> 
+<tr><td>is equal.</td></tr>
+<br>
+<tr><td>That means that only swords of identical</td></tr> 
+<tr><td>grades can be combined...</td></tr>
+<br>
+<tr><td>Plus, keep in mind that enchanted weapons</td></tr> 
+<tr><td>lose their effect once they are combined with</td></tr> 
+<tr><td>another sword.</td></tr>
+<br>
+<tr><td>My, am I worrying for nothing? Well, I'm sure</td></tr> 
+<tr><td>you know all this.</td></tr> 
+<br>
+<tr><td>Here, select the sword that you wish to</td></tr> 
+<tr><td>combine from the following list.</td></tr> 
+<br>
+<center><a action="bypass -h npc_%objectId%_Chat 2">See List</a></center> 
+</body></html>]]></chat>
+    </talk>
 </npc>

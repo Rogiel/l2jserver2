@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30091" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30091" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ellie</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Accessory Merchant Ellie:<br>
+Hello! Our shop specializes in various kinds of jewelry. We have everything from a mysterious ring that can protect you from evil magic to a healing necklace capable of raising the dead! Just tell me what you're looking for.<br>
+<a action="bypass -h npc_%objectId%_Buy 3009100">Trade accessories.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 300900001">Buy bracelet or talisman.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3009101">Trade a basic type accessory.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

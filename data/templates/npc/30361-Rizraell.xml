@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30361" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30361" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rizraell</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="25.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Rizraell:<br>
+Next to the Elven Forest is the region of Oren where Humans live. There is also the <font color="LEVEL">Sea of Spores</font>. However, there is a mountain range between the Elven Forest and Oren, so we can't pass freely.<br>
+The place called the Sea of Spores was once a battlefield of the great war between Elves and Men. Before that, it was a beautiful place, but the battle magic of the war polluted the ground, and the blight grows wider even to this very day. They say the Mystics at the <font color="LEVEL">Ivory Tower</font> have set up force fields that are just barely sufficient to contain the blight. In the fight between us Elves and the Humans, nature was the ultimate loser.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

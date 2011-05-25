@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32361" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32361" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Caravan Supporter</name>
         <level>70</level>
@@ -21,4 +22,11 @@
         <sp>0</sp>
         <collision heigth="14.0" radius="18.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Caravan Volunteer Food:<br>
+A delicious aroma wafts our from inside the box. You see a piece of paper containing excessively elaborate writing on the front.<br>
+Treatment Warning: DO NOT THROW!<br>
+PS: Here is a small present in thanks for your hard work. - Caravan Representative Jude.
+</body></html>]]></chat>
+    </talk>
 </npc>

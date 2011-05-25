@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30907" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30907" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Minevia</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Minevia:<br>
+Hmmm, well, it's not that I'm lazy, you see... I simply cannot teach you magic. I am Human and I feel a little uncomfortable teaching something so sensitive to another race... And besides, you're not even a Mystic!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Minevia:<br>
+Some time ago, a strange Elemental Summoner visited Anabel. It seems that she was a former paramour of the old Lord of Innadril. They had apparently been together for a century or more! You wouldn't know it to look at her, but she is as old as your grandmother's grandmother. Regardless, I still can't condone those kind of Human-Elf relationships. They're unnatural! Tell me, how would you feel knowing that your lover would stay forever young, even as you became old and gray?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Minerva:<br>
+Are you kidding? How dare you go around killing people indiscriminately! Did you think there would be no consequence of your actions? I cannot send you through the Gate of Space and Time. You must find another method of transport.
+</body></html>]]></chat>
+    </talk>
 </npc>

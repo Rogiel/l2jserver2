@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30542" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30542" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Runant</name>
         <title send="false">Defender</title>
@@ -24,4 +25,20 @@
         <item lefthand="0" righthand="273"/>
         <collision heigth="19.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Defender Runant:<br>
+Seriously, you haven't heard of Hero Lucien? No, you're kidding aren't you? Seriously, you're putting me on, right?.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">But, I really don't know</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Defender Runant:<br>
+Really? So I guess you're not from around here? All right then, I'll explain it to you. Hmm, well, there was a monster called Earth Worm Trasken deep in the eastern mountains. They say that it was a devil created by Shilen, but I wouldn't know about that.<br>
+Anyway, the Dwarves were busy mining for mithril, and they accidentally reached the nest of the Earth Worm. Well, it was a big disaster. We thought we Dwarves would be wiped out. But all of a sudden, this Dwarf called Lucien shows up. He was so great! He had a one-on-one fight with the Earth Worm. Hoo, must have been quite a sight. Anyway, Lucien's been the hero of Dwarves ever since. He's no longer living, of course, but there are statues of him all over. Ahh ... I want to be like Lucien ...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Defender Runant:<br>
+Hey, good to see you again! You don't recognize me? Well, I'm not surprised! My name is Runant! I'm a Defender of this village. I work here all day long, and my back and feet are killing me! I doubt I'll ever be able to retire! Oh, I suppose if I get rich and famous someday, like the<font color="LEVEL"> Hero Lucian</font>...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Who is the Hero Lucian?"</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

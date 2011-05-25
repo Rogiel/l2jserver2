@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PriestVillageMaster" id="31328" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PriestVillageMaster" id="31328"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Innocentin</name>
         <title send="false">High Priest</title>
@@ -24,4 +26,16 @@
         <item lefthand="0" righthand="193"/>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Priest Innocentin:<br>
+I can no longer hear the goddess' voice; I can only recite with my lips the knowledge my mind was once granted. I am nothing more than an empty vessel...<br>
+Nevertheless, if you seek my teaching, I will try to help you.<br>
+<a action="bypass -h npc_%objectId%_Quest dark_elven_change_2">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleChamberlain" id="35142" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleChamberlain" id="35142"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Crosby</name>
         <title send="false">Chamberlain</title>
@@ -23,4 +25,34 @@
         <sp>10</sp>
         <collision heigth="22.5" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="d"><![CDATA[<html><body>%npcname%:<br>
+What is your command?
+<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 20220001 20220002">Open the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 20220001 20220002">Close the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 20220005 20220006">Open the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 20220005 20220006">Close the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 20220001 20220002 20220005 20220006">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 20220001 20220002 20220005 20220006">Close All Castle Gates</a>
+</center>
+</body></html>]]></chat>
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13008" msg="811;Front Of Dion Castle">Front Of Dion Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13009" msg="811;Dion Town Square">Dion Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13010" msg="811;Front of the Hive Fortress">Front of the Hive Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13011" msg="811;Entrance to Floran Village">Entrance to Floran Village</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13012" msg="811;Cruma Marshlands">Cruma Marshlands - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13013" msg="811;Fortress of Resistance">Fortress of Resistance - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13014" msg="811;Plains of Dion">Plains of Dion - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13015" msg="811;Tanor Canyon">Tanor Canyon - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13008" msg="811;Front Of Dion Castle">Front Of Dion Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13009" msg="811;Dion Town Square">Dion Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13010" msg="811;Front of the Hive Fortress">Front of the Hive Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13011" msg="811;Entrance to Floran Village">Entrance to Floran Village</a><br1>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32359" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32359" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lahm</name>
         <title send="false">Blacksmith of Power</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Lahm:<br>
+Please help me!<br>
+I heard this story from my ancestors, so I dont't know all the exact details, but I will tell you what I know. Listen carefully!<br>
+The Isle of Prayer was once a nest of the Water Dragon Fafurion. The dragon was usually friendly, but occasionally it would fly into a murderous rage -- perhaps because of some kind of spell. When in that state, however, it would destroy its surroundings completely. The Elves of Innadril feared for their safety, so they sent a female Elf to become Fafurion's priestess. It was her task to keep the creature calm. This interested the evil Beleth, who manipulated the priestess to control Fafurion, and planted "Seeds of Evil" on monsters around the Isle of Prayer as a means of spyring on the situation.<br>
+A couple of years ago, I was able to extract a Seed of Evil fragment from a dead monster on the Isle of Prayer. I discovered that it contains a magic both powerful and evil -- even the mere fragment I had was astonishing. We are now focusing our efforts on extracting that power to apply to our other Dwarven technologies.<br>
+As you see, I am too old to fight these monsters. Will you collect more of these fragments for me? I shall give you a precious gift if you do... There are 6 types of seeds, with each color representing a different ability. You will be able to find the seeds scattered throughout Isle of Prayer. Go quickly -- you will not be disappointed in your reward!<br>
+<a action="bypass -h npc_%objectId%_multisell 350980012">Give him Seeds of Evil.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

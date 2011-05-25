@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30748" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30748" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Exarion</name>
         <title send="false">Drake</title>
@@ -23,4 +24,10 @@
         <sp>0</sp>
         <collision heigth="100.0" radius="30.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Drake Exarion:<br>
+Greetings, two-legged creature! What brings you up this tall mountain? If you intend  to kill me with that weapon, please proceed. All my eggs are lost, I am terribly heartbroken... Where have those vicious egg thieves gone?  Possibly they have crossed this mountain range and gone to the Elven Village... Or maybe to the Sea of Spores?...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

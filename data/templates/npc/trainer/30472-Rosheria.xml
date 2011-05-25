@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30472" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30472" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rosheria</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Rosheria:<br>
+You want to take classes from me? I'm sorry, but I only accept Elven fighters. I have nothing to teach you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Rosheria:<br>
+May the blessing of starlight be upon you, friend. For 50 years I have labored here in Human lands, far from home and family. It is a hard duty, but one essential for the safety of our people.<br>
+How I long to sit again under the shadow of the Mother Tree and drink from the cool streams of the forest!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

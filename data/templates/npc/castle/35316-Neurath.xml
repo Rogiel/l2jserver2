@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleChamberlain" id="35316" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleChamberlain" id="35316"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Neurath</name>
         <title send="false">Chamberlain</title>
@@ -23,4 +25,32 @@
         <sp>10</sp>
         <collision heigth="22.5" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13040" msg="811;Front Of Innadril Castle">Front Of Innadril Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13041" msg="811;Heine Town Square">Heine Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13042" msg="811;Front of the White Sands Fortress">Front of the White Sands Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13043" msg="811;The Center of Alligator Island">The Center of Alligator Island - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13044" msg="811;Field of Silence">Field of Silence - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13045" msg="811;Field of Whispers">Field of Whispers - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13046" msg="811;Inside the Garden of Eva">Inside the Garden of Eva - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body>%npcname%:<br>
+What is your command?
+<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 23250001 23250002">Open the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23250001 23250002">Close the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 23250005 23250006">Open the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23250005 23250006">Close the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 23250001 23250002 23250005 23250006">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23250001 23250002 23250005 23250006">Close All Castle Gates</a>
+</center>
+</body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13040" msg="811;Front Of Innadril Castle">Front Of Innadril Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13041" msg="811;Heine Town Square">Heine Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13042" msg="811;Front of the White Sands Fortress">Front of the White Sands Fortress</a><br1>
+</body></html>]]></chat>
+    </talk>
 </npc>

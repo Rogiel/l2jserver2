@@ -30,6 +30,10 @@ import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
 	private final ItemTemplateIDProvider provider;
 
+	public ItemTemplateIDAdapter() {
+		provider = null;
+	}
+
 	@Inject
 	public ItemTemplateIDAdapter(ItemTemplateIDProvider provider) {
 		this.provider = provider;
@@ -39,6 +43,8 @@ public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
 	public ItemTemplateID unmarshal(Integer v) throws Exception {
 		if (v == 0)
 			return null;
+		if(provider == null)
+			return new ItemTemplateID(v, null);
 		return provider.createID(v);
 	}
 

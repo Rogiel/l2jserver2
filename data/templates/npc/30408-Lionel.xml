@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30408" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30408" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lionel</name>
         <level>70</level>
@@ -22,4 +23,15 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Lionel:<br>
+When they warred with the Orcs, the Elves taught magic to the Humans, who were their allies, to increase their side's strength. Thus, they built the School of Wizardry here, and selected and trained magically talented Humans.<br>
+However, after the Humans betrayed the Elves, this place was abandoned and is now in ruins. Later, the Humans were able to conquer the entire continent with their magic. These days, I think that perhaps the Human race is the cruelest and most selfish.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Lionel:<br>
+Do you know history? Before the Humans came, this island was a holy place for Elves of light. I heard they were powerful enchanters, who communed with spirits. And this ruin was the <font color="LEVEL">School of Wizardry</font> built by the Elves for Humans.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the School of Wizardry.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32041" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32041" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Yumi</name>
         <title send="false">Collector</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Collector Yumi:<br>
+This area is know as the Ruins of Pavel. It is one of the research labs the Giants established in the distant past. I've come here to research the Starstones that are being produced in this area.<br>
+The roaming golems make it very risky to go outside of the barracks, however.  In addition, the remnants of ancient old experiments, vile and disgusting, add to the danger.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

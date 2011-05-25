@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32768" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32768" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kelleyia</name>
         <level>80</level>
@@ -22,4 +23,12 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Kelleyia:<br>
+I kept hearing so many rumors about the skill of those who inhabit the Beast Farm that I just had to see the talent for myself. And when I get here, what do I find?<br>
+A bunch of foul smelling, drooling, hideously deformed creatures... and I'm not talking about the monsters roaming the grounds of the Beast Farm.<br>
+All I see are a bunch of no talent, rowdy, trouble-making drunkards who don't know the slightest bit about skill.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

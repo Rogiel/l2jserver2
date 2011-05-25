@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32345" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32345" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Buron</name>
         <title send="false">Tailor</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Buron:<br>
+Finally, we have regained our home! Please give me regards to Jirrone, who left the island some time ago.<br>
+There is obviously a great deal of work for me to do now that we have regained our village, but I will gladly create native clothes for you whenever you wish it.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Craft Native Helmet.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Craft Native Tunic.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Craft Native Pants.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">Ask about the rumor.</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Buron:<br>
+Darion's influence has grown weak in the face of the united opposition of the newcomers from the continent, the natives and the Caravan. His army has already abandoned most of Hellbound to the Resistance. Still, Darion's forces are doing everything possible to defeat the Magical Field. I wonder -- is there something important buried in there?
+</body></html>]]></chat>
+    </talk>
 </npc>

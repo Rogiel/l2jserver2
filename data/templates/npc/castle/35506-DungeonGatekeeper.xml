@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleDoormen" id="35506" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleDoormen" id="35506"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dungeon Gatekeeper</name>
         <title send="false">Rune</title>
@@ -23,4 +25,23 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="busy"><![CDATA[<html><body>Oh! Our castle is being attacked and I can't do anything for you right now.
+</body></html>]]></chat>
+        <chat id="no"><![CDATA[<html><body>Who goes there?!<br>
+I order you to leave at once!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Nothing unusual to report my Lord.<br>
+What do you wish to do?<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 20160008">Open the Dungeon Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 20160008">Close the Dungeon Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 20160001 20160002 20160003 20160004 20160005 20160006">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 20160001 20160002 20160003 20160004 20160005 20160006">Close All Castle Gates</a><br>
+</center>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>
+During castle siege his jail can become weak... What if demon will escape?
+</body></html>]]></chat>
+    </talk>
 </npc>

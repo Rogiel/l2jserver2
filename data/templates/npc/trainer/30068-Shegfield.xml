@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30068" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30068" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shegfield</name>
         <title send="false">Priest</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Priest Shegfield:<br>
+I welcome you if you have come for rest, but if you have come to learn something, there is nothing we can teach you here.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Priest Shegfield:<br>
+Welcome to the sacred Temple of Einhasad. I was born here, actually, and raised alongside Priest Glyvka. Believe it or not, I once thought this is place was haunted! So many strange noises, strange lights... But when I finally devoted myself to Einhasad, I found peace. Now I fear nothing!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

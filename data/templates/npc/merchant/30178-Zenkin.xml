@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30178" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30178" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Zenkin</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,24 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Merchant Zenkin:<br>
+Come on in, customer! Welcome to the most honest shop in northern Aden.<br>
+There are people spreading nonsense that I, Zenkin, am a wanted criminal from Elmore or a disguised Timak Orc. Can you believe those lunatics? Well, you look like you can tell a hawk from a handsaw, so I trust you won't believe such ridiculous tales.<br>
+Anyway, have a look around. Let me know if you see anything you like, eh?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3017800">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3017801">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Merchant Zenkin:<br>
+Choose whatever you want! Warrior? Wizard? We have it all!<br>
+<a action="bypass -h npc_%objectId%_Buy 3017800">Buy Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3017801">Buy Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3017802">Buy Fighter Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3017803">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_BuyShadowItem">Buy Shadow Item.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

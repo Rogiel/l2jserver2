@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30452" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30452" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Kurt</name>
         <title send="false">Guard</title>
@@ -24,4 +25,15 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Kurt:<br>
+A few years ago in Dion, the farmers revolted against the lord. The Lord Ashton of that time hired soldiers to suppress the revolt and executed all those who were involved as an example. There are many rumors that the ghosts of the farmers that were murdered still haunt the grounds, so no one goes near there.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Kurt:<br>
+Hello, I am Guard Kurt. I mainly assist Sir Ortho Lancer and help maintain the village's security. Sir Ortho Lancer is a fine man who used to serve in the Black Lion Troops when he was young. He is always so full of energy; sometimes it's hard to keep up with him.<br>Sir Lancer worries that our village may be in danger because of the monsters that come out of the <font color="LEVEL">Execution Grounds</font> of Dion these days.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Execution Grounds.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

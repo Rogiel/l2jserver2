@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32190" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32190" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mao</name>
         <title send="false">Vice Hierarch</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="17.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Vice Heirarch Mao:<br>
+May the blessings of Nornil be with you!<br>
+If you travel south from here, you can see <font color="LEVEL">Nornil's Garden</font>, home of Nornil, Mother to this Isle of Souls. My name is Mao, and I am in charge of this place. If you can overcome the ordeals of this place and meet Mother Nornil, you may be reborn as a true Kamael warrior. There will be pain, but after the pain comes joy.<br><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

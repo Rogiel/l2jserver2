@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DElfVillageMaster" id="32160" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DElfVillageMaster" id="32160"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Devon</name>
         <title send="false">Grand Magister</title>
@@ -23,4 +25,15 @@
         <sp>0</sp>
         <collision heigth="22.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Grand Magister Devon:<br>
+Hmm... are you an adventurer?<br>
+Come in, come in. What is that you seek from me? Does it concern a class transfer? Or perhaps it relates to the dark voice buried in the light?<br>
+You know, don't you? There is a light that can only be found by those who live in darkness...<br>
+<a action="bypass -h npc_%objectId%_Quest dark_elven_change_1">Ask about the first prior occupation.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Blood Pledge.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

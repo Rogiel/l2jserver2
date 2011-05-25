@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32165" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32165" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Zakone</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Zakone:<br>
+Welcome! What can I do for you?<br>
+If you have powerful enemies, I'd advise that you arm yourself with the best weaponry and equipment. Isn't your life worth the investment?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3216500">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3216501">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Zakone:<br>
+If you tell me what you're looking for, I'll bring it out for you right away.<br>
+<a action="bypass -h npc_%objectId%_Buy 3216500">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3216501">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

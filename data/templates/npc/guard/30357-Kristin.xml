@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30357" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30357" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Kristin</name>
         <title send="false">Sentry</title>
@@ -24,4 +25,19 @@
         <item lefthand="0" righthand="132"/>
         <collision heigth="25.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Sentry Kristin:<br>
+When our race lived deep underground to avoid the sunlight, Tetrarch Vellior performed various experiments with the low creatures called gremlins, which lived underground, and created a new species called imps.<br>
+This slave race was made by the power of black magic. They have long, thin claws and the ability to sense the road in the dark. They also have wings that enable them to fly, to collect mushrooms and moss from cave walls or ceilings, or minerals from deep mines.<br>
+They honored our name and served us loyally for hundreds of years. However, they somehow undid the spells of restraint, killing their overseers and escaping. We were at war with the Elves of light at the time, so we weren't able to do anything about it.<br>
+How they undid the spells of the Tetrarchs is yet unrevealed, but there are those who suspect that some imps knew how to use magic. It is hard for me to believe that such a primitive race could learn magic.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Sentry Kristin:<br>
+I am Sentry Kristin. What do you know? You can rest safely in this part near the village because we are protecting it. You don't have to worry, since our bravery cannot be compared to the cowardly Elves. I just wish there was some way to get rid of all the <font color="LEVEL">imps</font> that wander around in our forest.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about imps.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

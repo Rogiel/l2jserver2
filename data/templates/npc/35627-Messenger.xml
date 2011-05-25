@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="35627" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="35627" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Messenger</name>
         <level>75</level>
@@ -22,4 +23,26 @@
         <sp>0</sp>
         <collision heigth="32.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Messenger:<br>
+Didn't I already cover that? Clan Hall registration begins an hour before the contest, and the next Clan Hall War will begin around 2010-09-09 20:00:00. 
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Messenger:<br>
+What brings you to this place? I can't be responsible for your safety here!<br>
+Unless, that is, you're a member of the <font color=00ffff>SouthernLights</font> Clan in charge of the farm.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Qualification Test for Clan Hall Battle Registration</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Register for Clan Hall Battle</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clans Participating in the Preliminaries</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Messenger:<br>
+The following Clans have applied for entry to the preliminary contest. This would be a good time to study their strategies. <br><br>
+=== Clans Registered for the Preliminary Contest ===
+<br>1. <font color=00ffff>**unregistered**</font> (Number of Participants :  <font color=00ffff></font>)
+<br>2. <font color=00ffff>**unregistered**</font> (Number of Participants :  <font color=00ffff></font>)
+<br>3. <font color=00ffff>**unregistered**</font> (Number of Participants :  <font color=00ffff></font>)
+<br>4. <font color=00ffff>**unregistered**</font> (Number of Participants :  <font color=00ffff></font>)
+<br>5. <font color=00ffff>**unregistered**</font> (Number of Participants :  <font color=00ffff></font>)
+
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31526" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31526" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Broken Bookshelf</name>
         <level>70</level>
@@ -21,4 +22,10 @@
         <sp>0</sp>
         <collision heigth="33.5" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Broken Bookshelf:<br>
+An old bookshelf with a drawer in its lower section. A few Tattered Books are scattered about on its shelves. The drawer is secured with a padlock bearing the seal of the Hellmann royal family.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

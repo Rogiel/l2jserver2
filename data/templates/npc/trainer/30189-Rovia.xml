@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30189" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30189" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rovia</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Priest Rovia:<br>
+I have nothing to teach you. You must find another teacher, someone who suits you better. Or perhaps you would prefer to say and chat with me a bit longer?<br>
+Oh, sorry, someone is comming. Please come again...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Rovia:<br>
+I am Magister Rovia.<br>
+This area shares a border with Elmore, so naturally it shares many similarities with that war-torn land. It's like night and day compared with our Elven homeland, don't you think?<br>
+The houses here are rough and rambling, and the men don't understand subtlety at all. They say it's even worse across the border in Elmore. The Elves there must have such a hard time of it...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

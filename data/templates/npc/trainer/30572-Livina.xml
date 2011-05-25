@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30572" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30572" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Livina</name>
         <title send="false">Seer</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Seer Livina:<br>
+I, Seer Livina, immerse myself in the will of Pa'agrio and teach Orc Mystics. You don't have anything to learn from me, so look for others!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Seer Livina:<br>
+Welcome, friend. Have you come here to learn how to control the souls that wander through this world? Only the strength of <font color="LEVEL">Pa'agrio</font> can rule all souls. Let go of everything you have known. The world is ruled by the will of Pa'agrio! And we are his servants!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Pa'agrio.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Seer Livina:<br>
+Pa'agrio was the flame at the beginning of the world, the one who gave life and strength to the Orcs. For his sake we test ourselves to our limits, endure every hardship, and face every foe with honor and bravery!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30590" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30590" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rosheek</name>
         <title send="false">Khavatari</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Khavatari Rosheek:<br>
+What brings you to this desolate snowfield, young traveler? I am Rosheek, who trains Kabart, the traditional martial art of the Orcs.<br>
+As the god Paagrio has taught us, we must continuously make an effort to strengthen ourselves above all the other creatures that live. I have stayed in this place for the past month, fasting and meditating, to discipline myself in order to reach a higher level of strength.<br>
+When my mind concentrates to fight the severe cold and hunger, I can feel the heat of the combative spirit that burns like a flame within me. How would you like to meditate here with me?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

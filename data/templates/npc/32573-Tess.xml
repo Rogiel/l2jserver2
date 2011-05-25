@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32573" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32573" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tess</name>
         <title send="false">Grandma</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="17.3" radius="9.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Grandma Tess:<br>
+I came to the lakeside for a nice stroll. But the sun reflecting off the water -- it makes my bad eyesight even worse...<br>
+Well, the children said they were going fishing... Won't they get into trouble?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

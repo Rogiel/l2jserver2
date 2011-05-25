@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31345" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31345" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Ian</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Ian:<br>
+Have you visited the dark forest east of the village? It's known as the<font color="LEVEL"> Forest of the Dead</font>. Once, it was a beautiful place, where deer grazed and stately oaks and wildflowers flourished! I remember picking wild strawberries with my older sister there when I was young. Then, one day, it was all gone... It still seems like a horrible dream!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the Forest of the Dead." </a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the lord & tax rate info.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Ian:<br>
+It was the uprising against the von Hellmann family. In that forest the last of the rebel forces were captured by the king's men. They were cruelly tortured and publicly executed. The forest was never the same after that. A cursed fog continually hangs over the place.<br>
+Its said that dead walk the earth there, and vampire ghosts feast on trespassers! Dark forces are surely at work in that place!<br>
+It's said that some people have actually taken up residence in an abandoned village in the middle of the forest! What are they thinking? I'm not sure if they're very foolish or very brave!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

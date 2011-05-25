@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="OrcVillageMaster" id="31336" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="OrcVillageMaster" id="31336"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rahorakti</name>
         <title send="false">Grand Seer</title>
@@ -24,4 +26,16 @@
         <item lefthand="0" righthand="202"/>
         <collision heigth="29.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Grand Seer Rahorakti:<br>
+Heed the warning that our ancestors whisper in your ears! See the omens that are appear before your eyes! Feel the danger at your very doorstep! The eternal will soon be upon us!<br>
+Can you feel the impending calamity? What is it that we must do during these times? If you remain firm in your faith, the Spirit of Fire shall be your guide!<br>
+<a action="bypass -h npc_%objectId%_Quest elven_human_buffers_2">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

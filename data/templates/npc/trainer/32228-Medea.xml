@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32228" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32228" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Medea</name>
         <title send="false">Master</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="23.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Medea:<br>
+I do not know why you have come to me, but you are mistaken in thinking I can help you. I teach only Kamael Warders, Arbalesters and Soul Breakers. You must find someone else to teach you!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Medeia:<br>
+Welcome to Goddard Castle Town. I am Master Medeia of the Kamael Guild. If you can obey my orders without question or objection, then perhaps I can train you.<br>
+Ready to begin?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KamaelVillageMaster" id="32226" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="KamaelVillageMaster" id="32226"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Raula</name>
         <title send="false">Grand Master</title>
@@ -24,4 +26,15 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="22.25" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Grand Master Raula:<br>
+Welcome to the Town of Goddard! I am Grand Master Raula, head of the Kamael Guild here. Have you met Grand Master Taine? No? Well, if you do, try not to be overly influenced by him. He is ready to start at his own shadow, and his mind is filled with wild thoughts about the Kamael.<br>
+Do you know he refuses to even speak to me these days? If you do happen to talk with him, please tell him that I am concerned -- as a colleague -- about his health.<br>
+<a action="bypass -h npc_%objectId%_Quest kamael_occupation_change">Listen to information about 2nd class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

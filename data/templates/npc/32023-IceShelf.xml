@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32023" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32023" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ice Shelf</name>
         <level>70</level>
@@ -21,4 +22,10 @@
         <sp>0</sp>
         <collision heigth="14.5" radius="35.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Ice shelf:<br>
+I see ice shards on the shelf... evidence of someone else working ice here. I think shelf is the best workspace I'm likely to find. Oh, but the tools look so old and dull. Will I even be able to do this?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

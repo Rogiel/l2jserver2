@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31286" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31286" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Drakon</name>
         <title send="false">Master</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="143"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Drakon:<br>
+This land teaches us a hard lesson, but one that is essential.<br>
+The hungry hunter is also the most effective one!<br>
+That is the lesson our ancestors knew, and what we have forgotten. Strike true or perish! Victory or death!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Drakon:<br>
+An over-achiever, eh? Why else would you want to learn Dark Elven skills in addition to your own? It seems to me that you should follow your own path!
+</body></html>]]></chat>
+    </talk>
 </npc>

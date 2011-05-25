@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="31147" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="31147" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sobling</name>
         <title send="false">Head Researcher</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="19.7" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sobling:<br>
+Nice to meet you. Let me introduce myself: my name is Sobling, and I'm an archeologist. My job is to find the truth by solving the puzzles of past. Although I'm old enough to be your grandfather, my heart beats as fast as a teenager whenever I'm about to embark on a new excavation. I'm especially looking forward to this expedition to the Giants Cave...<br>
+<a action="bypass -h npc_%objectId%_goto 200920">Move to the upper level.</a><br>
+<a action="bypass -h npc_%objectId%_goto 200919">Move to the lower level.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

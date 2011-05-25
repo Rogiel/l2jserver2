@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31555" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31555" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Abercrombie</name>
         <title send="false">Mercenary Supplier</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mercenary Supplier Abercrombie:<br>
+Jeesh! Why are you turning into such a pain?! Can't you see I'm busy? It's more than enough for me to deal with the mercenaries! I don't have the time to deal with an outsider like you!
+If you want to serve in our Golden Ram Mercenary force, why don't you go see Kadoon. What a life! What kind of fortune can I make here? Sigh! What a life!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

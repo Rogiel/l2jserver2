@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30422" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30422" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kalinta</name>
         <title send="false">Abyssal Celebrant</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Kalinta:<br>
+Welcome in the name of Shilen. Many think it is bad luck to invoke the name of Shilen, since she is the goddess that controls death. There are even those who say she is a devil and criticize her followers as pagans.<br>
+However, all living things must one day die. No matter how much they fear Shilen and try to avoid and forget her, in the end, they all rest in her embrace when they finish their lives. All are equal in Shilen's peace of death.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

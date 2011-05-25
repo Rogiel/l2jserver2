@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31341" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31341" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Richtor</name>
         <title send="false">Guard</title>
@@ -24,4 +25,19 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Richtor:<br>
+I suppose our village looks peculiar to outsiders. It's divided into three sections.<br>
+The castle has an upper and lower level. The upper level consists of a<font color="LEVEL"> clan hall and the Temple of Einhasad</font>. The lower level features the<font color="LEVEL"> Library of Sages</font> and a<font color="LEVEL"> Combat Training Camp</font>.<br>
+Just in front of us is our latest development! It's our commercial district, with<font color="LEVEL"> Dwarven stores, blacksmith shops and warehouses</font>.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Richtor:<br>
+Welcome! This village is near the castle of Elmore, capital of the kingdom! As you can see, it's an invincible fortress. The fog is always quite thick here, so the whole village is hard to see at once...<br>
+Our guards can tell you anything you want to know about the village.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"The structure of the village seems to be very unique."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the lord & tax rate info.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

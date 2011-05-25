@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="32157" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="32157"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Moka</name>
         <title send="false">Head Blacksmith</title>
@@ -23,4 +25,16 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Head Blacksmith Moka:<br>
+Ah, my young friend, what brings you to me? I am too busy to even grab a bite to eat, so you best make it quick!<br>
+What is with this Isle of Souls? I've been digging and digging and found not one useful stone in this blasted land! Hey, Fisher, what do you think? Huh?<br>
+And why all the strange requests? Shouldn't buildings exist simply so that people can live there? What the...<br>
+Huh? You're still here? What is it you wanted? If it has to do with politics, go to that oldie over there, Fisher! He has all the answers!<br>
+<a action="bypass -h npc_%objectId%_Quest dwarven_occupation_change">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

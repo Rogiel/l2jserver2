@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30882" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30882" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Frontier Guard</name>
         <level>80</level>
@@ -23,4 +24,11 @@
         <item lefthand="0" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Border Guard Oskar Blackbird:<br>
+Are you a traveler? This is not the kind of place you want to be visiting as a tourist... Sorry, but I'm going to need to check your baggage.<br>
+... Hmm, there's nothing here that's particularly suspicious. If you follow the road to the south a short way, you'll come to Aden Castle and Aden Castle Town. I recommend that you stay there tonight. You can't cross the border now. In the past, only people with a transit certificate could go back and forth but as far as I know, the issuance of such certificates has been suspended...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

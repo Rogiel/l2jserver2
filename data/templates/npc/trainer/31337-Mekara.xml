@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31337" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31337" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mekara</name>
         <title send="false">Seer</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Seer Mekara:<br>
+Dear brother! If you want to learn the teachings of Pa'agrio, I'll sing the Song of Flame for you! But since flames do not course through your veins, you'll never acquire the power of Pa'agrio!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Seer Mekara:<br>
+Tejakar Oroka! May Pa'agrio's Flame be with you!<br>
+Even here, far from home, the energy of the sacred flame is present. Don't you feel it? Our fathers watch us and wait...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

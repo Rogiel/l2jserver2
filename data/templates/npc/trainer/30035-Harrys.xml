@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30035" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30035" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Harrys</name>
         <title send="false">Magister</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Magister Harris:<br>
+Ah, forgive my oversight. Priest Poster is in fact my twin brother. Unlike me, he is calm and quiet. You wanted to know why it's called the Twin Temple means, right? I'm not sure if you know, but both Johanes and Baulo, and Poster and I, are twins. Perhaps it is only a coincidence, but because of 2 sets of twin brothers teaching here, people began refering to this temple as the Twin Temple.<br>
+Don't tell Priest Viotin! He will think people are being disrespectful. Any more questions?
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Harrys:<br>
+Greetings! I'm Magister Harrys, and I teach magic here in the <font color="LEVEL">Twin Temple</font>. It's always rewarding experience to pass on my knowledge to others. Are you here to enroll?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Twin Temple.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Harrys:<br>
+I teach magic. But there is nothing I can teach you. If you want to learn something, you should find a Master that is right for you.
+</body></html>]]></chat>
+    </talk>
 </npc>

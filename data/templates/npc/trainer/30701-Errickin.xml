@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30701" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30701" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Errickin</name>
         <title send="false">Magister</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Errickin:<br>
+Why have you bothered to train at the wrong place? Your skills are impressive, but your sense of direction must be off. You have wasted my time. Get out! Ask Bugbear if you are lost..
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Errickin:<br>
+You don't have to introduce yourself--I already know all about you. I am Magister Errikin. Perhaps you've already noticed that this town is a dangerous place. You could easily be called on to defend not only your life, but more importantly, your honor.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

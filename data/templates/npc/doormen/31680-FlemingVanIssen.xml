@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Doormen" id="31680" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Doormen" id="31680" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Fleming Van Issen</name>
         <title send="false">Frontier Guard Captain</title>
@@ -24,4 +25,12 @@
         <item lefthand="632" righthand="128"/>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Frontier Guard Captain Fleming Van Issen:<br>
+Although the war is over, the dispute over the border has yet to be resolved. Keep your head down for now.<br>
+<a action="bypass -h npc_%objectId%_open_doors 1, 24170001">Open the gate</a><br>
+<a action="bypass -h npc_%objectId%_close_doors 1, 24170001">Close the gate</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

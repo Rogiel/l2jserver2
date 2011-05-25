@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30725" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30725" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Yening</name>
         <title send="false">Guard</title>
@@ -24,4 +25,24 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Guard Yening:<br>
+You seek information? Well, if you've come to the Ivory Tower you must be interested in magic, am I right? If so, you should catch the monsters around here. I hear they are carrying <font color="LEVEL">High-level Spellbooks</font> while roaming in the craters. These are very valuable and useful items.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Yening:<br>
+Hello there, you seem like a fine sort. I'm Yening. Guard Yening. I was an adventurer not too long ago. I was recruited by some Mystics I met in the <font color="LEVEL">Sea of Spores</font> which is why I'm currently working as a guard.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Sea of Spores.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask if he has any good information.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Yening:<br>
+The Sea of Spores? Please don't mention that name! Even now it makes me uncomfortable. It is a foul place, glutted with rotten mushrooms, fungus and zombies roaming about. Honestly, you will not find another place like it. A war between Men and Elves a long time ago left the sea into its current state...<br>
+Towers were erected to stop people from entering, to keep monsters from coming out of the sea and to stem the sea's expansion... You can see why it will be difficult to travel to and from the sea. <br>
+I have it on very good authority that the inner sea looks vastly different that the outer sea. The place is currently so dangerous that even Magisters dare not go there.<br>
+If you must go, I will tell you the way. Cross the river west of the Ivory Tower and continue westward. Follow the cliff south and you will see 4 towers. Those are the protection towers. You probably have a good idea of what to do next...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

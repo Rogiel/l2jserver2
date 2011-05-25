@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30347" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30347" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Marion</name>
         <title send="false">Sentry</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="132"/>
         <collision heigth="25.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sentry Marion:<br>
+I am Sentry Marion who serves the will of Shilen and guards the Dark Elves. Rain or snow, I live by my faith to keep our village safe.<br>
+However, these days, the monsters that swarm around the <font color="LEVEL">Marshlands</font> give me no relief.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Marshlands.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sentry Marion:<br>
+If you go south of here, there is a very large swamp. They say that it was created as a side effect of the black magic used in the war with the Elves. Unpleasant monsters live there.<br>
+If you go a little farther down from there, you will come to the Neutral Zone, which was created by an agreement with the Elves. If you go east from there, you will come to the Elven Forest where the arrogant Elves live. They are a race that thinks they are the most noble in the world.
+</body></html>]]></chat>
+    </talk>
 </npc>

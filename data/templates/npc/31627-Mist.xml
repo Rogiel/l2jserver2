@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31627" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31627" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mist</name>
         <title send="false">Information Broker</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="16.3" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Information Broker Mist:<br>
+Who do you think you are? Can't you see I'm spending quality time with my granddaughter?<br>
+You just couldn't resist, eh?<br>
+Hmm... You've got a good eye!<br>
+She's very pretty, isn't she?! Her name's Lilly.<br>
+Her parents died when she was quite young! I've raised her as my own...<br>
+She's such a treaure to me. She's the apple of my eye!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

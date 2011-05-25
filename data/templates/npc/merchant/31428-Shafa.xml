@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31428" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31428" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shafa</name>
         <title send="false">Amulet Seller</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Amulet Seller Shafa:<br>
+Welcome, ye who follow the cry fo fire! I am Shafa, daughter of Pa'agrio! What is your business with me? Speak up! Do you seek the power of a bear? Or perhaps the patience of a hunting spider? Would you like to run like a wolf, faster than the wind? Amulets can bring you all of these things!<br>
+<a action="bypass -h npc_%objectId%_Buy 3142800">Buy</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Manor tax rate and information</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

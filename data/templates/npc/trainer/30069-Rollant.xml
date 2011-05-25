@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30069" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30069" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rollant</name>
         <title send="false">Magister</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Rollant:<br>
+Magic is not slight of hand. It is a profound philosophy, a deep art. Since you have already taken another path, it would be too much for you to understand the meaning of magic. Go to your own Master.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Rollant:<br>
+Becoming a Wizard is no easy feat. The most important thing is to surrender your heart to the bountiful energy of nature and draw it in. Until you do, you won't be able to learn anything. Dion is a particularly good place to learn these lessons...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32616" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32616" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mine</name>
         <title send="false">Fortune Teller</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Fortune-teller Mine:<br>
+Ah, well, perhaps it is better that you not know. Knowledge of the future can be a dangerous weapon...<br>
+If you change your mind, come see me again. You must decide how closely you wish to peer into the mists of time...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Fortune-Teller Mine:<br>
+The future is enshrouded by a dark mist. Are you curious as to what it holds?<br>
+For a small price, I can show you your future...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Have your fortune read.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Fortune-Teller Mine:<br>
+Your soul shines with a bright light. I see a dim image of a person walking, illuminated by that light... To see more, you must pay me an additional <font color="LEVEL">1000 Adena</font>. What do you say?<br>
+<a action="bypass -h npc_%objectId%_Quest FortuneTelling">Pay the money.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Stop now.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

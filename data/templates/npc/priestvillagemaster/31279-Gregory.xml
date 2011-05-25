@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PriestVillageMaster" id="31279" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PriestVillageMaster" id="31279"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gregory</name>
         <title send="false">High Priest</title>
@@ -24,4 +26,17 @@
         <item lefthand="0" righthand="193"/>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Priest Gregory:<br>
+I am glad to meet a talented young person like yourself during these troubled times. I am High Priest Gregory.<br>
+As you know, Goddard is all abuzz these days with rumors of war between the Varka Silenos and the Ketra Orcs, as well as news of the recent awakening of the fire dragon, Valakas. The strength of young warriors like you is desperately needed in these anxious days.<br>
+And we, the apostles of light, must provide guidance and wisdom...<br>
+<a action="bypass -h npc_%objectId%_Quest elven_human_buffers_2">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

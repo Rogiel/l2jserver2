@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="30146" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="30146" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mirabel</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,39 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Mirabel:<br>
+The Elves once thought that this forest was the whole world, when in reality it is only a very small part of the vast continent. If you wish to see that wider world, we Gatekeepers can help you do so.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 2" msg="811;The Town of Gludio">The Town of Gludio - 9200 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1014" msg="811;Dwarven Village">Dwarven Village - 23000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1015" msg="811;Talking Island Village">Talking Island Village - 23000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1016" msg="811;Orc Village">Orc Village - 18000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12053" msg="811;Kamael Village">Kamael Village - 16000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 468" msg="811;Elven Forest">Elven Forest - 710 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 470" msg="811;Elven Fortress">Elven Fortress - 820 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1013" msg="811;Neutral Zone">Neutral Zone - 1700 Adena</a><br1>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10001" msg="811;The Center of the Neutral Zone">The Center of the Neutral Zone - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9101" msg="811;The Center of the Neutral Zone">The Center of the Neutral Zone - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Mirabel:<br>
+The rules of the gatekeepers guild say not to take notice of people like you. And personally, I don't want to associate with you, either. Please go away.
+</body></html>]]></chat>
+    </talk>
 </npc>

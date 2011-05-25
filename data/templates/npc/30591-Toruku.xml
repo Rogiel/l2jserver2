@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30591" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30591" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Toruku</name>
         <title send="false">Khavatari</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Khavatari Toruku:<br>
+Tejakar Oroka! I am Toruku. I teach Kabart, the Orcs' martial art. Kabart is a martial art that trains your body to become a deadly weapon. Orcs that train in this do not depend on common weapons such as swords or spears, but learn combat skills that involve only swift movements and precise blows.<br>
+Paagrio of the flame teaches that we must continuously strive to strengthen ourselves to become stronger than all life which has breath. I have broken ties with the world and come to this isolated wasteland to fulfill these teachings and concentrate on the further training of Kabart.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

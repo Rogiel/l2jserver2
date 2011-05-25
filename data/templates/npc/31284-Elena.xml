@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31284" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31284" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Elena</name>
         <title send="false">Spellbook Seller</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="25.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Spellbook Seller Elena:<br>
+Welcome! I deal in old books and spellbooks. Books are a reservoir of civilization, don't you think? Without them, the world would revert into a primitive, savage place. I don't even want to imagine it!<br>
+So many books were burned during the persecutions during the last years of the empire. The idea of burning a book just because you don't agree with what it says... Oh, I get angry just thinking of it!<br>
+Of course, now it's possible to learn magic without spellbooks, so I am not sure how much longer we will be needed. If that happens, I guess I'll have to look for a librarian job at the Ivory Tower or Library of Rune.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

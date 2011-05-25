@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30049" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30049" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Bonnie</name>
         <level>70</level>
@@ -22,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="20.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Bonnie:<br>
+Excuse me... Have you heard the rumor that one of the villagers has got some really pretty beads? When I heard that, I just wanted them so bad, I got green with envy. When I want something, I can only rest once I get my hands on it. You may think I'm a grabber, but I can't help myself. I'm so happy when I get what I want.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

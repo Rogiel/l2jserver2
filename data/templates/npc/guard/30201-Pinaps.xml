@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30201" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30201" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Pinaps</name>
         <title send="false">Guard</title>
@@ -24,4 +25,19 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Pinaps:<br>
+Oh! Nice to meet you, adventurer. What brings you here to the town of Oren? This town is surrounded by many dangerous areas, which place would you like to know about? The Sea of Spores is located to the northwest, the Ivory Tower to the north, the Tower of Oren to the northeast, and <font color="LEVEL">Enchanted Valley</font> to the east.<br>
+There are other places, besides the ones I've mentioned, that are dangerous too; if you want to know more, ask other guards. I know a little about the <font color="LEVEL">Enchanted Valley...</font> Are you interested?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Enchanted Valley.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Pinaps:<br>
+The Enchanted Valley looks close on the map but is actually quite far. The entrances are located at the north and south, but the entrances are quite far from our town. Hunters who set up camps on the south eventually made their camps into a village...<br>
+Legend tells... Well, do you know about Fairies? Small Elf-like creatures with small wings on their backs... Anyway, in the past, they were exiled by Humans, and today they curse the Men living in the valley. That is why it is a dangerous place especially for Humans.<br>
+If you want to know more you should go ask at the Hunters' Village. They are experts about them!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

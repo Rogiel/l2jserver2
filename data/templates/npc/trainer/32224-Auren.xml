@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32224" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32224" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Auren</name>
         <title send="false">Master</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="23.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Auren:<br>
+I am afraid that I cannot teach anyone besides Kamael Warders, Arbalesters and Soul Breakers. But contain your disappointment! In Aden, you will undoubtely find other teachers suited for your needs.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Auren:<br>
+I am the master of this Kamael Guild. It is a hard thing, to be this far from home and my comrades.<br>
+Have you met Duroga? This isolation has made him harder than flint, colder than ice.<br>
+He should never have been posted here, but it is our duty to follow orders without question...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

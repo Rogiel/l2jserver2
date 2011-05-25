@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30294" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30294" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Varan</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Varan:<br>
+Welcome to our shop, run by my sister and me. Come inside and you won't be disappointed. We offer items in cooperation with Oren's famous magical Ivory Tower and the renowned Dwarven Breath of Flame Guild. My sister is a bit talkative, so coming to me was a wise choice.<br>
+<a action="bypass -h npc_%objectId%_Buy 3029400">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3029401">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Varan:<br>
+Our shop must be famous, seeing how wanted criminals brave the danger of town to visit us. Well, it's true that there aren't that many shops with such wonderful items or such a dashing owner. Nonetheless ... Recently, someone broke the law and sold an item to a wanted criminal. He was put through great pain. I'm sorry, but please come back when you're free. I promise I will give you the royal treatment.
+</body></html>]]></chat>
+    </talk>
 </npc>

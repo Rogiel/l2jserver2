@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30697" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30697" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Videlrien</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Videlrien:<br>
+It is said that long ago Fairy King Obelius and his people hid themselves deep within the Fairy Forest, away from the savagery and bloodthirst of the Humans. It is also said that Fairies are even longer-lived than the Elves.<br>
+If that is so, perhaps the Fairies still exist, waiting for their chance to avenge so many years of suffering and fear...<br>
+I wonder if even now they influence events. Perhaps what we call madness is merely the Fairies poisoning the minds of those they deem their oppressors.<br>
+Ah! Forgive my musings, my friend.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Videlrien:<br>
+I cannot teach you. You must find another teacher. May the relaxation of the lake engulf you...
+</body></html>]]></chat>
+    </talk>
 </npc>

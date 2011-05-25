@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30904" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30904" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Naiel</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Naiel:<br>
+Innadril is unique, even to an Elf like me. This excessive worship of Eva is...distasteful to me. True Elves focus their adoration on Einhasad, not some watery tart of a lesser goddess.<br>
+Hmph! At least there is a Temple of Einhasad here, even if it's far smaller and less opulent than the one dedicated to Eva. I hope you will find time to visit it and sing praises to the glorious goddess of light! The High Priest of Einhasad can also manage any cleric- or clan-related business. Ah, wait a moment... Why are you here?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Naiel:<br>
+As I said, I only teach Elven Warriors. You should visit the Mystics Guild, the Grand Temple or one of the guilds of the other races. I can't help you...
+</body></html>]]></chat>
+    </talk>
 </npc>

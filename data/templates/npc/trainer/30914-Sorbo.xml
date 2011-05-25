@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30914" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30914" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sorbo</name>
         <title send="false">Prefect</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Prefect Sorbo:<br>
+There is nothing I can do for you. You should prepare yourself for your fate.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Prefect Sorbo:<br>
+Look at these people: cattle, all of them! Ignorant of the coming chaos, heedless of the destruction that draws ever nearer. They content themselves with frivolities and decadence. Fools! Do not neglect your training or be distracted from your path, youngster. A true Orc is ever mindful of Pa'agrio's honor...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

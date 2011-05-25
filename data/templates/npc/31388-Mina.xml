@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31388" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31388" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mina</name>
         <level>70</level>
@@ -22,4 +23,15 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Mina:<br> 
+You don't mind asking personal questions, do you? Well, the easy answer is, because of my lord. She frowns on those who move around too much! When I refer to my lord, I mean the beautiful <font color="LEVEL">lord of the forest</font>, not that despicable pig in the village!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Mina:<br> 
+Welcome! We don't get many visitors in this village! Not many villagers any more, either, come to think of it! They all moved away. The few of us who remain survive by collecting fruit and hunting.<br> 
+It's a small village, but we get by!<br> 
+<a action="bypass -h npc_%objectId%_Chat 1">"Why don't you move to Rune Castle Town?"</a><br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

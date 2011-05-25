@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30617" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30617" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Burai</name>
         <title send="false">Turek Chief</title>
@@ -24,4 +25,10 @@
         <item lefthand="0" righthand="172"/>
         <collision heigth="22.0" radius="9.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Turek Chief Burai:<br>
+Dejakar Turek! I am Burai, the brave. I lead the warriors of Turek, the greatest tribe of all Orcs! The surrounding area is the domain of our Turek Orc kingdom! You who dared to step into our land, be off!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

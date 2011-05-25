@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30950" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30950" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Euclie</name>
         <title send="false">Researcher</title>
@@ -23,4 +24,26 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Researcher Euclie:<br>
+A while back we were visited by investigators from the Ivory Tower. Their scroll of teleport would not function properly here, leading them to surmise that the area around the tower is mysteriously warped. This was likely done by the original designers of the tower in order to prevent invaders from using teleportation to move troops within the tower.<br>
+The only teleportation device that works well here is the dimension vortex. We have not determined why it works while other modes of teleportation do not. Dimension stones allow movement between floors. For example, if you want to go to the <font color="LEVEL">10th floor</font>, you need a <font color="LEVEL">Red Dimension Stone</font>. To return to the <font color="LEVEL">first floor</font>, you will need a <font color="LEVEL">Green Dimension Stone</font>.<br>
+Unfortunately the demons have discovered the dimension vortex, and are in a frenzy trying to collect all the dimension stones they can find. I suppose they want to control all movement within the tower. If you need a dimension stone, you must take one from a demon. It will not be easy. I wish you luck...! Don't get killed!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Researcher Euclie:<br>
+He is a fearless demon who led a legion of his minions in an invasion of the Tower of Insolence. His followers include Longhorn General Golconda and the fearsome Kernon, but Death Lord Hallate himself is the most frightening of all. He is capable of killing six angels single-handedly! He is truly the epitome of evil.<br>
+It is said that he seeks something that is kept on the top floor of this tower. What it is, I haven't a clue!<br>
+It was Hallate who destroyed the force field that was protecting the tower. Ironically, it was this action that made your presence here possible, so we're technically in debt to him.<br>
+Anyway, the conflicts between Hallate's legion and the Platinum tribe and the angels guarding the tower have reduced the entire tower to a battleground.<br>
+Hallate's headquarters is on the third floor. I advise you to keep your distance from him.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Researcher Euclie:<br>
+Welcome! It is a pleasure to see someone with blood flowing through their veins again! You don't work for that demon Hallate, do you? Or some treacherous angel? Oh, well, whatever, I'm glad to see you!<br>
+I am currently researching the <font color="LEVEL">dimension vortex</font>! It is truly amazing! Moments ago I activated it and was instantly transported here from the first floor!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Who is Hallate?"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"What is the dimension vortex?"</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

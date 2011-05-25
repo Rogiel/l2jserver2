@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30718" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30718" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Joan</name>
         <title send="false">Magister</title>
@@ -23,4 +24,23 @@
         <sp>0</sp>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Joan:<br>
+Hmm... Fine, but could you first transcribe this 600 page ancient language text book 20 times? Ha! Just kidding.<br>
+If you are a Cleric you should visit the temple.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Joan:<br>
+This Ivory Tower was nearly destroyed when the Elmoreden Empire fell. It survived not because of its power -- although the Ivory Tower had enough to control the continent -- but because its focus changed to become a pure research and educational institution.<br>
+Some other magisters argue that we should restore our old power, but personally I think we are better off this way.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask why she thinks so.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magister Joan:<br>
+Well... People often see Wizards as cold, remote beings, but in fact they're not. The study of magic simply sharpens certain facets of our personalities. We've all heard stories of some insecure apprentice who becomes an arrogant sorcerer, eh?<br>
+That's how we start down those dark paths. Of course, it seems that magical success depends in part on cultivating those personality traits.<br>
+Me? Uh...well...
+</body></html>]]></chat>
+    </talk>
 </npc>

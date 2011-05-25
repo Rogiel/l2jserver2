@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31670" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31670" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Burns</name>
         <title send="false">Spellbook Seller</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Spellbook Seller Burns:<br>
+Welcome! I'm Burns! I sell spellbooks.<br>
+Ha! It must seem strange to see a specialized book seller like me in a small village like this! Hunters Village may be remote, but it's hard to find a place where you can experience the magic of nature like this! Mystics can be found wherever you travel in this world. So is it so strange to find people like me who cater to them?<br>
+What kind of spellbooks are you interested in?<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

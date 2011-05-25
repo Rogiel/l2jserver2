@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PriestVillageMaster" id="31968" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PriestVillageMaster" id="31968"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Baryl</name>
         <title send="false">High Priest</title>
@@ -24,4 +26,17 @@
         <item lefthand="0" righthand="193"/>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Priest Baryl:<br>
+How long will the peace in Schuttgart last?<br>
+It is not exaggerating much to say that the peace is primarily kept thanks to the freezing weather and rugged terrain. However, the whole area is now infested with bandits. Our peaceful lifestyle is like sweet honey, but unless we take precautions, we may all soon come to taste only bitterness.<br>
+In times like this, the strength of warriors and disciples like ourselves is more important than ever.<br>
+<a action="bypass -h npc_%objectId%_Quest elven_human_buffers_2">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30098" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30098" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Alexandria</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Alexandria:<br>
+Welcome! Thank you so much for visiting our boutique. We sell precious and valuable things that you would never find anywhere else. We've also added some luxury accessories this time. Look around see if you can find anything you like.<br>
+Ah! Now, you can use <font color="LEVEL">Adena</font> to pay for your goods.<br>
+If you would like to purchase a weapon, please ask my husband.<br>
+<a action="bypass -h npc_%objectId%_multisell 300984001">Purchase Armor.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 300984002">Purchase Specialty Items.</a><br>
+<a action="bypass -h npc_%objectId%_Quest PurchaseBracelet">Purchase Agathion Bracelet.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

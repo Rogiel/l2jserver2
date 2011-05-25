@@ -71,8 +71,8 @@ public class XMLMappingTest {
 		//
 		// System.out.println("Took " + ((end - start) / 1000) + " seconds");
 
-		final TeleportationTemplate t = (TeleportationTemplate) u
-				.unmarshal(new File("data/templates/teleports.xml"));
+		final NPCTemplate t = (NPCTemplate) u
+				.unmarshal(new File("data/templates/npc/teleporter/30059-Trisha.xml"));
 		System.out.println(t.getName());
 	}
 }

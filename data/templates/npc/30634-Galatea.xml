@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30634" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30634" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Galatea</name>
         <title send="false">High Summoner</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>High Summoner Galatea:<br>
+High level elementals have the ability to converse intelligently with Humans, as they are the ruling class of their race. The Magicians of the Ivory Tower have defined the hierarchy of elementals into Turen, Tilpo, and Liebe.<br>
+The elementals that have appeared in Gludio are; the Flame Salamander, Earth Wyrm, and Water Undine. Originally, these elementals could only be found in hot magmatic regions, high in the skies, in the vast desert, or within the Deep Sea Waters. But now they are here... It is noteworthy indeed that they have appeared in Human lands.<br>
+Have you actually seen any of these elementals?
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>High Summoner Galatea:<br>
+It is a pleasure to meet you, traveler. I am Galatea, the chief Summoner of the Ivory Tower. I have recently received reports that high level elementals have appeared in Gludio, and have come to investigate.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the elementals.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

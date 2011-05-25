@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31366" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31366" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Feed Seller</name>
         <level>70</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Feed Seller:<br>
+Welcome to the Beast Farm! Anyone can raise a beast in this place. If you are lucky, that beast will then tamely follow you. If you are not so lucky, well...you better hope you can defeat the creature!<br>
+Anyway, I sell feed for beasts here: <font color="LEVEL">Golden Spice</font> and <font color="LEVEL">Crystal Spice</font>.<br>
+Golden Spice helps beasts grow larger, while Crystal Spice helps bones and skins become tougher. If you want a beast to become rich, feed it Golden Spice. If you want to raise it strong, feed it Crystal Spice.<br>
+Why not buy both and compare their effects?<br>
+<a action="bypass -h npc_%objectId%_Buy 3136600">Trade</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

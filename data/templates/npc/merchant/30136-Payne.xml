@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30136" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30136" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Payne</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Paint:<br>
+What would you like to trade?<br>
+<a action="bypass -h npc_%objectId%_Buy 3013600">Trade Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3013601">Trade Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Paint:<br>
+Welcome! Our shop is filled with a variety of excellent equipment, everything a brave and dashing adventurer could ever need! Just let me know if you see something you like...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3013600">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3013601">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

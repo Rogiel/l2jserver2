@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="30719" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="30719" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mariell</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.5"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Mariell:<br>
+You may not enter The Ivory Tower. Go back the way you came.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Mariell:<br>
+Hi there. The Dark Elf Guild is located on the 4th floor, the Elves of Light are on the 3rd, and the Human Mystics are downstairs. With a history stained by blood, don't you think it is encouraging to see the different races gathered in a small tower like this?<br>
+Now, what can I do for you?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Go to another floor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br> 
+<a action="bypass -h npc_%objectId%_goto 31" msg="811;Underground Shopping Area">Underground Shopping Area</a><br1> 
+<a action="bypass -h npc_%objectId%_goto 32" msg="811;1st Floor Lobby">1st Floor Lobby</a><br1> 
+<a action="bypass -h npc_%objectId%_goto 33" msg="811;2nd Floor Human Wizard Guild">2nd Floor Human Wizard Guild</a><br1> 
+<a action="bypass -h npc_%objectId%_goto 35" msg="811;4th Floor Dark Wizard Guild">4th Floor Dark Wizard Guild</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

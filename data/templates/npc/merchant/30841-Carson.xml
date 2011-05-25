@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30841" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30841" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Carson</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Carson:<br>
+Oh my! I'm dreadfully sorry, sir! We don't have what you're looking for. Maybe you should try somewhere else. Alexis has a well-stocked jewelry store right next door..
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Carson:<br>
+Welcome, customer! Is there anything specific that you're looking for today? We have a wide selection of earrings, necklaces, rings and more. In fact, I daresay that we have any accessory worth having. That's the difference between Elmore and Aden, eh? Here in Aden, we believe elegance is always worth the price -- not like those savages to the north! Well, have a look around. Whatever your budget, I'm sure you'll find something that pleases you.<br>
+<a action="bypass -h npc_%objectId%_Buy 3084100">Trade accessories</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3084101">Buy/Sell/Refund Dyes.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 300900001">Purchase either bracelet or talisman</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3084102">Trade a basic type accessory.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

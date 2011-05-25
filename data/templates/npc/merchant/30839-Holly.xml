@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30839" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30839" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Holly</name>
         <title send="false">Grocer</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Holly:<br>
+You don't seem very threatening, but your name is on the list. I am prohibited from dealing with you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Holly:<br>
+Welcome, friend! How do you like Aden? Let me tell you, though: it might look splendid on the outside, but it is beset by many complicated problems within. If those greedy nobles and their military lackies who are after the throne aren't dealt with quickly, this whole land could fall into civil war...<br>
+Oh, what did I just say? Please...forget it. I was just talking gibberish. Now please step away from the door and come over here!<br>
+<a action="bypass -h npc_%objectId%_Buy 3083900">Buy items and minerals.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30084" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30084" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Graham</name>
         <title send="false">Warrior-use Weapon Merchant</title>
@@ -23,4 +24,24 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Graham:<br>
+Welcome! Our shop is filled with history and tradition. We pride ourselves on carrying many rare weapons you won't see elsewhere, from axes handcrafted by famous Dwarven artisans to elegant Mithril weapons that possess the mysterious power of the Elves. Take your time and let me know if you see anything you like. By the way, you should know that there are several <font color="LEVEL">ferocious monsters</font> around here -- don't leave this village without being properly prepared!<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3008400">Try on a Warrior weapon.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the ferocious monsters.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Graham:<br>
+I'm sure you know, but there's a fearsome dragon in the north named Antharas that makes its home there. He hasn't been sighted lately, but the region where he lives is called the Dragon Valley. Only the most fearsome monsters are gathered In those parts. They say that someone met a drake there last week, and barely escaped with his life. Scary, isn't it?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Trader Graham:<br>
+Let's trade! I'm sure we can arrive at a mutually beneficial arrangement. What are you offering?<br>
+<a action="bypass -h npc_%objectId%_Buy 3008400">Trade Warrior equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3008401">Trade basic equipment.</a><br>
+<a action="bypass -h npc_%objectId%_BuyShadowItem">Buy Shadow Item.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

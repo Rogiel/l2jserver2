@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30321" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30321" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sydnia</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Sydnia:<br>
+Oh ... you're a wanted criminal. My man may report you to the village guards if he sees you. Escape to another place at once. I cannot sell to you now, but I trust you will be a future customer. When you are free once more, please pay our shop a visit. Don't forget us.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Sydnia:<br>
+Well, what exactly are you looking for?<br>
+<a action="bypass -h npc_%objectId%_Buy 3032100">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3032101">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3032102">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3032103">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Sydnia:<br>
+What are you looking for? We sell only the best weapons, and we stand behind everything we sell here. Would you like to have a look around? I'm sure you'll find something you like. And I promise you that you won't find lower prices anywhere else!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3032100">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3032101">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

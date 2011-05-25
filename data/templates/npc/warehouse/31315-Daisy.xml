@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="31315" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="31315" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Daisy</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Freighter Daisy:<br>
+??, ??, ?? -- my beloved siblings, all 3 of them, though they can be a handful! Ah well, I wouldn't trade them for their weight in gold. You know, it is very rare for the whole family to be posted to the same place, even within the same guild. We owe our good fortune to Uncle ???.<br>
+Family is so very important, don't you think. We often go too long without showing them how much we care . . . if fortune has smiled on you lately, why not send a gift to your family? You can use our warehouse freight service -- we deliver promptly even over long distances!<br>
+<center>
+<a action="bypass -h npc_%objectId%_Link warehouse/privatewh.htm">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link warehouse/clanwh.htm">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Freighter Daisy:<br>
+Oh, my! I only teach Scavengers and Bounty Hunters, and sometimes the occasional Dwarven Fighter.<br>
+But I'm afraid there's nothing I can teach you...
+</body></html>]]></chat>
+    </talk>
 </npc>

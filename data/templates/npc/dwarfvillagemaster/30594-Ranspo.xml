@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="30594" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="30594"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ranspo</name>
         <title send="false">Warehouse Chief</title>
@@ -23,4 +25,16 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Chief Ranspo:<br>
+I'm Warehouse Chief Ranspo of the Iron Gate Guild here in Gludin. Our motto is "Sell anything to anyone, anywhere." We'll travel to frozen wastes, burning deserts, even fiery volcanic zones, in order to sell our wares and create prosperity for our Dwarven tribe. Ha! Who else can say half as much?<br>
+But you're a new face, hmm? I don't think we've met before. What do you want?<br>
+<a action="bypass -h npc_%objectId%_Quest dwarven_occupation_change">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

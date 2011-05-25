@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="32035" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="32035" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Temple Gatekeeper</name>
         <level>70</level>
@@ -21,4 +22,10 @@
         <sp>0</sp>
         <collision heigth="70.0" radius="28.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Temple Gatekeeper:<br>
+The skull in the center looks as though it could be pressed.<br>
+<a action="bypass -h npc_%objectId%_Quest 1630_PaganTeleporters">Press the skull.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

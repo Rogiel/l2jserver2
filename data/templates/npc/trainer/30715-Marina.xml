@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30715" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30715" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Marina</name>
         <title send="false">Magister</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Marina:<br>
+Welcome to the Ivory Tower! As you may know, this is a hallowed place of learning. Please respect that and speak softly. This is a particularly sensitive time...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">"What's so special about now?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Marina:<br>
+Shhh...! Please be quiet. And, I an not the one you are looking for. Your teacher is on another floor. Check with Gatekeeper Cecilia, she'll head you in the right direction.<br>
+Oh, and if you're a Cleric, it'd be best for you to visit the temple.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magister Marina:<br>
+It is not something that should overly concern you, but Grand Magister Fairen on the 4th floor has been having some strange dreams. His nerves are on edge, so be extra careful near him. As a Dark Elf, he already has a quick temper. At present, he's a virtual powder keg waiting to explode! Perhaps he got too much sun while on the tower roof the other day...
+</body></html>]]></chat>
+    </talk>
 </npc>

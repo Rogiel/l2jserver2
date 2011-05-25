@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30437" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30437" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rolento</name>
         <title send="false">Trader</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Rolento:<br>
+I do not deal with people like you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trade Rolento:<br>
+I'm Rolento, a member of the Silver Scales Guild. I was sent here because there's no better trading spot than here, since it connects Giran with Gludin Harbor. Not very scenic, but good for business. So...how can I help you today?<br>
+<a action="bypass -h npc_%objectId%_Buy 3043700">Buy supplies and minerals.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

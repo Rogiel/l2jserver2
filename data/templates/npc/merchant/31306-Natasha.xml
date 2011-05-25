@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31306" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31306" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Natasha</name>
         <title send="false">Trader</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Natasha:<br>
+Aaaaah~! Murderer~! Monster~!!! Help me~! Get out! Get out! Get the hell out of here!!!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Natasha:<br>
+Wow! You're an adventurer? Really? I envy you! You earn honor and wealth... and everyone loves you!<br>
+Sigh...! I hate my life! Everyday I sit in this store, saying the same things over and over again... "Welcome!" and "Have a nice day!"... Everyday, it's the same thing! I'm so bored!<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the lord and get the tax rate information</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

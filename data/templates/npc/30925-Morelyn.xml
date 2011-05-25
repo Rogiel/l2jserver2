@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30925" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30925" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Morelyn</name>
         <title send="false">High Priestess</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Priestess Morelyn:<br>
+Welcome! I am Morelyn, the high priestess of Eva. I supervise the priests in this temple. We have plenty of space here. If you wish to stay and rest for a while you are welcome.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"What are your responsibilities?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>High Priestess Morelyn:<br>
+I act as the eyes and ears of the goddess in this land. She has given me the power to view, within the waterscape in this temple, everything that is happening in the waters of Innadril. What Fafurion and his minions are up to, that is my main concern.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

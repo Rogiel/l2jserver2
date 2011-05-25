@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31675" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31675" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Viktor Van Deik</name>
         <title send="false">Border Outpost Captain</title>
@@ -24,4 +25,11 @@
         <item lefthand="632" righthand="128"/>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Viktor Van Deik:<br> 
+This place has been the boundary between the two kingdoms for hundreds of years. I trust that you will behave yourself among the foreigners and do nothing to bring discredit, dishonor or even embarrassment upon Aden Kingdom.<br>
+Should you meet "Yeus" on the other side, I'd be obliged if you would give him greetings from me. I know that would make him very happy...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

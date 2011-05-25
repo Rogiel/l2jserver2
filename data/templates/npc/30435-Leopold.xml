@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30435" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30435" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Leopold</name>
         <level>70</level>
@@ -22,4 +23,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Leopold:<br>
+They were brought into the battle to destroy the spirit of the people in Gludio, but even in their homeland they are mercenary troops that are infamous for cruelty and viciousness.<br>
+The two villages' defenses were pierced by the fearsome ol mahums, and the villagers were brutally killed. That is how the Ruins of Despair and the Grim Ruins came about.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Leopold:<br>
+Nice to meet you, traveler. I am Leopold, commander of the third platoon of the Black Lion mercenaries. Our troops are as dignified and courageous as any Knights on this continent. We, the Black Lions, were the ones who defended the Castle of Giran when the drakes flooded Dragon Valley last summer. And we were the ones to destroy the Abellan pirates during the attack of Heine, the Floating City.<br>
+Currently, we have been hired by the lord of Gludio to drive away the remaining troops of Gracia. We must not mistake them for frightened fugitive soldiers. We are dealing with an infamous <font color="LEVEL">foreign troop Ol Mahum</font>, that is known for their cruelty and plundering.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the foreign troops of Ol Mahum</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

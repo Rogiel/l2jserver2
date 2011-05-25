@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="32093" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="32093"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Bolin</name>
         <title send="false">Head Blacksmith</title>
@@ -24,4 +26,17 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Head Blacksmith Bolin:<br>
+Welcome! I am Head Blacksmith Bolin of the Black Anvil Guild here in Schuttgart. After I've finished with you, my lad, you'll be a living testimony to the guild's prowess and prestige.<br>
+Remember that for us crafting is not simply a profession -- it is our purpose in life. It is also our greatest strength, a strength so powerful that none can ignore it.<br>
+Let the other races brag about their armies; we know how idle their boasts really are. How would they wage battle or lay siege to fortresses without the siege golems, weapons and armor that we create? Even their greatest warriors would be as helpless as newborn babes without our labors.<br>
+Mark this well, youngster, craftmanship is far more important than wielding a sword or casting some magic spell.<br>
+<a action="bypass -h npc_%objectId%_Quest dwarven_occupation_change">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30423" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30423" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Northwind</name>
         <level>70</level>
@@ -22,4 +23,16 @@
         <sp>0</sp>
         <collision heigth="21.0" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Norwind:<br>
+Welcome, traveler. This fortress is where the great siege battle occurred during the bloody wars between the Elves and Dark Elves. Many young Elves met their doom here.<br>
+I have been thinking deeply about fate, love and war over here, since traveling the Elven Forest. May I ask you? Are you interested in stories about fate and love? How about a tragic love story I read a few days ago?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Say you would like to hear the story.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Norwind:<br>
+It is a story about two lovers in a time long ago. One day the man discovered that he was infected with an incurable disease.  Even Magic was useless against it. Rather than tell his lover, he feigned anger and forced her away.<br>
+Within a year both were dead, he of the illness and she of a broken heart. Fate can be quite mercilles, don't you think?
+</body></html>]]></chat>
+    </talk>
 </npc>

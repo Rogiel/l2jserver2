@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30334" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30334" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Babenco</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Babenco:<br>
+It was a village that was reduced to ashes by the Ol Mahum soldiers during the war with Gracia. It got its name because people say that they can still hear the sorrowful screams of the slaughtered innocents. The ghosts of the dead haunt the burnt buildings even during the day.<br>
+How to get to the ruins? I don't know why you'd want to go to that cursed village. If you follow this road west, you will come to a fork in the road. Go north, and you will arrive at the Ruins of Agony.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Babenco:<br>
+The region of Gludio was the center of battle in the war with Gracia. After the Gracian army withdrew, the lord began an active restoration project, and we are recovering much of its former beauty, but there are still open wounds of war like the 
+<font color="LEVEL">Ruins of Agony.</font><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the 'Ruins of Agony'.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

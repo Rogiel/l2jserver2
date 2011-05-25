@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32478" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32478" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dimensional Merchant</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Dimensional Merchant:<br>
+Greetings, adventurer! I know I may look strange to you, but I have traveled through time and space, scouring the corners of reality, to bring you the finest wares in all the land.<br>
+My agents are collecting rarities, trinkets, and treasures the likes of which you have never seen. They have not yet returned, but as soon as they do, I will be open for business. <br>
+Visit me again...
+</body></html>]]></chat>
+    </talk>
 </npc>

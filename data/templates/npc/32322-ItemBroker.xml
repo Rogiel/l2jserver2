@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32322" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32322" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Item Broker</name>
         <title send="false">Adventure Guildsman</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventurers Guild Item Trader:<br>
+Welcome! I have never-before-seen items here available for purchase. But since I only have a few, I will auction them off to the highest bidders. Interested?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">View auction rules.</a><br>
+<a action="bypass -h npc_%objectId%_ItemAuction show">Buy Items.</a><br>
+<a action="bypass -h npc_%objectId%_ItemAuction cancel">Retrieve canceled bids.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Special Goods Sales Associate:<br>
+We will sell the items, many of them precious or hard-to-find, only at the time of the auction, which will be announced in advance.<br>
+Once items are registered, they will auctioned off to the highest bidder.<br>
+All non-winning bidders will receive a refund in the exact amount of the money they unsucessfully bid on an item. The highest bidder will receive the item (at the cost specified).<br>
+Ah...you were outbid. Please note your refund and proceed with next bid. If there is a passed-in price, the auction will stop.<br>
+After the auction ends, the highest bidder can obtain his or her new items at the warehouse.<br>
+If the passed-in amount is not redeemed within one week, we will keep the amount. A long-term deposit is impossible due to the large number of customers.<br>
+Remember: items are non-returnable, so make your selection carefully!
+</body></html>]]></chat>
+    </talk>
 </npc>

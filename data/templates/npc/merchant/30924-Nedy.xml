@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30924" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30924" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nedy</name>
         <title send="false">Wharf Manager</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Wharf Manager Nedy:<br>
+Innandril has come through many bloody wars relatively unscathed. Lionel Hunter was a very good leader, skilled in both diplomatic and military matters. Under his rule Innandril's wealth began to rival that of Giran. But that was then and this is now. Chaos swirls around us and no one knows where we will end up!<br>
+Anyway, what do I know? I'm just an old wharf rat. By the way, would you like to buy a ticket for the ferry?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"I Will buy a ticket for the ferry."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View the information about the lord and the tax rate of the manor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Wharf Manager Nedy:<br>
+Ha, just kidding! The ferry doesn't charge a toll.<br>
+The boat makes a stop at Devil's Isle, goes around near Innandril Castle then returns to Heine. It is a very romantic cruise. If you find a new love, bring them for the ride. You will have a lovely time together on our boat.
+</body></html>]]></chat>
+    </talk>
 </npc>

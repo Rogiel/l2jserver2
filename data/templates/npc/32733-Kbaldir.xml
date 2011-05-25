@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32733" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32733" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kbaldir</name>
         <title send="false">Commander</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="27.5" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Commander Kbaldir:<br>
+It's been a long time since part of our fleet crashlanded into the <font color="LEVEL">Seed of Annihilation</font>.<br>
+I'm told the Seed abounds with a plethora of strange organisms that might be worthy of study if they weren't so dangerous.<br>
+Unfortunately that's all a null point anyway because right now, our priority is to get able bodies out there to help bring back lost soldiers and repair the fleet. I came back to Kucereus' Outpost alone to recruit those that seem strong enough to make it out in there.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

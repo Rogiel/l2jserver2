@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Sepulcher" id="31923" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Sepulcher" id="31923" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Great Sages' Sepulcher Manager</name>
         <level>70</level>
@@ -22,4 +23,31 @@
         <sp>0</sp>
         <collision heigth="21.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="NL"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+The party leader must place hands on the statue.
+</body></html>]]></chat>
+        <chat id="SE"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+%member% does not have a pass to enter.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+A weird-looking stone statue.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="FULL"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+Sepulcher is full. Try again later.
+</body></html>]]></chat>
+        <chat id="SP"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+A party must consist of at least four members. Come back later.
+</body></html>]]></chat>
+        <chat id="NS"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+%member% must talk with the Nameless Soul to get permission.
+</body></html>]]></chat>
+        <chat id="NE"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+No entry. Try again later.
+</body></html>]]></chat>
+        <chat id="OK"><![CDATA[<html><body>Great Sages' Sepulcher Manager:<br>
+Enter!
+</body></html>]]></chat>
+    </talk>
 </npc>

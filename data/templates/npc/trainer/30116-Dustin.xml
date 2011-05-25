@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30116" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30116" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dustin</name>
         <title send="false">Priest</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Dustin:<br>
+Welcome to the Temple of Einhasad, my young friend. Here, priests pass on the divine knowledge granted to us by the goddess of light.<br>
+Of course, that power must only be used for healing and protection, despite the example of those who would use it for war. Swear to abide by the teachings of our faith and I will teach you all I know.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Dustin:<br>
+Welcome, young friend, to the Temple of Light. Have you come here to learn? I am sorry, but there is no one here who can teach you. My fellow priests and I only receive Human Mystics who seek introduction into the ways of Einhasad.
+</body></html>]]></chat>
+    </talk>
 </npc>

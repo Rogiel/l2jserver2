@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KamaelVillageMaster" id="32140" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="KamaelVillageMaster" id="32140"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Zenya</name>
         <title send="false">Vice Hierarch</title>
@@ -23,4 +25,20 @@
         <sp>0</sp>
         <collision heigth="22.25" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Vice Hierarch Zenya:<br>
+Vice Hierarch Casca can tell you about the skills available to male Kamael -- I can tell you of the Arbalesters, those skilled female Kamael who make up the secret Steelrazor force.<br>
+Strictly speaking, not all Arbalesters belong to the Steelrazor, just as not all Human Knights belong to a guild.<br>
+Arbalesters learn to mislead and deceive their enemies through their stealth and skill at trapping. Their weapon of choice is the Bow.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Vice Hierarch Zenya:<br>
+I am Vice Hierarch Zenya. I assist the Hierarch and watch over you, our young Kamael warriors, who are leaving the safety of our little nest.<br>
+Now that the seal on the Kamael has been broken and other races come in and out of the village as they please, I am concerned that the Kamael who leave this place will forget our ancient traditions and customs. Certainly they are very different from those of the outside world...<br>
+Do not forget! Cling tightly to the skills, the culture and the spirit of the Kamael.<br>
+<a action="bypass -h npc_%objectId%_Quest kamael_occupation_change">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Arbalester.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

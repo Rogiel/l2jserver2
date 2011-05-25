@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31862" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31862" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Angelic Vortex</name>
         <level>70</level>
@@ -21,4 +22,22 @@
         <sp>10</sp>
         <collision heigth="35.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Angelic Vortex:<br>
+The Angelic Vortex emits a faint light, in the midst of which an image appears. A large, open space... but the gigantic, human-like stone statue is no longer there.<br>
+It seems that while the statue is not visible, one could cross over to that place.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the stone statue.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Angelic Vortex:<br>
+The Angelic Vortex emits a faint light, and in the midst of the light an image appears. In the deepest part of a specious area, a gigantic stone statue is visible. The statue has a human-like appearance and is in a seated position, as though it was being held by some invisible force against its will.<br>
+<a action="bypass -h npc_%objectId%_Quest baium">Go where the Angelic Vortex leads.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Angelic Vortex:<br>
+In ancient times a mighty emperor named Baium became so enamored of his own power that he began to fancy himself a god. He conscripted all of his people to build an awesome tower that reached almost to heaven.<br>
+The gods were not amused. They struck him down, cursed him with immortality and imprisoned him in his own tower for eternity! A statue of the foolish emperor stands there to this day.<br>
+Occasionally, the old emperor himself is woken up by those who seek his power. Unfortunately, when Baium is disturbed, so are the angels who guard him.<br>
+Although the angels are certainly no friend of Baium, they regard Humans with equal disdain. <font color="LEVEL">Ultimate success against Baium depends upon the defeat of the guardian angels.</font><br>
+This is all I can tell you. Good luck!
+</body></html>]]></chat>
+    </talk>
 </npc>

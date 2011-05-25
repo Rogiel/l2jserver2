@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="OrcVillageMaster" id="32097" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="OrcVillageMaster" id="32097"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Finker</name>
         <title send="false">High Prefect</title>
@@ -23,4 +25,14 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Prefect Finker:<br>
+Pa'agrio Tejakar! Welcome! I am High Prefect Finker, and I teach Orcs by the authority of Pa'agrio, the father of eternal fire, that we may once more attain the lost glory of our ancestors of old. My mission is to transform talented Orcs like you, my young friend, into strong and steely Orc warriors feared by all races. Do you wish to be reborn as a powerful Orc warrior?<br>
+<a action="bypass -h npc_%objectId%_Quest 30500_osborn_occupation_change">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

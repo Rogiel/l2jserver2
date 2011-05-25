@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31339" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31339" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hakran</name>
         <title send="false">Amulet Seller</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="29.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Amulet Seller Hakran:<br>
+When I first arrived, I was shocked to see so much information stored here. Between you and me, I think Humans must write everything down to compensate for their bad memories!<br>
+Seriously, though, it makes me realize that there is so much for young Orcs to learn in this world. Youth is precious, but it must be used wisely -- don't you agree?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

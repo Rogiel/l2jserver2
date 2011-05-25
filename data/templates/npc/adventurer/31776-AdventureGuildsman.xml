@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Adventurer" id="31776" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Adventurer" id="31776" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Adventure Guildsman</name>
         <level>70</level>
@@ -23,4 +24,13 @@
         <item lefthand="20" righthand="156"/>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventure Guildsman:<br>
+Our guild's mission is to gather and disseminate information regarding adventures. Think of us as information brokers. You won't find our information anywhere else, my friend!<br>
+What sort of adventure are you interested in?<br>
+<a action="bypass -h npc_%objectId%_questlist">Quest Information</a><br>
+<a action="bypass -h npc_%objectId%_Quest RaidbossInfo">Raid Monster Information</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

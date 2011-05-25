@@ -17,24 +17,32 @@
 package com.l2jserver.model.template;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.MarshalException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.io.FileUtils;
+
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.template.NPCTemplate.Chat;
 import com.l2jserver.model.template.NPCTemplate.DropItemMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.CollisionMetadata;
@@ -49,22 +57,33 @@ import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsM
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.MoveMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.Stat;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
+import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.util.factory.CollectionFactory;
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 public class NPCTemplateConverter {
 	private static final String JDBC_URL = "jdbc:mysql://localhost/l2j-old";
 	private static final String JDBC_USERNAME = "l2j";
 	private static final String JDBC_PASSWORD = "changeme";
+	private static final File L2J_HTML_FOLDER = new File(
+			"../L2J_DataPack_BETA/data/html");
 
 	private static List<NPCTemplate> templates = CollectionFactory.newList();
+	private static Collection<File> htmlScannedFiles;
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws SQLException, IOException,
 			ClassNotFoundException, JAXBException {
 		Class.forName("com.mysql.jdbc.Driver");
-		final File target = new File("generated/template");
+		final File target = new File("data/templates");
 
-		System.out.println("Generating template classes...");
+		System.out.println("Scaning legacy HTML files...");
+		htmlScannedFiles = FileUtils.listFiles(L2J_HTML_FOLDER, new String[] {
+				"html", "htm" }, true);
+
+		System.out.println("Generating template XML files...");
 
 		final JAXBContext c = JAXBContext.newInstance(NPCTemplate.class);
 		c.generateSchema(new SchemaOutputResolver() {
@@ -101,37 +120,54 @@ public class NPCTemplateConverter {
 				final File file = new File(target, "npc/"
 						+ folder
 						+ "/"
-						+ t.id
+						+ t.id.getID()
 						+ (t.info.nameMetadata != null ? "-"
 								+ camelCase(t.info.nameMetadata.name) : "")
 						+ ".xml");
 				file.getParentFile().mkdirs();
 				templates.add(t);
 
-				// m.marshal(t, file);
-
-				// m.marshal(t, System.out);
+				// if (t.id.getID() == 30059) {
+				// m.marshal(t, getXMLSerializer(System.out));
 				// System.exit(0);
+				// }
+
+				try {
+					m.marshal(t, getXMLSerializer(new FileOutputStream(file)));
+				} catch (MarshalException e) {
+					System.err
+							.println("Could not generate XML template file for "
+									+ t.getName() + " - " + t.getID());
+					file.delete();
+				}
 			}
 
+			System.out.println("Generated " + templates.size() + " templates");
+
 			System.gc();
-			System.out.println("Free: " + Runtime.getRuntime().freeMemory()
-					/ 1024 / 1024 + " MB");
-			System.out.println("Total: " + Runtime.getRuntime().totalMemory()
-					/ 1024 / 1024 + " MB");
-			System.out.println("Used: "
-					+ (Runtime.getRuntime().totalMemory() - Runtime
-							.getRuntime().freeMemory()) / 1024 / 1024 + " MB");
-			System.out.println("Max: " + Runtime.getRuntime().maxMemory()
-					/ 1024 / 1024 + " MB");
+			System.out.println("Free: "
+					+ FileUtils.byteCountToDisplaySize(Runtime.getRuntime()
+							.freeMemory()));
+			System.out.println("Total: "
+					+ FileUtils.byteCountToDisplaySize(Runtime.getRuntime()
+							.totalMemory()));
+			System.out
+					.println("Used: "
+							+ FileUtils.byteCountToDisplaySize(Runtime
+									.getRuntime().totalMemory()
+									- Runtime.getRuntime().freeMemory()));
+			System.out.println("Max: "
+					+ FileUtils.byteCountToDisplaySize(Runtime.getRuntime()
+							.maxMemory()));
 		} finally {
 			conn.close();
 		}
 	}
 
-	private static NPCTemplate fillNPC(ResultSet rs) throws SQLException {
+	private static NPCTemplate fillNPC(ResultSet rs) throws SQLException,
+			IOException {
 		final NPCTemplate template = new NPCTemplate();
-		template.id = null;
+		template.id = new NPCTemplateID(rs.getInt("idTemplate"), null);
 		template.type = createParentType(rs.getString("type"));
 		template.info = new NPCInformationMetadata();
 
@@ -214,9 +250,9 @@ public class NPCTemplateConverter {
 		template.info.collision.height = rs.getDouble("collision_height");
 
 		// TODO import teleporter data
-		// TODO import html files
 
 		template.droplist = fillDropList(rs, template.id.getID());
+		template.talk = fillHtmlChat(template.id.getID());
 
 		return template;
 	}
@@ -243,6 +279,33 @@ public class NPCTemplateConverter {
 		if (drops.size() == 0)
 			return null;
 		return drops;
+	}
+
+	private static TalkMetadata fillHtmlChat(int npcId) throws IOException {
+		final TalkMetadata talk = new TalkMetadata();
+		talk.defaultChat = "default";
+		talk.chats = CollectionFactory.newList();
+		for (final File file : htmlScannedFiles) {
+			String id = null;
+			if (file.getName().startsWith(npcId + "-")) {
+				int preffixLength = (npcId + "-").length();
+				id = file.getName().substring(preffixLength,
+						file.getName().indexOf("."));
+			} else if (file.getName().startsWith(npcId + ".")) {
+				id = "default";
+			}
+			if (id != null && !file.getAbsolutePath().contains("/half/")
+					&& !file.getAbsolutePath().contains("/free/")) {
+				Chat chat = new Chat();
+				chat.id = id;
+				chat.html = FileUtils.readFileToString(file);
+				talk.chats.add(chat);
+			}
+		}
+
+		if (talk.chats.size() == 0)
+			return null;
+		return talk;
 	}
 
 	private static String camelCase(String c) {
@@ -284,5 +347,27 @@ public class NPCTemplateConverter {
 		if (l2j.toLowerCase().contains("xmasstree"))
 			return "misc";
 		return l2j.toLowerCase();
+	}
+
+	private static XMLSerializer getXMLSerializer(OutputStream w) {
+		// configure an OutputFormat to handle CDATA
+		OutputFormat of = new OutputFormat();
+
+		// specify which of your elements you want to be handled as CDATA.
+		// The use of the '^' between the namespaceURI and the localname
+		// seems to be an implementation detail of the xerces code.
+		// When processing xml that doesn't use namespaces, simply omit the
+		// namespace prefix as shown in the third CDataElement below.
+		of.setCDataElements(new String[] { "^chat" });
+
+		// set any other options you'd like
+		of.setPreserveSpace(false);
+		of.setIndenting(true);
+
+		// create the serializer
+		XMLSerializer serializer = new XMLSerializer(of);
+		serializer.setOutputByteStream(w);
+
+		return serializer;
 	}
 }

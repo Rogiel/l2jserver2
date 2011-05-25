@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31259" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31259" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Janne</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Janne:<br>
+Well, what can I get you?<br>
+<a action="bypass -h npc_%objectId%_Buy 3125900">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3125901">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Janne:<br>
+Welcome! Do you need a sharp sword? Glittering steel armor? Just say the word!<br>
+Oh, that man over there? He's my father. Look how strong he is; he still carries heavy loads all by himself. He says he doesn't trust young people these days...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3125900">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3125901">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Janne:<br>
+Do you see my father over there? I'm telling you nicely! Leave before I call him over here!
+</body></html>]]></chat>
+    </talk>
 </npc>

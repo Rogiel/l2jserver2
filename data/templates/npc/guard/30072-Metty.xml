@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30072" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30072" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Metty</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Metty:<br>
+You really are a bother. You want to know about that place in detail? Haven't you heard what I've said? Are you deaf? If you are that curious, go see it with your own two eyes! And don't annoy my exalted self any more!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Metty:<br>
+Ahh... What is it?! Can't you see I'm on duty? This soldier has no time to chatter leisurely with the likes of you, country wanderer. Don't be a nuisance. Do me a favor and disappear from my sight.<br>
+Hey, country bumpkin! There is a village that suits the likes of you. If you follow this road in front of me you will come to a village called<font color="LEVEL"> Floran.</font> It s a country village that is suitable for a hillbilly like you.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Floran in detail.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

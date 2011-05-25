@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32294" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32294" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Budenka</name>
         <title send="false">Harbor Caravaner</title>
@@ -23,4 +24,26 @@
         <sp>0</sp>
         <collision heigth="58.5" radius="33.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Budenka:<br>
+Oh... From your appearance, I can see that you have crossed the Great Sea to come here.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask who he is.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask if he knows Jirrone.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask if he knows Beleth.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">Ask if he knows Bernarde.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Budenka:<br>
+You will find out soon enough, of that I am sure. Ha ha!
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Budenka:<br>
+Bernarde is the divine official staying at Oasis. He is working hard to restore the ruins, which were once a sacred shrine, but is facing a number of challenges. To be honest, as long as Beleth governs this land, I think his chances for success are remote at best...
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Budenka:<br>
+He was a resident here? I wonder how he escaped... You'd best ask Bernarde over at the Oasis.
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Budenka:<br>
+Who is Beleth, you ask? Only the master of this island! Sure, it's rumored that he is actually a Demon, but as long as he rules fairly and well, I say "Who cares?" 
+</body></html>]]></chat>
+    </talk>
 </npc>

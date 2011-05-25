@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PetManager" id="36478" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PetManager" id="36478" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mickey</name>
         <title send="false">Pet Trader</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body><br>
+Through the restore function, you can transform a pet that has been evolved into a special form back to its original form. Since the process transfers the experience value, restoring a high level pet might actually result in a decrease in the pet's level.<br>
+Any items in the pet's inventory will be transferred to the owner's inventory.<br>
+Which pet would you like to restore?<br><br>
+<a action="bypass -h npc_%objectId%_restore 1">Restore Great Snow Wolf to Great Wolf.</a><br>
+<a action="bypass -h npc_%objectId%_restore 2">Restore Snow Fenrir to Fenrir.</a><br>
+<a action="bypass -h npc_%objectId%_restore 3">Restore Red Wind Strider to Wind Strider.</a><br>
+<a action="bypass -h npc_%objectId%_restore 4">Restore Red Star Strider to Star Strider.</a><br>
+<a action="bypass -h npc_%objectId%_restore 5">Restore Red Twilight Strider to Twilight Strider.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

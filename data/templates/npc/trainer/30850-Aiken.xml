@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30850" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30850" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Aiken</name>
         <title send="false">Master</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Aiken:<br>
+There's something afoot in the Cemetery. Some Dwarven bandits named the Magpie Brothers are tunneling into tombs and robbing the dead...and they're not alone. I doubt even Maphr would condone such behavior...<br>
+A few days ago I gave a lecture on how to capture Dwarves alive. Would you like to hear some tips?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Aiken:<br>
+Regretfully, I only teach Human warriors. All masters must teach only those of their own race. I wouldn't mind helping you if just have a personal request, but it would behoove you to find another master.<br>
+Here in this mighty capital of the kingdom of Aden, surely you will find a suitable teacher.
+</body></html>]]></chat>
+    </talk>
 </npc>

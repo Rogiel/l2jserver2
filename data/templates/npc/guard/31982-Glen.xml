@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31982" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31982" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Glen</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Glen:<br>
+If you must blame someone for the situation, you should look beyond the monsters. I won't name names, but the wandering merchants are certainly part of the problem. They have no loyalty whatsoever for this village! They only think about adena!<br>
+The Dwarven and Orcish merchants are the worst! Rivalries between the two races are threatening to boil over at any moment! This is bound to end horribly!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Glen:<br>
+You may not enter the village if you possess contraband or your identification is not in order. I'll need to check your papers and belongings. Thanks for your cooperation.<br>
+Is this your first time here? This is a dangerous place for adventurers, my friend! Captain Vishotsky keeps the peace here, but the forest out there is a different matter! All sorts of vicious monsters lurk just outside the walls of this village! Even the mighty Vishotsky can't kill all of them!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Please describe the structure of the upper and lower levels."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

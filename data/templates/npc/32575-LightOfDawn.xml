@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32575" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32575" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Light of Dawn</name>
         <title send="false">Teleporter</title>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="15.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Teleporter Light of Dawn:<br>
+You hear what sounds like a human voice emanating from the shining blue sphere.<br>
+"I am the light of Dawn. Those who seek entry to the Sanctum must first seek authorization, and have specific documents on their person. Do you wish to gain access?"<br>
+<a action="bypass -h npc_%objectId%_Quest">Move into the light.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

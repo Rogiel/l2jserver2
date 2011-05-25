@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30592" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30592" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hestui Totem Spirit</name>
         <level>70</level>
@@ -22,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="40.0" radius="21.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Hestui Totem Spirit:<br>
+...Growl... Who dares to speak to me? I am the great totem spirit of Kasha. The guardian deity that protects and leads the offspring of Hestui... If you don t have any business with me, go away, before I bite off your head and swallow your heart!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

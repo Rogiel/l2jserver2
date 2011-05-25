@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30577" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30577" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Rukain</name>
         <title send="false">Praetorian</title>
@@ -24,4 +25,18 @@
         <item lefthand="0" righthand="279"/>
         <collision heigth="27.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Praetorian Rukain:<br>
+I'm in charge of the forces protecting the <font color="LEVEL">Immortal Plateau</font> and the village of proud Orcs!<br>
+Never let anything threaten our sacred heritage!<br> 
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Immortal Plateau."</a><br> 
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Praetorian Rukain:<br>
+<font color="LEVEL">Immortal Plateau</font>! The region where our Orcs live is called the Immortal Plateau. Originally, it was a sacred place for worshipping our ancestors. However, 2,000 years ago we were defeated by the Elves and we settled here to live.<br>
+You, young Orc, you have to gain power so that our kind will never be disgraced again. Do you understand?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

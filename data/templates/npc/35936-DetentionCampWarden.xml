@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="35936" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="35936" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Detention Camp Warden</name>
         <title send="false">Borderland Fortress</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warden:<br>
+This is a dangerous place. Don't come around here unless you have the will and skill to survive.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">"I heard a rumor about Rim Pailaka."</a><br>
+<a action="bypass -h Quest Q511_AwlUnderFoot enter">"Let me enter"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">"Quest"</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

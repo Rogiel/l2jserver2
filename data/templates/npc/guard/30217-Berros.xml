@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30217" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30217" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Berros</name>
         <title send="false">Sentinel</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="276"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Sentinel Berros:<br>
+There was a time when I traveled here and there on the continent and saw many races and what the Humans call "cities" -- massive forests of buildings made by Human hands. I was astonished by the large size of the market in Giran, the splendor of Heiness the Floating City, and the overwhelming grandeur of Castle Aden. However, most Human villages are lifeless, cold places built by butchering the land.<br>
+When I finished my travels and returned to the small, quiet village upon the lake in the Elven Forest, I finally realized that this was the true home for all Elves.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Sentinel Berros:<br>
+May the peace of the lake rest upon you. My name is Berry, one of the Sentinels who guard the forest and the Mother Tree Glade.<br>
+When I was young like you, I had opportunities to travel to many places around the continent. I have seen many places, but none are as beautiful as our Elven village.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the world outside the forest.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

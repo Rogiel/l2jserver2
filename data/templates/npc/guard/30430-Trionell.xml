@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30430" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30430" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Trionell</name>
         <title send="false">Sentinel</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="130"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sentinel Trionell:<br>
+May the twinkle of starlight become a beautiful song that wholly fills your soul. I am Trionell, one of the sentinels who guard the Elven Forest. This place is the <font color="LEVEL">Neutral Zone</font> which was made when the Elves and Dark Elves signed a peace agreement. <br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Neutral Zone.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sentinel Trionell:<br>
+The Neutral Zone begins right after crossing this bridge. After the war between the Elves and Dark Elves, the area was designated as a Neutral Zone to prevent conflict. It has played its role as a buffer zone for a long time.<br>
+Since neither side steps into this zone, the forest is thick, and all sorts of strange life forms that cannot be seen elsewhere gather here.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="32158" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="32158"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Fisler</name>
         <title send="false">Warehouse Chief</title>
@@ -23,4 +25,15 @@
         <sp>0</sp>
         <collision heigth="18.4" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Chief Fisler:<br>
+Ha ha! Yah, I am pretty busy. Hey, Kincaid! Tell Hoffa to come see me soon!<br>
+So...are you an adventurer? What brings you to me?  Is it work for the Dwarven Ambassador, the Warehouse Chief or the Isle of Souls Supply Distribution Manager ?<br>
+Well, if you are an adventurer, you must have come for me, the Warehouse Chief. My time is valuable, so just get to the point!<br>
+<a action="bypass -h npc_%objectId%_Quest dwarven_occupation_change">Listen to information about 1st class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

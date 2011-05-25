@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31679" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31679" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Eustace Van Essen</name>
         <title send="false">Frontier Guard Captain</title>
@@ -24,4 +25,12 @@
         <item lefthand="0" righthand="70"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Frontier Guard Captain Eustace Van Issen:<br>
+Hey there, traveler! You wouldn't happen to be carrying out any prohibited items now, would you? We're seeing more and more smuggling across the border lately...<br>
+Hmm... Nothing out of the ordinary here, I suppose. Alright, you can go. Have a safe passage on your return trip home.<br>
+Say, if you meet that rat Van Deik on the other side, tell him that I'll deal with him soon enough. Tell him that his days are numbered! Keuk!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

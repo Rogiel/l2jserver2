@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30384" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30384" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Linus</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Lynch:<br>
+Hello, traveler. Are you planning to go to Gludio Castle Town that lies before the lord s castle? If you are, take the road here in front of me, and follow it northwest. However, you must be extra careful when you pass the <font color="LEVEL">Abandoned Camp.</font><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the 'Abandoned Camp'.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Lynch:<br>
+Originally, it was a camp set up by the troops of Gracia. It was abandoned for some time after Gracia lost the war and withdrew their troops. However, now ol mahum's band has made their camp there.<br>
+The ol mahums were mercenaries employed by Gracia, but after the war they were unable to return to their country, and they remain here living as bandits. They are such scoundrels! I think the Gracian army abandoned them, if you want my opinion.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

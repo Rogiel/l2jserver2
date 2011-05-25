@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30042" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30042" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Abellos</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Abellos:<br>
+Hello! My name is Abellos. For now, I am merely a guard here on this little island, but some day I may seek my fortune on the great continent across the sea. When I've saved enough money, I plan to buy a ticket to Gludio at the <font color="LEVEL">harbor</font>.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the harbor</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Abellos:<br>
+You can take a regular liner to the mainland of Gludio. The boat fare is a little expensive, but your journey will be safe.<br>
+To go to the harbor, follow the coastline west. If you want to take the boat, buy a ticket from the wharf manager Fallius.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

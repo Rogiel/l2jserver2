@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30981" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30981" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Black Judge</name>
         <level>70</level>
@@ -22,4 +23,21 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><head>
+<body>Black Judge:<br>
+Death leaves a scar which all must bear.<br>
+Do you wish it to be healed completely?<br>
+ As I see you are a true adventurer, I will heal this wound and remove death's scar.<br>
+<a action="bypass -h npc_%objectId%_remove_dp 2">Remove 1 level of Death Penalty (%dp_price% adena).</a></body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Black Judge:<br>
+You have no more death wounds that require healing.<br>
+Go forth and fight, both for this world and your own glory.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><head>
+<body>Black Judge:<br>
+I came to this land to save those poor souls who are contaminated by sin. We black judges do not divide good and evil by light and darkness. We help instead those with strong wills and noble souls -- whether or not they wish our help. Come, sinners, come to us . . .<br>
+<a action="bypass -h npc_%objectId%_remove_dp 1">Remove Death Penalties.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a></body></html>]]></chat>
+    </talk>
 </npc>

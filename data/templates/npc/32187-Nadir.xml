@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32187" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32187" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nadir</name>
         <title send="false">Vice Hierarch</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="22.25" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Elder Nadir:<br>
+I heard the sound of your stamping feet before, haven't I? This is the holy altar of Nornil? Keep quiet and show reverence! <br>
+Do you intend to enter <font color="LEVEL">Nornil's Cave</font>? Then be warned. It is the birthplace of most of the monsters on the Isle of Souls. Many Kamael have entered through the years; few have ever emerged. <br>
+You have chosen a thorny path indeed... <br><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a></body></html>]]></chat>
+    </talk>
 </npc>

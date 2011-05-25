@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32264" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32264" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kanis</name>
         <level>70</level>
@@ -22,4 +23,12 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Kanis:<br>
+I am Priest Kanis, and I serve the great Shamaness Parme of the Crystal Oracle, who offered herself as a sacrifice in order to appease the Water Dragon Fafurion.<br>
+Several days ago, Demons, crazed sevants of the Water Dragon and Crystal Golems attacked the Oracle it was completely destroyed, and the people of the Oracle were killed or captured.<br>
+Only I was able to escape to seek help...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

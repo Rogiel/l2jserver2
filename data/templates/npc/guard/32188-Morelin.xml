@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32188" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32188" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Morelin</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,18 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="22.5" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marksman Morelin:<br>
+Finally you have come!<br>
+If you continue south from here, you will see the Nornil's Cave. There you will find 3 statues of destiny.<br>
+If you have questions about life or fate, you may ask them -- if they will it, you may receive the answer you seek.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Nornil's Cave.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information on the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Marksman Morelin:<br>
+The Nornil's Cave houses the 3 goddesses of destiny as well as Nornil, caretaker of the Kamael.<br>
+It is also the origin of most of the monsters who inhabit the Isle of Souls. Once in our lives, we Kamael must venture into the Cave to meet the 3 goddesses. Until that day comes, train your body, mind and spirit in preparation!
+</body></html>]]></chat>
+    </talk>
 </npc>

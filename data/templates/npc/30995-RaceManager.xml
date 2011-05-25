@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30995" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30995" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Race Manager</name>
         <level>70</level>
@@ -22,4 +23,508 @@
         <sp>0</sp>
         <collision heigth="21.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>
+<center>Monster Race <font color="00ffff">Single</font> Ticket Purchase (Race #<font color="LEVEL"> 1race</font>)<br1>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+</center>
+<table width=270 border=0 bgcolor="111111">
+<tr>
+<td fixwidth=60>Lane Selection</td>
+<td fixwidth=140 align=center>Racer's Name</td>
+<td fixwidth=40 align=center>Rating</td>
+<td fixwidth=30 align=right>Odds</td>
+</tr>
+</table>
+
+<table width=270 border=0>
+<tr>
+<td fixwidth=13><img src="L2UI.rightBtn2" width=14 height=13></td>
+<td fixwidth=30>0place</td>
+<td fixwidth=152><font color="LEVEL">Mob1</font></td>
+<td fixwidth=50 align=center>&$745;</td>
+<td fixwidth=30 align=right><font color="00ffff">13%</font></td>
+</tr>
+</table>
+
+<table width=270 border=0 bgcolor=111111>
+<tr>
+<td fixwidth=60>Bet Amount </td>
+<td fixwidth=200></td>
+</tr>
+<tr>
+<td>Bet Amount </td>
+<td><font color="LEVEL">0adena</font> Adena</td>
+</tr>
+<tr>
+<td>Tax </td>
+<td><font color="LEVEL">0tax</font> Adena</td>
+</tr>
+<tr>
+<td>Total </td>
+<td><font color="LEVEL">0total</font> Adena</td>
+</tr>
+</table>
+<br>
+<center>If the information is correct, please click Confirm.</center><br>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=70 height=20><button value=&$141; action="bypass -h npc_%objectId%_Chat 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=130 align=center><button value="Select Lane" action="bypass -h npc_%objectId%_BuyTicket 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=70 align=right><button value=&$140; action="bypass -h npc_%objectId%_BuyTicket 21" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+</tr>
+</table>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>
+<center>Monster Race Manager</center>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+<table width=270 border=0>
+<tr><td width=270><a action="bypass -h npc_%objectId%_Chat 1">Monster Race Help</a></td></tr>
+<tr><td width=270><a action="bypass -h npc_%objectId%_ShowOdds">View Odds</a></td></tr>
+<tr><td width=270><a action="bypass -h npc_%objectId%_ShowInfo">View Monster Information</a></td></tr>
+<tr><td width=270><a action="bypass -h npc_%objectId%_BuyTicket 0">Purchase Ticket</a></td></tr>
+<tr><td width=270><a action="bypass -h npc_%objectId%_Chat 7">Calculate Winnings</a></td></tr>
+<tr><td width=270><a action="bypass -h npc_%objectId%_Chat 9">View Past Results</a></td></tr>
+<tr><td width=270><a action="bypass -h npc_%objectId%_Quest 1101_teleport_to_race_track" msg="1298;Monster Race Track">Exit the monster race track.</a></td></tr>
+</table>
+
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>
+<center>Monster Race Betting <font color="00ffff">To Win</font> View Odds (Race #<font color="LEVEL"> 1race</font> )<br1>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+</center>
+<table width=270 border=0 bgcolor=111111>
+<tr>
+<td fixwidth=40 align=left>Lane</td>
+<td fixwidth=130 align=center>Racer's Name</td>
+<td fixwidth=100 align=right>Odds</td>
+</tr>
+</table>
+
+<table width=270 border=0>
+<tr>
+<td fixwidth=40>No.1</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob1</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.2</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob2</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.3</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob3</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.4</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob4</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.5</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob5</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.6</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob6</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.7</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob7</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+
+<tr>
+<td fixwidth=40>No.8</td>
+<td fixwidth=130 align=left><font color="LEVEL">Mob8</font></td>
+<td fixwidth=100 align=right><font color="00ffff">&$804;</font> </td>
+</tr>
+</table>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=90 height=20><button value="Back" action="bypass -h npc_%objectId%_Chat 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=90></td>
+<td width=90 align=right><button value="Racer Info" action="bypass -h npc_%objectId%_ShowInfo" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+</tr>
+</table>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body>
+<center>Confirm Monster Race Bet / Calculate Winnings</center>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+<table width=270 border=0 bgcolor=111111>
+<tr><td fixwidth=60>Winnings for a Race.</td><td fixwidth=60 align=right>Lane</td><td fixwidth=160 align=right>Bet Amount</td></tr>
+<tr><td fixwidth=60 fixheight=1></td><td fixwidth=60></td><td fixwidth=160></td></tr>
+</table>
+<table width=270 border=0>
+<tr>
+<td><a action="bypass -h npc_%objectId%_Chat 8">1 Race Number</a></td>
+<td align=right><font color="LEVEL">1</font> Number</td>
+<td align=right><font color="LEVEL">100</font> Adena</td>
+</tr>
+</table>
+<img src="L2UI.SquareWhite" width=270 height=1>
+
+<table width=270 border=0>
+<tr><td width=90><a action="bypass _mrsl01_1">Previous List</a></td><td width=90 align=center>1 Page </td><td width=90 align=right><a action="bypass _mrsl01_2"> Next List</a></td></tr>
+</table>
+
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=90 height=20><button value="Back" action="bypass -h npc_%objectId%_Chat 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=90></td>
+<td width=90></td>
+</tr></table></body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>
+<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go Back</a>
+<br>
+In a monster race eight monsters race at the same time. If you guess which monster is expected to finish first and buy that monster's race ticket, based upon the odds to win you will receive an appropriate amount of adena.<br>
+<font color="LEVEL">Racing Schedule</font><br>
+Monster races every 20 minutes in real time. 
+<font color="LEVEL">Method of Race Participation</font><br>
+You can purchase a monster race ticket through a race manager NPC. Only between 18 minutes before the start of a race until 3 minutes before the race begins you can buy a ticket for the applicable race. When you purchase a ticket through a conversation with a race manager, you can find out the names of participating monsters in the race and their current statistics. Five minutes before a race starts, the race manager will stop ticket sales and announce monsters' individual odds rate for the current race.<br>
+<font color="LEVEL">Types of Race</font><br>
+There are two types of race betting. The Win type betting means that you back a monster that will win the first prize. Place type of betting means that you will have to guess the 1st and 2nd winning monsters, regardless of who finishes first or second.<br>
+<font color="00FFFF">Win</font><br1>
+* Among the entire betting amount for Win betting, after subtracting the race track's own share of profit, the amount left will be your total winnings. Three minutes before the race each monster's expected odds are announced. Each Win ticket's dividend amount is calculated by multiplying the odds by the price of a ticket. The odds rate is never less than 1.<br1>
+* The prize money does not get transferred to the next race.<br>
+<font color="00FFFF">Place</font><br1>
+* Place betting is a way of betting when you correctly guess the two monsters who will finish first and second regardless of their order. The method of calculating dividend amount is the same as Win betting.<br>
+* Currently place betting is not offered.<br>
+<font color="LEVEL">End of Race</font><br>
+When a race is over, the race manager will shout out the results of the race. Through a conversation with a race manager NPC, you can trade your ticket for adena. By looking up on the Winning Information Data, you can find out the types of tickets and quantity of the winnings in the race you betted on and your win status and prize amount you won. If you won, you can receive your prize money thorough a race manager NPC. If you did not win, a race manager will buy back your ticket by paying you a very small amount of money.<br>
+If a server goes down while tickets are being sold, or while a race is in progress, the race will be cancelled. You can receive a full refund for your ticket for a cancelled race through a race manager.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go Back</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>
+<center>Monster Race Betting <font color="00ffff">To Win</font> (Race #<font color="LEVEL"> 1race</font>)<br1>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+</center>
+
+<table width=270 border=0 bgcolor="111111">
+<tr>
+<td fixwidth=60>Lane Selection</td>
+<td fixwidth=140 align=center>Racer's Name </td>
+<td fixwidth=40 align=center>Rating</td>
+<td fixwidth=30 align=right>Odds</td>
+</tr>
+</table>
+
+<table width=270 border=0>
+<tr>
+<td fixwidth=13><img src="L2UI.rightBtn2" width=14 height=13></td>
+<td fixwidth=30>0place</td>
+<td fixwidth=152><font color="LEVEL">Mob1</font></td>
+<td fixwidth=50 align=center>&$745;</td>
+<td fixwidth=30 align=right><font color="00ffff">13%</font></td>
+</tr>
+</table>
+
+<table width=270 border=0>
+<tr><td width=100>Select Bet Amount</td>
+<td width=170>
+<a action="bypass -h npc_%objectId%_BuyTicket 11" >100 Adena</a> , <a action="bypass -h npc_%objectId%_BuyTicket 12" >500 Adena</a> <br1>
+<a action="bypass -h npc_%objectId%_BuyTicket 13" >1,000 Adena</a> , <a action="bypass -h npc_%objectId%_BuyTicket 14" >5,000 Adena</a> <br1>
+<a action="bypass -h npc_%objectId%_BuyTicket 15" >10,000 Adena</a> , <a action="bypass -h npc_%objectId%_BuyTicket 16" >20,000 Adena</a> <br1>
+<a action="bypass -h npc_%objectId%_BuyTicket 17" >50,000 Adena</a> , <a action="bypass -h npc_%objectId%_BuyTicket 18" >100,000 Adena</a> <br1>
+</td></tr>
+</table>
+
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=70 height=20><button value="Select Lane" action="bypass -h npc_%objectId%_BuyTicket 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=130 align=center>Purchase Price :<font color="LEVEL"> 0adena</font></td>
+<td width=70 align=right><button value="Confirm" action="bypass -h npc_%objectId%_BuyTicket 20" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+</tr>
+</table>
+
+</body></html>]]></chat>
+        <chat id="9"><![CDATA[<html><body>
+<center>View Monster Race Results</center>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+<table width=270 border=0 bgcolor=111111>
+<tr><td fixwidth=60>Race Number</td><td fixwidth=70 align=center>1st Finish</td><td fixwidth=70 align=center>2nd Finish</td><td fixwidth=70 align=right>Odds Rate for Win Bet</td></tr>
+</table>
+<table width=270 border=0>
+<tr><td fixwidth=60 fixheight=1></td><td fixwidth=70></td><td fixwidth=70></td><td fixwidth=70></td></tr>
+<tr>
+<td><font color="LEVEL">7</font> th</td>
+<td><font color="LEVEL">8</font> Lane </td><td><font color="LEVEL">1</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+<tr>
+<td><font color="LEVEL">6</font> th</td>
+<td><font color="LEVEL">4</font> Lane </td><td><font color="LEVEL">8</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+<tr>
+<td><font color="LEVEL">5</font> th</td>
+<td><font color="LEVEL">7</font> Lane </td><td><font color="LEVEL">2</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+<tr>
+<td><font color="LEVEL">4</font> th</td>
+<td><font color="LEVEL">6</font> Lane </td><td><font color="LEVEL">8</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+<tr>
+<td><font color="LEVEL">3</font> th</td>
+<td><font color="LEVEL">4</font> Lane </td><td><font color="LEVEL">1</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+<tr>
+<td><font color="LEVEL">2</font> th</td>
+<td><font color="LEVEL">1</font> Lane </td><td><font color="LEVEL">8</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+<tr>
+<td><font color="LEVEL">1</font> th</td>
+<td><font color="LEVEL">7</font> Lane </td><td><font color="LEVEL">6</font> Lane</td>
+<td align=right><font color="00ffff">0.00</font> Times</td>
+</tr>
+</table>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=90 height=20><button value="Back" action="bypass -h npc_%objectId%_Chat 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=90></td>
+<td width=90></td>
+</tr>
+</table>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>
+<center>Monster Race Betting <font color="00ffff">To Win</font> (Race #<font color="LEVEL"> 1race</font>)<br1>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+</center>
+
+<table width=270 border=0 bgcolor="111111">
+<tr>
+<td fixwidth=60>Lane Selection</td>
+<td fixwidth=140 align=center>Name of Racer</td>
+<td fixwidth=40 align=center>Rating</td>
+<td fixwidth=30 align=right>Odds</td>
+</tr>
+</table>
+
+<table width=270 border=0>
+<tr>
+<td fixwidth=13><button action="bypass -h npc_%objectId%_BuyTicket 1" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td fixwidth=30>1</td>
+<td fixwidth=152><font color="LEVEL">Mob1</font></td>
+<td fixwidth=50 align=center>&$745;</td>
+<td fixwidth=30 align=right><font color="00ffff">13%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 2" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>2</td>
+<td><font color="LEVEL">Mob2</font></td>
+<td align=center>&$745;</td>
+<td align=right><font color="00ffff">6%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 3" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>3</td>
+<td><font color="LEVEL">Mob3</font></td>
+<td align=center>&$747;</td>
+<td align=right><font color="00ffff">4%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 4" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>4</td>
+<td><font color="LEVEL">Mob4</font></td>
+<td align=center>&$745;</td>
+<td align=right><font color="00ffff">12%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 5" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>5</td>
+<td><font color="LEVEL">Mob5</font></td>
+<td align=center>&$745;</td>
+<td align=right><font color="00ffff">14%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 6" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>6</td>
+<td><font color="LEVEL">Mob6</font></td>
+<td align=center>&$745;</td>
+<td align=right><font color="00ffff">13%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 7" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>7</td>
+<td><font color="LEVEL">Mob7</font></td>
+<td align=center>&$745;</td>
+<td align=right><font color="00ffff">13%</font></td>
+</tr>
+
+<tr>
+<td><button action="bypass -h npc_%objectId%_BuyTicket 8" back="L2UI.rightBtn2" fore="L2UI.rightBtn1" width=14 height=13></td>
+<td>8</td>
+<td><font color="LEVEL">Mob8</font></td>
+<td align=center>&$746;</td>
+<td align=right><font color="00ffff">14%</font></td>
+</tr>
+
+</table>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=70 height=20><button value="Back" action="bypass -h npc_%objectId%_Chat 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=130 align=center>Select Lane :<font color="LEVEL"> No1</font></td>
+<td width=70 align=right><button value="Quantity" action="bypass -h npc_%objectId%_BuyTicket 10" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+</tr>
+</table>
+
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body>
+<center>Confirm Monster Race Bet / Calculate Winnings</center>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+<table width=270 border=0>
+<tr>
+<td width=230>Race #19090<br>
+Lane 1<br>
+Bet: 100 adena<br>
+1st place: Lane [4]<br>
+Odds:[0.01]
+</td>
+</tr>
+</table>
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+
+<table width=270 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=90 height=20><button value="Previous" action="bypass -h npc_%objectId%_Chat 7" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=90></td>
+<td width=90 align=right><button value="Calculate" action="bypass _mrsl03_30635184" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+</tr></table>
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body>
+<center>Participating Monsters<br1>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=1 height=3>
+</center>
+<table width=270 border=0 bgcolor=111111>
+<tr>
+<td fixwidth=40 align=left>Lane</td>
+<td fixwidth=140 align=center>Racer's Name</td>
+<td fixwidth=50 align=center>Rating</td>
+<td fixwidth=40 align=right>Odds</td>
+</tr>
+</table>
+
+<table width=270 border=0>
+<tr>
+<td fixwidth=40>1</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob1</font></td>
+<td fixwidth=50 align=center>&$747;</td>
+<td fixwidth=40 align=right><font color="00ffff">12%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>2</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob2</font></td>
+<td fixwidth=50 align=center>&$745;</td>
+<td fixwidth=40 align=right><font color="00ffff">6%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>3</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob3</font></td>
+<td fixwidth=50 align=center>&$746;</td>
+<td fixwidth=40 align=right><font color="00ffff">3%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>4</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob4</font></td>
+<td fixwidth=50 align=center>&$747;</td>
+<td fixwidth=40 align=right><font color="00ffff">7%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>5</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob5</font></td>
+<td fixwidth=50 align=center>&$747;</td>
+<td fixwidth=40 align=right><font color="00ffff">4%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>6</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob6</font></td>
+<td fixwidth=50 align=center>&$747;</td>
+<td fixwidth=40 align=right><font color="00ffff">14%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>7</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob7</font></td>
+<td fixwidth=50 align=center>&$747;</td>
+<td fixwidth=40 align=right><font color="00ffff">26%</font></td>
+</tr>
+
+<tr>
+<td fixwidth=40>8</td>
+<td fixwidth=140 align=left><font color="LEVEL">Mob8</font></td>
+<td fixwidth=50 align=center>&$745;</td>
+<td fixwidth=40 align=right><font color="00ffff">5%</font></td>
+</tr>
+</table>
+
+<img src="L2UI.SquareBlank" width=270 height=10>
+<img src="L2UI.SquareWhite" width=270 height=1>
+<img src="L2UI.SquareBlank" width=270 height=5>
+<table width=270 border=0 cellpadding=0 cellspacing=0><tr>
+<td width=90 height=20><button value="Back" action="bypass -h npc_%objectId%_Chat 0" back="L2UI.DefaultButton_click" fore="L2UI.DefaultButton" width=67 height=19></td>
+<td width=90></td>
+<td width=90></td>
+</tr></table></body></html>]]></chat>
+    </talk>
 </npc>

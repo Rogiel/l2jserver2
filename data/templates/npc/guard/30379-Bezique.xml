@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30379" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30379" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Bezique</name>
         <title send="false">Captain</title>
@@ -24,4 +25,23 @@
         <item lefthand="0" righthand="280"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Captain Bezique:<br>
+Gracia is a kingdom across the west sea. All trade with Gracia has been interrupted since the war, but there was a time when scores of Gracian trading ships would frequent this harbor every day.<br>
+The Gracians were our friends, and no one imagined they could become such bloodthirsty demons in such a short time. When all is said and done, you cannot judge a person on outward manner alone.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Captain Bezique:<br>
+Welcome to the village of Gludin, traveler. I am Captain Bezique of these parts. These days, our village is in a frenzy of construction, restoring the damage from the <font color="LEVEL">war with Gracia</font>.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Gracia</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the war</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Captain Bezique:<br>
+The Gracian invasion force crossed the sea and attacked our kingdom not long after his majesty had ascended the throne. Many innocents lost their lives in the savage attack.<br>
+Fortunately, our wise king negotiated an alliance with Elmore, and we were able to drive back those Gracian wretches. In the end, we were victorious, but the people of Gludio paid far too high a price. All I wish is that a war like that never happens again.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

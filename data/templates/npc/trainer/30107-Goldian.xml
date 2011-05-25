@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30107" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30107" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Goldian</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Goldian:<br>
+The swordsmanship that I teach can only be learned by the grace and delicacy of an Elven Fighter. It is not suited to Humans, with their stiff shoulders. Of course, it goes without saying that Mystics, who lack even the most basic sword techniques, will find it too difficult.<br>
+Go find a teacher that is appropriate for you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Goldian:<br>
+Have you attended the Giran Castle Ball yet? It happens every 15 days; if you have an opportunity, I encourage you to go. The rhythmic movement and exquisite grace relates well to the art of Elven swordsmanship.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

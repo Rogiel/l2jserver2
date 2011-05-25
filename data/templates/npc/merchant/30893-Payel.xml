@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30893" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30893" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Payel</name>
         <title send="false">Grocer</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Payel:<br>
+I am sorry, but the Lord strictly forbids dealing with murderers and renegades. I couldn't even if I wanted to, and I don't.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Payel:<br>
+Welcome to Heine! Do you know about the legendary wedding of Knight Roland Hunter and Elf Aridne in Innadrill? Their love story has been passed down as a wandering minstrel's song. It's lovely...<br>
+Now, what kind of item are you looking for? We carry a large number of pigments and various minerals in our shop.<br>
+<a action="bypass -h npc_%objectId%_Buy 3089300">Buy supplies and minerals.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3089301">Buy dyes.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

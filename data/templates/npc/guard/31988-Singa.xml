@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31988" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31988" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Singa</name>
         <title send="false">Guard</title>
@@ -24,4 +25,16 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Singa:<br>
+Welcome, stranger! It can't be a coincidence that you've come here! Well, because I was just about to embark upon and adventure to<font color="LEVEL"> Caron's Dungeon</font>, and now a brave adventurer appears before me! Surely the gods mean this as a good omen! Ha ha!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about Caron's Dungeon."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Singa:<br>
+I knew you were up to it! You'll make a wonderful assistant! Now, listen! My research says that you'll find the tombs of Dwarven mine workers who were killed in an explosion while digging a tunnel through Iron Curtain Mountain. There's a huge amount of rare minerals hidden under their gravestones! Are you interested?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

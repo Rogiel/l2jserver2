@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32526" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32526" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Allenos</name>
         <title send="false">Sergeant</title>
@@ -24,4 +25,17 @@
         <item lefthand="13525" righthand="13524"/>
         <collision heigth="25.0" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sergeant Allenos:<br>
+Shhh! Be quiet! There are Dragonkins not far from the <font color="LEVEL">Secret Airstrip</font>!<br>
+<a action="bypass -h npc_%objectId%_Quest SoDStage1">Enter the Seed of Destruction.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Learn about the Seed of Destruction.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sergeant Allenos:<br>
+The Seed of Destruction is essentially a gigantic fortress. Throughout its corridors are barriers and doors controlled by several devices guarded by Mounted Troop soldiers. To penetrate into the interior, you must attack those devices. Even then, you'll need to force open the doors.<br><br>
+When you get inside, you'll see the fortress for yourself. Since this is Tiat's last line of defense, there will be a large number of Mounted Troop soldiers. Defeat them and you'll reach the Throne Room and Tiat herself.<br>
+<font color="LEVEL">A word of advice: move as quickly as possible through the fortress. The longer it takes you, the more enemies will appear.</font>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32658" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32658" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Guardian of Eastern Seal</name>
         <level>80</level>
@@ -21,4 +22,16 @@
         <sp>0</sp>
         <collision heigth="15.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guardian of the Eastern Seal:<br>
+I am a guardian in charge of the Eastern Seal in the Chamber of Delusion. What brings you here?<br>
+<a action="bypass -h npc_%objectId%_Quest">Enter the Eastern Seal.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Chamber of Delusion.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 326580001">Use Guiding Tea Leaves.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Wake up from the Chamber of Delusion.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guardian of the Eastern Seal:<br>
+Here's the phantom of the Eastern Seal. The Sword and Dagger of the Eastern Seal bear the traces of those who fought here.
+</body></html>]]></chat>
+    </talk>
 </npc>

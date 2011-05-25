@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30130" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30130" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Undrias</name>
         <title send="false">Abyssal Celebrant</title>
@@ -23,4 +24,23 @@
         <sp>0</sp>
         <collision heigth="22.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Abyssal Celebrant Undrias:<br>
+The Dark Elf village! The brilliant underground city and the product of our race's brilliant civilization and developed skills! The beauty is often compared to that of obsidian that shines a lucid light in the dark.<br>
+To find the Dark Elf village, follow the road before me. Then you will come to the entrance of a tunnel that leads under the rock mountain. Follow the tunnel and you will enter the village.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Abyssal Celebrant Undrias:<br>
+May the blessing of the abyss be with you!<br>
+The massive structure you see behind me is the <font color="LEVEL">Temple of Shilen</font> where we serve Shilen, mother of the abyss. I am the Abyssal Celebrant Undrias who serves our goddess.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Shilen Temple</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Dark Elf village</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Abyssal Celebrant Undrias:<br>
+The Shilen Temple is a cultural treasure, with a history of more than 2,000 years. In the days when our race lived underground, the Harnea of the Arachne race spun silver spider webs and protected the temple by spinning a curtain around it.<br>
+Here, all young Dark Elves undergo rites to receive Shilen's blessing before beginning their new lives as Dark Fighters or Dark Mystics.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

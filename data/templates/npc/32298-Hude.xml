@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32298" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32298" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Hude</name>
         <title send="false">Caravan Merchant</title>
@@ -23,4 +24,9 @@
         <sp>0</sp>
         <collision heigth="58.5" radius="33.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Hude:<br>
+I've never seen them before, but they're dressed in really awful clothes.
+</body></html>]]></chat>
+    </talk>
 </npc>

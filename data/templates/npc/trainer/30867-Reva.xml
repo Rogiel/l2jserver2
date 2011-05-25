@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30867" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30867" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Reva</name>
         <title send="false">Seer</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Seer Reva:<br>
+I was sent here to Aden, the capital of Human kingdom, to make known the will of Pa'agrio. Our Elders have sensed the approach of an endless winter that will cover all the races of this land. Only through our combined strength can we defeat the forces of darkness. When that day comes, we Orcs will be at forefront of battle, and we will make the rivers flow red with the blood of our enemies. Tejakar Oroka!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Seer Reva:<br>
+Do you wish to fight bravely at the front against the approaching winter? You enthusiasm is commendable but I have nothing for you. Pa'agrio must have a plan for you elsewhere. Seek a place to make your last stand!
+</body></html>]]></chat>
+    </talk>
 </npc>

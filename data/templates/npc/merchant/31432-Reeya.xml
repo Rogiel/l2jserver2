@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31432" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31432" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Reeya</name>
         <title send="false">Blueprint Seller</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Blueprint Seller Reeya:<br>
+Oh my! Have you seen this blueprint? I never thought of designing a golem this way. It's amazing! The composition is truly artistic. Perfectly symmetrical, simple and flawlessly assembled! An example of top-notch engineering! Definitely the work of a master craftsman! I'll give you a good deal on this one! I'll probably regret this later... You should buy from me while I'm in such a good mood, friend!<br>
+<a action="bypass -h npc_%objectId%_Buy 3143200">Buy</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

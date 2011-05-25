@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31539" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31539" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Vulcan</name>
         <title send="false">Blacksmith of Flame</title>
@@ -24,4 +25,11 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Flame Blacksmith Vulcan:<br>
+My name is Vulcan. I'm a wandering blacksmith, searching the world for stronger, more powerful flames. That's why folks call me the Flame Blacksmith.<br>
+I hoped that I could obtain the ultimate flames in this Cauldron of the Gods! I must have them, and I won't leave here until I get them!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30720" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30720" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kaiena</name>
         <title send="false">Magister</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Kaiena:<br>
+Ha, you must be crazy! You don't know the difference between an Elf and a Dark Elf, or a Human and an Orc! I'll bet you don't even know the difference between a Fighter and a Mystic! Do you know how to read? Or can you see the word 'Magister' written right here? Why are you bothering me?<br>
+I already have so many problems, I mean, my Master whines about a bad dream he had, golems rampaging about eye balls flying around, the Sea of Spores is expanding every day, Mitraell is locked up somewhere, I am terribly overworked, and now the sun is shining in my eyes and some weird fellow comes up and asks 'Will you teach me magic?'<br>
+Please leave me alone! By the way, if you are a cleric, you are definitely in the wrong place.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Kaiena:<br>
+Should I let this one live or not? Ah, I was just talking to myself.<br>
+Why are you here? Grand Magister Fairen has a terrible headache, so bother him at your peril. Like him, I hate to be bothered because of trivialities...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

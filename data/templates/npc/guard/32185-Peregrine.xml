@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32185" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32185" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Peregrine</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,12 @@
         <item lefthand="0" righthand="9645"/>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marksman Peregrine:<br>
+You have done well coming up here.<br>
+This is the border between the Hills of Gold and Mimir's Forest; once you pass this place you will face powerful monsters in Mimir's Forest.<br>
+Also, inside here is the Nornil's Garden, the Nornil's Cave and Kamael Village Harbor.<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information on the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a></body></html>]]></chat>
+    </talk>
 </npc>

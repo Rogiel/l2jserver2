@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="32377" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="32377" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kuram</name>
         <title send="false">Coordinator</title>
@@ -23,4 +24,36 @@
         <sp>0</sp>
         <collision heigth="17.29" radius="7.8"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Arena Manager:<br>
+This arena is open to all characters. Only the winner will survive, so only challenge if you feel confident!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Register team.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Cancel registration.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">View participating teams.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">View the game rules.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">View the team with the most consecutive wins.</a><br>
+<a action="bypass -h npc_%objectId%_goto 12059">Move to Fantasy Isle.</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Arena Manager:<br>
+Only parties with more than 7 members can participate in the game and, if they win, keep playing. You can also only participate in the arena reserved for your level.<br>
+When you enter the arena, you will see a Tower of Resurrection for each team. Until you destroy your opponents' tower, it will continue to resurrect them. Take a look around the arena to understand how it will affect the battle. This is about more than simple combat, you know...<br>
+Remember also that any buff applied to the team will be negated if one of the members does not meet its level requirements. Another bit of advice: consider stationing the team member who is best at solo matches on the front line.<br>
+Now, then -- ready to prove just how good you really are?
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Arena Manager:<br>
+No team currently has consecutive wins. Just goes to show you how hard it is to find a really skilled team these days...
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Arena Manager:<br>
+This is a list of the teams planning to participate in this match. Impressive, aren't they? But don't be intimidated. Knowing your opponents and their capabilities is good strategy in fact.<br><br>
+=== List of Participating Teams ===<br>
+1. (Participating Team: <FONT color=00ffff></FONT> Team)<br>
+2. (Participating Team: <FONT color=00ffff></FONT> Team)<br>
+3. (Participating Team: <FONT color=00ffff></FONT> Team)<br>
+4. (Participating Team: <FONT color=00ffff></FONT> Team)<br>
+5. (Participating Team: <FONT color=00ffff></FONT> Team)
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Arena Manager:<br>
+What's that? You want to enter by yourself? Sorry, kid -- it doesn't work that way. If you want to participate, go find yourself a team.
+</body></html>]]></chat>
+    </talk>
 </npc>

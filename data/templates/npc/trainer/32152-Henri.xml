@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32152" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32152" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Henri</name>
         <title send="false">Seer</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Seer Haniho:<br>
+Jakal Pa'agrio! How can I help you, friend?<br>
+If you want to learn Orc sorcery, I can teach you. But don't bother me with annoyances...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Seer Henri:<br>
+I am flattered that you wish to learn the Orc song, but who will teach it to you? If someone without the Fiery Spirit sings the song, do you think there will be any power in it?
+</body></html>]]></chat>
+    </talk>
 </npc>

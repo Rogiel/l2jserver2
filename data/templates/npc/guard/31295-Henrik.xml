@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31295" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31295" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Henrik</name>
         <title send="false">Guard</title>
@@ -24,4 +25,19 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Henrik:<br>
+No kidding! I'll tell ya, this place really lives up to its name!<br>
+Do you know about the uprising in Rune? They executed the rebels here! This place has been accursed ever since! They say the ghosts here have a taste for flesh!<br>
+This is the only way to Rune, but nobody will travel this way after dark! It even creeps me out during the day! I wouldn't go down there at night if I were you!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Henrik:<br>
+ Hey! What are you doing here? Just passing through, eh? Okay, you can pass.<br>
+You should keep your head down! I've got a bad feeling about this place! I don't know why they had to name it the<font color="LEVEL"> Gateway of Evil Spirits</font>! What were they thinking?!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Yeah, that's a spooky name, alright!" </a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

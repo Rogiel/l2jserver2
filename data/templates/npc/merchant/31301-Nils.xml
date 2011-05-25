@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31301" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31301" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nils</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,26 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Nils:<br>
+Well, what can I do for you then?<br>
+<a action="bypass -h npc_%objectId%_Buy 3130100">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130101">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130102">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130103">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_BuyShadowItem">Buy a Shadow item.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Nils:<br>
+Huh? A customer! Oh, I'm sorry. It's been so long...<br><br>
+Now, where is my sales book? Wait a minute...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3130100">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3130101">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Nils:<br>
+You're a criminal? Code red! Guards!!
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30125" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30125" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Belton</name>
         <title send="false">Guard</title>
@@ -24,4 +25,16 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Belton:<br>
+Do you see the great mountain range to the north? The range forms two lines to the east and west, but we call it the Dragon Valley. It's called that because they say the<font color="LEVEL"> green dragon Antharas</font> nests at the end of the range. Well ... it's such a dangerous place that I don't know if I'd advise you to go there.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the green dragon Antharas</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Belton:<br>
+You haven't heard of the green dragon Antharas? I have never seen it myself, and I know no more than what I was told by the elders when I was young. They say that when it moves, the axis of the earth shakes, and when it sighs the Dragon Valley becomes a sea of fire. Since no one has lived after seeing Antharas, I can't imagine how terrible it must be. If the old stories are true, it must be the strongest living thing in the world.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30061" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30061" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Casey</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Armor Merchant Casey:<br>
+What do you need?<br>
+<a action="bypass -h npc_%objectId%_Buy 3006100">Trade Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3006101">Trade Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3006102">Trade basic equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3006103">Trade basic equipment for Wizards.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Armor Merchant Casey:<br>
+Uncle Sabrin thinks business is just about making as much money as possible as quickly as possible. But I don't agree. I think it's more important how you'll be remembered -- that's why I plan on going to Aden soon to do something else with my life!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3006100">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3006101">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

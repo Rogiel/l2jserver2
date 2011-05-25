@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="32648" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="32648" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">News Informer</name>
         <level>80</level>
@@ -22,4 +23,126 @@
         <sp>0</sp>
         <collision heigth="12.5" radius="5.0"/>
     </info>
+    <talk default="default">
+        <chat id="6"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 76 or higher</font>, the lower level of the Forge of the Gods recently experienced a rapid rise in temperature, which caused some changes to the creatures in the area.<br>
+The creatures most affected were the Lavasaurus and Tar Beetle. Lavasaurus adults cannot be found, but the eggs buried in the area became very sensitive to nearby activity. If they sense any significant sounds or vibrations, they will suddenly hatch and attack. It is rumored that an Ancient Lavasaurus also hides somewhere in the area.<br>
+The other creature, the Tar Beetle, also recently appeared. It's not particularly menacing, but it spits out a sticky black mucus when threatened. <br>
+Finally, Golems that used to be spread throughout the region have now concentrated in one place. We don't know why.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to the Forge of the Gods.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Update Announcer:<br>
+I am resolving the <font color="LEVEL">quests which are no longer valid due to changes in the hunting grounds</font>. I can reward you for your previous efforts.<br>
+These now-invalid quests include: <font color="LEVEL">Exploration of Giant's Cave: Part 1 and 2</font>, <font color="LEVEL">The Decisive Stage of a War</font>, <font color="LEVEL">Spiteful Soul of Batur</font> and <font color="LEVEL">The Sign of Rebellion</font>. Please let me know how I may be of assistance.<br>
+<a action="bypass -h npc_%objectId%_Chat 5">Resolve old quests.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Update Announcer:<br>
+New updates are available for the following places. Which one would you like to hear about?<br>
+<a action="bypass -h npc_%objectId%_Chat 6">Forge of the Gods</a><br>
+<a action="bypass -h npc_%objectId%_Chat 7">Primeval Isle</a><br>
+<a action="bypass -h npc_%objectId%_Chat 8">Giant's Cave</a><br>
+<a action="bypass -h npc_%objectId%_Chat 9">Den of Evil</a><br>
+<a action="bypass -h npc_%objectId%_Chat 10">Mithril Mines</a><br>
+<a action="bypass -h npc_%objectId%_Chat 11">Reed Field of Innadril</a><br>
+<a action="bypass -h npc_%objectId%_Chat 12">Crypts of Disgrace</a><br>
+<a action="bypass -h npc_%objectId%_Chat 13">Stakato Nest</a><br>
+<a action="bypass -h npc_%objectId%_Chat 14">The Chamber of Delusion</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Update Announcer:<br>
+I provide the latest news from areas throughout the continent.<br>
+Need information on a newly discovered relic or just-opened hunting grounds? Come see me! Knowledge is power, after all...<br>
+We do charge a fee to move you to one of the areas in the news.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about new updates.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to one of the places mentioned in an update.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">Move to a city.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">Resolve a current quest.</a>
+</body></html>]]></chat>
+        <chat id="11"><![CDATA[<html><body>News Informer:<br>
+Reed Field of Innadril should not be visited if you are not <font color="LEVEL">above Level 83</font>! <br>
+It's very complicated in various aspects. For example, a bunch of Mucrokians, a part of Crokian Faction, have appeared from nowhere and occupied the Reed Field; a strange Dwarf called Dr. Helvetica is threatening to wipe out the Reed Field; and torches are lighted and the power of spirits are gathering in the southern Reed Field in order to reclaim the old whispers and quietness of the Reed Field.<br>
+Also, Mucrokians are strong! They seem to be a bit weaker against magic...<br>
+and there are people who had such a strange experience as if being possessed by a ghost by drinking suspicious medicine rarely dropped by them...!<br>
+Anyway, head to Field of Silence to meet that charismatic Dr. Helvetica, and to Field of Whisper to meet an Elf performing Natural Regression Movement!<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to the Reed Field</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back to Beginning</a>
+</body></html>]]></chat>
+        <chat id="14"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 80 or higher</font>, the Chamber of Delusion is a new dimension discovered by the Pathfinders who studied Kamaroka. <br>
+Existing in dreamspace, it is reputed to be a place filled with monsters born of nightmares and chaos, commannded by Aenkinel, the Invader of Dreams.<br>
+Since the Chamber of Delusion does not physically exist in our world, you can only move there with the help of a <font color="LEVEL">Pathfinder</font>. <br>
+Pathfinders are located in every village, so you should be able to easily find one.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 80 or higher</font>, the big news from the Giant's Cave is the appearance of <font color="LEVEL">Hekaton Prime</font>.<br>
+Core and Hekaton Prime used to protect the area, and now they have again regained their strength. Ancient bio weapons developed by the Giants have been used to eliminate the monsters in the vicinity. The remaining 3 Giant Guardians now protect Hekaton Prime.<br>
+Finally, Expedition Leader Sobling has finally completed building a teleportation gate that allows entry to the Giant's Cave. If you want to explore the area, go see him.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to the Giant's Cave.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>
+<a action="bypass -h npc_%objectId%_Quest GiantsExploration2">[Exploration of The Giant's Cave, Part 2]</a><br>
+<a action="bypass -h npc_%objectId%_Quest TheZeroHour">[The Zero Hour]</a><br>
+<a action="bypass -h npc_%objectId%_Quest GhostsOfBatur">[Ghosts of Batur]</a><br>
+<a action="bypass -h npc_%objectId%_Quest SignsOfRevolt">[Signs of Revolt]</a>
+</body></html>]]></chat>
+        <chat id="12"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 81 or higher</font>, the vengeful spirits of the chieftains that slept within the Burial Grounds of Disgrace were freed when Varangka in the Den of Evil gained Kasha's power and revived them and their followers using Kasha's power.<br>
+There are many of them now, so if you go be sure to do so in a powerful group.<br>
+In fact, the Grave Robbers who used to run rampant through the place are now too frightened to even leave their hideout! At least that's one less thing to worry about...<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to the Burial Grounds of Disgrace.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+        <chat id="13"><![CDATA[<html><body>News Informer:<br>
+Stakato Nest is recommended for adventurers above <font color="LEVEL">Level 82</font>, and recently it has been known that Queen Shyeed regained her power and organized her subordinates.<br>
+It's been discovered that all Stakatos in the Nest are stronger in the presence of Shyeed. But when Shyeed falls down, their power subsides as well.<br>
+Also, several safe spots inside were discovered by the Golden Wool Mercenaries but they are not yet secured.<br>
+Kintaijin near the entry is looking for adventurers, so please visit him when you are nearby<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to Stakato Nest</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Return to Beginning</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 200901" msg="811;Entrance to the Forge of the Gods">Entrance to the Forge of the Gods - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200902" msg="811;Primeval Isle Wharf">Primeval Isle Wharf - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200903" msg="811;The Giant's Cave">The Giant's Cave - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200904" msg="811;Den of Evil">Den of Evil - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200905" msg="811;Mithril Mines Western Entrance">Mithril Mines Western Entrance - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200906" msg="811;Mithril Mines Eastern Entrance">Mithril Mines Eastern Entrance - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200907" msg="811;Field of Silence">Field of Silence - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200908" msg="811;Field of Whispers">Field of Whispers - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200909" msg="811;Crypts of Disgrace">Crypts of Disgrace - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200910" msg="811;Stakato Nest">Stakato Nest - 10000 Adena </a>
+</body></html>]]></chat>
+        <chat id="10"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 81 or higher</font>, it's been  reported that Earthworm Eggs were recently discovered in the Mithril Mines when some grave robbers broke the Seal of Lucien.<br>
+As a result, the eggs of Trasken hatched. Because of a recent earthquake, entry to the Mines has been severely restricted. <br>
+Fortunately, although the new monsters are powerful, they are still relatively few in number. A group of skilled adventurers is being sought to deal with the situation.<br>
+If you are interested, I can send you to one of the entrances to the Mines. The monsters are equally strong in either location.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to the Mithril Mines.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 200911" msg="811;The Town of Giran">The Town of Giran - 100000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200912" msg="811;Town of Aden">Town of Aden - 100000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200913" msg="811;Town of Oren">Town of Oren - 100000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200914" msg="811;Rune Township">Rune Township - 100000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200915" msg="811;Town of Goddard">Town of Goddard - 100000 Adena </a>
+</body></html>]]></chat>
+        <chat id="9"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 81 or higher</font>, it is reported in the Den of Evil that Shaman Varangka has finally succeeded in summoning the evil Fiend Kasha!<br>
+Since then, the monsters there have grown very strong. Even worse, Kasha's Eyes have magically enslaved many Ragna Orcs!<br>
+If you go to the Den of Evil, be sure to take some trusted friends with you.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to the Den of Evil.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body>Update Announcer:<br>
+Recommended for adventurers who are <font color="LEVEL">level 78 or higher</font>, the monsters on the Primeval Isle are weaker than they used to be since all the ancient HP was drained.<br>
+The Crokians in the Primeval Plains are so reduced that a small group of adventurers should be able to defeat them. Even the monsters in the Lost Nest are smaller in number and weaker in strength that they were.<br>
+It's also now possible to teleport from Rune Township directly to the Primeval Isle Wharf. Once on the island, <font color="LEVEL">Vervato</font> can teleport you from Primeval Isle directly to Rune Township.<br>
+One last rumor: some people were spotted walking with a Deinonychus on the island. How and why they could do that remains a mystery...<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Move to Primeval Isle.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

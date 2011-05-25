@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30128" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30128" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Atanas</name>
         <title send="false">Guard</title>
@@ -24,4 +25,15 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Atanas:<br>
+I sometimes talk with my friend Reikin about what the <font color="LEVEL">water dragon Fafurion</font> would look like. It s truly hard to imagine that Fafurion lives in Innadril Lake, just east from here. If that dragon ever ventured upon our village, complete annihilation would only be a matter of time, don t you think?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Fafurion.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Atanas:<br>
+The blue dragon Fafurion is almost as strong as the green dragon Antharas, which is supposed to be horrible. Usually, it stays in the water -- I suppose that means it's somewhere on the bottom of Lake Innadril. When I think that two dragons are so near our village ... well, it makes it hard to live a worry-free life, don't you think?
+</body></html>]]></chat>
+    </talk>
 </npc>

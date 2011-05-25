@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30909" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30909" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Anabel</name>
         <title send="false">Magister</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Anabel:<br>
+I am sorry. Elven magic can be quite subtle and only fully comprehended by Elven Mystics. I am not an appropriate teacher for you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Anabel:<br>
+Elves and Humans have long been allowed to marry here in Innadril. That wasn't the case in the Elven Forest. I remember hearing about one Elf who was imprisoned for nearly a century just for displaying affection toward a Human! The Elders are deeply opposed to the idea of marriage between Elves and other races... I understand your point, though: love isn't rational. The heart wants what it wants...<br>
+Well, well... I don't know why I've become so sentimental. It's not like I'm a youngster anymore. In any case, what have you come here to learn?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

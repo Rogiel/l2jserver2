@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="32184" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="32184" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Yinir</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Gatekeeper Yinir:<br>
+Only adventurers lower than level 20 may use the teleport between the base and the village. If you're more experienced than that, surely you can find your own way there!
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 1135" msg="811;Kamael Village">Kamael Village</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

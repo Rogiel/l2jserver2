@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30732" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30732" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ol Mahum Pilgrim</name>
         <level>36</level>
@@ -23,4 +24,10 @@
         <item lefthand="0" righthand="1"/>
         <collision heigth="25.0" radius="13.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Ol Mahum Pilgrim:<br>
+Fight... bad. Peace... good. God... gives peace to Ol Mahum...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

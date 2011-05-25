@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31747" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31747" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Pure White Unicorn</name>
         <level>70</level>
@@ -22,4 +23,13 @@
         <sp>0</sp>
         <collision heigth="30.0" radius="14.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Pure White Unicorn:<br>
+
+The unicorn seems to be feeling better, although it still looks a bit weak and faltering. 
+For some reason, when I caress it, the familiar face of a blonde woman comes to mind...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Adventurer" id="31777" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Adventurer" id="31777" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Adventure Guildsman</name>
         <level>70</level>
@@ -23,4 +24,14 @@
         <item lefthand="0" righthand="224"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventure Guildsman:<br>
+Just think of it! All of your wildest dreams of fame and fortune could come true! Our guild has the information you need!<br>
+Your path to wealth may begin with something as trivial as delivering a letter, and could culminate in encounters with formidable beasts! You might even find romance along the way! The world is your oyster!<br>
+So, tell me, what kind of adventure are you interested in?<br>
+<a action="bypass -h npc_%objectId%_questlist">Quest Information</a><br>
+<a action="bypass -h npc_%objectId%_Quest RaidbossInfo">Raid Monster Information</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

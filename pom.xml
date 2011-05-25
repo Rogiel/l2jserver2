@@ -127,6 +127,12 @@
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.2.0</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<issueManagement>
@@ -211,6 +217,10 @@
 			<name>Java.net Repository for Maven</name>
 			<url>http://download.java.net/maven/2/</url>
 			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>EclipseLink Repo</id>
+			<url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
 		</repository>
 	</repositories>
 </project>

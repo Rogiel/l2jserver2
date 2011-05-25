@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30717" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30717" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gauen</name>
         <title send="false">Magister</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Gauen:<br>
+I am sorrowed to see such discord even here in this Tower. If we all pursue the same truth, how can we so easily turn on each other? The Grand Masters have long prophesied a coming wave of chaos that threatens to engulf us all. I suspect it can only be overcome if our races let go of old grudges and learn to trust each other.<br>
+One hopeful sign is the news that Elves and Humans are working together to clean up the Sea of Spores. Perhaps that will provide the foundation upon which we can build a lasting peace...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Gauen:<br>
+I would like to teach you, but I only teach Elven Mystics. There are various Masters of different races here at the tower, I'm sure you'll find someone that can help you.<br>
+Oh, and if you are a Cleric it will be best for you to visit a temple.
+</body></html>]]></chat>
+    </talk>
 </npc>

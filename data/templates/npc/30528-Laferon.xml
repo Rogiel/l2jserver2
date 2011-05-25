@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30528" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30528" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Laferon</name>
         <title send="false">Foreman</title>
@@ -23,4 +24,10 @@
         <sp>0</sp>
         <collision heigth="19.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Foreman Laferon:<br>
+Pleasure to meet you. I'm Laferon, and I'm foreman of this strip mine. We keep our Dwarves working day and night here. Most of our crew here are young Dwarves, here to learn our people's ways. Diligence, that's the thing. It's why Dwarves control the economy of the continent.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

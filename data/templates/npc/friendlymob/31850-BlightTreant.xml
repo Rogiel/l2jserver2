@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FriendlyMob" id="31850" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FriendlyMob" id="31850"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Blight Treant</name>
         <level>80</level>
@@ -22,4 +24,13 @@
         <sp>226</sp>
         <collision heigth="90.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Blight Treant:<br>
+......We. Stretch. Branches. Into. Dark. Black. Night.......<br>
+....Our. Roots. Sink. Into. Ground. Splashed with. Hot. Red. Blood.....<br>
+......Shadow. Forest. Our. Land. Territory. Home......<br>
+.....Invader. Destroyer. Enemy. We. Crush.....<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="OrcVillageMaster" id="30500" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="OrcVillageMaster" id="30500"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Osborn</name>
         <title send="false">High Prefect</title>
@@ -23,4 +25,14 @@
         <sp>0</sp>
         <collision heigth="26.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>High Prefect Osborn:<br>
+I, High Prefect Osborn, teach Orcs by the authority of Pa'agrio, the father of eternal fire. It is my duty to help ensure that we may once more attain the glory of our illustrious ancestors. You, young Orc warrior, you are like a tinderbox whose spark, though small, becomes a great blaze! In you I see the hope that will revive the trampled pride of our Orc tribe. How may I be of service to you?<br>
+<a action="bypass -h npc_%objectId%_Quest orc_occupation_change_1">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use Shadow Weapon Exchange Coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

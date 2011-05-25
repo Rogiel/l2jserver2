@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30346" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30346" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Kayleen</name>
         <title send="false">Sentry</title>
@@ -24,4 +25,23 @@
         <item lefthand="0" righthand="277"/>
         <collision heigth="25.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Sentry Kayleen:<br>
+If you follow the coastline from the village and go southwest, you will come to an underground complex that served as a research institute in the past. Now it is abandoned and no one uses it. Therefore, strange monsters may be living in that space. Sometimes, there are people who go there to test their valor.<br>
+Also, if you continue to the south, you will come to the region of Gludio. It was built by Humans. They have a harbor, castle, village, and the Wasteland ... Three years ago, the village was destroyed during war with Gracia and much of the land was devastated.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Sentry Kayleen:<br>
+Greetings. Have you seen many places? My wish is to adventure in the wide, outside world someday. When I give up my job as sentry, I am thinking of traveling to Elmore. If you go there, there is the village of <font color="LEVEL">Pabell</font> built by Dark Elves.<br>
+Maybe it's just because of the oppressive atmosphere that hangs around the <font color="LEVEL">School of Dark Arts</font>, but sometimes my wish seems a very remote possibility.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about Pabell of Elmore.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the School of Dark Arts.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Sentry Kayleen:<br>
+Pabell is in the kingdom of Elmore, to the north of Aden. They say it is the northernmost place in Elmore, a cold region where snow remains on the ground all year round. About fifty years ago, remains of Shilen were discovered, and many Dark Elves moved there to begin research. They made a village there called Pabell. However, the war between Aden and Elmore is not over, so it is very difficult to go there.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

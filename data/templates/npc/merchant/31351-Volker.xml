@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31351" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31351" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Volker</name>
         <title send="false">Wharf Manager</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Wharf Manager Volker:<br>
+The Primeval Isle, you say... I'm afraid that I don't really know much about it. I do know that it was discovered by a man named Marquez, and that very few people manage to reach it because of its remoteness and the limited means of transportation.<br>
+I have also heard that Rune is concocting plans to develop the Primeval Isle, which is why it built a wharf there and even set up a ferry service.<br>
+But since the Primeval Isle isn't well known and it is said that there are many dangerous dinosaurs that roam its jungles, very few passengers choose to embark on the ferry. Ah, but with so many curious adventurers heading to these parts these days, I'm sure that ferry will soon have more passengers than it can carry! If you're interested in taking the trip, the ferry for the Primeval Isle leaves about 3 or 4 times every hour; buy a ticket for it just like you would for any other ferry. Interested? Well, take some time and think about it, eh?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go back.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Wharf Manager Volker:<br>
+These days I think contantly of the old days, when this port was filled with Gracia's trading fleet. It was even busier than the ports in southern Giran and Heine.<br>
+But once diplomatic relations with Gracia were broken off because the war, the trading fleets stopped coming as well. Now, only a few small ships are left, although sometimes ocean-going ships loaded with adventurers anchor here...<br>
+Oh, I almost forget! There is a regular shipping route now from here to Gludin Port in Aden. Interested in boarding one of the liners?<br>
+<a action="bypass -h npc_%objectId%_Buy 3135100">Buy a ticket.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Primeval Isle.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

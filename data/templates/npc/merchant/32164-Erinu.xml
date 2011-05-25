@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32164" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32164" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Erinu</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,23 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Erinu:<br>
+Welcome!<br>
+Adventurers should know how to equip themselves at any given moment. If it were like it was before, I could give away some freebies to help you out, but there are so many adventurers nowadays and I have to import the equipment from overseas, so...<br>
+Well, the most important thing is to buy gear that suits your skills best.<br>
+Take a look around and let me know if something catches your eye!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3216400">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3216401">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Erinu:<br>
+Tell me what you'd like.<br>
+<a action="bypass -h npc_%objectId%_Buy 3216400">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3216401">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

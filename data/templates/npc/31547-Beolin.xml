@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31547" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31547" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Beolin</name>
         <level>70</level>
@@ -22,4 +23,20 @@
         <sp>0</sp>
         <collision heigth="16.3" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Beolin:<br>
+Did you know that these hot springs are a very effective treatment for abnormal conditions?<br>
+The red hot spring is good for cholera and malaria, the yellow for rheumatism and malaria, and the green for influenza and malaria.<br>
+If you're in need of rejuvenation, take a dip in the hot springs!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Beolin:<br>
+Hi there!<br>
+Is this a great place or what?<br>
+I was sick when I came here and now I feel great! Better than I've felt in my whole life, in fact!<br>
+These springs are miraculous! Come on in! The water's wonderful!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the hot springs."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

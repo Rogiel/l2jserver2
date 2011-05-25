@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32182" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32182" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Coplan</name>
         <title send="false">Master</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="25.0" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Coplan:<br>
+Why did you come here? I don't know you propose to do here, but neither the Hills of Gold nor I can be of much importance to you. What really is important to you?
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Coplan:<br>
+Do you know the legend of the ancient heroes who saved the Island of Souls from invaders? These Hills of Gold are supposed to be where they made their final stand. Sometimes when I close my eyes and meditate, I can almost see them here! I can't explain it, but it's like I'm tapping into a vast river of energy...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

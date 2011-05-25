@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30001" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30001" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lector</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Lector:<br>
+Can I give you some advice? Just because something is expensive doesn't mean that it's necessary the best option. A child cannot handle a two-handed sword, right? Be sure to pick equipment that's appropriate for your profession and experience level.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3000100">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3000101">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Lector:<br>
+What would you like to trade?<br>
+<a action="bypass -h npc_%objectId%_Buy 3000100">Trade basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3000101">Trade basic equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

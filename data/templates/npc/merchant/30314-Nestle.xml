@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30314" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30314" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nestle</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Nestle:<br>
+No matter how bad sales are, I cannot sell to the likes of you. Please leave.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Nestle:<br>
+Welcome, adventurer! How's the hunting been? With so few people using our port, I'm afraid that the economy here isn't as strong as we could wish. Shouldn't we do everything we can to help each other during these difficult times? Well, have a look around -- if you see something you like, I'll give you a good price.<br>
+<a action="bypass -h npc_%objectId%_Buy 3031400">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3031402">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

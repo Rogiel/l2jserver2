@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30436" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30436" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sarien</name>
         <title send="false">Trader</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Sarien:<br>
+I do not deal with the wicked.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Sarien:<br>
+I studied at Einhovant's School of Magic when I was just a wee lad. I quit when I realized that I didn't have any magical talent and became a trader, but my time there taught me a great deal about this business.<br>
+<a action="bypass -h npc_%objectId%_Buy 3043600">Buy items and minerals.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about magic materials.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Sarien:<br>
+Basically, there are eight main ingredients used in the research of magic. The eight ingredients are crimson mushrooms, Dragon's Tooth, green wild grapes, Mandragora Roots, monster eye meat, willow roots, bone powder and jade fragments. Knowledge of these magic ingredients are largely helpful when doing business with Mystics of the Ivory Tower. Even now, I came here after hearing that magic ingredients could be obtained in the area.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

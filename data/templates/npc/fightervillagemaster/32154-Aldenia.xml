@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FighterVillageMaster" id="32154" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FighterVillageMaster" id="32154"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Aldenia</name>
         <title send="false">Grand Master</title>
@@ -23,4 +25,16 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Grand Master Aldenia:<br>
+Welcome to the Human Embassy. I am the ambassador, Grand Master Aldenia.<br>
+Following the summit in Giran, it was agreed that each race would send a representative here to facilitate cooperation in the fight against the forces of evil. I am sorry to say, however, that we Humans are often distracted by internal squabbles over territory, religion and power. Forging an alliance with other races can be very difficult.<br>
+Especially when some meddlers like the High Priest at Einhasad over there walk around like they are ambassadors as well... Short-sighted buffoon, promoting the interests of certain temples only... Aye... I'm sorry; please pay no attention to complaints -- I'm simply tired.<br>
+How may I help you?<br>
+<a action="bypass -h npc_%objectId%_Quest elven_human_fighters_1">Ask about the 1st class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

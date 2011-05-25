@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30561" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30561" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Papuma</name>
         <title send="false">Grocer</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Papuma:<br>
+For the eternal glory of the Flame! Child of the Flame, how are you?<br>
+Have you been to the world beyond our homelands? It is not what I imagined. Still, glory can be won here in abundance! Look around and see if there's something you need.<br>
+<a action="bypass -h npc_%objectId%_Buy 3056100">Buy supplies and minerals.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Papuma:<br>
+Hoo hoo ... You are a lawbreaker. What a peaceful world! You are walking around as if nothing ever happened ... you, Great Lawbreaker! You better leave before I fetch my weapon! I don't know what I will end up doing to you! Hoo hoo!
+</body></html>]]></chat>
+    </talk>
 </npc>

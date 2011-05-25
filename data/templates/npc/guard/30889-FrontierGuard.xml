@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30889" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30889" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Frontier Guard</name>
         <level>80</level>
@@ -23,4 +24,12 @@
         <item lefthand="0" righthand="14"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Border Patrol Rowan:<br>
+Well now, aren t you a suspicious fellow! How did you come to be here? Where are you from? You have a peculiar accent. Are you by any chance a spy that crossed the border from Elmore?!<br>
+More than Goddard, people coming from Rune or Lansk have been causing a lot of trouble& Once some spies from Rune were roaming around as brigands in this area causing a lot of havoc& Are you& by any chance one of them& ?<br>
+& Hmm! You don t look like one of them. You may go now!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

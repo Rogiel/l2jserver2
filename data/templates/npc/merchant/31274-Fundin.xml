@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31274" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31274" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Fundin</name>
         <title send="false">Mineral Trader</title>
@@ -24,4 +25,13 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mineral Trader Fundin:<br>
+Please come in! My name is Fundin. I am a mineral trader dispatched from the Iron Gate Guild!<br>
+Huh? Oh, of course, blacksmithing is the purview of the Black Anvil Guild. We handle mining and other essential functions. I don't know what it's like in the south, but here we Dwarves get along very well regardless of our guild affiliation.<br>
+<a action="bypass -h npc_%objectId%_Buy 3127400">Trade</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

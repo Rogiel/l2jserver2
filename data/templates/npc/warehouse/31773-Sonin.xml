@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="31773" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="31773" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sonin</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,30 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Warehouse Keeper Sonin:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositP">Store an item (Private Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawP">Retrieve an item (Private Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Warehouse Keeper Sonin:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositC" msg="1039">Store an item (Clan Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawC">Retrieve an item (Clan Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Sonin:<br>
+Hello! I am Sonin. I was sent here because Barder really wanted an assistant he could trust. I suppose he's finally getting old...<br>
+Well, would you like to deposit something? Or perhaps you wish to make a withdrawal?<br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 1">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

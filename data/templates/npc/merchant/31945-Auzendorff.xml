@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31945" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31945" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Auzendorff</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Auzendorff:<br>
+Welcome! Just mention any weapon, any weapon at all -- we'll have it! Now that the great Lord takes good care of Dwarven traders like us, we can again deliver the best of the best. The Elmore royal family are surely pearls among swine!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3194500">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3194501">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Auzendorff:<br>
+If you want to buy something, I will be happy to bring it out! What can I get for you?<br>
+<a action="bypass -h npc_%objectId%_Buy 3194500">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194501">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194502">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194503">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_BuyShadowItem">Buy a Shadow item.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

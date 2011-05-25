@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30076" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30076" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Liam</name>
         <title send="false">Guard</title>
@@ -24,4 +25,22 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Liam:<br>
+I myself have never been to the Bazaar of Giran. However, our village frequently trades with the Bazaar, so I know a little about what it is like there. It is a place where there are all sorts of priceless items. If you can't find it there, then you won't be able to find it anywhere in Aden. It's an enjoyable, lively village. If I have the chance, I should like to go someday.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Liam:<br>
+It is risky to speak of such things, but I will trust you and tell you. It is the Execution Grounds of a rebel army of farmers who revolted against the lord's severe rule a few years ago. At the time, the lord cruelly and publicly executed all those involved in the revolt, and their families, as an example to the people. Those who were unjustly killed became the undead, and they haunt the Execution Grounds to this day.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Liam:<br>
+If you follow the road that lies before me to the east, you can easily arrive at the <font color="LEVEL">Bazaar of Giran.</font> One thing you must remember is to be on your guard when you pass the <font color="LEVEL">Execution Grounds,</font> about halfway there. That place is crawling with evil undead.<br>
+May the divine protection of Einhasad surround you.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Bazaar of Giran.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Execution Grounds.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

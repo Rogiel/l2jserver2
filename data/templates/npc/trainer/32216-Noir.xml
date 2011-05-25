@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32216" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32216" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Noir</name>
         <title send="false">Master</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="23.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Noir:<br>
+Did you say you want to learn Kamael skills from me? Alas... you have undoubtedly heard of my reputation, but you have come to the wrong place. I only teach Warders, Arbalesters and Soul Breakers.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Noir:<br>
+Welcome to the Kamael Guild. Perhaps you've heard of the need for mercenaries to defend Giran's trade and protect its Merchant Guild Association. It is a booming business!<br>
+These mercenaries are highly regarded, but let me assure you that they are rank amateurs compared to our Kamael Warriors. Let us face them in battle and their reputation will sink faster than a stone tossed into a pond!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

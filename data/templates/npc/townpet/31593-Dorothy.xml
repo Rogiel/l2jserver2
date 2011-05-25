@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="TownPet" id="31593" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="TownPet" id="31593" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dorothy</name>
         <title send="false">Golem of Telson</title>
@@ -23,4 +24,10 @@
         <sp>0</sp>
         <collision heigth="19.0" radius="5.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Locksmith Dorothy: <br> 
+This is such a peaceful place! All the happy, wealthy people roaming around like lambs ready for the fleecing! This should be a piece of cake...<br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

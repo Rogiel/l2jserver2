@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Sepulcher" id="31933" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Sepulcher" id="31933" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Marquis' Hall Gatekeeper</name>
         <level>70</level>
@@ -22,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="29.0" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marquis' Hall Gatekeeper:<br> 
+I guard the gate connected to the Marquis' Hall.<br> 
+<a action="bypass -h npc_%objectId%_open_gate">Open the gate.</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

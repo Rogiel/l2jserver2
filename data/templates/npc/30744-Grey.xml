@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30744" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30744" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Grey</name>
         <title send="false">Guild Member</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guild Member Grey:<br>
+You should not think of the Hunters Guild as a group whose members chase after rabbits and deer. We hunt the most precious of tresures, destroying evildoers and exploring ruins. We specialize in searching, tracking and hunting, and never fail to achieve our goals. We also have an awesome fighting ability.<br>
+Ah, but first I should introduce myself. I am Hunters Guild member Grey.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

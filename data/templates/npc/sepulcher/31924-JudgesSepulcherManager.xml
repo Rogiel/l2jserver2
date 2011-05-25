@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Sepulcher" id="31924" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Sepulcher" id="31924" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Judges' Sepulcher Manager</name>
         <level>70</level>
@@ -22,4 +23,31 @@
         <sp>0</sp>
         <collision heigth="21.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="SE"><![CDATA[<html><body>Judges' Sepulcher Manager:<br>
+%member% doesn't have a pass!
+</body></html>]]></chat>
+        <chat id="FULL"><![CDATA[<html><body>Judges' Sepulcher Manager:<br>
+Another party has already entered the sepulcher. Come back later!
+</body></html>]]></chat>
+        <chat id="NS"><![CDATA[<html><body>Judges' Sepulcher Manager:<br>
+%member% must get permission from the nameless soul.
+</body></html>]]></chat>
+        <chat id="NL"><![CDATA[<html><body>Judges' Sepulcher Manager:<br>
+Only a party leader may lay hands on the stone statue and enter!
+</body></html>]]></chat>
+        <chat id="SP"><![CDATA[<html><body>Judges' Sepulcher Manager:<br>
+The combined strength of at least four is needed to gain entry!
+</body></html>]]></chat>
+        <chat id="OK"><![CDATA[<html><body>Judges' Sepulcher Manager:<br>
+You may enter!
+</body></html>]]></chat>
+        <chat id="NE"><![CDATA[<html><body>Judge's Sepulcher Manager:<br>
+Come back later!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Judge's Sepulcher Manager:<br>
+A weird-looking statue.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

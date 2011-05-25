@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32176" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32176" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ambra</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,14 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="22.5" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marksman Ambra:<br>
+Welcome to Kamael Village! I am Ambra, the Marksman of this place. It is my duty to protect the village.<br>
+As you can see, it is currently filled to the brim with novice adventurers here to develop their skills. Once they have advanced sufficiently, they journey into the wider world to try their luck.<br>
+That's my hope, too -- perhaps one day when things settle day, I will be able to journey to the mainland and test my skills against the inhabitants.<br>
+<A>Ask about Kamael Village.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See information on permanent residence and tax rates.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

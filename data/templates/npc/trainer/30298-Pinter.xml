@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30298" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30298" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Pinter</name>
         <title send="false">Blacksmith</title>
@@ -24,4 +25,35 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Blacksmith Pinter:<br>
+Welcome! What can I do for you this fine day? Go ahead, ask me anything. I'm a 3rd-generation blacksmith and a proud Dwarf. In fact,  I'll wager my shop that you won't find another Dwarf in these parts with a fuller beard! Ha! I will tell you in all humility, though, that I am a master of my profession. I'm sure there is nothing beyond my skills.<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Craft Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Make item.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1002">Break the seal on B-Grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1003">Reseal the unsealed B-Grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_01.htm">Augment item.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_02.htm">Cancel item augmentation.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 620">Purchase Academy equipment.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Blacksmith Pinter:<br>
+Hmm, I cannot teach you. I only teach Dwarf Fighters and Artisans. Screw your head on straight and go find the right Master for you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Blacksmith Pinter:<br>
+Welcome! Why have you come here to see me? Ask me anything. This is my family business. If you have a problem, I'm sure we can solve it.<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Craft a Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Craft an item.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1002">Release the seal on B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1003">Reseal B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_01.htm">Smelt an item.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_02.htm">Cancel smelting.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

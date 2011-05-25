@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31859" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31859" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Teleportation Cubic</name>
         <level>70</level>
@@ -21,4 +22,9 @@
         <sp>1</sp>
         <collision heigth="80.0" radius="40.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Teleport Cube:<br><br>
+<a action="bypass -h npc_%objectId%_Quest 6000_GrandBossTeleporters">Go to Giran Castle Town</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

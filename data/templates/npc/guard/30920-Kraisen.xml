@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30920" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30920" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Kraisen</name>
         <title send="false">Guard</title>
@@ -24,4 +25,16 @@
         <item lefthand="102" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Kraisen:<br>
+Hello! I am Guard Kraisen. Isn't this wonderful weather?<br>
+By the way, do you have any idea what that building over there contains?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"I don't know."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Kraisen :<br>
+That humble building is home to the Warrior Guild. Most guilds these days have impressive buildings, but outward appearances are not important to us! This certainly doesn't reflect on our abilities. Our Lord can defeat a dragon single-handedly! Yes, I like our guild just as it is...
+</body></html>]]></chat>
+    </talk>
 </npc>

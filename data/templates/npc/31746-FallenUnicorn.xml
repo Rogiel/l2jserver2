@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31746" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31746" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Fallen Unicorn</name>
         <level>70</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="30.0" radius="14.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Fallen Unicorn:<br>
+
+An equine female with shiny, white hair lies listlessly on the ground. 
+A small, sharp ivory-colored horn protrudes from her forehead. This is a unicorn called Eva's Luck! 
+The sight of her brings tears.<br>A closer look is impossible due to an invisible force field around her.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+
+</body></html>]]></chat>
+    </talk>
 </npc>

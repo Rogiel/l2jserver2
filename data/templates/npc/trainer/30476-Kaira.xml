@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30476" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30476" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kaira</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Kaira:<br>
+I do not receive students other than Mystics of Dark Elven race. I am sorry, but I don't have any business with you.<br>
+Now if you'll excuse me.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Kaira:<br>
+Rest easy, traveler. I can tell you've come a long way.<br>
+I teach magic to my Dark Elf brothers. I also trace the whereabouts old relics or forgotten archeological sites in my spare time. Perhaps I will find clues concerning the lost Dark Magic of the ancient Giants.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32192" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32192" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Falken</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,14 @@
         <item lefthand="0" righthand="9645"/>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Marksman Falken:<br>
+They say that Soul's Hill is where the souls of Kamael heroes sleep. During an ancient war, Kamael warriors were drivin up to this place where they made their last stand, fighting to the death in order to protect the village below.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Marksman Falken:<br>
+This is<font color="LEVEL"> Soul's Hill</font>. Please enter with an orderly mind.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Soul's Hill.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

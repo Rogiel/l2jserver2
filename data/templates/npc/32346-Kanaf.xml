@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32346" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32346" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kanaf</name>
         <level>70</level>
@@ -22,4 +23,22 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="3"><![CDATA[<html><body>Kanaf:<br>
+To attempt to enter the town by yourself would be suicide! You must enter with the rest of your party members.
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Kanaf:<br>
+It is said that there is a passage to a workshop somewhere in the Steel Citadel where evil creatures are being manufactured for the war. Supposedly you need something very rare in order to enter it, and no one we know has yet been able to do so.<br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask him about other information.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Infiltrate the town</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Kanaf:<br>
+Shh! Please be still. Over there is the <font color="LEVEL">old town</font>, which is the only entrance to the Steel Citadel. It is used as a prison camp for Native captives.<br>
+Some time ago, when the Steel Citadel's defenses were temporarily weakened, we attacked the town in an attempt to rescue the captives. However, the enemy was still too strong, and many of us were killed or wounded. <br>
+And our comrades in the town still thirst for their freedom!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Infiltrate the town.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask him for new information about the town.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

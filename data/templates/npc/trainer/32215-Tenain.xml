@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32215" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32215" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tenain</name>
         <title send="false">Master</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="25.0" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Tenain:<br>
+You want to study under me? Sorry, but that is impossible. I might look like a soft-hearted Kamael to you, but I never disobey orders -- and my orders are to teach only Troopers, Berserkers and Soul Breakers.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Tenain:<br>
+Ah, welcome! I've been so absent-minded lately that I didn't even notice you there. If you look around Giran, you'll understand why. It's like this all day long: noise and crowds and chaos!<br>
+It is very different from my own orderly homeland. Ah, you came for training? Good. I need something to keep focused!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30754" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30754" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gilmore</name>
         <title send="false">Antharas Watchman</title>
@@ -24,4 +25,18 @@
         <item lefthand="0" righthand="150"/>
         <collision heigth="25.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Antharas Watchman Gilmore:<br>
+I am Gilmore, watcher of the beast Antharas...<br>
+I must monitor every breath that demon dragon takes, every twitch of its mighty tail, to assure that it does not awaken from its deep sleep. I have watched the beast for 1,000 years, since I had an army against him. We were able to subdue the beast, but he must be watched.<br>
+Do you truly desire to face Antharas, the Land Dragon? He is imprisoned in cave with no entryway. There is only one way in or out... The<font color="LEVEL"> Heart of Warding</font>...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Heart of Warding."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Antharas Watchman Gilmore:<br>
+... The Heart of Warding is a doorway that was made by those who imprisoned Antharas... A <font color="LEVEL">Portal Stone</font> activates it. <font color="LEVEL">Antharas Watchman Theodric</font> distributes Portal stones to those who have been approved by the seal watchmen.<br>
+If you wish to obtain a Portal Stone, you should go and see Gabrielle. Gain her approval and then come back to see me...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

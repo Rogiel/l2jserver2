@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30609" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30609" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Creta</name>
         <title send="false">Astrologer</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Astrologer Creta:<br>
+My perceptions are shrouded in darkness. I see dark clouds in everyone's future, foretelling dark days ahead for the kingdom. We must all keep the faith.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Astrologer Creta:<br>
+Welcome, stranger... My name is Creta, I earn my living by fortune telling.<br>
+In the past, even the Lords of the land came to us for tellings... But people often fear what they cannot understand and fortune telling has had an unfavorable light shone upon it by religious types. I can no longer practice my skill in the open, only in small, insignificant places, like here.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Foretell My Future</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

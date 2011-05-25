@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30305" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30305" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Vellior</name>
         <title send="false">Tetrarch</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="23.8" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Tetrarch Vellior:<br>
+Enlightenment is followed by sacrifice. If you look back on the history of our race, you will truly realize the truth of this teaching. When the <font color="LEVEL">great Sorcerer Dasparion</font> came to us a thousand years ago and proposed to teach us black magic, we did not anticipate the sacrifice we would have to pay in the future and accepted his proposal.<br>
+When we were at war with the Elves of the light, the black magic spells we cast wiped out the innocent Elves of the trees, due to Dasparion's malicious plots. While the Elves of the trees died, they cursed us with all their remaining strength. As a result, our beautiful forest withered, our skin became scorched by the sun, and we went blind and became the race of the Dark. For hundreds of years, we lived hidden underground.<br>
+Now the curse of the Dark Elves has been broken and we live above the ground, but we must not forget the high price we paid to earn strength.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Tetrarch Vellior:<br>
+May the mercy of Shilen shade you from the light.<br>
+I am Tetrarch Vellior of the Dark Elves, heir of the dark truth of the sacred book Icarus, envoy to the other world, and highest Mystic to wield black magic in the place of Patriarch Mitraell, who is now sealed away.<br>
+<font color="LEVEL">Black magic</font> is the source of our power and the revelation of dark truth. It is forbidden among other races. They do not understand darkness and fear it, so therefore they exclude it. However, if there is light, there is shadow, and we can control the true power of black magic because we confront darkness with no fear.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about black magic</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

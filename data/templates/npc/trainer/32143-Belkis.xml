@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32143" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32143" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Belkis</name>
         <title send="false">Master</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="9644"/>
         <collision heigth="23.0" radius="12.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Belkis:<br>
+There is no more satisfying feeling that facing down your prey in a box canyon on a moonlit night, when one or the other of you must perish.The feel of your sword in your hand, the wind in your face, the smell of blood thick in the air...<br>
+Ah, I miss those simpler days, when all my decisions were as simple as life and death. What about you? Would you choose freedom or security?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Belkis:<br>
+I am sorry, but I cannot teach you. My power is insufficient to teach anyone other than female Kamael Soldiers or Warders.
+</body></html>]]></chat>
+    </talk>
 </npc>

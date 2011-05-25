@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="30233" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="30233" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Esmeralda</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,44 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Esmeralda:<br>
+Have you helped others in the past? We follow the will of the gods, therefore we cannot permit your passage through the Gates of Space Time. Spend some time reflecting on your past actions.
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9030" msg="811;The Center of the Forest of Mirrors">The Center of the Forest of Mirrors - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9031" msg="811;The Center of the Enchanted Valley">The Center of the Enchanted Valley - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9032" msg="811;Hunters Valley">Hunters Valley - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Esmeralda:<br>
+I have heard that there are many monsters wandering near this Hunter's Village. For weary adventurers pressed for time, my ability to send you through the door of time and space may be invaluable.<br>
+Do you miss the hometown you left years ago? Are you in a hurry to save a friend? Or do you suddenly long to see the great ocean? I can send you anywhere on this wide continent in an instant.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1101_teleport_to_race_track" msg="811;Monster Racetrack">Move to Monster Race Track (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1106_teleport_to_fantasy_isle" msg="811;Fantasy Isle">Move to Fantasy Isle (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9930" msg="811;The Center of the Forest of Mirrors">The Center of the Forest of Mirrors - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9931" msg="811;The Center of the Enchanted Valley">The Center of the Enchanted Valley - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9932" msg="811;Hunters Valley">Hunters Valley - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 46" msg="811;Town of Aden">Town of Aden - 5900 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 43" msg="811;Town of Oren">Town of Oren - 4100 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 45" msg="811;Hardins Private Academy">Hardin's Private Academy - 3400 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 100" msg="811;Enchanted Valley, Southern Region">Enchanted Valley, Southern Region - 1300 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 99" msg="811;Enchanted Valley, Northern Region">Enchanted Valley, Northern Region - 3600 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 101" msg="811;Forest of Mirrors">Forest of Mirrors - 2000 Adena</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

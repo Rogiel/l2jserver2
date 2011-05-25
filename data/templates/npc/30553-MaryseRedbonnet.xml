@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30553" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30553" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Maryse Redbonnet</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Maryse Redbonnet:<br>
+I must kill them! I must kill them all! Huge mouth! Gigantic eyes! The rough sound of breathing! I still remember everything... Right in front of me, it opened its mouth and swallowed my parents and grandma... Finally, it was about to lunge out to eat me! Then a Master Raider appeared all of a sudden and saved my life... <br>
+If it wasn't for that stupid Master Raider, I wouldn't have had to live like this... Everyone was killed! Only I survived! I should have been killed with my parents and grandma... Do you know how hard it is for a woman to live alone?! I will kill the wolves! I will kill them all!!! <font color="LEVEL">I will kill the wolves who took my happiness away!!!</font><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

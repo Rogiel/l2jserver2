@@ -31,6 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
@@ -55,6 +57,8 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 @Depends({ LoggingService.class, ConfigurationService.class })
 public class XMLTemplateService extends AbstractService implements
 		TemplateService {
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	private final XMLTemplateServiceConfiguration config;
 	private final NPCTemplateIDAdapter npcTemplateIdAdapter;
 	private final ItemTemplateIDAdapter itemTemplateIdAdapter;
@@ -83,9 +87,12 @@ public class XMLTemplateService extends AbstractService implements
 	@Override
 	protected void doStart() throws ServiceStartException {
 		try {
+			log.debug("Creating JAXBContext instance");
 			context = JAXBContext.newInstance(CharacterTemplate.class,
 					NPCTemplate.class, ItemTemplate.class,
 					TeleportationTemplateContainer.class);
+			
+			log.debug("Creating Unmarshaller instance");
 			unmarshaller = context.createUnmarshaller();
 
 			unmarshaller.setAdapter(NPCTemplateIDAdapter.class,
@@ -101,7 +108,9 @@ public class XMLTemplateService extends AbstractService implements
 			Collection<File> files = FileUtils
 					.listFiles(config.getTemplateDirectory(),
 							new String[] { "xml" }, true);
+			log.debug("Located {} XML template files", files.size());
 			for (final File file : files) {
+				log.debug("Loading template {}", file);
 				loadTemplate(file);
 			}
 			TeleportationTemplateContainer container = (TeleportationTemplateContainer) unmarshaller
@@ -111,6 +120,8 @@ public class XMLTemplateService extends AbstractService implements
 				templates.put(template.getID(), template);
 			}
 		} catch (JAXBException e) {
+			e.printStackTrace();
+			System.exit(0);
 			throw new ServiceStartException(e);
 		}
 	}

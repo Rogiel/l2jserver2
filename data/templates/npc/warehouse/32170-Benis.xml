@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="32170" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="32170" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Benis</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,34 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Warehouse Keeper Benis:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositP">Deposit an item. (Private Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawP">Claim an item. (Private Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return.</a>
+</center>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Benis:<br>
+Welcome! Thank you for visiting our warehouse. We promise to always treat our customers just like family! Whether you have heavy goods or precious items, we're happy to take them off your hands and store them here.<br>
+Oh, don't worry! They're completely safe, even if the earth were to quake and the sky were to fall. Besides, in the improbable case of some loss, I would personally reimburse you 100%.<br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 1">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Keeper Benis:<br>
+I'm sorry, but i don't have the ability to teach you. Please go find a master who can teach you the skills that you need.
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Warehouse Keeper Benis:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositC" msg="1039">Deposit an item. (Clan Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawC">Claim an item. (Clan Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return.</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

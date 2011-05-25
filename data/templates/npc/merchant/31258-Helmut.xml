@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31258" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31258" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Helmut</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,25 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Helmut:<br>
+Heave...Ho! Whuh? A customer! Oh, I'm in the middle of moving loads...<br>
+So, you need armor? Well, have a look around and see if there's something you want! We used to have a lot of good items, but nowadays...well, with the northern regions so troubled, getting genuine Dwarven-made items is like plucking a star from the sky. Too bad...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3125800">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3125801">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Helmut:<br>
+Please take a look and let me know what you like.<br>
+<a action="bypass -h npc_%objectId%_Buy 3125800">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3125801">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Buy basic equipment for Warriors.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Helmut:<br>
+How dare you enter this village! You must be fearless!
+</body></html>]]></chat>
+    </talk>
 </npc>

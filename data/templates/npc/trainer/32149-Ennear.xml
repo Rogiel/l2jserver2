@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32149" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32149" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ennear</name>
         <title send="false">Magister</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Ennear:<br>
+Nice to meet you, adventurer!<br>
+I'm Magister Ennear, originally from Innadril. Elves are said to be the founders of all magic. But you cannot ignore the fact that both Humans and Dark Elves have contributed greatly to our current magical knowledge. And Kamael magic is far different even from our Dark Elven variety.<br>
+Where did their power come from? I would give my left hand to find out...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Ennear:<br>
+I am sorry to disappoint you, but I am unable to teach this Elven school of magic to someone like yourself. However, I am always open for a discussion regarding magic...
+</body></html>]]></chat>
+    </talk>
 </npc>

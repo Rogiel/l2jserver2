@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleDoormen" id="35097" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleDoormen" id="35097"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Inner Doorman</name>
         <title send="false">Gludio</title>
@@ -23,4 +25,20 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Nothing unusual to report, my Lord.<br>
+What do you wish to do?<br>
+<center>
+<a action="bypass -h npc_%objectId%_open_doors 1, 19210005, 19210006">Open the Castle Gate.</a><br>
+<a action="bypass -h npc_%objectId%_close_doors 1, 19210005, 19210006">Close the Castle Gate.</a><br>
+<a action="bypass -h npc_%objectId%_tele 2003">Teleport (Out of the Gate)</a><br>
+<a action="bypass -h npc_%objectId%_tele 2004">Teleport (Into the Gate)</a>
+</center>
+</body></html>]]></chat>
+        <chat id="no"><![CDATA[<html><body>Who goes there?!<br>
+I order you to leave at once!
+</body></html>]]></chat>
+        <chat id="busy"><![CDATA[<html><body>Oh! Our castle is being attacked and I can't do anything for you right now.
+</body></html>]]></chat>
+    </talk>
 </npc>

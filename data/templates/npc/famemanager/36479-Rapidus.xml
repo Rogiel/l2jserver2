@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FameManager" id="36479" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FameManager" id="36479"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rapidus</name>
         <title send="false">Reputation Manager</title>
@@ -23,4 +25,40 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+You dont have enough PK.
+</body></html>]]></chat>
+        <chat id="noclan"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+If you are not part of a clan, or if your clan status is too low, your victory cannot be recognized.
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+Your PK count was reduced.
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+Your clan will be proud of you.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+Tell me what you want, and if you are worthy I will help you.<br>
+If you have already <font color="LEVEL">bestowed them with a special ability</font>, <font color="LEVEL">top-grade weapons and armor</font> can be enhanced <font color="LEVEL">beyond A-Grade</font> especially for PvP combat. Once a multi-user item is specialized, you will still be able to enchant the item. However, you cannot refine, crystallize, convert or add an attribute to it.</font> Think carefully before making a decision... <br><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 364790001">Enhance weapons and armor for PvP.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 364790002">Cancel enhancement.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 364790003">Obtain consumable item.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+O victorious one, have you set your next goal? I have prepared something for you. You will be awarded according to your distinguished service. What is it that you seek?<br>
+<a action="bypass -h npc_%objectId%_Link famemanager/36479-1.htm">Examine PVP exclusive items.</a><br>
+<a action="bypass -h npc_%objectId%_PK_Count">Decrease PK count by 1 (5,000 Reputation Points).</a><br>
+<a action="bypass -h npc_%objectId%_CRP">Increase Clan Reputation (1,000 Reputation Points).</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+Fame comes naturally when one takes an active part in battles with others. If you have clan members with the same goal, consider participating in Castle Sieges, Fortress Battles and Clan Hall Battles. If you have party members who work extremely well together, try your luck in the Underground Coliseum Game or the Festival of Darkness. If you are alone, demonstrate your prowess by participating in the Olympiad.<br>
+You can use Clan Reputation Points earned in any of the above games to help increase your clan's fame or improve your own PVP capabilities.
+</body></html>]]></chat>
+        <chat id="lowfame"><![CDATA[<html><body>Reputation Manager Rapidus:<br>
+Diplomacy is sometimes wiser than fighting. Nevertheless, Warriors need power if they are to protect those who depend on them. (Requires completion of second class transfer and Clan Fame level above 40.)<br><br>
+<a action="bypass -h npc_%objectId%_Link famemanager/36479-2.htm">Ask how to obtain Clan Fame points.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

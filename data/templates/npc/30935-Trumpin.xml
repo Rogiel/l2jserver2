@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30935" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30935" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Trumpin</name>
         <title send="false">Collector</title>
@@ -23,4 +24,23 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Collector Trumpin:<br>
+Working under the shadow of the Ivory Tower, I often admire its graceful beauty. It reminds me of a delicate porcelain vase, that but with the slightest bit of mishandling would shatter into millions of pieces.<br>
+It doesn't seem structurally sound, does it? Any Dwarf with a basic knowledge of design would see this. It is no doubt held together by the force of the magic conducted within its walls. If one day those wizards were to lose their power... this beautiful building would be reduced to a pile of pebbles...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Collector Trumpin:<br>
+Greetings! I am Trumpin. I am visiting the Ivory Tower in order to do some business with my younger sister.<br>
+Unfortunately my back is killing me! I can't do business like this... Ouch!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Ivory Tower."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Tell me about your younger sister."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Collector Trumpin:<br>
+My sister's name is Marsha. She is a collector like myself, very outgoing and bright. Her only flaw is her habit of solving problems by trickery instead of real work, but you will find her plain-spoken and easy-to-read.<br>
+Not long ago she and I were running away from monster eyes and got separated. I believe she still must be somewhere in this crater. If you run into her please let her know that I'm looking for her.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

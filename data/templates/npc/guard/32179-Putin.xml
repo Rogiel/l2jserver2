@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32179" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32179" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Putin</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="9645"/>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marksman Putin:<br>
+Thank you for your efforts. If you step through the door behind me, you will enter Kamael Village.<br>
+The monsters in Mimir's Forest are powerful, aren't they? If you feel that they are easy, it may be time for you to challenge yourself with a trip to <font color="LEVEL">Nornil's Cave</font>.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Nornil's Cave.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See information on permanent residence and tax rates. </a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Marksman Putin:<br>
+Nornil's Cave is widely known as the origin of all the monsters who roam the Isle of Souls. Survive it and you will gain the qualifications necessary to depart this island for the mainland as a soldier of the Kamael.<br>
+To be honest, even if you don't pass you may still be able to leave the island, but this is the traditional path, and tradition is something we Kamael value.
+</body></html>]]></chat>
+    </talk>
 </npc>

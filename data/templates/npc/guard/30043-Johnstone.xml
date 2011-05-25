@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30043" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30043" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Johnstone</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Johnstone:<br>
+The school is a wondrous place that teaches the basics of magic to young people born with magical talent. They say that it was built by a Wizard named Einhovant and his followers, but hardly anyone claims to have actually seen him. It makes me wonder if there really was such a person.<br>
+The school is just beyond that mountain in front of me, on the shores of a small lake. It's quite a big building, so you can't miss it.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Johnstone:<br>
+Since I was young, I have idolized Mystics and wanted to study at<font color="LEVEL"> Einhovant's School of Wizardry,</font> but unfortunately the teachers there told me I had no magical talent.<br>
+Now I realize that my physical strength is where my true gifts lie. In the end, I ve become a guard, and I don t regret it.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Einhovant's School of Wizardry.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

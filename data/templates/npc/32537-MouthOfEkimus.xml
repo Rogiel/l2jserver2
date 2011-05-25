@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32537" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32537" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mouth of Ekimus</name>
         <level>70</level>
@@ -22,4 +23,17 @@
         <sp>0</sp>
         <collision heigth="14.0" radius="80.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mouth of Ekimus:<br>
+There is a narrow path among the decomposed flesh and frayed yellow bones. It is surrounded by the feel of death and the stench of decay.<br>
+It seems that you must pass through the gap to secretly enter one of many <font color="LEVEL">halls</font> of the Seed of Infinity inside.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Pass through the gap and into the hall.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Mouth of Ekimus:<br>
+The echoes of the screams of the dying spread to the other side of the gap.<br>
+The name Hall of Suffering seems to suit this place where new souls are made.<br>
+(The Hall of Erosion is an instant zone exclusively for party use.)<br>
+<a action="bypass -h npc_%objectId%_Quest SeedOfInfinity">Enter the Hall of Erosion.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

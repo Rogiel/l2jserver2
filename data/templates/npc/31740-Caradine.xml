@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31740" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31740" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Caradine</name>
         <level>70</level>
@@ -23,4 +24,11 @@
         <item lefthand="0" righthand="285"/>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Caradine:<br>
+My name is Caradine. I am the first daughter of the Naird family that has served the Lady of the Lake for generations. The year I turned 20 I followed my mother Morigan in service to the lady. To fulfill my lady's will I've traveled all over the world.<br>
+No! You're wrong! She's real! Once when I was very young I saw her with my own eyes. Rest assured, she definitely exists! I feel her in my heart and I hear her voice whispering in my ear even now...<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

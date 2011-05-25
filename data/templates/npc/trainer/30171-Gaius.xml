@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30171" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30171" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gaius</name>
         <title send="false">Magister</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Gaius:<br>
+I don't think that you're somebody I can teach. Why don't you go upstairs? Gauen is younger that other Elves, but he might be an excellent teacher for you. On the other hand, there is also Kaiena. She may be a little difficult to deal with at times, but she is an accomplished magus.<br>
+Be aware that we don't deal with clerics here. If that is your calling, you'd best go to a temple.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Gaius:<br>
+Welcome, o seeker of truth, to the Ivory Tower!<br>
+Magic is both a tool and a weapon, capable of great good or horrific evil. Even some of our most illustrious wizards have strayed into dark paths over the years. Only the Elves have remained immune to corruption. But let me say this. Magic only reflects the user's own self, a point my old master understood very well. His work, now more than 50 years old, still makes me pause and think...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Gaius' master.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magister Gaius:<br>
+My master's name was Metheus. He was an indomitable Human, unafraid of making mistakes in his quest for knowledge. His thousands of magical experiments have borne bountiful fruit, transforming how many of us now see magic. Perhaps his most useful research concerned the "magic boost." It has often been misused, but working with his original discoveries we have begun to  develop some more stable refinements. Perhaps you've heard of the <font color="LEVEL">spiritshot</font>?
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30198" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30198" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Jerin</name>
         <title send="false">Guard</title>
@@ -24,4 +25,22 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Jerin:<br>
+Eh, nice weather, eh stranger? I've been a guard for a long time but, honestly, I've never even gotten a scratch in the line of duty. I am lucky. Really, even though you're a skilled adventurer, you'll never be able to beat someone who's lucky. One of my friends... He was so drunk one time, he didn't even have his armor on, went and wandered off by the <font color="LEVEL">protection towers,</font>, near the <font color="LEVEL">Sea of Spores</font> to take a leak, and didn't even see a monster. Lucky bastard.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the protection tower.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Sea of Spores.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Jerin:<br>
+You will see strange towers northwest of the town. Past the towers you will find the Sea of Spores. Fungus, mushrooms and other unusual plants grow there... You wouldn't catch me dead there.<br>
+It is said that humans and elves fought there long ago, and the elves made a huge mistake. Before dying of a mysterious disease, a traveler reported seeing a large turtle's shell and a giant statue of a goddess roaming thereabouts.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Jerin:<br>
+the mages of the Ivory Tower joined with the Elves to build the Protection Tower at the center of the Sea of Spores. It was supposedly erected to halt the spread of the Sea of Spores but there is no evidence it is working... I think it more likely they are up to something...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

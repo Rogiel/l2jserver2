@@ -31,6 +31,10 @@ import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
 public class NPCTemplateIDAdapter extends XmlAdapter<Integer, NPCTemplateID> {
 	private final NPCTemplateIDProvider provider;
 
+	public NPCTemplateIDAdapter() {
+		provider = null;
+	}
+
 	@Inject
 	public NPCTemplateIDAdapter(NPCTemplateIDProvider provider) {
 		this.provider = provider;
@@ -40,6 +44,8 @@ public class NPCTemplateIDAdapter extends XmlAdapter<Integer, NPCTemplateID> {
 	public NPCTemplateID unmarshal(Integer v) throws Exception {
 		if (v == 0)
 			return null;
+		if (provider == null)
+			return new NPCTemplateID(v, null);
 		return provider.createID(v);
 	}
 

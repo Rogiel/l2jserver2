@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30696" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30696" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Page</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Page:<br>
+Welcome. Open your book and let's see how far you have progressed...<br>
+Why are you looking at me like that? Aren't you here to learn magic? Ah, don't believe that fool over there -- he sees conspiracies around every corner and behind every shuttered window...<br>
+Moses, you fool, stop scaring travelers with your babblings!<br>
+Well, let's get down to business. What exactly are you here to learn?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body><br>
+Sheesh... Another person in the wrong place... Hey! What do I look like? I warn you, if you ware an Orc or a Dwarf, I'd make you regret coming to this village!
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30523" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30523" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gouph</name>
         <title send="false">Collector</title>
@@ -23,4 +24,24 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Collector Gouph<br>
+Well ... Only the most elite dwarves can make it to the Bronze Key. <font color="LEVEL">Collector Gentaron</font>, founder of our guild, was the most renowned adventurer! He was so brave that he went into a dragon's nest by himself and brought out its scale! We guild members worship his spirit of adventure and courage, so we travel constantly around the wide world. There is not a single thing that my guild can't find! Once you make a request, we can bring you anything in the world! You must be prepared to pay for it, though!<br>
+We, the Bronze Key, venture out into the world to collect rare and precious treasures! If you want to be in our guild, you must train and train some more ...!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Collector Gouph<br>
+Dandy Gouph is a true Dwarf! I have wound my way through the world with many friends of the <font color="LEVEL">Bronze Key</font>! Still there are many strange places in the world, so let's go, friends -- Let's venture out! Wait, treasures ... Gouph is coming soon! Precious treasures are all ours! Let's venture out to the entire world! Gold and silver worth more than my life ... I am Gouph ... A Dwarf among Dwarves! If my dear lover wants, I can even pull out the teeth of a fierce dragon. Yippee! Gouph is fine!!<br>
+Oh bless me -- I made another great song before I knew it ... !<br>
+Oh, my! How long have you been standing there? You ... you heard, er, everything?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Bronze Key Guild.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">You can sing very well.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Collector Gouph:<br>
+Oho! A young musician came to see me earlier! He was so talented that I was deeply moved. Perhaps I should sing a little song for you!<br>
+...The white snake is lanky, long and smooth... When he's coiled up he looks like poo...#$#^$##$%#^%$%#$%@#$%...Argh! I'm such an idiot!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

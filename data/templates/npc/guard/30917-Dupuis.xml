@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30917" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30917" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Dupuis</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Dupuis:<br>
+Human and Elves have lived alongside each other peacefully for years in this land. Here, Eva is more revered than Einhasad and the rest of us worship Eva. Our special name for her is "The Lady of the Lake". This term incorporates the old religion of the indigenous people from this area.<br>
+Am I boring you...?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Dupuis:<br>
+You look exhausted! You have chosen the most beautiful and peaceful place on earth to brush the dust from your boots. If you present a flower to the Lady of the Lake, she may bestow upon you a kiss of blessing.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the Lady of the Lake."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

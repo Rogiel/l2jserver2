@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Adventurer" id="32082" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Adventurer" id="32082" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dion Territory Manager</name>
         <title send="false">Adventure Guildsman</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventure Guild Branch Manager:<br>
+Well, well, well! The Lord finally defeated the raid boss, huh? That must've been a hell-of-a show! I wish I'd seen that! I had to come and see for myself when I heard the news!<br>
+Surely you've heard that our guild is collecting Life Crystals?! Bring some and I'll make a splendind, unique item for you!<br>
+<a action="bypass -h npc_%objectId%_multisell 320825001">"I want a weapon made from the Life Crystals."</a><br>
+<a action="bypass -h npc_%objectId%_multisell 320825002">"I want armor made from the Life Crystals."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

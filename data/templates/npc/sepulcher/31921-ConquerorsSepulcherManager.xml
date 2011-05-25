@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Sepulcher" id="31921" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Sepulcher" id="31921" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Conquerors' Sepulcher Manager</name>
         <level>70</level>
@@ -22,4 +23,31 @@
         <sp>0</sp>
         <collision heigth="21.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="SP"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+Your party must consist of at least four members. Come back when you have more friends.
+</body></html>]]></chat>
+        <chat id="NE"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+Visiting hours are over!
+</body></html>]]></chat>
+        <chat id="NL"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+The statue will only respond to the leader of the party.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+A strange-looking stone statue.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="NS"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+One among your party hasn't fulfilled the request of the nameless soul. Ask %member% to go and meet with the nameless soul and do as he asks.
+</body></html>]]></chat>
+        <chat id="SE"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+One of your party members doesn't have a pass. Either give %member% a pass to enter the sepulcher, or ask him to go get one and come back.
+</body></html>]]></chat>
+        <chat id="FULL"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+There is another party already in the sepulcher. Try again later.
+</body></html>]]></chat>
+        <chat id="OK"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+Enter.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FortManager" id="36210" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FortManager" id="36210"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Foreman</name>
         <title send="false">Western Fortress</title>
@@ -23,4 +25,32 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="d"><![CDATA[<html><body><center><br><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 23170001 23170012 23170004 23170005 23170008 23170009 23170002 23170003 23170006 23170007 23170010 23170011">Open the gate</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23170001 23170012 23170004 23170005 23170008 23170009 23170002 23170003 23170006 23170007 23170010 23170011">Close the gate</a><br>
+<a action="bypass -h npc_%objectId%_Link fortress/foreman.htm">Return</a>
+</center></body></html>]]></chat>
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 14105" msg="811;Fortress North Gate">Fortress North Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14106" msg="811;Fortress South Gate">Fortress South Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14107" msg="811;Aden Town Square">Aden Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14108" msg="811;Oren Town Square">Oren Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14109" msg="811;Goddard Town Square">Goddard Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14110" msg="811;Enchanted Valley, Northern Region">Enchanted Valley, Northern Region - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14111" msg="811;Blazing Swamp">Blazing Swamp - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14112" msg="811;Ancient Battleground">Ancient Battleground - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14113" msg="811;Entrance to the Forge of the Gods">Entrance to the Forge of the Gods - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14114" msg="811;Wall of Argos">Wall of Argos - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14115" msg="811;The Giant's Cave Upper Layer">The Giant's Cave Upper Layer - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14116" msg="811;The Giant's Cave Lower Layer">The Giant's Cave Lower Layer - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 14105" msg="811;Fortress North Gate">Fortress North Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14106" msg="811;Fortress South Gate">Fortress South Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14107" msg="811;Aden Town Square">Aden Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14108" msg="811;Oren Town Square">Oren Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14109" msg="811;Goddard Town Square">Goddard Town Square</a><br1>
+</body></html>]]></chat>
+    </talk>
 </npc>

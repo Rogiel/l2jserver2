@@ -29,6 +29,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.eclipse.persistence.oxm.annotations.XmlCDATA;
+
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
@@ -87,11 +89,11 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		protected ActorSex sex = null;
 
 		@XmlAttribute(name = "attackable")
-		protected Boolean attackable = null;
+		protected boolean attackable;
 		@XmlAttribute(name = "targetable")
-		protected Boolean targetable = null;
+		protected boolean targetable;
 		@XmlAttribute(name = "aggressive")
-		protected Boolean aggressive = null;
+		protected boolean aggressive;
 
 		@XmlElement(name = "stats")
 		protected NPCStatsMetadata stats = null;
@@ -246,7 +248,7 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 	@XmlType(namespace = "npc")
 	public static class TeleportRegion {
 		@XmlAttribute(name = "id")
-		@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
+		@XmlJavaTypeAdapter(value = TeleportationTemplateIDAdapter.class)
 		protected TeleportationTemplateID id;
 		@XmlAttribute(name = "price")
 		protected int price = 0;
@@ -295,6 +297,7 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		@XmlAttribute(name = "id")
 		protected String id = null;
 		@XmlValue
+		@XmlCDATA
 		protected String html = null;
 	}
 

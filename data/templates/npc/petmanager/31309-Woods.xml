@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PetManager" id="31309" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PetManager" id="31309" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Woods</name>
         <title send="false">Pet Manager</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Pet Manager Woods:<br>
+Kaiser! Come here...yes...good boy.<br>
+Oh, hello. Ah, you noticed my pure-bred black-striped Alpen Cougar, eh? It is naturally a violent beast, but if you raise right from birth you can train it to be as gentle as a lamb. Just remember to feed it on time!<br>
+<a action="bypass -h npc_%objectId%_Link petmanager/instructions.htm">Listen to instructions for raising a pet.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130900">Buy pet equipment.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1000">Exchange pet equipment for higher grade equipment.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 999">Exchange Hatchling equipment for Strider equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Link petmanager/evolve.htm">Evolve pet.</a><br>
+<a action="bypass -h npc_%objectId%_Link petmanager/exchange.htm">Exchange pet exchange ticket for a pet.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

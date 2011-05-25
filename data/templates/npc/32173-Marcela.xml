@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32173" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32173" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Marcela</name>
         <title send="false">Zerstorer</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="22.5" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Zerstorer Marcela:<br>
+Long ago, the Kamael were called Marksmen, and their commanders were called Zerstorers.<br>
+Ah, but that was when all Kamael were warriors. Now, of course, we have a village, and there are civilians among us. So gradually the Marksmen became the keepers of law, and the Zerstorers became the keepers of justice.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Zerstorer Marcela:<br>
+May the spear that splits the heavens bestow blessings upon you.<br>
+I am <font color="LEVEL">Zerstorer</font> Marcela, the commander of the Kamael <font color="LEVEL">Marksmen.</font><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Marksmen.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and manor tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

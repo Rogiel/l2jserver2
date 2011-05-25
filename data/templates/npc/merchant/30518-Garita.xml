@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30518" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30518" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Garita</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Accessory Merchant Garita:<br>
+I'm very ... sorry, sir. It is sold out already. You should have come earlier. That item is very popular. It sells very quickly. I'm very, very sorry, sir.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Accessory Merchant Garita:<br>
+Please come in...<br>
+Welcome to the best shop in the Dwarven Kingdom! You can see the emphasis we put on technology and craftsmanship here. As the heirs of the knowledge of the ancient Giants, we offer items you cannot find elsewhere.<br>
+We have only a few left, so act quickly if you want one...<br>
+<a action="bypass -h npc_%objectId%_Buy 3051800">Trade accessories</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

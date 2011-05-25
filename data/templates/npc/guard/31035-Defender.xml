@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31035" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31035" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Defender</name>
         <level>80</level>
@@ -23,4 +24,10 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="19.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard:<br>
+Hey, have you seen any suspicious people around here? They aren't hard to spot, they had bright red names. In these uncertain times there seem to be more and more of these evildoers about.<br>
+If you should see one of these outlaws, don't pick a fight with him. Either run away or bring him to me. Is that clear? Well, I suppose I'll keep looking for them...
+</body></html>]]></chat>
+    </talk>
 </npc>

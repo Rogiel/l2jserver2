@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32549" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32549" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dilios</name>
         <title send="false">General</title>
@@ -23,4 +24,29 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Dilios:<br>
+Currently, the Mounted Troop controls the Seed of Destruction. You must go there and defeat its captain, Tiat.<br>A command channel consisting of 5 parties should be established in order to attack the Seed. Then entry is possible through Sergeant Allenos, who has been dispatched there.<br>
+There is a time limit for attacking the Seed of Destruction, however. If you cannot carry out an assault within 2 hours, you will be expelled. The interior of the Seed is blocked by various obstacles, among them a powerful barrier protected by 3 devices.<br>
+Once you have broken through all the barriers and gates, you will reach the <font color="LEVEL">Fortress of Destruction</font>. If you can then defeat Tiat and his minions, victory will be ours!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Dilios<br>
+The Keucereus clan is currently battling the rulers of the Seeds. It will help you to know the current status of each Seed.<br>
+Which one do you want to know first?<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Seed of Destruction</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">Seed of Infinity</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Dilos:<br>
+Our enemy currently controls the Seed of Infinity. Keucereus' clan cannot enter unless we first attack. We can assault either the Hall of Suffering or the Hall of Erosion.<br>
+We must destroy the tumors of death and kill the cursed twin knights, Yehan Klodekus and Yehan Klanikus, in the Hall of Suffering. Be advised that they become stronger the further apart from each other they are.<br>Destroy the tumors of death in the Hall of Erosion and kill Cohemenes and Argekunte, who share one soul through an infernal contract. They are masters of ancient Gracian magic, but there is a limit to the spells that they can cast at the same time. Keep that in mind when you carry out an assault.<br>
+The road that leads to Ekimus will stay open as long as you defeat his followers in the two halls and his influence weakens...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Dilios:<br>
+Even in the darkest despair, the light of hope shines somewhere. In fact, my predecessor Phelios used to say that it is always darkest just before the dawn.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the status for each Seed.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

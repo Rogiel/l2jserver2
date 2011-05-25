@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30876" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30876" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Eastan</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="102" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Eastan:<br>
+We're not talking about the birds that actually live in the bushes. These Magpie Brothers are not so cute. Originally they were of the Dwarven guild that specializes in searching ruins and collecting relics but they were going around the graves of the ancient Dwarven kings and stealing stuff. And they were expelled from our tribe when this was discovered. But they simply changed themselves into a new grave robbing guild and now they make no distinction of race when digging up the places in which the past royalty are buried. Of course, various graves at the National Cemetary have also been vandalized by them... <br>
+I don't understand why the ghosts don't deal with those creatures. Really!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go back.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Eastan:<br>
+Hello, honored traveler. Welcome to Aden Village.<br>
+If you leave the village and follow the road to the east, you will come to the National Cemetary in which the royalty and holy ones have been buried since the time of Elmoreden and I recommend you go take a look sometime. Of course, the unifying king His Royal Highness Raoul and the previous kings are all sleeping there.<br>
+But recently, the upkeep of the cemetary has been neglected... Those troublesome magpies...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about magpies.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

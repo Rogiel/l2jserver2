@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30706" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30706" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lazenby</name>
         <title send="false">Seer</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="29.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Seer Lazenby:<br>
+Do you recall the vow you took in front of the Lord of Flame Kakai? If not, then you are too stupid to be an Orc. Get out of here!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Seer Lazenby:<br>
+Jakal Pa'agrio!<br>
+For the glory of the flame and the benefit of our people, I will willingly transfer my skills to you.<br>
+This place is filled with all sorts of rabble: monsters, penniless adventurers, corrupt mercenaries. I won't allow any of them to besmirch the honorable name of Pa'agrio!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31423" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31423" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Romas</name>
         <title send="false">Spellbook Seller</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Spellbook Seller Romas:<br>
+Have you seen this temple's spire? Its proportion and balance are absolutely perfect! Isn't it beautiful? Legend says that it took several decades for the Dwarven artisans of Schuttgart to build it, and the elegant decorations were hand-made by Elves.<br>
+Obviously, I sell spellbooks here. It may seem incongruous to see a store in the midst of such beauty, but, such is my trade! Would you like to see my spellbooks?<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

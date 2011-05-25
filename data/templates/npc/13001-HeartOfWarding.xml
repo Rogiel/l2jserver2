@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13001" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="13001" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Heart of Warding</name>
         <level>70</level>
@@ -21,4 +22,11 @@
         <sp>10</sp>
         <collision heigth="120.0" radius="17.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>A voice whispers in your ear:<br>
+<font color="LEVEL">Will you confront Antharas, the worshipper of the dark holy 
+place and the creation of Shilen?</font><br>
+<a action="bypass -h npc_%objectId%_Quest 6000_GrandBossTeleporters">Go to the Lair of Antharas.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

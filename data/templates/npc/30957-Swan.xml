@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30957" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30957" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Swan</name>
         <title send="false">Bard</title>
@@ -24,4 +25,12 @@
         <item lefthand="0" righthand="4202"/>
         <collision heigth="22.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Bard Swan:<br>
+"... your hair shines more brightly than the sun reflected from the sparkling silver waters of the river..."<br>
+No. It's no good. Even I, the most respected bard in the kingdom cannot express your beauty in words!<br>
+Hey! How long have you been standing there? Have you been eavesdropping on me?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

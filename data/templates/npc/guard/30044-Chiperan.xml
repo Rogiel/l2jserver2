@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30044" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30044" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Chiperan</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Chiperan:<br>
+I used to travel around the kingdom as a mercenary. The reason I came to Talking Island was because I was escorting a ship. But then I fell in love with the beauty of this island and put an end to my vagabond life.<br>
+Sunrise on the beach, the thick forest, and the magnificent <font color="LEVEL">waterfalls...</font> You can t find a more beautiful place in Aden.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask the way to the waterfalls.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Chiperan:<br>
+Keep the mountain to your left, and walk until you come to a small river. If you follow the river upstream, you will come to the waterfalls, the river's source.<br>
+Orcs show up there frequently, so it is a bit dangerous, but the magnificent spectacle of the waterfall is worth the risk.
+</body></html>]]></chat>
+    </talk>
 </npc>

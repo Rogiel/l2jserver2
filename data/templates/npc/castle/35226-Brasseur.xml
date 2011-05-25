@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleChamberlain" id="35226" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleChamberlain" id="35226"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Brasseur</name>
         <title send="false">Chamberlain</title>
@@ -23,4 +25,33 @@
         <sp>10</sp>
         <collision heigth="22.5" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13024" msg="811;Front Of Oren Castle">Front Of Oren Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13025" msg="811;Oren Town Square">Oren Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13026" msg="811;Front of the Ivory Fortress">Front of the Ivory Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13027" msg="811;Ivory Tower">Ivory Tower - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13028" msg="811;Near the frontier post">Near the frontier post - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13029" msg="811;Sea of Spores">Sea of Spores - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13030" msg="811;Enchanted Valley, Southern Region">Enchanted Valley, Southern Region - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13031" msg="811;Ancient Battleground">Ancient Battleground - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body>%npcname%:<br>
+What is your command?
+<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 22190001 22190002">Open the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 22190001 22190002">Close the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 22190005 22190006">Open the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 22190005 22190006">Close the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 22190001 22190002 22190005 22190006">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 22190001 22190002 22190005 22190006">Close All Castle Gates</a>
+</center>
+</body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13024" msg="811;Front Of Oren Castle">Front Of Oren Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13025" msg="811;Oren Town Square">Oren Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13026" msg="811;Front of the Ivory Fortress">Front of the Ivory Fortress</a><br1>
+</body></html>]]></chat>
+    </talk>
 </npc>

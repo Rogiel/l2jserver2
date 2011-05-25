@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13132" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="13132" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Timitran</name>
         <level>55</level>
@@ -22,4 +23,13 @@
         <sp>0</sp>
         <collision heigth="90.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Temple Book of Secrets:<br>
+Once you have strengthened your weapon, you should be able to face even a strong Sprite.<br>
+You will find the Water Sprite Papion on a bridge spanning the Temples of Water and Fire.<br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

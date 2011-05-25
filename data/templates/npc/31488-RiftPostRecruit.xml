@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31488" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31488" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rift Post Recruit</name>
         <level>70</level>
@@ -23,4 +24,27 @@
         <item lefthand="0" righthand="94"/>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="3"><![CDATA[<html><body>Rift Post:<br>
+There are rules to the<font color="LEVEL"> Rift of Dimension</font>. Where you go and what goes on inside there remains a mystery. Once you get inside using the fragment, you'll only be able to stay for<font color="LEVEL"> about 40 minutes</font> before<font color="LEVEL"> the dimension shifts</font>. Don't forget that.<br>
+If you don't like where you entered, you can<font color="LEVEL"> move just once</font>.<br>
+This decision must be made by<font color="LEVEL"> the party leader</font>.<br>
+You may not leave the party or allow anyone else to join your party while there, it's too dangerous.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Rift Post:<br>
+The Rift has levels based on what you are responsible for.<br>
+<font color="LEVEL"> The 30th level force consists of recruits, the 40th soldiers, the 50th officers, the 60th generals, the 70th commanders, and the higher force heroes</font>. You are free to choose the level that fits you.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Rift Post:<br>
+Welcome to the rift between the dimensions of time and space! Where you're standing now is relatively safe. It was created using all available resources. By the way, I see that inner space where you're looking, and I must warn you... We can't guarantee your safety! Don't try to go there without our help!<br>
+Don't forget! You'll have a better chance of returning alive if you take some friends with you. What do you want to do?<br>
+<a action="bypass -h npc_%objectId%_EnterRift 1">"I want to go to the inner space of the rift."</a><br>
+<a action="bypass -h Quest OracleTeleport Return">"I want to go back to my world."</a><br>
+<a action="bypass -h Quest OracleTeleport Festival">"I want to go to the Blood Offering."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Where's a good place for me to fight?"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">"Please tell me the rules and characteristics of this place."</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32231" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32231" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Luben</name>
         <title send="false">Master</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="25.0" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Luben:<br>
+What brings you here? Ah, I think I know. You are here to learn skills, aren't you? Hmm, you look a little heavy and slow... Well, let's get started and see what you've got!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Luben:<br>
+Do you really want to learn Kamael skills? Hmm... I can teach you if you are a Berserker or a Soul Breaker or at the very least a Trooper. But you are none of those. You had better find a teacher better suited for your profession, my friend.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32104" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32104" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Vervato</name>
         <level>70</level>
@@ -22,4 +23,17 @@
         <sp>0</sp>
         <collision heigth="33.0" radius="25.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Vervato:<br>
+The corpse wasn't revived! This means that no one in your party is dead. Why did you ask me to revive a corpse without knowing that?!<br>
+You have caused me to waste both my time and my energy. Fool! Next time, make sure that someone in your party is actually dead before coming to see me.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Vervato:<br>
+I am Vervato! It is my sacred task to cheat death and revive fallen comrades whose spirits are ready to depart for the dark nether regions.<br>
+My magic is more powerful than even that of the sorcerers of the Elroki tribe; I am the greatest corpse summoner of them all!<br>
+But remember that summoning a corpse is only possible if there is a corpse... and, of course, the requisite fee.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Revive a corpse (2000000 Adena).</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html> ]]></chat>
+    </talk>
 </npc>

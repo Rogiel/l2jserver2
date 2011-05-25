@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FortManager" id="36034" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FortManager" id="36034"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Foreman</name>
         <title send="false">Floran Fortress</title>
@@ -23,4 +25,27 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 14072" msg="811;Fortress West Gate">Fortress West Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14073" msg="811;Fortress East Gate">Fortress East Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14074" msg="811;Gludio Town Square">Gludio Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14075" msg="811;Dion Town Square">Dion Town Square</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body><center><br><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 20220021 20220026 20220022 20220023 20220024 20220025 20220017 20220018 20220019 20220020 20220027 20220028">Open the gate</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 20220021 20220026 20220022 20220023 20220024 20220025 20220017 20220018 20220019 20220020 20220027 20220028">Close the gate</a><br>
+<a action="bypass -h npc_%objectId%_Link fortress/foreman.htm">Return</a>
+</center></body></html>]]></chat>
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 14072" msg="811;Fortress West Gate">Fortress West Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14073" msg="811;Fortress East Gate">Fortress East Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14074" msg="811;Gludio Town Square">Gludio Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14075" msg="811;Dion Town Square">Dion Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14076" msg="811;The Ant Nest">The Ant Nest - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14077" msg="811;Windawood Manor">Windawood Manor - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14078" msg="811;Plains of Dion">Plains of Dion - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 14079" msg="811;Tanor Canyon">Tanor Canyon - 500</a><br1>
+</body></html>]]></chat>
+    </talk>
 </npc>

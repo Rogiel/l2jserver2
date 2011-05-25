@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30111" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30111" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dieter</name>
         <title send="false">Magister</title>
@@ -23,4 +24,24 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Dieter:<br>
+I only teach Human Mystics. I am sorry but I cannot help you. There now, don't be too disappointed -- you will certainly find one whom you will be able to call teacher.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Dieter:<br>
+Welcome, you who seeks the truth of evil magic. Your eyes shine with the desire for learning. Yes, you should be greedy for knowledge if you ever hope to become a powerful wizard.<br>
+But even here there are boundaries, areas that must not be transgressed. An excess of curiosity can lead to self-destruction, my young friend, so be careful.<br>
+Now then, shall we begin?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about forbidden magic.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magister Dieter:<br>
+And after I just warned you about the dangerous curiosity... Tut tut!<br>
+Well, best you hear it from me, I suppose, rather than discover it for yourself. You have heard of the wizard named Hardin, have you not? He is a Necromancer who studies the Dark Magic prohibited by the commandments of the Ivory Tower.<br>
+It corrupts its users and leads to destruction...it must be avoided like a contagion. Sadly, many capable wizards have allowed themselves to be persuaded by Hardin's parlor tricks and become his pupils. We are not safe from his influence, even here. Always be on guard!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30873" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30873" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Coleman</name>
         <title send="false">Guard</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Coleman:<br>
+Follow this road to the east to reach the National Cementery. South of there you'll see a giant cave. It is known as the the Titan Cave. It's not just because the cave is big but there are also rumors that actual Titans still exist there. Have you heard about the Titans?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Titans."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Coleman:<br>
+I've heard from Elven Priest Polonia at the temple that the titans lived on this continent before our five races came. But they made the gods angry and went to ruin. Polonia heard about that cave and said that the titans that fled there to escape the wrath of the gods may have degenerated...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go back.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

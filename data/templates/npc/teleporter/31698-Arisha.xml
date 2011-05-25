@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="31698" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="31698" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Arisha</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Arisha:<br>
+the Rune Township is very different from other villages of Elmore. For one thing, it is quite a bit larger than other villages. In fact, it's so huge that the structure of the village itself is divided into upper and lower levels! Therefore, people within the village have access to other parts of the village through the gate of time and space.<br>
+Now, would you like to visit the town's library?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Arisha:<br>
+I'm sorry. Even though you only want to move a short distance, the rules of the guild forbid me from letting you use the gate of time and space.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 122" msg="811;Rune Township Guild">Rune Township Guild - 150 Adena</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

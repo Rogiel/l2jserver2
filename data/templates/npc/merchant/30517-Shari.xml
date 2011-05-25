@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30517" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30517" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shari</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,26 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Armor Merchant Shari:<br>
+Can I sell you something, sir? Just tell me what you want.<br>
+<a action="bypass -h npc_%objectId%_Buy 3051700">Buy Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3051701">Buy Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Armor Merchant Shari:<br>
+Ahem, my name is Shari. They say it's not an appropriate name for a girl, but I'm proud of it. I was an orphan, but I'm pretty successful now, having my own shop. When I first started working for this store, many people were jealous of my talent. But I won them over with my personality, and they all like me now.<br>
+I was named the 324th excellent salesperson for selling thirty items everyday and establishing a new record. After two years, I became the youngest shop owner. I won first place as the 87th Best Selling Store sponsored by the Silver Scale, and was honored with the Best Service award as the 143rd Green Store ... 423rd ... 23rd ... 672nd ...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Armor Merchant Shari:<br>
+Psst, take a look at these items...<br>
+Too expensive? Don't you know these Dwarven-crafted items are sold at a premium in other places?<br>
+What a bunch of country bumpkins...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3051700">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3051701">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

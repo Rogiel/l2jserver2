@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="32177" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="32177" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Syzar</name>
         <title send="false">Marksman</title>
@@ -24,4 +25,19 @@
         <item lefthand="0" righthand="9645"/>
         <collision heigth="25.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marksman Syzar: <br>
+You're an adventurer, eh? And you're trying to leave this way?<br>
+He he...  you must have some skill, then...  This way lies <font color="LEVEL">Mimir's Forest</font>, home to some of the most dangerous monsters on the island. You realize that, don't you? <br>
+<a action="bypass -h npc_%objectId%_Chat 1"> Ask about Mimir's Forest. </a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus"> See information on permanent residence and tax rates. </a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Marksman Syzar: <br>
+Mimir's Forest leads to Nornil's Cave. According to legend, it was named after Mimir, the great Giant who planted the Seed of Creation. <br>
+But the important thing for you to remember is that forest is a dangerous place. And that nest of monsters, Nornil's Cave, will be even worse. Are you prepared? <br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See information on permanent residence and tax rates. </a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31948" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31948" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Adrian</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Adrian:<br>
+What can I get you?<br>
+<a action="bypass -h npc_%objectId%_Buy 3194800">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194801">Buy equipment for Wizards</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194802">Buy Fighter Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194803">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Adrian:<br><br>
+Glad to meet you. It's cold out, isn't it? Please come in and warm yourself and look around my shop.<br><br>
+Are you a Warrior or Wizard? We have everything in our shop. Don't believe me? See for yourself!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3194800">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3194801">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

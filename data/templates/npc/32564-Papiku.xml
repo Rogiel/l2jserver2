@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32564" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32564" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Papiku</name>
         <title send="false">Magister</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="21.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Papiku:<br>
+Bam ba bam ba bah! I'm the singing magister, Papiku!<br>
+Why am I in a good mood? Well, the passage to Gracia -- which had been blocked for hundreds of years -- has finally been opened!<br>
+That's good, since the Gracian people desperately need our help. And we can have the use of the fabled <font color="LEVEL">ship that sails on a sea of stars</font>, which we believed had been lost forever. Imagine how much our understanding of magic will benefit from this!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

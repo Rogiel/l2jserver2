@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31706" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31706" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Miki the Cat</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="16.0" radius="9.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Miki the Cat:<br>
+Meow, traveler! What brings you to this remote place? Meow~! Do you happen to have a map of this area? Would you sell it to me? Meow!<br>
+I don't have a map and I've become lost. Meow! If you are going any further, please be careful! Meow! You can get lost! Meow!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a></body></html>
+]]></chat>
+    </talk>
 </npc>

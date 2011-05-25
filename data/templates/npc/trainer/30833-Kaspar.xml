@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30833" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30833" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kaspar</name>
         <title send="false">Magister</title>
@@ -23,4 +24,30 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Magister Kaspar:<br>
+Here Master Hardin and his diciples seek to unlock the mysteries of the arcane. Our master rejected the elitist dogma of the Ivory Tower and personally established this Academy to pursue truth, regardless of where it lies. Those of us who share his vision flocked here.<br>
+I have heard that there were other reasons he left the Ivory Tower, but he has never mentioned them to me. Personally, I suspect they are slanders...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Kaspar:<br>
+Hardin's Academy welcomes you, stranger. I am Kaspar.<br>
+Stay here as long as you like, but take care not to interfere with any of the ongoing studies or experiments. If you wish to offer your collaboration, we will gladly accept it.<br>
+Perhaps you can exchange your help for instruction in other areas...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Hardin's Academy.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about Lich King Icarus.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Magister Kaspar:<br>
+Do you know Icarus? Frankly, he frightens me. He is undead, so he neither sleeps nor eats. But no one can deny that his knowledge of Necromancy is unparalleled on this continent.<br>
+And Hardin keeps him contained. There is no question that he is dangerous, but risk is part and parcel of our quest for knowledge.<br>
+Perhaps that is why, even if he were free to leave, I suspect he would choose to stay. For what reason, though, I do not know...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Kaspar:<br>
+Though I am not an exceptionally talented teacher, I can tell the difference between who can be taught and who cannot. I think that you would be better served in finding a more suitable teacher for your needs.
+</body></html>]]></chat>
+    </talk>
 </npc>

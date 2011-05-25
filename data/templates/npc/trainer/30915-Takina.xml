@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30915" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30915" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Takina</name>
         <title send="false">Seer</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="28.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Seer Takina:<br>
+In the name of the Flame Lord Kakai! I bestow the power of Pa'agrio only upon overlords and warcryers who serve the will of the flame!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Seer Takina:<br>
+Why do you think I am here in Heine, a place filled with Humans and Elves? How I miss the wild winds and harsh peaks of my homeland. But these fools must be warned of the danger that threatens us all.<br>
+People of the city of water, prepare yourselves for endless winter!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

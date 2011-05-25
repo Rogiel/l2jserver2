@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30710" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30710" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Weston</name>
         <title send="false">Guard</title>
@@ -24,4 +25,20 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Weston:<br>
+The town of<font color="LEVEL">Oren</font> is like its name implies, a part of<font color="LEVEL">Oren</font>. And as you may know, the Hunters Village and the Enchanted Valley are part of Aden. Don't be mistaken.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the town of Oren.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about Oren.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Wesley:<br>
+Oren is located south of Castle Oren. Because Elmore is nearby, its architecture is quite similar to Oren's. Castle Oren was built as a response to the threat of war, hence the grand appearance. The people of Oren are proud to have such an extraordinary building in their town...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Wesley:<br>
+Oren is located west of Aden. Army training is different here due to the proximity to the border. Located nearby our estate in Aden is the best research center for Mages, the Ivory Tower, and the Dark Elves' House of Elders. Obviously a very complex political landscape exists here.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

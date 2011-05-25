@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30559" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30559" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kunai</name>
         <title send="false">Armor Merchant</title>
@@ -23,4 +24,24 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Kunai:<br>
+For the eternal glory of the Flame! Child of the Flame, how are you?<br>
+I am Kunai, a weapons trader. I guarantee that our Dwarven-made products are of the best quality. Those stinking Dwarves should be stomped back into their caves, but we can't deny that they make good weapons, eh? Ha ha! Go ahead and have a look around. You won't regret it!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3055900">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3055901">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Kunai:<br>
+I am very proud that I'm one of the brothers of flame, descendants of great Paagrio! I do not want to talk to you, lawbreaker, so go away from me!
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Kunai:<br>
+What are you looking for, friend?<br>
+<a action="bypass -h npc_%objectId%_Buy 3055900">Buy equipment for Fighters.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3055901">Buy equipment for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

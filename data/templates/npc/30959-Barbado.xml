@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30959" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30959" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Barbado</name>
         <title send="false">Musician</title>
@@ -24,4 +25,10 @@
         <item lefthand="0" righthand="5133"/>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Musician Barbado:<br>
+Welcome, you fresh-faced traveller! I am a musician, an artisan of melodies. Music is the finest blessing bestowed upon us by Eva, the goddess of art. When your feeling blue, as I sometimes do, nothing cheers you up like a cheerful tune played on the accordian! It will lighten the darkest mood!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

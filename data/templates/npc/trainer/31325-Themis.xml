@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31325" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31325" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Themis</name>
         <title send="false">Master</title>
@@ -24,4 +25,17 @@
         <item lefthand="627" righthand="227"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Themis:<br>
+I don't have anything to teach you! Go away!<br>
+You want to learn a skill? Go find someone to teach you!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Themis:<br>
+You so-called adventurers make me laugh. You're nothing more than a bunch of dilettantes with swords and shields! I'm amazed you can defeat even a troop of Bunny Scouts, much less a horde of undead monsters...<br>
+Oh, did I offend you? Tough! If you want to make something of it, let's go. I promise you that I can bury my blade into your heart before you have time to blink...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

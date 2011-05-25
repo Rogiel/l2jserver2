@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="KamaelVillageMaster" id="32139" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="KamaelVillageMaster" id="32139"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Casca</name>
         <title send="false">Vice Hierarch</title>
@@ -23,4 +25,28 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="17.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Vice Hierarch Casca:<br>
+A wind is beginning to blow, one that may strengthen into a storm that will shake the foundations of this world. A Kamael wind...<br>
+You, Kamael warrior, what do you wish to become? The Kamael have 3 types of skills that have been handed down from ancient times. I will tell you about one of them, the Berserker.<br>
+<a action="bypass -h npc_%objectId%_Quest kamael_occupation_change">Listen to information about 1st transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the 3 skills of the Kamael.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Berserker.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Vice Hierarch Casca:<br>
+Kamael have 3 skills, which are selected in the second class transfer.<br>
+The first is a combat skill with a Short Sword, and allows you to wield the Sword in one hand while controlling your innate magic with the other. Those who master this skill are called <font color="LEVEL">Soul Breakers</font>.<br>
+The second skill allows you to use ancient Sword techniques to focus your inner strength and cause tremendous damage to your enemy. Only male Kamael may learn this skill. Those who do are called <font color="LEVEL">Berserkers</font>.<br>
+The final skill deals with hunting and spiritual attributes that allow the wielder to attack the enemy when and where they least expect it.<br>
+That skill is reserved only for female Kamael, however, so I cannot say more about it...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Vice Hierarch Casca:<br>
+Only male Kamael who have been Troopers may acquire the skills necessary to become a Berserker, which allow them to defeat their enemies and absorb their spirit to increase their own speed and power.<br>
+The heritage of the Berserker stretches far back to the misty origins of our race itself, to the great hero <font color="LEVEL">Harkilgamed</font>, whose mighty sword sliced through the fabric of the heavens themselves.<br>
+Female Kamael simply do not possess the innate physical strength and unique magic of their male counterparts, which is essential for learning Berserker skills.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

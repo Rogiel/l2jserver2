@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="31961" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="31961"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Newyear</name>
         <title send="false">Head Blacksmith</title>
@@ -24,4 +26,16 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Head Blacksmith Newyear:<br>
+Do you know when the blacksmiths of Schuttgart Territory are the happiest? It's the moment we walk out of our shop and breathe in that cold fresh air after working long hours surrounded by scorching heat and banging noise. That moment feels like heaven!<br>
+How many other occupations in this world can give you such an amazing feeling? That's why I really love this job. I suppose it's really my calling in life, eh?<br>
+<a action="bypass -h npc_%objectId%_Quest dwarven_occupation_change">Listen to information about 2nd class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Subclass 0">Sub Class.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest ShadowWeapons">Use shadow weapon exchange coupon.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

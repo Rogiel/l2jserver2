@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30902" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30902" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Karuna</name>
         <title send="false">Master</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Karuna:<br>
+I only teach Human Warriors. Master Traus and Master Nail only teach Elven Warriors... You will find masters elsewhere who teach the other races. Find them. I have nothing to teach you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Karuna:<br>
+If you're eager for a fight, you've come to the right place. The streets may seem quiet and orderly, but you don't have to go far to find as much violence as your heart could handle. The Dark Elves know this very well. How the children of the Goddess of Water became so different from one another I cannot fathom...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

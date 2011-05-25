@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32169" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32169" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mila</name>
         <title send="false">Trader</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>
+Trader Mila:<br1>
+<br1>
+Ah...please...don't...do that...<br1>
+<br1>
+The one who records all things...<br1>
+<br1>
+will remember your sin.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Mila:<br>
+Aah... Do you need...any spellbooks, perhaps?<br>
+<a action="bypass -h npc_%objectId%_Buy 3216900">Buy.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information on the local lord and manor tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

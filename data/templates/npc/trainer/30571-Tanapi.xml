@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30571" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30571" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tanapi</name>
         <title send="false">Seer</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="29.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Seer Tanapi:<br>
+I cannot teach you. I have to go now. Excuse me...
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Seer Tanapi:<br>
+The Spirit of Kasha is an evil entity that recently appeared in the Immortal Plateau. It is contaminating the <font color="LEVEL">Grizzly Bear</font>, the symbol of our Hestui tribe.<br>
+We must vanquish this spirit before it causes irreparable harm...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Seer Tanapi:<br>
+Youngster, what can I do for you? I am Tanapi of Hestui, and I am seeking a way to destroy the <font color="LEVEL">Spirit of Kasha</font>. I have no time to waste, so speak quickly!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Spirit of Kasha.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

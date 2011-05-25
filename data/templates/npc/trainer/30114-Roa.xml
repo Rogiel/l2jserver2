@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30114" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30114" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Roa</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Roa:<br>
+Welcome to the Hall of Magic. My fellow Magisters and I are dispatched from Oren's Ivory Tower to instruct seekers of wisdom here in Giran.<br>
+I am sorry, but i cannot initiate you in the magic of the Ivory Tower. Only those of Human birth and with basic magic skills can take my classes. I'm afraid you must go.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Rovia:<br>
+Welcome! My fellow Magisters and I were dispatched to the Ivory Tower of Oren in order to instruct Giran's finest youths in the ways of magic.<br>
+It looks like you're from a small country school. Did you study at Einhovant's School of Magic? Hmmph! I wonder if you were even taught the basics correctly! I'm a little worried that you won't be able to keep up with my lessons, but...<br>
+Well, let's just get started and see how you do. If you don't understand something, don't feel embarrassed to ask.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

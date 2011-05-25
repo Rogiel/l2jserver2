@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30842" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30842" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Alexis</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Alexis:<br>
+Are you looking for an exquisite ring for your lover? Or perhaps a lovely necklace for your mother...?<br>
+Come in and take a look at these beauties, my friend. Everything in the store is crafted by Elven artisans. They may look the same to the untrained eye, but the quality is quite different, I assure you. I know it's not easy to see! But take my word for it, the longer you keep these high quality accessories, the more they will show their true value...<br>
+<a action="bypass -h npc_%objectId%_Buy 3084200">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 300900001">Buy a bracelet or talisman.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3084201">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Alexis:<br>
+I will not do business with you. Get out! You are offending my customers!
+</body></html>]]></chat>
+    </talk>
 </npc>

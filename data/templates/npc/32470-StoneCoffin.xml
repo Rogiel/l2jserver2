@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32470" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32470" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Stone Coffin</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="11.5" radius="109.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>
+Stone Coffin:<br>
+It's a very heavy and solid-looking stone coffin.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Try opening the lid.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

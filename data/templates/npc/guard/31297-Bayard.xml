@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31297" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31297" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Bayard</name>
         <title send="false">Guard</title>
@@ -24,4 +25,23 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Bayard:<br>
+Hey there, stranger! Are you an adventurer? Really! Most outsiders I've seen lately have been from the south!<br>
+Do you have any exciting stories to tell of your adventures? Heard any interesting rumors? I've heard talk that there's been quite a commotion in the<font color="LEVEL"> hot springs area</font> and in the<font color="LEVEL"> Gods' Cauldron</font>!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the hot springs region!"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Tell me more about the Gods' Cauldron!"</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the lord & tax rate info.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Bayard:<br>
+The volcanic region in the northeastern part of Goddard is known as the gods' cauldron. It's said that rivers of lava flow there! I don't think it's a place you'd want to spend your vacation!<br>
+Someone else told me that Bigfoot was seen there, too! Getting into a UFO! Are you listening to me? This is important stuff!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Bayard:<br>
+You must be new to Goddard! The hot springs are the result of a volcanic fault line. There is an excellent resort to the north of here that features an excellent hot springs! Unfortunately, ferocious beasts seem to be attracted to the smell of Sulfur in the water there... You may find it a bit hard to relax...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

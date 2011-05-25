@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="ClassMaster" id="31756" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="ClassMaster" id="31756"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mr. Cat</name>
         <title send="false">Test Server Helper</title>
@@ -23,4 +25,29 @@
         <sp>0</sp>
         <collision heigth="16.0" radius="9.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Test Server Helper:<br>
+What item do you need?<br>
+<a action="bypass -h npc_%objectId%_Buy 3175601">Soulshot, shared item or other supplies.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175602">No-grade recipe.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175603">D-grade recipe.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175604">C-grade recipe.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175605">B-grade recipe.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175606">A-grade recipe.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175607">S-grade recipe.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3175608">Ordinary manufacturing recipe.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Test Server Helper:<br>
+How may I assist you?<br>
+<a action="bypass -h npc_%objectId%_1stClass">Complete the first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_2ndClass">Complete the second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_3rdClass">Transfer from the second class to the third class.</a><br>
+<a action="bypass -h npc_%objectId%_become_noble">Become Noblesse</a><br>
+<a action="bypass -h npc_%objectId%_multisell 201">Purchase wearable items</a><br>
+<a action="bypass -h npc_%objectId%_increase_clan_level">Raise the clan's level</a><br>
+<a action="bypass -h npc_%objectId%_learn_skills">Learn all skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Purchase items</a><br>
+<a action="bypass -h npc_%objectId%_multisell 202">Purchase quest items and rare spellbooks</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

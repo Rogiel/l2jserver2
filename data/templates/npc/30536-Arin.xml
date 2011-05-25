@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30536" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30536" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Arin</name>
         <title send="false">Black Anvil's</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Elder Arin:<br>
+Nice to meet you, young traveler. I am Arin Curdhammer, a representative of the <font color="LEVEL">Black Anvil Guild</font>. What brings you here?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Black Anvil Guild</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Elder Arin:<br>
+While other races were brandishing their bamboo spears and stone axes, our ancestors had already fashioned bronze tools and begun to learn the secrets of steel. The Black Anvil Guild continues the tradition of those ancestors through delicate workmanship and a noble spirit of craftsmanship. Our guild has produced all the great craftsmen of Dwarven history. Our mithril weapons and adamantite armor are traded at the highest prices at any market.<br>
+Also, our guild members study the lost science and technology of the giants more deeply than anyone else. The siege golems and airships that we produce are the results of such studies.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

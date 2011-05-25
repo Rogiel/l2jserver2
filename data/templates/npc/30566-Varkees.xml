@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30566" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30566" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Varkees</name>
         <title send="false">Atuba Chief</title>
@@ -24,4 +25,26 @@
         <item lefthand="0" righthand="81"/>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Atuba Chief Varkees:<br> 
+Once you step into the House of the King, you should behave! I, Varkees, Chief of Atuba, will not forgive those who disrespect <font color="LEVEL">Flame Lord Kakai</font>!<br> 
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Flame Lord</a><br> 
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about tribes of the Orcs</a><br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Atuba Chief Varkees:<br>
+Tejakar Oroka! The Orcs have thousands of tribes! However, only seven tribes carry on the noble blood! I am going to sing their names, so listen well!<br>
+The brave Hestui!<br>
+The cold-hearted Atuba!<br>
+The persistent Neruga!<br>
+The strong-willed Urutu, the resourceful Duda-Mara!<br>
+And the merciless Gandi!<br>
+One more thing! There are tribes of traitors that betrayed their own kind! Their names are forgotten!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Atuba Chief Varkees:<br> 
+Dekara Lamchar Kakai! Praise great Flame Lord Kakai! He is the king of the Orcs chosen by Pa'agrio! He is also the chief of the brave Hestui and the true ruler of the flame, approved by the totem of the gray bear!<br> 
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

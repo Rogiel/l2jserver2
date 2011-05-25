@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31949" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31949" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rouge</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Rouge:<br>
+Nice to meet you! I'm Rouge, the owner of this shop. Oh my, you're badly sunburned. Oh, no...sorry to stare. I just sympathize with adventurers who lack quality accessories and end up weatherbeaten and old before their time. Here, have a look! Wearing any of our shop's accessories will make you look young, rich and very fetching.<br>
+<a action="bypass -h npc_%objectId%_Buy 3194900">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3194901">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

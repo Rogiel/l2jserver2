@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30584" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30584" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Vapook</name>
         <title send="false">Centurion</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="91"/>
         <collision heigth="27.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Centurion Vapook:<br> 
+Behold, the domicile of <font color="LEVEL">Lord, Kakai</font>! You'll find the Lords gathered on the second floor of King's Hall. You must always remember to give them proper deference!<br> 
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Lords."</a><br> 
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Centurion Vapook:<br>
+Kakai, the Flame Lord, is a great Orc. It was amazing to see him duel with Raoul, the King of Men a long time ago. They were well-matched in combat. Raoul was a great man, too. He is responsible for uniting Aden. I can't believe such a great warrior died like that... When Lord Kakai heard the news, he looked genuinely sad.
+</body></html>]]></chat>
+    </talk>
 </npc>

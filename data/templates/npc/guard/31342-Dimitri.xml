@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31342" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31342" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Dimitri</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="94"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Dimitri:<br>
+ The<font color="LEVEL"> pasture of wild beasts</font> in the northern part of this village is one of our most popular attractions! I don't understand why anyone would want to keep such ferocious animals! Are they crazy or what?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Pasture of wild beasts? I wish to see it."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the lord & tax rate info.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Dimitri:<br>
+ It's a ranch on a pasture in the north of the village. You'll find such vicious creatures as kukaburros, cougars and Buffalos there. I've heard that it was established as some sort of military program. Therefore, it was supported by the country.<br>
+Raising wild animals is not as easy as it may seem. In the end, the military gave up on the project. Once they withdrew their funding, the farm was abandoned by all but a few die-hards, who can't seem to give up the business of raising wild beasts. It's also said that sometimes young adventurers like yourself go hunting there...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

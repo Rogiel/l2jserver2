@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FortManager" id="35758" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FortManager" id="35758"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Foreman</name>
         <title send="false">Valley Fortress</title>
@@ -23,4 +25,27 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="d"><![CDATA[<html><body><center><br><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 23210001 23210012 23210006 23210007 23210010 23210011 23210002 23210003 23210004 23210005 23210008 23210009">Open the gate</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23210001 23210012 23210006 23210007 23210010 23210011 23210002 23210003 23210004 23210005 23210008 23210009">Close the gate</a><br>
+<a action="bypass -h npc_%objectId%_Link fortress/foreman.htm">Return</a>
+</center></body></html>]]></chat>
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 12123" msg="811;Fortress North Gate">Fortress North Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12124" msg="811;Fortress South Gate">Fortress South Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12125" msg="811;Giran Town Square">Giran Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12126" msg="811;Front of the Giran Castle Gate">Front of the Giran Castle Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12127" msg="811;Breka's Stronghold">Breka's Stronghold - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12128" msg="811;Devil's Isle">Devil's Isle - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12129" msg="811;Dragon Valley">Dragon Valley - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12130" msg="811;Tanor Canyon">Tanor Canyon - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 12123" msg="811;Fortress North Gate">Fortress North Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12124" msg="811;Fortress South Gate">Fortress South Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12125" msg="811;Giran Town Square">Giran Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12126" msg="811;Front of the Giran Castle Gate">Front of the Giran Castle Gate</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

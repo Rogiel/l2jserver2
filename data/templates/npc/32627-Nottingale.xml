@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32627" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32627" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nottingale</name>
         <title send="false">Wizard</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="8.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mage Nottingale:<br>
+Welcome to Gracia! I am here to guide adventures who come from Aden.<br>
+It is impossible to walk around in Gracia because of the contamination caused by the Seeds. Most move via Airship, but that is also difficult -- there simply aren't enough for everyone.<br>
+The magicians of Aden crafted an alternative plan. It is called an <font color="LEVEL">Aurabird</font>. I think it is the better solution for you.<br>
+<a action="bypass -h Quest 1002_Nottingale 32627-1.htm">Ask what to do.</a><br>
+<a action="bypass -h Quest 1002_Nottingale 32627-2.htm">Ask about Aerial Raid Monsters.</a><br>
+<a action="bypass -h Quest 1002_Nottingale 32627-7.htm">Ask about major hunting grounds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

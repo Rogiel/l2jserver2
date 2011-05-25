@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31967" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31967" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Euline</name>
         <title send="false">Master</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="130"/>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Euline:<br>
+Greetings! Are you familiar with the Elven art of war? Our movements may seem soft and graceful to the uninitiated, but there is a hidden strength to them. Consider the power of river and wind: they can erode mountains and carve canyons in the earth's floor.<br>
+Our training teaches the value of patience and skill. In the face of an experienced Elven Warrior, not even the mightiest Orc can long persevere!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Euline:<br>
+My skills are not advanced enough to teach you. Look around the village some more and you'll find a suitable master.<br>
+May the protection of Eva be with you!
+</body></html>]]></chat>
+    </talk>
 </npc>

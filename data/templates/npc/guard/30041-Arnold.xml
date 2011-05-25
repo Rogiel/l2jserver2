@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30041" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30041" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Arnold</name>
         <title send="false">Guard</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Arnold:<br>
+Do you see that grand structure across the bridge? That is the renowned Cedric's Training Hall, famous for producing many great fighters. It was erected by<font color="LEVEL"> Sir Cedric</font>, Aden's finest paladin and the right hand of King Raoul.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Sir Cedric.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Arnold:<br>
+During Aden's unification war, Sir Cedric served King Raoul and performed meritorious deeds on the battlefield. He lived his entire life true to the spirit of chivalry and the will of Einhasad. He is the model for all young fighters of the kingdom, and a living legend.<br>
+When unification of the kingdom was complete, King Raoul suddenly passed away. Sir Cedric announced his retirement and came here to Talking Island, and built the training hall to teach youngsters. However, his health has declined since then, and he stays in the Castle Aden. The training hall is now run by his nephew, Sir Roien.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

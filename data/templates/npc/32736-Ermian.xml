@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32736" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32736" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ermian</name>
         <title send="false">General</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>General Ermian:<br>
+We deployed on an exploration mission, one ship among many. In an unknown region we encountered something that, to this day, I can't describe. A large.. mass.. that shifted colors and shape... <br>
+As soon as we came into contact with it our ships were pulled into some kind of powerful vortex... It swallowed ship and soldier alike. I still hear their screams sometimes... No one knew what it was, but I knew what my gut said. My gut said to get the hell away from it, far away. It may be the only reason any of us lived.<br>We don't know where we are or if there are any other survivors. So we have setup camp here in hopes of finding our men. But with every minute we wait, our chances of returning home diminish.<br><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

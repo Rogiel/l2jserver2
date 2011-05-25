@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Adventurer" id="31797" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Adventurer" id="31797" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Adventure Guildsman</name>
         <level>70</level>
@@ -23,4 +24,20 @@
         <item lefthand="0" righthand="99"/>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Adventure Guildsman:<br>
+Welcome! Our guild provides information about great opportunties for Adventurers like yourself! We have a wide range of awesome adventures available all over the world! What's that? Of course I'm telling you the truth! In fact, I've got just the adventure for you! Are you interested?<br>
+<a action="bypass -h npc_%objectId%_questlist">Quest Information</a><br>
+<a action="bypass -h npc_%objectId%_Quest RaidbossInfo">Raid Monster Information</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Use Life Crystals</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body><center>Use Life Crystals</center><br>
+<a action="bypass -h npc_%objectId%_Link adventurer_guildsman/AboutNewLifeCrystals.htm">Listen to an explanation about the new Life Crystals.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 317325003">Exchange previous Life Crystals for new Life Crystals.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 317975011">Craft Life Crystal.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 317325002">Craft Adventurer's Box.</a><br>
+<a action="bypass -h npc_%objectId%_Link adventurer_guildsman/AboutHighLevelGuilds.htm">Ask about higher level crafting</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

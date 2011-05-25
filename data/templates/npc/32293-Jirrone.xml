@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32293" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32293" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Jirrone</name>
         <level>70</level>
@@ -22,4 +23,9 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Jirrone:<br>
+That place...it was hellish. Everyone became slaves to the Demons because of that accursed tyrant Beleth. I'm beside myself with worry about my brother and the other family I left behind on the island. The structure beside you was specially designed to allow entry into Hellbound, wasn't it? If only it was operational! I don't know how to activate it, but I heard that someone from the Ivory Tower does. The name was G...Ga...Galate -- yes, that's it! Galate! You can find her on your way to Innadril.
+</body></html>]]></chat>
+    </talk>
 </npc>

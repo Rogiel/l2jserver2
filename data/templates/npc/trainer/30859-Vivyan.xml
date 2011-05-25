@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30859" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30859" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Vivyan</name>
         <title send="false">Priestess</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Priestess Vivyan:<br>
+The philosophy of the god of light is evident in multitudes of daily occurrences. If you listen closely you can hear it in the songs of the birds and the insects, and see it in the mountains, fields and sky. Einhasad conveys her message to all, even those who serve different gods and live only for the next battle. You should find a master and listen closely to his words.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Priestess Vivian:<br>
+Einhasad is eternal, and her words never fail. She fills the world with the light of her justice and compassion.<br>
+Welcome to this temple, child. Though I am a seeker after truth such as yourself, I will gladly pass on what I have learned to you.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

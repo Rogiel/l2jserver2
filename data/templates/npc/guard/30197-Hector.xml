@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30197" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30197" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Hector</name>
         <title send="false">Guard</title>
@@ -24,4 +25,18 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Hector:<br>
+The Ivory Tower is a well-known hideout for Mages. They are always up to something! The legend is that long ago, during the Elmoraden Empire, the magicians there controlled the whole continent! Fortunately today we are ruled by a proper King and Lord. It is said that the Mages resent this...<br>
+If you wish to know more, you should visit the Ivory Tower or just ask the Mages.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Hector:<br>
+Be quiet! I am not allowed to talk while I'm on duty! Furthermore, the captain is standing right next to me... Hmmph, ok well. I'll tell you briefly. Here, the town of Oren is close to the borders, so we must never let our guard down.<br>
+Nevertheless, we have been told unofficially to always watch a certain tower. That is the <font color="LEVEL">Ivory Tower</font> of course.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Ivory Tower.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

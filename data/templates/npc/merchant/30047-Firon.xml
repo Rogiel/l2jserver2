@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30047" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30047" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Firon</name>
         <title send="false">Wharf Manager</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Wharf Manager Firon:<br>
+Are you here to board a ship? Nowadays there are only the regularly scheduled ships coming in and going out of Gludin Village, but before the troubles, when we used to trade with Gracia, there were many more ships in this port. That wretched war... I long to see this port as it used to be.<br>
+Harrumph! I think I talked too much. Would you like to buy a ticket for a ship?<br>
+<a action="bypass -h npc_%objectId%_Buy 3004700">Buy a ticket.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

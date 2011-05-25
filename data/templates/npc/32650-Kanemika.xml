@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32650" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32650" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Kanemika</name>
         <title send="false">Grave Robber Leader</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="14.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Grave Robber Leader Kanemika:<br>
+What I fool I was! Gak! The evil spirits are spreading.<br>
+Wait! Who're you? Heh! You're not the evil spirit created by the Earthwyrm, are you?<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

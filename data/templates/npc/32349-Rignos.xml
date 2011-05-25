@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32349" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32349" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rignos</name>
         <level>70</level>
@@ -23,4 +24,17 @@
         <item lefthand="0" righthand="173"/>
         <collision heigth="30.5" radius="17.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Rignos:<br>
+You have 30 minutes to find three other structures just like the one behind me. They are scattered around the island. Once you find them, go inside and battle the opponents you find there. One of these combatants will drop a Race Stamp. Bring 4 Race Stamps to me within the allotted time, and I will give you a reward that will aid you in your endeavor to rescue Parme.<br>
+Don't forget to include the building behind me!<br>
+<a action="bypass -h npc_%objectId%_Quest IOPRace">I'm ready! Let's start the race.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Rignos:<br>
+Welcome, welcome! I am Rignos. Parme and I are old friends, so I've come here to help. It's been a long time since I've traveled this far, but the beautiful Isle of Prayer always makes me feel like I'm on vacation. Now then, how can I help? A race! You know what I always say, "Joy and energy, all the time and in every way!" I call it the <font color="LEVEL">Grand Isle of Prayer Race</font>!<br>
+You do know what this means, don't you?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Grand Isle of Prayer Race.</a><br>
+<a action="bypass -h npc_%objectId%_Quest IOPRace">Start the Race.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

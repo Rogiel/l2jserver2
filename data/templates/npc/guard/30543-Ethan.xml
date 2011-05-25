@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30543" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30543" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Ethan</name>
         <title send="false">Defender</title>
@@ -24,4 +25,34 @@
         <item lefthand="0" righthand="296"/>
         <collision heigth="19.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="3"><![CDATA[<html><body>Defender Ethan:<br>So how'd you like it? I'll read it again for you.<br>Jangle jangle, the sound of rolling adena.<br>Clink clink, the sound of gathering treasure.<br>Boom boom, the sound of collecting mithril.</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Defender Ethan:<br>
+So, how'd you like it? I'll read it again for you.<br>
+Jangle jangle, the sound of rolling adena.<br>
+Clink, clink, the sound of gathering treasure.<br>
+Boom, boom, the sound of collecting mithril.
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>Defender Ethan:<br>
+You do not understand the artistic soul of the Dwarfs. Since you do not understand art, you are not qualified to listen to my poem. Go and kill some innocent animals!
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Defender Ethan:<br>
+Jangle jangle, the sound of rolling adena.<br>
+Clink clink, the sound of gathering treasure.<br>
+Boom boom, the sound of collecting mithril.<br>
+<a action="bypass -h npc_%objectId%_Chat 4">Bravo!</a><br>
+<a action="bypass -h npc_%objectId%_Chat 5">You think that's a poem?</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Defender Ethan:<br>
+My name is Ethan! I'm a Defender of this village, but my true passion is writing poetry! There are so many things to write about these days! Would you like to hear one of my poems?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Sure, read me some of your poetry."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Not now, Eithan!"</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Defender Ethan:<br>
+All right, it's okay if you don't want to hear it! I wouldn't want to force anybody ...
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30163" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30163" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Rex</name>
         <title send="false">Trader</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Merchant Rex:<br>
+I'm not sure if we have what you're looking for. Tell me again...<br>
+<a action="bypass -h npc_%objectId%_Buy 3016300">Buy Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy Wizard Common Items.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Merchant Rex:<br>
+Welcome, traveler, welcome to the Ivory Tower!<br>
+Most people see this place only as the residence of Wizards, but you might be surprised to learn how many non-mystics make their home here as well. Originally, I was a Paladin who was sworn to Einhasad' service. It's not like I broke my vow, but I must confess that I didn't think I'd ever end up here...<br>
+Let me caution you, friend: strange things happen here. Don't go snooping around unless you can handle trouble...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3016300">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

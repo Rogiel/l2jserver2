@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30723" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30723" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Roy</name>
         <title send="false">Captain</title>
@@ -24,4 +25,27 @@
         <item lefthand="102" righthand="129"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Captain Roy:<br>
+<font color="LEVEL">Welcome</font> to the Ivory Tower. I am Captain Roy. As a youth I came to this tower to become a Mystic; however, I eventually found that it was not suitable for me. That is why I am doing this currently. Do you have any questions?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Ivory Tower.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the monsters around the Ivory Tower.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Captain Roy:<br>
+The Ivory Tower has stood here for nigh on a thousand years. It has become quite popular as a place for elites to study the magical arts. <br>
+There are gates at the north and south of the tower. We guard the tower and its surroundings from a host of threats.<br>
+The tower has many floors, but guests can only go up to the 4th. If you want to know what is on each floor, ask that friendly person over there. Or you can just wander around.<br>
+Oh, and just so you know, the Ivory Tower is strictly neutral territory. So please, don't say or do anything that could cause trouble.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Captain Roy:<br>
+It is said that long ago a meteorite fell to earth right where the Ivory Tower stands today. The tower was built there to utilize the great magical power left over from that collision.<br>
+Because of the power of this place, monsters have become something of a problem.<br>
+Recently they have been dropping <font color="LEVEL">High-level Spellbooks</font> occasionally. Until now the knowledge of these books has been quite rare.<br>
+Would you care to look around the Tower?<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

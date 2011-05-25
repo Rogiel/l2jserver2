@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32568" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32568" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Unidentified Body</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="19.0" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Unidentifiable Body:<br>
+You've found the body of a Dwarf. It's completely unidentifiable due the severe mauling and structural damage the corpse has undergone. However, the lack of decay indicates that whoever it was, they were killed recently.<br>
+There's some strange energy emanating from the corpse. Hmm....<br>
+<a action="bypass -h npc_%objectId%_Quest">Examine the body.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

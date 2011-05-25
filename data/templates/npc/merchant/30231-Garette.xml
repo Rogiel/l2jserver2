@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30231" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30231" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Garette</name>
         <title send="false">Trader</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Garette:<br>
+Get out of here! You don't know who you are waving your puny knife at, you greenhorn!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Garette:<br>
+Hey, youngster! You look like you were born under a lucky star! Did something good already happen to you? Or are you out here looking for something good? If you're celebrating something, shouldn't we have a drink? Oh, you came to the right place if you're looking for good luck. I just discounted everything in my shop!<br>
+Buy whatever you need without hesitation. After all, fortune smiles on those who are well-equipped! But an adventurer who lacks the basics is like a frog in the desert -- he won't last long...<br>
+<a action="bypass -h npc_%objectId%_Buy 3023100">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3023101">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

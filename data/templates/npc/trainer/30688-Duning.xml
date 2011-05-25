@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30688" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30688" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Duning</name>
         <title send="false">Blacksmith</title>
@@ -24,4 +25,25 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Blacksmith Duning:<br>
+How can someone so young be so forgetful! I'm a Dwarf and a blacksmith, you fool! I am not a Warehouse Keeper!<br>
+You can stand around as long as you want, but I will never teach you anything about blacksmithing!<br>
+...Oh, and by the way, we don't sell anything here so just run along if there is something you want to buy.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Blacksmith Dunning:<br>
+Welcome to Hunters Village! Besides the hunters who come here in search of exotic monsters, you'll also find a whole crowd of adventure-minded types in this town: bounty hunters, information brokers, relic expeditionary teams... A wink is as good as a nod, eh? This village couldn't be better for business.<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Craft a Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/weapon_sa_01.htm">Bestow a special ability on a weapon.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Craft an item.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1002">Release the seal on B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1003">Reseal B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_01.htm">Smelt an item.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_02.htm">Cancel smelting.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

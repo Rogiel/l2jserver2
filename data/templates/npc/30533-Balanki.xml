@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30533" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30533" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Balanki</name>
         <title send="false">Silver Scale's</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Elder Balanki:<br>
+I beg your pardon? You really don't know who I am? I am Balanki Rollingrock, the Elder Chief of the glorious <font color="LEVEL">Silver Scale Guild</font>. You still do not know who I am?<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Silver Scale Guild</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Elder Balanki:<br>
+I am too busy to talk to you now. If you need to ask about something, please be quick.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask for introduction</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Elder Balanki:<br>
+Our guild specializes in trade between the different races. We are experts in trade and diplomacy. While other races go to war for honor and political gain, our guild sees profit as a path to power. Our guild does not trade trivial daily necessities! We only deal with gold, silver, jewelry,accessories, and precious magic items.<br>
+Our customers are the aristocracy and powerful families from many kingdoms. Doing business with them is not only for profit, we also keep watch on their affairs. We never know when some greedy outsider will get a notion to invade and try to take our property. To prevent this, we keep watch, and raise money to train armies or hire soldiers, if necessary, to protect our wealth and peace.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

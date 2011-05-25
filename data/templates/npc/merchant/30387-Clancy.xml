@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30387" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30387" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Clancy</name>
         <title send="false">Wharf Manager</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Wharf Manager Clancy:<br>
+Welcome! Are you here to board a ship? Ship traffic has increased a lot now that routes to Elmore are opened again. At first it was just cargo, but now we have enough interest to operate a passenger liner. It's nice to see all the activity again!<br>
+Ah, a liner heading to the Town of Rune is about to leave. Would you like to buy a ticket?<br>
+<a action="bypass -h npc_%objectId%_Buy 3038700">Buy a ticket.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

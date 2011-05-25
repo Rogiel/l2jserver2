@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="32142" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="32142" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tenor</name>
         <title send="false">Master</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="9646"/>
         <collision heigth="25.0" radius="15.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Tenor:<br>
+Unless you are a male Kamael Soldier or Trooper, I cannot teach you. Find a teacher better suited to your profession.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Tenor:<br>
+Who uses both sword and magic on the battlefield, relying on both strength and skill to plunge the enemy into confusion? We Kamael, of course!<br>
+Our abilities are unique among all the peoples of this world. We develop them through rigorous training and iron-clad discipline.<br>
+We long ago learned that we must first master our own bodies and minds before we can hope to master our foes...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

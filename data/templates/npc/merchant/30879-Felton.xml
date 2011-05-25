@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30879" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30879" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Felton</name>
         <title send="false">Wharf Manager</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Wharf Manager Felton:<br>
+From here many ships come and go to other ports on the continent, including Talking Island. Without this port, Giran's giant market would not exist! It may look just like a sleepy little port to you, but mark my words: soon a village will be built near here. I hear that the Dwarves are already preparing to invest... Look there -- you can see some building sites have already been cleared. Now we're just waiting for official word to begin...<br>
+<a action="bypass -h npc_%objectId%_Buy 3087900">Buy a ticket.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

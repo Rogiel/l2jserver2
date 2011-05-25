@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="31225" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="31225" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Arena Manager</name>
         <level>70</level>
@@ -22,4 +23,16 @@
         <sp>0</sp>
         <collision heigth="21.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Arena Manager:<br>
+Way to go! Hooray! Hooray!!!<br>
+(Be careful! CP/HP will not get recovered inside the fence.)<br><br>
+<a action="bypass -h npc_%objectId%_cprecovery">CP Recovery : 1,000 Adena</a><br>
+<a action="bypass -h npc_%objectId%_hprecovery">HP Recovery : 1,000 Adena</a><br><br>
+<a action="bypass -h npc_%objectId%_arenabuff">Buff for Battle Ground : 2,000 Adena</a><br><br>
+<a action="bypass -h npc_%objectId%_DepositP">Private Warehouse: Deposit an Item</a><br1>
+<a action="bypass -h npc_%objectId%_WithdrawP">Private Warehouse: Withdraw an Item</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

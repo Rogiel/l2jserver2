@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31434" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31434" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shaling</name>
         <title send="false">Blueprint Seller</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Blueprint Seller Shaling:<br>
+Welcome! I'm Shaling. I used to sell blueprints, but my real dream is to become an adventurer someday! First, I'll explore Cruma Tower! What? You're an adventurer? Oh!<br>
+I used to sell blueprints, but since those technologies became public there's no need for them anymore. Oh, how I wish I could leave here and have a real adventure!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

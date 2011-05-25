@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31585" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31585" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sparky the Cat</name>
         <title send="false">Keats Servitor</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="16.0" radius="9.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sparky the Cat:<br>
+Please tell me, magister! How can I be released from the curse?<br>
+Meoow! I'm very busy! I must run an errand for my master! Meow!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Who is your master?" </a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sparky the Cat:<br>
+Meow? My master? His name is Keats, the first level summoner of the Ivory Tower!<br>
+Meow! But, my master is uh... for personal reasons... is currently recuperating at the hot springs!
+</body></html>]]></chat>
+    </talk>
 </npc>

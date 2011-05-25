@@ -16,6 +16,8 @@
  */
 package com.l2jserver.model.id.template;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.TemplateID;
@@ -40,6 +42,7 @@ public class ActorTemplateID<T extends ActorTemplate<?>> extends TemplateID<T, I
 	}
 
 	@Override
+	@XmlTransient
 	public T getTemplate() {
 		return templateService.getTemplate(this);
 	}

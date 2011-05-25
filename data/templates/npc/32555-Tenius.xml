@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32555" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32555" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tenius</name>
         <title send="false">Soldier</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Soldier Tenis:<br>
+Huh! What, are you laughing at me? I can barely stand, and you think it's funny? <br>
+But this isn't the end. I'm just conserving my strength so I'll be ready to fight...<br>
+Trust me, when the time comes I'll fight for my lord and for the future of Gracia. I don't care if the enemy is the power of darkness, that fool Karneia or greedy adventurers from far-off lands!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

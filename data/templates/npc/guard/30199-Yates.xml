@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30199" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30199" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Yates</name>
         <title send="false">Guard</title>
@@ -24,4 +25,12 @@
         <item lefthand="0" righthand="275"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Yates:<br>
+Halt! Welcome to the town of Oren. There are dangerous areas around the town, so please be careful and prepare yourself. But... to the west there is no harm. As you can see on the map, the motherland of the Elves, the Elven Forest, is nearby.<br>
+I heard it's a wonderful place, I hope that one day I can visit it... It is hard to get there, however, because the Dragon Claw Mountains are blocking the way.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View the information about the lord and the tax rate of the manor.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

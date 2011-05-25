@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32735" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32735" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Nemo</name>
         <level>80</level>
@@ -23,4 +24,27 @@
         <item lefthand="0" righthand="13465"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Nemo:<br>
+I have no information about the origins of this species, but what I have found is that these creatures do possess a unique energy, sort of plasma if you will.�Hmm� <font color="LEVEL">Maguen Plasma</font>. I like that.�I think that is what I�ll call it. Anyway, when a Maguen appears it begins to bring forth one of these plasmas. It will also cycle through its various plasmas before hiding.<br>
+With Blacksmith Kusto�s talent and my magic we were able to create a device that could harvest these plasmas� a <font color="LEVEL">Maguen Plasma Collector</font>. I know it isn�t too creative but we decided to keep the name simple to avoid explaining what it does.�<br>
+Ugh� fine. I�ll explain it to you. When you are in the Seed and a Maguen appears you have a very limited time to collect the Maguen Plasma. If you don�t collect the plasma in time the Maguen will go back into hiding. I�ve set up a practice Maguen if you want to try using the Maguen Plasma Collector.<br>
+This isn�t a real Maguen, so you won�t collect any Plasma� just thought you should know so you don�t get your hopes up.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Receive the Maguen Plasma Collector</a> <br>
+<a action="bypass -h npc_%objectId%_Chat 3">Practice using the Maguen Plasma Collector</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Nemo:<br>
+Who are you? What business do you have with the Great Magician of Oren? Speak! Hmm� not a chatty one, are you? Well if you must know, I am here on important business.<br>
+It is said that a mysterious creature can only be found on this Seed. Have you heard of a <br>
+<font color="LEVEL">Maguen</font>? Yes, I know it is a silly name. But aren�t you the least bit intrigued?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">What is a Maguen?</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Nemo:<br>
+Are you pulling my leg? You're NOT an adventurer? Or you ARE? You have one? You want another? What is it?! Tell me!!<br> You've confused me. I don't know what to say... I need a moment... 
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Nemo:<br>
+Take a look at the top of the Maguen�s head. Observe the aura of the Plasma that the Maguen is producing. Use the Maguen Plasma Collector when the Maguen summons the Plasma you wish to collect.
+</body></html>]]></chat>
+    </talk>
 </npc>

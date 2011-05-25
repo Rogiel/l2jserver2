@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30971" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30971" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Orpheus</name>
         <title send="false">Mad Doctor</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Mad Doctor Orpheus:<br> 
+I am Doctor Orpheus. I am a student and teacher of life and death. I am also an adventurer, a physician, and an inventor. Now I find myself drawn in yet another direction, towards the realm of Shilen... If you are interested, there is a position open on my research staff. You are welcome to apply for it, or perhaps... Would you like to volunteer to be a 
+subject of my experiment? I would be eternally grateful to you. What do you think? Will you give it a try?<br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30458" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30458" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Poitan</name>
         <title send="false">Blacksmith</title>
@@ -24,4 +25,24 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Blacksmith Poitan:<br>
+Tsk tsk, I only teach Dwarven Fighters and Artisans. You need to pay more attention to your words. Good day now!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Blacksmith Poitan:<br>
+Nice to meet you, traveler. I'm Poitan, the blacksmith in this town.<br>
+I just re-opened a few days ago after spending a lot of time remodeling my smithy. You're lucky you came when you did! I have time to undertake any project you like.<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_01.htm">Craft a Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/weapon_sa_01.htm">Bestow a special ability on a weapon.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Craft an item.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1002">Release the seal on B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1003">Reseal B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_01.htm">Smelt an item.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_02.htm">Cancel smelting.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31389" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31389" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Dorian</name>
         <level>70</level>
@@ -23,4 +24,14 @@
         <item lefthand="0" righthand="297"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Dorian:<br> 
+Strange things have been happening to me lately... When I wake up I find scars I don't remember getting... Things broken I don't remember breaking...<br> 
+I wonder... could I be  sleepwalking? I don't remember a thing!... <br> 
+Oh, hello, traveler! Sorry to tell you this, but there's no place to stay in this village! Violet over there is selling some odd items, but other than that... this is, well, a ghost town!<br> 
+If only I could... Sigh...! I just want to leave here and run away to Rune Castle Town! <br> 
+Oh, was I talking out loud? Where could I possibly go? I couldn't leave this land! My ancestors have lived here for generations!<br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+    </talk>
 </npc>

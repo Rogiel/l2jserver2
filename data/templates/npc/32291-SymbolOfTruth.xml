@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32291" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32291" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Symbol of Truth</name>
         <level>70</level>
@@ -22,4 +23,12 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Symbol of Truth:<br>
+You have a keen eye for the truth.<br>
+The last gift is the Contaminated Crystal, which can hide you from the eyes of the Demons. This crystal will allow you to enter the <font color="LEVEL">Crystal Caverns</font> under Crystal Lake without being detected.<br>
+Now that you have completed the trial, I shall return you to where you came from.<br>
+<a action="bypass -h npc_%objectId%_Quest DarkCloudMansion">Leave Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

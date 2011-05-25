@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30406" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30406" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Matheo</name>
         <level>70</level>
@@ -22,4 +23,23 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Matheo:<br>
+To make a long story short, it is a high ranking spirit with strong powers. According to documentary records, the religion of the ancient Elves had more shamanistic elements than other Elven races, including performing sacrificial rites to the spirit kings and building megalithic structures for spell purposes.<br>
+The other scholars don't agree with my opinions yet, but I mean to do a lot of research and publish a journal. Then they'll begin to agree with me.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Matheo:<br>
+You don't know about Oren's Ivory Tower? Oren's Ivory Tower was built in the days of the Ancient Kingdom of Elmoreden, and is the chief temple of magic. These days its authority isn't what it once was, but still, most decent Mystics are trained there.<br>
+Also, there is a rumor that a mysterious gem in the lower level that magnifies the power of magic, but no one claims to have actually seen it. I cannot say if this is true, since I have not seen it either.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Matheo:<br>
+Ah, to meet a traveler in a place like this! I am Matheo, a scholar of folkish lore, dispatched from the <font color="LEVEL">Ivory Tower.</font> These days I am researching the history of the Talking Island.<br>
+Do, can you believe that the structure you are looking at now was erected thousands of years ago? There are several similar relics like this around the island. They were erected in ancient times by the Elves of light that lived on the Talking Island. I think this was where the enchanters of the Elves paid tribute to the island s <font color="LEVEL">Hieros.</font><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Ivory Tower.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about Hieros.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

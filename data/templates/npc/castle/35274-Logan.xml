@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleChamberlain" id="35274" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleChamberlain" id="35274"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Logan</name>
         <title send="false">Chamberlain</title>
@@ -23,4 +25,42 @@
         <sp>10</sp>
         <collision heigth="22.5" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13032" msg="811;Front Of Aden Castle">Front Of Aden Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13033" msg="811;Aden Town Square">Aden Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13034" msg="811;Front of the Narsell Fortress">Front of the Narsell Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13035" msg="811;Front of the Bayou Fortress">Front of the Bayou Fortress</a><br1>
+</body></html>]]></chat>
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13032" msg="811;Front Of Aden Castle">Front Of Aden Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13033" msg="811;Aden Town Square">Aden Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13034" msg="811;Front of the Narsell Fortress">Front of the Narsell Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13035" msg="811;Front of the Bayou Fortress">Front of the Bayou Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13036" msg="811;Enchanted Valley, Northen Region">Enchanted Valley, Northen Region - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13071" msg="811;Blazing Swamp">Blazing Swamp - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13038" msg="811;Forest of Mirrors">Forest of Mirrors - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13039" msg="811;Anghel Waterfall">Anghel Waterfall - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13072" msg="811;The Giant's Cave Upper Layer">The Giant's Cave Upper Layer - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13073" msg="811;The Giant's Cave Lower Layer">The Giant's Cave Lower Layer - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body>%npcname%:<br>
+What is your command?
+<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 24180001 24180002">Open the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 24180001 24180002">Close the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 24180012 24180013">Open the East Inner Hall Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 24180012 24180013">Close the East Inner Hall Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 24180014 24180015">Open the West Inner Hall Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 24180014 24180015">Close the West Inner Hall Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 24180004 24180005">Open the Throne Room Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 24180004 24180005">Close the Throne Room Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 24180016">Open the Terrace Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 24180016">Close the Terrace Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 24180001 24180002 24180004 24180005 24180012 24180013 24180014 24180015 24180016">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 24180001 24180002 24180004 24180005 24180012 24180013 24180014 24180015 24180016">Close All Castle Gates</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30085" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30085" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Stanford</name>
         <title send="false">Wizard-use Weapon Merchant</title>
@@ -23,4 +24,19 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="10.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Stany:<br>
+What kind of weapons would you like to see?<br>
+<a action="bypass -h npc_%objectId%_Buy 3008500">Buy weapons for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3008501">Buy Wizard Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_BuyShadowItem">Buy a Shadow Item.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Stany:<br>
+Welcome, youngster! Our shop only specializes in weapons. In fact, most of the famous knights of Aden come here. Why don't you choose one for yourself? We carry a wide selection, and only the best!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3008500">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

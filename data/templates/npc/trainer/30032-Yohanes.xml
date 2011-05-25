@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30032" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30032" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Yohanes</name>
         <title send="false">Priest</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Priest Yohanes:<br>
+Welcome to the Temple of Einhasad. I follow here in the footsteps of my father, who was a bishop in the service of <font color="LEVEL">Einhasad, the goddess of light</font>. What brings you here today, my friend? Do you wish to devote yourself to her service as well?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Einhasad.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Priest Yohanes:<br>
+Ah... you are walking a different path from my own. All i can give you are the teaching of Einhasad.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Priest Yohanes:<br>
+The goddess Einhasad is the source of goodness, mercy and justice. Like my father before us, my twin brother Baulro and I serve her with our whole hearts. Baulro follows the path of a Magister rather than a Priest, but his faith is as strong as mine.
+</body></html>]]></chat>
+    </talk>
 </npc>

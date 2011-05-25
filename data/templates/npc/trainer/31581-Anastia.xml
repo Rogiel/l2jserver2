@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31581" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31581" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Anastia</name>
         <title send="false">Magister</title>
@@ -24,4 +25,16 @@
         <item lefthand="0" righthand="202"/>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Anastia:<br>
+Welcome to Hardin's Academy.<br>
+I hope you're not some tourist looking for a good story to tell back home. This place is dangerous enough even for the most skilled of practitioners. So, what do you want to know? I don't have much time, so be quick about it!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Anastia:<br>
+When I look into your eyes... I get a queasy feeling... I'm sorry! I don;t think this is going to work out.
+</body></html>]]></chat>
+    </talk>
 </npc>

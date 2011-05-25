@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30417" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30417" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sir Klaus Vasper</name>
         <level>70</level>
@@ -22,4 +23,21 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sir Klaus Vasper:<br>
+Greetings. I am Klaus Vasper, first son of the Vasper family that has protected the province of Gludio for five generations, and member of the glorious Continental Knights League, knighted by King Cadmus as the Guardian Knight of the west.<br>
+The romance of chivalry sung by wandering minstrels is forgotten in these ages and we Knights are scorned as relics of the old age. However, we are successors of a great legacy that has continued for over one thousand years since the age of empires, and we endure the rebukes and scorns of the worldly people and do not lose our pride for a moment as we silently stand our righteous war.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Knights of Gludio.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Sir Klaus Vasper:<br>
+The Sword of Ritual is a token used in the ritual of changing profession to a Human Knight. It was originally held by the knights of the Windawood family, but currently, I am in charge of it instead of Sir Collin.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sir Klaus Vasper:<br>
+In Castle Aden, the capitol of the kingdom, hundreds of knights serve the king, but there are only three members of the Knight Guild in Gludio including myself.<br>
+Sir Collin Windawood, keeper of the sword of ritual, has been dispatched to serve as the governor of Talking Island, and Sir Aaron Tanford has left on a journey to his homelands for private reasons. So I am left alone here.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Sword of Ritual</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

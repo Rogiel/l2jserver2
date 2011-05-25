@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31540" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31540" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Klein</name>
         <title send="false">Watcher of Valakas</title>
@@ -23,4 +24,21 @@
         <sp>0</sp>
         <collision heigth="28.5" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Watcher of Valakas Klein:<br>
+You must triumph over the family or gatekeepers of Valakas inside the Hall of Flames if you expect to obtain the charm of blessing or charm of relief.<br>
+Either one of them will help you deal with Valakas.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Watcher of Valakas Klein:<br>
+Why are you here? Are you by any chance looking for the Hall of Flames behind me?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the Hall of Flames."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Tell me about the Amulet of Blessing and Amulet of Rescue."</a><br>
+<a action="bypass -h npc_%objectId%_Quest 6000_GrandBossTeleporters">"I want to enter the Hall of Flames."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Watcher of Valakas Klein:<br>
+The Hall of Flames leads to Valakas, the fire dragon. It's guarded by the minions of Valakas! If you get past them, you can meet Valakas. To prevent people from entering this dangerous place, no one may actually walk the path...<br>
+After all this, you still want to enter the Hall of Flames? Bring me a Floating Stone! Remember, it can be used only once.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30870" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30870" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Kurtiz</name>
         <title send="false">Captain</title>
@@ -24,4 +25,12 @@
         <item lefthand="102" righthand="129"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Captain Kurtiz:<br>
+Aden Castle was built in the style of the Titans, supported by enormous columns that give it an aura of invicibility. It is practically impervious to attack. Even if all the armies of Elmore attacked simultaneously, this castle could be easily defended with only five thousand men...<br>
+This castle is most vulnerable to internal dangers... Our task as guards is to protect against attack from foreign armies, as well as to prevent the infiltration of people who wish to bring harm upon the city.<br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

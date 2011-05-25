@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30903" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30903" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Traus</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Traus:<br>
+Elves have lived here in Innadril for a very long time, since the Elder Terestien and his followers arrived here from Oren. Back then they were called the "Elves of the Lake" and they intermingled with the natives of this area. Marriages between Elves and Humans were common then, and so Elven blood mixed with the Humans of Innadril. That's why the people here are so much longer-lived than elsewhere.<br>
+Had you already heard that story?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Traus:<br>
+Elven skills may only be taught to Elves. You are obviously not an Elven Warrior. You may be one of the Hunter family, you might even have a substantial amount of Elven blood, but you cannot learn Elven skills. Find another master.
+</body></html>]]></chat>
+    </talk>
 </npc>

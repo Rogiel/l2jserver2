@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30736" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30736" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Redfoot</name>
         <title send="false">Mercenary</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="21.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Mercenary Redfoot:<br>
+Currently our 3rd platoon, the main force of our mercenary troop, is fighting an important battle in Gludio against the ol mahum stragglers. The 2nd platoon has been dispatched to drive out the evil spirits of the Wasteland. <font color="LEVEL">Captain Leopold</font>, who is stationed in Gludin, is better informed about the details of the situation there...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Mercenary Redfoot:<br>
+Greetings, sire!  What brings a nobleman such as you to this dark alleyway? I am Redfoot, a soldier of the Black Lion Mercenary Troop.  I am not a fighter, but instead am in charge of delivering war supplies.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Black Lion Mercenary Troop."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

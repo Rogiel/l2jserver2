@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32326" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32326" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Yang</name>
         <title send="false">Attribute Master</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Yang:<br>
+Welcome!<br>
+It has come to our attention that area monsters have lately become increasingly powerful through their absorption of certain magical attributes. You have undoubtedly noticed that yourself, eh?<br>
+During my travels on the continent, I discovered a special technique that may allow us to defend ourselves against that attribute-enhanced power. It is far from fool-proof, but it may be our best chance!<br>
+Unfortunately, I require a variety of rare -- and expensive -- ingredients in order to manufacture the potion. My disciples are currently attempting to gather them at great risk to themselves. Perhaps you would be willing to help support their efforts?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Attributes.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 32326001">Buy an attribute-strengthening potion.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 32326002">Exchange one Attribute Ore for another.</a><br>
+<a action="bypass -h npc_%objectId%_ReleaseAttribute">Remove attribute bestowed on weapon or armor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Yang:<br>
+The elemental attributes of water, fire, wind and earth, and the holy and dark attributes that symbolizes light and darkness, are extensions of the gods who correspond to each attribute and are the source of magic power. Attribute magic flows through the matter of this world, causing action and reaction and creating new matter and energy. It is even possible to enhance combat equipment by this energy by bestowing specific attributes onto it. As that attribute's magical power grows stronger, your strength will increase as well.<br>
+Here's a tip to remember: each attribute becomes even stronger when pitted against its opposite. Change the bestowed attribute to take advantage of each situation and you will reap the benefits!</body></html>]]></chat>
+    </talk>
 </npc>

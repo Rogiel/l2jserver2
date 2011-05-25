@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31544" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31544" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Naff</name>
         <level>70</level>
@@ -22,4 +23,22 @@
         <sp>0</sp>
         <collision heigth="16.3" radius="6.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Naff:<br>
+Have you heard about the beast that lurks in the hot springs area?<br>
+Icicle Emperor Bumbalump, also known as the king of the yetis!<br>
+It's said that he eats people alive!<br>
+How gruesome.<br>
+He's a voracious eater, and can put away a family in one sitting!<br>
+I don't know why nobody has killed him yet!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"What are the hot springs good for?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Naff:<br>
+The hot springs around here are known to heal many ailments.<br>
+The red hot spring is good for cholera and malaria, the yellow one for rheumatism, and the green one for influenza and malaria.<br>
+If you're tired, enjoy a bath in the hot springs!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

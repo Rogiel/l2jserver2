@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="31347" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="31347" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Burke</name>
         <title send="false">Guard</title>
@@ -24,4 +25,26 @@
         <item lefthand="628" righthand="126"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Burke:<br>
+Shh! Keep your voice down! Do you want to get us in trouble?!<br>
+Don't tell anyone you heard this from me, you understand? Elmore is facing its greatest crisis ever! Devil-worshippers have infiltrated the aristocracy! They can also be found at the highest levels of the government of Elmore! These heathens worship the devil Triol! They actually aspire to conquer the entire kingdom.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Devil worshippers? Are you serious?"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Burke:<br>
+Are you stupid or what? Do you think I'd just casually say that the government had been seduced by the devil? But look around you! Isn't it obvious? How could a forest fall under the spell of a curse, with vampires and devils roaming freely about?<br>
+To make matters worse, government officials stand by without taking any action! They waste time with idiotic witch hunts and purging innocent priests!<br>
+Don't get me wrong! I trust our king completely! He would never falsely accuse innocent people! But, still, I'm quite sure that there are devil-worshippers among his top aides!<br>
+Dammit! I've said too much! I must watch my tongue or I could lose my head! I'm done talking! Go find out something for yourself!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Burke:<br>
+You picked a bad time to visit Rune, my friend. People like you may help ease my workload, but... Oh, well... Come closer... Shhhh...<br>
+~ ...Have you heard any strange rumors? You must keep this to yourself! There's a vast conspiracy afoot against the kingdom! If you hear anything about this plot, come and tell me at once!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"A plot? What are you talking about?"</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the lord of the manor and what is the tax rate?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

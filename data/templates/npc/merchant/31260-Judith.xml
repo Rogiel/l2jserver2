@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31260" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31260" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Judith</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="25.3" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Judith:<br>
+Would you like to see some of our featured items? Necklaces, earrings, rings... What would you like?<br>
+<a action="bypass -h npc_%objectId%_Buy 3126000">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3126001">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Judith:<br>
+I'm sorry. I can't do business with you. Please leave!
+</body></html>]]></chat>
+    </talk>
 </npc>

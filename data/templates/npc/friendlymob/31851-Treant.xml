@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FriendlyMob" id="31851" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FriendlyMob" id="31851"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Treant</name>
         <level>80</level>
@@ -22,4 +24,13 @@
         <sp>226</sp>
         <collision heigth="90.0" radius="23.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Treant:<br>
+.....Branches. Of the Mother Tree, will hold up. Sky...<br>
+.....Roots. of the Mother Tree. Will cover. Land......<br>
+......Offspring. Of the Mother Tree. Brothers. of Nymphs....<br>
+......Break. Order. Of forest. Will not. Forgive.......<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32572" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32572" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Frog</name>
         <title send="false">Great King</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="20.0" radius="40.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Frog King:<br>
+Ribbit! Why does servant take so long? Rib-rib-ribbit.<br>
+Simple ribbiting task! Servant takes love letter to frog lady! Rib-ribbit. Ribbit!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a><br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

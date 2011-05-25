@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="31582" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="31582" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Mordred</name>
         <title send="false">Dark Knight</title>
@@ -24,4 +25,18 @@
         <item lefthand="634" righthand="84"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Dark Knight Mordred:<br>
+No one understands injustice better than I do. I know the rage you feel. I know from personal experience your consuming need for vengeance.<br>
+Evil cannot be allowed to go unpunished! Revenge is not only desirable, it is necessary. To eradicate evil, those who commit evil acts must themselves be eliminated.<br>
+Listen to your rage! Release it to become an instrument of justice!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skill.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Mordred, The Dark Knight:<br>
+Ha! A worm like you could never understand my teachings!<br>
+Leave now and I'll let you live!
+</body></html>]]></chat>
+    </talk>
 </npc>

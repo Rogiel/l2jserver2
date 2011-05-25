@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30421" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30421" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Varika</name>
         <title send="false">Witch</title>
@@ -23,4 +24,11 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Varika:<br>
+Long ago, our mother Shilen was insulted by Einhasad and betrayed by the Elves when they began serving Eva. Since then, the origin of our power is darkness, like our mother Shilen. The Dark Elven magic takes the power of darkness and sublimates it to make it one's own.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest to change occupations to a Dark Wizard</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

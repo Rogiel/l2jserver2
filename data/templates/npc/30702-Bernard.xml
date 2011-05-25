@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30702" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30702" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Bernard</name>
         <title send="false">Guild President</title>
@@ -23,4 +24,13 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Hunters Guild President Bernard:<br>
+Welcome to the Hunters Village, yong friend. As you know, our village was first formed by hunters. We have a great tradition around here, and do not stop others from hunting near our village. We hunters must all stick together, don't you think?<br>
+On the other hand, there are too many young hunters today who disregard the rules... Even needlessly fighting in the village... To prevent any trouble I hope you follow these rules:<br>
+Never hunt another Hunter's prey and never take what another Hunter has captured... Easy huh? I think these are the most basic rules not only Hunters but every Human being should follow. Do you aggre?<br>
+Whoever breaks these rules, I will kick out of the village!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

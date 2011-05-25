@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="OlympiadManager" id="31771" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="OlympiadManager" id="31771"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Monument of Heroes</name>
         <level>70</level>
@@ -21,4 +23,10 @@
         <sp>0</sp>
         <collision heigth="72.5" radius="24.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Monument of Heroes:<br>
+You're not qualified to be a Hero, but you can find out who the current Hero is.<br>
+<a action="bypass npc_%objectId%_Olympiad 4">"Who is the current Hero?"</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

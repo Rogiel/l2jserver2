@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30192" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30192" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Darya</name>
         <title send="false">Master</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Master Darbi:<br>
+Oren is continually surrounded by the energy of war and death. If Shilen ever returns, surely this will be the first place she visits!<br>
+Until that day comes, however, we must do all we can.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skill.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Master Darya:<br>
+Is there something you want to learn from me? I only teach Dark Elven Fighters as a rule. Of course I do make exceptions. It doesn't matter?<br>
+All right, why don't we meet at the Sea of Spores tonight? By all means, bring a Short Sword and prepare of the fight of your life.
+</body></html>]]></chat>
+    </talk>
 </npc>

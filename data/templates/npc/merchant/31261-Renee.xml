@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31261" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31261" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Renee</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="18.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Renee:<br>
+Do you really think my lovely accessories would look good on a criminal like you? I can't believe this is happening... Get out of my store!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Renee:<br>
+Necklaces...rings... Ah, you don't want to buy them because they are glittering and pretty? Eh? As I expected, adventurers have different tastes. And there are certainly a great many adventurers in Goddard! But don't fear -- we only carry quality items.<br>
+<a action="bypass -h npc_%objectId%_Buy 3126100">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3126101">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

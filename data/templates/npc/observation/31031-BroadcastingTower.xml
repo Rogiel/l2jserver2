@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Observation" id="31031" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Observation" id="31031"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Broadcasting Tower</name>
         <level>70</level>
@@ -21,4 +23,77 @@
         <sp>0</sp>
         <collision heigth="35.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 -18347 114000 -2360">&$620; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 -18347 113255 -2447">&$621; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 147457 9601 -233">&$630; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 147457 8720 -252">&$631; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 78100 36950 -2242">&$628; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 78744 36950 -2244">&$629; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 112000 144864 -2445">&$624; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 112657 144864 -2525">&$625; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="9"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 77541 -147447 353">&$1424; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 77541 -149245 353">&$1425; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="10"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observe 80 148416 46724 -3000">&$634; - 80 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observe 80 149500 46724 -3000">&$635; - 80 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observe 80 150511 46724 -3000">&$636; - 80 &$469;</a>
+</body></html>]]></chat>
+        <chat id="Oracle-1"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -80210 87400 -4800">Level 31 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -77200 88500 -4800">Level 42 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -75320 87135 -4800">Level 53 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -76840 85770 -4800">Level 64 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -79950 85165 -4800">No Level Limit - 500 Adena</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 22321 155785 -2604">&$622; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 22321 156492 -2627">&$623; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="Oracle"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Oracle of Dusk</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 2">Oracle of Dawn</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_Chat 1">&$612;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 2">&$613;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 3">&$614;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 4">&$615;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 5">&$616;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 6">&$617;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 7">&$1243;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 8">&$1420;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 9">&$1423;</a><br1>
+<a action="bypass -h npc_%objectId%_Chat 10">&$619;</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 116260 244600 -775">&$626; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 116260 245264 -721">&$627; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="Oracle-2"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -79185 112725 -4300">Level 31 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -76175 113330 -4300">Level 42 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -74305 111965 -4300">Level 53 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -75915 110600 -4300">Level 64 and Below - 500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_observeOracle 500 -78930 110005 -4300">No Level Limit - 500 Adena</a>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 147542 -43543 -1328">&$1244; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 147465 -45259 -1328">&$1245; - 500 &$469;</a>
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body>&$650;<br><br>
+<a action="bypass -h npc_%objectId%_observeSiege 500 20598 -49113 -300">&$1421; - 500 &$469;</a><br1>
+<a action="bypass -h npc_%objectId%_observeSiege 500 18702 -49150 -600">&$1422; - 500 &$469;</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

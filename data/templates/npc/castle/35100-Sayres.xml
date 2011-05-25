@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="CastleChamberlain" id="35100" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="CastleChamberlain" id="35100"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Sayres</name>
         <title send="false">Chamberlain</title>
@@ -23,4 +25,34 @@
         <sp>10</sp>
         <collision heigth="22.5" radius="9.5"/>
     </info>
+    <talk default="default">
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13000" msg="811;Front of the Gludio Castle">Front of the Gludio Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13001" msg="811;Gludio Town Square">Gludio Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13002" msg="811;Front of the Shanty Fortress">Front of the Shanty Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13003" msg="811;Front of the Southern Fortress">Front of the Southern Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13004" msg="811;Ruins of Agony">Ruins of Agony - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13005" msg="811;Ruins of Despair">Ruins of Despair - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13006" msg="811;The Ant Nest">The Ant Nest - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13007" msg="811;Windawood Manor">Windawood Manor - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body>%npcname%:<br>
+What is your command?
+<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 19210001 19210002">Open the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 19210001 19210002">Close the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 19210005 19210006">Open the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 19210005 19210006">Close the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 19210001 19210002 19210005 19210006">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 19210001 19210002 19210005 19210006">Close All Castle Gates</a>
+</center>
+</body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13000" msg="811;Front of the Gludio Castle">Front of the Gludio Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13001" msg="811;Gludio Town Square">Gludio Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13002" msg="811;Front of the Shanty Fortress">Front of the Shanty Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13003" msg="811;Front of the Southern Fortress">Front of the Southern Fortress</a><br1>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PriestVillageMaster" id="30154" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="PriestVillageMaster" id="30154"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Asterios</name>
         <title send="false">Hierarch</title>
@@ -23,4 +25,20 @@
         <sp>0</sp>
         <collision heigth="22.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Hierarch Asterios:<br>
+For ancient times, the Elves of Light have lived in harmony with the forest under the protection of the Mother Tree. Surrounded by her magic force field, this became their sanctuary from the outside world for a long, long time. However, the Sea of Spores east of the forest has been gradually expanding, and the dark brothers of the North and the Human Kingdom of the South are looking for any excuse to take over our forest! Many of our young brothers feel that we cannot survive if we stay isolated in this forest in times like these, and they've started leaving for the outside world.<br>
+The times demand change, and we can no longer rely entirely on the protection of the forest. Our tribe must experience a broader world view, and most of all we must gain an understanding of the Humans who have come to dominate the continent. For this reason, only the Elves who have gained experience and knowledge of the outside world are qualified to obtain new power.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Hierarch Asterios:<br>
+May the blessings of Eva flood the deepest recesses of your soul.<br>
+I am Tetrarch Asterios, representative of Eva, chosen by the mother of all forests and spirits! I alone remain among the 12 Tetrarchs chosen by the Mother Tree. Why have you sought me out?<br>
+<a action="bypass -h npc_%objectId%_Quest 30154_asterios_occupation_change">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the current situation.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

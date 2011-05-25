@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FortManager" id="35796" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="FortManager" id="35796"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Foreman</name>
         <title send="false">Ivory Fortress</title>
@@ -23,4 +25,27 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 12188" msg="811;Fortress North Gate">Fortress North Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12189" msg="811;Fortress South Gate">Fortress South Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12190" msg="811;Oren Town Square">Oren Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12191" msg="811;Front of the Oren Castle Gate">Front of the Oren Castle Gate</a>
+<a action="bypass -h npc_%objectId%_goto 12192" msg="811;Sea of Spores">Sea of Spores - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12193" msg="811;Enchanted Valley, Southern Region">Enchanted Valley, Southern Region - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12194" msg="811;Enchanted Valley, Northern Region">Enchanted Valley, Northern Region - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12195" msg="811;Ancient Battleground">Ancient Battleground - 500</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body><center><br><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 22180001 22180008 22180002 22180003 22180004 22180005 22180006 22180007">Open the gate</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 22180001 22180008 22180002 22180003 22180004 22180005 22180006 22180007">Close the gate</a><br>
+<a action="bypass -h npc_%objectId%_Link fortress/foreman.htm">Return</a>
+</center></body></html>]]></chat>
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 12188" msg="811;Fortress North Gate">Fortress North Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12189" msg="811;Fortress South Gate">Fortress South Gate</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12190" msg="811;Oren Town Square">Oren Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 12191" msg="811;Front of the Oren Castle Gate">Front of the Oren Castle Gate</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

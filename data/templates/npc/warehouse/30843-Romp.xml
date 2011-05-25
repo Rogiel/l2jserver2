@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="30843" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="30843" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Romp</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Romp:<br>
+Even here near Aden Castle, if you let your guard down you can easily wind up dead. We are close to the border, after all. Of course, that only underscores the importance of a warehouse, don't you think? If you have valuable items, better to store them with us than carrying them around and risking them being stolen. Remember, any item you store with us is absolutely safe -- even if you die.<br>
+<center>
+<a action="bypass -h npc_%objectId%_Link warehouse/privatewh.htm">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link warehouse/clanwh.htm">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Keeper Romp:<br>
+I train Dwarven Fighters, Scavengers and Bounty Hunters.<br>
+You don't fit any of those! Sorry, but I can't teach you.
+</body></html>]]></chat>
+    </talk>
 </npc>

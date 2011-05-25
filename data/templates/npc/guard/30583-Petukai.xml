@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30583" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30583" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Petukai</name>
         <title send="false">Centurion</title>
@@ -24,4 +25,15 @@
         <item lefthand="0" righthand="91"/>
         <collision heigth="27.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Centurion Petukai:<br>
+I, Petukai, am a Centurion, charged with protecting the King's Hall. What business brings you here?! You're here to see Kakai, aren't you? Well, you'll wind him on the second floor. You must not forget to show the proper deference to the mighty <font color="LEVEL">King of the Orcs</font>!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me more about the King of the Orcs."</a><br> 
+<a action="bypass -h npc_%objectId%_TerritoryStatus">"Who is the Lord of the manor and what is the tax rate?"</a><br> 
+<a action="bypass -h npc_%objectId%_Quest">Quest</a> 
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Centurion Petukai:<br>
+You know there are six tribes of the Orc? Chiefs from the six tribes gather together and select one king. Kakai was selected from the Hestui. Only the Overlords have the right to be a king. If an Orc Shaman performs great deeds and becomes famous, he or she may become an Overlord.
+</body></html>]]></chat>
+    </talk>
 </npc>

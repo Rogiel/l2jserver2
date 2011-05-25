@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30724" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30724" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Tavillian</name>
         <title send="false">Guard</title>
@@ -24,4 +25,25 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Tavillian:<br>
+Ah, yes, of course! Tavillian! I misspoke! Shops are in the basement of the tower. Here, as you can see, the first floor is the lobby. On the 2nd, 3rd, and 4th floor you will find the guilds of Humans, Elves and Dark Elves respectively.<br>
+The gatekeeper will assist your passage between the floors. You may not use the stairs.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Tavillian:<br>
+Whew, I hope so! There is talk that there will be an official pass issued by the squad...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Tavillian:<br>
+Welcome to the Ivory Tower!<br>
+...<br>
+Have you any news of activity around the northern border? Word comes from trusted sources there that things are quite unsafe.<br>
+I fear blowback from the recent war with Elmore. My precious little sister has gone to that forsaken region for her wedding! I shouldn't have allowed it!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the construction of the tower."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Something momentous has probably happened."</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

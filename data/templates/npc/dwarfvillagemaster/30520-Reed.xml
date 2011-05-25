@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DwarfVillageMaster" id="30520" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DwarfVillageMaster" id="30520"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Reed</name>
         <title send="false">Warehouse Chief</title>
@@ -23,4 +25,18 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Chief Reed:<br>
+Greetings, traveler! I am Warehouse Chief Reed of the famous <font color="LEVEL">Iron Gate Guild</font>. As you undoubtedly know, we are the most influential guild in the kingdom. Just look at all the banks and warehouses we operate even in the Human villages!<br>
+<a action="bypass -h npc_%objectId%_Quest 30520_reed_occupation_change">Listen to information about second class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Iron Gate Guild.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9000_clan">Clan.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 9001_alliance">Alliance.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Warehouse Chief Reed:<br>
+Our guild is the largest and most powerful of the six guilds that propel Dwarven society. We boast of a tradition of nearly 1,000 years, and we are a prestigious union of famous traders and bankers. Currently, there are warehouses operated by our guild in every city on this continent. We ignore national borders created by men, and find customers from the barren lands of Lansk to the innermost depths of Kardif across the ocean. The Iron Gate Guild goes anywhere for business, and every businessman should imitate our business ethic!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

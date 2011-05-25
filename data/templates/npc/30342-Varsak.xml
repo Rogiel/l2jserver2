@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30342" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30342" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Varsak</name>
         <level>70</level>
@@ -22,4 +23,11 @@
         <sp>0</sp>
         <collision heigth="22.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Varsak:<br>
+Have you ever seen the face of a dead man? Just as people's expressions are different, the bloodless, pale face also has different facial and eye expressions. Some have surprised or sad faces, and others meet death with a peaceful expression. Are you thinking that our conversation is disagreeable? Everyone is bound to die. Why is it you avoid talking about death?<br>
+Well, I suppose I must be used to it since I've seen dead people frequently since I was a child. Our family has been doing <font color="LEVEL">this work</font> for generations. However, there are hardly any people who look for undertakers these days. It is because the Priests of Einhasad encourage cremation. Very few people put the corpses in a coffin and bury them in the ground. But once in a while, there are some people that seek us to follow the old traditions.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

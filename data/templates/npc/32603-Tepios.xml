@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32603" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32603" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tepios</name>
         <title send="false">Officer</title>
@@ -24,4 +25,34 @@
         <item lefthand="13525" righthand="13524"/>
         <collision heigth="25.0" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Officer Tepios:<br>
+Status of the Seed of Infinity constantly changes by success or failure of an attacking party's attack, caught monsters, and etc... Therefore, this becomes a one cycle, which can be divided into a total of 6 steps. So, sometimes we have to block their power by attacking because the power of this Seed becomes too strong, but sometimes it is more important to defend efficiently when the power of the Seed becomes weak. And if this region becomes stable you could acquire collections which couldn't be acquired at ordinary times.<br>Because information like this is considered very important, so it always delivers to Keucereus Alliance Base. Thus, Admiral Keucereus and General Dilios get to know it. You can find about an occupational cycle of this place through them.<br>
+Be sure to remember. All of your movements effect the cycle of this region. Therefore, don't die recklessly even if you want to die.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Officer Tepios:<br>
+Welcome to the Seed of Infinity. My name is Officer Tepios. My role is to build temporary shelters and guide newcomers around here.<br>
+This is the place we call the <font color="LEVEL">Death Gate</font>. Many soldiers and unnamed adventurers have gone to their deaths through this entrance.<br>
+However, we must continue to venture through it to face our enemies. It is our fate, I suppose. If you would help us, we will reward you on behalf of Admiral Keucereus.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Seed of Infinity.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about a cycle of the Seed Immortality.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask about Tumors and Soul Coffins.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Officer Tepios:<br>
+This entire area acts almost like a living organism. <br>
+Just as blood supplies nutrients to a human body, so apparently do the souls who have perished here supply energy for the <font color="LEVEL">Tumors of Death and the Soul Coffins</font>.<br>
+They in turn use that energy to strengthen nearby monsters or disadvantage attacking adventurers. Destroy those things whenever you encounter them. Of course, that's easier said than done -- the nearby monsters will defend it fiercely.<br>
+But if you're able to destroy a Tumor, you will gain an advantage over the monsters. We don't know for sure, but we think that the newly-freed souls help us. It is possible to communicate with a <font color="LEVEL">Destroyed Tumor</font>, and you can also use it to teleport to other Tumors, although you'll need something called <font color="LEVEL">Tears of a Freed Soul</font> to do so.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Officer Tepios:<br>
+<font color="LEVEL">The Seed of Infinity</font> is an infernal region ruled by Shilen's disciple, the undead fiend <font color="LEVEL">Ekimus</font>. We know little about him, unfortunately.<br>
+But I can you something about this region itself. Here <font color="LEVEL">space itself is organically linked together like some vast living organism</font>. Just as your whole body is affected if you injure one part, so the Seed of Infinity's overall power decreases as we slay monsters in this region.<br>
+But if you are killed within, then your soul will feed and strengthen the power of the entire Seed.<br>
+That is why it is so important that <font color="LEVEL">only parties of skilled adventurers be admitted to the Seed of Infinity</font>. <br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

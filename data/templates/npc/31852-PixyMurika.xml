@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31852" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="31852" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Pixy Murika</name>
         <level>50</level>
@@ -22,4 +23,11 @@
         <sp>226</sp>
         <collision heigth="25.0" radius="5.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Pixie Murika:<br>
+Take a look around this forest. It's full of keltirs and wolves, isn't it? It wasn't always like this! Before, owls and cuckoos made their nests in every tree and bighorn deer leisurely grazed on the grass. You could see furry squirrels running around with fruit from the trees clenched between their teeth.<br>
+However, it is becoming more difficult to find those animals. This is all because the forest's balance was shattered by the war between the Humans and Elves!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

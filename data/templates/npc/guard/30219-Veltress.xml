@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30219" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30219" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Veltress</name>
         <title send="false">Sentinel</title>
@@ -24,4 +25,17 @@
         <item lefthand="0" righthand="130"/>
         <collision heigth="23.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sentinel Veltress:<br>
+May the blessing of moonlight be with you... My name is Veltress, one of the sentinels. We are called the watch of the forest.<br>
+If you cross the bridge you see here, you can follow the road to <font color="LEVEL">Lake Iris.</font> Legend has it that the lake was formed from the tears of the goddess Eva.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Lake Iris.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sentinel Veltress:<br>
+In the age of great disaster, our goddess was filled with sadness at seeing so many deaths. They say her tears formed Lake Iris.<br>
+A long time ago, just once, I saw the lake nymphs dancing on the ripples as if they were gliding. Now all the lake nymphs have left, but sometimes if you take a walk around Lake Iris you can hear the echoes of their singing.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13136" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="13136" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="false" attackable="false">
         <level>55</level>
         <sex>FEMALE</sex>
@@ -21,4 +22,13 @@
         <sp>0</sp>
         <collision heigth="36.0" radius="0.01"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Temple Book of Secrets:<br>
+Only those truly without fear may enter the very heart of chaos, where fire and water collide.<br>
+There the Sprite Adiantum wields both the power of fire and water.<br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

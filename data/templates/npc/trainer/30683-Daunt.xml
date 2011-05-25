@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30683" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30683" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Daunt</name>
         <title send="false">Prefect</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="28.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Prefect Daunt:<br>
+This world is filled with war and fear. It is covered in blood, fire and smoke. If that does not frighten you, be welcome to this place. Let your training begin!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Prefect Daunt:<br>
+I admire your courage, my friend. We Orcs walk the path of war from childhood and are prepared from its dangers. Those like you who start the path late run a much higher risk...<br>
+May you always walk this path courageously. You have earned our respect.
+</body></html>]]></chat>
+    </talk>
 </npc>

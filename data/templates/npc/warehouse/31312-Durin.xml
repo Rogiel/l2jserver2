@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="31312" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="31312" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Durin</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,30 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Durin:<br>
+Over the last century, Rune Castle Town's warehouse has never lost any items to accident or theft. Not even one! How about that? We are the pride of the Iron Gate Guild. You can certainly trust us to protect anything you deposit with us, friend!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Warehouse Keeper Durin:<br>
+<font color="LEVEL">[ Clan Warehouse ]</font><br>
+<a action="bypass -h npc_%objectId%_DepositC" msg="1039">Deposit an item - Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawC">Pick up an item - Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Jeeper Durin:<br>
+The things I've learned as a guild member can only be imparted to Dwarven fighters, scavengers or bounty hunters. I don't have anything to teach you.
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Warehouse Keeper Durin:<br>
+<font color="LEVEL">[ Private Warehouse ]</font><br>
+<a action="bypass -h npc_%objectId%_DepositP">Deposit an item - Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawP">Pick up an item - Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

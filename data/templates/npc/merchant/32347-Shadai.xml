@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32347" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32347" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Shadai</name>
         <title send="false">Legendary Blacksmith</title>
@@ -23,4 +24,14 @@
         <sp>0</sp>
         <collision heigth="16.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Shadai:<br>
+Greetings, traveler! I am Shadai of Hellbound, the legendary Dwarven blacksmith. Ah, I know I may look a bit shabby, but you mustn't judge a sword by its sheath! Ha ha ha! You are a lucky fellow, my friend, to have bumped into me. Interested in turning that luck into wealth? I'll make you a deal: if you get me an item I need, I'll use my skills to craft you something.<br>
+<a action="bypass -h npc_%objectId%_multisell 323470001">Process the cursed Seal Stones.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 323470002">Exchange a shoulder ornament to enhance the power of armor.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 323470003">Enhance power of armor.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 323470004">Remove power of armor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

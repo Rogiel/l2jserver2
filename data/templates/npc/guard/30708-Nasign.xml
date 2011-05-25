@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Guard" id="30708" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Guard" id="30708" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="false">
         <name display="true" send="false">Nasign</name>
         <title send="false">Guard</title>
@@ -24,4 +25,16 @@
         <item lefthand="20" righthand="2"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Nasign:<br>
+Hello, traveler. I am Nasign. Captain Raigen over there and I are in charge of guarding this bridge. Welcome to our Hunters Village.<br>
+The hunters here are a little bit different from those elsewhere so please be careful not to offend anyone. If a problem occurred, it would be very humiliating for us.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Hunters of the Village</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Nasign:<br>
+Well, the hunters around here aren't as occupied with trapping and hunting and selling skins as hunters from other places. Of course they do those jobs, but here the hunters are stronger, wiser and more organized. They know the forests as well as the Elves.<br>
+Our hunters have served as mercenaries for many Lords. These hunters also have a strong sense of freedom and independence and refuse to be dominated by anyone.
+</body></html>]]></chat>
+    </talk>
 </npc>

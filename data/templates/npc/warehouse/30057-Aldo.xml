@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Warehouse" id="30057" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Warehouse" id="30057" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Aldo</name>
         <title send="false">Warehouse Keeper</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="17.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Keeper Amidol:<br>
+I teach Dwarven Fighters, Scavengers, and Bounty Hunters. If you are an Artisan or Warsmith, go to a Blacksmith.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Amidol:<br>
+Heading out for an adventure, eh? Are you really planning on taking all that stuff? Let me give you some advice, kid. Don't weigh yourself down with all sorts of unnecessary equipment. Just take what you need. Leave the rest with me. The Iron Gate Guild will keep your items safe and secure until you come back.<br>
+Better yet, you can even withdraw any items you deposit with us items from any city!<br>
+<center>
+<a action="bypass -h npc_%objectId%_Link warehouse/privatewh.htm">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Link warehouse/clanwh.htm">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+    </talk>
 </npc>

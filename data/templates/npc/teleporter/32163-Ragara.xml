@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Teleporter" id="32163" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Teleporter" id="32163" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ragara</name>
         <title send="false">Gatekeeper</title>
@@ -23,4 +24,51 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="13.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Ragara:<br>
+Ages ago, the Kamael were barred from using teleportation magic. Needless to say, this has put us at a distinct disadvantage. Finally, we learned how to borrow other races' power.<br>
+The Wizards of the Ivory Tower sympathized with us, so they created the Staff of Transferring and built strongholds everywhere. Beginning adventurers may move freely to strongholds as a result.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">Move to a stronghold (free).</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 1139" msg="811;The Town of Gludio">The Town of Gludio - 12000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1122" msg="811;Town of Aden">Town of Aden - 26000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1123" msg="811;Talking Island Village">Talking Island Village - 20000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1124" msg="811;Dark Elf Village">Dark Elf Village - 13000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1125" msg="811;Elven Village">Elven Village - 16000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1126" msg="811;Dwarven Village">Dwarven Village - 32000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1127" msg="811;Orc Village">Orc Village - 17000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1128" msg="811;Stronghold I">Stronghold I - 2600 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1129" msg="811;Stronghold II">Stronghold II - 2200 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1130" msg="811;Stronghold III">Stronghold III - 3200 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1131" msg="811;Isle of Souls Harbor">Isle of Souls Harbor - 4300 Adena </a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Gatekeeper Ragara:<br>
+The Stronghold teleport for beginners may only be used by <font color="LEVEL">characters lower than level 20</font>.
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Ragara:<br>
+We Kamael prefer to punish murderers severely. But now we choose to follow the laws of the continent.<br>
+Consider yourself lucky that you live in the time and leave here as fast as your legs will carry you -- before I change my mind and show you some of our less savory traditions...
+</body></html> ]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 1132" msg="811;Stronghold I">Stronghold I</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1133" msg="811;Stronghold II">Stronghold II</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1134" msg="811;Stronghold III">Stronghold III</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

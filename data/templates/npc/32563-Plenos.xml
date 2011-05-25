@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32563" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32563" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Plenos</name>
         <title send="false">Soldier</title>
@@ -24,4 +25,12 @@
         <item lefthand="13525" righthand="13524"/>
         <collision heigth="25.0" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Soldier Plenos:<br>
+Welcome to Keucereus Alliance Base. We need all the soldiers we can get. <br>
+Your missions here will be mainly in the sky. My advice is to obtain an Airship, but I see some adventurers from Aden also fight using their ability of transformation.<br>
+Go ask Engineer Lekon about which method is best for you. If you want to know about our enemy, talk to Admiral Keucereus or General Dilios.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32120" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32120" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Balu Kaimu</name>
         <level>70</level>
@@ -22,4 +23,15 @@
         <sp>0</sp>
         <collision heigth="33.5" radius="25.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<head>
+<body>
+Balu Kaimu:<br>
+The stone pillar looks like it was erected a long time ago.<br>
+The top is worn and chipped in places, but the ancient letters on its face seem to be relatively bright and clear.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a><br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

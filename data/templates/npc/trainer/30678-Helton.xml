@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30678" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30678" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Helton</name>
         <title send="false">Blacksmith</title>
@@ -24,4 +25,25 @@
         <item lefthand="0" righthand="89"/>
         <collision heigth="16.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Blacksmith Helton:<br>
+Hmmph, who are you? Why did you come here? Unless you've brought a keg of beer, I have no time to spare in idle chatter.<br>
+Heat it, heat it, bake it, cool it down! That's my craft! Through fire and water, I fashion stout armor and blades sharp enough to cut the wind itself.<br>
+What do you want?<br>
+<a action="bypass -h npc_%objectId%_Link common/duals_02.htm">Craft a Dualsword.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/weapon_sa_01.htm">Bestow a special ability on a weapon.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/crafting_01.htm">Craft an item.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1002">Release the seal on B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 1003">Reseal back B-grade gloves and boots.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_01.htm">Smelt an item.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/augmentation_02.htm">Cancel smelting.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Blacksmith Helton:<br>
+Hey, wake up! I only teach Artisans and Warsmiths. You are not worthy to be my student!
+</body></html>]]></chat>
+    </talk>
 </npc>

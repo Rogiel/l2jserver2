@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="DungeonGatekeeper" id="31103" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="DungeonGatekeeper" id="31103"
+    xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Gatekeeper Ziggurat</name>
         <level>70</level>
@@ -21,4 +23,13 @@
         <sp>0</sp>
         <collision heigth="15.0" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Ziggurat:<br>
+A human voice seems to emanate from a shining, blue globe:<br>
+Behold the gateway to the Forbidden Sacred Area! My job is to guard it, and you cannot pass without my permission.<br>
+<a action="bypass -h npc_%objectId%_exit 263">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest OracleTeleport">Enter the Dimensional Rift</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

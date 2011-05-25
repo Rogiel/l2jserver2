@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13133" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="13133" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Lava Golem</name>
         <level>55</level>
@@ -22,4 +23,14 @@
         <sp>0</sp>
         <collision heigth="45.0" radius="38.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Temple Book of Secrets:<br>
+You have defeated the Water Sprite! However, the Fire Sprite is even fiercer and stronger.<br>
+To face it, you must have the Essence of Water.<br>
+You will find Kinsus, the Sprite that guards the Essence of Fire, where 4 rooms converge at the top of the Temple of Fire.<br>
+</body>
+</html>]]></chat>
+    </talk>
 </npc>

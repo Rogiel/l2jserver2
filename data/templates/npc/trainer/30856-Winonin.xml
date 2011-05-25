@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30856" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30856" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Winonin</name>
         <title send="false">Magister</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="25.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Winonin:<br>
+Desmond frightens me, and I'm not afraid to admit it. He becomes stranger with each passing day. Why are Human Wizards like Drikiyan and Desmond so bizarre?<br>
+Woe is me, to be caught in the uneasy truce between Human and Elf! I must be the most unfortunate Elf Wizard in the world...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Winonim:<br>
+Are you kidding? I only teach Elven Mystics. Why should I waste my time on the likes of you!<br>
+Behold the mutterings of a foolish old Mystic, pontificating forward with his delusions of grandeur..<br>
+Sob! How I miss my hometown... If I could only stand once more at the foot of the beautiful Mother Tree!
+</body></html>]]></chat>
+    </talk>
 </npc>

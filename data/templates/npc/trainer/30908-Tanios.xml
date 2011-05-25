@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30908" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30908" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tanios</name>
         <title send="false">Priest</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Priest Tanios:<br>
+We can argue theology all day long and never resolve our differences. We should agree to disagree...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Priest Tanios:<br>
+We Elves serve Elvas and Andariel -- Eva and Einhasad, in the Human tongue. Our faith is closely connected to Mother Tree. It is the symbol and archetype of all the trees created by the goddesses, as well as the means by which they communicate their will to us. The Mother Tree here Innadril was grown from a small branch brought from the Elven Forest's Mother Tree itself, and the 2 trees are connected as one living being...<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest SkillTransfer">Ask about Skill Transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

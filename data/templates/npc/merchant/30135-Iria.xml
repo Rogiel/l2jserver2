@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30135" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30135" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Iria</name>
         <title send="false">Weapon Merchant</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Iria:<br>
+What do you want to trade?<br>
+<a action="bypass -h npc_%objectId%_Buy 3013500">Trade Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3013501">Trade Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Trade equipment.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Iria:<br>
+Welcome! We have everything except what we don't have. Ha ha ha! If you want to buy, do so quickly. If you just want to browse...go away! We don't sell weapons that those dirty Humans make, so if you are looking for those you've come to the wrong shop. Ha ha!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refunds</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3013500">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3013501">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

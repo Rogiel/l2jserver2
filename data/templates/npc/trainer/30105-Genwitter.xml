@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30105" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30105" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Genwitter</name>
         <title send="false">Master</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Genwitter:<br>
+You want to receive training from me? You? I'm sorry, but no. Even Human Fighters find my training too difficult and often fail. DO you think a weakling like you cloud hold up?
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Genwiter:<br>
+Welcome, youngster! Eh? You want me to train you? How can you claim to be a warrior -- just look at your unscarred face and soft hands!<br>
+Here, look at my hands. These are real warrior's hands: hard and calloused from swinging a sword for countless hours. You have a long and painful path ahead of you! Well, well...no time like the present to get started!<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

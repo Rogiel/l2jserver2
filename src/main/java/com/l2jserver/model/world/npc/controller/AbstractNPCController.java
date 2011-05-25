@@ -93,10 +93,16 @@ public class AbstractNPCController implements NPCController {
 	 * @return the html code
 	 */
 	protected String getHTML(NPC npc, String id) {
+		// id correction - on l2j default chat is also "0".
+		if ("0".equals(id)) // avoid NullPointerException
+			id = null;
+
 		final NPCTemplate template = npc.getTemplate();
+		String html = template.getHTML(id);
+		if (html == null)
+			return null;
 		// TODO use an decent template engine
-		return template.getHTML(id).replaceAll("%objectId%",
-				npc.getID().getID().toString());
+		return html.replaceAll("%objectId%", npc.getID().getID().toString());
 	}
 
 	/**

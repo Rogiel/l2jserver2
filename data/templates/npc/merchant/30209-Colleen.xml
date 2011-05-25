@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30209" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30209" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Colleen</name>
         <title send="false">Dye Merchant</title>
@@ -23,4 +24,15 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Dye Merchant Colleen:<br>
+Welcome! Our shop specializes in weapons. Isn't the power of pigments amazing? Even an outstanding adventurer may need something we carry in our shop. Have a look!<br>
+<a action="bypass -h npc_%objectId%_Buy 3020900">Buy dyes.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Dye Merchant Colleen:<br>
+I do not wish to bestow the power of magic to one like yourself. Leave this place at once.
+</body></html>]]></chat>
+    </talk>
 </npc>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30863" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30863" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ghest</name>
         <title send="false">Master</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Master Ghest:<br>
+No mater how vividly they are described to you, the brutal truths of battle cannot be understood without first-hand experience.<br>
+I coundn't care less whether you believe this or not. Battle ultimately comes down to a contest of wits, and you have just been defeated.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Master Ghest:<br>
+Combat is as much about strength of will as it is strength of arms. Even the wild animals realize that, but we "civilized" folk have largely forgotten that essential truth.<br>
+Before you can defeat your foes, you must master your own will.<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

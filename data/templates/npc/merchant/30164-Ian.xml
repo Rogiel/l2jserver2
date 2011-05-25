@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30164" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30164" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Ian</name>
         <title send="false">Trader</title>
@@ -23,4 +24,20 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Trader Iz:<br>
+Tell me what you need.<br>
+<a action="bypass -h npc_%objectId%_Buy 3016400">Trade Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Trade basic equipment.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Iz:<br>
+Welcome to the Ivory Tower, the center of magic.<br>
+These days, people think of the Ivory Tower as a research institute, but did you know it was once a powerful political entity that practically controlled the entire continent? Where do you think the knowledge and secrets our founders accumulated is stored? Right here!<br>
+If there is another global crisis, I have a feeling its cause -- and its solution -- may both emanate from this place...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3016400">Try on armor for Wizards.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

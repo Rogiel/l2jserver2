@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32739" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32739" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Bomona</name>
         <level>80</level>
@@ -22,4 +23,22 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Bomona:<br>
+How do you feel? You should give yourself a minute to adjust.<br>
+You now have 2 special skills. If you use Treykan Claw, Torumba won't care if you are man or beast. The jig will be up and you'll have to fight for your life.<br>
+If things get out of control, use your Treykan Dash skill to increase your speed.<br>
+I'll let you figure out the rest. May your god smile upon you.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Bomona:<br>
+I suppose you're wondering how I manage to stay alive in this habitat. Well, I just smear their dead flesh all over my body, from head to toe. Especially those hard to reach spots. The smell is the worst part. But you get used to it after a while.<br>
+Do you see Torumba over there? He's the chief of the Reptilikon species. They call him "The Omnivore" because he once ate one of his own messengers just for reporting news he didn't like.<br>
+If you're thinking about taking on Torumba, your best bet is to change yourself into one of his own kind. I believe a Treykan would work best. I can perform the ritual - however, it requires a great amount of energy.<br>
+<a action="bypass -h Quest SeedOfAnnihilation transform">"Please transform me to a Treykan."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Bomona:<br>
+[Under construction] Are you out of your mind? If you transform again <font color="LEVEL">when your energy is low</font>, you will die. I can't let that happen. So beat it!
+</body></html>]]></chat>
+    </talk>
 </npc>

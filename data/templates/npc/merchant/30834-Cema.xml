@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30834" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30834" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Cema</name>
         <title send="false">Magic Trader</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magic Merchant Cema:<br>
+Appearances can be deceiving. I may seem a humble merchant, but sometimes I carry out other tasks for my master. Since that is the case, you'd best hurry and conclude your business here...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3083401">Trade supplies.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3083400">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magic Merchant Cema:<br>
+What would you like, my friend? Tell me what you need.<br>
+<a action="bypass -h npc_%objectId%_Buy 3083400">Trade Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Trade basic equipment for Wizards.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

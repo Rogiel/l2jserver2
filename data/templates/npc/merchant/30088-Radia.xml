@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="30088" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="30088" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Radia</name>
         <title send="false">Warrior-use Armor Merchant</title>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="24.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Merchant Radia:<br>
+Ah, a visitor! I'm so glad! What brings you to our store? We specialize in armor: all types and grades. Can I show you a set?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3008800">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View information about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Merchant Radia:<br>
+What are you trying to buy?<br>
+<a action="bypass -h npc_%objectId%_Buy 3008800">Buy Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3008801">Buy Fighter Common Items.</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

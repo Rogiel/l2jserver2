@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30524" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30524" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Pippi</name>
         <title send="false">Collector</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="17.5" radius="8.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Collector Pippi:<br>
+Just east of the village you will find the <font color="LEVEL">Mithril Mine.</font> It was created by our ancestors who survived the ouslaught of the Orc savages. They dreamed of one day restoring the kingdom of the Dwarves here in the Spine Mountains.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Mithril Mine."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Collector Pippi:<br>
+I haven't seen it, but isn't the Earth Worm a big worm? <font color="LEVEL">Priestess Chichirin</font> in the temple knows all about the Earth Wyrm. You should visit Chichirin.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Collector Pippi:<br>
+The mine useds to be a vast expanse consisting of hundreds of tunnels, but most of them were destroyed after the attack of the<font color="LEVEL"> Earth Wyrm</font> and he mithril is collected from very few tunnels now.<br>
+Currently, our guild is working to restore destroyed tunnels and greatly increase the output of the mithril. This plan has been delayed, though, because our timid elders are afraid the the Earth Worm might regain consciousness.<br>
+Maybe it's because they are old, but they are all cowards. Pippi could take care of that Earth Worm with one fist!<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Earth Wyrm.</a>
+</body></html>
+]]></chat>
+    </talk>
 </npc>

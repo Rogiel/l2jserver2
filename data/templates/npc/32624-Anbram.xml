@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="32624" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="32624" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Anbram</name>
         <title send="false">Soldier</title>
@@ -23,4 +24,12 @@
         <sp>0</sp>
         <collision heigth="25.0" radius="11.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Soldier Anbram:<br>
+You want to know about the purification device?<br>
+Well, it's no exaggeration to say that it's vital to the survival of this base. It not only purifies polluted air and water, but also supplies energy to the Barrier Orb. Naturally, it's a primary target for enemy attacks.<br>
+But as long as I have anything to say about it, they won't break through without a serious fight! <br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

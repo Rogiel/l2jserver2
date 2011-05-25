@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="32610" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="32610" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Olf Kanore</name>
         <title send="false">Weaver</title>
@@ -23,4 +24,16 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Weaver Olf Kanore:<br>
+Welcome! I am Olf Kanore, a weaver of Rauren Olf Company, the best weaving guild in Aden.<br>
+We fashion clothes tailored just for you.<br>
+Quality and value is out motto! Whatever you're looking for, I promise you'll be satisfied.<br>
+Now, what can i get you?<br><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 326100001">Buy a belt.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 326100002">Order a custom-tailored cloak.</a><br>
+<a action="bypass -h npc_%objectId%_Quest PinsAndPouchUnseal">Remove the seal on a pin, pouch, clip or accessory.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

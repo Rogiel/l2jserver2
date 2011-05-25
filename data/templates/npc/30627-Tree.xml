@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="30627" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="" id="30627" xsi:schemaLocation="npc ../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Tree</name>
         <level>70</level>
@@ -21,4 +22,15 @@
         <sp>0</sp>
         <collision heigth="90.0" radius="35.0"/>
     </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Tree:<br>
+It is an oak tree which can easily be seen in the northern part of Dion.<br>
+<a action="bypass -h Quest 225_TestOfSearcher 7627_1">Dig the root of the tree</a>
+</body></html>
+]]></chat>
+        <chat id="default"><![CDATA[<html><body>Tree:<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>
+]]></chat>
+    </talk>
 </npc>

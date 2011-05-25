@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Trainer" id="30112" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Trainer" id="30112" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Maurius</name>
         <title send="false">Magister</title>
@@ -23,4 +24,22 @@
         <sp>0</sp>
         <collision heigth="22.2" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Maurius:<br>
+All those who call me teacher are Elven Mystics. It would please me to teach the magic of our race to more people, but the laws of the Elves forbid it. I hope you find a good teacher.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Mauris:<br>
+Welcome! May the blessing of Eva be with you wherever you venture.<br>
+Do you not feel the dark energy of evil simmering beneath the earth? Even this seemingly peaceful city is covered by a dark shadow. Not far from here sleeps the <font color="LEVEL">Evil Spirit of Shilen</font>...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Evil Spirit of Shilen.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magister Mauris:<br>
+It is Land Dragon Antharas. It nests in the deepest recesses of the Valley of Dragons. My brother Juris and I are attempting to keep an eye on the creature, even as we are teach magic to our Elven brothers here in this guild.<br>
+If Antharas ever fully awakens, destruction and death will follow. For the sake of this land, we must stay ever vigilant.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+    </talk>
 </npc>

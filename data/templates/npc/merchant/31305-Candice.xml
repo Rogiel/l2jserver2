@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Merchant" id="31305" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+<?xml version="1.0" encoding="UTF-8"?>
+<npc type="Merchant" id="31305" xsi:schemaLocation="npc ../../npc.xsd"
+    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="false">
         <name display="true" send="false">Candice</name>
         <title send="false">Accessory Merchant</title>
@@ -23,4 +24,17 @@
         <sp>0</sp>
         <collision heigth="18.5" radius="7.0"/>
     </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Trader Kendis:<br>
+Some people underestimate the importance of accessories by  considering them only decorative, but that's not the case at all. I'm sure that an experienced adventurer like you knows their true worth.<br>
+<a action="bypass -h npc_%objectId%_Buy 3130500">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3130501">Buy/Sell/Refund Common Items.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 300900001">Buy a bracelet or talisman.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Trader Candice:<br>
+I heard that in Rune, all criminals are hung! Isn't that horrible? It could happen to you!
+</body></html>]]></chat>
+    </talk>
 </npc>
