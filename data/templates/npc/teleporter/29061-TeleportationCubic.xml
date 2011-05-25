@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc type="Teleporter" id="29061" xsi:schemaLocation="npc ../../npc.xsd"
+<npc
+    controller="com.l2jserver.model.world.npc.controller.TeleporterController"
+    id="29061" xsi:schemaLocation="npc ../../npc.xsd"
     xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <info aggressive="false" targetable="true" attackable="false">
+    <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Teleportation Cubic</name>
         <level>70</level>
         <stats>

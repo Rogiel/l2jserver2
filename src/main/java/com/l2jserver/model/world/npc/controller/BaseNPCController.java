@@ -31,32 +31,38 @@ import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
- * The {@link AbstractNPCController} handful methods for controlling NPCs.
+ * The {@link BaseNPCController} handful methods for controlling NPCs. This
+ * implementation is also used for {@link NPC NPCs} that don't have any special
+ * behavior.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class AbstractNPCController implements NPCController {
+public class BaseNPCController implements NPCController {
 	@Override
 	public void action(NPC npc, Lineage2Connection conn, L2Character character,
-			String... args) throws L2Exception {
+			final String... args) throws L2Exception {
 		if (args.length == 2) {
 			if (args[0].equals("Chat")) {
-				talk(npc, conn, character,
-						Arrays.copyOfRange(args, 1, args.length));
-				return;
+				if (talk(npc, conn, character,
+						Arrays.copyOfRange(args, 1, args.length)))
+					return;
 			}
 		} else if (args.length == 0 || args.length == 1) {
-			talk(npc, conn, character, new String[0]);
-			return;
-		} else {
-			final HtmlTemplate template = new HtmlTemplate() {
-				@Override
-				protected void build(MarkupTag body) {
-					body.text("Sorry ${name}, but you cannot interact with me yet!");
-				}
-			}.register("name", character.getName());
-			conn.write(new NPCHtmlMessagePacket(npc, template));
+			// default action is talk
+			if (talk(npc, conn, character, new String[0]))
+				return;
 		}
+		// action not handled message
+		final HtmlTemplate template = new HtmlTemplate() {
+			@Override
+			protected void build(MarkupTag body) {
+				body.text(
+						"Sorry ${name}, but the action you have requested is not yet implemented.")
+						.p();
+				body.text("Arguments: " + Arrays.toString(args));
+			}
+		}.register("name", character.getName());
+		conn.write(new NPCHtmlMessagePacket(npc, template));
 		conn.sendActionFailed();
 	}
 
@@ -71,16 +77,21 @@ public class AbstractNPCController implements NPCController {
 	 *            the interacting character
 	 * @param args
 	 *            the action arguments
+	 * @return true if chat message was sent
 	 * @throws L2Exception
 	 */
-	protected void talk(NPC npc, Lineage2Connection conn,
+	protected boolean talk(NPC npc, Lineage2Connection conn,
 			L2Character character, String... args) throws L2Exception {
 		String id = null;
 		if (args.length >= 1) {
 			id = args[0];
 		}
-		conn.write(new NPCHtmlMessagePacket(npc, getHTML(npc, id)));
+		final String html = getHTML(npc, id);
+		if (html == null)
+			return false;
+		conn.write(new NPCHtmlMessagePacket(npc, html));
 		conn.sendActionFailed();
+		return true;
 	}
 
 	/**

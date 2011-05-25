@@ -34,6 +34,7 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 
@@ -47,8 +48,8 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 	@XmlAttribute(name = "id")
 	@XmlJavaTypeAdapter(value = NPCTemplateIDAdapter.class)
 	protected NPCTemplateID id = null;
-	@XmlAttribute(name = "type")
-	protected String type = null;
+	@XmlAttribute(name = "controller")
+	protected Class<? extends NPCController> controller;
 
 	@XmlElement(name = "info")
 	protected NPCInformationMetadata info = null;
@@ -274,10 +275,10 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 	}
 
 	/**
-	 * @return the type
+	 * @return the controller class
 	 */
-	public String getType() {
-		return type;
+	public Class<? extends NPCController> getControllerClass() {
+		return controller;
 	}
 
 	public String getName() {

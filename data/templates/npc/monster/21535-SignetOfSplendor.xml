@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc type="Monster" id="21535" xsi:schemaLocation="npc ../../npc.xsd"
+<npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="21535" xsi:schemaLocation="npc ../../npc.xsd"
     xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <info aggressive="true" targetable="true" attackable="false">
+    <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Signet of Splendor</name>
         <level>66</level>
         <sex>MALE</sex>

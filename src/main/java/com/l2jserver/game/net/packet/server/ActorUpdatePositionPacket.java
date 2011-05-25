@@ -21,7 +21,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.Actor;
 
 /**
  * This packet notifies the client that the chosen character has been
@@ -30,7 +30,7 @@ import com.l2jserver.model.world.L2Character;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * @see Reason
  */
-public class CharacterPositionPacket extends AbstractServerPacket {
+public class ActorUpdatePositionPacket extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -39,19 +39,19 @@ public class CharacterPositionPacket extends AbstractServerPacket {
 	/**
 	 * The selected character
 	 */
-	private final L2Character character;
+	private final Actor actor;
 
-	public CharacterPositionPacket(L2Character character) {
+	public ActorUpdatePositionPacket(Actor actor) {
 		super(OPCODE);
-		this.character = character;
+		this.actor = actor;
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeInt(character.getID().getID());
-		buffer.writeInt(character.getPoint().getX());
-		buffer.writeInt(character.getPoint().getY());
-		buffer.writeInt(character.getPoint().getZ());
-		buffer.writeInt((int) character.getPoint().getAngle());
+		buffer.writeInt(actor.getID().getID());
+		buffer.writeInt(actor.getPoint().getX());
+		buffer.writeInt(actor.getPoint().getY());
+		buffer.writeInt(actor.getPoint().getZ());
+		buffer.writeInt((int) actor.getPoint().getAngle());
 	}
 }

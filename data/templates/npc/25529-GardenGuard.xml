@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc type="" id="25529" xsi:schemaLocation="npc ../npc.xsd"
+<npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="25529" xsi:schemaLocation="npc ../npc.xsd"
     xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <info aggressive="false" targetable="true" attackable="false">
+    <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Garden Guard</name>
         <title send="false">Vice Inspector</title>
         <level>22</level>

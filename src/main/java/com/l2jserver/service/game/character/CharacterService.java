@@ -19,6 +19,7 @@ package com.l2jserver.service.game.character;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -79,10 +80,13 @@ public interface CharacterService extends Service {
 	 *             if target cannot be set
 	 * @throws ActorIsNotAttackableServiceException
 	 *             if the target is not attackable
+	 * @throws NotAttackableNPCServiceException
+	 *             if the actor is not attackable
 	 */
 	void attack(L2Character character, Actor target)
 			throws CannotSetTargetServiceException,
-			ActorIsNotAttackableServiceException;
+			ActorIsNotAttackableServiceException,
+			NotAttackableNPCServiceException;
 
 	/**
 	 * Jails the given <tt>character</tt> for <tt>time</tt> seconds.

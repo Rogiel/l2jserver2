@@ -59,6 +59,8 @@ import com.l2jserver.service.game.chat.ChatChannel;
 import com.l2jserver.service.game.chat.ChatChannelListener;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
 import com.l2jserver.service.game.chat.ChatService;
+import com.l2jserver.service.game.npc.NPCService;
+import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -105,6 +107,10 @@ public class CharacterServiceImpl extends AbstractService implements
 	 */
 	private final SpawnService spawnService;
 	/**
+	 * The {@link NPCService}
+	 */
+	private final NPCService npcService;
+	/**
 	 * The {@link ItemDAO}
 	 */
 	private final ItemDAO itemDao;
@@ -118,12 +124,13 @@ public class CharacterServiceImpl extends AbstractService implements
 	public CharacterServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
 			NetworkService networkService, SpawnService spawnService,
-			ItemDAO itemDao) {
+			NPCService npcService, ItemDAO itemDao) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.chatService = chatService;
 		this.networkService = networkService;
 		this.spawnService = spawnService;
+		this.npcService = npcService;
 		this.itemDao = itemDao;
 	}
 
@@ -334,7 +341,8 @@ public class CharacterServiceImpl extends AbstractService implements
 			character.setTargetID(target.getID());
 			eventDispatcher.dispatch(new CharacterTargetSelectedEvent(
 					character, target));
-			conn.write(new CharacterTargetSelectedPacket(target));
+			conn.write(new CharacterTargetSelectedPacket(target, character
+					.getLevel() - target.getLevel()));
 		} else {
 			// this indicates an inconsistency: reset target and throws an
 			// exception
@@ -347,7 +355,8 @@ public class CharacterServiceImpl extends AbstractService implements
 	@Override
 	public void attack(L2Character character, Actor target)
 			throws CannotSetTargetServiceException,
-			ActorIsNotAttackableServiceException {
+			ActorIsNotAttackableServiceException,
+			NotAttackableNPCServiceException {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
@@ -362,7 +371,10 @@ public class CharacterServiceImpl extends AbstractService implements
 			// first try to target this, if it is not already
 			target(character, target);
 
-			// TODO issue attack
+			npcService.attack(npc, conn, character);
+		} else {
+			// TODO throw an exception
+			conn.sendActionFailed();
 		}
 	}
 

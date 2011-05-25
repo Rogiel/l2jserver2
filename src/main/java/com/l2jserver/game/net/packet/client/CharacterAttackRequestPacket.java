@@ -32,6 +32,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.game.character.ActorIsNotAttackableServiceException;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
@@ -121,7 +122,7 @@ public class CharacterAttackRequestPacket extends AbstractClientPacket {
 		final ObjectID<Actor> id = idResolver.resolve(objectId);
 		if (!(id instanceof ActorID)) {
 			conn.write(ActionFailedPacket.SHARED_INSTANCE);
-			log.warn("Player {} is trying to attack {} which is not an actor",
+			log.warn("Player {} is trying to attack {}, which is not an actor",
 					character, id);
 			return;
 		}
@@ -131,6 +132,8 @@ public class CharacterAttackRequestPacket extends AbstractClientPacket {
 		} catch (CannotSetTargetServiceException e) {
 			conn.sendActionFailed();
 		} catch (ActorIsNotAttackableServiceException e) {
+			conn.sendActionFailed();
+		} catch (NotAttackableNPCServiceException e) {
 			conn.sendActionFailed();
 		}
 	}

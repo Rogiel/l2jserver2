@@ -18,6 +18,7 @@ package com.l2jserver.service.game.npc;
 
 import java.util.List;
 
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
@@ -76,11 +77,13 @@ public interface NPCService extends Service {
 	 * 
 	 * @param npc
 	 *            the npc
+	 * @param conn
+	 *            the {@link Lineage2Connection} object
 	 * @param attacker
 	 *            the character
 	 * @throws NotAttackableNPCServiceException
 	 *             if {@link NPC} is not attackable
 	 */
-	void attack(NPC npc, L2Character attacker)
+	void attack(NPC npc, Lineage2Connection conn, L2Character attacker)
 			throws NotAttackableNPCServiceException;
 }

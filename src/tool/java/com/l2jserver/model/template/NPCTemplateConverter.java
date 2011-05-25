@@ -28,11 +28,13 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.MarshalException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
@@ -61,6 +63,10 @@ import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleM
 import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
 import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.world.Actor.ActorSex;
+import com.l2jserver.model.world.npc.controller.BaseNPCController;
+import com.l2jserver.model.world.npc.controller.NPCController;
+import com.l2jserver.model.world.npc.controller.NotImplementedNPCController;
+import com.l2jserver.model.world.npc.controller.TeleporterController;
 import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTemplateContainer;
 import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -74,6 +80,9 @@ public class NPCTemplateConverter {
 	private static final File L2J_HTML_FOLDER = new File(
 			"../L2J_DataPack_BETA/data/html");
 
+	private static final Map<String, Class<? extends NPCController>> controllers = CollectionFactory
+			.newMap();
+
 	private static List<NPCTemplate> templates = CollectionFactory.newList();
 	private static Collection<File> htmlScannedFiles;
 	private static TeleportationTemplateContainer teleportation = new TeleportationTemplateContainer();
@@ -81,7 +90,11 @@ public class NPCTemplateConverter {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws SQLException, IOException,
 			ClassNotFoundException, JAXBException {
+		controllers.put("L2Teleporter", TeleporterController.class);
+		controllers.put("L2CastleTeleporter", TeleporterController.class);
+		controllers.put("L2Npc", BaseNPCController.class);
 		Class.forName("com.mysql.jdbc.Driver");
+
 		final File target = new File("data/templates");
 
 		System.out.println("Scaning legacy HTML files...");
@@ -150,9 +163,11 @@ public class NPCTemplateConverter {
 			st.execute();
 			final ResultSet rs = st.getResultSet();
 			while (rs.next()) {
-				NPCTemplate t = fillNPC(rs);
+				Object[] result = fillNPC(rs);
+				NPCTemplate t = (NPCTemplate) result[0];
+				String type = (String) result[1];
 
-				String folder = createFolder(t.type);
+				String folder = createFolder(type);
 				if (folder.isEmpty()) {
 					m.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
 							"npc ../npc.xsd");
@@ -171,14 +186,14 @@ public class NPCTemplateConverter {
 				file.getParentFile().mkdirs();
 				templates.add(t);
 
-				// try {
-				// m.marshal(t, getXMLSerializer(new FileOutputStream(file)));
-				// } catch (MarshalException e) {
-				// System.err
-				// .println("Could not generate XML template file for "
-				// + t.getName() + " - " + t.getID());
-				// file.delete();
-				// }
+				try {
+					m.marshal(t, getXMLSerializer(new FileOutputStream(file)));
+				} catch (MarshalException e) {
+					System.err
+							.println("Could not generate XML template file for "
+									+ t.getName() + " - " + t.getID());
+					file.delete();
+				}
 			}
 
 			System.out.println("Generated " + templates.size() + " templates");
@@ -203,12 +218,14 @@ public class NPCTemplateConverter {
 		}
 	}
 
-	private static NPCTemplate fillNPC(ResultSet rs) throws SQLException,
+	private static Object[] fillNPC(ResultSet rs) throws SQLException,
 			IOException {
 		final NPCTemplate template = new NPCTemplate();
 		template.id = new NPCTemplateID(rs.getInt("idTemplate"), null);
 
-		template.type = createParentType(rs.getString("type"));
+		template.controller = controllers.get(rs.getString("type"));
+		if (template.controller == null)
+			template.controller = NotImplementedNPCController.class;
 		template.info = new NPCInformationMetadata();
 
 		template.info.nameMetadata = new NPCNameMetadata();
@@ -232,6 +249,7 @@ public class NPCTemplateConverter {
 		// template.info.attackable = rs.getBoolean("attackable");
 		template.info.targetable = rs.getBoolean("targetable");
 		template.info.aggressive = rs.getBoolean("aggro");
+		template.info.attackable = true; // FIXME
 
 		template.info.stats = new NPCStatsMetadata();
 
@@ -292,7 +310,7 @@ public class NPCTemplateConverter {
 		template.droplist = fillDropList(rs, template.id.getID());
 		template.talk = fillHtmlChat(template.id.getID());
 
-		return template;
+		return new Object[] { template, createParentType(rs.getString("type")) };
 	}
 
 	private static List<DropItemMetadata> fillDropList(ResultSet npcRs,

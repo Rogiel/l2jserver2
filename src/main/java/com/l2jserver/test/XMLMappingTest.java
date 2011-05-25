@@ -73,6 +73,6 @@ public class XMLMappingTest {
 
 		final NPCTemplate t = (NPCTemplate) u
 				.unmarshal(new File("data/templates/npc/teleporter/30059-Trisha.xml"));
-		System.out.println(t.getName());
+		System.out.println(t.getControllerClass());
 	}
 }

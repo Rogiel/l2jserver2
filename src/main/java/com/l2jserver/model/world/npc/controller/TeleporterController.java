@@ -30,7 +30,7 @@ import com.l2jserver.util.exception.L2Exception;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class TeleporterController extends AbstractNPCController {
+public class TeleporterController extends BaseNPCController {
 	/**
 	 * The {@link SpawnService}
 	 */
@@ -47,11 +47,13 @@ public class TeleporterController extends AbstractNPCController {
 				final TeleportationTemplate tele = teleportationIdProvider
 						.createID(Integer.parseInt(args[1])).getTemplate();
 				if (tele == null) {
-					// TODO chat
+					// TODO notify user that his destination is invalid
 					conn.sendActionFailed();
 					return;
 				} else {
+					// TODO remove items from character inventory
 					spawnService.teleport(character, tele.getCoordinate());
+					return;
 				}
 			}
 		}

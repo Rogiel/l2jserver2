@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc type="Monster" id="27390" xsi:schemaLocation="npc ../../npc.xsd"
+<npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="27390" xsi:schemaLocation="npc ../../npc.xsd"
     xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <info aggressive="false" targetable="false" attackable="false">
+    <info aggressive="false" targetable="false" attackable="true">
         <name display="true" send="false">Anakim's Guard</name>
         <level>85</level>
         <sex>MALE</sex>
