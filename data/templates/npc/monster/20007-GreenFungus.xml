@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20007" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Green Fungus</name>
+        <level>9</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="143.17564"/>
+            <mp regen="0.9" max="100.48"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="17.70841"/>
+                <magical speed="333.0" damage="12.09255"/>
+            </attack>
+            <defense>
+                <physical value="59.66387"/>
+                <magical value="39.72488"/>
+            </defense>
+            <move walk="70.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>321</experience>
+        <sp>11</sp>
+        <collision heigth="22.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="4702" max="1" min="1" id="22"/>
+        <item chance="7516" max="1" min="1" id="29"/>
+        <item chance="700000" max="108" min="80" id="57"/>
+        <item chance="63337" max="1" min="1" id="1122"/>
+        <item chance="36869" max="1" min="1" id="1796"/>
+        <item chance="58621" max="1" min="1" id="1864"/>
+        <item chance="99228" max="1" min="1" id="1866"/>
+        <item chance="29311" max="1" min="1" id="1869"/>
+        <item chance="9923" max="1" min="1" id="1875"/>
+    </droplist>
+</npc>

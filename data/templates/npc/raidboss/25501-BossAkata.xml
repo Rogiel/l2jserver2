@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25501" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Boss Akata</name>
+        <title send="false">Raid Boss</title>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="21.714038575401" max="53690.0336885106"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="111.21878"/>
+                <magical speed="333.0" damage="7.21488"/>
+            </attack>
+            <defense>
+                <physical value="355.39281"/>
+                <magical value="173.38"/>
+            </defense>
+            <move walk="36.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2308288</experience>
+        <sp>111484</sp>
+        <item lefthand="0" righthand="8528"/>
+        <collision heigth="23.6" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="47918" max="1" min="1" id="224"/>
+        <item chance="199474" max="1" min="1" id="395"/>
+        <item chance="39820" max="12" min="4" id="417"/>
+        <item chance="47918" max="1" min="1" id="1660"/>
+        <item chance="83335" max="157" min="53" id="1942"/>
+        <item chance="283869" max="72" min="24" id="1943"/>
+        <item chance="339850" max="12" min="4" id="2038"/>
+        <item chance="181253" max="22" min="8" id="2044"/>
+        <item chance="333565" max="3" min="1" id="4553"/>
+        <item chance="222377" max="4" min="2" id="4554"/>
+        <item chance="166782" max="6" min="2" id="4555"/>
+        <item chance="37063" max="1" min="1" id="6575"/>
+    </droplist>
+</npc>

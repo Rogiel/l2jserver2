@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25235" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Vanor Chief Kandra</name>
+        <title send="false">Raid Boss</title>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="119.969286557872" max="383459.920989612"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2280.56634"/>
+                <magical speed="333.0" damage="813.63722"/>
+            </attack>
+            <defense>
+                <physical value="916.07841"/>
+                <magical value="446.9"/>
+            </defense>
+            <move walk="34.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5140647</experience>
+        <sp>827123</sp>
+        <item lefthand="0" righthand="135"/>
+        <collision heigth="43.5" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="21513" max="1" min="1" id="289"/>
+        <item chance="38560" max="1" min="1" id="959"/>
+        <item chance="385601" max="1" min="1" id="960"/>
+        <item chance="54882" max="1" min="1" id="5313"/>
+        <item chance="54882" max="1" min="1" id="5314"/>
+        <item chance="54882" max="1" min="1" id="5318"/>
+        <item chance="54882" max="1" min="1" id="5319"/>
+        <item chance="27185" max="346" min="116" id="5502"/>
+        <item chance="139553" max="67" min="23" id="5503"/>
+        <item chance="52332" max="180" min="60" id="5514"/>
+        <item chance="196246" max="48" min="16" id="5515"/>
+        <item chance="255202" max="36" min="12" id="5534"/>
+        <item chance="6427" max="1" min="1" id="6577"/>
+        <item chance="820000" max="4" min="1" id="8176"/>
+        <item chance="540000" max="1" min="1" id="8619"/>
+        <item chance="820000" max="7" min="3" id="9814"/>
+    </droplist>
+</npc>

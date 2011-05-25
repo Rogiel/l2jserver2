@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21757" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dark Omen Invader Magus</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="212.55774"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>18775</experience>
+        <sp>1980</sp>
+        <collision heigth="42.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="46140" max="1" min="1" id="4041"/>
+        <item chance="2358" max="1" min="1" id="5282"/>
+        <item chance="63440" max="1" min="1" id="5528"/>
+        <item chance="700000" max="5341" min="2617" id="57"/>
+        <item chance="14" max="1" min="1" id="235"/>
+        <item chance="3333" max="1" min="1" id="5536"/>
+        <item chance="111318" max="60" min="20" id="1344"/>
+        <item chance="118739" max="1" min="1" id="1866"/>
+        <item chance="178109" max="1" min="1" id="1871"/>
+        <item chance="7124" max="1" min="1" id="1877"/>
+        <item chance="3562" max="1" min="1" id="4040"/>
+        <item chance="1549" max="1" min="1" id="4041"/>
+        <item chance="79" max="1" min="1" id="5272"/>
+        <item chance="1649" max="1" min="1" id="8731"/>
+        <item chance="412" max="1" min="1" id="8741"/>
+        <item chance="41" max="1" min="1" id="8751"/>
+        <item chance="8" max="1" min="1" id="8761"/>
+    </droplist>
+</npc>

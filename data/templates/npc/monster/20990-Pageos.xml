@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20990" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Pageos</name>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="886.09975"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="156.22273"/>
+                <magical speed="333.0" damage="106.67987"/>
+            </attack>
+            <defense>
+                <physical value="148.44287"/>
+                <magical value="98.83494"/>
+            </defense>
+            <move walk="30.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3132</experience>
+        <sp>196</sp>
+        <item lefthand="0" righthand="128"/>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="866" min="434" id="57"/>
+        <item chance="154" max="1" min="1" id="437"/>
+        <item chance="246" max="1" min="1" id="470"/>
+        <item chance="252548" max="30" min="10" id="1341"/>
+        <item chance="101019" max="1" min="1" id="1867"/>
+        <item chance="101019" max="1" min="1" id="1872"/>
+        <item chance="227993" max="1" min="1" id="1882"/>
+        <item chance="16837" max="1" min="1" id="1882"/>
+        <item chance="2658" max="1" min="1" id="1894"/>
+        <item chance="171137" max="1" min="1" id="1903"/>
+        <item chance="6763" max="1" min="1" id="1944"/>
+        <item chance="10531" max="1" min="1" id="1945"/>
+        <item chance="73283" max="1" min="1" id="2145"/>
+        <item chance="5412" max="1" min="1" id="2147"/>
+        <item chance="7747" max="1" min="1" id="2194"/>
+    </droplist>
+</npc>

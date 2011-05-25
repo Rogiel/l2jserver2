@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20807" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Farhite Lad</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="115.47533"/>
+            </defense>
+            <move walk="15.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6761</experience>
+        <sp>463</sp>
+        <item lefthand="0" righthand="5131"/>
+        <collision heigth="48.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1813" min="885" id="57"/>
+        <item chance="183" max="1" min="1" id="439"/>
+        <item chance="292" max="1" min="1" id="471"/>
+        <item chance="8171" max="1" min="1" id="737"/>
+        <item chance="54470" max="1" min="1" id="1866"/>
+        <item chance="81705" max="1" min="1" id="1871"/>
+        <item chance="6809" max="1" min="1" id="1885"/>
+        <item chance="212824" max="1" min="1" id="1908"/>
+        <item chance="169233" max="1" min="1" id="1910"/>
+        <item chance="14118" max="1" min="1" id="1954"/>
+        <item chance="8498" max="1" min="1" id="1962"/>
+        <item chance="172878" max="1" min="1" id="2164"/>
+        <item chance="2705" max="1" min="1" id="2221"/>
+        <item chance="1776" max="1" min="1" id="2225"/>
+        <item chance="285" max="1" min="1" id="2316"/>
+        <item chance="285" max="1" min="1" id="2321"/>
+        <item chance="3268" max="1" min="1" id="5220"/>
+        <item chance="3268" max="1" min="1" id="8723"/>
+        <item chance="817" max="1" min="1" id="8733"/>
+        <item chance="82" max="1" min="1" id="8743"/>
+        <item chance="16" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

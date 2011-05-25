@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22385" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Tully's Golem Guard</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="112316.37469612"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9273.29977"/>
+                <magical speed="333.0" damage="6442.91152"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="53.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>476711</experience>
+        <sp>49686</sp>
+        <collision heigth="41.5" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="79317" min="39604" id="57"/>
+        <item chance="867000" max="6" min="2" id="9599"/>
+        <item chance="45700" max="1" min="1" id="5534"/>
+        <item chance="161" max="1" min="1" id="289"/>
+        <item chance="92478" max="900" min="300" id="1345"/>
+        <item chance="173396" max="6" min="2" id="1879"/>
+        <item chance="57799" max="9" min="3" id="1885"/>
+        <item chance="32639" max="1" min="1" id="9628"/>
+        <item chance="21903" max="1" min="1" id="9630"/>
+        <item chance="18094" max="1" min="1" id="9629"/>
+        <item chance="33292" max="1" min="1" id="9551"/>
+        <item chance="166" max="1" min="1" id="959"/>
+        <item chance="148727" max="1" min="1" id="6693"/>
+        <item chance="146079" max="1" min="1" id="6691"/>
+        <item chance="67583" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22359" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Town Guard</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="11001.327600381"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7014.97247"/>
+                <magical speed="333.0" damage="4903.03016"/>
+            </attack>
+            <defense>
+                <physical value="592.48128"/>
+                <magical value="650.32814"/>
+            </defense>
+            <move walk="60.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>49499</experience>
+        <sp>5219</sp>
+        <collision heigth="43.5" radius="36.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8463" min="4226" id="57"/>
+        <item chance="370200" max="1" min="1" id="9599"/>
+        <item chance="4879" max="1" min="1" id="5534"/>
+        <item chance="169236" max="1" min="1" id="1895"/>
+        <item chance="11847" max="1" min="1" id="4040"/>
+        <item chance="4646" max="1" min="1" id="9628"/>
+        <item chance="3117" max="1" min="1" id="9630"/>
+        <item chance="237" max="1" min="1" id="960"/>
+        <item chance="17" max="1" min="1" id="289"/>
+        <item chance="4739" max="1" min="1" id="9551"/>
+        <item chance="687097" max="5" min="1" id="1895"/>
+        <item chance="38411" max="1" min="1" id="6701"/>
+        <item chance="2886" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

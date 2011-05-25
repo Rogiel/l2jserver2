@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29045" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Frintezza</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2484.3" max="428076.229929773"/>
+            <mp regen="3.15" max="23423.9034583234"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2641.63343"/>
+                <magical speed="333.0" damage="971.85659"/>
+            </attack>
+            <defense>
+                <physical value="4218.55484"/>
+                <magical value="3093.60785"/>
+            </defense>
+            <move walk="30.0" run="31.0"/>
+            <base wit="43" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="42.7" radius="45.0"/>
+    </info>
+</npc>

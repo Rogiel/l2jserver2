@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20451" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Relic Spartoi</name>
+        <level>21</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="364.30351"/>
+            <mp regen="1.5" max="205.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="47.91924"/>
+                <magical speed="333.0" damage="32.72263"/>
+            </attack>
+            <defense>
+                <physical value="89.73059"/>
+                <magical value="59.74364"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1422</experience>
+        <sp>65</sp>
+        <item lefthand="0" righthand="68"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+</npc>

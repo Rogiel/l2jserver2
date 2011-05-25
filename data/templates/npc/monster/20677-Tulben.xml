@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20677" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tulben</name>
+        <level>66</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2244.67715"/>
+            <mp regen="2.7" max="1219.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="603.79903"/>
+                <magical speed="333.0" damage="412.31647"/>
+            </attack>
+            <defense>
+                <physical value="276.72752"/>
+                <magical value="184.2483"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8363</experience>
+        <sp>787</sp>
+        <collision heigth="33.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2317" min="1142" id="57"/>
+        <item chance="170349" max="1" min="1" id="1864"/>
+        <item chance="85174" max="1" min="1" id="1869"/>
+        <item chance="8518" max="1" min="1" id="1880"/>
+        <item chance="3845" max="1" min="1" id="3035"/>
+        <item chance="2839" max="1" min="1" id="4043"/>
+        <item chance="1855" max="1" min="1" id="4121"/>
+        <item chance="3845" max="1" min="1" id="5230"/>
+        <item chance="38058" max="1" min="1" id="5482"/>
+        <item chance="1136" max="1" min="1" id="5550"/>
+        <item chance="32" max="1" min="1" id="8316"/>
+        <item chance="1136" max="1" min="1" id="8729"/>
+        <item chance="284" max="1" min="1" id="8739"/>
+        <item chance="28" max="1" min="1" id="8749"/>
+        <item chance="6" max="1" min="1" id="8759"/>
+        <item chance="139" max="1" min="1" id="11944"/>
+    </droplist>
+</npc>

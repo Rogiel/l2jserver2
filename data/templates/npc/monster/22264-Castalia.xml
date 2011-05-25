@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22264" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Castalia</name>
+        <level>82</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>13089</experience>
+        <sp>1431</sp>
+        <item lefthand="9638" righthand="9638"/>
+        <collision heigth="27.5" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3602" min="1759" id="57"/>
+        <item chance="369713" max="1" min="1" id="1868"/>
+        <item chance="125000" max="1" min="1" id="9594"/>
+        <item chance="73943" max="1" min="1" id="1873"/>
+        <item chance="18486" max="1" min="1" id="5549"/>
+        <item chance="12324" max="1" min="1" id="1889"/>
+        <item chance="6162" max="1" min="1" id="4044"/>
+        <item chance="1479" max="1" min="1" id="9546"/>
+        <item chance="7" max="1" min="1" id="959"/>
+        <item chance="1776" max="1" min="1" id="5534"/>
+        <item chance="115" max="1" min="1" id="11975"/>
+        <item chance="8946" max="1" min="1" id="5522"/>
+        <item chance="8946" max="1" min="1" id="5523"/>
+        <item chance="1167" max="1" min="1" id="5272"/>
+    </droplist>
+</npc>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29163" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tiat</name>
+        <title send="false">Witch of the Dragon of Darkness</title>
+        <level>82</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="548.283697654583" max="5523846.14458983"/>
+            <mp regen="1000.0" max="184680.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3093.77457"/>
+                <magical speed="333.0" damage="2112.64698"/>
+            </attack>
+            <defense>
+                <physical value="530.62261"/>
+                <magical value="352.98781"/>
+            </defense>
+            <move walk="80.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="104.0" radius="55.0"/>
+    </info>
+    <droplist>
+        <item chance="65632" max="1" min="1" id="10215"/>
+        <item chance="65046" max="1" min="1" id="10216"/>
+        <item chance="65046" max="1" min="1" id="10217"/>
+        <item chance="65046" max="1" min="1" id="10218"/>
+        <item chance="65046" max="1" min="1" id="10219"/>
+        <item chance="65046" max="1" min="1" id="10220"/>
+        <item chance="65046" max="1" min="1" id="10221"/>
+        <item chance="65046" max="1" min="1" id="10222"/>
+        <item chance="65046" max="1" min="1" id="10223"/>
+        <item chance="300000" max="1" min="1" id="10550"/>
+        <item chance="300000" max="1" min="1" id="10552"/>
+        <item chance="300000" max="1" min="1" id="10553"/>
+        <item chance="37633" max="1" min="1" id="13457"/>
+        <item chance="37633" max="1" min="1" id="13458"/>
+        <item chance="37633" max="1" min="1" id="13459"/>
+        <item chance="37633" max="1" min="1" id="13460"/>
+        <item chance="37633" max="1" min="1" id="13461"/>
+        <item chance="37633" max="1" min="1" id="13462"/>
+        <item chance="37633" max="1" min="1" id="13463"/>
+        <item chance="37633" max="1" min="1" id="13464"/>
+        <item chance="37633" max="1" min="1" id="13465"/>
+        <item chance="37674" max="1" min="1" id="13466"/>
+        <item chance="37633" max="1" min="1" id="13467"/>
+        <item chance="200000" max="1" min="1" id="13893"/>
+        <item chance="300000" max="1" min="1" id="14219"/>
+    </droplist>
+</npc>

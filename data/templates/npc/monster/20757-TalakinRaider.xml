@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20757" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Talakin Raider</name>
+        <level>27</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="72.09915"/>
+            </defense>
+            <move walk="50.0" run="133.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1657</experience>
+        <sp>85</sp>
+        <item lefthand="0" righthand="3"/>
+        <collision heigth="25.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="476" min="247" id="57"/>
+        <item chance="102" max="1" min="1" id="291"/>
+        <item chance="5530" max="1" min="1" id="847"/>
+        <item chance="572349" max="3" min="1" id="1868"/>
+        <item chance="3569" max="1" min="1" id="1875"/>
+        <item chance="8923" max="1" min="1" id="1879"/>
+        <item chance="4461" max="1" min="1" id="1885"/>
+        <item chance="3454" max="1" min="1" id="2019"/>
+        <item chance="9425" max="1" min="1" id="2152"/>
+        <item chance="43034" max="1" min="1" id="2180"/>
+        <item chance="5354" max="1" min="1" id="5549"/>
+        <item chance="714" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

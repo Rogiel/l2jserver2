@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18313" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Flame of the Witch</name>
+        <level>57</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="19.5" max="5329.74054"/>
+            <mp regen="2.4" max="948.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="424.23295"/>
+                <magical speed="333.0" damage="289.69611"/>
+            </attack>
+            <defense>
+                <physical value="233.18839"/>
+                <magical value="141.26065"/>
+            </defense>
+            <move walk="48.0" run="30.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12980</experience>
+        <sp>1079</sp>
+        <collision heigth="13.0" radius="6.0"/>
+    </info>
+</npc>

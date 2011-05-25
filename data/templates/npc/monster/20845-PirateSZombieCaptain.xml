@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20845" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Pirate's Zombie Captain</name>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="139.48817"/>
+            </defense>
+            <move walk="14.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5945</experience>
+        <sp>460</sp>
+        <item lefthand="0" righthand="232"/>
+        <collision heigth="28.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="10102" max="1" min="1" id="2100"/>
+        <item chance="2923" max="1" min="1" id="2354"/>
+        <item chance="29868" max="1" min="1" id="4042"/>
+        <item chance="700000" max="1439" min="712" id="57"/>
+        <item chance="4" max="1" min="1" id="75"/>
+        <item chance="4" max="1" min="1" id="76"/>
+        <item chance="4" max="1" min="1" id="77"/>
+        <item chance="4" max="1" min="1" id="84"/>
+        <item chance="4" max="1" min="1" id="134"/>
+        <item chance="4" max="1" min="1" id="145"/>
+        <item chance="337" max="1" min="1" id="2089"/>
+        <item chance="337" max="1" min="1" id="2090"/>
+        <item chance="337" max="1" min="1" id="2091"/>
+        <item chance="337" max="1" min="1" id="2092"/>
+        <item chance="337" max="1" min="1" id="2095"/>
+        <item chance="337" max="1" min="1" id="2096"/>
+        <item chance="105869" max="1" min="1" id="1868"/>
+        <item chance="21174" max="1" min="1" id="1873"/>
+        <item chance="10587" max="1" min="1" id="1876"/>
+        <item chance="15124" max="1" min="1" id="1895"/>
+        <item chance="1479" max="1" min="1" id="3017"/>
+        <item chance="882" max="1" min="1" id="4042"/>
+        <item chance="118" max="1" min="1" id="4608"/>
+        <item chance="106" max="1" min="1" id="5155"/>
+        <item chance="12310" max="1" min="1" id="6669"/>
+        <item chance="1470" max="1" min="1" id="8725"/>
+        <item chance="368" max="1" min="1" id="8735"/>
+        <item chance="37" max="1" min="1" id="8745"/>
+        <item chance="8" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

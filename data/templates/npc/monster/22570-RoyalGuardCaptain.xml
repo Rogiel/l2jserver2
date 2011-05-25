@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22570" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Royal Guard Captain</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="189.142969481803" max="336061.04901983"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7957.47326"/>
+                <magical speed="333.0" damage="5529.81543"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="100.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2410562</experience>
+        <sp>244753</sp>
+        <collision heigth="55.0" radius="40.0"/>
+    </info>
+</npc>

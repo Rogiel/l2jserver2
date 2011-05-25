@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25593" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gerg the Hunter</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="89.5179966399562" max="209635.262151965"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7476.50801"/>
+                <magical speed="333.0" damage="974.82622"/>
+            </attack>
+            <defense>
+                <physical value="1024.125"/>
+                <magical value="499.6"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2643173</experience>
+        <sp>390090</sp>
+        <collision heigth="71.5" radius="46.0"/>
+    </info>
+    <droplist>
+        <item chance="15335" max="1" min="1" id="289"/>
+        <item chance="727676" max="9" min="3" id="5534"/>
+        <item chance="13744" max="1" min="1" id="6578"/>
+        <item chance="70279" max="1" min="1" id="9587"/>
+        <item chance="54061" max="1" min="1" id="9591"/>
+        <item chance="41230" max="1" min="1" id="9626"/>
+    </droplist>
+</npc>

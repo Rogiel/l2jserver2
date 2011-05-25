@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25288" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Anakim's Royal Guard</name>
+        <title send="false">Raid Fighter</title>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="209.832715101535" max="54525.3161602999"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7674.32568"/>
+                <magical speed="333.0" damage="2507.70033"/>
+            </attack>
+            <defense>
+                <physical value="505.60512"/>
+                <magical value="493.3"/>
+            </defense>
+            <move walk="65.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="43.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="403000" max="180" min="60" id="1344"/>
+    </droplist>
+</npc>

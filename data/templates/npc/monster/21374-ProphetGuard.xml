@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21374" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Prophet Guard</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="34.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16952</experience>
+        <sp>1855</sp>
+        <item lefthand="6918" righthand="2500"/>
+        <collision heigth="41.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5970" min="2916" id="57"/>
+        <item chance="97" max="1" min="1" id="960"/>
+        <item chance="243130" max="3" min="1" id="1868"/>
+        <item chance="97252" max="1" min="1" id="1873"/>
+        <item chance="48626" max="1" min="1" id="1876"/>
+        <item chance="69466" max="1" min="1" id="1895"/>
+        <item chance="4052" max="1" min="1" id="4042"/>
+        <item chance="3000" max="1" min="1" id="5541"/>
+        <item chance="29364" max="1" min="1" id="6707"/>
+        <item chance="84378" max="1" min="1" id="6708"/>
+        <item chance="84378" max="1" min="1" id="6709"/>
+        <item chance="2026" max="1" min="1" id="8732"/>
+        <item chance="507" max="1" min="1" id="8742"/>
+        <item chance="51" max="1" min="1" id="8752"/>
+        <item chance="195" max="1" min="1" id="11976"/>
+    </droplist>
+</npc>

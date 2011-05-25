@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20557" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dire Wyrm</name>
+        <level>42</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1050.81652"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="198.34591"/>
+                <magical speed="333.0" damage="135.44454"/>
+            </attack>
+            <defense>
+                <physical value="164.88513"/>
+                <magical value="109.78238"/>
+            </defense>
+            <move walk="70.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3109</experience>
+        <sp>208</sp>
+        <collision heigth="72.0" radius="29.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="837" min="414" id="57"/>
+        <item chance="37" max="1" min="1" id="297"/>
+        <item chance="49193" max="1" min="1" id="1866"/>
+        <item chance="73790" max="1" min="1" id="1871"/>
+        <item chance="2952" max="1" min="1" id="1877"/>
+        <item chance="8505" max="1" min="1" id="2055"/>
+        <item chance="2136" max="1" min="1" id="2055"/>
+        <item chance="322" max="1" min="1" id="2297"/>
+        <item chance="5856" max="1" min="1" id="2994"/>
+        <item chance="3429" max="1" min="1" id="3954"/>
+        <item chance="5878" max="1" min="1" id="4469"/>
+        <item chance="246" max="1" min="1" id="5154"/>
+        <item chance="26354" max="1" min="1" id="6668"/>
+    </droplist>
+</npc>

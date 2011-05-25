@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25001" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Greyclaw Kutus</name>
+        <title send="false">Raid Boss</title>
+        <level>23</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="17.5347470979605" max="40330.25972324"/>
+            <mp regen="1.5" max="231.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="62.85328"/>
+                <magical speed="333.0" damage="3.96218"/>
+            </attack>
+            <defense>
+                <physical value="286.94928"/>
+                <magical value="139.98"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2690117</experience>
+        <sp>69902</sp>
+        <item lefthand="633" righthand="67"/>
+        <collision heigth="43.5" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="67692" max="1" min="1" id="69"/>
+        <item chance="67692" max="1" min="1" id="125"/>
+        <item chance="67692" max="1" min="1" id="126"/>
+        <item chance="67692" max="1" min="1" id="128"/>
+        <item chance="272694" max="1" min="1" id="348"/>
+        <item chance="54507" max="12" min="4" id="377"/>
+        <item chance="251620" max="36" min="12" id="956"/>
+        <item chance="74358" max="157" min="53" id="1935"/>
+        <item chance="250135" max="72" min="24" id="1937"/>
+        <item chance="352920" max="9" min="3" id="2021"/>
+        <item chance="40259" max="1" min="1" id="6575"/>
+        <item chance="362332" max="1" min="1" id="6576"/>
+    </droplist>
+</npc>

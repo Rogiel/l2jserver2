@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20650" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Kranrot</name>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1880.92519"/>
+            <mp regen="2.4" max="1007.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="461.94387"/>
+                <magical speed="333.0" damage="315.44778"/>
+            </attack>
+            <defense>
+                <physical value="242.81593"/>
+                <magical value="161.66959"/>
+            </defense>
+            <move walk="37.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10586</experience>
+        <sp>905</sp>
+        <collision heigth="36.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="188177" max="1" min="1" id="4049"/>
+        <item chance="2739" max="1" min="1" id="4195"/>
+        <item chance="4948" max="1" min="1" id="4613"/>
+        <item chance="700000" max="2887" min="1417" id="57"/>
+        <item chance="76" max="1" min="1" id="856"/>
+        <item chance="114" max="1" min="1" id="887"/>
+        <item chance="57" max="1" min="1" id="918"/>
+        <item chance="9264" max="1" min="1" id="4049"/>
+        <item chance="10943" max="1" min="1" id="4050"/>
+        <item chance="6849" max="1" min="1" id="4051"/>
+        <item chance="221" max="1" min="1" id="948"/>
+        <item chance="117746" max="1" min="1" id="1867"/>
+        <item chance="117746" max="1" min="1" id="1872"/>
+        <item chance="19624" max="1" min="1" id="1882"/>
+        <item chance="3099" max="1" min="1" id="1894"/>
+        <item chance="1472" max="1" min="1" id="4042"/>
+        <item chance="1098" max="1" min="1" id="4167"/>
+        <item chance="1098" max="1" min="1" id="4168"/>
+        <item chance="1472" max="1" min="1" id="8728"/>
+        <item chance="368" max="1" min="1" id="8738"/>
+        <item chance="37" max="1" min="1" id="8748"/>
+        <item chance="7" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

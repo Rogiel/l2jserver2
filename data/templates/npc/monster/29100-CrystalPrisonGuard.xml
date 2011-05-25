@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29100" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Crystal Prison Guard</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.897045965523" max="18734.280667127"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1771.53858"/>
+                <magical speed="333.0" damage="1209.73119"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="414.30472"/>
+            </defense>
+            <move walk="60.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="43.5" radius="36.0"/>
+    </info>
+</npc>

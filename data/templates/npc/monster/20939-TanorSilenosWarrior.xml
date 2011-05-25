@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20939" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tanor Silenos Warrior</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="36.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3303</experience>
+        <sp>234</sp>
+        <item lefthand="0" righthand="160"/>
+        <collision heigth="31.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="733092" max="5" min="1" id="1868"/>
+        <item chance="439855" max="1" min="1" id="1873"/>
+        <item chance="7925" max="1" min="1" id="2067"/>
+        <item chance="700000" max="886" min="433" id="57"/>
+        <item chance="89" max="1" min="1" id="397"/>
+        <item chance="4158" max="1" min="1" id="1961"/>
+        <item chance="143" max="1" min="1" id="2387"/>
+        <item chance="6908" max="1" min="1" id="2935"/>
+        <item chance="94492" max="1" min="1" id="1868"/>
+        <item chance="18898" max="1" min="1" id="1873"/>
+        <item chance="3150" max="1" min="1" id="1889"/>
+        <item chance="1027" max="1" min="1" id="2225"/>
+        <item chance="110" max="1" min="1" id="2343"/>
+        <item chance="1575" max="1" min="1" id="4044"/>
+        <item chance="4725" max="1" min="1" id="5549"/>
+        <item chance="1890" max="1" min="1" id="8723"/>
+        <item chance="472" max="1" min="1" id="8733"/>
+        <item chance="47" max="1" min="1" id="8743"/>
+        <item chance="9" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

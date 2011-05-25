@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22790" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Seeker Solina</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3835.59060587002"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1099.42362"/>
+                <magical speed="333.0" damage="750.76381"/>
+            </attack>
+            <defense>
+                <physical value="353.86144"/>
+                <magical value="258.94045"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>26927</experience>
+        <sp>2759</sp>
+        <item lefthand="0" righthand="8213"/>
+        <collision heigth="25.4" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2018" min="1104" id="57"/>
+        <item chance="100" max="1" min="1" id="959"/>
+        <item chance="20" max="1" min="1" id="959"/>
+        <item chance="1000" max="1" min="1" id="960"/>
+        <item chance="81200" max="1" min="1" id="1895"/>
+        <item chance="5200" max="1" min="1" id="4040"/>
+        <item chance="4500" max="1" min="1" id="4042"/>
+        <item chance="8200" max="1" min="1" id="4043"/>
+        <item chance="4500" max="1" min="1" id="9573"/>
+        <item chance="1100" max="1" min="1" id="9574"/>
+        <item chance="110" max="1" min="1" id="9575"/>
+        <item chance="3" max="1" min="1" id="13461"/>
+        <item chance="2000" max="1" min="1" id="15638"/>
+        <item chance="1500" max="1" min="1" id="15638"/>
+        <item chance="200" max="1" min="1" id="15819"/>
+    </droplist>
+</npc>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20958" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Death Agent</name>
+        <level>68</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2345.76698"/>
+            <mp regen="2.7" max="1282.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="646.17968"/>
+                <magical speed="333.0" damage="441.25696"/>
+            </attack>
+            <defense>
+                <physical value="286.3615"/>
+                <magical value="190.66272"/>
+            </defense>
+            <move walk="100.0" run="195.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5411</experience>
+        <sp>523</sp>
+        <item lefthand="0" righthand="1472"/>
+        <collision heigth="45.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1509" min="742" id="57"/>
+        <item chance="2501" max="1" min="1" id="1807"/>
+        <item chance="73888" max="1" min="1" id="1867"/>
+        <item chance="73888" max="1" min="1" id="1872"/>
+        <item chance="3694" max="1" min="1" id="1875"/>
+        <item chance="7389" max="1" min="1" id="1881"/>
+        <item chance="482" max="1" min="1" id="4041"/>
+        <item chance="74" max="1" min="1" id="5156"/>
+        <item chance="15776" max="1" min="1" id="5478"/>
+        <item chance="1940" max="1" min="1" id="5494"/>
+        <item chance="1428" max="1" min="1" id="5525"/>
+        <item chance="1428" max="1" min="1" id="5526"/>
+        <item chance="616" max="1" min="1" id="8730"/>
+        <item chance="154" max="1" min="1" id="8740"/>
+        <item chance="15" max="1" min="1" id="8750"/>
+        <item chance="3" max="1" min="1" id="8760"/>
+        <item chance="383" max="1" min="1" id="12225"/>
+        <item chance="268" max="1" min="1" id="12226"/>
+        <item chance="268" max="1" min="1" id="12234"/>
+    </droplist>
+</npc>

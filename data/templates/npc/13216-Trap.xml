@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="13216" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Trap</name>
+        <level>79</level>
+        <stats>
+            <hp regen="8.5" max="3127.82459333517"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="929.93081"/>
+                <magical speed="333.0" damage="635.0222"/>
+            </attack>
+            <defense>
+                <physical value="337.07008"/>
+                <magical value="246.65326"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="10.0" radius="5.0"/>
+    </info>
+</npc>

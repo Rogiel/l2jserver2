@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="27243" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Archon of Halisha</name>
+        <title send="false">Quest Monster</title>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2719.97952"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="815.37145"/>
+                <magical speed="333.0" damage="556.793"/>
+            </attack>
+            <defense>
+                <physical value="323.78455"/>
+                <magical value="236.93149"/>
+            </defense>
+            <move walk="35.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="6722"/>
+        <collision heigth="57.75" radius="14.0"/>
+    </info>
+</npc>

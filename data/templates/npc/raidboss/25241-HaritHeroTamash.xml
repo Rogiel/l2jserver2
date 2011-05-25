@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25241" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Harit Hero Tamash</name>
+        <title send="false">Raid Boss</title>
+        <level>55</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="88.6953584956072" max="262379.847926583"/>
+            <mp regen="2.4" max="889.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1142.75903"/>
+                <magical speed="333.0" damage="324.54053"/>
+            </attack>
+            <defense>
+                <physical value="670.9086"/>
+                <magical value="327.3"/>
+            </defense>
+            <move walk="40.0" run="175.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3983098</experience>
+        <sp>535296</sp>
+        <item lefthand="0" righthand="298"/>
+        <collision heigth="53.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="36396" max="1" min="1" id="357"/>
+        <item chance="58222" max="1" min="1" id="383"/>
+        <item chance="36396" max="1" min="1" id="2376"/>
+        <item chance="58222" max="1" min="1" id="2379"/>
+        <item chance="164277" max="48" min="16" id="4056"/>
+        <item chance="67702" max="180" min="60" id="4057"/>
+        <item chance="116819" max="67" min="23" id="4064"/>
+        <item chance="35170" max="346" min="116" id="4065"/>
+        <item chance="26086" max="1" min="1" id="229"/>
+        <item chance="26086" max="1" min="1" id="243"/>
+        <item chance="102267" max="72" min="24" id="4109"/>
+        <item chance="327255" max="22" min="8" id="4110"/>
+        <item chance="225898" max="1" min="1" id="947"/>
+        <item chance="77896" max="15" min="5" id="4619"/>
+        <item chance="259653" max="4" min="2" id="4620"/>
+        <item chance="194740" max="6" min="2" id="4621"/>
+        <item chance="810000" max="6" min="2" id="9815"/>
+        <item chance="810000" max="3" min="1" id="8176"/>
+    </droplist>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22353" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Celtus</name>
+        <title send="false">Chimera</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="194.030406814438" max="338766.60216791"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7957.47326"/>
+                <magical speed="333.0" damage="5529.81543"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="36.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1089802</experience>
+        <sp>116275</sp>
+        <collision heigth="36.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="242584" min="121177" id="57"/>
+        <item chance="884200" max="18" min="6" id="9599"/>
+        <item chance="1000000" max="1" min="1" id="9682"/>
+        <item chance="139828" max="1" min="1" id="5534"/>
+        <item chance="116413" max="1" min="1" id="9551"/>
+        <item chance="14552" max="1" min="1" id="6901"/>
+        <item chance="20211" max="18" min="6" id="4042"/>
+        <item chance="31497" max="924" min="308" id="1867"/>
+        <item chance="161686" max="180" min="60" id="1872"/>
+        <item chance="51059" max="15" min="5" id="1894"/>
+        <item chance="59884" max="81" min="27" id="1882"/>
+        <item chance="491" max="1" min="1" id="289"/>
+        <item chance="906932" max="15" min="1" id="1894"/>
+        <item chance="861586" max="7" min="1" id="4042"/>
+        <item chance="82712" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

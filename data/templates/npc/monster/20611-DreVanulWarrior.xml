@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20611" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dre Vanul Warrior</name>
+        <level>32</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="668.47132"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="106.16525"/>
+                <magical speed="333.0" damage="72.49711"/>
+            </attack>
+            <defense>
+                <physical value="125.57727"/>
+                <magical value="83.61076"/>
+            </defense>
+            <move walk="80.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2770</experience>
+        <sp>156</sp>
+        <collision heigth="36.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="782" min="390" id="57"/>
+        <item chance="20" max="1" min="1" id="86"/>
+        <item chance="20" max="1" min="1" id="179"/>
+        <item chance="20" max="1" min="1" id="180"/>
+        <item chance="20" max="1" min="1" id="181"/>
+        <item chance="20" max="1" min="1" id="182"/>
+        <item chance="20" max="1" min="1" id="183"/>
+        <item chance="20" max="1" min="1" id="184"/>
+        <item chance="20" max="1" min="1" id="185"/>
+        <item chance="3857" max="1" min="1" id="467"/>
+        <item chance="28903" max="1" min="1" id="1829"/>
+        <item chance="80285" max="1" min="1" id="1834"/>
+        <item chance="144514" max="1" min="1" id="1864"/>
+        <item chance="72257" max="1" min="1" id="1869"/>
+        <item chance="28903" max="1" min="1" id="1878"/>
+        <item chance="569592" max="1" min="1" id="1884"/>
+        <item chance="44466" max="1" min="1" id="1884"/>
+        <item chance="788" max="1" min="1" id="2022"/>
+        <item chance="627" max="1" min="1" id="2023"/>
+        <item chance="143948" max="1" min="1" id="2153"/>
+        <item chance="9673" max="1" min="1" id="2193"/>
+    </droplist>
+</npc>

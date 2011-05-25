@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25578" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Jakard</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="168.371230492651" max="388684.732464661"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4658.99941"/>
+                <magical speed="333.0" damage="838.41114"/>
+            </attack>
+            <defense>
+                <physical value="930.08877"/>
+                <magical value="453.74"/>
+            </defense>
+            <move walk="100.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2234730</experience>
+        <sp>360602</sp>
+        <collision heigth="98.0" radius="37.0"/>
+    </info>
+    <droplist>
+        <item chance="445085" max="1" min="1" id="730"/>
+        <item chance="34279" max="1" min="1" id="5304"/>
+        <item chance="54827" max="1" min="1" id="5305"/>
+        <item chance="21092" max="1" min="1" id="5308"/>
+        <item chance="213871" max="27" min="9" id="5485"/>
+        <item chance="67723" max="60" min="20" id="5486"/>
+        <item chance="107900" max="84" min="28" id="5489"/>
+        <item chance="106820" max="1" min="1" id="9625"/>
+    </droplist>
+</npc>

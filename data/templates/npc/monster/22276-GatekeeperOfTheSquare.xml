@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22276" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Gatekeeper of the Square</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1012.32268"/>
+                <magical speed="333.0" damage="691.28516"/>
+            </attack>
+            <defense>
+                <physical value="345.61127"/>
+                <magical value="252.90333"/>
+            </defense>
+            <move walk="54.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>28314</experience>
+        <sp>2999</sp>
+        <collision heigth="47.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7755" min="3787" id="57"/>
+        <item chance="3" max="1" min="1" id="164"/>
+        <item chance="3" max="1" min="1" id="213"/>
+        <item chance="10" max="1" min="1" id="959"/>
+        <item chance="316635" max="30" min="10" id="1344"/>
+        <item chance="72373" max="1" min="1" id="1895"/>
+        <item chance="5066" max="1" min="1" id="4040"/>
+        <item chance="2514" max="1" min="1" id="5272"/>
+        <item chance="19263" max="1" min="1" id="5523"/>
+        <item chance="67627" max="1" min="1" id="5527"/>
+        <item chance="955" max="1" min="1" id="5533"/>
+        <item chance="954" max="1" min="1" id="5544"/>
+        <item chance="3" max="1" min="1" id="7895"/>
+        <item chance="3" max="1" min="1" id="7902"/>
+        <item chance="955" max="1" min="1" id="8342"/>
+        <item chance="955" max="1" min="1" id="8349"/>
+        <item chance="2026" max="1" min="1" id="9546"/>
+        <item chance="1759" max="1" min="1" id="9573"/>
+        <item chance="440" max="1" min="1" id="9574"/>
+        <item chance="44" max="1" min="1" id="9575"/>
+        <item chance="9" max="1" min="1" id="9576"/>
+        <item chance="1987" max="1" min="1" id="9628"/>
+        <item chance="1333" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

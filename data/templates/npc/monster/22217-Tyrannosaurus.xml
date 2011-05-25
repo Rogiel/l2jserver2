@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22217" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Tyrannosaurus</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="195.708888732201" max="339687.157685998"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="7476.50801"/>
+                <magical speed="333.0" damage="5105.48575"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="105.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>727610</experience>
+        <sp>81666</sp>
+        <collision heigth="89.7" radius="60.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="139448" min="68305" id="57"/>
+        <item chance="247" max="1" min="1" id="305"/>
+        <item chance="157901" max="9" min="3" id="1879"/>
+        <item chance="118426" max="6" min="2" id="1885"/>
+        <item chance="769768" max="5" min="1" id="4042"/>
+        <item chance="923722" max="9" min="1" id="4043"/>
+        <item chance="70147" max="1" min="1" id="5541"/>
+        <item chance="657594" max="5" min="1" id="6713"/>
+        <item chance="39475" max="1" min="1" id="9573"/>
+        <item chance="9869" max="1" min="1" id="9574"/>
+        <item chance="987" max="1" min="1" id="9575"/>
+        <item chance="198" max="1" min="1" id="9576"/>
+        <item chance="44584" max="1" min="1" id="9628"/>
+        <item chance="24715" max="1" min="1" id="9629"/>
+        <item chance="29918" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

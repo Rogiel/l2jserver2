@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FighterVillageMaster" id="30689" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Siria</name>
+        <title send="false">Grand Master</title>
+        <level>70</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="21.5" radius="8.0"/>
+    </info>
+</npc>

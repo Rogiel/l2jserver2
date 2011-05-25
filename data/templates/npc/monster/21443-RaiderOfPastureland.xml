@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21443" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Raider of Pastureland</name>
+        <level>63</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2089.92274"/>
+            <mp regen="2.7" max="1127.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="541.44774"/>
+                <magical speed="333.0" damage="369.73862"/>
+            </attack>
+            <defense>
+                <physical value="262.19426"/>
+                <magical value="174.5719"/>
+            </defense>
+            <move walk="50.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8408</experience>
+        <sp>760</sp>
+        <item lefthand="0" righthand="153"/>
+        <collision heigth="26.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2309" min="1140" id="57"/>
+        <item chance="110307" max="30" min="10" id="1343"/>
+        <item chance="102953" max="1" min="1" id="1867"/>
+        <item chance="102953" max="1" min="1" id="1872"/>
+        <item chance="5148" max="1" min="1" id="1875"/>
+        <item chance="10295" max="1" min="1" id="1881"/>
+        <item chance="3834" max="1" min="1" id="3956"/>
+        <item chance="671" max="1" min="1" id="4041"/>
+        <item chance="129349" max="1" min="1" id="4077"/>
+        <item chance="42002" max="1" min="1" id="4078"/>
+        <item chance="2068" max="1" min="1" id="4078"/>
+        <item chance="2912" max="1" min="1" id="4080"/>
+        <item chance="1395" max="1" min="1" id="4081"/>
+        <item chance="103" max="1" min="1" id="5156"/>
+        <item chance="1030" max="1" min="1" id="8729"/>
+        <item chance="257" max="1" min="1" id="8739"/>
+        <item chance="26" max="1" min="1" id="8749"/>
+        <item chance="5" max="1" min="1" id="8759"/>
+        <item chance="116" max="1" min="1" id="12184"/>
+        <item chance="302" max="1" min="1" id="12193"/>
+        <item chance="189" max="1" min="1" id="12204"/>
+    </droplist>
+</npc>

@@ -30,7 +30,7 @@ public class BasePhysicalCriticalRateCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getCriticalChance();
+				ctx.result = c.getTemplate().getBaseCritical();
 			}
 		}, new AbstractFunction<L2Character>(0x090) {
 			@Override

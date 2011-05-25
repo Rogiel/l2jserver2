@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20307" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Garum Werewolf</name>
+        <level>9</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="143.17564"/>
+            <mp regen="0.9" max="100.48"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="17.70841"/>
+                <magical speed="333.0" damage="12.09255"/>
+            </attack>
+            <defense>
+                <physical value="59.66387"/>
+                <magical value="39.72488"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>321</experience>
+        <sp>11</sp>
+        <item lefthand="0" righthand="5"/>
+        <collision heigth="26.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="458" max="1" min="1" id="5"/>
+        <item chance="458" max="1" min="1" id="8"/>
+        <item chance="700000" max="108" min="80" id="57"/>
+        <item chance="709" max="1" min="1" id="152"/>
+        <item chance="330759" max="1" min="1" id="1060"/>
+        <item chance="31517" max="1" min="1" id="1802"/>
+        <item chance="29311" max="1" min="1" id="1864"/>
+        <item chance="14656" max="1" min="1" id="1865"/>
+        <item chance="9771" max="1" min="1" id="1866"/>
+        <item chance="198456" max="1" min="1" id="1867"/>
+        <item chance="29311" max="1" min="1" id="1868"/>
+        <item chance="5863" max="1" min="1" id="1873"/>
+        <item chance="1570" max="1" min="1" id="2006"/>
+        <item chance="43777" max="1" min="1" id="2137"/>
+    </droplist>
+</npc>

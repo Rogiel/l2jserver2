@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21388" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Iblis of Destruction</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.772" max="3010.8929976"/>
+            <mp regen="3.1008" max="1777.86"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="961.93701"/>
+                <magical speed="333.0" damage="677.64411"/>
+            </attack>
+            <defense>
+                <physical value="361.08599"/>
+                <magical value="246.33071"/>
+            </defense>
+            <move walk="70.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>55327</experience>
+        <sp>6356</sp>
+        <collision heigth="55.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="15997" min="7810" id="57"/>
+        <item chance="235" max="1" min="1" id="960"/>
+        <item chance="183175" max="120" min="40" id="1344"/>
+        <item chance="7056" max="1" min="1" id="1808"/>
+        <item chance="43419" max="27" min="9" id="1867"/>
+        <item chance="78155" max="15" min="5" id="1872"/>
+        <item chance="39077" max="1" min="1" id="1875"/>
+        <item chance="78155" max="1" min="1" id="1881"/>
+        <item chance="5097" max="1" min="1" id="4041"/>
+        <item chance="12375" max="1" min="1" id="5502"/>
+        <item chance="12375" max="1" min="1" id="5503"/>
+        <item chance="12375" max="1" min="1" id="5514"/>
+        <item chance="12375" max="1" min="1" id="5515"/>
+        <item chance="54064" max="1" min="1" id="5523"/>
+        <item chance="189805" max="1" min="1" id="5527"/>
+        <item chance="4885" max="1" min="1" id="8732"/>
+        <item chance="1221" max="1" min="1" id="8742"/>
+        <item chance="122" max="1" min="1" id="8752"/>
+        <item chance="1994" max="1" min="1" id="12257"/>
+        <item chance="1994" max="1" min="1" id="12260"/>
+        <item chance="1994" max="1" min="1" id="12264"/>
+        <item chance="1994" max="1" min="1" id="12267"/>
+    </droplist>
+</npc>

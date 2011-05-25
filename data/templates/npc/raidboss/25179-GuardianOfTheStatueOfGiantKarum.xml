@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25179" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guardian of the Statue of Giant Karum</name>
+        <title send="false">Raid Boss</title>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="72.9643823396131" max="221100.02497493"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="785.17745"/>
+                <magical speed="333.0" damage="133.51196"/>
+            </attack>
+            <defense>
+                <physical value="742.95024"/>
+                <magical value="362.44"/>
+            </defense>
+            <move walk="80.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2735033</experience>
+        <sp>394692</sp>
+        <item lefthand="0" righthand="4028"/>
+        <collision heigth="66.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="25854" max="1" min="1" id="2391"/>
+        <item chance="25854" max="1" min="1" id="2392"/>
+        <item chance="91811" max="72" min="24" id="4082"/>
+        <item chance="293793" max="22" min="8" id="4083"/>
+        <item chance="23489" max="1" min="1" id="234"/>
+        <item chance="213393" max="36" min="12" id="4119"/>
+        <item chance="202229" max="1" min="1" id="947"/>
+        <item chance="631966" max="3" min="1" id="948"/>
+        <item chance="14445" max="1" min="1" id="6571"/>
+        <item chance="850000" max="4" min="1" id="9817"/>
+        <item chance="950000" max="1" min="1" id="8176"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21023" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sobbing Wind</name>
+        <level>26</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="487.5704"/>
+            <mp regen="1.5" max="273.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="69.75926"/>
+                <magical speed="333.0" damage="47.63653"/>
+            </attack>
+            <defense>
+                <physical value="105.02818"/>
+                <magical value="69.92894"/>
+            </defense>
+            <move walk="60.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1268</experience>
+        <sp>64</sp>
+        <collision heigth="35.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="367" min="192" id="57"/>
+        <item chance="53" max="1" min="1" id="156"/>
+        <item chance="53" max="1" min="1" id="167"/>
+        <item chance="53" max="1" min="1" id="178"/>
+        <item chance="82702" max="1" min="1" id="1864"/>
+        <item chance="41351" max="1" min="1" id="1865"/>
+        <item chance="294716" max="1" min="1" id="1866"/>
+        <item chance="27567" max="1" min="1" id="1866"/>
+        <item chance="82702" max="1" min="1" id="1868"/>
+        <item chance="16540" max="1" min="1" id="1873"/>
+        <item chance="9507" max="1" min="1" id="2019"/>
+        <item chance="642" max="1" min="1" id="2260"/>
+        <item chance="6865" max="1" min="1" id="2263"/>
+    </droplist>
+</npc>

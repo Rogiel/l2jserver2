@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20477" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kasha Timber Wolf</name>
+        <level>6</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="93.54158"/>
+            <mp regen="0.9" max="77.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="13.52471"/>
+                <magical speed="333.0" damage="9.23562"/>
+            </attack>
+            <defense>
+                <physical value="53.53373"/>
+                <magical value="35.64336"/>
+            </defense>
+            <move walk="24.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>212</experience>
+        <sp>6</sp>
+        <collision heigth="10.8" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="474" max="1" min="1" id="12"/>
+        <item chance="700000" max="58" min="41" id="57"/>
+        <item chance="474" max="1" min="1" id="215"/>
+        <item chance="18547" max="1" min="1" id="906"/>
+        <item chance="171046" max="1" min="1" id="1060"/>
+        <item chance="14300" max="1" min="1" id="1796"/>
+        <item chance="30315" max="1" min="1" id="1833"/>
+        <item chance="7579" max="1" min="1" id="1866"/>
+        <item chance="11369" max="1" min="1" id="1871"/>
+        <item chance="102628" max="1" min="1" id="1872"/>
+    </droplist>
+</npc>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Defender" id="36233" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Scout Golem</name>
+        <title send="false">Control Room</title>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="230.25444"/>
+            </defense>
+            <move walk="30.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2738</experience>
+        <sp>0</sp>
+        <collision heigth="19.0" radius="5.0"/>
+    </info>
+    <droplist>
+        <item chance="460000" max="3" min="2" id="9912"/>
+    </droplist>
+</npc>

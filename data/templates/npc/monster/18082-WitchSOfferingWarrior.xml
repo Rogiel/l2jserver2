@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18082" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Witch's Offering Warrior</name>
+        <level>51</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1470.41596"/>
+            <mp regen="2.4" max="775.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="321.13207"/>
+                <magical speed="333.0" damage="219.29157"/>
+            </attack>
+            <defense>
+                <physical value="204.85194"/>
+                <magical value="124.09503"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3121</experience>
+        <sp>238</sp>
+        <item lefthand="0" righthand="72"/>
+        <collision heigth="20.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="863" min="431" id="57"/>
+    </droplist>
+</npc>

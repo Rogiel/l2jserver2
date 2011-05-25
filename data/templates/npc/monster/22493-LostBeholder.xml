@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22493" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Beholder</name>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="70.2986762215597" max="33211.3746041314"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1315.39401"/>
+                <magical speed="333.0" damage="898.24357"/>
+            </attack>
+            <defense>
+                <physical value="313.06083"/>
+                <magical value="343.6265"/>
+            </defense>
+            <move walk="20.0" run="20.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="52.0" radius="27.0"/>
+    </info>
+</npc>

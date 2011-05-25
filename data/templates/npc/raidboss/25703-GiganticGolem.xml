@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25703" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gigantic Golem</name>
+        <title send="false">Chaos</title>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="172.748301603872" max="402092.518544389"/>
+            <mp regen="300.0" max="15408.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="9037.41875"/>
+                <magical speed="333.0" damage="896.94605"/>
+            </attack>
+            <defense>
+                <physical value="971.35365"/>
+                <magical value="473.86"/>
+            </defense>
+            <move walk="18.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3429147</experience>
+        <sp>530149</sp>
+        <collision heigth="51.8" radius="31.0"/>
+    </info>
+</npc>

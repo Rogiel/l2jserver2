@@ -39,7 +39,7 @@ public class BasePhysicalDefenseCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getPhysicalDefense();
+				ctx.result = c.getTemplate().getBasePhysicalDefense();
 			}
 		}, new AbstractFunction<L2Character>(0x200) {
 			@Override

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22507" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Boom - Child</name>
+        <level>77</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2856.7687256316"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="513.86434"/>
+                <magical speed="333.0" damage="350.90273"/>
+            </attack>
+            <defense>
+                <physical value="295.44366"/>
+                <magical value="216.19284"/>
+            </defense>
+            <move walk="250.0" run="300.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10067</experience>
+        <sp>1089</sp>
+        <collision heigth="13.5" radius="33.0"/>
+    </info>
+</npc>

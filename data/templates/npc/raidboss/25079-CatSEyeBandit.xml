@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25079" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Cat's Eye Bandit</name>
+        <title send="false">Raid Boss</title>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="28.5646425862605" max="70742.0690017771"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="208.03648"/>
+                <magical speed="333.0" damage="25.01772"/>
+            </attack>
+            <defense>
+                <physical value="355.39281"/>
+                <magical value="173.38"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1868579</experience>
+        <sp>150667</sp>
+        <collision heigth="25.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="288198" max="1" min="1" id="437"/>
+        <item chance="57533" max="12" min="4" id="470"/>
+        <item chance="120402" max="157" min="53" id="1944"/>
+        <item chance="44557" max="648" min="216" id="1945"/>
+        <item chance="138464" max="1" min="1" id="318"/>
+        <item chance="286294" max="36" min="12" id="2042"/>
+        <item chance="642575" max="9" min="3" id="955"/>
+    </droplist>
+</npc>

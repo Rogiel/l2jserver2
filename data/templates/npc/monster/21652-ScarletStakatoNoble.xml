@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21652" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Scarlet Stakato Noble</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.585" max="2870.7774087"/>
+            <mp regen="3.03" max="1657.41"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="884.25257"/>
+                <magical speed="333.0" damage="609.86817"/>
+            </attack>
+            <defense>
+                <physical value="340.44078"/>
+                <magical value="226.66932"/>
+            </defense>
+            <move walk="25.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>46911</experience>
+        <sp>5199</sp>
+        <item lefthand="0" righthand="235"/>
+        <collision heigth="39.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="5080" max="1" min="1" id="5272"/>
+        <item chance="5080" max="1" min="1" id="5277"/>
+        <item chance="31358" max="1" min="1" id="5545"/>
+        <item chance="700000" max="11501" min="5636" id="57"/>
+        <item chance="20" max="1" min="1" id="305"/>
+        <item chance="5787" max="1" min="1" id="5541"/>
+        <item chance="19" max="1" min="1" id="959"/>
+        <item chance="78155" max="12" min="4" id="1867"/>
+        <item chance="208413" max="3" min="1" id="1872"/>
+        <item chance="104206" max="1" min="1" id="1882"/>
+        <item chance="16454" max="1" min="1" id="1894"/>
+        <item chance="7815" max="1" min="1" id="4042"/>
+        <item chance="3906" max="1" min="1" id="8732"/>
+        <item chance="977" max="1" min="1" id="8742"/>
+        <item chance="98" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

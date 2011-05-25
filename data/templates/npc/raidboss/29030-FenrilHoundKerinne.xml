@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29030" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fenril Hound Kerinne</name>
+        <title send="false">Family of Valakas</title>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="170.72" max="104586.37"/>
+            <mp regen="9.7" max="1657.536"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2512.3"/>
+                <magical speed="333.0" damage="586.96652"/>
+            </attack>
+            <defense>
+                <physical value="2681.953"/>
+                <magical value="490.626"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2407887</experience>
+        <sp>1226568</sp>
+        <collision heigth="30.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="186739" max="6" min="2" id="6652"/>
+        <item chance="64840" max="54" min="18" id="6654"/>
+        <item chance="41683" max="42" min="14" id="6655"/>
+    </droplist>
+</npc>

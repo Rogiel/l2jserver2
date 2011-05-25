@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25315" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Varka's Chief Horus</name>
+        <title send="false">Raid Boss</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="264.824069962994" max="689061.278161977"/>
+            <mp regen="3.21" max="2051.19"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="3099.18467"/>
+                <magical speed="333.0" damage="1426.64875"/>
+            </attack>
+            <defense>
+                <physical value="1185.644"/>
+                <magical value="578.3992"/>
+            </defense>
+            <move walk="25.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3775961</experience>
+        <sp>557272</sp>
+        <item lefthand="0" righthand="2500"/>
+        <collision heigth="51.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="32276" max="1" min="1" id="959"/>
+        <item chance="322761" max="1" min="1" id="960"/>
+        <item chance="2184" max="1" min="1" id="6365"/>
+        <item chance="2184" max="1" min="1" id="6366"/>
+        <item chance="2184" max="1" min="1" id="6369"/>
+        <item chance="5380" max="1" min="1" id="6577"/>
+        <item chance="2184" max="1" min="1" id="6579"/>
+        <item chance="18553" max="1" min="1" id="6678"/>
+        <item chance="12987" max="1" min="1" id="6679"/>
+        <item chance="12987" max="1" min="1" id="6683"/>
+        <item chance="12987" max="1" min="1" id="6687"/>
+        <item chance="247550" max="6" min="2" id="6689"/>
+        <item chance="48150" max="31" min="11" id="6690"/>
+        <item chance="85626" max="18" min="6" id="6693"/>
+        <item chance="198041" max="7" min="3" id="6697"/>
+        <item chance="96456" max="67" min="23" id="6705"/>
+        <item chance="42074" max="180" min="60" id="6706"/>
+        <item chance="240421" max="31" min="11" id="6710"/>
+        <item chance="157777" max="48" min="16" id="6714"/>
+    </droplist>
+</npc>

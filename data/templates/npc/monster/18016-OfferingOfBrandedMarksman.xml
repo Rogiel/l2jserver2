@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18016" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Offering of Branded Marksman</name>
+        <level>32</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="668.47132"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="235.89919"/>
+                <magical speed="333.0" damage="72.49711"/>
+            </attack>
+            <defense>
+                <physical value="106.74068"/>
+                <magical value="76.07208"/>
+            </defense>
+            <move walk="45.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1266</experience>
+        <sp>71</sp>
+        <item lefthand="0" righthand="273"/>
+        <collision heigth="30.0" radius="16.0"/>
+    </info>
+</npc>

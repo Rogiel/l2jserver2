@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20382" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Vaiss Orc Warrior Leader</name>
+        <level>11</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="185.38552"/>
+            <mp regen="1.2" max="116.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="21.0973"/>
+                <magical speed="333.0" damage="14.40672"/>
+            </attack>
+            <defense>
+                <physical value="64.04702"/>
+                <magical value="42.64323"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>326</experience>
+        <sp>12</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="22.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="447952" max="1" min="1" id="1831"/>
+        <item chance="167982" max="1" min="1" id="1870"/>
+        <item chance="6536" max="1" min="1" id="2008"/>
+        <item chance="700000" max="122" min="91" id="57"/>
+        <item chance="4637" max="1" min="1" id="20"/>
+        <item chance="3243" max="1" min="1" id="43"/>
+        <item chance="27798" max="1" min="1" id="1803"/>
+        <item chance="22053" max="1" min="1" id="1866"/>
+        <item chance="33080" max="1" min="1" id="1871"/>
+    </droplist>
+</npc>

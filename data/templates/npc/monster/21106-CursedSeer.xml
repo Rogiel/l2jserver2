@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21106" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Cursed Seer</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="90.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2058</experience>
+        <sp>120</sp>
+        <collision heigth="20.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="56785" max="1" min="1" id="1885"/>
+        <item chance="45809" max="1" min="1" id="1938"/>
+        <item chance="9086" max="1" min="1" id="5550"/>
+        <item chance="700000" max="574" min="288" id="57"/>
+        <item chance="618" max="1" min="1" id="47"/>
+        <item chance="884" max="1" min="1" id="628"/>
+        <item chance="150957" max="30" min="10" id="1341"/>
+        <item chance="3019" max="1" min="1" id="1875"/>
+        <item chance="7548" max="1" min="1" id="1879"/>
+        <item chance="3774" max="1" min="1" id="1885"/>
+        <item chance="1515" max="1" min="1" id="2186"/>
+        <item chance="324" max="1" min="1" id="8317"/>
+        <item chance="4529" max="1" min="1" id="5549"/>
+        <item chance="604" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

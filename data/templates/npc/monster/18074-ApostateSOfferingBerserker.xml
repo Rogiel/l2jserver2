@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18074" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Apostate's Offering Berserker</name>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1324.01623"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="275.82705"/>
+                <magical speed="333.0" damage="188.35412"/>
+            </attack>
+            <defense>
+                <physical value="191.12803"/>
+                <magical value="115.78137"/>
+            </defense>
+            <move walk="37.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3832</experience>
+        <sp>280</sp>
+        <item lefthand="0" righthand="297"/>
+        <collision heigth="32.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="761" min="381" id="57"/>
+    </droplist>
+</npc>

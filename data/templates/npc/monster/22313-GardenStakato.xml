@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22313" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Garden Stakato</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="10943.0943982571"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6774.50812"/>
+                <magical speed="333.0" damage="4626.11085"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="25.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>60929</experience>
+        <sp>6262</sp>
+        <item lefthand="0" righthand="134"/>
+        <collision heigth="39.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10520" min="5245" id="57"/>
+        <item chance="137975" max="12" min="4" id="1868"/>
+        <item chance="110380" max="1" min="1" id="1876"/>
+        <item chance="45992" max="450" min="150" id="1344"/>
+        <item chance="36793" max="9" min="3" id="1873"/>
+        <item chance="22527" max="9" min="3" id="1895"/>
+        <item chance="11174" max="1" min="1" id="5495"/>
+        <item chance="9198" max="1" min="1" id="4042"/>
+        <item chance="8798" max="1" min="1" id="5528"/>
+        <item chance="8798" max="1" min="1" id="5527"/>
+        <item chance="4415" max="1" min="1" id="9546"/>
+        <item chance="1909" max="1" min="1" id="12268"/>
+        <item chance="1336" max="1" min="1" id="12261"/>
+        <item chance="1336" max="1" min="1" id="12269"/>
+        <item chance="221" max="1" min="1" id="960"/>
+        <item chance="896287" max="3" min="1" id="1876"/>
+        <item chance="149381" max="1" min="1" id="4042"/>
+        <item chance="19373" max="1" min="1" id="6691"/>
+    </droplist>
+</npc>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25537" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Enmity</name>
+        <title send="false">Raid Fighter</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="132.781870390792" max="34551.4897285928"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5569.79468"/>
+                <magical speed="333.0" damage="4133.68833"/>
+            </attack>
+            <defense>
+                <physical value="537.03677"/>
+                <magical value="523.97271"/>
+            </defense>
+            <move walk="60.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="43.5" radius="36.0"/>
+    </info>
+</npc>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21149" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Decayed Ancient Pikeman</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9679</experience>
+        <sp>686</sp>
+        <item lefthand="0" righthand="96"/>
+        <collision heigth="28.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2596" min="1269" id="57"/>
+        <item chance="43" max="1" min="1" id="226"/>
+        <item chance="43" max="1" min="1" id="232"/>
+        <item chance="276907" max="1" min="1" id="1868"/>
+        <item chance="55381" max="1" min="1" id="1873"/>
+        <item chance="27691" max="1" min="1" id="1876"/>
+        <item chance="39558" max="1" min="1" id="1895"/>
+        <item chance="305158" max="1" min="1" id="1908"/>
+        <item chance="435175" max="1" min="1" id="1909"/>
+        <item chance="3023" max="1" min="1" id="2070"/>
+        <item chance="3023" max="1" min="1" id="2072"/>
+        <item chance="164412" max="1" min="1" id="2163"/>
+        <item chance="1764" max="1" min="1" id="2215"/>
+        <item chance="3762" max="1" min="1" id="2228"/>
+        <item chance="2308" max="1" min="1" id="4042"/>
+        <item chance="5538" max="1" min="1" id="8723"/>
+        <item chance="1385" max="1" min="1" id="8733"/>
+        <item chance="138" max="1" min="1" id="8743"/>
+        <item chance="27" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

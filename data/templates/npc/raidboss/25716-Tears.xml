@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25716" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tears</name>
+        <title send="false">Ice</title>
+        <level>84</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="154.089581103435" max="1360985.8136379"/>
+            <mp regen="30.0" max="18120.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5380.73978"/>
+                <magical speed="333.0" damage="3682.33073"/>
+            </attack>
+            <defense>
+                <physical value="644.16101"/>
+                <magical value="345.95343"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2039317</experience>
+        <sp>1217980</sp>
+        <item lefthand="9638" righthand="9638"/>
+        <collision heigth="27.5" radius="20.0"/>
+    </info>
+</npc>

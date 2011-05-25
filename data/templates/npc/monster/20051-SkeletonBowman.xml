@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20051" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Skeleton Bowman</name>
+        <level>20</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="342.5127"/>
+            <mp regen="1.2" max="192.0"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="44.32863"/>
+                <magical speed="333.0" damage="30.2707"/>
+            </attack>
+            <defense>
+                <physical value="86.87049"/>
+                <magical value="57.83936"/>
+            </defense>
+            <move walk="40.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>734</experience>
+        <sp>32</sp>
+        <item lefthand="0" righthand="275"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="371096" max="1" min="1" id="1867"/>
+        <item chance="182506" max="1" min="1" id="1925"/>
+        <item chance="11407" max="1" min="1" id="2254"/>
+        <item chance="700000" max="223" min="129" id="57"/>
+        <item chance="157" max="1" min="1" id="272"/>
+        <item chance="1775" max="1" min="1" id="2013"/>
+        <item chance="43847" max="1" min="1" id="1867"/>
+        <item chance="43847" max="1" min="1" id="1872"/>
+        <item chance="4385" max="1" min="1" id="1881"/>
+        <item chance="15439" max="1" min="1" id="2150"/>
+        <item chance="1316" max="1" min="1" id="5268"/>
+    </droplist>
+</npc>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20080" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ant Captain</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="81.22111"/>
+            </defense>
+            <move walk="40.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1711</experience>
+        <sp>95</sp>
+        <collision heigth="15.0" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="485" min="243" id="57"/>
+        <item chance="127" max="1" min="1" id="259"/>
+        <item chance="5240" max="1" min="1" id="737"/>
+        <item chance="104801" max="1" min="1" id="1864"/>
+        <item chance="52401" max="1" min="1" id="1869"/>
+        <item chance="230138" max="1" min="1" id="1878"/>
+        <item chance="20960" max="1" min="1" id="1878"/>
+        <item chance="32247" max="1" min="1" id="1884"/>
+        <item chance="7264" max="1" min="1" id="2021"/>
+        <item chance="5950" max="1" min="1" id="2268"/>
+        <item chance="2096" max="1" min="1" id="6387"/>
+    </droplist>
+</npc>

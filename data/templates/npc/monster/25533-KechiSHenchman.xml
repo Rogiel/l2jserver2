@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25533" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Kechi's Henchman</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="192.697893809876" max="18801.064774423"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2138.26232"/>
+                <magical speed="333.0" damage="1460.15597"/>
+            </attack>
+            <defense>
+                <physical value="629.59459"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="32.5" radius="15.0"/>
+    </info>
+</npc>

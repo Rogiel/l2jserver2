@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22267" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dark Water Dragon</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.355378460862" max="65569.2570829001"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5589.57219"/>
+                <magical speed="333.0" damage="3816.95322"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="200.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>158536</experience>
+        <sp>17121</sp>
+        <collision heigth="34.5" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="49558" min="24706" id="57"/>
+        <item chance="800000" max="1" min="1" id="9596"/>
+        <item chance="198804" max="9" min="3" id="1895"/>
+        <item chance="83195" max="1" min="1" id="4040"/>
+        <item chance="32625" max="1" min="1" id="9628"/>
+        <item chance="21893" max="1" min="1" id="9630"/>
+        <item chance="28519" max="1" min="1" id="5541"/>
+        <item chance="1846" max="1" min="1" id="11976"/>
+        <item chance="166" max="1" min="1" id="959"/>
+        <item chance="91435" max="1" min="1" id="6690"/>
+        <item chance="42222" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18084" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Witch's Offering Berserker</name>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1880.92519"/>
+            <mp regen="2.4" max="1007.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="461.94387"/>
+                <magical speed="333.0" damage="315.44778"/>
+            </attack>
+            <defense>
+                <physical value="242.81593"/>
+                <magical value="147.09282"/>
+            </defense>
+            <move walk="52.0" run="125.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5790</experience>
+        <sp>495</sp>
+        <item lefthand="0" righthand="301"/>
+        <collision heigth="30.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1171" min="585" id="57"/>
+    </droplist>
+</npc>

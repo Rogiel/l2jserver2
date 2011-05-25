@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29052" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <level>85</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.585" max="3960.03406422627"/>
+            <mp regen="3.03" max="2056.8288406974"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1216.23929"/>
+                <magical speed="333.0" damage="838.83911"/>
+            </attack>
+            <defense>
+                <physical value="3864.96881"/>
+                <magical value="2826.63526"/>
+            </defense>
+            <move walk="10.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="35.0" radius="1.0"/>
+    </info>
+</npc>

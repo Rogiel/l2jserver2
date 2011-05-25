@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25385" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Evil Spirit Tempest</name>
+        <title send="false">Raid Boss</title>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="28.0640450927111" max="73380.9239757113"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="176.45564"/>
+                <magical speed="333.0" damage="14.03993"/>
+            </attack>
+            <defense>
+                <physical value="421.71834"/>
+                <magical value="205.74"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1916442</experience>
+        <sp>153260</sp>
+        <collision heigth="54.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="10981" max="25" min="9" id="61"/>
+        <item chance="91090" max="1" min="1" id="280"/>
+        <item chance="10371" max="27" min="9" id="607"/>
+        <item chance="9825" max="28" min="10" id="1125"/>
+        <item chance="34972" max="336" min="112" id="1949"/>
+        <item chance="12240" max="960" min="320" id="1957"/>
+        <item chance="19342" max="607" min="203" id="1963"/>
+        <item chance="224010" max="36" min="12" id="2054"/>
+        <item chance="9334" max="30" min="10" id="2427"/>
+        <item chance="8890" max="31" min="11" id="2428"/>
+        <item chance="186677" max="1" min="1" id="2451"/>
+        <item chance="142432" max="82" min="28" id="2931"/>
+        <item chance="108802" max="108" min="36" id="2932"/>
+        <item chance="86085" max="136" min="46" id="2933"/>
+        <item chance="467933" max="1" min="1" id="6574"/>
+    </droplist>
+</npc>

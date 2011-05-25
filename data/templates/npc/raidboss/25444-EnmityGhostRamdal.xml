@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25444" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Enmity Ghost Ramdal</name>
+        <title send="false">Raid Boss</title>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="79.6115910136094" max="247116.172387501"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="973.34478"/>
+                <magical speed="333.0" damage="175.35143"/>
+            </attack>
+            <defense>
+                <physical value="815.67099"/>
+                <magical value="397.92"/>
+            </defense>
+            <move walk="100.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2780578</experience>
+        <sp>429547</sp>
+        <collision heigth="70.0" radius="40.0"/>
+    </info>
+    <droplist>
+        <item chance="17488" max="1" min="1" id="288"/>
+        <item chance="59184" max="1" min="1" id="729"/>
+        <item chance="443880" max="1" min="1" id="730"/>
+        <item chance="15381" max="1" min="1" id="5287"/>
+        <item chance="24612" max="1" min="1" id="5288"/>
+        <item chance="9466" max="1" min="1" id="5293"/>
+        <item chance="98138" max="27" min="9" id="5520"/>
+        <item chance="249300" max="7" min="3" id="5521"/>
+        <item chance="337493" max="12" min="4" id="5524"/>
+        <item chance="71021" max="9" min="3" id="5535"/>
+        <item chance="7102" max="1" min="1" id="6569"/>
+        <item chance="760000" max="2" min="1" id="8176"/>
+        <item chance="890000" max="4" min="1" id="9814"/>
+    </droplist>
+</npc>

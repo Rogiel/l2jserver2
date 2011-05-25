@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="18215" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Archon of Halisha</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="52.326" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="791.66147"/>
+                <magical speed="333.0" damage="457.93073"/>
+            </attack>
+            <defense>
+                <physical value="478.12374"/>
+                <magical value="289.63736"/>
+            </defense>
+            <move walk="35.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>173610</experience>
+        <sp>19713</sp>
+        <item lefthand="0" righthand="6722"/>
+        <collision heigth="57.75" radius="14.0"/>
+    </info>
+</npc>

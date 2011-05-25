@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25621" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Warden</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="87.9085509175166" max="207939.679772089"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="2987.18479"/>
+                <magical speed="333.0" damage="2039.86001"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1252189</experience>
+        <sp>190090</sp>
+        <item lefthand="0" righthand="8221"/>
+        <collision heigth="47.0" radius="13.0"/>
+    </info>
+</npc>

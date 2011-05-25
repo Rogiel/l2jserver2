@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29022" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Zaken</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="346.8" max="360722.0"/>
+            <mp regen="100.0" max="180000.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3616.0"/>
+                <magical speed="333.0" damage="1520.0"/>
+            </attack>
+            <defense>
+                <physical value="1981.0"/>
+                <magical value="966.39"/>
+            </defense>
+            <move walk="42.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4879746</experience>
+        <sp>423589</sp>
+        <collision heigth="32.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="48000" max="1" min="1" id="135"/>
+        <item chance="12000" max="1" min="1" id="204"/>
+        <item chance="12000" max="1" min="1" id="205"/>
+        <item chance="15000" max="1" min="1" id="206"/>
+        <item chance="48000" max="1" min="1" id="228"/>
+        <item chance="30000" max="1" min="1" id="266"/>
+        <item chance="39000" max="1" min="1" id="286"/>
+        <item chance="30000" max="1" min="1" id="299"/>
+        <item chance="36000" max="1" min="1" id="2503"/>
+        <item chance="30000" max="1" min="1" id="5286"/>
+        <item chance="10000" max="1" min="1" id="78"/>
+        <item chance="12000" max="1" min="1" id="91"/>
+        <item chance="13000" max="1" min="1" id="92"/>
+        <item chance="8000" max="1" min="1" id="142"/>
+        <item chance="8000" max="1" min="1" id="148"/>
+        <item chance="8000" max="1" min="1" id="229"/>
+        <item chance="8000" max="1" min="1" id="243"/>
+        <item chance="10000" max="1" min="1" id="267"/>
+        <item chance="13000" max="1" min="1" id="284"/>
+        <item chance="10000" max="1" min="1" id="300"/>
+        <item chance="50000" max="1" min="1" id="357"/>
+        <item chance="50000" max="1" min="1" id="2376"/>
+        <item chance="50000" max="1" min="1" id="2384"/>
+        <item chance="50000" max="1" min="1" id="2397"/>
+        <item chance="50000" max="1" min="1" id="383"/>
+        <item chance="50000" max="1" min="1" id="2379"/>
+        <item chance="50000" max="1" min="1" id="2388"/>
+        <item chance="50000" max="1" min="1" id="2402"/>
+        <item chance="100000" max="1" min="1" id="2390"/>
+        <item chance="100000" max="1" min="1" id="2406"/>
+        <item chance="30000" max="1" min="1" id="503"/>
+        <item chance="30000" max="1" min="1" id="554"/>
+        <item chance="30000" max="1" min="1" id="600"/>
+        <item chance="30000" max="1" min="1" id="612"/>
+        <item chance="30000" max="1" min="1" id="633"/>
+        <item chance="30000" max="1" min="1" id="673"/>
+        <item chance="60000" max="1" min="1" id="947"/>
+        <item chance="30000" max="1" min="1" id="2415"/>
+        <item chance="30000" max="1" min="1" id="2464"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="220000" min="180000" id="57"/>
+        <item chance="1000000" max="1" min="1" id="6659"/>
+        <item chance="100000" max="1" min="1" id="8922"/>
+        <item chance="50000" max="1" min="1" id="10295"/>
+        <item chance="450000" max="4" min="2" id="8747"/>
+        <item chance="100000" max="2" min="1" id="8757"/>
+        <item chance="400000" max="4" min="2" id="8748"/>
+        <item chance="50000" max="2" min="1" id="8758"/>
+    </droplist>
+</npc>

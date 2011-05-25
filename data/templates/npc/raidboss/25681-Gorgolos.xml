@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25681" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gorgolos</name>
+        <title send="false">Raid Boss</title>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="94.1947722699655" max="306363.627490454"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2948.76787"/>
+                <magical speed="333.0" damage="2071.34264"/>
+            </attack>
+            <defense>
+                <physical value="524.66216"/>
+                <magical value="511.9"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4027950</experience>
+        <sp>568824</sp>
+        <collision heigth="65.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="1000000" max="1" min="1" id="14852"/>
+        <item chance="891" max="1" min="1" id="9442"/>
+        <item chance="891" max="1" min="1" id="9443"/>
+        <item chance="891" max="1" min="1" id="9444"/>
+        <item chance="139316" max="3" min="1" id="9616"/>
+        <item chance="278632" max="1" min="1" id="9617"/>
+        <item chance="278632" max="1" min="1" id="9618"/>
+        <item chance="6162" max="1" min="1" id="9514"/>
+        <item chance="9860" max="1" min="1" id="9515"/>
+        <item chance="410547" max="6" min="2" id="9530"/>
+        <item chance="161915" max="45" min="15" id="9531"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25280" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Pagan Watcher Cerberon</name>
+        <title send="false">Raid Boss</title>
+        <level>55</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="221.738396239018" max="524759.695853166"/>
+            <mp regen="2.4" max="889.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2285.51807"/>
+                <magical speed="333.0" damage="1298.16213"/>
+            </attack>
+            <defense>
+                <physical value="670.9086"/>
+                <magical value="327.3"/>
+            </defense>
+            <move walk="50.0" run="210.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3983098</experience>
+        <sp>535296</sp>
+        <item lefthand="0" righthand="75"/>
+        <collision heigth="48.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="52171" max="1" min="1" id="300"/>
+        <item chance="166240" max="1" min="1" id="856"/>
+        <item chance="249359" max="1" min="1" id="887"/>
+        <item chance="124680" max="1" min="1" id="918"/>
+        <item chance="301198" max="1" min="1" id="947"/>
+        <item chance="313749" max="9" min="3" id="948"/>
+        <item chance="125385" max="243" min="81" id="4049"/>
+        <item chance="27265" max="1320" min="440" id="4050"/>
+        <item chance="53638" max="420" min="140" id="4051"/>
+        <item chance="373636" max="36" min="12" id="4113"/>
+        <item chance="21514" max="1" min="1" id="6571"/>
+        <item chance="800000" max="3" min="1" id="8176"/>
+        <item chance="800000" max="6" min="2" id="9818"/>
+    </droplist>
+</npc>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21435" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guide of Offering</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="39.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>71537</experience>
+        <sp>8029</sp>
+        <item lefthand="6721" righthand="134"/>
+        <collision heigth="30.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="20595" min="10088" id="57"/>
+        <item chance="302" max="1" min="1" id="960"/>
+        <item chance="94446" max="300" min="100" id="1344"/>
+        <item chance="125929" max="6" min="2" id="1866"/>
+        <item chance="41976" max="27" min="9" id="1871"/>
+        <item chance="818535" max="1" min="1" id="1877"/>
+        <item chance="30223" max="1" min="1" id="1877"/>
+        <item chance="9095" max="1" min="1" id="3036"/>
+        <item chance="15112" max="1" min="1" id="4040"/>
+        <item chance="6570" max="1" min="1" id="4041"/>
+        <item chance="10371" max="1" min="1" id="5534"/>
+        <item chance="56130" max="1" min="1" id="5538"/>
+        <item chance="6297" max="1" min="1" id="8732"/>
+        <item chance="1574" max="1" min="1" id="8742"/>
+        <item chance="157" max="1" min="1" id="8752"/>
+        <item chance="672" max="1" min="1" id="11975"/>
+    </droplist>
+</npc>

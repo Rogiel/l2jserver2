@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20975" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Spiteful Soul Wizard</name>
+        <level>63</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2089.92274"/>
+            <mp regen="2.7" max="1127.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="541.44774"/>
+                <magical speed="333.0" damage="369.73862"/>
+            </attack>
+            <defense>
+                <physical value="262.19426"/>
+                <magical value="174.5719"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12599</experience>
+        <sp>1138</sp>
+        <collision heigth="32.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3460" min="1709" id="57"/>
+        <item chance="65" max="1" min="1" id="110"/>
+        <item chance="46281" max="1" min="1" id="1830"/>
+        <item chance="77135" max="1" min="1" id="1866"/>
+        <item chance="115702" max="1" min="1" id="1871"/>
+        <item chance="9642" max="1" min="1" id="1885"/>
+        <item chance="46" max="1" min="1" id="2416"/>
+        <item chance="46" max="1" min="1" id="2417"/>
+        <item chance="1006" max="1" min="1" id="4041"/>
+        <item chance="184685" max="1" min="1" id="4053"/>
+        <item chance="9543" max="1" min="1" id="4077"/>
+        <item chance="62938" max="1" min="1" id="4078"/>
+        <item chance="8017" max="1" min="1" id="4088"/>
+        <item chance="8017" max="1" min="1" id="4089"/>
+        <item chance="4628" max="1" min="1" id="5220"/>
+        <item chance="5745" max="1" min="1" id="5230"/>
+        <item chance="154" max="1" min="1" id="5276"/>
+        <item chance="1543" max="1" min="1" id="8729"/>
+        <item chance="386" max="1" min="1" id="8739"/>
+        <item chance="38" max="1" min="1" id="8749"/>
+        <item chance="8" max="1" min="1" id="8759"/>
+    </droplist>
+</npc>

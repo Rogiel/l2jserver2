@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25245" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Last Lesser Giant Glaki</name>
+        <title send="false">Raid Boss</title>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="126.536105676163" max="410600.548543185"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2592.71887"/>
+                <magical speed="333.0" damage="929.62086"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="15.0" run="95.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5346496</experience>
+        <sp>1193017</sp>
+        <item lefthand="0" righthand="179"/>
+        <collision heigth="66.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="25961" max="1" min="1" id="6680"/>
+        <item chance="417437" max="36" min="12" id="6707"/>
+        <item chance="14186" max="1" min="1" id="7575"/>
+        <item chance="276311" max="36" min="12" id="7579"/>
+        <item chance="52421" max="1" min="1" id="959"/>
+        <item chance="524215" max="1" min="1" id="960"/>
+        <item chance="8737" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

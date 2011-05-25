@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25103" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sorcerer Isirr</name>
+        <title send="false">Raid Boss</title>
+        <level>55</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="64.1713408913048" max="189660.129360453"/>
+            <mp regen="2.4" max="889.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="610.43901"/>
+                <magical speed="333.0" damage="93.51865"/>
+            </attack>
+            <defense>
+                <physical value="670.9086"/>
+                <magical value="327.3"/>
+            </defense>
+            <move walk="53.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2477107</experience>
+        <sp>327038</sp>
+        <item lefthand="0" righthand="195"/>
+        <collision heigth="63.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="15167" max="1" min="1" id="91"/>
+        <item chance="15167" max="1" min="1" id="92"/>
+        <item chance="84625" max="1" min="1" id="554"/>
+        <item chance="84625" max="1" min="1" id="600"/>
+        <item chance="84625" max="1" min="1" id="612"/>
+        <item chance="820891" max="3" min="1" id="948"/>
+        <item chance="84625" max="1" min="1" id="2464"/>
+        <item chance="195295" max="67" min="23" id="4073"/>
+        <item chance="73236" max="180" min="60" id="4097"/>
+        <item chance="38045" max="346" min="116" id="4098"/>
+        <item chance="22886" max="576" min="192" id="4100"/>
+        <item chance="362385" max="12" min="4" id="4105"/>
+        <item chance="190101" max="22" min="8" id="4106"/>
+        <item chance="175123" max="1" min="1" id="6572"/>
+        <item chance="900000" max="1" min="1" id="8176"/>
+        <item chance="750000" max="3" min="2" id="9816"/>
+    </droplist>
+</npc>

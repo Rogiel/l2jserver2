@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21192" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gigant Officer</name>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="809.52639"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="137.86467"/>
+                <magical speed="333.0" damage="94.1437"/>
+            </attack>
+            <defense>
+                <physical value="140.57278"/>
+                <magical value="93.59494"/>
+            </defense>
+            <move walk="49.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6677</experience>
+        <sp>404</sp>
+        <item lefthand="0" righthand="5792"/>
+        <collision heigth="42.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="66" max="1" min="1" id="83"/>
+        <item chance="49" max="1" min="1" id="124"/>
+        <item chance="49" max="1" min="1" id="127"/>
+        <item chance="49" max="1" min="1" id="130"/>
+        <item chance="66" max="1" min="1" id="144"/>
+        <item chance="684631" max="5" min="1" id="1865"/>
+        <item chance="218408" max="1" min="1" id="1865"/>
+        <item chance="684631" max="5" min="1" id="1870"/>
+        <item chance="218408" max="1" min="1" id="1870"/>
+        <item chance="1456" max="1" min="1" id="1874"/>
+        <item chance="180403" max="1" min="1" id="1939"/>
+        <item chance="2191" max="1" min="1" id="2026"/>
+        <item chance="29238" max="1" min="1" id="2191"/>
+        <item chance="700000" max="192" min="96" id="6360"/>
+        <item chance="700000" max="136" min="68" id="6361"/>
+        <item chance="700000" max="44" min="24" id="6362"/>
+        <item chance="1559" max="1" min="1" id="8317"/>
+    </droplist>
+</npc>

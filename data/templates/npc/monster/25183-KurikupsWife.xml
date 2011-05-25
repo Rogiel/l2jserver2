@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25183" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kurikups' Wife</name>
+        <title send="false">Raid Fighter</title>
+        <level>58</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="69.6906910362243" max="33456.1241342261"/>
+            <mp regen="2.4" max="977.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1426.04441"/>
+                <magical speed="333.0" damage="460.01277"/>
+            </attack>
+            <defense>
+                <physical value="356.99144"/>
+                <magical value="348.3"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="40.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="871429" max="60" min="20" id="1343"/>
+    </droplist>
+</npc>

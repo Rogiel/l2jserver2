@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21335" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ketra Orc Elite Soldier</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.772" max="3010.8929976"/>
+            <mp regen="3.1008" max="1777.86"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="961.93701"/>
+                <magical speed="333.0" damage="677.64411"/>
+            </attack>
+            <defense>
+                <physical value="361.08599"/>
+                <magical value="246.33071"/>
+            </defense>
+            <move walk="45.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>19252</experience>
+        <sp>2212</sp>
+        <item lefthand="0" righthand="79"/>
+        <collision heigth="29.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5566" min="2718" id="57"/>
+        <item chance="9" max="1" min="1" id="959"/>
+        <item chance="226625" max="3" min="1" id="1868"/>
+        <item chance="90650" max="1" min="1" id="1873"/>
+        <item chance="368264" max="1" min="1" id="1889"/>
+        <item chance="15108" max="1" min="1" id="1889"/>
+        <item chance="7554" max="1" min="1" id="4044"/>
+        <item chance="2455" max="1" min="1" id="5272"/>
+        <item chance="83881" max="1" min="1" id="5495"/>
+        <item chance="2797" max="1" min="1" id="5541"/>
+        <item chance="22662" max="1" min="1" id="5549"/>
+        <item chance="1889" max="1" min="1" id="8732"/>
+        <item chance="472" max="1" min="1" id="8742"/>
+        <item chance="47" max="1" min="1" id="8752"/>
+        <item chance="181" max="1" min="1" id="11976"/>
+    </droplist>
+</npc>

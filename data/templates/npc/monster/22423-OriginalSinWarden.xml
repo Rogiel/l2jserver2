@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22423" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Original Sin Warden</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.355378460862" max="65569.2570829001"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5738.72922"/>
+                <magical speed="333.0" damage="3987.15943"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="46.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>69803</experience>
+        <sp>6996</sp>
+        <collision heigth="52.5" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="42899" min="21420" id="57"/>
+        <item chance="468900" max="6" min="2" id="9599"/>
+        <item chance="6174" max="1" min="1" id="8342"/>
+        <item chance="6173" max="1" min="1" id="8349"/>
+        <item chance="6174" max="1" min="1" id="5533"/>
+        <item chance="6168" max="1" min="1" id="5544"/>
+        <item chance="22" max="1" min="1" id="7902"/>
+        <item chance="22" max="1" min="1" id="7895"/>
+        <item chance="22" max="1" min="1" id="213"/>
+        <item chance="22" max="1" min="1" id="164"/>
+        <item chance="57162" max="900" min="300" id="1345"/>
+        <item chance="183736" max="6" min="2" id="1895"/>
+        <item chance="51446" max="1" min="1" id="4040"/>
+        <item chance="20175" max="1" min="1" id="9628"/>
+        <item chance="13538" max="1" min="1" id="9630"/>
+        <item chance="1029" max="1" min="1" id="960"/>
+        <item chance="20578" max="1" min="1" id="9551"/>
+        <item chance="36552" max="1" min="1" id="6901"/>
+        <item chance="79158" max="1" min="1" id="6690"/>
+        <item chance="14621" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

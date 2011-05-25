@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21078" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Magus Valac</name>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="197.0242"/>
+            </defense>
+            <move walk="70.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>20355</experience>
+        <sp>2018</sp>
+        <item lefthand="0" righthand="198"/>
+        <collision heigth="40.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5436" min="2672" id="57"/>
+        <item chance="199550" max="3" min="1" id="1868"/>
+        <item chance="79820" max="1" min="1" id="1873"/>
+        <item chance="39910" max="1" min="1" id="1876"/>
+        <item chance="57014" max="1" min="1" id="1895"/>
+        <item chance="9007" max="1" min="1" id="3956"/>
+        <item chance="135112" max="1" min="1" id="4040"/>
+        <item chance="3326" max="1" min="1" id="4042"/>
+        <item chance="3845" max="1" min="1" id="4175"/>
+        <item chance="50" max="1" min="1" id="5289"/>
+        <item chance="71" max="1" min="1" id="5292"/>
+        <item chance="50" max="1" min="1" id="5294"/>
+        <item chance="56808" max="1" min="1" id="5485"/>
+        <item chance="6984" max="1" min="1" id="5494"/>
+        <item chance="5141" max="1" min="1" id="5525"/>
+        <item chance="5141" max="1" min="1" id="5526"/>
+        <item chance="2217" max="1" min="1" id="8730"/>
+        <item chance="554" max="1" min="1" id="8740"/>
+        <item chance="55" max="1" min="1" id="8750"/>
+        <item chance="11" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

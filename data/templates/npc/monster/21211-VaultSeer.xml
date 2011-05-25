@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21211" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Vault Seer</name>
+        <level>27</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="72.09915"/>
+            </defense>
+            <move walk="60.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3321</experience>
+        <sp>170</sp>
+        <collision heigth="36.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="955" min="495" id="57"/>
+        <item chance="136" max="1" min="1" id="156"/>
+        <item chance="136" max="1" min="1" id="167"/>
+        <item chance="136" max="1" min="1" id="178"/>
+        <item chance="171749" max="1" min="1" id="1867"/>
+        <item chance="171749" max="1" min="1" id="1872"/>
+        <item chance="8587" max="1" min="1" id="1875"/>
+        <item chance="17175" max="1" min="1" id="1881"/>
+        <item chance="150011" max="1" min="1" id="1931"/>
+        <item chance="182156" max="1" min="1" id="1932"/>
+        <item chance="202039" max="1" min="1" id="2152"/>
+        <item chance="3149" max="1" min="1" id="5437"/>
+    </droplist>
+</npc>

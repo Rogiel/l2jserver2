@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21735" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Forbidden Path Invader Martyrs</name>
+        <level>60</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12217</experience>
+        <sp>1060</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="23.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3334" min="1640" id="57"/>
+        <item chance="18" max="1" min="1" id="300"/>
+        <item chance="10368" max="1" min="1" id="948"/>
+        <item chance="4776" max="1" min="1" id="1894"/>
+        <item chance="4537" max="1" min="1" id="4039"/>
+        <item chance="1184" max="1" min="1" id="4041"/>
+        <item chance="4537" max="1" min="1" id="4044"/>
+        <item chance="75061" max="1" min="1" id="4064"/>
+        <item chance="3152" max="1" min="1" id="4113"/>
+        <item chance="1107" max="1" min="1" id="4131"/>
+        <item chance="49078" max="1" min="1" id="4154"/>
+        <item chance="2269" max="1" min="1" id="8728"/>
+        <item chance="567" max="1" min="1" id="8738"/>
+        <item chance="57" max="1" min="1" id="8748"/>
+        <item chance="11" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

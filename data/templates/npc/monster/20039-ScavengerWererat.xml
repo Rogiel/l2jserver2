@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20039" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Scavenger Wererat</name>
+        <level>18</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="301.66622"/>
+            <mp regen="1.2" max="174.64"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="37.82932"/>
+                <magical speed="333.0" damage="25.83252"/>
+            </attack>
+            <defense>
+                <physical value="81.34791"/>
+                <magical value="54.16236"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>640</experience>
+        <sp>28</sp>
+        <item lefthand="0" righthand="12"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="957" max="1" min="1" id="44"/>
+        <item chance="700000" max="200" min="121" id="57"/>
+        <item chance="1368" max="1" min="1" id="102"/>
+        <item chance="1782" max="1" min="1" id="735"/>
+        <item chance="2834" max="1" min="1" id="945"/>
+        <item chance="127585" max="1" min="1" id="1801"/>
+        <item chance="42748" max="1" min="1" id="1864"/>
+        <item chance="21374" max="1" min="1" id="1865"/>
+        <item chance="14250" max="1" min="1" id="1866"/>
+        <item chance="42748" max="1" min="1" id="1868"/>
+        <item chance="337674" max="1" min="1" id="1872"/>
+        <item chance="8550" max="1" min="1" id="1873"/>
+        <item chance="12066" max="1" min="1" id="1924"/>
+        <item chance="5777" max="1" min="1" id="2011"/>
+        <item chance="17377" max="1" min="1" id="2175"/>
+    </droplist>
+</npc>

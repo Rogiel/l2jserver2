@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20421" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Akaste Succubus Tilfo</name>
+        <level>22</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="387.02878"/>
+            <mp regen="1.5" max="218.52"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="51.75278"/>
+                <magical speed="333.0" damage="35.34044"/>
+            </attack>
+            <defense>
+                <physical value="92.65694"/>
+                <magical value="61.69203"/>
+            </defense>
+            <move walk="60.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>838</experience>
+        <sp>40</sp>
+        <collision heigth="43.2" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="205204" max="1" min="1" id="1866"/>
+        <item chance="31619" max="1" min="1" id="1898"/>
+        <item chance="39717" max="1" min="1" id="1929"/>
+        <item chance="700000" max="251" min="140" id="57"/>
+        <item chance="97" max="1" min="1" id="273"/>
+        <item chance="1065" max="1" min="1" id="2016"/>
+        <item chance="40409" max="1" min="1" id="1867"/>
+        <item chance="30307" max="1" min="1" id="1869"/>
+        <item chance="30307" max="1" min="1" id="1870"/>
+        <item chance="30307" max="1" min="1" id="1871"/>
+        <item chance="40409" max="1" min="1" id="1872"/>
+        <item chance="1212" max="1" min="1" id="5278"/>
+    </droplist>
+</npc>

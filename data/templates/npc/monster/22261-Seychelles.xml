@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22261" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Seychelles</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1012.32268"/>
+                <magical speed="333.0" damage="691.28516"/>
+            </attack>
+            <defense>
+                <physical value="345.61127"/>
+                <magical value="252.90333"/>
+            </defense>
+            <move walk="75.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12333</experience>
+        <sp>1366</sp>
+        <item lefthand="0" righthand="5132"/>
+        <collision heigth="52.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3473" min="1696" id="57"/>
+        <item chance="125000" max="1" min="1" id="9594"/>
+        <item chance="1713" max="1" min="1" id="5534"/>
+        <item chance="111" max="1" min="1" id="11975"/>
+        <item chance="21514" max="1" min="1" id="10558"/>
+        <item chance="211091" max="1" min="1" id="1885"/>
+        <item chance="42781" max="1" min="1" id="5503"/>
+        <item chance="22027" max="1" min="1" id="4041"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25523" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Plague Golem</name>
+        <title send="false">Raid Boss</title>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="302.659981219819" max="776489.863367776"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4680.0994"/>
+                <magical speed="333.0" damage="3338.16499"/>
+            </attack>
+            <defense>
+                <physical value="930.08877"/>
+                <magical value="453.74"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5168419</experience>
+        <sp>839126</sp>
+        <collision heigth="46.38" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="10482" max="1" min="1" id="6367"/>
+        <item chance="64559" max="1" min="1" id="6578"/>
+        <item chance="22266" max="1" min="1" id="6678"/>
+        <item chance="15586" max="1" min="1" id="6679"/>
+        <item chance="15586" max="1" min="1" id="6683"/>
+        <item chance="15586" max="1" min="1" id="6687"/>
+        <item chance="201838" max="36" min="12" id="6691"/>
+        <item chance="115759" max="67" min="23" id="6705"/>
+        <item chance="50493" max="180" min="60" id="6706"/>
+        <item chance="288536" max="31" min="11" id="6710"/>
+        <item chance="189352" max="48" min="16" id="6714"/>
+        <item chance="830000" max="4" min="1" id="8176"/>
+        <item chance="560000" max="1" min="1" id="8619"/>
+        <item chance="830000" max="7" min="3" id="9817"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21145" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Catacomb Stakato Soldier</name>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="886.09975"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="156.22273"/>
+                <magical speed="333.0" damage="106.67987"/>
+            </attack>
+            <defense>
+                <physical value="148.44287"/>
+                <magical value="98.83494"/>
+            </defense>
+            <move walk="25.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6444</experience>
+        <sp>402</sp>
+        <item lefthand="0" righthand="232"/>
+        <collision heigth="38.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1781" min="893" id="57"/>
+        <item chance="102" max="1" min="1" id="129"/>
+        <item chance="150797" max="1" min="1" id="1825"/>
+        <item chance="173223" max="1" min="1" id="1832"/>
+        <item chance="103934" max="1" min="1" id="1866"/>
+        <item chance="155902" max="1" min="1" id="1871"/>
+        <item chance="175930" max="1" min="1" id="1885"/>
+        <item chance="12992" max="1" min="1" id="1885"/>
+        <item chance="213897" max="1" min="1" id="1902"/>
+        <item chance="5765" max="1" min="1" id="2034"/>
+        <item chance="11136" max="1" min="1" id="2146"/>
+        <item chance="6236" max="1" min="1" id="5220"/>
+        <item chance="11136" max="1" min="1" id="5473"/>
+    </droplist>
+</npc>

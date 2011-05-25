@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22310" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kechi's Guard</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>39903</experience>
+        <sp>4170</sp>
+        <collision heigth="52.0" radius="23.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10485" min="5119" id="57"/>
+        <item chance="153728" max="1" min="1" id="1895"/>
+        <item chance="112093" max="180" min="60" id="1344"/>
+        <item chance="10761" max="1" min="1" id="4040"/>
+        <item chance="4304" max="1" min="1" id="9547"/>
+        <item chance="4240" max="1" min="1" id="5487"/>
+        <item chance="4240" max="1" min="1" id="5488"/>
+        <item chance="4220" max="1" min="1" id="9628"/>
+        <item chance="2832" max="1" min="1" id="9630"/>
+        <item chance="526" max="1" min="1" id="12259"/>
+        <item chance="526" max="1" min="1" id="12266"/>
+        <item chance="215" max="1" min="1" id="960"/>
+        <item chance="764565" max="3" min="1" id="1876"/>
+        <item chance="728157" max="5" min="1" id="1895"/>
+        <item chance="34308" max="1" min="1" id="5480"/>
+    </droplist>
+</npc>

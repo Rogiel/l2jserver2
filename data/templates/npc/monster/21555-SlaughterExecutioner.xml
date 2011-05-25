@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21555" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Slaughter Executioner</name>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2193.43142"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="582.81759"/>
+                <magical speed="333.0" damage="397.98887"/>
+            </attack>
+            <defense>
+                <physical value="271.89033"/>
+                <magical value="181.02764"/>
+            </defense>
+            <move walk="100.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9144</experience>
+        <sp>850</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2527" min="1246" id="57"/>
+        <item chance="112592" max="1" min="1" id="1867"/>
+        <item chance="112592" max="1" min="1" id="1872"/>
+        <item chance="5629" max="1" min="1" id="1875"/>
+        <item chance="11259" max="1" min="1" id="1881"/>
+        <item chance="734" max="1" min="1" id="4041"/>
+        <item chance="35533" max="1" min="1" id="4082"/>
+        <item chance="35533" max="1" min="1" id="4083"/>
+        <item chance="2029" max="1" min="1" id="4120"/>
+        <item chance="14491" max="1" min="1" id="5354"/>
+        <item chance="31" max="1" min="1" id="5466"/>
+        <item chance="46" max="1" min="1" id="8300"/>
+        <item chance="1126" max="1" min="1" id="8729"/>
+        <item chance="281" max="1" min="1" id="8739"/>
+        <item chance="28" max="1" min="1" id="8749"/>
+        <item chance="6" max="1" min="1" id="8759"/>
+        <item chance="152" max="1" min="1" id="11933"/>
+    </droplist>
+</npc>

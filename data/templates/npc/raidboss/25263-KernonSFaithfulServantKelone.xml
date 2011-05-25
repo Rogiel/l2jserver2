@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25263" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kernon's Faithful Servant Kelone</name>
+        <title send="false">Raid Boss</title>
+        <level>67</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="113.825370829643" max="356634.034509353"/>
+            <mp regen="2.7" max="1251.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1954.06059"/>
+                <magical speed="333.0" damage="645.97193"/>
+            </attack>
+            <defense>
+                <physical value="844.65753"/>
+                <magical value="412.06"/>
+            </defense>
+            <move walk="50.0" run="165.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4534433</experience>
+        <sp>767699</sp>
+        <collision heigth="53.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="15454" max="1" min="1" id="212"/>
+        <item chance="156899" max="1" min="1" id="729"/>
+        <item chance="15454" max="1" min="1" id="2504"/>
+        <item chance="36252" max="1" min="1" id="5297"/>
+        <item chance="57982" max="1" min="1" id="5298"/>
+        <item chance="22306" max="1" min="1" id="5301"/>
+        <item chance="226178" max="27" min="9" id="5478"/>
+        <item chance="71620" max="60" min="20" id="5479"/>
+        <item chance="114109" max="84" min="28" id="5482"/>
+        <item chance="244891" max="22" min="8" id="5532"/>
+        <item chance="463503" max="12" min="4" id="5543"/>
+        <item chance="156899" max="1" min="1" id="6570"/>
+        <item chance="810000" max="4" min="1" id="8176"/>
+        <item chance="810000" max="7" min="3" id="9816"/>
+    </droplist>
+</npc>

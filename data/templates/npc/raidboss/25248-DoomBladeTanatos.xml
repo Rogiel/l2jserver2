@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25248" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Doom Blade Tanatos</name>
+        <title send="false">Raid Boss</title>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="299.92321639468" max="766919.841979224"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4561.13269"/>
+                <magical speed="333.0" damage="3254.54886"/>
+            </attack>
+            <defense>
+                <physical value="916.07841"/>
+                <magical value="446.9"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5140647</experience>
+        <sp>827123</sp>
+        <collision heigth="32.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="48796" max="1" min="1" id="5312"/>
+        <item chance="69729" max="1" min="1" id="5315"/>
+        <item chance="48796" max="1" min="1" id="5317"/>
+        <item chance="94103" max="120" min="40" id="5495"/>
+        <item chance="36589" max="243" min="81" id="5527"/>
+        <item chance="211964" max="42" min="14" id="5528"/>
+        <item chance="21513" max="1" min="1" id="236"/>
+        <item chance="255028" max="36" min="12" id="5537"/>
+        <item chance="602496" max="3" min="1" id="730"/>
+        <item chance="64267" max="1" min="1" id="6578"/>
+        <item chance="820000" max="7" min="3" id="9814"/>
+        <item chance="820000" max="4" min="1" id="8176"/>
+        <item chance="540000" max="1" min="1" id="8619"/>
+    </droplist>
+</npc>

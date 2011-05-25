@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25420" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Orfen's Handmaiden</name>
+        <title send="false">Raid Boss</title>
+        <level>48</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="49.5883641293912" max="141171.403298766"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="405.1994"/>
+                <magical speed="333.0" damage="47.84373"/>
+            </attack>
+            <defense>
+                <physical value="573.38409"/>
+                <magical value="279.72"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2266583</experience>
+        <sp>270998</sp>
+        <collision heigth="72.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="38731" max="1" min="1" id="266"/>
+        <item chance="73761" max="1" min="1" id="442"/>
+        <item chance="117977" max="1" min="1" id="473"/>
+        <item chance="93908" max="63" min="21" id="952"/>
+        <item chance="389745" max="22" min="8" id="1988"/>
+        <item chance="191045" max="72" min="24" id="1989"/>
+        <item chance="730779" max="9" min="3" id="2120"/>
+        <item chance="164340" max="6" min="2" id="4604"/>
+        <item chance="131472" max="7" min="3" id="4605"/>
+        <item chance="109560" max="9" min="3" id="4606"/>
+        <item chance="840000" max="1" min="1" id="8176"/>
+        <item chance="840000" max="3" min="1" id="9816"/>
+    </droplist>
+</npc>

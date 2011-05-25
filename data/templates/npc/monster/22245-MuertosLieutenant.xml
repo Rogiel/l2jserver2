@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22245" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Muertos Lieutenant</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="57.57804"/>
+            </defense>
+            <move walk="36.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>599</experience>
+        <sp>25</sp>
+        <collision heigth="22.5" radius="15.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="190" min="119" id="57"/>
+        <item chance="137" max="1" min="1" id="176"/>
+        <item chance="122537" max="1" min="1" id="1801"/>
+        <item chance="24130" max="1" min="1" id="1801"/>
+        <item chance="47899" max="1" min="1" id="1865"/>
+        <item chance="243236" max="1" min="1" id="1870"/>
+        <item chance="47899" max="1" min="1" id="1870"/>
+        <item chance="159499" max="1" min="1" id="1925"/>
+        <item chance="137" max="1" min="1" id="2501"/>
+    </droplist>
+</npc>

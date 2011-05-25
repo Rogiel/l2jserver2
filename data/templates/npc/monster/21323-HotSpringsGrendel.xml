@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21323" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hot Springs Grendel</name>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2719.97952"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="815.37145"/>
+                <magical speed="333.0" damage="556.793"/>
+            </attack>
+            <defense>
+                <physical value="323.78455"/>
+                <magical value="215.57941"/>
+            </defense>
+            <move walk="36.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>19507</experience>
+        <sp>2085</sp>
+        <collision heigth="39.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5567" min="2719" id="57"/>
+        <item chance="151144" max="3" min="1" id="1867"/>
+        <item chance="100763" max="3" min="1" id="1872"/>
+        <item chance="50381" max="1" min="1" id="1882"/>
+        <item chance="193902" max="1" min="1" id="1894"/>
+        <item chance="7955" max="1" min="1" id="1894"/>
+        <item chance="92103" max="1" min="1" id="4042"/>
+        <item chance="3779" max="1" min="1" id="4042"/>
+        <item chance="101" max="1" min="1" id="5277"/>
+        <item chance="24797" max="1" min="1" id="5481"/>
+        <item chance="3471" max="1" min="1" id="5536"/>
+        <item chance="1889" max="1" min="1" id="8732"/>
+        <item chance="472" max="1" min="1" id="8742"/>
+        <item chance="47" max="1" min="1" id="8752"/>
+        <item chance="281" max="1" min="1" id="11951"/>
+    </droplist>
+</npc>

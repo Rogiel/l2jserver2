@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25310" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shadith's Royal Guard Captain</name>
+        <title send="false">Raid Fighter</title>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="91.4930863014358" max="47562.3910653454"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5697.64406"/>
+                <magical speed="333.0" damage="4423.65426"/>
+            </attack>
+            <defense>
+                <physical value="505.60512"/>
+                <magical value="493.3"/>
+            </defense>
+            <move walk="34.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="6918" righthand="142"/>
+        <collision heigth="41.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="403000" max="180" min="60" id="1344"/>
+    </droplist>
+</npc>

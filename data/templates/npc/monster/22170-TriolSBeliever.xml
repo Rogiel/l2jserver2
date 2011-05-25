@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22170" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Triol's Believer</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.976" max="3136.2900942"/>
+            <mp regen="3.16812" max="1919.436"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.02769"/>
+                <magical speed="333.0" damage="760.91932"/>
+            </attack>
+            <defense>
+                <physical value="386.50478"/>
+                <magical value="282.82742"/>
+            </defense>
+            <move walk="58.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>46329</experience>
+        <sp>5392</sp>
+        <item lefthand="8207" righthand="8207"/>
+        <collision heigth="28.4" radius="7.7"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="13138" min="6418" id="57"/>
+        <item chance="32103" max="1" min="1" id="4039"/>
+        <item chance="33793" max="1" min="1" id="1894"/>
+        <item chance="32103" max="1" min="1" id="4044"/>
+        <item chance="5421" max="1" min="1" id="5487"/>
+        <item chance="5421" max="1" min="1" id="5488"/>
+        <item chance="8375" max="1" min="1" id="4041"/>
+        <item chance="385" max="1" min="1" id="960"/>
+        <item chance="36" max="1" min="1" id="5326"/>
+        <item chance="36" max="1" min="1" id="5329"/>
+        <item chance="521677" max="1" min="1" id="1877"/>
+        <item chance="260839" max="1" min="1" id="4040"/>
+        <item chance="5217" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

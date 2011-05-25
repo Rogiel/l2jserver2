@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21218" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Vault Overlord</name>
+        <level>45</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1183.80594"/>
+            <mp regen="2.1" max="610.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="234.89829"/>
+                <magical speed="333.0" damage="160.40508"/>
+            </attack>
+            <defense>
+                <physical value="177.78746"/>
+                <magical value="118.3729"/>
+            </defense>
+            <move walk="100.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9263</experience>
+        <sp>644</sp>
+        <item lefthand="0" righthand="297"/>
+        <collision heigth="40.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2478" min="1220" id="57"/>
+        <item chance="188" max="1" min="1" id="354"/>
+        <item chance="300" max="1" min="1" id="381"/>
+        <item chance="291503" max="1" min="1" id="1864"/>
+        <item chance="145751" max="1" min="1" id="1869"/>
+        <item chance="14575" max="1" min="1" id="1880"/>
+        <item chance="292039" max="1" min="1" id="1908"/>
+        <item chance="416466" max="1" min="1" id="1909"/>
+        <item chance="9814" max="1" min="1" id="1959"/>
+        <item chance="19965" max="1" min="1" id="1960"/>
+        <item chance="157343" max="1" min="1" id="2163"/>
+        <item chance="2263" max="1" min="1" id="2213"/>
+        <item chance="4858" max="1" min="1" id="4043"/>
+        <item chance="1943" max="1" min="1" id="5550"/>
+        <item chance="5830" max="1" min="1" id="8723"/>
+        <item chance="1458" max="1" min="1" id="8733"/>
+        <item chance="146" max="1" min="1" id="8743"/>
+        <item chance="30" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

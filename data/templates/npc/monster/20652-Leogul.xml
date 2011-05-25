@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20652" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Leogul</name>
+        <level>61</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="1985.55926"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="501.08068"/>
+                <magical speed="333.0" damage="342.17315"/>
+            </attack>
+            <defense>
+                <physical value="252.49346"/>
+                <magical value="168.113"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10369</experience>
+        <sp>913</sp>
+        <collision heigth="35.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="58802" max="1" min="1" id="4042"/>
+        <item chance="117603" max="1" min="1" id="4043"/>
+        <item chance="38183" max="1" min="1" id="4129"/>
+        <item chance="700000" max="2835" min="1398" id="57"/>
+        <item chance="29" max="1" min="1" id="2384"/>
+        <item chance="46" max="1" min="1" id="2388"/>
+        <item chance="18" max="1" min="1" id="2390"/>
+        <item chance="4096" max="1" min="1" id="4066"/>
+        <item chance="6219" max="1" min="1" id="4067"/>
+        <item chance="3147" max="1" min="1" id="4068"/>
+        <item chance="173691" max="1" min="1" id="1864"/>
+        <item chance="86845" max="1" min="1" id="1869"/>
+        <item chance="8684" max="1" min="1" id="1880"/>
+        <item chance="2895" max="1" min="1" id="4043"/>
+        <item chance="1080" max="1" min="1" id="4173"/>
+        <item chance="120" max="1" min="1" id="4615"/>
+        <item chance="1080" max="1" min="1" id="4998"/>
+        <item chance="1158" max="1" min="1" id="5550"/>
+        <item chance="1448" max="1" min="1" id="8728"/>
+        <item chance="362" max="1" min="1" id="8738"/>
+        <item chance="36" max="1" min="1" id="8748"/>
+        <item chance="7" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

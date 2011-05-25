@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20545" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Young Keltir</name>
+        <level>1</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="39.74519"/>
+            <mp regen="0.9" max="40.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="8.47458"/>
+                <magical speed="333.0" damage="5.78704"/>
+            </attack>
+            <defense>
+                <physical value="44.44444"/>
+                <magical value="29.59162"/>
+            </defense>
+            <move walk="23.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>35</experience>
+        <sp>2</sp>
+        <collision heigth="10.0" radius="9.5"/>
+    </info>
+    <droplist>
+        <item chance="28176" max="1" min="1" id="21"/>
+        <item chance="12736" max="1" min="1" id="1786"/>
+        <item chance="6368" max="1" min="1" id="1873"/>
+        <item chance="700000" max="12" min="8" id="57"/>
+        <item chance="54861" max="1" min="1" id="18"/>
+        <item chance="39187" max="1" min="1" id="41"/>
+        <item chance="16459" max="30" min="10" id="17"/>
+        <item chance="2634" max="1" min="1" id="1788"/>
+        <item chance="6584" max="1" min="1" id="1868"/>
+        <item chance="1317" max="1" min="1" id="1873"/>
+        <item chance="6584" max="1" min="1" id="6037"/>
+    </droplist>
+</npc>

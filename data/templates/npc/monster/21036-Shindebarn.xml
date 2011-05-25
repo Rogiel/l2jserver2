@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21036" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shindebarn</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="126.91259"/>
+            </defense>
+            <move walk="90.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8166</experience>
+        <sp>536</sp>
+        <collision heigth="20.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="765042" max="1" min="1" id="1895"/>
+        <item chance="21261" max="1" min="1" id="2070"/>
+        <item chance="9330" max="1" min="1" id="2316"/>
+        <item chance="700000" max="2160" min="1054" id="57"/>
+        <item chance="163" max="1" min="1" id="354"/>
+        <item chance="260" max="1" min="1" id="381"/>
+        <item chance="8522" max="1" min="1" id="1959"/>
+        <item chance="17335" max="1" min="1" id="1960"/>
+        <item chance="60262" max="1" min="1" id="1895"/>
+        <item chance="735" max="1" min="1" id="2318"/>
+        <item chance="8437" max="1" min="1" id="8723"/>
+        <item chance="2109" max="1" min="1" id="8733"/>
+        <item chance="211" max="1" min="1" id="8743"/>
+        <item chance="42" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

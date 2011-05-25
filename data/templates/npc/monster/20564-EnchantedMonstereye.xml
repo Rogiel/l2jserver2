@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20564" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Enchanted Monstereye</name>
+        <level>41</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1008.23781"/>
+            <mp regen="2.1" max="504.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="187.11878"/>
+                <magical speed="333.0" damage="127.77787"/>
+            </attack>
+            <defense>
+                <physical value="160.69002"/>
+                <magical value="106.98923"/>
+            </defense>
+            <move walk="90.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2992</experience>
+        <sp>196</sp>
+        <collision heigth="43.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="804" min="402" id="57"/>
+        <item chance="210" max="1" min="1" id="630"/>
+        <item chance="661179" max="5" min="1" id="1864"/>
+        <item chance="47431" max="1" min="1" id="1866"/>
+        <item chance="71146" max="1" min="1" id="1871"/>
+        <item chance="2846" max="1" min="1" id="1877"/>
+        <item chance="82647" max="1" min="1" id="1885"/>
+        <item chance="9421" max="1" min="1" id="1956"/>
+        <item chance="311" max="1" min="1" id="2297"/>
+        <item chance="4331" max="1" min="1" id="2306"/>
+        <item chance="147" max="1" min="1" id="2412"/>
+        <item chance="210" max="1" min="1" id="2494"/>
+        <item chance="6691" max="1" min="1" id="2930"/>
+        <item chance="9421" max="1" min="1" id="2934"/>
+        <item chance="5647" max="1" min="1" id="2994"/>
+        <item chance="237" max="1" min="1" id="5154"/>
+        <item chance="25409" max="1" min="1" id="6668"/>
+    </droplist>
+</npc>

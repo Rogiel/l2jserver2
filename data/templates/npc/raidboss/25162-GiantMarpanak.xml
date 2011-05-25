@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25162" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Giant Marpanak</name>
+        <title send="false">Raid Boss</title>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="253.244358973511" max="614249.151468482"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2937.05045"/>
+                <magical speed="333.0" damage="1851.60109"/>
+            </attack>
+            <defense>
+                <physical value="742.95024"/>
+                <magical value="362.44"/>
+            </defense>
+            <move walk="15.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4154684</experience>
+        <sp>587467</sp>
+        <item lefthand="0" righthand="3937"/>
+        <collision heigth="91.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="12285" max="1" min="1" id="110"/>
+        <item chance="35597" max="1" min="1" id="287"/>
+        <item chance="121265" max="18" min="6" id="948"/>
+        <item chance="85994" max="1" min="1" id="2416"/>
+        <item chance="85994" max="1" min="1" id="2417"/>
+        <item chance="224438" max="120" min="40" id="4077"/>
+        <item chance="93115" max="243" min="81" id="4088"/>
+        <item chance="53873" max="420" min="140" id="4089"/>
+        <item chance="325231" max="36" min="12" id="4121"/>
+        <item chance="267622" max="4" min="2" id="4622"/>
+        <item chance="200717" max="6" min="2" id="4623"/>
+        <item chance="160573" max="7" min="3" id="4624"/>
+        <item chance="830000" max="3" min="1" id="8176"/>
+        <item chance="830000" max="6" min="2" id="9817"/>
+    </droplist>
+</npc>

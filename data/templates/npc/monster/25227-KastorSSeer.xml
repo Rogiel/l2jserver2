@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25227" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kastor's Seer</name>
+        <title send="false">Raid Fighter</title>
+        <level>61</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="103.454192950514" max="50429.7234610709"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="3074.03785"/>
+                <magical speed="333.0" damage="2082.55682"/>
+            </attack>
+            <defense>
+                <physical value="378.74019"/>
+                <magical value="369.52"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="9"/>
+        <collision heigth="34.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="244444" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

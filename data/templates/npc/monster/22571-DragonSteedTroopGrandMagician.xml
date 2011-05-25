@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22571" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dragon Steed Troop Grand Magician</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="189.293512481432" max="56054.754551934"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9475.50662"/>
+                <magical speed="333.0" damage="6584.72873"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="43.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>565516</experience>
+        <sp>57381</sp>
+        <collision heigth="49.9" radius="29.0"/>
+    </info>
+</npc>

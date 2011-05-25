@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21215" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Vault Monk</name>
+        <level>37</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="4.5" max="847.31754"/>
+            <mp regen="1.8" max="432.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="146.82587"/>
+                <magical speed="333.0" damage="100.26304"/>
+            </attack>
+            <defense>
+                <physical value="144.47758"/>
+                <magical value="96.19481"/>
+            </defense>
+            <move walk="60.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5940</experience>
+        <sp>365</sp>
+        <collision heigth="43.2" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1645" min="824" id="57"/>
+        <item chance="94" max="1" min="1" id="318"/>
+        <item chance="139345" max="1" min="1" id="1825"/>
+        <item chance="12005" max="1" min="1" id="1825"/>
+        <item chance="112048" max="1" min="1" id="1866"/>
+        <item chance="168071" max="1" min="1" id="1871"/>
+        <item chance="14006" max="1" min="1" id="1885"/>
+        <item chance="197653" max="1" min="1" id="1902"/>
+        <item chance="4659" max="1" min="1" id="2042"/>
+        <item chance="139345" max="1" min="1" id="2145"/>
+        <item chance="6723" max="1" min="1" id="5220"/>
+        <item chance="12005" max="1" min="1" id="5473"/>
+    </droplist>
+</npc>

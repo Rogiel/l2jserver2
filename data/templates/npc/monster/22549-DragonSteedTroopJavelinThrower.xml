@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22549" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dragon Steed Troop Javelin Thrower</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="114.399578021039" max="33093.4274797799"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="5746.81896"/>
+                <magical speed="333.0" damage="3924.33235"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="89.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>94968</experience>
+        <sp>10260</sp>
+        <item lefthand="0" righthand="13843"/>
+        <collision heigth="46.5" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="19381" min="9493" id="57"/>
+        <item chance="17641" max="1" min="1" id="5495"/>
+        <item chance="13890" max="1" min="1" id="5527"/>
+        <item chance="13890" max="1" min="1" id="5528"/>
+        <item chance="114" max="1" min="1" id="5317"/>
+        <item chance="114" max="1" min="1" id="5312"/>
+        <item chance="163" max="1" min="1" id="5315"/>
+        <item chance="193626" max="1" min="1" id="1879"/>
+        <item chance="96813" max="1" min="1" id="1885"/>
+        <item chance="9112" max="1" min="1" id="9628"/>
+        <item chance="6115" max="1" min="1" id="9630"/>
+        <item chance="5051" max="1" min="1" id="9629"/>
+        <item chance="1442" max="1" min="1" id="6879"/>
+        <item chance="214869" max="1" min="1" id="5495"/>
+        <item chance="6289" max="1" min="1" id="1808"/>
+        <item chance="6289" max="1" min="1" id="5282"/>
+    </droplist>
+</npc>

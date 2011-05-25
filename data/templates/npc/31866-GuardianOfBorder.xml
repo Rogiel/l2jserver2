@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="31866" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guardian of Border</name>
+        <level>35</level>
+        <stats>
+            <hp regen="4.5" max="772.73802"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="129.32896"/>
+                <magical speed="333.0" damage="88.31491"/>
+            </attack>
+            <defense>
+                <physical value="136.72948"/>
+                <magical value="100.0527"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="15.0" radius="7.0"/>
+    </info>
+</npc>

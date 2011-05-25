@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21329" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ketra Orc Shaman</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.585" max="2870.7774087"/>
+            <mp regen="3.03" max="1657.41"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="884.25257"/>
+                <magical speed="333.0" damage="609.86817"/>
+            </attack>
+            <defense>
+                <physical value="340.44078"/>
+                <magical value="226.66932"/>
+            </defense>
+            <move walk="10.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>19912</experience>
+        <sp>2207</sp>
+        <item lefthand="0" righthand="92"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5719" min="2802" id="57"/>
+        <item chance="2526" max="1" min="1" id="5162"/>
+        <item chance="2526" max="1" min="1" id="5167"/>
+        <item chance="25594" max="1" min="1" id="5487"/>
+        <item chance="960" max="1" min="1" id="5529"/>
+        <item chance="960" max="1" min="1" id="5545"/>
+        <item chance="1054" max="1" min="1" id="5546"/>
+        <item chance="9046" max="1" min="1" id="7668"/>
+        <item chance="9046" max="1" min="1" id="7669"/>
+        <item chance="9046" max="1" min="1" id="7670"/>
+        <item chance="9046" max="1" min="1" id="7671"/>
+        <item chance="62" max="1" min="1" id="11964"/>
+        <item chance="62" max="1" min="1" id="11968"/>
+        <item chance="62" max="1" min="1" id="11971"/>
+    </droplist>
+</npc>

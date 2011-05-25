@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25312" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Varka's Commander Mos</name>
+        <title send="false">Raid Boss</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="99.9316106802954" max="325022.397859132"/>
+            <mp regen="3.12" max="1884.48"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1504.01905"/>
+                <magical speed="333.0" damage="322.5561"/>
+            </attack>
+            <defense>
+                <physical value="1116.54576"/>
+                <magical value="544.6896"/>
+            </defense>
+            <move walk="25.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3775961</experience>
+        <sp>557272</sp>
+        <item lefthand="0" righthand="2500"/>
+        <collision heigth="51.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="30080" max="1" min="1" id="959"/>
+        <item chance="300800" max="1" min="1" id="960"/>
+        <item chance="4070" max="1" min="1" id="6364"/>
+        <item chance="4070" max="1" min="1" id="6372"/>
+        <item chance="5014" max="1" min="1" id="6577"/>
+        <item chance="125392" max="22" min="8" id="6688"/>
+        <item chance="238844" max="12" min="4" id="6696"/>
+        <item chance="422035" max="27" min="9" id="6698"/>
+        <item chance="105368" max="120" min="40" id="6699"/>
+        <item chance="165359" max="42" min="14" id="6700"/>
+        <item chance="23654" max="1" min="1" id="6724"/>
+        <item chance="35481" max="1" min="1" id="6725"/>
+        <item chance="17736" max="1" min="1" id="6726"/>
+    </droplist>
+</npc>

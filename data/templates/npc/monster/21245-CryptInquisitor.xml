@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21245" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Crypt Inquisitor</name>
+        <level>52</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="139.48817"/>
+            </defense>
+            <move walk="80.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>11733</experience>
+        <sp>908</sp>
+        <collision heigth="30.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3150" min="1558" id="57"/>
+        <item chance="132" max="1" min="1" id="60"/>
+        <item chance="90140" max="1" min="1" id="1866"/>
+        <item chance="135210" max="1" min="1" id="1871"/>
+        <item chance="5408" max="1" min="1" id="1877"/>
+        <item chance="345683" max="1" min="1" id="1915"/>
+        <item chance="12001" max="1" min="1" id="1977"/>
+        <item chance="69443" max="1" min="1" id="2169"/>
+        <item chance="92536" max="1" min="1" id="2170"/>
+        <item chance="221" max="1" min="1" id="2353"/>
+        <item chance="2704" max="1" min="1" id="4040"/>
+        <item chance="1176" max="1" min="1" id="4041"/>
+        <item chance="6009" max="1" min="1" id="4122"/>
+        <item chance="156" max="1" min="1" id="8309"/>
+        <item chance="3756" max="1" min="1" id="8725"/>
+        <item chance="939" max="1" min="1" id="8735"/>
+        <item chance="94" max="1" min="1" id="8745"/>
+        <item chance="19" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

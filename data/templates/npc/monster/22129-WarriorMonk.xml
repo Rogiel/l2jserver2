@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22129" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Warrior Monk</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.874" max="3077.1572058"/>
+            <mp regen="3.1314" max="1848.24"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1009.395"/>
+                <magical speed="333.0" damage="719.59956"/>
+            </attack>
+            <defense>
+                <physical value="373.96949"/>
+                <magical value="273.65464"/>
+            </defense>
+            <move walk="53.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>35775</experience>
+        <sp>4012</sp>
+        <item lefthand="8210" righthand="8211"/>
+        <collision heigth="28.4" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10046" min="4923" id="57"/>
+        <item chance="210655" max="1" min="1" id="1895"/>
+        <item chance="32258" max="1" min="1" id="8056"/>
+        <item chance="34576" max="1" min="1" id="4043"/>
+        <item chance="14746" max="1" min="1" id="4040"/>
+        <item chance="12288" max="1" min="1" id="4042"/>
+        <item chance="4136" max="1" min="1" id="5480"/>
+        <item chance="4136" max="1" min="1" id="5481"/>
+        <item chance="737" max="1" min="1" id="6901"/>
+        <item chance="28" max="1" min="1" id="5320"/>
+        <item chance="28" max="1" min="1" id="5323"/>
+        <item chance="196115" max="1" min="1" id="6698"/>
+        <item chance="217615" max="1" min="1" id="6699"/>
+        <item chance="119528" max="1" min="1" id="6700"/>
+    </droplist>
+</npc>

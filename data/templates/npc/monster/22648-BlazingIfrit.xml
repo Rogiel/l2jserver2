@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22648" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Blazing Ifrit</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="38.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>52004</experience>
+        <sp>5421</sp>
+        <collision heigth="55.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5000" min="3000" id="57"/>
+        <item chance="8" max="1" min="1" id="6370"/>
+        <item chance="5000" max="1" min="1" id="6694"/>
+        <item chance="280000" max="1" min="1" id="1895"/>
+        <item chance="20000" max="1" min="1" id="4040"/>
+        <item chance="8000" max="1" min="1" id="9628"/>
+        <item chance="6000" max="1" min="1" id="9630"/>
+        <item chance="1000" max="1" min="1" id="6901"/>
+        <item chance="80000" max="1" min="1" id="5529"/>
+        <item chance="3000" max="1" min="1" id="1808"/>
+        <item chance="3000" max="1" min="1" id="5282"/>
+    </droplist>
+</npc>

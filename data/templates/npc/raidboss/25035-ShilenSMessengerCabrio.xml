@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25035" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shilen's Messenger Cabrio</name>
+        <title send="false">Raid Boss</title>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="117.68436242886" max="373386.071242416"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2154.88112"/>
+                <magical speed="333.0" damage="717.40387"/>
+            </attack>
+            <defense>
+                <physical value="887.74791"/>
+                <magical value="433.08"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4596479</experience>
+        <sp>802604</sp>
+        <item lefthand="0" righthand="189"/>
+        <collision heigth="63.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="21287" max="1" min="1" id="305"/>
+        <item chance="38156" max="1" min="1" id="959"/>
+        <item chance="381565" max="1" min="1" id="960"/>
+        <item chance="54308" max="1" min="1" id="5313"/>
+        <item chance="54308" max="1" min="1" id="5314"/>
+        <item chance="54308" max="1" min="1" id="5318"/>
+        <item chance="54308" max="1" min="1" id="5319"/>
+        <item chance="26901" max="346" min="116" id="5502"/>
+        <item chance="138092" max="67" min="23" id="5503"/>
+        <item chance="51784" max="180" min="60" id="5514"/>
+        <item chance="194191" max="48" min="16" id="5515"/>
+        <item chance="252257" max="36" min="12" id="5541"/>
+        <item chance="6360" max="1" min="1" id="6577"/>
+        <item chance="820000" max="3" min="2" id="8176"/>
+        <item chance="520000" max="1" min="1" id="8619"/>
+        <item chance="740000" max="8" min="3" id="9814"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20063" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Shooter</name>
+        <level>24</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="435.34437"/>
+            <mp regen="1.5" max="245.52"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="60.19687"/>
+                <magical speed="333.0" damage="41.10666"/>
+            </attack>
+            <defense>
+                <physical value="98.70919"/>
+                <magical value="65.72169"/>
+            </defense>
+            <move walk="50.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1156</experience>
+        <sp>56</sp>
+        <item lefthand="0" righthand="14"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="3486" max="1" min="1" id="34"/>
+        <item chance="700000" max="337" min="183" id="57"/>
+        <item chance="129" max="1" min="1" id="273"/>
+        <item chance="1621" max="1" min="1" id="1804"/>
+        <item chance="54006" max="1" min="1" id="1867"/>
+        <item chance="54006" max="1" min="1" id="1872"/>
+        <item chance="9001" max="1" min="1" id="1882"/>
+        <item chance="1424" max="1" min="1" id="2016"/>
+        <item chance="196828" max="1" min="1" id="2176"/>
+        <item chance="131428" max="1" min="1" id="2177"/>
+        <item chance="40504" max="1" min="1" id="6666"/>
+        <item chance="990" max="1" min="1" id="8294"/>
+    </droplist>
+</npc>

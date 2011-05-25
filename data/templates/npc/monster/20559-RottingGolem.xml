@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20559" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Rotting Golem</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="115.47533"/>
+            </defense>
+            <move walk="23.0" run="23.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4730</experience>
+        <sp>324</sp>
+        <collision heigth="43.4" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1009" min="492" id="57"/>
+        <item chance="17" max="1" min="1" id="71"/>
+        <item chance="17" max="1" min="1" id="72"/>
+        <item chance="500056" max="1" min="1" id="1873"/>
+        <item chance="21101" max="1" min="1" id="1895"/>
+        <item chance="1097" max="1" min="1" id="2059"/>
+        <item chance="1173" max="1" min="1" id="2060"/>
+        <item chance="63783" max="1" min="1" id="2163"/>
+        <item chance="96165" max="1" min="1" id="2164"/>
+        <item chance="5681" max="1" min="1" id="2164"/>
+        <item chance="4587" max="1" min="1" id="2219"/>
+        <item chance="246" max="1" min="1" id="5154"/>
+        <item chance="2954" max="1" min="1" id="8723"/>
+        <item chance="739" max="1" min="1" id="8733"/>
+        <item chance="74" max="1" min="1" id="8743"/>
+        <item chance="15" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

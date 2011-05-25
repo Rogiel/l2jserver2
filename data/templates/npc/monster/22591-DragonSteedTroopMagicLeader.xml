@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22591" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dragon Steed Troop Magic Leader</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5827.40072"/>
+                <magical speed="333.0" damage="4002.76725"/>
+            </attack>
+            <defense>
+                <physical value="562.93163"/>
+                <magical value="617.89341"/>
+            </defense>
+            <move walk="92.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>82741</experience>
+        <sp>8651</sp>
+        <collision heigth="39.5" radius="28.0"/>
+    </info>
+</npc>

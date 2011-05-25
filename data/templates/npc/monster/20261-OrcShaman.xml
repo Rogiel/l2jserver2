@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20261" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Orc Shaman</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="52.38915"/>
+            </defense>
+            <move walk="45.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>505</experience>
+        <sp>21</sp>
+        <item lefthand="0" righthand="7"/>
+        <collision heigth="22.0" radius="9.0"/>
+    </info>
+</npc>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18545" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ancient Experiment</name>
+        <title send="false">Event Monster</title>
+        <level>45</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1183.80594"/>
+            <mp regen="2.1" max="610.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="234.89829"/>
+                <magical speed="333.0" damage="160.40508"/>
+            </attack>
+            <defense>
+                <physical value="177.78746"/>
+                <magical value="130.09715"/>
+            </defense>
+            <move walk="30.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="127"/>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+</npc>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21016" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Warlike Tyrant</name>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="772.73802"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="129.32896"/>
+                <magical speed="333.0" damage="88.31491"/>
+            </attack>
+            <defense>
+                <physical value="136.72948"/>
+                <magical value="91.03603"/>
+            </defense>
+            <move walk="70.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2631</experience>
+        <sp>156</sp>
+        <collision heigth="29.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="732" min="367" id="57"/>
+        <item chance="94" max="1" min="1" id="58"/>
+        <item chance="135" max="1" min="1" id="59"/>
+        <item chance="94" max="1" min="1" id="349"/>
+        <item chance="94" max="1" min="1" id="350"/>
+        <item chance="85" max="1" min="1" id="351"/>
+        <item chance="135" max="1" min="1" id="378"/>
+        <item chance="135" max="1" min="1" id="379"/>
+        <item chance="131936" max="1" min="1" id="1864"/>
+        <item chance="65958" max="1" min="1" id="1869"/>
+        <item chance="868501" max="1" min="1" id="1870"/>
+        <item chance="6597" max="1" min="1" id="1880"/>
+        <item chance="193000" max="1" min="1" id="1882"/>
+        <item chance="119959" max="1" min="1" id="1901"/>
+        <item chance="8831" max="1" min="1" id="2191"/>
+        <item chance="471" max="1" min="1" id="2276"/>
+        <item chance="366" max="1" min="1" id="2293"/>
+        <item chance="880" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

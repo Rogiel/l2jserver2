@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29040" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Wings of Flame Ixion</name>
+        <title send="false">Gatekeeper of Valakas</title>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="349.46" max="218741.76"/>
+            <mp regen="10.1" max="1865.268"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5688.32"/>
+                <magical speed="333.0" damage="684.7873"/>
+            </attack>
+            <defense>
+                <physical value="2923.243"/>
+                <magical value="534.795"/>
+            </defense>
+            <move walk="57.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2535975</experience>
+        <sp>1356048</sp>
+        <collision heigth="42.0" radius="29.0"/>
+    </info>
+    <droplist>
+        <item chance="197626" max="6" min="2" id="6652"/>
+        <item chance="68620" max="54" min="18" id="6654"/>
+        <item chance="44113" max="42" min="14" id="6655"/>
+    </droplist>
+</npc>

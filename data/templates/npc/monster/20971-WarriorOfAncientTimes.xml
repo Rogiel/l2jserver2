@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20971" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Warrior of Ancient Times</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="233.61053"/>
+            </defense>
+            <move walk="15.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>23855</experience>
+        <sp>2420</sp>
+        <item lefthand="0" righthand="3937"/>
+        <collision heigth="44.0" radius="50.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2663" min="1305" id="57"/>
+        <item chance="529145" max="1" min="1" id="1876"/>
+        <item chance="105829" max="1" min="1" id="1877"/>
+        <item chance="755921" max="1" min="1" id="1895"/>
+        <item chance="3419" max="1" min="1" id="5494"/>
+        <item chance="2517" max="1" min="1" id="5525"/>
+        <item chance="2517" max="1" min="1" id="5526"/>
+        <item chance="676" max="1" min="1" id="12225"/>
+        <item chance="473" max="1" min="1" id="12226"/>
+        <item chance="473" max="1" min="1" id="12234"/>
+        <item chance="7815" max="1" min="1" id="12768"/>
+        <item chance="7815" max="1" min="1" id="12769"/>
+    </droplist>
+</npc>

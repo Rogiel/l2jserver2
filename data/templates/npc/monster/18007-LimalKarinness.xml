@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18007" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Limal Karinness</name>
+        <level>69</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2395.5"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="734.25"/>
+                <magical speed="333.0" damage="501.4"/>
+            </attack>
+            <defense>
+                <physical value="291.15"/>
+                <magical value="176.37182"/>
+            </defense>
+            <move walk="80.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5951</experience>
+        <sp>582</sp>
+        <collision heigth="40.0" radius="14.0"/>
+    </info>
+</npc>

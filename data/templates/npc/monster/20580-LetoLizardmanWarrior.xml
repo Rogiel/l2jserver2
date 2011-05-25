@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20580" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Leto Lizardman Warrior</name>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="886.09975"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="156.22273"/>
+                <magical speed="333.0" damage="106.67987"/>
+            </attack>
+            <defense>
+                <physical value="148.44287"/>
+                <magical value="98.83494"/>
+            </defense>
+            <move walk="40.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4688</experience>
+        <sp>292</sp>
+        <item lefthand="0" righthand="93"/>
+        <collision heigth="35.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1296" min="649" id="57"/>
+        <item chance="231" max="1" min="1" id="395"/>
+        <item chance="369" max="1" min="1" id="417"/>
+        <item chance="767821" max="7" min="1" id="1868"/>
+        <item chance="264603" max="1" min="1" id="1868"/>
+        <item chance="52921" max="1" min="1" id="1873"/>
+        <item chance="204752" max="1" min="1" id="1881"/>
+        <item chance="8820" max="1" min="1" id="1889"/>
+        <item chance="10122" max="1" min="1" id="1942"/>
+        <item chance="15762" max="1" min="1" id="1943"/>
+        <item chance="15545" max="1" min="1" id="2031"/>
+        <item chance="13528" max="1" min="1" id="2194"/>
+        <item chance="735" max="1" min="1" id="2288"/>
+        <item chance="13230" max="1" min="1" id="5549"/>
+    </droplist>
+</npc>

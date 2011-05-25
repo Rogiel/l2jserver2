@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21298" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Eye of Restrainer</name>
+        <level>71</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2492.727"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="710.2185"/>
+                <magical speed="333.0" damage="484.98717"/>
+            </attack>
+            <defense>
+                <physical value="300.65359"/>
+                <magical value="200.17855"/>
+            </defense>
+            <move walk="90.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16857</experience>
+        <sp>1692</sp>
+        <collision heigth="43.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4743" min="2327" id="57"/>
+        <item chance="3929" max="1" min="1" id="730"/>
+        <item chance="181359" max="30" min="10" id="1344"/>
+        <item chance="145087" max="3" min="1" id="1868"/>
+        <item chance="58035" max="1" min="1" id="1873"/>
+        <item chance="29017" max="1" min="1" id="1876"/>
+        <item chance="673616" max="3" min="1" id="1895"/>
+        <item chance="41453" max="1" min="1" id="1895"/>
+        <item chance="2418" max="1" min="1" id="4042"/>
+        <item chance="64" max="1" min="1" id="5167"/>
+        <item chance="824" max="1" min="1" id="5380"/>
+        <item chance="39651" max="1" min="1" id="5478"/>
+        <item chance="5103" max="1" min="1" id="5496"/>
+        <item chance="5103" max="1" min="1" id="5497"/>
+        <item chance="5103" max="1" min="1" id="5508"/>
+        <item chance="5103" max="1" min="1" id="5509"/>
+        <item chance="1612" max="1" min="1" id="8730"/>
+        <item chance="403" max="1" min="1" id="8740"/>
+        <item chance="41" max="1" min="1" id="8750"/>
+        <item chance="8" max="1" min="1" id="8760"/>
+        <item chance="948" max="1" min="1" id="12221"/>
+        <item chance="948" max="1" min="1" id="12224"/>
+        <item chance="948" max="1" min="1" id="12229"/>
+        <item chance="948" max="1" min="1" id="12231"/>
+    </droplist>
+</npc>

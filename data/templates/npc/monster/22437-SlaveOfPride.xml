@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22437" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Slave of Pride</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="10943.0943982571"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7013.14725"/>
+                <magical speed="333.0" damage="4872.60072"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>35640</experience>
+        <sp>3714</sp>
+        <collision heigth="35.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11073" min="5529" id="57"/>
+        <item chance="484100" max="1" min="1" id="9599"/>
+        <item chance="1594" max="1" min="1" id="8342"/>
+        <item chance="1593" max="1" min="1" id="8349"/>
+        <item chance="1594" max="1" min="1" id="5533"/>
+        <item chance="1592" max="1" min="1" id="5544"/>
+        <item chance="6" max="1" min="1" id="7902"/>
+        <item chance="6" max="1" min="1" id="7895"/>
+        <item chance="6" max="1" min="1" id="213"/>
+        <item chance="6" max="1" min="1" id="164"/>
+        <item chance="221324" max="60" min="20" id="1345"/>
+        <item chance="189706" max="1" min="1" id="1895"/>
+        <item chance="13279" max="1" min="1" id="4040"/>
+        <item chance="5208" max="1" min="1" id="9628"/>
+        <item chance="3495" max="1" min="1" id="9630"/>
+        <item chance="5312" max="1" min="1" id="9551"/>
+        <item chance="27" max="1" min="1" id="959"/>
+        <item chance="197372" max="1" min="1" id="13099"/>
+        <item chance="566" max="1" min="1" id="959"/>
+    </droplist>
+</npc>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29150" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ekimus</name>
+        <title send="false">Lord of Immortality</title>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="1754.50097962536" max="1178416.99142083"/>
+            <mp regen="1000.0" max="184680.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2054.09667"/>
+                <magical speed="333.0" damage="1506.05547"/>
+            </attack>
+            <defense>
+                <physical value="12734.94253"/>
+                <magical value="8471.70752"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="70.0" radius="25.0"/>
+    </info>
+</npc>

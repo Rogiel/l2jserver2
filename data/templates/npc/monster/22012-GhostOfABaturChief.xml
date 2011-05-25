@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22012" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of a Batur Chief</name>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="702.20463"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="113.49065"/>
+                <magical speed="333.0" damage="77.49941"/>
+            </attack>
+            <defense>
+                <physical value="129.23095"/>
+                <magical value="94.5656"/>
+            </defense>
+            <move walk="45.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2337</experience>
+        <sp>133</sp>
+        <item lefthand="0" righthand="8533"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="658" min="329" id="57"/>
+        <item chance="103504" max="1" min="1" id="1871"/>
+        <item chance="69003" max="1" min="1" id="1866"/>
+        <item chance="4140" max="1" min="1" id="1877"/>
+        <item chance="16614" max="1" min="1" id="2155"/>
+        <item chance="84" max="1" min="1" id="58"/>
+        <item chance="121" max="1" min="1" id="59"/>
+        <item chance="84" max="1" min="1" id="349"/>
+        <item chance="84" max="1" min="1" id="350"/>
+        <item chance="76" max="1" min="1" id="351"/>
+        <item chance="121" max="1" min="1" id="378"/>
+        <item chance="121" max="1" min="1" id="379"/>
+        <item chance="83370" max="1" min="1" id="2154"/>
+        <item chance="124988" max="1" min="1" id="2155"/>
+        <item chance="52348" max="1" min="1" id="1938"/>
+    </droplist>
+</npc>

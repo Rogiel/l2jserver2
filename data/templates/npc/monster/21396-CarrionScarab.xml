@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21396" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Carrion Scarab</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2802.89989"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="855.81387"/>
+                <magical speed="333.0" damage="584.40994"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="221.51582"/>
+            </defense>
+            <move walk="45.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24549</experience>
+        <sp>2687</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6264" min="3069" id="57"/>
+        <item chance="170191" max="1" min="1" id="1866"/>
+        <item chance="255287" max="3" min="1" id="1871"/>
+        <item chance="10212" max="1" min="1" id="1877"/>
+        <item chance="2766" max="1" min="1" id="3036"/>
+        <item chance="124452" max="1" min="1" id="4040"/>
+        <item chance="5106" max="1" min="1" id="4040"/>
+        <item chance="2220" max="1" min="1" id="4041"/>
+        <item chance="53" max="1" min="1" id="5157"/>
+        <item chance="968" max="1" min="1" id="5532"/>
+        <item chance="978" max="1" min="1" id="5543"/>
+        <item chance="140959" max="1" min="1" id="6342"/>
+        <item chance="967" max="1" min="1" id="8341"/>
+        <item chance="968" max="1" min="1" id="8346"/>
+        <item chance="2128" max="1" min="1" id="8732"/>
+        <item chance="532" max="1" min="1" id="8742"/>
+        <item chance="144" max="1" min="1" id="8752"/>
+        <item chance="79" max="1" min="1" id="11946"/>
+        <item chance="79" max="1" min="1" id="11949"/>
+        <item chance="79" max="1" min="1" id="11953"/>
+        <item chance="79" max="1" min="1" id="11958"/>
+    </droplist>
+</npc>

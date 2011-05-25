@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25140" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hekaton Prime</name>
+        <title send="false">Raid Boss</title>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="110.823040573561" max="344100.501827331"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1815.5076"/>
+                <magical speed="333.0" damage="606.30945"/>
+            </attack>
+            <defense>
+                <physical value="815.67099"/>
+                <magical value="397.92"/>
+            </defense>
+            <move walk="27.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4489693</experience>
+        <sp>746626</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="30660" max="1" min="1" id="98"/>
+        <item chance="103763" max="1" min="1" id="729"/>
+        <item chance="778226" max="1" min="1" id="730"/>
+        <item chance="303675" max="36" min="12" id="5542"/>
+        <item chance="71683" max="1" min="1" id="6323"/>
+        <item chance="95578" max="1" min="1" id="6324"/>
+        <item chance="143366" max="1" min="1" id="6325"/>
+        <item chance="81999" max="243" min="81" id="6341"/>
+        <item chance="36675" max="420" min="140" id="6343"/>
+        <item chance="229665" max="120" min="40" id="6345"/>
+        <item chance="12452" max="1" min="1" id="6569"/>
+        <item chance="800000" max="4" min="1" id="8176"/>
+        <item chance="800000" max="7" min="3" id="9817"/>
+    </droplist>
+</npc>

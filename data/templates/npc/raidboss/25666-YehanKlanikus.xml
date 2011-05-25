@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25666" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Yehan Klanikus</name>
+        <title send="false">Guide of Darkness</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="53.2190190842186" max="148936.33253589"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="2153.20693"/>
+                <magical speed="333.0" damage="1624.01433"/>
+            </attack>
+            <defense>
+                <physical value="703.66454"/>
+                <magical value="514.91118"/>
+            </defense>
+            <move walk="73.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5044000</experience>
+        <sp>1152586</sp>
+        <item lefthand="0" righthand="13983"/>
+        <collision heigth="62.4" radius="34.32"/>
+    </info>
+    <droplist>
+        <item chance="459188" max="3" min="1" id="3936"/>
+        <item chance="3314" max="1" min="1" id="6365"/>
+        <item chance="3314" max="1" min="1" id="6366"/>
+        <item chance="3314" max="1" min="1" id="6369"/>
+        <item chance="81633" max="1" min="1" id="6578"/>
+        <item chance="3314" max="1" min="1" id="6579"/>
+        <item chance="19710" max="1" min="1" id="6676"/>
+        <item chance="19710" max="1" min="1" id="6677"/>
+        <item chance="19710" max="1" min="1" id="6681"/>
+        <item chance="19710" max="1" min="1" id="6682"/>
+        <item chance="19710" max="1" min="1" id="6685"/>
+        <item chance="19710" max="1" min="1" id="6686"/>
+        <item chance="46949" max="48" min="16" id="6689"/>
+        <item chance="73055" max="31" min="11" id="6690"/>
+        <item chance="129915" max="18" min="6" id="6693"/>
+        <item chance="300476" max="7" min="3" id="6697"/>
+        <item chance="20014" max="336" min="112" id="6703"/>
+        <item chance="166040" max="40" min="14" id="6704"/>
+        <item chance="112077" max="60" min="20" id="6708"/>
+        <item chance="81510" max="82" min="28" id="6709"/>
+        <item chance="62265" max="108" min="36" id="6712"/>
+        <item chance="49264" max="136" min="46" id="6713"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22128" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Monastery Guardian</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="268.81345"/>
+            </defense>
+            <move walk="65.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9741</experience>
+        <sp>1132</sp>
+        <collision heigth="15.6" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2816" min="1380" id="57"/>
+        <item chance="5" max="1" min="1" id="289"/>
+        <item chance="69" max="1" min="1" id="960"/>
+        <item chance="172163" max="3" min="1" id="1864"/>
+        <item chance="172163" max="1" min="1" id="1869"/>
+        <item chance="186510" max="1" min="1" id="1875"/>
+        <item chance="17216" max="1" min="1" id="1880"/>
+        <item chance="24327" max="1" min="1" id="4041"/>
+        <item chance="5739" max="1" min="1" id="4043"/>
+        <item chance="1418" max="1" min="1" id="5534"/>
+        <item chance="2296" max="1" min="1" id="5550"/>
+        <item chance="5933" max="1" min="1" id="6695"/>
+    </droplist>
+</npc>

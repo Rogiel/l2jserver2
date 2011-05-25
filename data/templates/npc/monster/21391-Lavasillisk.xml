@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21391" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lavasillisk</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="253.53446"/>
+            </defense>
+            <move walk="35.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>47322</experience>
+        <sp>5501</sp>
+        <collision heigth="25.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="13681" min="6703" id="57"/>
+        <item chance="201" max="1" min="1" id="960"/>
+        <item chance="156826" max="120" min="40" id="1344"/>
+        <item chance="24782" max="39" min="13" id="1867"/>
+        <item chance="100369" max="6" min="2" id="1869"/>
+        <item chance="83641" max="9" min="3" id="1870"/>
+        <item chance="71692" max="9" min="3" id="1871"/>
+        <item chance="41820" max="24" min="8" id="1872"/>
+        <item chance="1721" max="1" min="1" id="5533"/>
+        <item chance="1719" max="1" min="1" id="5544"/>
+        <item chance="28824" max="1" min="1" id="6695"/>
+        <item chance="29845" max="1" min="1" id="6696"/>
+        <item chance="28824" max="1" min="1" id="6697"/>
+        <item chance="1721" max="1" min="1" id="8342"/>
+        <item chance="1720" max="1" min="1" id="8349"/>
+        <item chance="4182" max="1" min="1" id="8732"/>
+        <item chance="1045" max="1" min="1" id="8742"/>
+        <item chance="105" max="1" min="1" id="8752"/>
+        <item chance="112" max="1" min="1" id="11966"/>
+        <item chance="112" max="1" min="1" id="11969"/>
+        <item chance="112" max="1" min="1" id="11970"/>
+        <item chance="112" max="1" min="1" id="11974"/>
+    </droplist>
+</npc>

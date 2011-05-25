@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zones>
+	<castle>
+		<siege>
+			<zone id="GLUDIO_CASTLE_BATTLEFIELD_TERRITORY">
+				<point x="" y="" />
+			</zone>
+		</siege>
+	</castle>
+</zones>

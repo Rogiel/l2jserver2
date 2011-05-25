@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20275" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Cave Servant Captain</name>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1372.18568"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="290.44588"/>
+                <magical speed="333.0" damage="198.33688"/>
+            </attack>
+            <defense>
+                <physical value="195.66302"/>
+                <magical value="130.27465"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3562</experience>
+        <sp>263</sp>
+        <item lefthand="0" righthand="73"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+</npc>

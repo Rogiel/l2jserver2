@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20113" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Undine Elder</name>
+        <level>18</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="2.5" max="301.66622"/>
+            <mp regen="1.2" max="174.64"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="37.82932"/>
+                <magical speed="333.0" damage="25.83252"/>
+            </attack>
+            <defense>
+                <physical value="81.34791"/>
+                <magical value="54.16236"/>
+            </defense>
+            <move walk="60.0" run="60.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1012</experience>
+        <sp>44</sp>
+        <collision heigth="27.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="758" max="1" min="1" id="24"/>
+        <item chance="1210" max="1" min="1" id="31"/>
+        <item chance="700000" max="316" min="192" id="57"/>
+        <item chance="758" max="1" min="1" id="390"/>
+        <item chance="1210" max="1" min="1" id="412"/>
+        <item chance="23834" max="1" min="1" id="1801"/>
+        <item chance="47309" max="1" min="1" id="1865"/>
+        <item chance="400397" max="1" min="1" id="1870"/>
+        <item chance="47309" max="1" min="1" id="1870"/>
+        <item chance="66733" max="1" min="1" id="1879"/>
+        <item chance="7885" max="1" min="1" id="1879"/>
+        <item chance="262556" max="1" min="1" id="1925"/>
+        <item chance="1893" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

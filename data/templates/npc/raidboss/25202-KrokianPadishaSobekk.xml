@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25202" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Krokian Padisha Sobekk</name>
+        <title send="false">Raid Boss</title>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="122.142751323234" max="392895.926408634"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2396.99019"/>
+                <magical speed="333.0" damage="851.89721"/>
+            </attack>
+            <defense>
+                <physical value="943.97961"/>
+                <magical value="460.5"/>
+            </defense>
+            <move walk="18.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5199407</experience>
+        <sp>852059</sp>
+        <item lefthand="0" righthand="5130"/>
+        <collision heigth="86.0" radius="52.0"/>
+    </info>
+    <droplist>
+        <item chance="5790" max="1" min="1" id="81"/>
+        <item chance="5790" max="1" min="1" id="151"/>
+        <item chance="38915" max="1" min="1" id="959"/>
+        <item chance="389154" max="1" min="1" id="960"/>
+        <item chance="5790" max="1" min="1" id="2500"/>
+        <item chance="18186" max="1" min="1" id="5326"/>
+        <item chance="18186" max="1" min="1" id="5329"/>
+        <item chance="289680" max="21" min="7" id="5487"/>
+        <item chance="168980" max="36" min="12" id="5488"/>
+        <item chance="49416" max="75" min="25" id="5529"/>
+        <item chance="37437" max="99" min="33" id="5545"/>
+        <item chance="75387" max="54" min="18" id="5546"/>
+        <item chance="6486" max="1" min="1" id="6577"/>
+        <item chance="820000" max="4" min="1" id="8176"/>
+        <item chance="560000" max="1" min="1" id="8619"/>
+        <item chance="820000" max="7" min="3" id="9816"/>
+    </droplist>
+</npc>

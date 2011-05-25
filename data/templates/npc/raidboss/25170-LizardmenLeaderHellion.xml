@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25170" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lizardmen Leader Hellion</name>
+        <title send="false">Raid Boss</title>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="30.8726873073006" max="82089.0524454172"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="204.55422"/>
+                <magical speed="333.0" damage="16.14769"/>
+            </attack>
+            <defense>
+                <physical value="445.32861"/>
+                <magical value="217.24"/>
+            </defense>
+            <move walk="53.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1957608</experience>
+        <sp>163199</sp>
+        <item lefthand="0" righthand="223"/>
+        <collision heigth="63.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="25658" max="16" min="6" id="631"/>
+        <item chance="145399" max="120" min="40" id="1964"/>
+        <item chance="197590" max="1" min="1" id="2413"/>
+        <item chance="282245" max="1" min="1" id="2495"/>
+        <item chance="37732" max="420" min="140" id="2936"/>
+        <item chance="71802" max="243" min="81" id="2945"/>
+        <item chance="36743" max="1" min="1" id="226"/>
+        <item chance="36743" max="1" min="1" id="232"/>
+        <item chance="321455" max="12" min="4" id="2070"/>
+        <item chance="171443" max="22" min="8" id="2072"/>
+        <item chance="763333" max="3" min="1" id="951"/>
+    </droplist>
+</npc>

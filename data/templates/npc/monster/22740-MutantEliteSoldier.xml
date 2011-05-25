@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22740" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mutant Elite Soldier</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="189.142969481803" max="112020.349673277"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9081.16883"/>
+                <magical speed="333.0" damage="6201.26109"/>
+            </attack>
+            <defense>
+                <physical value="572.58757"/>
+                <magical value="628.4921"/>
+            </defense>
+            <move walk="45.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>650930</experience>
+        <sp>66985</sp>
+        <collision heigth="35.0" radius="15.0"/>
+    </info>
+</npc>

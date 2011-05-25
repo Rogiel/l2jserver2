@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29003" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Nurse Ant</name>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="108.0" max="4000.0"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="637.0"/>
+                <magical speed="333.0" damage="395.0"/>
+            </attack>
+            <defense>
+                <physical value="547.0"/>
+                <magical value="200.0"/>
+            </defense>
+            <move walk="40.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>1</sp>
+        <collision heigth="15.0" radius="26.0"/>
+    </info>
+</npc>

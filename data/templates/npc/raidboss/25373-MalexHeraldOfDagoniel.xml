@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25373" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Malex Herald of Dagoniel</name>
+        <title send="false">Raid Boss</title>
+        <level>21</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="16.8269664693931" max="37886.4853669374"/>
+            <mp regen="1.5" max="205.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="53.12758"/>
+                <magical speed="333.0" damage="3.16861"/>
+            </attack>
+            <defense>
+                <physical value="269.19177"/>
+                <magical value="131.32"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2646357</experience>
+        <sp>60367</sp>
+        <collision heigth="54.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="456101" max="4" min="2" id="46"/>
+        <item chance="318120" max="1" min="1" id="315"/>
+        <item chance="244158" max="12" min="4" id="627"/>
+        <item chance="283795" max="36" min="12" id="6387"/>
+        <item chance="37839" max="1" min="1" id="6575"/>
+        <item chance="340555" max="1" min="1" id="6576"/>
+    </droplist>
+</npc>

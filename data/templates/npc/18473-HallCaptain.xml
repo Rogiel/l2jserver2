@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18473" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hall Captain</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="336949.124088359"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7733.38416"/>
+                <magical speed="333.0" damage="5280.89889"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="40.0" run="250.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>724449</experience>
+        <sp>78237</sp>
+        <collision heigth="48.8" radius="34.0"/>
+    </info>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20497" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Turek Orc Skirmisher</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2682</experience>
+        <sp>140</sp>
+        <item lefthand="0" righthand="121"/>
+        <collision heigth="22.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="143825" max="1" min="1" id="1899"/>
+        <item chance="12232" max="1" min="1" id="2018"/>
+        <item chance="14293" max="1" min="1" id="2259"/>
+        <item chance="700000" max="773" min="395" id="57"/>
+        <item chance="1072" max="1" min="1" id="391"/>
+        <item chance="1716" max="1" min="1" id="413"/>
+        <item chance="5740" max="1" min="1" id="1874"/>
+        <item chance="34440" max="1" min="1" id="1878"/>
+        <item chance="52985" max="1" min="1" id="1884"/>
+        <item chance="5740" max="1" min="1" id="1889"/>
+        <item chance="1337" max="1" min="1" id="2261"/>
+        <item chance="3444" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

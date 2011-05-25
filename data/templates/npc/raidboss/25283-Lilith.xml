@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25283" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lilith</name>
+        <title send="false">Raid Boss</title>
+        <level>80</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="211.789458580091" max="688716.902670109"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3893.46388"/>
+                <magical speed="333.0" damage="630.9984"/>
+            </attack>
+            <defense>
+                <physical value="1024.125"/>
+                <magical value="499.6"/>
+            </defense>
+            <move walk="45.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>9911897</experience>
+        <sp>1421059</sp>
+        <collision heigth="55.0" radius="42.5"/>
+    </info>
+    <droplist>
+        <item chance="653164" max="3" min="1" id="3936"/>
+        <item chance="6285" max="1" min="1" id="6364"/>
+        <item chance="6285" max="1" min="1" id="6372"/>
+        <item chance="116118" max="1" min="1" id="6578"/>
+        <item chance="193620" max="22" min="8" id="6688"/>
+        <item chance="368805" max="12" min="4" id="6696"/>
+        <item chance="18854" max="1" min="1" id="7575"/>
+        <item chance="367231" max="36" min="12" id="7579"/>
+    </droplist>
+</npc>

@@ -32,7 +32,7 @@ public class BaseHPCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getHpBase();
+				ctx.result = c.getTemplate().getBaseHP();
 			}
 		}, new AbstractFunction<L2Character>(0x100) {
 			@Override
@@ -40,9 +40,9 @@ public class BaseHPCalculator extends CharacterCalculator {
 				final CharacterTemplate template = c.getTemplate();
 
 				int lvl = c.getLevel() - template.getMinimumLevel();
-				double mod = template.getHpMultiplier() * lvl;
-				double max = (template.getHpAdd() + mod) * lvl;
-				double min = (template.getHpAdd() * lvl) + mod;
+				double mod = template.getBaseHP() * lvl;
+				double max = (template.getBaseHPAdd() + mod) * lvl;
+				double min = (template.getBaseHPAdd() * lvl) + mod;
 
 				ctx.result += (max + min) / 2;
 			}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20191" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Skeleton Raider</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1602</experience>
+        <sp>88</sp>
+        <item lefthand="945" righthand="946"/>
+        <collision heigth="25.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="457" min="228" id="57"/>
+        <item chance="1156" max="1" min="1" id="605"/>
+        <item chance="1156" max="1" min="1" id="1123"/>
+        <item chance="56374" max="1" min="1" id="1867"/>
+        <item chance="56374" max="1" min="1" id="1872"/>
+        <item chance="9396" max="1" min="1" id="1882"/>
+        <item chance="59256" max="1" min="1" id="1900"/>
+        <item chance="84230" max="1" min="1" id="2153"/>
+        <item chance="8323" max="1" min="1" id="2185"/>
+        <item chance="5601" max="1" min="1" id="2264"/>
+        <item chance="302" max="1" min="1" id="2274"/>
+        <item chance="302" max="1" min="1" id="2279"/>
+        <item chance="26425" max="1" min="1" id="6667"/>
+    </droplist>
+</npc>

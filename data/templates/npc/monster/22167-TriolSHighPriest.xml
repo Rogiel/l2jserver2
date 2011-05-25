@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22167" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Triol's High Priest</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="9.027" max="3163.0432152"/>
+            <mp regen="3.1824" max="1955.34"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1076.93138"/>
+                <magical speed="333.0" damage="781.26136"/>
+            </attack>
+            <defense>
+                <physical value="410.87895"/>
+                <magical value="300.66338"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>53679</experience>
+        <sp>6304</sp>
+        <item lefthand="8206" righthand="8206"/>
+        <collision heigth="19.1" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="15108" min="7370" id="57"/>
+        <item chance="443" max="1" min="1" id="960"/>
+        <item chance="38839" max="1" min="1" id="1894"/>
+        <item chance="36897" max="1" min="1" id="4039"/>
+        <item chance="9625" max="1" min="1" id="4041"/>
+        <item chance="36897" max="1" min="1" id="4044"/>
+        <item chance="42" max="1" min="1" id="5326"/>
+        <item chance="42" max="1" min="1" id="5329"/>
+        <item chance="6230" max="1" min="1" id="5487"/>
+        <item chance="6230" max="1" min="1" id="5488"/>
+        <item chance="243157" max="1" min="1" id="6710"/>
+        <item chance="74269" max="1" min="1" id="6711"/>
+        <item chance="213418" max="1" min="1" id="6712"/>
+    </droplist>
+</npc>

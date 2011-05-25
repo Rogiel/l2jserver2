@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21153" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Purgatory Serpent</name>
+        <level>56</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1724.6831"/>
+            <mp regen="2.4" max="918.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="405.96455"/>
+                <magical speed="333.0" damage="277.22116"/>
+            </attack>
+            <defense>
+                <physical value="228.40135"/>
+                <magical value="152.0722"/>
+            </defense>
+            <move walk="70.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14344</experience>
+        <sp>1178</sp>
+        <item lefthand="0" righthand="73"/>
+        <collision heigth="46.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3892" min="1906" id="57"/>
+        <item chance="22" max="1" min="1" id="357"/>
+        <item chance="36" max="1" min="1" id="383"/>
+        <item chance="1932" max="1" min="1" id="947"/>
+        <item chance="52" max="1" min="1" id="947"/>
+        <item chance="4551" max="1" min="1" id="1894"/>
+        <item chance="22" max="1" min="1" id="2376"/>
+        <item chance="36" max="1" min="1" id="2379"/>
+        <item chance="259" max="1" min="1" id="3955"/>
+        <item chance="4324" max="1" min="1" id="4039"/>
+        <item chance="1128" max="1" min="1" id="4041"/>
+        <item chance="4324" max="1" min="1" id="4044"/>
+        <item chance="253365" max="1" min="1" id="4049"/>
+        <item chance="3229" max="1" min="1" id="4056"/>
+        <item chance="4991" max="1" min="1" id="4057"/>
+        <item chance="3229" max="1" min="1" id="4064"/>
+        <item chance="4991" max="1" min="1" id="4065"/>
+        <item chance="52277" max="1" min="1" id="4129"/>
+        <item chance="259" max="1" min="1" id="5280"/>
+        <item chance="2594" max="1" min="1" id="8727"/>
+        <item chance="649" max="1" min="1" id="8737"/>
+        <item chance="65" max="1" min="1" id="8747"/>
+        <item chance="13" max="1" min="1" id="8757"/>
+    </droplist>
+</npc>

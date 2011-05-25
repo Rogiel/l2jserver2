@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22050" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Probe Golem Prodigy IV</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="133.31739"/>
+            </defense>
+            <move walk="30.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4787</experience>
+        <sp>338</sp>
+        <collision heigth="43.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1284" min="628" id="57"/>
+        <item chance="21" max="1" min="1" id="226"/>
+        <item chance="21" max="1" min="1" id="232"/>
+        <item chance="100438" max="1" min="1" id="1867"/>
+        <item chance="100438" max="1" min="1" id="1872"/>
+        <item chance="5022" max="1" min="1" id="1875"/>
+        <item chance="212515" max="1" min="1" id="1881"/>
+        <item chance="10044" max="1" min="1" id="1881"/>
+        <item chance="150934" max="1" min="1" id="1908"/>
+        <item chance="1495" max="1" min="1" id="2070"/>
+        <item chance="1495" max="1" min="1" id="2072"/>
+        <item chance="81320" max="1" min="1" id="2163"/>
+        <item chance="3843" max="1" min="1" id="2163"/>
+        <item chance="655" max="1" min="1" id="4041"/>
+        <item chance="3013" max="1" min="1" id="8723"/>
+        <item chance="753" max="1" min="1" id="8733"/>
+        <item chance="75" max="1" min="1" id="8743"/>
+        <item chance="15" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

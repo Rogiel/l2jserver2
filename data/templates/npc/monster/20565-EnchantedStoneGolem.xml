@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20565" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Enchanted Stone Golem</name>
+        <level>42</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1050.81652"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="198.34591"/>
+                <magical speed="333.0" damage="135.44454"/>
+            </attack>
+            <defense>
+                <physical value="164.88513"/>
+                <magical value="109.78238"/>
+            </defense>
+            <move walk="23.0" run="23.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4353</experience>
+        <sp>290</sp>
+        <collision heigth="40.3" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="932" min="461" id="57"/>
+        <item chance="41" max="1" min="1" id="262"/>
+        <item chance="572525" max="3" min="1" id="1865"/>
+        <item chance="5476" max="1" min="1" id="1875"/>
+        <item chance="13690" max="1" min="1" id="1879"/>
+        <item chance="6845" max="1" min="1" id="1885"/>
+        <item chance="2378" max="1" min="1" id="2053"/>
+        <item chance="359" max="1" min="1" id="2303"/>
+        <item chance="3466" max="1" min="1" id="2988"/>
+        <item chance="3817" max="1" min="1" id="3954"/>
+        <item chance="6543" max="1" min="1" id="4470"/>
+        <item chance="8214" max="1" min="1" id="5549"/>
+        <item chance="1095" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

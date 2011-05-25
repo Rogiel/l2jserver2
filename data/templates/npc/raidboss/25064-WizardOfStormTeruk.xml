@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25064" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Wizard of Storm Teruk</name>
+        <title send="false">Raid Boss</title>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="34.0387779378852" max="91937.3861400206"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="236.34363"/>
+                <magical speed="333.0" damage="18.66292"/>
+            </attack>
+            <defense>
+                <physical value="469.65105"/>
+                <magical value="229.12"/>
+            </defense>
+            <move walk="43.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2030965</experience>
+        <sp>181264</sp>
+        <item lefthand="0" righthand="90"/>
+        <collision heigth="55.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="258667" max="1" min="1" id="852"/>
+        <item chance="35288" max="16" min="6" id="883"/>
+        <item chance="194081" max="1" min="1" id="915"/>
+        <item chance="90193" max="243" min="81" id="1908"/>
+        <item chance="21705" max="1440" min="480" id="1909"/>
+        <item chance="41495" max="420" min="140" id="1910"/>
+        <item chance="9846" max="1" min="1" id="89"/>
+        <item chance="9846" max="1" min="1" id="160"/>
+        <item chance="9846" max="1" min="1" id="161"/>
+        <item chance="9846" max="1" min="1" id="173"/>
+        <item chance="9846" max="1" min="1" id="191"/>
+        <item chance="9846" max="1" min="1" id="192"/>
+        <item chance="9846" max="1" min="1" id="193"/>
+        <item chance="9846" max="1" min="1" id="194"/>
+        <item chance="167705" max="6" min="2" id="2061"/>
+        <item chance="134164" max="7" min="3" id="2063"/>
+        <item chance="111803" max="9" min="3" id="2064"/>
+        <item chance="95832" max="10" min="4" id="2065"/>
+        <item chance="34035" max="30" min="10" id="2066"/>
+        <item chance="78187" max="12" min="4" id="2067"/>
+        <item chance="69499" max="13" min="5" id="2068"/>
+        <item chance="20623" max="49" min="17" id="2069"/>
+        <item chance="81822" max="7" min="3" id="951"/>
+        <item chance="375022" max="3" min="1" id="4591"/>
+        <item chance="250015" max="4" min="2" id="4592"/>
+        <item chance="187511" max="6" min="2" id="4593"/>
+        <item chance="640000" max="3" min="1" id="9818"/>
+        <item chance="640000" max="1" min="1" id="8176"/>
+    </droplist>
+</npc>

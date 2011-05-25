@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22150" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Triol's Believer</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="268.81345"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>29760</experience>
+        <sp>3290</sp>
+        <item lefthand="0" righthand="8205"/>
+        <collision heigth="28.4" radius="7.7"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8341" min="4087" id="57"/>
+        <item chance="50994" max="6" min="2" id="1873"/>
+        <item chance="145698" max="1" min="1" id="1895"/>
+        <item chance="169981" max="9" min="3" id="1868"/>
+        <item chance="101988" max="1" min="1" id="1876"/>
+        <item chance="8499" max="1" min="1" id="4042"/>
+        <item chance="510" max="1" min="1" id="6901"/>
+        <item chance="1399" max="1" min="1" id="5529"/>
+        <item chance="1536" max="1" min="1" id="5546"/>
+        <item chance="1399" max="1" min="1" id="5545"/>
+        <item chance="5" max="1" min="1" id="81"/>
+        <item chance="5" max="1" min="1" id="151"/>
+        <item chance="5" max="1" min="1" id="2500"/>
+        <item chance="8287" max="1" min="1" id="6901"/>
+        <item chance="17911" max="1" min="1" id="6688"/>
+    </droplist>
+</npc>

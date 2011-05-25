@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20352" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dre Vanul Slayer</name>
+        <level>22</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="387.02878"/>
+            <mp regen="1.5" max="218.52"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="51.75278"/>
+                <magical speed="333.0" damage="35.34044"/>
+            </attack>
+            <defense>
+                <physical value="92.65694"/>
+                <magical value="61.69203"/>
+            </defense>
+            <move walk="80.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>921</experience>
+        <sp>43</sp>
+        <collision heigth="36.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="1791" max="1" min="1" id="26"/>
+        <item chance="700000" max="276" min="154" id="57"/>
+        <item chance="107" max="1" min="1" id="68"/>
+        <item chance="80011" max="1" min="1" id="1864"/>
+        <item chance="40005" max="1" min="1" id="1869"/>
+        <item chance="135435" max="1" min="1" id="1878"/>
+        <item chance="16002" max="1" min="1" id="1878"/>
+        <item chance="1600" max="1" min="1" id="5163"/>
+        <item chance="1600" max="1" min="1" id="5273"/>
+        <item chance="107" max="1" min="1" id="5284"/>
+    </droplist>
+</npc>

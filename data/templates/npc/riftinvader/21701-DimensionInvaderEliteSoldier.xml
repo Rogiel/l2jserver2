@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21701" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dimension Invader Elite Soldier</name>
+        <level>43</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1094.28943"/>
+            <mp regen="2.1" max="557.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="210.04832"/>
+                <magical speed="333.0" damage="143.43577"/>
+            </attack>
+            <defense>
+                <physical value="169.13417"/>
+                <magical value="112.61144"/>
+            </defense>
+            <move walk="70.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14357</experience>
+        <sp>971</sp>
+        <item lefthand="0" righthand="135"/>
+        <collision heigth="31.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3837" min="1889" id="57"/>
+        <item chance="464775" max="1" min="1" id="1905"/>
+        <item chance="308251" max="1" min="1" id="2160"/>
+        <item chance="853195" max="3" min="1" id="6668"/>
+        <item chance="478839" max="9" min="3" id="6668"/>
+    </droplist>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21168" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lith Warrior</name>
+        <level>27</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="72.09915"/>
+            </defense>
+            <move walk="53.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3420</experience>
+        <sp>175</sp>
+        <item lefthand="0" righthand="5796"/>
+        <collision heigth="33.6" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="1602" max="1" min="1" id="847"/>
+        <item chance="2403" max="1" min="1" id="890"/>
+        <item chance="1201" max="1" min="1" id="910"/>
+        <item chance="110531" max="3" min="1" id="1868"/>
+        <item chance="44213" max="1" min="1" id="1873"/>
+        <item chance="78778" max="1" min="1" id="1889"/>
+        <item chance="7369" max="1" min="1" id="1889"/>
+        <item chance="184636" max="1" min="1" id="1899"/>
+        <item chance="25906" max="1" min="1" id="1899"/>
+        <item chance="1716" max="1" min="1" id="2262"/>
+        <item chance="118167" max="1" min="1" id="5549"/>
+        <item chance="11053" max="1" min="1" id="5549"/>
+        <item chance="221063" max="1" min="1" id="6037"/>
+        <item chance="700000" max="190" min="97" id="6360"/>
+        <item chance="700000" max="41" min="22" id="6362"/>
+    </droplist>
+</npc>

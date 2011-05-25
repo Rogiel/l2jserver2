@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22757" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Elite Turtlelian</name>
+        <title send="false">Reptilikon</title>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.260794107867" max="111546.700057767"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="11740.1012"/>
+                <magical speed="333.0" damage="8513.53763"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="29.0" run="93.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1209443</experience>
+        <sp>121549</sp>
+        <collision heigth="42.0" radius="38.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="170209" min="91773" id="57"/>
+        <item chance="72200" max="215" min="75" id="1895"/>
+        <item chance="150800" max="6" min="2" id="4040"/>
+        <item chance="2100" max="1" min="1" id="9554"/>
+        <item chance="21500" max="1" min="1" id="9628"/>
+        <item chance="224300" max="1" min="1" id="9630"/>
+        <item chance="13000" max="1" min="1" id="15637"/>
+        <item chance="1500" max="1" min="1" id="15818"/>
+        <item chance="87400" max="1" min="1" id="16160"/>
+        <item chance="26900" max="1" min="1" id="16161"/>
+    </droplist>
+</npc>

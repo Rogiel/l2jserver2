@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29051" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Breath of Halisha</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="1.01" max="12996.4412419667"/>
+            <mp regen="3.03" max="20560.2695810843"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1556.78629"/>
+                <magical speed="333.0" damage="1073.71406"/>
+            </attack>
+            <defense>
+                <physical value="642.23687"/>
+                <magical value="428.15792"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="40.0" radius="23.0"/>
+    </info>
+</npc>

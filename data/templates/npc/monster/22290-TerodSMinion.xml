@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22290" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Terod's Minion</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5793.32235"/>
+                <magical speed="333.0" damage="3956.08814"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>101261</experience>
+        <sp>11072</sp>
+        <collision heigth="35.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="28869" min="14094" id="57"/>
+        <item chance="148149" max="1" min="1" id="5549"/>
+        <item chance="98766" max="1" min="1" id="1889"/>
+        <item chance="98766" max="45" min="15" id="1868"/>
+        <item chance="49383" max="1" min="1" id="4044"/>
+        <item chance="24692" max="36" min="12" id="1873"/>
+        <item chance="11852" max="1" min="1" id="9546"/>
+        <item chance="3556" max="1" min="1" id="8342"/>
+        <item chance="3556" max="1" min="1" id="5533"/>
+        <item chance="3555" max="1" min="1" id="8349"/>
+        <item chance="3552" max="1" min="1" id="5544"/>
+        <item chance="1482" max="1" min="1" id="6901"/>
+        <item chance="230" max="1" min="1" id="11966"/>
+        <item chance="230" max="1" min="1" id="11969"/>
+        <item chance="230" max="1" min="1" id="11970"/>
+        <item chance="230" max="1" min="1" id="11974"/>
+        <item chance="94799" max="1" min="1" id="5487"/>
+        <item chance="94465" max="1" min="1" id="5481"/>
+        <item chance="9356" max="1" min="1" id="1808"/>
+    </droplist>
+</npc>

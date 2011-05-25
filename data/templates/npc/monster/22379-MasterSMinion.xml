@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22379" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Master's Minion</name>
+        <level>83</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="32829.2831947712"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="5981.54451"/>
+                <magical speed="333.0" damage="4155.86285"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="64.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>163810</experience>
+        <sp>17073</sp>
+        <item lefthand="0" righthand="946"/>
+        <collision heigth="21.5" radius="6.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="32048" min="16002" id="57"/>
+        <item chance="560500" max="4" min="1" id="9599"/>
+        <item chance="15092" max="1" min="1" id="5480"/>
+        <item chance="15092" max="1" min="1" id="5481"/>
+        <item chance="102" max="1" min="1" id="5320"/>
+        <item chance="102" max="1" min="1" id="5323"/>
+        <item chance="240210" max="12" min="4" id="1871"/>
+        <item chance="85408" max="21" min="7" id="1866"/>
+        <item chance="76867" max="1" min="1" id="1877"/>
+        <item chance="38433" max="1" min="1" id="4040"/>
+        <item chance="16710" max="1" min="1" id="4041"/>
+        <item chance="15374" max="1" min="1" id="9551"/>
+        <item chance="77" max="1" min="1" id="959"/>
+        <item chance="66279" max="1" min="1" id="8719"/>
+        <item chance="66279" max="1" min="1" id="8720"/>
+        <item chance="27307" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

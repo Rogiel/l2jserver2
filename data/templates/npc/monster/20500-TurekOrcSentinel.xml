@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20500" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Turek Orc Sentinel</name>
+        <level>25</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="460.96247"/>
+            <mp regen="1.5" max="259.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="64.83203"/>
+                <magical speed="333.0" damage="44.27187"/>
+            </attack>
+            <defense>
+                <physical value="101.83533"/>
+                <magical value="67.80312"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2215</experience>
+        <sp>110</sp>
+        <item lefthand="0" righthand="3"/>
+        <collision heigth="21.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="644" min="344" id="57"/>
+        <item chance="1058" max="1" min="1" id="847"/>
+        <item chance="1587" max="1" min="1" id="890"/>
+        <item chance="794" max="1" min="1" id="910"/>
+        <item chance="520412" max="3" min="1" id="1867"/>
+        <item chance="7302" max="1" min="1" id="1874"/>
+        <item chance="43810" max="1" min="1" id="1878"/>
+        <item chance="17114" max="1" min="1" id="1899"/>
+        <item chance="102042" max="1" min="1" id="1931"/>
+        <item chance="123908" max="1" min="1" id="1932"/>
+        <item chance="1701" max="1" min="1" id="2262"/>
+        <item chance="4381" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

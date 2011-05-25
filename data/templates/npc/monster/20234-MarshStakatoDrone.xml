@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20234" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Marsh Stakato Drone</name>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="772.73802"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="129.32896"/>
+                <magical speed="333.0" damage="88.31491"/>
+            </attack>
+            <defense>
+                <physical value="136.72948"/>
+                <magical value="91.03603"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2268</experience>
+        <sp>134</sp>
+        <item lefthand="0" righthand="219"/>
+        <collision heigth="24.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="124798" max="1" min="1" id="1879"/>
+        <item chance="50339" max="1" min="1" id="1938"/>
+        <item chance="40042" max="1" min="1" id="2971"/>
+        <item chance="700000" max="631" min="316" id="57"/>
+        <item chance="53" max="1" min="1" id="293"/>
+        <item chance="53" max="1" min="1" id="296"/>
+        <item chance="159250" max="1" min="1" id="1868"/>
+        <item chance="31850" max="1" min="1" id="1873"/>
+        <item chance="15925" max="1" min="1" id="1876"/>
+        <item chance="5687" max="1" min="1" id="2188"/>
+        <item chance="10659" max="1" min="1" id="2979"/>
+    </droplist>
+</npc>

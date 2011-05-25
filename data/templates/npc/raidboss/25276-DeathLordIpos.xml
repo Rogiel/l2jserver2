@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25276" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Death Lord Ipos</name>
+        <title send="false">Raid Boss</title>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="308.04072385958" max="794874.502880181"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4902.44696"/>
+                <magical speed="333.0" damage="3475.50411"/>
+            </attack>
+            <defense>
+                <physical value="957.73869"/>
+                <magical value="467.22"/>
+            </defense>
+            <move walk="40.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5231148</experience>
+        <sp>864099</sp>
+        <item lefthand="0" righthand="78"/>
+        <collision heigth="61.5" radius="31.0"/>
+    </info>
+    <droplist>
+        <item chance="733315" max="1" min="1" id="3936"/>
+        <item chance="5292" max="1" min="1" id="6364"/>
+        <item chance="5292" max="1" min="1" id="6372"/>
+        <item chance="65184" max="1" min="1" id="6578"/>
+        <item chance="163036" max="22" min="8" id="6688"/>
+        <item chance="310549" max="12" min="4" id="6696"/>
+        <item chance="60970" max="243" min="81" id="6698"/>
+        <item chance="137001" max="120" min="40" id="6699"/>
+        <item chance="214999" max="42" min="14" id="6700"/>
+        <item chance="30755" max="1" min="1" id="6724"/>
+        <item chance="46133" max="1" min="1" id="6725"/>
+        <item chance="23061" max="1" min="1" id="6726"/>
+    </droplist>
+</npc>

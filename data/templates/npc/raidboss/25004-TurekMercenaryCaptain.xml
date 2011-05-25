@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25004" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Turek Mercenary Captain</name>
+        <title send="false">Raid Boss</title>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="28.5646425862605" max="70742.0690017771"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="208.03648"/>
+                <magical speed="333.0" damage="25.01772"/>
+            </attack>
+            <defense>
+                <physical value="355.39281"/>
+                <magical value="173.38"/>
+            </defense>
+            <move walk="45.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1868579</experience>
+        <sp>150667</sp>
+        <item lefthand="0" righthand="124"/>
+        <collision heigth="35.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="143869" max="1" min="1" id="352"/>
+        <item chance="23469" max="420" min="140" id="1941"/>
+        <item chance="20921" max="16" min="6" id="2377"/>
+        <item chance="230131" max="1" min="1" id="2378"/>
+        <item chance="122541" max="120" min="40" id="2918"/>
+        <item chance="60514" max="243" min="81" id="2919"/>
+        <item chance="69232" max="1" min="1" id="224"/>
+        <item chance="69232" max="1" min="1" id="1660"/>
+        <item chance="81836" max="72" min="24" id="2038"/>
+        <item chance="261874" max="22" min="8" id="2044"/>
+        <item chance="321287" max="180" min="60" id="6387"/>
+    </droplist>
+</npc>

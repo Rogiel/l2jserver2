@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22095" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ursus Cub</name>
+        <level>61</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="1985.55926"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="501.08068"/>
+                <magical speed="333.0" damage="342.17315"/>
+            </attack>
+            <defense>
+                <physical value="252.49346"/>
+                <magical value="184.76376"/>
+            </defense>
+            <move walk="40.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5689</experience>
+        <sp>491</sp>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1526" min="753" id="57"/>
+        <item chance="66784" max="30" min="10" id="1343"/>
+        <item chance="46749" max="1" min="1" id="1870"/>
+        <item chance="46749" max="1" min="1" id="1865"/>
+        <item chance="7791" max="1" min="1" id="1879"/>
+        <item chance="3117" max="1" min="1" id="1875"/>
+        <item chance="935" max="1" min="1" id="4040"/>
+        <item chance="790" max="1" min="1" id="4109"/>
+        <item chance="790" max="1" min="1" id="4110"/>
+        <item chance="132" max="1" min="1" id="4159"/>
+        <item chance="36" max="1" min="1" id="8306"/>
+        <item chance="80" max="1" min="1" id="11915"/>
+        <item chance="80" max="1" min="1" id="11919"/>
+        <item chance="5380" max="1" min="1" id="4159"/>
+        <item chance="5380" max="1" min="1" id="4160"/>
+        <item chance="34399" max="1" min="1" id="4068"/>
+        <item chance="779" max="1" min="1" id="8728"/>
+        <item chance="195" max="1" min="1" id="8738"/>
+        <item chance="19" max="1" min="1" id="8748"/>
+        <item chance="4" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

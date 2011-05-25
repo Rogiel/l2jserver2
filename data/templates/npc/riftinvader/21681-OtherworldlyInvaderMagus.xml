@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21681" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Otherworldly Invader Magus</name>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="702.20463"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="113.49065"/>
+                <magical speed="333.0" damage="77.49941"/>
+            </attack>
+            <defense>
+                <physical value="129.23095"/>
+                <magical value="86.04342"/>
+            </defense>
+            <move walk="100.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8062</experience>
+        <sp>463</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="2438" max="1" min="1" id="47"/>
+        <item chance="700000" max="2270" min="1135" id="57"/>
+        <item chance="3484" max="1" min="1" id="628"/>
+        <item chance="2857" max="1" min="1" id="955"/>
+        <item chance="23808" max="1" min="1" id="956"/>
+        <item chance="235980" max="1" min="1" id="1939"/>
+        <item chance="431241" max="1" min="1" id="2155"/>
+        <item chance="214931" max="1" min="1" id="2156"/>
+    </droplist>
+</npc>

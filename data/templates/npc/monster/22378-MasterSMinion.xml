@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22378" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Master's Minion</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.355378460862" max="65569.2570829001"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5738.72922"/>
+                <magical speed="333.0" damage="3987.15943"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>312777</experience>
+        <sp>32599</sp>
+        <collision heigth="35.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="69310" min="34608" id="57"/>
+        <item chance="140" max="1" min="1" id="236"/>
+        <item chance="2362" max="1" min="1" id="959"/>
+        <item chance="937406" max="35" min="1" id="1895"/>
+        <item chance="230888" max="9" min="3" id="1895"/>
+        <item chance="590566" max="3" min="1" id="4040"/>
+        <item chance="96973" max="1" min="1" id="4040"/>
+        <item chance="39912" max="1" min="1" id="5537"/>
+        <item chance="4849" max="1" min="1" id="6901"/>
+        <item chance="38789" max="1" min="1" id="9551"/>
+        <item chance="757600" max="6" min="2" id="9599"/>
+        <item chance="38029" max="1" min="1" id="9628"/>
+        <item chance="25519" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

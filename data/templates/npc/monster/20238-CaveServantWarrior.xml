@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20238" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Cave Servant Warrior</name>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1324.01623"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="275.82705"/>
+                <magical speed="333.0" damage="188.35412"/>
+            </attack>
+            <defense>
+                <physical value="191.12803"/>
+                <magical value="127.2552"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4785</experience>
+        <sp>349</sp>
+        <item lefthand="2495" righthand="77"/>
+        <collision heigth="25.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1281" min="630" id="57"/>
+        <item chance="71" max="1" min="1" id="355"/>
+        <item chance="114" max="1" min="1" id="382"/>
+        <item chance="39221" max="1" min="1" id="1866"/>
+        <item chance="58831" max="1" min="1" id="1871"/>
+        <item chance="63734" max="1" min="1" id="1877"/>
+        <item chance="2353" max="1" min="1" id="1877"/>
+        <item chance="4253" max="1" min="1" id="1968"/>
+        <item chance="6745" max="1" min="1" id="1969"/>
+        <item chance="137" max="1" min="1" id="2335"/>
+        <item chance="137" max="1" min="1" id="2348"/>
+        <item chance="2599" max="1" min="1" id="2357"/>
+        <item chance="1177" max="1" min="1" id="4040"/>
+        <item chance="13855" max="1" min="1" id="4041"/>
+        <item chance="512" max="1" min="1" id="4041"/>
+        <item chance="21011" max="1" min="1" id="6668"/>
+        <item chance="1961" max="1" min="1" id="8724"/>
+        <item chance="490" max="1" min="1" id="8734"/>
+        <item chance="49" max="1" min="1" id="8744"/>
+        <item chance="10" max="1" min="1" id="8754"/>
+    </droplist>
+</npc>

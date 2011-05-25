@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21288" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Buffalo</name>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9857</experience>
+        <sp>977</sp>
+        <collision heigth="31.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="229181" max="1" min="1" id="1889"/>
+        <item chance="343772" max="1" min="1" id="5549"/>
+        <item chance="73503" max="1" min="1" id="6343"/>
+        <item chance="700000" max="2766" min="1360" id="57"/>
+        <item chance="553" max="1" min="1" id="12221"/>
+        <item chance="553" max="1" min="1" id="12224"/>
+        <item chance="553" max="1" min="1" id="12229"/>
+        <item chance="553" max="1" min="1" id="12231"/>
+        <item chance="2976" max="1" min="1" id="5496"/>
+        <item chance="2976" max="1" min="1" id="5497"/>
+        <item chance="2976" max="1" min="1" id="5508"/>
+        <item chance="2976" max="1" min="1" id="5509"/>
+        <item chance="203090" max="1" min="1" id="1868"/>
+        <item chance="40618" max="1" min="1" id="1873"/>
+        <item chance="6770" max="1" min="1" id="1889"/>
+        <item chance="3385" max="1" min="1" id="4044"/>
+        <item chance="38" max="1" min="1" id="5440"/>
+        <item chance="10155" max="1" min="1" id="5549"/>
+        <item chance="1128" max="1" min="1" id="8730"/>
+        <item chance="282" max="1" min="1" id="8740"/>
+        <item chance="28" max="1" min="1" id="8750"/>
+        <item chance="5" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

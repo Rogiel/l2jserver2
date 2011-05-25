@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20033" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shade Horror</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="52.38915"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>505</experience>
+        <sp>21</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="161" min="100" id="57"/>
+        <item chance="886" max="1" min="1" id="845"/>
+        <item chance="1328" max="1" min="1" id="877"/>
+        <item chance="664" max="1" min="1" id="908"/>
+        <item chance="30287" max="1" min="1" id="1865"/>
+        <item chance="30287" max="1" min="1" id="1870"/>
+        <item chance="7212" max="1" min="1" id="1897"/>
+        <item chance="66150" max="1" min="1" id="1924"/>
+        <item chance="134469" max="1" min="1" id="1925"/>
+        <item chance="41013" max="1" min="1" id="2139"/>
+        <item chance="6058" max="1" min="1" id="2142"/>
+        <item chance="1212" max="1" min="1" id="5158"/>
+    </droplist>
+</npc>

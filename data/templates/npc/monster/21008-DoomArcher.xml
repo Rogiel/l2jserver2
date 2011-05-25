@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21008" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Doom Archer</name>
+        <level>62</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2037.81082"/>
+            <mp regen="2.7" max="1097.0"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="521.12391"/>
+                <magical speed="333.0" damage="355.86007"/>
+            </attack>
+            <defense>
+                <physical value="257.34267"/>
+                <magical value="171.34165"/>
+            </defense>
+            <move walk="40.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8965</experience>
+        <sp>799</sp>
+        <item lefthand="0" righthand="286"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2457" min="1213" id="57"/>
+        <item chance="109494" max="1" min="1" id="1867"/>
+        <item chance="109494" max="1" min="1" id="1872"/>
+        <item chance="18249" max="1" min="1" id="1882"/>
+        <item chance="2881" max="1" min="1" id="1894"/>
+        <item chance="1369" max="1" min="1" id="4042"/>
+        <item chance="108272" max="1" min="1" id="4052"/>
+        <item chance="5069" max="1" min="1" id="4090"/>
+        <item chance="5069" max="1" min="1" id="4091"/>
+        <item chance="5069" max="1" min="1" id="4096"/>
+        <item chance="5069" max="1" min="1" id="4099"/>
+        <item chance="6493" max="1" min="1" id="4983"/>
+        <item chance="174" max="1" min="1" id="4983"/>
+        <item chance="4078" max="1" min="1" id="5230"/>
+        <item chance="109" max="1" min="1" id="5276"/>
+        <item chance="1095" max="1" min="1" id="8729"/>
+        <item chance="274" max="1" min="1" id="8739"/>
+        <item chance="27" max="1" min="1" id="8749"/>
+        <item chance="5" max="1" min="1" id="8759"/>
+        <item chance="601" max="1" min="1" id="12187"/>
+        <item chance="601" max="1" min="1" id="12188"/>
+        <item chance="601" max="1" min="1" id="12189"/>
+        <item chance="601" max="1" min="1" id="12190"/>
+    </droplist>
+</npc>

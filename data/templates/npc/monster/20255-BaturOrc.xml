@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20255" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Batur Orc</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="81.22111"/>
+            </defense>
+            <move walk="80.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1398</experience>
+        <sp>78</sp>
+        <item lefthand="0" righthand="123"/>
+        <collision heigth="21.5" radius="9.0"/>
+    </info>
+</npc>

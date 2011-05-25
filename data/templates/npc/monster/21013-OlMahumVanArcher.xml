@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21013" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Van Archer</name>
+        <level>32</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="668.47132"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="106.16525"/>
+                <magical speed="333.0" damage="72.49711"/>
+            </attack>
+            <defense>
+                <physical value="125.57727"/>
+                <magical value="83.61076"/>
+            </defense>
+            <move walk="50.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2305</experience>
+        <sp>130</sp>
+        <item lefthand="0" righthand="273"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="651" min="324" id="57"/>
+        <item chance="7014" max="1" min="1" id="737"/>
+        <item chance="641" max="1" min="1" id="848"/>
+        <item chance="965" max="1" min="1" id="879"/>
+        <item chance="481" max="1" min="1" id="911"/>
+        <item chance="466705" max="1" min="1" id="1061"/>
+        <item chance="42506" max="1" min="1" id="1061"/>
+        <item chance="46757" max="1" min="1" id="1866"/>
+        <item chance="70135" max="1" min="1" id="1871"/>
+        <item chance="2805" max="1" min="1" id="1877"/>
+        <item chance="11510" max="1" min="1" id="1900"/>
+        <item chance="90596" max="1" min="1" id="1933"/>
+        <item chance="9542" max="1" min="1" id="2023"/>
+        <item chance="3131" max="1" min="1" id="2187"/>
+    </droplist>
+</npc>

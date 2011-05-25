@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21385" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lavastone Golem</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="239.18092"/>
+            </defense>
+            <move walk="23.0" run="40.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>42930</experience>
+        <sp>4875</sp>
+        <collision heigth="31.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="5032" max="1" min="1" id="5272"/>
+        <item chance="5032" max="1" min="1" id="5277"/>
+        <item chance="31083" max="1" min="1" id="5534"/>
+        <item chance="700000" max="11407" min="5571" id="57"/>
+        <item chance="438" max="1" min="1" id="12263"/>
+        <item chance="438" max="1" min="1" id="12262"/>
+        <item chance="3559" max="1" min="1" id="5522"/>
+        <item chance="3559" max="1" min="1" id="5523"/>
+        <item chance="167" max="1" min="1" id="960"/>
+        <item chance="34837" max="450" min="150" id="1344"/>
+        <item chance="104511" max="12" min="4" id="1868"/>
+        <item chance="27870" max="9" min="3" id="1873"/>
+        <item chance="83609" max="1" min="1" id="1876"/>
+        <item chance="119441" max="1" min="1" id="1895"/>
+        <item chance="6968" max="1" min="1" id="4042"/>
+        <item chance="3484" max="1" min="1" id="8732"/>
+        <item chance="871" max="1" min="1" id="8742"/>
+        <item chance="87" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

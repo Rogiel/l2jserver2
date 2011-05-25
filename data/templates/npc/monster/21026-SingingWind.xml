@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21026" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Singing Wind</name>
+        <level>29</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="76.57227"/>
+            </defense>
+            <move walk="60.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1522</experience>
+        <sp>82</sp>
+        <collision heigth="35.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="435" min="220" id="57"/>
+        <item chance="38" max="1" min="1" id="275"/>
+        <item chance="38" max="1" min="1" id="276"/>
+        <item chance="4043" max="1" min="1" id="737"/>
+        <item chance="575495" max="1" min="1" id="1834"/>
+        <item chance="53912" max="1" min="1" id="1867"/>
+        <item chance="53912" max="1" min="1" id="1872"/>
+        <item chance="2696" max="1" min="1" id="1875"/>
+        <item chance="5391" max="1" min="1" id="1881"/>
+        <item chance="56668" max="1" min="1" id="1900"/>
+        <item chance="1344" max="1" min="1" id="2024"/>
+        <item chance="7174" max="1" min="1" id="2025"/>
+        <item chance="5413" max="1" min="1" id="2191"/>
+        <item chance="289" max="1" min="1" id="2274"/>
+    </droplist>
+</npc>

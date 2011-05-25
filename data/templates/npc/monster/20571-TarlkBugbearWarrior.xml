@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20571" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Tarlk Bugbear Warrior</name>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1324.01623"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="275.82705"/>
+                <magical speed="333.0" damage="188.35412"/>
+            </attack>
+            <defense>
+                <physical value="191.12803"/>
+                <magical value="127.2552"/>
+            </defense>
+            <move walk="55.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4553</experience>
+        <sp>332</sp>
+        <item lefthand="0" righthand="169"/>
+        <collision heigth="35.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="2756" max="1" min="1" id="951"/>
+        <item chance="3525" max="1" min="1" id="2335"/>
+        <item chance="10228" max="1" min="1" id="2968"/>
+        <item chance="700000" max="1219" min="599" id="57"/>
+        <item chance="8" max="1" min="1" id="73"/>
+        <item chance="8" max="1" min="1" id="74"/>
+        <item chance="8" max="1" min="1" id="131"/>
+        <item chance="8" max="1" min="1" id="133"/>
+        <item chance="558" max="1" min="1" id="2077"/>
+        <item chance="558" max="1" min="1" id="2078"/>
+        <item chance="558" max="1" min="1" id="2080"/>
+        <item chance="558" max="1" min="1" id="2081"/>
+        <item chance="34445" max="1" min="1" id="1866"/>
+        <item chance="51668" max="1" min="1" id="1871"/>
+        <item chance="4306" max="1" min="1" id="1885"/>
+        <item chance="120" max="1" min="1" id="2336"/>
+        <item chance="108" max="1" min="1" id="2351"/>
+        <item chance="43057" max="1" min="1" id="2508"/>
+        <item chance="449" max="1" min="1" id="4041"/>
+        <item chance="2067" max="1" min="1" id="5220"/>
+        <item chance="18453" max="1" min="1" id="6668"/>
+        <item chance="1722" max="1" min="1" id="8724"/>
+        <item chance="431" max="1" min="1" id="8734"/>
+        <item chance="43" max="1" min="1" id="8744"/>
+        <item chance="9" max="1" min="1" id="8754"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25205" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ocean Flame Ashakiel</name>
+        <title send="false">Raid Boss</title>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="124.302529182249" max="401886.766608773"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2501.79548"/>
+                <magical speed="333.0" damage="888.04886"/>
+            </attack>
+            <defense>
+                <physical value="971.35365"/>
+                <magical value="473.86"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5267108</experience>
+        <sp>1171763</sp>
+        <item lefthand="0" righthand="98"/>
+        <collision heigth="120.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="48238" max="1" min="1" id="6678"/>
+        <item chance="33766" max="1" min="1" id="6679"/>
+        <item chance="33766" max="1" min="1" id="6683"/>
+        <item chance="33766" max="1" min="1" id="6687"/>
+        <item chance="26869" max="945" min="315" id="6705"/>
+        <item chance="149168" max="198" min="66" id="6706"/>
+        <item chance="78136" max="378" min="126" id="6710"/>
+        <item chance="47332" max="624" min="208" id="6714"/>
+        <item chance="3785" max="1" min="1" id="6371"/>
+        <item chance="257418" max="15" min="5" id="6695"/>
+        <item chance="491699" max="3" min="1" id="3936"/>
+        <item chance="87413" max="1" min="1" id="6578"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20084" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ant Patrol</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="80.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2001</experience>
+        <sp>116</sp>
+        <collision heigth="17.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="55207" max="1" min="1" id="1885"/>
+        <item chance="44537" max="1" min="1" id="1938"/>
+        <item chance="88686" max="1" min="1" id="2978"/>
+        <item chance="700000" max="558" min="280" id="57"/>
+        <item chance="601" max="1" min="1" id="47"/>
+        <item chance="859" max="1" min="1" id="628"/>
+        <item chance="146765" max="30" min="10" id="1341"/>
+        <item chance="8806" max="1" min="1" id="1876"/>
+        <item chance="1761" max="1" min="1" id="1877"/>
+        <item chance="4403" max="1" min="1" id="1880"/>
+        <item chance="5871" max="1" min="1" id="1881"/>
+        <item chance="9784" max="1" min="1" id="1882"/>
+        <item chance="315" max="1" min="1" id="2269"/>
+        <item chance="2354" max="1" min="1" id="2971"/>
+    </droplist>
+</npc>

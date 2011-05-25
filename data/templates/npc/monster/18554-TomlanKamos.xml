@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18554" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tomlan Kamos</name>
+        <title send="false">Kaneus</title>
+        <level>23</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="10.6620464638458" max="51638.8844951664"/>
+            <mp regen="4.8" max="1159.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="68.01129"/>
+                <magical speed="333.0" damage="46.4429"/>
+            </attack>
+            <defense>
+                <physical value="153.03962"/>
+                <magical value="167.98162"/>
+            </defense>
+            <move walk="55.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>355901</experience>
+        <sp>19458</sp>
+        <item lefthand="0" righthand="4"/>
+        <collision heigth="53.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="188679" max="11" min="1" id="25"/>
+        <item chance="320754" max="2" min="1" id="26"/>
+        <item chance="56603" max="10" min="4" id="34"/>
+        <item chance="320754" max="1" min="1" id="955"/>
+        <item chance="377358" max="8" min="3" id="956"/>
+        <item chance="245283" max="20" min="8" id="1926"/>
+        <item chance="188679" max="72" min="37" id="1928"/>
+    </droplist>
+</npc>

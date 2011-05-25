@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25515" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Spiked Stakato</name>
+        <title send="false">Raid Fighter</title>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="91.4930863014358" max="31866.8020137814"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3798.33441"/>
+                <magical speed="333.0" damage="1965.98254"/>
+            </attack>
+            <defense>
+                <physical value="505.60512"/>
+                <magical value="493.3"/>
+            </defense>
+            <move walk="23.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="123"/>
+        <collision heigth="21.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="403000" max="60" min="20" id="1344"/>
+    </droplist>
+</npc>

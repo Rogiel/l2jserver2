@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21384" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Necromancer of Destruction</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="239.18092"/>
+            </defense>
+            <move walk="70.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>44576</experience>
+        <sp>5062</sp>
+        <collision heigth="48.0" radius="14.5"/>
+    </info>
+    <droplist>
+        <item chance="798032" max="1" min="1" id="1875"/>
+        <item chance="104091" max="1" min="1" id="4041"/>
+        <item chance="32835" max="1" min="1" id="5533"/>
+        <item chance="700000" max="12060" min="5890" id="57"/>
+        <item chance="617" max="1" min="1" id="12265"/>
+        <item chance="617" max="1" min="1" id="12258"/>
+        <item chance="4958" max="1" min="1" id="5480"/>
+        <item chance="4958" max="1" min="1" id="5481"/>
+        <item chance="20" max="1" min="1" id="959"/>
+        <item chance="218265" max="3" min="1" id="1867"/>
+        <item chance="81849" max="12" min="4" id="1872"/>
+        <item chance="32740" max="1" min="1" id="1875"/>
+        <item chance="65479" max="1" min="1" id="1881"/>
+        <item chance="4271" max="1" min="1" id="4041"/>
+        <item chance="4092" max="1" min="1" id="8732"/>
+        <item chance="1023" max="1" min="1" id="8742"/>
+        <item chance="102" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

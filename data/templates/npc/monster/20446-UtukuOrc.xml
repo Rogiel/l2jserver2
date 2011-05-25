@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20446" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Utuku Orc</name>
+        <level>6</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="93.54158"/>
+            <mp regen="0.9" max="77.2"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="13.52471"/>
+                <magical speed="333.0" damage="9.23562"/>
+            </attack>
+            <defense>
+                <physical value="53.53373"/>
+                <magical value="35.64336"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>214</experience>
+        <sp>6</sp>
+        <item lefthand="0" righthand="156"/>
+        <collision heigth="21.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="2456" max="1" min="1" id="22"/>
+        <item chance="3925" max="1" min="1" id="29"/>
+        <item chance="700000" max="58" min="41" id="57"/>
+        <item chance="2830" max="1" min="1" id="1791"/>
+        <item chance="30618" max="1" min="1" id="1864"/>
+        <item chance="77741" max="1" min="1" id="1869"/>
+        <item chance="15309" max="1" min="1" id="1869"/>
+        <item chance="77741" max="1" min="1" id="1870"/>
+        <item chance="5553" max="1" min="1" id="2007"/>
+    </droplist>
+</npc>

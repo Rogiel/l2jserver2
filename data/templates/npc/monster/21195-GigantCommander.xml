@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21195" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gigant Commander</name>
+        <level>45</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1183.80594"/>
+            <mp regen="2.1" max="610.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="234.89829"/>
+                <magical speed="333.0" damage="160.40508"/>
+            </attack>
+            <defense>
+                <physical value="177.78746"/>
+                <magical value="118.3729"/>
+            </defense>
+            <move walk="49.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10925</experience>
+        <sp>760</sp>
+        <item lefthand="0" righthand="5792"/>
+        <collision heigth="42.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="90" max="1" min="1" id="281"/>
+        <item chance="1106" max="1" min="1" id="440"/>
+        <item chance="197286" max="3" min="1" id="1868"/>
+        <item chance="78519" max="1" min="1" id="1873"/>
+        <item chance="39457" max="1" min="1" id="1876"/>
+        <item chance="56368" max="1" min="1" id="1895"/>
+        <item chance="316239" max="2" min="1" id="1908"/>
+        <item chance="5589" max="1" min="1" id="2074"/>
+        <item chance="15176" max="1" min="1" id="2164"/>
+        <item chance="5361" max="1" min="1" id="2228"/>
+        <item chance="3288" max="1" min="1" id="4042"/>
+        <item chance="6576" max="1" min="1" id="6036"/>
+        <item chance="700000" max="62" min="33" id="6360"/>
+        <item chance="700000" max="425" min="211" id="6361"/>
+        <item chance="700000" max="45" min="25" id="6362"/>
+    </droplist>
+</npc>

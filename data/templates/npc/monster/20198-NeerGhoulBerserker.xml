@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20198" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Neer Ghoul Berserker</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="76.57227"/>
+            </defense>
+            <move walk="50.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1522</experience>
+        <sp>82</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="435" min="220" id="57"/>
+        <item chance="114" max="1" min="1" id="259"/>
+        <item chance="575495" max="3" min="1" id="1832"/>
+        <item chance="2359" max="1" min="1" id="1874"/>
+        <item chance="14152" max="1" min="1" id="1878"/>
+        <item chance="21772" max="1" min="1" id="1884"/>
+        <item chance="2359" max="1" min="1" id="1889"/>
+        <item chance="2328" max="1" min="1" id="2183"/>
+        <item chance="253" max="1" min="1" id="2274"/>
+        <item chance="4513" max="1" min="1" id="2982"/>
+        <item chance="1415" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

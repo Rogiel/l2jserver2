@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22357" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Enceinte Defender</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.26544062045" max="65918.4456223521"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5756.11951"/>
+                <magical speed="333.0" damage="4023.17011"/>
+            </attack>
+            <defense>
+                <physical value="592.48128"/>
+                <magical value="650.32814"/>
+            </defense>
+            <move walk="60.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="43.5" radius="36.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="48170" min="24052" id="57"/>
+        <item chance="526800" max="6" min="2" id="9599"/>
+        <item chance="27742" max="1" min="1" id="5538"/>
+        <item chance="98" max="1" min="1" id="270"/>
+        <item chance="229858" max="12" min="4" id="1871"/>
+        <item chance="81727" max="21" min="7" id="1866"/>
+        <item chance="73555" max="1" min="1" id="1877"/>
+        <item chance="36777" max="1" min="1" id="4040"/>
+        <item chance="15990" max="1" min="1" id="4041"/>
+        <item chance="1839" max="1" min="1" id="6901"/>
+        <item chance="14711" max="1" min="1" id="9551"/>
+        <item chance="8883" max="1" min="1" id="14166"/>
+        <item chance="2218" max="1" min="1" id="14167"/>
+        <item chance="222" max="1" min="1" id="14168"/>
+        <item chance="44" max="1" min="1" id="14169"/>
+        <item chance="894982" max="1" min="1" id="6699"/>
+        <item chance="821236" max="3" min="1" id="1877"/>
+        <item chance="821236" max="1" min="1" id="4040"/>
+    </droplist>
+</npc>

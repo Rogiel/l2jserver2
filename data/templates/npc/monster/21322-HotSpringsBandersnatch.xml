@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21322" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hot Springs Bandersnatch</name>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2719.97952"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="815.37145"/>
+                <magical speed="333.0" damage="556.793"/>
+            </attack>
+            <defense>
+                <physical value="323.78455"/>
+                <magical value="215.57941"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>22270</experience>
+        <sp>2381</sp>
+        <collision heigth="25.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5635" min="2752" id="57"/>
+        <item chance="129080" max="60" min="20" id="1344"/>
+        <item chance="137685" max="1" min="1" id="1866"/>
+        <item chance="206527" max="1" min="1" id="1871"/>
+        <item chance="8261" max="1" min="1" id="1877"/>
+        <item chance="4131" max="1" min="1" id="4040"/>
+        <item chance="1796" max="1" min="1" id="4041"/>
+        <item chance="2486" max="1" min="1" id="5272"/>
+        <item chance="92" max="1" min="1" id="5272"/>
+        <item chance="2486" max="1" min="1" id="5277"/>
+        <item chance="25099" max="1" min="1" id="5480"/>
+        <item chance="3524" max="1" min="1" id="5535"/>
+        <item chance="1721" max="1" min="1" id="8732"/>
+        <item chance="431" max="1" min="1" id="8742"/>
+        <item chance="43" max="1" min="1" id="8752"/>
+        <item chance="284" max="1" min="1" id="11955"/>
+    </droplist>
+</npc>

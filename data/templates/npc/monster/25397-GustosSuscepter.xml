@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25397" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gustos Suscepter</name>
+        <title send="false">Raid Fighter</title>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="41.3470424277186" max="18378.2066200427"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1248.24851"/>
+                <magical speed="333.0" damage="522.12359"/>
+            </attack>
+            <defense>
+                <physical value="260.15328"/>
+                <magical value="253.82"/>
+            </defense>
+            <move walk="27.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="124267" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

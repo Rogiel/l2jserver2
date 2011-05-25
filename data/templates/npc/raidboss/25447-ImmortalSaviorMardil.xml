@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25447" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Immortal Savior Mardil</name>
+        <title send="false">Raid Boss</title>
+        <level>71</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="85.2293587663441" max="271409.0955071"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1194.92418"/>
+                <magical speed="333.0" damage="231.0889"/>
+            </attack>
+            <defense>
+                <physical value="901.96077"/>
+                <magical value="440.02"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3074084</experience>
+        <sp>495533</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="38.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="6687" max="1" min="1" id="164"/>
+        <item chance="6687" max="1" min="1" id="213"/>
+        <item chance="23971" max="1" min="1" id="959"/>
+        <item chance="239707" max="1" min="1" id="960"/>
+        <item chance="14002" max="1" min="1" id="5326"/>
+        <item chance="14002" max="1" min="1" id="5329"/>
+        <item chance="260220" max="12" min="4" id="5487"/>
+        <item chance="138784" max="22" min="8" id="5488"/>
+        <item chance="237763" max="12" min="4" id="5533"/>
+        <item chance="126682" max="22" min="8" id="5544"/>
+        <item chance="3995" max="1" min="1" id="6577"/>
+        <item chance="850000" max="2" min="1" id="8176"/>
+        <item chance="520000" max="1" min="1" id="8619"/>
+        <item chance="840000" max="4" min="2" id="9814"/>
+    </droplist>
+</npc>

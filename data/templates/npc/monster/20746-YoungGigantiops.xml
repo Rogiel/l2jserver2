@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20746" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Young Gigantiops</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="81.22111"/>
+            </defense>
+            <move walk="40.0" run="139.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2475</experience>
+        <sp>137</sp>
+        <collision heigth="15.0" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="702" min="352" id="57"/>
+        <item chance="184" max="1" min="1" id="259"/>
+        <item chance="504445" max="1" min="1" id="1061"/>
+        <item chance="75806" max="1" min="1" id="1865"/>
+        <item chance="75806" max="1" min="1" id="1870"/>
+        <item chance="5054" max="1" min="1" id="1875"/>
+        <item chance="12634" max="1" min="1" id="1879"/>
+        <item chance="91065" max="1" min="1" id="1900"/>
+        <item chance="129445" max="1" min="1" id="2153"/>
+        <item chance="7963" max="1" min="1" id="2184"/>
+        <item chance="541" max="1" min="1" id="2272"/>
+    </droplist>
+</npc>

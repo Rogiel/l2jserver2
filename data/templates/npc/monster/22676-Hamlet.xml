@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22676" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hamlet</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="100.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24791</experience>
+        <sp>2648</sp>
+        <collision heigth="65.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2533" min="1055" id="57"/>
+        <item chance="1400" max="1" min="1" id="9624"/>
+        <item chance="3" max="1" min="1" id="9450"/>
+        <item chance="141300" max="1" min="1" id="1879"/>
+        <item chance="68900" max="1" min="1" id="1885"/>
+        <item chance="6800" max="1" min="1" id="9629"/>
+        <item chance="4100" max="1" min="1" id="9630"/>
+        <item chance="3800" max="1" min="1" id="9628"/>
+        <item chance="2000" max="1" min="1" id="9551"/>
+        <item chance="10000" max="1" min="1" id="9622"/>
+        <item chance="5000" max="1" min="1" id="5162"/>
+        <item chance="5000" max="1" min="1" id="5167"/>
+    </droplist>
+</npc>

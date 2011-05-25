@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18558" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Crimson Hatu Otis</name>
+        <title send="false">Kaneus</title>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="14.597633812675" max="77012.3816279503"/>
+            <mp regen="6.48" max="1864.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="191.5783"/>
+                <magical speed="333.0" damage="130.82316"/>
+            </attack>
+            <defense>
+                <physical value="206.76952"/>
+                <magical value="226.95744"/>
+            </defense>
+            <move walk="37.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>549172</experience>
+        <sp>35415</sp>
+        <collision heigth="36.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="425207" max="1" min="1" id="955"/>
+        <item chance="147641" max="36" min="12" id="956"/>
+        <item chance="39948" max="9" min="3" id="63"/>
+        <item chance="239691" max="1" min="1" id="2447"/>
+        <item chance="34241" max="10" min="4" id="553"/>
+        <item chance="159796" max="1" min="1" id="2423"/>
+        <item chance="159796" max="1" min="1" id="2422"/>
+        <item chance="239691" max="1" min="1" id="2446"/>
+        <item chance="58283" max="180" min="60" id="1940"/>
+        <item chance="26632" max="9" min="3" id="63"/>
+        <item chance="159796" max="1" min="1" id="2447"/>
+        <item chance="22828" max="10" min="4" id="553"/>
+        <item chance="26632" max="13" min="5" id="2423"/>
+        <item chance="29961" max="12" min="4" id="2422"/>
+        <item chance="159796" max="1" min="1" id="2446"/>
+        <item chance="38856" max="180" min="60" id="1940"/>
+    </droplist>
+</npc>

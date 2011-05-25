@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25398" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Eye of Beleth</name>
+        <title send="false">Raid Boss</title>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="26.794392073316" max="69449.5684546156"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="163.69565"/>
+                <magical speed="333.0" damage="12.93"/>
+            </attack>
+            <defense>
+                <physical value="410.18844"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="90.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1912395</experience>
+        <sp>144137</sp>
+        <collision heigth="43.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="43596" max="1" min="1" id="70"/>
+        <item chance="134016" max="1" min="1" id="353"/>
+        <item chance="214426" max="1" min="1" id="380"/>
+        <item chance="712587" max="3" min="1" id="951"/>
+        <item chance="62305" max="157" min="53" id="1950"/>
+        <item chance="211973" max="72" min="24" id="1951"/>
+        <item chance="332241" max="12" min="4" id="2047"/>
+        <item chance="43596" max="1" min="1" id="2499"/>
+        <item chance="174797" max="22" min="8" id="2967"/>
+    </droplist>
+</npc>

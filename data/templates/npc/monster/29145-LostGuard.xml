@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29145" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Guard</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="17.5806785661229" max="15710.0762676364"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3412.94843"/>
+                <magical speed="333.0" damage="2330.60138"/>
+            </attack>
+            <defense>
+                <physical value="499.05092"/>
+                <magical value="243.46"/>
+            </defense>
+            <move walk="30.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="8221"/>
+        <collision heigth="47.0" radius="13.0"/>
+    </info>
+</npc>

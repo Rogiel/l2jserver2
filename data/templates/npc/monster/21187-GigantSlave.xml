@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21187" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gigant Slave</name>
+        <level>21</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="364.30351"/>
+            <mp regen="1.5" max="205.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="47.91924"/>
+                <magical speed="333.0" damage="32.72263"/>
+            </attack>
+            <defense>
+                <physical value="89.73059"/>
+                <magical value="59.74364"/>
+            </defense>
+            <move walk="49.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2380</experience>
+        <sp>109</sp>
+        <item lefthand="0" righthand="5791"/>
+        <collision heigth="32.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="713" max="1" min="1" id="25"/>
+        <item chance="462" max="1" min="1" id="26"/>
+        <item chance="1141" max="1" min="1" id="32"/>
+        <item chance="740" max="1" min="1" id="34"/>
+        <item chance="886728" max="3" min="1" id="1868"/>
+        <item chance="261926" max="1" min="1" id="1868"/>
+        <item chance="354691" max="1" min="1" id="1873"/>
+        <item chance="52385" max="1" min="1" id="1873"/>
+        <item chance="91087" max="1" min="1" id="1898"/>
+        <item chance="8819" max="1" min="1" id="1926"/>
+        <item chance="12718" max="1" min="1" id="1928"/>
+        <item chance="62662" max="1" min="1" id="2176"/>
+        <item chance="10913" max="1" min="1" id="6035"/>
+        <item chance="700000" max="109" min="53" id="6360"/>
+        <item chance="700000" max="42" min="23" id="6362"/>
+    </droplist>
+</npc>

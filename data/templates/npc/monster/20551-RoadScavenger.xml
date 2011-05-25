@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20551" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Road Scavenger</name>
+        <level>37</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="847.31754"/>
+            <mp regen="1.8" max="432.72"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="146.82587"/>
+                <magical speed="333.0" damage="100.26304"/>
+            </attack>
+            <defense>
+                <physical value="144.47758"/>
+                <magical value="96.19481"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2389</experience>
+        <sp>146</sp>
+        <item lefthand="0" righthand="221"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="662" min="332" id="57"/>
+        <item chance="188" max="1" min="1" id="850"/>
+        <item chance="282" max="1" min="1" id="881"/>
+        <item chance="141" max="1" min="1" id="913"/>
+        <item chance="77258" max="1" min="1" id="1867"/>
+        <item chance="77258" max="1" min="1" id="1872"/>
+        <item chance="52310" max="1" min="1" id="1874"/>
+        <item chance="3863" max="1" min="1" id="1875"/>
+        <item chance="7726" max="1" min="1" id="1881"/>
+        <item chance="79498" max="1" min="1" id="1902"/>
+        <item chance="6849" max="1" min="1" id="1902"/>
+        <item chance="11276" max="1" min="1" id="1903"/>
+        <item chance="6309" max="1" min="1" id="1904"/>
+        <item chance="8290" max="1" min="1" id="2034"/>
+        <item chance="4139" max="1" min="1" id="2145"/>
+        <item chance="322" max="1" min="1" id="2287"/>
+        <item chance="322" max="1" min="1" id="2288"/>
+    </droplist>
+</npc>

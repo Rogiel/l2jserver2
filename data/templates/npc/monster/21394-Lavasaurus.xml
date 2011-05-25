@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21394" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lavasaurus</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.585" max="2870.7774087"/>
+            <mp regen="3.03" max="1657.41"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="884.25257"/>
+                <magical speed="333.0" damage="609.86817"/>
+            </attack>
+            <defense>
+                <physical value="340.44078"/>
+                <magical value="226.66932"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>44944</experience>
+        <sp>4981</sp>
+        <collision heigth="75.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11476" min="5623" id="57"/>
+        <item chance="187" max="1" min="1" id="960"/>
+        <item chance="292429" max="60" min="20" id="1344"/>
+        <item chance="5069" max="1" min="1" id="1808"/>
+        <item chance="16417" max="1" min="1" id="1894"/>
+        <item chance="5069" max="1" min="1" id="3036"/>
+        <item chance="15596" max="1" min="1" id="4039"/>
+        <item chance="4069" max="1" min="1" id="4041"/>
+        <item chance="15596" max="1" min="1" id="4044"/>
+        <item chance="136356" max="1" min="1" id="5527"/>
+        <item chance="5776" max="1" min="1" id="5538"/>
+        <item chance="3899" max="1" min="1" id="8732"/>
+        <item chance="975" max="1" min="1" id="8742"/>
+        <item chance="97" max="1" min="1" id="8752"/>
+        <item chance="374" max="1" min="1" id="11967"/>
+    </droplist>
+</npc>

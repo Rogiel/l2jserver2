@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22087" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Pronghorn Spirit</name>
+        <level>56</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1724.6831"/>
+            <mp regen="2.4" max="918.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="405.96455"/>
+                <magical speed="333.0" damage="277.22116"/>
+            </attack>
+            <defense>
+                <physical value="228.40135"/>
+                <magical value="167.1342"/>
+            </defense>
+            <move walk="45.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7743</experience>
+        <sp>635</sp>
+        <collision heigth="34.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2101" min="1029" id="57"/>
+        <item chance="140028" max="1" min="1" id="1868"/>
+        <item chance="140028" max="1" min="1" id="1864"/>
+        <item chance="70014" max="1" min="1" id="1865"/>
+        <item chance="46676" max="1" min="1" id="1866"/>
+        <item chance="28006" max="1" min="1" id="1873"/>
+        <item chance="1085" max="1" min="1" id="4110"/>
+        <item chance="1085" max="1" min="1" id="4109"/>
+        <item chance="175" max="1" min="1" id="948"/>
+        <item chance="53" max="1" min="1" id="8298"/>
+        <item chance="110" max="1" min="1" id="11915"/>
+        <item chance="110" max="1" min="1" id="11919"/>
+        <item chance="161543" max="1" min="1" id="4050"/>
+        <item chance="6518" max="1" min="1" id="948"/>
+        <item chance="869100" max="5" min="1" id="1865"/>
+        <item chance="1400" max="1" min="1" id="8727"/>
+        <item chance="350" max="1" min="1" id="8737"/>
+        <item chance="35" max="1" min="1" id="8747"/>
+        <item chance="7" max="1" min="1" id="8757"/>
+    </droplist>
+</npc>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22364" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Soul Dominator</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.897045965523" max="18734.280667127"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="10447.77116"/>
+                <magical speed="333.0" damage="7217.43231"/>
+            </attack>
+            <defense>
+                <physical value="585.59197"/>
+                <magical value="642.76618"/>
+            </defense>
+            <move walk="100.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>106372</experience>
+        <sp>11215</sp>
+        <item lefthand="0" righthand="1472"/>
+        <collision heigth="45.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="19905" min="9939" id="57"/>
+        <item chance="30000" max="1" min="1" id="9685"/>
+        <item chance="174135" max="1" min="1" id="1879"/>
+        <item chance="87067" max="1" min="1" id="1885"/>
+        <item chance="8194" max="1" min="1" id="9628"/>
+        <item chance="5499" max="1" min="1" id="9630"/>
+        <item chance="4543" max="1" min="1" id="9629"/>
+        <item chance="8359" max="1" min="1" id="9551"/>
+        <item chance="2865" max="1" min="1" id="8349"/>
+        <item chance="2866" max="1" min="1" id="5533"/>
+        <item chance="2863" max="1" min="1" id="5544"/>
+        <item chance="2866" max="1" min="1" id="8342"/>
+        <item chance="1853" max="1" min="1" id="13100"/>
+        <item chance="42" max="1" min="1" id="959"/>
+        <item chance="10" max="1" min="1" id="164"/>
+        <item chance="10" max="1" min="1" id="213"/>
+        <item chance="10" max="1" min="1" id="7895"/>
+        <item chance="10" max="1" min="1" id="7902"/>
+        <item chance="84071" max="1" min="1" id="6707"/>
+        <item chance="6787" max="1" min="1" id="960"/>
+        <item chance="16968" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

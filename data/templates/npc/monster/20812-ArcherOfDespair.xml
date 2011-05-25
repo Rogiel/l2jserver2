@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20812" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Archer of Despair</name>
+        <level>61</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="1985.55926"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="501.08068"/>
+                <magical speed="333.0" damage="342.17315"/>
+            </attack>
+            <defense>
+                <physical value="252.49346"/>
+                <magical value="168.113"/>
+            </defense>
+            <move walk="40.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16950</experience>
+        <sp>1492</sp>
+        <item lefthand="0" righthand="284"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4635" min="2285" id="57"/>
+        <item chance="26" max="1" min="1" id="284"/>
+        <item chance="227147" max="1" min="1" id="1867"/>
+        <item chance="227147" max="1" min="1" id="1872"/>
+        <item chance="384494" max="1" min="1" id="1875"/>
+        <item chance="11357" max="1" min="1" id="1875"/>
+        <item chance="22715" max="1" min="1" id="1881"/>
+        <item chance="1481" max="1" min="1" id="4041"/>
+        <item chance="4822" max="1" min="1" id="4112"/>
+        <item chance="7955" max="1" min="1" id="4613"/>
+        <item chance="7955" max="1" min="1" id="4617"/>
+        <item chance="235" max="1" min="1" id="4620"/>
+        <item chance="2839" max="1" min="1" id="8728"/>
+        <item chance="710" max="1" min="1" id="8738"/>
+        <item chance="71" max="1" min="1" id="8748"/>
+        <item chance="13" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

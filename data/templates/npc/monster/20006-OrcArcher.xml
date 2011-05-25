@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20006" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Orc Archer</name>
+        <level>8</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="124.92828"/>
+            <mp regen="0.9" max="92.64"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="16.20165"/>
+                <magical speed="333.0" damage="11.06363"/>
+            </attack>
+            <defense>
+                <physical value="57.56203"/>
+                <magical value="38.32545"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>293</experience>
+        <sp>10</sp>
+        <item lefthand="0" righthand="14"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="790" max="1" min="1" id="14"/>
+        <item chance="700000" max="94" min="69" id="57"/>
+        <item chance="41407" max="1" min="1" id="113"/>
+        <item chance="285245" max="1" min="1" id="1060"/>
+        <item chance="16852" max="1" min="1" id="1866"/>
+        <item chance="25278" max="1" min="1" id="1871"/>
+        <item chance="9169" max="1" min="1" id="2006"/>
+        <item chance="2709" max="1" min="1" id="2007"/>
+        <item chance="7435" max="1" min="1" id="2136"/>
+    </droplist>
+</npc>

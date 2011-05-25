@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20778" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ragna Orc Overlord</name>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="166.06476"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="152.46752"/>
+                <magical value="101.5146"/>
+            </defense>
+            <move walk="45.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2973</experience>
+        <sp>188</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="821" min="412" id="57"/>
+        <item chance="73" max="1" min="1" id="352"/>
+        <item chance="55948" max="1" min="1" id="1866"/>
+        <item chance="83922" max="1" min="1" id="1871"/>
+        <item chance="3357" max="1" min="1" id="1877"/>
+        <item chance="98693" max="1" min="1" id="1902"/>
+        <item chance="162485" max="1" min="1" id="1903"/>
+        <item chance="3337" max="1" min="1" id="1941"/>
+        <item chance="8581" max="1" min="1" id="2202"/>
+        <item chance="466" max="1" min="1" id="2288"/>
+        <item chance="466" max="1" min="1" id="2289"/>
+        <item chance="5412" max="1" min="1" id="2290"/>
+        <item chance="117" max="1" min="1" id="2377"/>
+        <item chance="117" max="1" min="1" id="2378"/>
+        <item chance="4979" max="1" min="1" id="2918"/>
+        <item chance="4979" max="1" min="1" id="2919"/>
+    </droplist>
+</npc>

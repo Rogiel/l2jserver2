@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22221" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Pachycephalosaurus</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="33.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14515</experience>
+        <sp>2715</sp>
+        <collision heigth="40.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6842" min="3310" id="57"/>
+        <item chance="73657" max="1" min="1" id="1879"/>
+        <item chance="36829" max="1" min="1" id="1885"/>
+        <item chance="3466" max="1" min="1" id="9628"/>
+        <item chance="2326" max="1" min="1" id="9630"/>
+        <item chance="1921" max="1" min="1" id="9629"/>
+        <item chance="3069" max="1" min="1" id="9573"/>
+        <item chance="767" max="1" min="1" id="9574"/>
+        <item chance="77" max="1" min="1" id="9575"/>
+        <item chance="15" max="1" min="1" id="9576"/>
+        <item chance="9" max="1" min="1" id="6367"/>
+        <item chance="9000" max="1" min="1" id="6691"/>
+        <item chance="153376" max="1" min="1" id="6703"/>
+        <item chance="10772" max="1" min="1" id="6901"/>
+        <item chance="431" max="1" min="1" id="959"/>
+    </droplist>
+</npc>

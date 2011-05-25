@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25592" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Commander Koenig</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="177.399768233612" max="415001.00594995"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7315.33208"/>
+                <magical speed="333.0" damage="960.30752"/>
+            </attack>
+            <defense>
+                <physical value="1011.21024"/>
+                <magical value="493.3"/>
+            </defense>
+            <move walk="26.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2571289</experience>
+        <sp>385228</sp>
+        <collision heigth="33.5" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="8088" max="1" min="1" id="959"/>
+        <item chance="80884" max="1" min="1" id="960"/>
+        <item chance="23624" max="1" min="1" id="5320"/>
+        <item chance="23624" max="1" min="1" id="5323"/>
+        <item chance="437471" max="12" min="4" id="5480"/>
+        <item chance="233318" max="22" min="8" id="5481"/>
+        <item chance="1348" max="1" min="1" id="6577"/>
+        <item chance="45957" max="1" min="1" id="9587"/>
+        <item chance="35351" max="1" min="1" id="9591"/>
+        <item chance="26961" max="1" min="1" id="9626"/>
+    </droplist>
+</npc>

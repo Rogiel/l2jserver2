@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="18234" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Statue of Protection</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="52.326" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="870.82765"/>
+                <magical speed="333.0" damage="554.09618"/>
+            </attack>
+            <defense>
+                <physical value="434.65794"/>
+                <magical value="263.30668"/>
+            </defense>
+            <move walk="53.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>66895</experience>
+        <sp>7596</sp>
+        <item lefthand="0" righthand="5795"/>
+        <collision heigth="42.0" radius="15.0"/>
+    </info>
+</npc>

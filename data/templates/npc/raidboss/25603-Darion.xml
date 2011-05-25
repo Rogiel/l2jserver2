@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25603" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Darion</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="100.0" max="970000.0"/>
+            <mp regen="3.0" max="1917.0"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="3152.92775"/>
+                <magical speed="333.0" damage="1289.68198"/>
+            </attack>
+            <defense>
+                <physical value="1127.29373"/>
+                <magical value="549.93387"/>
+            </defense>
+            <move walk="44.0" run="220.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4712138</experience>
+        <sp>598881</sp>
+        <item lefthand="10548" righthand="0"/>
+        <collision heigth="81.22" radius="50.0"/>
+    </info>
+    <droplist>
+        <item chance="7556" max="1" min="1" id="6367"/>
+        <item chance="31112" max="1" min="1" id="6680"/>
+        <item chance="583961" max="9" min="3" id="6691"/>
+        <item chance="500255" max="36" min="12" id="6707"/>
+    </droplist>
+</npc>

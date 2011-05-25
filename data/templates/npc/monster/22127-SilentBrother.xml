@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22127" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Silent Brother</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="268.81345"/>
+            </defense>
+            <move walk="70.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>34122</experience>
+        <sp>3778</sp>
+        <item lefthand="0" righthand="8213"/>
+        <collision heigth="25.4" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9571" min="4689" id="57"/>
+        <item chance="4" max="1" min="1" id="164"/>
+        <item chance="4" max="1" min="1" id="213"/>
+        <item chance="4" max="1" min="1" id="7895"/>
+        <item chance="4" max="1" min="1" id="7902"/>
+        <item chance="260060" max="3" min="1" id="1867"/>
+        <item chance="78018" max="1" min="1" id="1881"/>
+        <item chance="97522" max="12" min="4" id="1872"/>
+        <item chance="39009" max="1" min="1" id="1875"/>
+        <item chance="5088" max="1" min="1" id="4041"/>
+        <item chance="1204" max="1" min="1" id="8342"/>
+        <item chance="1204" max="1" min="1" id="8349"/>
+        <item chance="1204" max="1" min="1" id="5533"/>
+        <item chance="1203" max="1" min="1" id="5544"/>
+        <item chance="24" max="1" min="1" id="959"/>
+        <item chance="82682" max="1" min="1" id="4041"/>
+        <item chance="20552" max="1" min="1" id="6688"/>
+        <item chance="9508" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29063" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Andreas' Acolyte</name>
+        <title send="false">Raid Fighter</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="145.856" max="15283.32804"/>
+            <mp regen="3.18" max="1994.708"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="8120.81031"/>
+                <magical speed="333.0" damage="8457.09203"/>
+            </attack>
+            <defense>
+                <physical value="1550.2288"/>
+                <magical value="567.1848"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="8205"/>
+        <collision heigth="28.4" radius="7.7"/>
+    </info>
+</npc>

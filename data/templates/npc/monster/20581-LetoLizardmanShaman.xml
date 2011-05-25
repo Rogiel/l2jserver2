@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20581" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Leto Lizardman Shaman</name>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="166.06476"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="152.46752"/>
+                <magical value="101.5146"/>
+            </defense>
+            <move walk="43.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2655</experience>
+        <sp>169</sp>
+        <item lefthand="0" righthand="159"/>
+        <collision heigth="35.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="733" min="368" id="57"/>
+        <item chance="42" max="1" min="1" id="279"/>
+        <item chance="166513" max="30" min="10" id="1341"/>
+        <item chance="3330" max="1" min="1" id="1875"/>
+        <item chance="8326" max="1" min="1" id="1879"/>
+        <item chance="4163" max="1" min="1" id="1885"/>
+        <item chance="88119" max="1" min="1" id="1902"/>
+        <item chance="8804" max="1" min="1" id="2036"/>
+        <item chance="2601" max="1" min="1" id="2040"/>
+        <item chance="1047" max="1" min="1" id="2198"/>
+        <item chance="88930" max="1" min="1" id="2202"/>
+        <item chance="278" max="1" min="1" id="2287"/>
+        <item chance="278" max="1" min="1" id="2293"/>
+        <item chance="4995" max="1" min="1" id="5549"/>
+        <item chance="666" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

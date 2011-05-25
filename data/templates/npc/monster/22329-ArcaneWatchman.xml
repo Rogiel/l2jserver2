@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22329" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Arcane Watchman</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.26544062045" max="65918.4456223521"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5655.33186"/>
+                <magical speed="333.0" damage="3907.29218"/>
+            </attack>
+            <defense>
+                <physical value="572.83923"/>
+                <magical value="628.76834"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>331002</experience>
+        <sp>35747</sp>
+        <collision heigth="32.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="66648" min="33226" id="57"/>
+        <item chance="728400" max="6" min="2" id="9599"/>
+        <item chance="49949" max="42" min="14" id="9674"/>
+        <item chance="38396" max="1" min="1" id="5534"/>
+        <item chance="135" max="1" min="1" id="289"/>
+        <item chance="121403" max="1080" min="360" id="1344"/>
+        <item chance="24974" max="60" min="20" id="1895"/>
+        <item chance="69928" max="1" min="1" id="4040"/>
+        <item chance="27423" max="1" min="1" id="9628"/>
+        <item chance="18402" max="1" min="1" id="9630"/>
+        <item chance="27971" max="1" min="1" id="9551"/>
+        <item chance="140" max="1" min="1" id="959"/>
+        <item chance="281342" max="1" min="1" id="6707"/>
+        <item chance="808455" max="1" min="1" id="6708"/>
+        <item chance="56782" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

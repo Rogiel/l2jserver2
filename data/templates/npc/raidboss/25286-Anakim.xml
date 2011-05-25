@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25286" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Anakim</name>
+        <title send="false">Raid Boss</title>
+        <level>80</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="211.789458580091" max="688716.902670109"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3893.46388"/>
+                <magical speed="333.0" damage="630.9984"/>
+            </attack>
+            <defense>
+                <physical value="1024.125"/>
+                <magical value="499.6"/>
+            </defense>
+            <move walk="45.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>9911897</experience>
+        <sp>1421059</sp>
+        <collision heigth="29.0" radius="15.5"/>
+    </info>
+    <droplist>
+        <item chance="3142" max="1" min="1" id="6365"/>
+        <item chance="3142" max="1" min="1" id="6366"/>
+        <item chance="18854" max="1" min="1" id="6367"/>
+        <item chance="3142" max="1" min="1" id="6369"/>
+        <item chance="3142" max="1" min="1" id="6579"/>
+        <item chance="44521" max="48" min="16" id="6689"/>
+        <item chance="69277" max="31" min="11" id="6690"/>
+        <item chance="363031" max="36" min="12" id="6691"/>
+        <item chance="123197" max="18" min="6" id="6693"/>
+        <item chance="284938" max="7" min="3" id="6697"/>
+        <item chance="69671" max="1" min="1" id="959"/>
+        <item chance="696707" max="1" min="1" id="960"/>
+        <item chance="11612" max="1" min="1" id="6577"/>
+        <item chance="50000" max="1" min="1" id="10296"/>
+    </droplist>
+</npc>

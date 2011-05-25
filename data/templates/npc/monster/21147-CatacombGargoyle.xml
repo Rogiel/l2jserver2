@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21147" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Catacomb Gargoyle</name>
+        <level>43</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1094.28943"/>
+            <mp regen="2.1" max="557.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="210.04832"/>
+                <magical speed="333.0" damage="143.43577"/>
+            </attack>
+            <defense>
+                <physical value="169.13417"/>
+                <magical value="112.61144"/>
+            </defense>
+            <move walk="140.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8457</experience>
+        <sp>572</sp>
+        <collision heigth="50.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2260" min="1113" id="57"/>
+        <item chance="102" max="1" min="1" id="262"/>
+        <item chance="9382" max="1" min="1" id="1805"/>
+        <item chance="235564" max="3" min="1" id="1868"/>
+        <item chance="94225" max="1" min="1" id="1873"/>
+        <item chance="15704" max="1" min="1" id="1889"/>
+        <item chance="273798" max="1" min="1" id="1905"/>
+        <item chance="386892" max="1" min="1" id="1906"/>
+        <item chance="5834" max="1" min="1" id="2053"/>
+        <item chance="9939" max="1" min="1" id="2199"/>
+        <item chance="1029" max="1" min="1" id="2301"/>
+        <item chance="23557" max="1" min="1" id="5549"/>
+    </droplist>
+</npc>

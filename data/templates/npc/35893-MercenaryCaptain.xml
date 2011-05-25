@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="35893" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mercenary Captain</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="391.417777464402" max="679374.315371996"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7476.50801"/>
+                <magical speed="333.0" damage="5105.48575"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="36.48" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="6377" righthand="2500"/>
+        <collision heigth="24.5" radius="12.0"/>
+    </info>
+</npc>

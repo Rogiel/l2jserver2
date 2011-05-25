@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="22389" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Foundry Spirit Guard</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="112316.37469612"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="9273.29977"/>
+                <magical speed="333.0" damage="6442.91152"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="51.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>640012</experience>
+        <sp>66706</sp>
+        <collision heigth="31.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="106471" min="53163" id="57"/>
+        <item chance="775900" max="9" min="3" id="9599"/>
+        <item chance="61311" max="1" min="1" id="5537"/>
+        <item chance="215" max="1" min="1" id="236"/>
+        <item chance="155172" max="9" min="3" id="1879"/>
+        <item chance="116379" max="6" min="2" id="1885"/>
+        <item chance="43813" max="1" min="1" id="9628"/>
+        <item chance="29401" max="1" min="1" id="9630"/>
+        <item chance="24288" max="1" min="1" id="9629"/>
+        <item chance="44690" max="1" min="1" id="9551"/>
+        <item chance="2234" max="1" min="1" id="960"/>
+        <item chance="572" max="1" min="1" id="6891"/>
+        <item chance="907200" max="19" min="1" id="5549"/>
+        <item chance="864000" max="13" min="1" id="1889"/>
+        <item chance="192395" max="1" min="1" id="6697"/>
+    </droplist>
+</npc>

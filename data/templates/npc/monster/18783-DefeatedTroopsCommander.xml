@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18783" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Defeated Troops Commander</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="194.030406814438" max="112922.200722637"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9169.67356"/>
+                <magical speed="333.0" damage="6335.36539"/>
+            </attack>
+            <defense>
+                <physical value="572.83923"/>
+                <magical value="628.76834"/>
+            </defense>
+            <move walk="55.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="13978"/>
+        <collision heigth="46.5" radius="28.0"/>
+    </info>
+</npc>

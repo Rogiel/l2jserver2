@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="18144" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Beetle of Grave</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="34.884" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1542.7245"/>
+                <magical speed="333.0" damage="1738.99118"/>
+            </attack>
+            <defense>
+                <physical value="245.35307"/>
+                <magical value="148.62981"/>
+            </defense>
+            <move walk="45.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>34982</experience>
+        <sp>3972</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+</npc>

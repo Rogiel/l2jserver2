@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22079" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Bandersnatch</name>
+        <level>53</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1570.8463"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="353.71092"/>
+                <magical speed="333.0" damage="241.5387"/>
+            </attack>
+            <defense>
+                <physical value="214.18326"/>
+                <magical value="156.73001"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4295</experience>
+        <sp>331</sp>
+        <collision heigth="25.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1135" min="559" id="57"/>
+        <item chance="52120" max="1" min="1" id="1871"/>
+        <item chance="34747" max="1" min="1" id="1866"/>
+        <item chance="3927" max="1" min="1" id="1989"/>
+        <item chance="2504" max="1" min="1" id="1988"/>
+        <item chance="2085" max="1" min="1" id="1877"/>
+        <item chance="1042" max="1" min="1" id="4040"/>
+        <item chance="860" max="1" min="1" id="4126"/>
+        <item chance="453" max="1" min="1" id="4041"/>
+        <item chance="51" max="1" min="1" id="473"/>
+        <item chance="32" max="1" min="1" id="442"/>
+        <item chance="6491" max="1" min="1" id="2121"/>
+        <item chance="6191" max="1" min="1" id="4145"/>
+        <item chance="6443" max="1" min="1" id="2122"/>
+        <item chance="1207" max="1" min="1" id="8726"/>
+        <item chance="302" max="1" min="1" id="8736"/>
+        <item chance="30" max="1" min="1" id="8746"/>
+        <item chance="6" max="1" min="1" id="8756"/>
+    </droplist>
+</npc>

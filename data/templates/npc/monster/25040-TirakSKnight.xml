@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25040" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tirak's Knight</name>
+        <title send="false">Raid Fighter</title>
+        <level>27</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="19.561305507244" max="3753.72384828638"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="174.87066"/>
+                <magical speed="333.0" damage="22.37851"/>
+            </attack>
+            <defense>
+                <physical value="162.43151"/>
+                <magical value="158.48"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="945" righthand="2"/>
+        <collision heigth="25.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="781200" max="30" min="10" id="1341"/>
+    </droplist>
+</npc>

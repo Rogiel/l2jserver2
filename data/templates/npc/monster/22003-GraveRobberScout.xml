@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22003" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Grave Robber Scout</name>
+        <level>27</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="79.24022"/>
+            </defense>
+            <move walk="49.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1395</experience>
+        <sp>71</sp>
+        <item lefthand="0" righthand="8527"/>
+        <collision heigth="18.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="401" min="208" id="57"/>
+        <item chance="27753" max="1" min="1" id="1884"/>
+        <item chance="18039" max="1" min="1" id="1878"/>
+        <item chance="3007" max="1" min="1" id="1889"/>
+        <item chance="3007" max="1" min="1" id="1874"/>
+        <item chance="1804" max="1" min="1" id="5220"/>
+        <item chance="172" max="1" min="1" id="274"/>
+        <item chance="3391" max="1" min="1" id="2180"/>
+        <item chance="32142" max="1" min="1" id="1874"/>
+        <item chance="192855" max="1" min="1" id="1878"/>
+        <item chance="63024" max="1" min="1" id="1934"/>
+    </droplist>
+</npc>

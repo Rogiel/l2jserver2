@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25030" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Atraiban's Top Disciple</name>
+        <title send="false">Raid Fighter</title>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="79.9874690783067" max="37286.7258398904"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1932.05423"/>
+                <magical speed="333.0" damage="1016.89724"/>
+            </attack>
+            <defense>
+                <physical value="314.25159"/>
+                <magical value="306.6"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="22.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="174578" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

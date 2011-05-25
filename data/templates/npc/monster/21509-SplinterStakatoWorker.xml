@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21509" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Splinter Stakato Worker</name>
+        <level>67</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2295.48154"/>
+            <mp regen="2.7" max="1251.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="624.93199"/>
+                <magical speed="333.0" damage="426.74754"/>
+            </attack>
+            <defense>
+                <physical value="281.55251"/>
+                <magical value="206.02791"/>
+            </defense>
+            <move walk="25.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8134</experience>
+        <sp>774</sp>
+        <collision heigth="40.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2304" min="1127" id="57"/>
+        <item chance="109706" max="30" min="10" id="1343"/>
+        <item chance="153589" max="1" min="1" id="1864"/>
+        <item chance="76795" max="1" min="1" id="1869"/>
+        <item chance="7679" max="1" min="1" id="1880"/>
+        <item chance="2560" max="1" min="1" id="4043"/>
+        <item chance="2386" max="1" min="1" id="4082"/>
+        <item chance="2386" max="1" min="1" id="4083"/>
+        <item chance="128386" max="1" min="1" id="4091"/>
+        <item chance="128386" max="1" min="1" id="4096"/>
+        <item chance="29" max="1" min="1" id="5440"/>
+        <item chance="1024" max="1" min="1" id="5550"/>
+        <item chance="32834" max="1" min="1" id="6333"/>
+        <item chance="853" max="1" min="1" id="8730"/>
+        <item chance="213" max="1" min="1" id="8740"/>
+        <item chance="22" max="1" min="1" id="8750"/>
+        <item chance="4" max="1" min="1" id="8760"/>
+        <item chance="231" max="1" min="1" id="12186"/>
+        <item chance="231" max="1" min="1" id="12194"/>
+    </droplist>
+</npc>

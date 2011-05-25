@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Pet" id="14655" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Nightshade</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3001.84731"/>
+            <mp regen="3.0" max="1794.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="958.3763"/>
+                <magical speed="333.0" damage="654.44678"/>
+            </attack>
+            <defense>
+                <physical value="355.90478"/>
+                <magical value="260.43568"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="35.5" radius="10.0"/>
+    </info>
+</npc>

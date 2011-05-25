@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18023" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Apostate's Offering Follower</name>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="966.57792"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="154.31567"/>
+                <magical speed="333.0" damage="120.43155"/>
+            </attack>
+            <defense>
+                <physical value="133.0678"/>
+                <magical value="94.83493"/>
+            </defense>
+            <move walk="50.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2296</experience>
+        <sp>148</sp>
+        <item lefthand="0" righthand="316"/>
+        <collision heigth="16.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="529" min="265" id="57"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20088" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ant Warrior Captain</name>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="809.52639"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="137.86467"/>
+                <magical speed="333.0" damage="94.1437"/>
+            </attack>
+            <defense>
+                <physical value="140.57278"/>
+                <magical value="93.59494"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4763</experience>
+        <sp>288</sp>
+        <collision heigth="17.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1326" min="662" id="57"/>
+        <item chance="112" max="1" min="1" id="293"/>
+        <item chance="112" max="1" min="1" id="296"/>
+        <item chance="185435" max="1" min="1" id="1867"/>
+        <item chance="185435" max="1" min="1" id="1872"/>
+        <item chance="104629" max="1" min="1" id="1875"/>
+        <item chance="9272" max="1" min="1" id="1875"/>
+        <item chance="18544" max="1" min="1" id="1881"/>
+        <item chance="448410" max="1" min="1" id="1895"/>
+        <item chance="112102" max="1" min="1" id="2149"/>
+        <item chance="994" max="1" min="1" id="2270"/>
+        <item chance="772" max="1" min="1" id="2288"/>
+    </droplist>
+</npc>

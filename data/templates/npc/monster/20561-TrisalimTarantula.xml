@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20561" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Trisalim Tarantula</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4144</experience>
+        <sp>294</sp>
+        <collision heigth="25.5" radius="27.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1111" min="543" id="57"/>
+        <item chance="12" max="1" min="1" id="96"/>
+        <item chance="12" max="1" min="1" id="298"/>
+        <item chance="12" max="1" min="1" id="302"/>
+        <item chance="60371" max="1" min="1" id="1832"/>
+        <item chance="36222" max="1" min="1" id="1866"/>
+        <item chance="54333" max="1" min="1" id="1871"/>
+        <item chance="137957" max="1" min="1" id="1880"/>
+        <item chance="4528" max="1" min="1" id="1885"/>
+        <item chance="852" max="1" min="1" id="2062"/>
+        <item chance="852" max="1" min="1" id="2075"/>
+        <item chance="852" max="1" min="1" id="2076"/>
+        <item chance="106120" max="1" min="1" id="2164"/>
+        <item chance="124006" max="1" min="1" id="2940"/>
+        <item chance="472" max="1" min="1" id="4041"/>
+        <item chance="2173" max="1" min="1" id="5220"/>
+        <item chance="108667" max="1" min="1" id="6037"/>
+        <item chance="19405" max="1" min="1" id="6668"/>
+        <item chance="2173" max="1" min="1" id="8723"/>
+        <item chance="543" max="1" min="1" id="8733"/>
+        <item chance="54" max="1" min="1" id="8743"/>
+        <item chance="11" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

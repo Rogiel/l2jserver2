@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22569" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Soldiers of Bravery</name>
+        <title send="false">Tiat's Bodyguard</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.260794107867" max="334640.100173302"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="8090.10762"/>
+                <magical speed="333.0" damage="5654.48287"/>
+            </attack>
+            <defense>
+                <physical value="592.48128"/>
+                <magical value="650.32814"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1322725</experience>
+        <sp>139467</sp>
+        <collision heigth="51.0" radius="36.0"/>
+    </info>
+</npc>

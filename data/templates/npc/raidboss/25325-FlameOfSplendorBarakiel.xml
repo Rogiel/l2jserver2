@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25325" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Flame of Splendor Barakiel</name>
+        <title send="false">Raid Boss</title>
+        <level>70</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="117.68436242886" max="373386.071242416"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2154.88112"/>
+                <magical speed="333.0" damage="717.40387"/>
+            </attack>
+            <defense>
+                <physical value="887.74791"/>
+                <magical value="433.08"/>
+            </defense>
+            <move walk="50.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4596479</experience>
+        <sp>802604</sp>
+        <item lefthand="0" righthand="6717"/>
+        <collision heigth="30.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="25075" max="1" min="1" id="5311"/>
+        <item chance="48286" max="1" min="1" id="5312"/>
+        <item chance="68999" max="1" min="1" id="5315"/>
+        <item chance="25075" max="1" min="1" id="5316"/>
+        <item chance="48286" max="1" min="1" id="5317"/>
+        <item chance="93119" max="120" min="40" id="5495"/>
+        <item chance="469886" max="12" min="4" id="5522"/>
+        <item chance="250606" max="22" min="8" id="5523"/>
+        <item chance="325858" max="27" min="9" id="5527"/>
+        <item chance="209480" max="42" min="14" id="5528"/>
+        <item chance="158985" max="1" min="1" id="6570"/>
+        <item chance="63594" max="1" min="1" id="6578"/>
+        <item chance="810000" max="4" min="1" id="8176"/>
+        <item chance="520000" max="1" min="1" id="8619"/>
+        <item chance="810000" max="7" min="3" id="9818"/>
+    </droplist>
+</npc>

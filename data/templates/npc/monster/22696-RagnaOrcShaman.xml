@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22696" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ragna Orc Shaman</name>
+        <title send="false">Spirit Infested</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1012.32268"/>
+                <magical speed="333.0" damage="691.28516"/>
+            </attack>
+            <defense>
+                <physical value="345.61127"/>
+                <magical value="252.90333"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>19739</experience>
+        <sp>2185</sp>
+        <item lefthand="0" righthand="8680"/>
+        <collision heigth="20.8" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1666" min="829" id="57"/>
+        <item chance="600" max="1" min="1" id="9544"/>
+        <item chance="700" max="1" min="1" id="9543"/>
+        <item chance="500" max="1" min="1" id="9539"/>
+        <item chance="700" max="1" min="1" id="9538"/>
+        <item chance="500" max="1" min="1" id="9534"/>
+        <item chance="600" max="1" min="1" id="9533"/>
+        <item chance="3" max="1" min="1" id="9527"/>
+        <item chance="3" max="1" min="1" id="9518"/>
+        <item chance="3" max="1" min="1" id="9523"/>
+        <item chance="3" max="1" min="1" id="9528"/>
+        <item chance="3" max="1" min="1" id="9522"/>
+        <item chance="3" max="1" min="1" id="9517"/>
+        <item chance="4" max="1" min="1" id="959"/>
+        <item chance="900" max="1" min="1" id="9629"/>
+        <item chance="1000" max="1" min="1" id="9628"/>
+        <item chance="1000" max="1" min="1" id="9630"/>
+        <item chance="30000" max="1" min="1" id="1879"/>
+        <item chance="20000" max="1" min="1" id="1885"/>
+        <item chance="300" max="1" min="1" id="9574"/>
+        <item chance="40" max="1" min="1" id="9575"/>
+        <item chance="1000" max="1" min="1" id="9573"/>
+        <item chance="150000" max="1" min="1" id="1894"/>
+        <item chance="25000" max="1" min="1" id="9993"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22316" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Garden Guardian Tree</name>
+        <level>83</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="32829.2831947712"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5815.28895"/>
+                <magical speed="333.0" damage="3971.08851"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>100984</experience>
+        <sp>10905</sp>
+        <collision heigth="47.0" radius="60.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="17721" min="8835" id="57"/>
+        <item chance="354164" max="1" min="1" id="1895"/>
+        <item chance="41319" max="1" min="1" id="4043"/>
+        <item chance="24792" max="1" min="1" id="4040"/>
+        <item chance="20659" max="1" min="1" id="4042"/>
+        <item chance="10202" max="1" min="1" id="5537"/>
+        <item chance="9917" max="1" min="1" id="9546"/>
+        <item chance="661" max="1" min="1" id="11973"/>
+        <item chance="496" max="1" min="1" id="960"/>
+        <item chance="251633" max="1" min="1" id="4042"/>
+        <item chance="32019" max="1" min="1" id="6695"/>
+        <item chance="15098" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

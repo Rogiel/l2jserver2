@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25085" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Timak Orc Chief Ranger</name>
+        <title send="false">Raid Boss</title>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="56.1136610991755" max="156185.297318604"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="583.32632"/>
+                <magical speed="333.0" damage="113.07982"/>
+            </attack>
+            <defense>
+                <physical value="520.30656"/>
+                <magical value="253.82"/>
+            </defense>
+            <move walk="36.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3196387</experience>
+        <sp>320242</sp>
+        <item lefthand="0" righthand="157"/>
+        <collision heigth="51.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="45880" max="19" min="7" id="854"/>
+        <item chance="81315" max="16" min="6" id="885"/>
+        <item chance="31956" max="21" min="7" id="917"/>
+        <item chance="143345" max="7" min="3" id="951"/>
+        <item chance="234348" max="243" min="81" id="1914"/>
+        <item chance="106320" max="840" min="280" id="1915"/>
+        <item chance="59908" max="720" min="240" id="1916"/>
+        <item chance="73000" max="18" min="6" id="4601"/>
+        <item chance="292000" max="4" min="2" id="4602"/>
+        <item chance="219000" max="6" min="2" id="4603"/>
+        <item chance="750000" max="2" min="1" id="8176"/>
+        <item chance="750000" max="4" min="2" id="9816"/>
+    </droplist>
+</npc>

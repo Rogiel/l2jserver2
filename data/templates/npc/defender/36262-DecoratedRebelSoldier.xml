@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Defender" id="36262" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Decorated Rebel Soldier</name>
+        <title send="false">Hunter's Fortress</title>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2758.05923328"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="824.42207"/>
+                <magical speed="333.0" damage="562.9734"/>
+            </attack>
+            <defense>
+                <physical value="323.78455"/>
+                <magical value="236.93149"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2888</experience>
+        <sp>0</sp>
+        <collision heigth="45.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="780050" max="8" min="2" id="9912"/>
+    </droplist>
+</npc>

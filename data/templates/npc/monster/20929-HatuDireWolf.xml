@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20929" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hatu Dire Wolf</name>
+        <level>32</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="668.47132"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="106.16525"/>
+                <magical speed="333.0" damage="72.49711"/>
+            </attack>
+            <defense>
+                <physical value="125.57727"/>
+                <magical value="83.61076"/>
+            </defense>
+            <move walk="24.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>836</experience>
+        <sp>47</sp>
+        <collision heigth="11.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="236" min="118" id="57"/>
+        <item chance="62" max="1" min="1" id="315"/>
+        <item chance="9316" max="1" min="1" id="956"/>
+        <item chance="48482" max="1" min="1" id="1060"/>
+        <item chance="21817" max="1" min="1" id="1865"/>
+        <item chance="21817" max="1" min="1" id="1870"/>
+        <item chance="279467" max="1" min="1" id="1871"/>
+        <item chance="1454" max="1" min="1" id="1875"/>
+        <item chance="3636" max="1" min="1" id="1879"/>
+        <item chance="30576" max="1" min="1" id="1900"/>
+        <item chance="5454" max="1" min="1" id="2250"/>
+        <item chance="873" max="1" min="1" id="6387"/>
+    </droplist>
+</npc>

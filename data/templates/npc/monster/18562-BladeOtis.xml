@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18562" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Blade Otis</name>
+        <title send="false">Kaneus</title>
+        <level>43</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="23.2361783984" max="132634.618317353"/>
+            <mp regen="11.55" max="2787.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="361.02734"/>
+                <magical speed="333.0" damage="246.53487"/>
+            </attack>
+            <defense>
+                <physical value="270.61467"/>
+                <magical value="297.03612"/>
+            </defense>
+            <move walk="25.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>784383</experience>
+        <sp>58093</sp>
+        <item lefthand="0" righthand="131"/>
+        <collision heigth="35.1" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="74310" max="1" min="1" id="353"/>
+        <item chance="49540" max="1" min="1" id="353"/>
+        <item chance="118896" max="1" min="1" id="380"/>
+        <item chance="79264" max="1" min="1" id="380"/>
+        <item chance="263413" max="1" min="1" id="951"/>
+        <item chance="321950" max="9" min="3" id="952"/>
+        <item chance="470143" max="22" min="8" id="1950"/>
+        <item chance="161221" max="22" min="8" id="1950"/>
+        <item chance="241832" max="12" min="4" id="1951"/>
+        <item chance="117536" max="72" min="24" id="1951"/>
+    </droplist>
+</npc>

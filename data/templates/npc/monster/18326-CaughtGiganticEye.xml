@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PenaltyMonster" id="18326" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Caught Gigantic Eye</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2880.37628"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="894.75854"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="290.16875"/>
+                <magical value="206.79785"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>11022</experience>
+        <sp>1237</sp>
+        <collision heigth="55.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="85774" max="6" min="2" id="6521"/>
+        <item chance="257320" max="1" min="1" id="6524"/>
+        <item chance="57183" max="6" min="2" id="6527"/>
+        <item chance="30" max="1" min="1" id="6534"/>
+        <item chance="171547" max="9" min="3" id="6540"/>
+    </droplist>
+</npc>

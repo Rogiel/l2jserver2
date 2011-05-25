@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25008" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Cletu's Retainer</name>
+        <title send="false">Raid Fighter</title>
+        <level>41</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="48.1861698923943" max="21023.161150046"/>
+            <mp regen="2.1" max="504.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="948.58421"/>
+                <magical speed="333.0" damage="337.17014"/>
+            </attack>
+            <defense>
+                <physical value="241.03503"/>
+                <magical value="235.18"/>
+            </defense>
+            <move walk="72.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="25.5" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="16213" max="1" min="1" id="6036"/>
+    </droplist>
+</npc>

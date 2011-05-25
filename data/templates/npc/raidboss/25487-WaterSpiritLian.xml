@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25487" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Water Spirit Lian</name>
+        <title send="false">Raid Boss</title>
+        <level>40</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="34.0387779378852" max="91937.3861400206"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="236.34363"/>
+                <magical speed="333.0" damage="18.66292"/>
+            </attack>
+            <defense>
+                <physical value="469.65105"/>
+                <magical value="229.12"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2030965</experience>
+        <sp>181264</sp>
+        <collision heigth="54.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="4815" max="33" min="11" id="62"/>
+        <item chance="9846" max="1" min="1" id="89"/>
+        <item chance="9846" max="1" min="1" id="160"/>
+        <item chance="9846" max="1" min="1" id="161"/>
+        <item chance="9846" max="1" min="1" id="173"/>
+        <item chance="9846" max="1" min="1" id="191"/>
+        <item chance="9846" max="1" min="1" id="192"/>
+        <item chance="9846" max="1" min="1" id="193"/>
+        <item chance="9846" max="1" min="1" id="194"/>
+        <item chance="10507" max="660" min="220" id="1958"/>
+        <item chance="167705" max="6" min="2" id="2061"/>
+        <item chance="134164" max="7" min="3" id="2063"/>
+        <item chance="111803" max="9" min="3" id="2064"/>
+        <item chance="95832" max="10" min="4" id="2065"/>
+        <item chance="34035" max="30" min="10" id="2066"/>
+        <item chance="78187" max="12" min="4" id="2067"/>
+        <item chance="69499" max="13" min="5" id="2068"/>
+        <item chance="20623" max="49" min="17" id="2069"/>
+        <item chance="4606" max="34" min="12" id="2429"/>
+        <item chance="4414" max="36" min="12" id="2430"/>
+        <item chance="4237" max="37" min="13" id="2431"/>
+        <item chance="4074" max="39" min="13" id="2432"/>
+        <item chance="105934" max="1" min="1" id="2433"/>
+        <item chance="105934" max="1" min="1" id="2452"/>
+        <item chance="105934" max="1" min="1" id="2453"/>
+        <item chance="105934" max="1" min="1" id="2454"/>
+        <item chance="6115" max="1134" min="378" id="2937"/>
+        <item chance="88904" max="78" min="26" id="2938"/>
+        <item chance="66043" max="105" min="35" id="2939"/>
+        <item chance="51367" max="135" min="45" id="2940"/>
+        <item chance="41277" max="168" min="56" id="2941"/>
+        <item chance="33993" max="204" min="68" id="2942"/>
+        <item chance="28538" max="243" min="81" id="2943"/>
+        <item chance="24333" max="285" min="95" id="2944"/>
+        <item chance="514316" max="1" min="1" id="6574"/>
+        <item chance="640000" max="1" min="1" id="8176"/>
+        <item chance="850000" max="2" min="1" id="9818"/>
+    </droplist>
+</npc>

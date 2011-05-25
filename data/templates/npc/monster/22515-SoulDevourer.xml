@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22515" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Soul Devourer</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1018.31276"/>
+                <magical speed="333.0" damage="699.49026"/>
+            </attack>
+            <defense>
+                <physical value="347.65631"/>
+                <magical value="254.3998"/>
+            </defense>
+            <move walk="100.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>63246</experience>
+        <sp>6665</sp>
+        <collision heigth="35.36" radius="56.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="16925" min="8265" id="57"/>
+        <item chance="12837" max="1" min="1" id="5514"/>
+        <item chance="12837" max="1" min="1" id="5503"/>
+        <item chance="12837" max="1" min="1" id="5515"/>
+        <item chance="12837" max="1" min="1" id="5502"/>
+        <item chance="112" max="1" min="1" id="5318"/>
+        <item chance="112" max="1" min="1" id="5314"/>
+        <item chance="112" max="1" min="1" id="5313"/>
+        <item chance="112" max="1" min="1" id="5319"/>
+        <item chance="112606" max="180" min="60" id="1345"/>
+        <item chance="289557" max="1" min="1" id="1895"/>
+        <item chance="20269" max="1" min="1" id="4040"/>
+        <item chance="7948" max="1" min="1" id="9628"/>
+        <item chance="5334" max="1" min="1" id="9630"/>
+        <item chance="1014" max="1" min="1" id="6901"/>
+        <item chance="433117" max="2" min="1" id="1894"/>
+        <item chance="147583" max="1" min="1" id="5528"/>
+    </droplist>
+</npc>

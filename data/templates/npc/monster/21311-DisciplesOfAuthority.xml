@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21311" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Disciples of Authority</name>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2719.97952"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="815.37145"/>
+                <magical speed="333.0" damage="556.793"/>
+            </attack>
+            <defense>
+                <physical value="323.78455"/>
+                <magical value="215.57941"/>
+            </defense>
+            <move walk="50.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>37210</experience>
+        <sp>3978</sp>
+        <item lefthand="0" righthand="6718"/>
+        <collision heigth="38.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10619" min="5186" id="57"/>
+        <item chance="144152" max="9" min="3" id="1868"/>
+        <item chance="172982" max="1" min="1" id="1873"/>
+        <item chance="28830" max="1" min="1" id="1889"/>
+        <item chance="14415" max="1" min="1" id="4044"/>
+        <item chance="192" max="1" min="1" id="5157"/>
+        <item chance="4685" max="1" min="1" id="5162"/>
+        <item chance="31765" max="1" min="1" id="5546"/>
+        <item chance="2207" max="1" min="1" id="5547"/>
+        <item chance="2207" max="1" min="1" id="5548"/>
+        <item chance="527054" max="3" min="1" id="5549"/>
+        <item chance="43245" max="1" min="1" id="5549"/>
+        <item chance="2213" max="1" min="1" id="8331"/>
+        <item chance="3604" max="1" min="1" id="8732"/>
+        <item chance="901" max="1" min="1" id="8742"/>
+        <item chance="90" max="1" min="1" id="8752"/>
+        <item chance="179" max="1" min="1" id="11952"/>
+        <item chance="179" max="1" min="1" id="11954"/>
+        <item chance="179" max="1" min="1" id="11957"/>
+    </droplist>
+</npc>

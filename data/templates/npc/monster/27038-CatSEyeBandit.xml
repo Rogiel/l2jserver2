@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="27038" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Cat's Eye Bandit</name>
+        <title send="false">Quest Monster</title>
+        <level>15</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="246.95422"/>
+            <mp regen="1.2" max="149.2"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="29.61691"/>
+                <magical speed="333.0" damage="20.22451"/>
+            </attack>
+            <defense>
+                <physical value="73.55216"/>
+                <magical value="53.82228"/>
+            </defense>
+            <move walk="50.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="218"/>
+        <collision heigth="25.0" radius="13.5"/>
+    </info>
+</npc>

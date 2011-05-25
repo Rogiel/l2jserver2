@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FeedableBeast" id="21497" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Alpine Cougar</name>
+        <level>69</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2395.45533"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="667.50361"/>
+                <magical speed="333.0" damage="455.81844"/>
+            </attack>
+            <defense>
+                <physical value="291.15063"/>
+                <magical value="193.85137"/>
+            </defense>
+            <move walk="28.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8309</experience>
+        <sp>814</sp>
+        <collision heigth="15.7" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="65" max="1" min="1" id="730"/>
+        <item chance="155114" max="1" min="1" id="1864"/>
+        <item chance="77557" max="1" min="1" id="1869"/>
+        <item chance="31023" max="1" min="1" id="1878"/>
+        <item chance="888675" max="3" min="1" id="1884"/>
+        <item chance="47727" max="1" min="1" id="1884"/>
+        <item chance="96273" max="1" min="1" id="4039"/>
+        <item chance="2585" max="1" min="1" id="4039"/>
+        <item chance="419" max="1" min="1" id="5366"/>
+        <item chance="67718" max="1" min="1" id="5496"/>
+        <item chance="484" max="1" min="1" id="5547"/>
+        <item chance="484" max="1" min="1" id="5548"/>
+        <item chance="485" max="1" min="1" id="8331"/>
+        <item chance="862" max="1" min="1" id="8730"/>
+        <item chance="216" max="1" min="1" id="8740"/>
+        <item chance="21" max="1" min="1" id="8750"/>
+        <item chance="4" max="1" min="1" id="8760"/>
+        <item chance="39" max="1" min="1" id="11952"/>
+        <item chance="39" max="1" min="1" id="11954"/>
+        <item chance="39" max="1" min="1" id="11957"/>
+    </droplist>
+</npc>

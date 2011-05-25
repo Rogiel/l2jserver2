@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25482" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shadow of Kenishee</name>
+        <title send="false">Raid Fighter</title>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="58.0887964751743" max="27046.6646315983"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2064.60481"/>
+                <magical speed="333.0" damage="1172.36381"/>
+            </attack>
+            <defense>
+                <physical value="314.25159"/>
+                <magical value="306.6"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="30.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="174578" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

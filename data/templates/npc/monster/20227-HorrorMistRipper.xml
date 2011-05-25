@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20227" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Horror Mist Ripper</name>
+        <level>27</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="72.09915"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1349</experience>
+        <sp>70</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="72835" max="1" min="1" id="1899"/>
+        <item chance="74583" max="1" min="1" id="2178"/>
+        <item chance="7238" max="1" min="1" id="2260"/>
+        <item chance="700000" max="388" min="201" id="57"/>
+        <item chance="543" max="1" min="1" id="391"/>
+        <item chance="869" max="1" min="1" id="413"/>
+        <item chance="69763" max="1" min="1" id="1867"/>
+        <item chance="69763" max="1" min="1" id="1872"/>
+        <item chance="11627" max="1" min="1" id="1882"/>
+        <item chance="5237" max="1" min="1" id="2181"/>
+        <item chance="4360" max="1" min="1" id="6035"/>
+    </droplist>
+</npc>

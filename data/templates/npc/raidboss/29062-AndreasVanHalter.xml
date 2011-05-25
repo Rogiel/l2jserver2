@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29062" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Andreas Van Halter</name>
+        <title send="false">Seer of Pagan</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="364.87" max="115708.195"/>
+            <mp regen="3.21" max="2051.19"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3134.565"/>
+                <magical speed="333.0" damage="1241.64405"/>
+            </attack>
+            <defense>
+                <physical value="3161.7216"/>
+                <magical value="578.3992"/>
+            </defense>
+            <move walk="30.0" run="210.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2915973</experience>
+        <sp>2380617</sp>
+        <item lefthand="0" righthand="8208"/>
+        <collision heigth="21.3" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="320095" max="1" min="1" id="8921"/>
+        <item chance="320095" max="1" min="1" id="960"/>
+        <item chance="306342" max="36" min="12" id="6711"/>
+        <item chance="233504" max="1" min="1" id="7579"/>
+        <item chance="32009" max="1" min="1" id="959"/>
+        <item chance="17056" max="1" min="1" id="6684"/>
+        <item chance="10504" max="1" min="1" id="7575"/>
+        <item chance="5335" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

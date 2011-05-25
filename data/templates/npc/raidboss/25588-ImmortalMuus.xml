@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25588" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Immortal Muus</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>77</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="174.258963997156" max="406426.733925371"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6058.73911"/>
+                <magical speed="333.0" damage="925.85379"/>
+            </attack>
+            <defense>
+                <physical value="984.81219"/>
+                <magical value="480.42"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2441393</experience>
+        <sp>374864</sp>
+        <item lefthand="0" righthand="2500"/>
+        <collision heigth="46.5" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="486081" max="1" min="1" id="730"/>
+        <item chance="74845" max="1" min="1" id="5289"/>
+        <item chance="106945" max="1" min="1" id="5292"/>
+        <item chance="74845" max="1" min="1" id="5294"/>
+        <item chance="131253" max="120" min="40" id="5494"/>
+        <item chance="47708" max="243" min="81" id="5525"/>
+        <item chance="276024" max="42" min="14" id="5526"/>
+        <item chance="116659" max="1" min="1" id="9625"/>
+    </droplist>
+</npc>

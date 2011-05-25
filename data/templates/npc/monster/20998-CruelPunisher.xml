@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20998" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Cruel Punisher</name>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="139.48817"/>
+            </defense>
+            <move walk="15.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5002</experience>
+        <sp>386</sp>
+        <collision heigth="40.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1343" min="664" id="57"/>
+        <item chance="3" max="1" min="1" id="162"/>
+        <item chance="3" max="1" min="1" id="174"/>
+        <item chance="3" max="1" min="1" id="196"/>
+        <item chance="3" max="1" min="1" id="197"/>
+        <item chance="3" max="1" min="1" id="199"/>
+        <item chance="3" max="1" min="1" id="200"/>
+        <item chance="3" max="1" min="1" id="201"/>
+        <item chance="3" max="1" min="1" id="202"/>
+        <item chance="59124" max="1" min="1" id="1832"/>
+        <item chance="35474" max="1" min="1" id="1866"/>
+        <item chance="53212" max="1" min="1" id="1871"/>
+        <item chance="2128" max="1" min="1" id="1877"/>
+        <item chance="71182" max="1" min="1" id="1916"/>
+        <item chance="232" max="1" min="1" id="2097"/>
+        <item chance="232" max="1" min="1" id="2098"/>
+        <item chance="244" max="1" min="1" id="2099"/>
+        <item chance="244" max="1" min="1" id="2100"/>
+        <item chance="235" max="1" min="1" id="2102"/>
+        <item chance="244" max="1" min="1" id="2103"/>
+        <item chance="244" max="1" min="1" id="2104"/>
+        <item chance="232" max="1" min="1" id="2105"/>
+        <item chance="29606" max="1" min="1" id="2169"/>
+        <item chance="39452" max="1" min="1" id="2170"/>
+        <item chance="229" max="1" min="1" id="2231"/>
+        <item chance="1064" max="1" min="1" id="4040"/>
+        <item chance="463" max="1" min="1" id="4041"/>
+        <item chance="106" max="1" min="1" id="5155"/>
+        <item chance="12375" max="1" min="1" id="6669"/>
+        <item chance="1478" max="1" min="1" id="8725"/>
+        <item chance="370" max="1" min="1" id="8735"/>
+        <item chance="37" max="1" min="1" id="8745"/>
+        <item chance="7" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

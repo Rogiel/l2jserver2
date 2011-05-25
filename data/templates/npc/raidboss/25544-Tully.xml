@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25544" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tully</name>
+        <title send="false">Steel Citadel</title>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="171.837730607924" max="1697736.13723745"/>
+            <mp regen="3.0" max="1881.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5285.98483"/>
+                <magical speed="333.0" damage="3672.60127"/>
+            </attack>
+            <defense>
+                <physical value="743.99459"/>
+                <magical value="359.61279"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="80" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2522625</experience>
+        <sp>1749150</sp>
+        <collision heigth="32.5" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="46044" max="1" min="1" id="6680"/>
+        <item chance="740368" max="36" min="12" id="6707"/>
+        <item chance="11182" max="1" min="1" id="7575"/>
+        <item chance="217808" max="36" min="12" id="7579"/>
+    </droplist>
+</npc>

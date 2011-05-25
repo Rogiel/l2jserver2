@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22666" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Barif</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="15.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>29543</experience>
+        <sp>3085</sp>
+        <item lefthand="0" righthand="3938"/>
+        <collision heigth="66.0" radius="50.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2884" min="1530" id="57"/>
+        <item chance="3800" max="1" min="1" id="9620"/>
+        <item chance="10" max="1" min="1" id="9446"/>
+        <item chance="93700" max="1" min="1" id="1879"/>
+        <item chance="48100" max="1" min="1" id="1885"/>
+        <item chance="300" max="1" min="1" id="5157"/>
+        <item chance="10100" max="1" min="1" id="9628"/>
+        <item chance="2500" max="1" min="1" id="9630"/>
+        <item chance="1300" max="1" min="1" id="9629"/>
+        <item chance="3800" max="1" min="1" id="9573"/>
+        <item chance="760" max="1" min="1" id="9574"/>
+        <item chance="76" max="1" min="1" id="9575"/>
+        <item chance="15000" max="1" min="1" id="9624"/>
+        <item chance="80000" max="1" min="1" id="9628"/>
+        <item chance="40000" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

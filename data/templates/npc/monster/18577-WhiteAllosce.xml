@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18577" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">White Allosce</name>
+        <title send="false">Kaneus</title>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="67.8461312332064" max="475289.654476948"/>
+            <mp regen="18.3" max="7212.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2939.28877"/>
+                <magical speed="333.0" damage="2007.15321"/>
+            </attack>
+            <defense>
+                <physical value="496.04734"/>
+                <magical value="544.47888"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1169076</experience>
+        <sp>202886</sp>
+        <collision heigth="55.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="39024" max="1" min="1" id="729"/>
+        <item chance="292676" max="1" min="1" id="730"/>
+        <item chance="26959" max="1" min="1" id="6323"/>
+        <item chance="17972" max="1" min="1" id="6323"/>
+        <item chance="35945" max="1" min="1" id="6324"/>
+        <item chance="23963" max="1" min="1" id="6324"/>
+        <item chance="53917" max="1" min="1" id="6325"/>
+        <item chance="35944" max="1" min="1" id="6325"/>
+        <item chance="277542" max="27" min="9" id="6341"/>
+        <item chance="185028" max="27" min="9" id="6341"/>
+        <item chance="137925" max="42" min="14" id="6343"/>
+        <item chance="91950" max="42" min="14" id="6343"/>
+        <item chance="86372" max="120" min="40" id="6345"/>
+        <item chance="57581" max="120" min="40" id="6345"/>
+    </droplist>
+</npc>

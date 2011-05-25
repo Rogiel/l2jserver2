@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20248" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Turak Bugbear</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="81.22111"/>
+            </defense>
+            <move walk="55.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1677</experience>
+        <sp>94</sp>
+        <item lefthand="0" righthand="88"/>
+        <collision heigth="35.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="476" min="239" id="57"/>
+        <item chance="12" max="1" min="1" id="86"/>
+        <item chance="12" max="1" min="1" id="179"/>
+        <item chance="12" max="1" min="1" id="180"/>
+        <item chance="12" max="1" min="1" id="181"/>
+        <item chance="12" max="1" min="1" id="182"/>
+        <item chance="12" max="1" min="1" id="183"/>
+        <item chance="12" max="1" min="1" id="184"/>
+        <item chance="12" max="1" min="1" id="185"/>
+        <item chance="2256" max="1" min="1" id="955"/>
+        <item chance="20549" max="1" min="1" id="1829"/>
+        <item chance="564065" max="1" min="1" id="1865"/>
+        <item chance="51373" max="1" min="1" id="1865"/>
+        <item chance="51373" max="1" min="1" id="1870"/>
+        <item chance="3425" max="1" min="1" id="1874"/>
+        <item chance="480" max="1" min="1" id="2022"/>
+        <item chance="382" max="1" min="1" id="2023"/>
+        <item chance="6553" max="1" min="1" id="2192"/>
+        <item chance="141016" max="1" min="1" id="2250"/>
+        <item chance="367" max="1" min="1" id="2274"/>
+    </droplist>
+</npc>

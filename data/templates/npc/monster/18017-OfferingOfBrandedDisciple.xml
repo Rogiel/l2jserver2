@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18017" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Offering of Branded Disciple</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="80.53748"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1651</experience>
+        <sp>96</sp>
+        <item lefthand="0" righthand="129"/>
+        <collision heigth="21.5" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="387" min="194" id="57"/>
+    </droplist>
+</npc>

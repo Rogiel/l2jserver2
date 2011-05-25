@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25359" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sukar Wererat Priest</name>
+        <title send="false">Raid Fighter</title>
+        <level>20</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="16.5400323223535" max="5895.54977206307"/>
+            <mp regen="1.2" max="192.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="97.65033"/>
+                <magical speed="333.0" damage="9.52955"/>
+            </attack>
+            <defense>
+                <physical value="130.30574"/>
+                <magical value="127.14"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="179"/>
+        <collision heigth="18.7" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="182933" max="1" min="1" id="1832"/>
+    </droplist>
+</npc>

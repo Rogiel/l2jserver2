@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25452" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Messenger of Angel</name>
+        <title send="false">Raid Fighter</title>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="127.691727959173" max="66384.5426616496"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5267.04651"/>
+                <magical speed="333.0" damage="3790.2949"/>
+            </attack>
+            <defense>
+                <physical value="505.60512"/>
+                <magical value="493.3"/>
+            </defense>
+            <move walk="30.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="148"/>
+        <collision heigth="36.5" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="381000" max="180" min="60" id="1344"/>
+    </droplist>
+</npc>

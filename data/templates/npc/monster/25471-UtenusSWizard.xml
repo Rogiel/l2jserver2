@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25471" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Utenus's Wizard</name>
+        <title send="false">Raid Fighter</title>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="79.6115910136094" max="26490.8536799401"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2595.52118"/>
+                <magical speed="333.0" damage="1246.88892"/>
+            </attack>
+            <defense>
+                <physical value="407.8355"/>
+                <magical value="397.92"/>
+            </defense>
+            <move walk="15.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="44.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="901714" max="60" min="20" id="1343"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21296" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Canyon Bandersnatch</name>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="197.0242"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>26081</experience>
+        <sp>2586</sp>
+        <collision heigth="25.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7319" min="3597" id="57"/>
+        <item chance="199022" max="3" min="1" id="1867"/>
+        <item chance="74633" max="12" min="4" id="1872"/>
+        <item chance="29853" max="1" min="1" id="1875"/>
+        <item chance="59707" max="1" min="1" id="1881"/>
+        <item chance="3849" max="1" min="1" id="4041"/>
+        <item chance="3369" max="1" min="1" id="5440"/>
+        <item chance="120055" max="1" min="1" id="5482"/>
+        <item chance="76488" max="1" min="1" id="5485"/>
+        <item chance="4584" max="1" min="1" id="5535"/>
+        <item chance="1791" max="1" min="1" id="10304"/>
+        <item chance="370" max="1" min="1" id="11955"/>
+    </droplist>
+</npc>

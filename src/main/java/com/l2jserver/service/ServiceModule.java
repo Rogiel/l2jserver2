@@ -39,8 +39,8 @@ import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.scripting.ScriptingServiceImpl;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.spawn.SpawnServiceImpl;
-import com.l2jserver.service.game.template.ScriptTemplateService;
 import com.l2jserver.service.game.template.TemplateService;
+import com.l2jserver.service.game.template.XMLTemplateService;
 import com.l2jserver.service.game.world.CachedWorldIDService;
 import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.game.world.WorldService;
@@ -80,7 +80,7 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(ScriptingService.class).to(ScriptingServiceImpl.class).in(
 				Scopes.SINGLETON);
-		bind(TemplateService.class).to(ScriptTemplateService.class).in(
+		bind(TemplateService.class).to(XMLTemplateService.class).in(
 				Scopes.SINGLETON);
 
 		bind(ChatService.class).to(SimpleChatService.class)

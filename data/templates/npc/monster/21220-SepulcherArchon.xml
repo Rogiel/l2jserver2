@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21220" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sepulcher Archon</name>
+        <level>50</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="200.23844"/>
+                <magical value="133.32101"/>
+            </defense>
+            <move walk="40.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10635</experience>
+        <sp>801</sp>
+        <item lefthand="107" righthand="131"/>
+        <collision heigth="33.0" radius="13.0"/>
+    </info>
+</npc>

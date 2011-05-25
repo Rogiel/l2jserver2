@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25717" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tears</name>
+        <title send="false">Ice</title>
+        <level>84</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="154.089581103435" max="1360985.8136379"/>
+            <mp regen="30.0" max="18120.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="215.22959"/>
+                <magical speed="333.0" damage="147.29323"/>
+            </attack>
+            <defense>
+                <physical value="644.16101"/>
+                <magical value="345.95343"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="9638" righthand="9638"/>
+        <collision heigth="27.5" radius="20.0"/>
+    </info>
+</npc>

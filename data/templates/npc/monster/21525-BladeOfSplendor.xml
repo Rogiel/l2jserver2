@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21525" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Blade of Splendor</name>
+        <level>61</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="1985.55926"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="501.08068"/>
+                <magical speed="333.0" damage="342.17315"/>
+            </attack>
+            <defense>
+                <physical value="252.49346"/>
+                <magical value="168.113"/>
+            </defense>
+            <move walk="50.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9634</experience>
+        <sp>848</sp>
+        <item lefthand="0" righthand="242"/>
+        <collision heigth="26.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2634" min="1299" id="57"/>
+        <item chance="39" max="1" min="1" id="947"/>
+        <item chance="138327" max="30" min="10" id="1343"/>
+        <item chance="3397" max="1" min="1" id="1894"/>
+        <item chance="3228" max="1" min="1" id="4039"/>
+        <item chance="842" max="1" min="1" id="4041"/>
+        <item chance="3228" max="1" min="1" id="4044"/>
+        <item chance="171939" max="1" min="1" id="4049"/>
+        <item chance="203099" max="1" min="1" id="4050"/>
+        <item chance="1364" max="1" min="1" id="4109"/>
+        <item chance="1364" max="1" min="1" id="4110"/>
+        <item chance="35476" max="1" min="1" id="4129"/>
+        <item chance="1614" max="1" min="1" id="8728"/>
+        <item chance="404" max="1" min="1" id="8738"/>
+        <item chance="40" max="1" min="1" id="8748"/>
+        <item chance="8" max="1" min="1" id="8758"/>
+        <item chance="139" max="1" min="1" id="11915"/>
+        <item chance="139" max="1" min="1" id="11919"/>
+    </droplist>
+</npc>

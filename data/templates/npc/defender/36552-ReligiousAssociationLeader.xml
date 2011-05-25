@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Defender" id="36552" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Religious Association Leader</name>
+        <title send="false">Rune</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="981.0" max="463876.0"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2911.61265"/>
+                <magical speed="333.0" damage="1988.25399"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="21" men="20" con="27" str="22" int="41"/>
+        </stats>
+        <experience>64129</experience>
+        <sp>77672</sp>
+        <item lefthand="0" righthand="8687"/>
+        <collision heigth="22.5" radius="8.0"/>
+    </info>
+</npc>

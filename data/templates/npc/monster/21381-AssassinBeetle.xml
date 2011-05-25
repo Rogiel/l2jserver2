@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21381" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Assassin Beetle</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="45.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>42075</experience>
+        <sp>4722</sp>
+        <collision heigth="54.5" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11364" min="5566" id="57"/>
+        <item chance="167" max="1" min="1" id="960"/>
+        <item chance="130283" max="120" min="40" id="1344"/>
+        <item chance="55587" max="15" min="5" id="1867"/>
+        <item chance="185292" max="3" min="1" id="1872"/>
+        <item chance="92646" max="1" min="1" id="1882"/>
+        <item chance="14628" max="1" min="1" id="1894"/>
+        <item chance="5018" max="1" min="1" id="3957"/>
+        <item chance="6948" max="1" min="1" id="4042"/>
+        <item chance="5018" max="1" min="1" id="5157"/>
+        <item chance="171455" max="1" min="1" id="5495"/>
+        <item chance="5716" max="1" min="1" id="5541"/>
+        <item chance="3474" max="1" min="1" id="8732"/>
+        <item chance="869" max="1" min="1" id="8742"/>
+        <item chance="87" max="1" min="1" id="8752"/>
+        <item chance="371" max="1" min="1" id="11976"/>
+    </droplist>
+</npc>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22485" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Watcher</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="24.6038566584159" max="4969.53573226743"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="329.85528"/>
+                <magical speed="333.0" damage="225.24839"/>
+            </attack>
+            <defense>
+                <physical value="184.00957"/>
+                <magical value="201.97531"/>
+            </defense>
+            <move walk="70.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="127"/>
+        <collision heigth="37.0" radius="20.0"/>
+    </info>
+</npc>

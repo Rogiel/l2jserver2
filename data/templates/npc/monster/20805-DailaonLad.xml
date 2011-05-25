@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20805" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dailaon Lad</name>
+        <level>42</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1050.81652"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="198.34591"/>
+                <magical speed="333.0" damage="135.44454"/>
+            </attack>
+            <defense>
+                <physical value="164.88513"/>
+                <magical value="109.78238"/>
+            </defense>
+            <move walk="18.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6697</experience>
+        <sp>446</sp>
+        <item lefthand="0" righthand="5127"/>
+        <collision heigth="58.0" radius="40.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1803" min="892" id="57"/>
+        <item chance="16" max="1" min="1" id="159"/>
+        <item chance="16" max="1" min="1" id="187"/>
+        <item chance="16" max="1" min="1" id="188"/>
+        <item chance="16" max="1" min="1" id="189"/>
+        <item chance="16" max="1" min="1" id="190"/>
+        <item chance="63578" max="1" min="1" id="1895"/>
+        <item chance="215536" max="1" min="1" id="1905"/>
+        <item chance="920" max="1" min="1" id="2048"/>
+        <item chance="920" max="1" min="1" id="2049"/>
+        <item chance="975" max="1" min="1" id="2050"/>
+        <item chance="975" max="1" min="1" id="2051"/>
+        <item chance="18321" max="1" min="1" id="2053"/>
+        <item chance="920" max="1" min="1" id="2058"/>
+        <item chance="107039" max="1" min="1" id="2162"/>
+        <item chance="7042" max="1" min="1" id="2205"/>
+        <item chance="972" max="1" min="1" id="2305"/>
+        <item chance="742" max="1" min="1" id="5164"/>
+        <item chance="79473" max="1" min="1" id="6668"/>
+    </droplist>
+</npc>

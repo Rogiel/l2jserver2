@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20359" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ratman Warrior</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="55.97901"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>678</experience>
+        <sp>30</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="6680" max="1" min="1" id="44"/>
+        <item chance="700000" max="208" min="122" id="57"/>
+        <item chance="147" max="1" min="1" id="176"/>
+        <item chance="38575" max="1" min="1" id="1865"/>
+        <item chance="38575" max="1" min="1" id="1870"/>
+        <item chance="348237" max="1" min="1" id="1872"/>
+        <item chance="84251" max="1" min="1" id="1924"/>
+        <item chance="1581" max="1" min="1" id="2252"/>
+        <item chance="147" max="1" min="1" id="2501"/>
+        <item chance="1543" max="1" min="1" id="5268"/>
+    </droplist>
+</npc>

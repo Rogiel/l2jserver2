@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25223" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Soul Collector Acheron</name>
+        <title send="false">Raid Boss</title>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="26.794392073316" max="69449.5684546156"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="163.69565"/>
+                <magical speed="333.0" damage="12.93"/>
+            </attack>
+            <defense>
+                <physical value="410.18844"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="70.0" run="160.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1912395</experience>
+        <sp>144137</sp>
+        <item lefthand="0" righthand="192"/>
+        <collision heigth="63.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="10511" max="25" min="9" id="61"/>
+        <item chance="87193" max="1" min="1" id="225"/>
+        <item chance="9927" max="27" min="9" id="607"/>
+        <item chance="174188" max="45" min="15" id="952"/>
+        <item chance="9405" max="28" min="10" id="1125"/>
+        <item chance="33477" max="336" min="112" id="1949"/>
+        <item chance="11717" max="960" min="320" id="1957"/>
+        <item chance="18516" max="607" min="203" id="1963"/>
+        <item chance="218498" max="36" min="12" id="2052"/>
+        <item chance="8935" max="30" min="10" id="2427"/>
+        <item chance="178695" max="1" min="1" id="2428"/>
+        <item chance="178695" max="1" min="1" id="2451"/>
+        <item chance="136342" max="82" min="28" id="2931"/>
+        <item chance="104150" max="108" min="36" id="2932"/>
+        <item chance="82406" max="136" min="46" id="2933"/>
+        <item chance="326602" max="6" min="2" id="4600"/>
+    </droplist>
+</npc>

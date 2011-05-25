@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22046" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Varangka's Dre Vanul</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="133.31739"/>
+            </defense>
+            <move walk="80.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1720</experience>
+        <sp>116</sp>
+        <collision heigth="36.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="442" min="216" id="57"/>
+        <item chance="25950" max="1" min="1" id="1871"/>
+        <item chance="17300" max="1" min="1" id="1866"/>
+        <item chance="2163" max="1" min="1" id="1885"/>
+        <item chance="1038" max="1" min="1" id="5220"/>
+        <item chance="226" max="1" min="1" id="4041"/>
+        <item chance="1038" max="1" min="1" id="8723"/>
+        <item chance="260" max="1" min="1" id="8733"/>
+        <item chance="26" max="1" min="1" id="8743"/>
+        <item chance="5" max="1" min="1" id="8753"/>
+        <item chance="1324" max="1" min="1" id="2163"/>
+        <item chance="5" max="1" min="1" id="96"/>
+        <item chance="5" max="1" min="1" id="298"/>
+        <item chance="5" max="1" min="1" id="302"/>
+        <item chance="339" max="1" min="1" id="2062"/>
+        <item chance="339" max="1" min="1" id="2075"/>
+        <item chance="339" max="1" min="1" id="2076"/>
+        <item chance="28014" max="1" min="1" id="2163"/>
+        <item chance="51995" max="1" min="1" id="1908"/>
+        <item chance="2196" max="1" min="1" id="4553"/>
+    </droplist>
+</npc>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20843" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Zaken's Royal Guard</name>
+        <level>50</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="200.23844"/>
+                <magical value="133.32101"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4413</experience>
+        <sp>332</sp>
+        <item lefthand="945" righthand="225"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="327301" max="1" min="1" id="1539"/>
+        <item chance="82745" max="1" min="1" id="1914"/>
+        <item chance="3273" max="1" min="1" id="4601"/>
+        <item chance="700000" max="1184" min="583" id="57"/>
+        <item chance="18" max="1" min="1" id="283"/>
+        <item chance="1708" max="1" min="1" id="2109"/>
+        <item chance="33838" max="1" min="1" id="1866"/>
+        <item chance="50757" max="1" min="1" id="1871"/>
+        <item chance="2030" max="1" min="1" id="1877"/>
+        <item chance="83" max="1" min="1" id="2357"/>
+        <item chance="1418" max="1" min="1" id="3014"/>
+        <item chance="1015" max="1" min="1" id="4040"/>
+        <item chance="441" max="1" min="1" id="4041"/>
+        <item chance="58" max="1" min="1" id="4188"/>
+        <item chance="1410" max="1" min="1" id="8725"/>
+        <item chance="353" max="1" min="1" id="8735"/>
+        <item chance="35" max="1" min="1" id="8745"/>
+        <item chance="7" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

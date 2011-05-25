@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20346" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Darkstone Golem</name>
+        <level>13</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="214.61578"/>
+            <mp regen="1.2" max="132.64"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="25.04271"/>
+                <magical speed="333.0" damage="17.10092"/>
+            </attack>
+            <defense>
+                <physical value="68.67458"/>
+                <magical value="45.72431"/>
+            </defense>
+            <move walk="23.0" run="23.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>545</experience>
+        <sp>21</sp>
+        <collision heigth="31.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="5564" max="1" min="1" id="20"/>
+        <item chance="3891" max="1" min="1" id="43"/>
+        <item chance="700000" max="150" min="106" id="57"/>
+        <item chance="19845" max="1" min="1" id="736"/>
+        <item chance="169366" max="1" min="1" id="1803"/>
+        <item chance="537455" max="1" min="1" id="1831"/>
+        <item chance="26460" max="1" min="1" id="1866"/>
+        <item chance="201546" max="1" min="1" id="1869"/>
+        <item chance="39690" max="1" min="1" id="1871"/>
+    </droplist>
+</npc>

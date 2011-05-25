@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21253" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Crypt Preacher</name>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2540.15331"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="731.52506"/>
+                <magical speed="333.0" damage="499.53679"/>
+            </attack>
+            <defense>
+                <physical value="305.35947"/>
+                <magical value="203.31178"/>
+            </defense>
+            <move walk="70.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>22494</experience>
+        <sp>2285</sp>
+        <item lefthand="0" righthand="326"/>
+        <collision heigth="52.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6350" min="3110" id="57"/>
+        <item chance="8408" max="1" min="1" id="1807"/>
+        <item chance="8408" max="1" min="1" id="3035"/>
+        <item chance="29" max="1" min="1" id="5304"/>
+        <item chance="46" max="1" min="1" id="5305"/>
+        <item chance="18" max="1" min="1" id="5308"/>
+        <item chance="37315" max="1" min="1" id="5479"/>
+        <item chance="3263" max="1" min="1" id="5485"/>
+        <item chance="2296" max="1" min="1" id="5486"/>
+        <item chance="5122" max="1" min="1" id="5489"/>
+        <item chance="11642" max="1" min="1" id="10580"/>
+        <item chance="11642" max="1" min="1" id="10582"/>
+        <item chance="11642" max="1" min="1" id="10610"/>
+        <item chance="12065" max="1" min="1" id="14215"/>
+    </droplist>
+</npc>

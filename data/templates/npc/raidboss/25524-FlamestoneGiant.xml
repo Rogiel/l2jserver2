@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25524" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Flamestone Giant</name>
+        <title send="false">Raid Boss</title>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="124.302529182249" max="401886.766608773"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2501.79548"/>
+                <magical speed="333.0" damage="888.04886"/>
+            </attack>
+            <defense>
+                <physical value="971.35365"/>
+                <magical value="473.86"/>
+            </defense>
+            <move walk="13.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5267108</experience>
+        <sp>1171763</sp>
+        <collision heigth="45.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="9754" max="1" min="1" id="81"/>
+        <item chance="9754" max="1" min="1" id="151"/>
+        <item chance="52448" max="1" min="1" id="959"/>
+        <item chance="524479" max="1" min="1" id="960"/>
+        <item chance="9754" max="1" min="1" id="2500"/>
+        <item chance="22978" max="1" min="1" id="5311"/>
+        <item chance="22978" max="1" min="1" id="5316"/>
+        <item chance="430587" max="12" min="4" id="5522"/>
+        <item chance="229647" max="22" min="8" id="5523"/>
+        <item chance="154169" max="27" min="9" id="5529"/>
+        <item chance="99109" max="42" min="14" id="5545"/>
+        <item chance="304812" max="15" min="5" id="5546"/>
+        <item chance="8742" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

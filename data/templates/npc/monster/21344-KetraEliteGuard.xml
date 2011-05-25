@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21344" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ketra Elite Guard</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="33.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>22276</experience>
+        <sp>2500</sp>
+        <item lefthand="0" righthand="80"/>
+        <collision heigth="24.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="127444" max="1" min="1" id="4040"/>
+        <item chance="207463" max="1" min="1" id="6346"/>
+        <item chance="6372" max="1" min="1" id="6901"/>
+        <item chance="700000" max="6413" min="3141" id="57"/>
+        <item chance="209" max="1" min="1" id="11967"/>
+        <item chance="3227" max="1" min="1" id="5538"/>
+        <item chance="94" max="1" min="1" id="960"/>
+        <item chance="147052" max="60" min="20" id="1344"/>
+        <item chance="156855" max="1" min="1" id="1866"/>
+        <item chance="78427" max="3" min="1" id="1871"/>
+        <item chance="9411" max="1" min="1" id="1877"/>
+        <item chance="4706" max="1" min="1" id="4040"/>
+        <item chance="2046" max="1" min="1" id="4041"/>
+        <item chance="1961" max="1" min="1" id="8732"/>
+        <item chance="490" max="1" min="1" id="8742"/>
+        <item chance="49" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

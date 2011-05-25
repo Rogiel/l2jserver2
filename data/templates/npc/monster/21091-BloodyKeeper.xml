@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21091" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Bloody Keeper</name>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="209.50409"/>
+            </defense>
+            <move walk="37.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>21195</experience>
+        <sp>2209</sp>
+        <collision heigth="40.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6009" min="2948" id="57"/>
+        <item chance="210073" max="3" min="1" id="1867"/>
+        <item chance="140048" max="3" min="1" id="1872"/>
+        <item chance="70024" max="1" min="1" id="1882"/>
+        <item chance="11056" max="1" min="1" id="1894"/>
+        <item chance="7965" max="1" min="1" id="3035"/>
+        <item chance="420" max="1" min="1" id="3035"/>
+        <item chance="5252" max="1" min="1" id="4042"/>
+        <item chance="28" max="1" min="1" id="5297"/>
+        <item chance="44" max="1" min="1" id="5298"/>
+        <item chance="17" max="1" min="1" id="5301"/>
+        <item chance="7728" max="1" min="1" id="5336"/>
+        <item chance="3091" max="1" min="1" id="5478"/>
+        <item chance="35349" max="1" min="1" id="5479"/>
+        <item chance="2175" max="1" min="1" id="5479"/>
+        <item chance="4852" max="1" min="1" id="5482"/>
+        <item chance="1261" max="1" min="1" id="10306"/>
+    </droplist>
+</npc>

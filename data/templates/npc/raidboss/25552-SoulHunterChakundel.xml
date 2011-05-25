@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25552" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Soul Hunter Chakundel</name>
+        <title send="false">Forsaken Prisoner</title>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="172.748301603872" max="402092.518544389"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5484.05623"/>
+                <magical speed="333.0" damage="896.94605"/>
+            </attack>
+            <defense>
+                <physical value="971.35365"/>
+                <magical value="473.86"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2383519</experience>
+        <sp>369370</sp>
+        <collision heigth="32.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="5385" max="1" min="1" id="81"/>
+        <item chance="5385" max="1" min="1" id="151"/>
+        <item chance="13031" max="1" min="1" id="959"/>
+        <item chance="130313" max="1" min="1" id="960"/>
+        <item chance="5385" max="1" min="1" id="2500"/>
+        <item chance="85120" max="27" min="9" id="5529"/>
+        <item chance="383040" max="6" min="2" id="5545"/>
+        <item chance="168294" max="15" min="5" id="5546"/>
+        <item chance="2172" max="1" min="1" id="6577"/>
+        <item chance="43438" max="1" min="1" id="9626"/>
+    </droplist>
+</npc>

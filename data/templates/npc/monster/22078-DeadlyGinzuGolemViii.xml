@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22078" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Deadly Ginzu Golem VIII</name>
+        <level>54</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1621.75618"/>
+            <mp regen="2.4" max="861.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="370.68904"/>
+                <magical speed="333.0" damage="253.13256"/>
+            </attack>
+            <defense>
+                <physical value="218.89589"/>
+                <magical value="160.17851"/>
+            </defense>
+            <move walk="53.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>19169</experience>
+        <sp>1458</sp>
+        <collision heigth="41.5" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4907" min="3630" id="57"/>
+        <item chance="200000" max="1" min="1" id="1865"/>
+        <item chance="200000" max="1" min="1" id="1870"/>
+        <item chance="12048" max="1" min="1" id="1874"/>
+        <item chance="272544" max="1" min="1" id="1880"/>
+        <item chance="8333" max="1" min="1" id="1986"/>
+        <item chance="75352" max="1" min="1" id="2120"/>
+        <item chance="4608" max="1" min="1" id="4039"/>
+        <item chance="5525" max="1" min="1" id="4043"/>
+        <item chance="92182" max="1" min="1" id="4144"/>
+    </droplist>
+</npc>

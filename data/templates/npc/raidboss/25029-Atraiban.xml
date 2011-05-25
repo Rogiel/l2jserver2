@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25029" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Atraiban</name>
+        <title send="false">Raid Boss</title>
+        <level>53</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="82.9561669443548" max="242937.111327544"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1023.10032"/>
+                <magical speed="333.0" damage="279.7529"/>
+            </attack>
+            <defense>
+                <physical value="642.54978"/>
+                <magical value="313.46"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3895772</experience>
+        <sp>516213</sp>
+        <collision heigth="96.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="95783" max="1" min="1" id="503"/>
+        <item chance="136840" max="1" min="1" id="633"/>
+        <item chance="136840" max="1" min="1" id="673"/>
+        <item chance="95783" max="1" min="1" id="2415"/>
+        <item chance="22010" max="877" min="293" id="4072"/>
+        <item chance="71944" max="346" min="116" id="4101"/>
+        <item chance="33531" max="576" min="192" id="4102"/>
+        <item chance="164759" max="180" min="60" id="4439"/>
+        <item chance="51495" max="1" min="1" id="284"/>
+        <item chance="405775" max="36" min="12" id="4112"/>
+        <item chance="222972" max="1" min="1" id="947"/>
+        <item chance="76887" max="15" min="5" id="4613"/>
+        <item chance="256290" max="4" min="2" id="4614"/>
+        <item chance="192217" max="6" min="2" id="4615"/>
+        <item chance="790000" max="6" min="2" id="9817"/>
+        <item chance="790000" max="3" min="1" id="8176"/>
+    </droplist>
+</npc>

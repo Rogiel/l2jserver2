@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18055" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Offering of Forbidden Path Zealot</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2802.89989"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="748.83714"/>
+                <magical speed="333.0" damage="584.40994"/>
+            </attack>
+            <defense>
+                <physical value="282.79552"/>
+                <magical value="201.54308"/>
+            </defense>
+            <move walk="45.0" run="195.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8688</experience>
+        <sp>951</sp>
+        <item lefthand="0" righthand="175"/>
+        <collision heigth="34.8" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1804" min="902" id="57"/>
+    </droplist>
+</npc>

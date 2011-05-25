@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20607" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kuran Kobold Warrior</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="47.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2415</experience>
+        <sp>127</sp>
+        <collision heigth="15.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="9809" max="1" min="1" id="626"/>
+        <item chance="129508" max="1" min="1" id="1899"/>
+        <item chance="14509" max="1" min="1" id="2020"/>
+        <item chance="700000" max="696" min="355" id="57"/>
+        <item chance="59" max="1" min="1" id="101"/>
+        <item chance="59" max="1" min="1" id="312"/>
+        <item chance="59" max="1" min="1" id="313"/>
+        <item chance="59" max="1" min="1" id="314"/>
+        <item chance="1629" max="1" min="1" id="2020"/>
+        <item chance="116294" max="1" min="1" id="1865"/>
+        <item chance="116294" max="1" min="1" id="1870"/>
+        <item chance="7753" max="1" min="1" id="1874"/>
+        <item chance="1805" max="1" min="1" id="2262"/>
+    </droplist>
+</npc>

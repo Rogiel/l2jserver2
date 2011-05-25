@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22755" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Krajian</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.410040552143" max="55817.8012671518"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="12008.01356"/>
+                <magical speed="333.0" damage="8707.81891"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="42.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>579304</experience>
+        <sp>58205</sp>
+        <collision heigth="36.0" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="80327" min="47254" id="57"/>
+        <item chance="95600" max="45" min="15" id="1879"/>
+        <item chance="381200" max="6" min="2" id="1885"/>
+        <item chance="147200" max="1" min="1" id="9628"/>
+        <item chance="70500" max="1" min="1" id="9629"/>
+        <item chance="78200" max="1" min="1" id="9630"/>
+        <item chance="20" max="1" min="1" id="13145"/>
+        <item chance="84800" max="1" min="1" id="14166"/>
+        <item chance="16900" max="1" min="1" id="14167"/>
+        <item chance="1000" max="1" min="1" id="14168"/>
+        <item chance="17000" max="1" min="1" id="15660"/>
+        <item chance="17000" max="1" min="1" id="15661"/>
+        <item chance="17000" max="1" min="1" id="15662"/>
+        <item chance="17000" max="1" min="1" id="15669"/>
+        <item chance="17000" max="1" min="1" id="15691"/>
+    </droplist>
+</npc>

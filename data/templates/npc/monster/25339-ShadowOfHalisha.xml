@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="25339" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shadow of Halisha</name>
+        <title send="false">Ruler of Sepulcher</title>
+        <level>80</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="73.0538466979355" max="213848.930921219"/>
+            <mp regen="3.03" max="1725.888"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="866.44981"/>
+                <magical speed="333.0" damage="251.11046"/>
+            </attack>
+            <defense>
+                <physical value="1047.20215"/>
+                <magical value="510.858"/>
+            </defense>
+            <move walk="43.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2643173</experience>
+        <sp>390090</sp>
+        <item lefthand="0" righthand="6720"/>
+        <collision heigth="60.0" radius="23.0"/>
+    </info>
+    <droplist>
+        <item chance="19519" max="1" min="1" id="959"/>
+        <item chance="195186" max="1" min="1" id="960"/>
+        <item chance="5282" max="1" min="1" id="6371"/>
+        <item chance="3253" max="1" min="1" id="6577"/>
+        <item chance="11220" max="1" min="1" id="6678"/>
+        <item chance="7854" max="1" min="1" id="6679"/>
+        <item chance="7854" max="1" min="1" id="6683"/>
+        <item chance="7854" max="1" min="1" id="6687"/>
+        <item chance="399164" max="9" min="3" id="6695"/>
+        <item chance="58331" max="67" min="23" id="6705"/>
+        <item chance="254438" max="18" min="6" id="6706"/>
+        <item chance="145393" max="31" min="11" id="6710"/>
+        <item chance="95414" max="48" min="16" id="6714"/>
+    </droplist>
+</npc>

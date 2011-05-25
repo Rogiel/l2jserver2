@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21333" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grazing Windsus</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="239.18092"/>
+            </defense>
+            <move walk="35.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>19953</experience>
+        <sp>2266</sp>
+        <collision heigth="27.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5760" min="2813" id="57"/>
+        <item chance="9" max="1" min="1" id="959"/>
+        <item chance="2541" max="1" min="1" id="1808"/>
+        <item chance="58641" max="12" min="4" id="1864"/>
+        <item chance="46913" max="6" min="2" id="1865"/>
+        <item chance="26063" max="9" min="3" id="1866"/>
+        <item chance="156376" max="3" min="1" id="1868"/>
+        <item chance="93825" max="1" min="1" id="1873"/>
+        <item chance="2541" max="1" min="1" id="3036"/>
+        <item chance="96563" max="1" min="1" id="5503"/>
+        <item chance="724" max="1" min="1" id="5533"/>
+        <item chance="723" max="1" min="1" id="5544"/>
+        <item chance="724" max="1" min="1" id="8342"/>
+        <item chance="724" max="1" min="1" id="8349"/>
+        <item chance="1955" max="1" min="1" id="8732"/>
+        <item chance="489" max="1" min="1" id="8742"/>
+        <item chance="49" max="1" min="1" id="8752"/>
+        <item chance="47" max="1" min="1" id="11966"/>
+        <item chance="47" max="1" min="1" id="11969"/>
+        <item chance="47" max="1" min="1" id="11970"/>
+        <item chance="47" max="1" min="1" id="11974"/>
+    </droplist>
+</npc>

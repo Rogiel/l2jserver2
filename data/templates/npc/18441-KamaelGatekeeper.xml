@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18441" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kamael Gatekeeper</name>
+        <level>18</level>
+        <stats>
+            <hp regen="2.5" max="301.66622"/>
+            <mp regen="1.2" max="174.64"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="37.82932"/>
+                <magical speed="333.0" damage="25.83252"/>
+            </attack>
+            <defense>
+                <physical value="81.34791"/>
+                <magical value="59.52687"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="33.5" radius="9.0"/>
+    </info>
+</npc>

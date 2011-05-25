@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21140" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Catacomb Wisp</name>
+        <level>26</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="487.5704"/>
+            <mp regen="1.5" max="273.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="69.75926"/>
+                <magical speed="333.0" damage="47.63653"/>
+            </attack>
+            <defense>
+                <physical value="105.02818"/>
+                <magical value="69.92894"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3153</experience>
+        <sp>159</sp>
+        <collision heigth="22.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="911" min="477" id="57"/>
+        <item chance="961" max="1" min="1" id="347"/>
+        <item chance="1538" max="1" min="1" id="376"/>
+        <item chance="102809" max="1" min="1" id="1866"/>
+        <item chance="549553" max="3" min="1" id="1871"/>
+        <item chance="154213" max="1" min="1" id="1871"/>
+        <item chance="6168" max="1" min="1" id="1877"/>
+        <item chance="171735" max="1" min="1" id="1899"/>
+        <item chance="193505" max="1" min="1" id="2152"/>
+        <item chance="2395" max="1" min="1" id="2260"/>
+    </droplist>
+</npc>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22314" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Garden Poison Moth</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="10943.0943982571"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6774.50812"/>
+                <magical speed="333.0" damage="4626.11085"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>59615</experience>
+        <sp>6120</sp>
+        <collision heigth="41.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10293" min="5131" id="57"/>
+        <item chance="205703" max="1" min="1" id="1895"/>
+        <item chance="14399" max="1" min="1" id="4040"/>
+        <item chance="1481" max="1" min="1" id="5533"/>
+        <item chance="1480" max="1" min="1" id="5544"/>
+        <item chance="19298" max="1" min="1" id="6693"/>
+        <item chance="8769" max="1" min="1" id="6901"/>
+        <item chance="720" max="1" min="1" id="6901"/>
+        <item chance="1481" max="1" min="1" id="8342"/>
+        <item chance="1481" max="1" min="1" id="8349"/>
+        <item chance="5760" max="1" min="1" id="9546"/>
+        <item chance="5647" max="1" min="1" id="9628"/>
+        <item chance="3789" max="1" min="1" id="9630"/>
+        <item chance="96" max="1" min="1" id="11966"/>
+        <item chance="96" max="1" min="1" id="11969"/>
+        <item chance="96" max="1" min="1" id="11970"/>
+        <item chance="96" max="1" min="1" id="11974"/>
+    </droplist>
+</npc>

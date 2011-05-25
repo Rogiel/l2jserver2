@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21148" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Catacomb Liviona</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="115.47533"/>
+            </defense>
+            <move walk="80.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8401</experience>
+        <sp>575</sp>
+        <collision heigth="28.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2253" min="1099" id="57"/>
+        <item chance="75" max="1" min="1" id="281"/>
+        <item chance="119976" max="3" min="1" id="1864"/>
+        <item chance="930808" max="5" min="1" id="1869"/>
+        <item chance="119976" max="1" min="1" id="1869"/>
+        <item chance="279242" max="1" min="1" id="1880"/>
+        <item chance="11998" max="1" min="1" id="1880"/>
+        <item chance="4674" max="1" min="1" id="2074"/>
+        <item chance="6121" max="1" min="1" id="2163"/>
+        <item chance="7099" max="1" min="1" id="2217"/>
+        <item chance="37232" max="1" min="1" id="5550"/>
+        <item chance="1600" max="1" min="1" id="5550"/>
+        <item chance="79984" max="3" min="1" id="6037"/>
+        <item chance="4699" max="1" min="1" id="8723"/>
+        <item chance="1200" max="1" min="1" id="8733"/>
+        <item chance="120" max="1" min="1" id="8743"/>
+        <item chance="24" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

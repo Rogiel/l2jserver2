@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FeedableBeast" id="21452" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Alpine Kookaburra</name>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2193.43142"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="582.81759"/>
+                <magical speed="333.0" damage="397.98887"/>
+            </attack>
+            <defense>
+                <physical value="271.89033"/>
+                <magical value="181.02764"/>
+            </defense>
+            <move walk="13.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8775</experience>
+        <sp>815</sp>
+        <collision heigth="15.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1985" min="981" id="57"/>
+        <item chance="164372" max="1" min="1" id="1875"/>
+        <item chance="3287" max="1" min="1" id="3035"/>
+        <item chance="24301" max="1" min="1" id="4081"/>
+    </droplist>
+</npc>

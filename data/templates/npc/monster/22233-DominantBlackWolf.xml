@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22233" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dominant Black Wolf</name>
+        <level>5</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="80.17319"/>
+            <mp regen="0.9" max="69.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="12.34006"/>
+                <magical speed="333.0" damage="8.42666"/>
+            </attack>
+            <defense>
+                <physical value="51.60553"/>
+                <magical value="37.76269"/>
+            </defense>
+            <move walk="24.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>176</experience>
+        <sp>4</sp>
+        <collision heigth="10.8" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="42" min="30" id="57"/>
+        <item chance="19286" max="1" min="1" id="1865"/>
+        <item chance="19286" max="1" min="1" id="1870"/>
+        <item chance="15429" max="1" min="1" id="1786"/>
+        <item chance="19612" max="1" min="1" id="13"/>
+        <item chance="18654" max="1" min="1" id="1666"/>
+        <item chance="1865" max="1" min="1" id="4043"/>
+        <item chance="3731" max="1" min="1" id="1874"/>
+    </droplist>
+</npc>

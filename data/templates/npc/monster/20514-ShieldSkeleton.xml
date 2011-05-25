@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20514" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shield Skeleton</name>
+        <level>15</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="246.95422"/>
+            <mp regen="1.2" max="149.2"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="29.61691"/>
+                <magical speed="333.0" damage="20.22451"/>
+            </attack>
+            <defense>
+                <physical value="73.55216"/>
+                <magical value="48.97186"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>534</experience>
+        <sp>22</sp>
+        <item lefthand="103" righthand="157"/>
+        <collision heigth="25.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="6394" max="1" min="1" id="20"/>
+        <item chance="4471" max="1" min="1" id="43"/>
+        <item chance="700000" max="177" min="116" id="57"/>
+        <item chance="5702" max="1" min="1" id="734"/>
+        <item chance="50678" max="1" min="1" id="1799"/>
+        <item chance="34208" max="1" min="1" id="1865"/>
+        <item chance="231613" max="1" min="1" id="1870"/>
+        <item chance="34208" max="1" min="1" id="1870"/>
+        <item chance="308818" max="1" min="1" id="1872"/>
+    </droplist>
+</npc>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="18157" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Victim</name>
+        <level>78</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="957.91036"/>
+                <magical speed="333.0" damage="670.45638"/>
+            </attack>
+            <defense>
+                <physical value="359.22144"/>
+                <magical value="217.60884"/>
+            </defense>
+            <move walk="50.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+</npc>

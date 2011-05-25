@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25335" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Anakazel</name>
+        <title send="false">Invaders' Leader</title>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="101.830256959529" max="207715.744743993"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="464.46636"/>
+                <magical speed="333.0" damage="158.43765"/>
+            </attack>
+            <defense>
+                <physical value="573.38409"/>
+                <magical value="279.72"/>
+            </defense>
+            <move walk="37.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1586608</experience>
+        <sp>189699</sp>
+        <collision heigth="48.0" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="6950" max="1" min="1" id="203"/>
+        <item chance="5422" max="1" min="1" id="204"/>
+        <item chance="5422" max="1" min="1" id="205"/>
+        <item chance="5422" max="1" min="1" id="206"/>
+        <item chance="47648" max="1" min="1" id="356"/>
+        <item chance="376489" max="1" min="1" id="951"/>
+        <item chance="750202" max="9" min="3" id="1986"/>
+        <item chance="44202" max="21" min="7" id="2112"/>
+        <item chance="150309" max="6" min="2" id="2116"/>
+        <item chance="120246" max="7" min="3" id="2117"/>
+        <item chance="100205" max="9" min="3" id="2118"/>
+        <item chance="5422" max="1" min="1" id="2503"/>
+        <item chance="204613" max="4" min="2" id="2969"/>
+        <item chance="230076" max="3" min="1" id="4601"/>
+        <item chance="153385" max="4" min="2" id="4602"/>
+        <item chance="115038" max="6" min="2" id="4603"/>
+        <item chance="590000" max="1" min="1" id="8176"/>
+        <item chance="790000" max="2" min="1" id="9814"/>
+    </droplist>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25007" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Retreat Spider Cletu</name>
+        <title send="false">Raid Boss</title>
+        <level>42</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="50.7215148259463" max="139295.030977834"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="508.63187"/>
+                <magical speed="333.0" damage="93.78765"/>
+            </attack>
+            <defense>
+                <physical value="494.65539"/>
+                <magical value="241.32"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3062105</experience>
+        <sp>303198</sp>
+        <collision heigth="25.5" radius="27.0"/>
+    </info>
+    <droplist>
+        <item chance="52558" max="1" min="1" id="282"/>
+        <item chance="52558" max="1" min="1" id="285"/>
+        <item chance="115013" max="1" min="1" id="398"/>
+        <item chance="106046" max="1" min="1" id="399"/>
+        <item chance="14147" max="10" min="7" id="418"/>
+        <item chance="169820" max="1" min="1" id="419"/>
+        <item chance="852299" max="36" min="12" id="952"/>
+        <item chance="18753" max="576" min="192" id="1966"/>
+        <item chance="46571" max="346" min="116" id="1967"/>
+        <item chance="143973" max="67" min="23" id="1975"/>
+        <item chance="99952" max="180" min="60" id="1976"/>
+        <item chance="85282" max="72" min="24" id="2085"/>
+        <item chance="272902" max="22" min="8" id="2086"/>
+        <item chance="730000" max="2" min="1" id="8176"/>
+        <item chance="730000" max="5" min="1" id="9816"/>
+    </droplist>
+</npc>

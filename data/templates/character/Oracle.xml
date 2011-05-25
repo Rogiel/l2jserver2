@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="ORACLE" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+    <stats crafter="false" level="20">
+        <hp add="35.3" modifier="0.37" base="427.0"/>
+        <mp add="13.3" modifier="0.14" base="192.0"/>
+        <cp add="17.7" modifier="0.22" base="213.5"/>
+        <attack accuracy="30" critical="41" evasion="30">
+            <physical speed="300.0" damage="3.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="54.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="122.0" run="122.0"/>
+        <base wit="23" dex="24" men="40" con="25" str="21" int="37"/>
+        <maxload>62400</maxload>
+    </stats>
+    <collision>
+        <male heigth="24.0" radius="7.5"/>
+        <female heigth="23.0" radius="7.5"/>
+    </collision>
+</character>

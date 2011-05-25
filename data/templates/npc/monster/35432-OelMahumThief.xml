@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="35432" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Oel Mahum Thief</name>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="28154.6579610925"/>
+            <mp regen="3.0" max="2143.56666666667"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="293.99876"/>
+                <magical speed="333.0" damage="625.52928"/>
+            </attack>
+            <defense>
+                <physical value="1240.61871"/>
+                <magical value="226.8662"/>
+            </defense>
+            <move walk="70.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6395</experience>
+        <sp>247</sp>
+        <collision heigth="19.0" radius="12.0"/>
+    </info>
+</npc>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18557" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ranc Deumus</name>
+        <title send="false">Kaneus</title>
+        <level>26</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="12.1792353154195" max="60567.008055059"/>
+            <mp regen="4.8" max="1365.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21683"/>
+                <magical speed="333.0" damage="67.75223"/>
+            </attack>
+            <defense>
+                <physical value="168.04509"/>
+                <magical value="184.45214"/>
+            </defense>
+            <move walk="52.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>397272</experience>
+        <sp>23285</sp>
+        <item lefthand="0" righthand="93"/>
+        <collision heigth="34.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="332602" max="1" min="1" id="955"/>
+        <item chance="461947" max="9" min="3" id="956"/>
+        <item chance="426212" max="3" min="1" id="465"/>
+        <item chance="354881" max="1" min="1" id="432"/>
+        <item chance="284140" max="3" min="1" id="465"/>
+        <item chance="177440" max="4" min="2" id="432"/>
+    </droplist>
+</npc>

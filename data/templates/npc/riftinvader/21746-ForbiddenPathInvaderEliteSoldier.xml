@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21746" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Forbidden Path Invader Elite Soldier</name>
+        <level>60</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>27952</experience>
+        <sp>2426</sp>
+        <collision heigth="40.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7629" min="3753" id="57"/>
+        <item chance="3795" max="1" min="1" id="947"/>
+        <item chance="790715" max="3" min="1" id="6670"/>
+        <item chance="233565" max="3" min="1" id="6670"/>
+        <item chance="46713" max="1" min="1" id="8728"/>
+        <item chance="11678" max="1" min="1" id="8738"/>
+        <item chance="1168" max="1" min="1" id="8748"/>
+        <item chance="234" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

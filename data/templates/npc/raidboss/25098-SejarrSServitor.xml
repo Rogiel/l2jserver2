@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25098" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sejarr's Servitor</name>
+        <title send="false">Raid Boss</title>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="66.9859801832901" max="138899.136909231"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="327.3913"/>
+                <magical speed="333.0" damage="51.71999"/>
+            </attack>
+            <defense>
+                <physical value="410.18844"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="25.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1912395</experience>
+        <sp>144137</sp>
+        <collision heigth="43.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="43596" max="1" min="1" id="70"/>
+        <item chance="219924" max="1" min="1" id="396"/>
+        <item chance="580626" max="9" min="3" id="952"/>
+        <item chance="538011" max="36" min="12" id="1952"/>
+        <item chance="332241" max="12" min="4" id="2047"/>
+        <item chance="43576" max="1" min="1" id="2499"/>
+        <item chance="174797" max="22" min="8" id="2967"/>
+        <item chance="217735" max="6" min="2" id="4589"/>
+        <item chance="174187" max="7" min="3" id="4590"/>
+    </droplist>
+</npc>

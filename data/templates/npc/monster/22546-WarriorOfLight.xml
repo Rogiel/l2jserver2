@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22546" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Warrior of Light</name>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="115.295936105422" max="33155.3718962619"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5679.0786"/>
+                <magical speed="333.0" damage="3878.07448"/>
+            </attack>
+            <defense>
+                <physical value="539.31213"/>
+                <magical value="591.96782"/>
+            </defense>
+            <move walk="100.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>82511</experience>
+        <sp>8653</sp>
+        <collision heigth="55.0" radius="50.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="16729" min="8197" id="57"/>
+        <item chance="95519" max="180" min="60" id="1345"/>
+        <item chance="143279" max="1" min="1" id="1879"/>
+        <item chance="71640" max="1" min="1" id="1885"/>
+        <item chance="428630" max="1" min="1" id="1894"/>
+        <item chance="5429" max="1" min="1" id="5272"/>
+        <item chance="46" max="1" min="1" id="5326"/>
+        <item chance="46" max="1" min="1" id="5329"/>
+        <item chance="54816" max="1" min="1" id="5480"/>
+        <item chance="6774" max="1" min="1" id="5487"/>
+        <item chance="6774" max="1" min="1" id="5488"/>
+        <item chance="329" max="1" min="1" id="6873"/>
+        <item chance="6743" max="1" min="1" id="9628"/>
+        <item chance="3738" max="1" min="1" id="9629"/>
+        <item chance="4525" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21414" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Assassin of Empire</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="239.18092"/>
+            </defense>
+            <move walk="80.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>36181</experience>
+        <sp>4108</sp>
+        <item lefthand="945" righthand="946"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10446" min="5101" id="57"/>
+        <item chance="153" max="1" min="1" id="960"/>
+        <item chance="239255" max="60" min="20" id="1344"/>
+        <item chance="63801" max="6" min="2" id="1866"/>
+        <item chance="127602" max="3" min="1" id="1871"/>
+        <item chance="414708" max="1" min="1" id="1877"/>
+        <item chance="15312" max="1" min="1" id="1877"/>
+        <item chance="207354" max="1" min="1" id="4040"/>
+        <item chance="7656" max="1" min="1" id="4040"/>
+        <item chance="3329" max="1" min="1" id="4041"/>
+        <item chance="1313" max="1" min="1" id="5533"/>
+        <item chance="1311" max="1" min="1" id="5544"/>
+        <item chance="151985" max="1" min="1" id="6344"/>
+        <item chance="1313" max="1" min="1" id="8342"/>
+        <item chance="1312" max="1" min="1" id="8349"/>
+        <item chance="3190" max="1" min="1" id="8732"/>
+        <item chance="797" max="1" min="1" id="8742"/>
+        <item chance="80" max="1" min="1" id="8752"/>
+        <item chance="85" max="1" min="1" id="11966"/>
+        <item chance="85" max="1" min="1" id="11969"/>
+        <item chance="85" max="1" min="1" id="11970"/>
+        <item chance="85" max="1" min="1" id="11974"/>
+    </droplist>
+</npc>

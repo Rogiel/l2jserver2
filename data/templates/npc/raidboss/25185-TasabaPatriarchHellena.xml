@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25185" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tasaba Patriarch Hellena</name>
+        <title send="false">Raid Boss</title>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="26.794392073316" max="69449.5684546156"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="163.69565"/>
+                <magical speed="333.0" damage="12.93"/>
+            </attack>
+            <defense>
+                <physical value="410.18844"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="53.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1912395</experience>
+        <sp>144137</sp>
+        <item lefthand="0" righthand="225"/>
+        <collision heigth="40.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="87193" max="1" min="1" id="280"/>
+        <item chance="24004" max="18" min="6" id="851"/>
+        <item chance="43207" max="15" min="5" id="882"/>
+        <item chance="216035" max="1" min="1" id="914"/>
+        <item chance="71258" max="7" min="3" id="951"/>
+        <item chance="80688" max="243" min="81" id="1905"/>
+        <item chance="230882" max="120" min="40" id="1906"/>
+        <item chance="30350" max="462" min="154" id="1907"/>
+        <item chance="214425" max="36" min="12" id="2054"/>
+        <item chance="326602" max="3" min="1" id="4597"/>
+        <item chance="217735" max="4" min="2" id="4598"/>
+        <item chance="163301" max="6" min="2" id="4599"/>
+    </droplist>
+</npc>

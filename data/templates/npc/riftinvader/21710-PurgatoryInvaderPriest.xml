@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21710" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Purgatory Invader Priest</name>
+        <level>50</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="200.23844"/>
+                <magical value="133.32101"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8396</experience>
+        <sp>633</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="23.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="752328" max="3" min="1" id="1866"/>
+        <item chance="96042" max="1" min="1" id="1916"/>
+        <item chance="53231" max="1" min="1" id="2170"/>
+        <item chance="700000" max="1815" min="893" id="57"/>
+        <item chance="247" max="1" min="1" id="64"/>
+        <item chance="247" max="1" min="1" id="608"/>
+        <item chance="13726" max="1" min="1" id="1981"/>
+        <item chance="13726" max="1" min="1" id="2956"/>
+        <item chance="18855" max="1" min="1" id="1539"/>
+        <item chance="56567" max="1" min="1" id="1866"/>
+        <item chance="84850" max="1" min="1" id="1871"/>
+        <item chance="3394" max="1" min="1" id="1877"/>
+        <item chance="366" max="1" min="1" id="2231"/>
+        <item chance="1697" max="1" min="1" id="4040"/>
+        <item chance="728" max="1" min="1" id="4041"/>
+        <item chance="2357" max="1" min="1" id="8725"/>
+        <item chance="589" max="1" min="1" id="8735"/>
+        <item chance="59" max="1" min="1" id="8745"/>
+        <item chance="12" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

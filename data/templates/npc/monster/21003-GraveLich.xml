@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21003" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Grave Lich</name>
+        <level>57</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1776.58018"/>
+            <mp regen="2.4" max="948.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="424.23295"/>
+                <magical speed="333.0" damage="289.69611"/>
+            </attack>
+            <defense>
+                <physical value="233.18839"/>
+                <magical value="155.25946"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5670</experience>
+        <sp>472</sp>
+        <collision heigth="28.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="104221" max="1" min="1" id="2963"/>
+        <item chance="100394" max="1" min="1" id="4049"/>
+        <item chance="12269" max="1" min="1" id="4949"/>
+        <item chance="700000" max="1542" min="755" id="57"/>
+        <item chance="452" max="1" min="1" id="12160"/>
+        <item chance="645" max="1" min="1" id="12159"/>
+        <item chance="645" max="1" min="1" id="12171"/>
+        <item chance="452" max="1" min="1" id="12170"/>
+        <item chance="3174" max="1" min="1" id="4072"/>
+        <item chance="4097" max="1" min="1" id="4101"/>
+        <item chance="3174" max="1" min="1" id="4102"/>
+        <item chance="4874" max="1" min="1" id="4439"/>
+        <item chance="48322" max="1" min="1" id="1832"/>
+        <item chance="28993" max="1" min="1" id="1866"/>
+        <item chance="43490" max="1" min="1" id="1871"/>
+        <item chance="3624" max="1" min="1" id="1885"/>
+        <item chance="378" max="1" min="1" id="4041"/>
+        <item chance="50" max="1" min="1" id="4963"/>
+        <item chance="541" max="1" min="1" id="4993"/>
+        <item chance="541" max="1" min="1" id="4999"/>
+        <item chance="1468" max="1" min="1" id="5220"/>
+        <item chance="870" max="1" min="1" id="8727"/>
+        <item chance="217" max="1" min="1" id="8737"/>
+        <item chance="22" max="1" min="1" id="8747"/>
+        <item chance="4" max="1" min="1" id="8757"/>
+    </droplist>
+</npc>

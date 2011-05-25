@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20541" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ore Bat</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="52.38915"/>
+            </defense>
+            <move walk="60.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>500</experience>
+        <sp>21</sp>
+        <collision heigth="33.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="159" min="99" id="57"/>
+        <item chance="114" max="1" min="1" id="272"/>
+        <item chance="2499" max="1" min="1" id="734"/>
+        <item chance="29987" max="1" min="1" id="1864"/>
+        <item chance="14994" max="1" min="1" id="1865"/>
+        <item chance="9996" max="1" min="1" id="1866"/>
+        <item chance="29987" max="1" min="1" id="1868"/>
+        <item chance="5998" max="1" min="1" id="1873"/>
+        <item chance="48342" max="1" min="1" id="1897"/>
+        <item chance="133138" max="1" min="1" id="1925"/>
+        <item chance="1295" max="1" min="1" id="2013"/>
+        <item chance="2999" max="1" min="1" id="2143"/>
+        <item chance="55023" max="1" min="1" id="2173"/>
+        <item chance="600" max="1" min="1" id="5158"/>
+    </droplist>
+</npc>

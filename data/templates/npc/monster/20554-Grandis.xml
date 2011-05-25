@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20554" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grandis</name>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="966.57792"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="176.36077"/>
+                <magical speed="333.0" damage="120.43155"/>
+            </attack>
+            <defense>
+                <physical value="156.55035"/>
+                <magical value="104.23299"/>
+            </defense>
+            <move walk="45.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3102</experience>
+        <sp>200</sp>
+        <collision heigth="39.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="848" min="425" id="57"/>
+        <item chance="24" max="1" min="1" id="224"/>
+        <item chance="24" max="1" min="1" id="1660"/>
+        <item chance="150361" max="1" min="1" id="1864"/>
+        <item chance="75181" max="1" min="1" id="1869"/>
+        <item chance="7518" max="1" min="1" id="1880"/>
+        <item chance="103148" max="1" min="1" id="1902"/>
+        <item chance="40488" max="1" min="1" id="1941"/>
+        <item chance="1390" max="1" min="1" id="2038"/>
+        <item chance="1390" max="1" min="1" id="2044"/>
+        <item chance="72720" max="1" min="1" id="2146"/>
+        <item chance="7687" max="1" min="1" id="2208"/>
+        <item chance="5370" max="1" min="1" id="5473"/>
+        <item chance="1002" max="1" min="1" id="5550"/>
+        <item chance="2506" max="1" min="1" id="6036"/>
+    </droplist>
+</npc>

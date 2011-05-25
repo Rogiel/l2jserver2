@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20809" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of the Tower</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="80.0" run="143.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14562</experience>
+        <sp>1264</sp>
+        <collision heigth="22.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3974" min="1955" id="57"/>
+        <item chance="23" max="1" min="1" id="357"/>
+        <item chance="37" max="1" min="1" id="383"/>
+        <item chance="243358" max="1" min="1" id="1868"/>
+        <item chance="48672" max="1" min="1" id="1873"/>
+        <item chance="8112" max="1" min="1" id="1889"/>
+        <item chance="23" max="1" min="1" id="2376"/>
+        <item chance="37" max="1" min="1" id="2379"/>
+        <item chance="4056" max="1" min="1" id="4044"/>
+        <item chance="259282" max="1" min="1" id="4049"/>
+        <item chance="3305" max="1" min="1" id="4056"/>
+        <item chance="5107" max="1" min="1" id="4057"/>
+        <item chance="3305" max="1" min="1" id="4064"/>
+        <item chance="5107" max="1" min="1" id="4065"/>
+        <item chance="258" max="1" min="1" id="4158"/>
+        <item chance="340912" max="1" min="1" id="4439"/>
+        <item chance="53498" max="1" min="1" id="4973"/>
+        <item chance="378" max="1" min="1" id="4981"/>
+        <item chance="1513" max="1" min="1" id="4999"/>
+        <item chance="12168" max="1" min="1" id="5549"/>
+        <item chance="2028" max="1" min="1" id="8728"/>
+        <item chance="507" max="1" min="1" id="8738"/>
+        <item chance="51" max="1" min="1" id="8748"/>
+        <item chance="10" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

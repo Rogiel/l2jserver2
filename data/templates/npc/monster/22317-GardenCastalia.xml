@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22317" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Garden Castalia</name>
+        <level>83</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="10943.0943982571"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6774.50812"/>
+                <magical speed="333.0" damage="4626.11085"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14993</experience>
+        <sp>1556</sp>
+        <item lefthand="9639" righthand="9639"/>
+        <collision heigth="27.5" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2528" min="1260" id="57"/>
+        <item chance="176808" max="1" min="1" id="1868"/>
+        <item chance="110505" max="30" min="10" id="1344"/>
+        <item chance="35362" max="1" min="1" id="1873"/>
+        <item chance="25258" max="1" min="1" id="1895"/>
+        <item chance="17681" max="1" min="1" id="1876"/>
+        <item chance="2685" max="1" min="1" id="5495"/>
+        <item chance="2114" max="1" min="1" id="5527"/>
+        <item chance="2114" max="1" min="1" id="5528"/>
+        <item chance="1474" max="1" min="1" id="4042"/>
+        <item chance="707" max="1" min="1" id="9546"/>
+        <item chance="614" max="1" min="1" id="10483"/>
+        <item chance="459" max="1" min="1" id="12268"/>
+        <item chance="321" max="1" min="1" id="12261"/>
+        <item chance="321" max="1" min="1" id="12269"/>
+        <item chance="153" max="1" min="1" id="10484"/>
+        <item chance="88" max="1" min="1" id="6901"/>
+        <item chance="15" max="1" min="1" id="10485"/>
+        <item chance="3" max="1" min="1" id="10486"/>
+        <item chance="4729" max="1" min="1" id="6696"/>
+        <item chance="4567" max="1" min="1" id="6697"/>
+        <item chance="2154" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

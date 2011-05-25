@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20600" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Karul Bugbear</name>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="966.57792"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="176.36077"/>
+                <magical speed="333.0" damage="120.43155"/>
+            </attack>
+            <defense>
+                <physical value="156.55035"/>
+                <magical value="104.23299"/>
+            </defense>
+            <move walk="55.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3290</experience>
+        <sp>212</sp>
+        <item lefthand="0" righthand="88"/>
+        <collision heigth="35.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="900" min="451" id="57"/>
+        <item chance="309" max="1" min="1" id="629"/>
+        <item chance="77127" max="1" min="1" id="1825"/>
+        <item chance="186053" max="1" min="1" id="1868"/>
+        <item chance="431910" max="1" min="1" id="1873"/>
+        <item chance="37211" max="1" min="1" id="1873"/>
+        <item chance="6202" max="1" min="1" id="1889"/>
+        <item chance="85765" max="1" min="1" id="1945"/>
+        <item chance="13394" max="1" min="1" id="1947"/>
+        <item chance="517" max="1" min="1" id="2286"/>
+        <item chance="216" max="1" min="1" id="2411"/>
+        <item chance="309" max="1" min="1" id="2493"/>
+        <item chance="3583" max="1" min="1" id="2922"/>
+        <item chance="13394" max="1" min="1" id="2929"/>
+        <item chance="6645" max="1" min="1" id="5231"/>
+        <item chance="9303" max="1" min="1" id="5549"/>
+    </droplist>
+</npc>

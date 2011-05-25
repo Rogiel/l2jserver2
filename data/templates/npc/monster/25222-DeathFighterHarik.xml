@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25222" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Death Fighter Harik</name>
+        <title send="false">Raid Fighter</title>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="119.969286557872" max="61353.5873583379"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9122.26537"/>
+                <magical speed="333.0" damage="13018.19544"/>
+            </attack>
+            <defense>
+                <physical value="458.03921"/>
+                <magical value="446.9"/>
+            </defense>
+            <move walk="27.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="75"/>
+        <collision heigth="31.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="986500" max="60" min="20" id="1344"/>
+    </droplist>
+</npc>

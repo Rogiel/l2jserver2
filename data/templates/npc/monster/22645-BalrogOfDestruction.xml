@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22645" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Balrog of Destruction</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="70.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>48850</experience>
+        <sp>5087</sp>
+        <collision heigth="55.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4600" min="2800" id="57"/>
+        <item chance="8" max="1" min="1" id="6371"/>
+        <item chance="5000" max="1" min="1" id="6695"/>
+        <item chance="30000" max="1" min="1" id="4039"/>
+        <item chance="30000" max="1" min="1" id="1894"/>
+        <item chance="30000" max="1" min="1" id="4044"/>
+        <item chance="9000" max="1" min="1" id="4041"/>
+        <item chance="400" max="1" min="1" id="5272"/>
+        <item chance="180000" max="1" min="1" id="6713"/>
+        <item chance="180000" max="1" min="1" id="6712"/>
+        <item chance="3000" max="1" min="1" id="5162"/>
+    </droplist>
+</npc>

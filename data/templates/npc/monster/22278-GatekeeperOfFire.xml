@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22278" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gatekeeper of Fire</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1012.32268"/>
+                <magical speed="333.0" damage="691.28516"/>
+            </attack>
+            <defense>
+                <physical value="345.61127"/>
+                <magical value="252.90333"/>
+            </defense>
+            <move walk="54.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>28314</experience>
+        <sp>2999</sp>
+        <collision heigth="47.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7755" min="3787" id="57"/>
+        <item chance="13" max="1" min="1" id="289"/>
+        <item chance="248786" max="60" min="20" id="1344"/>
+        <item chance="13967" max="1" min="1" id="1894"/>
+        <item chance="188545" max="1" min="1" id="4039"/>
+        <item chance="13269" max="1" min="1" id="4039"/>
+        <item chance="3461" max="1" min="1" id="4041"/>
+        <item chance="13269" max="1" min="1" id="4044"/>
+        <item chance="2514" max="1" min="1" id="5282"/>
+        <item chance="15518" max="1" min="1" id="5529"/>
+        <item chance="3825" max="1" min="1" id="5534"/>
+        <item chance="398" max="1" min="1" id="6901"/>
+        <item chance="3184" max="1" min="1" id="9547"/>
+    </droplist>
+</npc>

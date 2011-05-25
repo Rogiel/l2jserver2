@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22762" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Kaiona</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.410040552143" max="55817.8012671518"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="12008.01356"/>
+                <magical speed="333.0" damage="8707.81891"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="94.0" run="204.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>579450</experience>
+        <sp>58220</sp>
+        <collision heigth="37.5" radius="32.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="80305" min="39202" id="57"/>
+        <item chance="9100" max="1" min="1" id="960"/>
+        <item chance="326300" max="9" min="3" id="1879"/>
+        <item chance="258000" max="6" min="2" id="1885"/>
+        <item chance="88200" max="1" min="1" id="9628"/>
+        <item chance="58000" max="1" min="1" id="9629"/>
+        <item chance="67700" max="1" min="1" id="9630"/>
+        <item chance="60" max="1" min="1" id="14160"/>
+        <item chance="60" max="1" min="1" id="14161"/>
+        <item chance="60" max="1" min="1" id="14162"/>
+        <item chance="59200" max="1" min="1" id="14166"/>
+        <item chance="14500" max="1" min="1" id="14167"/>
+        <item chance="600" max="1" min="1" id="14168"/>
+        <item chance="173700" max="1" min="1" id="15769"/>
+        <item chance="173700" max="1" min="1" id="15770"/>
+        <item chance="173700" max="1" min="1" id="15771"/>
+        <item chance="6300" max="1" min="1" id="15809"/>
+        <item chance="6300" max="1" min="1" id="15810"/>
+        <item chance="7900" max="1" min="1" id="15811"/>
+    </droplist>
+</npc>

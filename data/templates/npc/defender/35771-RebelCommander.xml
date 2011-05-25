@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Defender" id="35771" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Rebel Commander</name>
+        <title send="false">Valley Fortress</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="391.417777464402" max="679374.315371996"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7476.50801"/>
+                <magical speed="333.0" damage="5105.48575"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="29.8" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3200</experience>
+        <sp>0</sp>
+        <item lefthand="6377" righthand="2500"/>
+        <collision heigth="26.99" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="900000" max="100" min="20" id="9912"/>
+        <item chance="91018" max="1" min="1" id="9581"/>
+        <item chance="46782" max="1" min="1" id="9591"/>
+    </droplist>
+</npc>

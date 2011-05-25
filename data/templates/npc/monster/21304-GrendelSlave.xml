@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21304" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grendel Slave</name>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="209.50409"/>
+            </defense>
+            <move walk="36.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>38011</experience>
+        <sp>3962</sp>
+        <collision heigth="39.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10776" min="5287" id="57"/>
+        <item chance="247233" max="60" min="20" id="1344"/>
+        <item chance="13880" max="1" min="1" id="1894"/>
+        <item chance="13186" max="1" min="1" id="4039"/>
+        <item chance="3440" max="1" min="1" id="4041"/>
+        <item chance="13186" max="1" min="1" id="4044"/>
+        <item chance="176" max="1" min="1" id="5277"/>
+        <item chance="3968" max="1" min="1" id="5440"/>
+        <item chance="1667" max="1" min="1" id="5532"/>
+        <item chance="36128" max="1" min="1" id="5542"/>
+        <item chance="36469" max="1" min="1" id="5543"/>
+        <item chance="1683" max="1" min="1" id="5543"/>
+        <item chance="1165" max="1" min="1" id="8341"/>
+        <item chance="1667" max="1" min="1" id="8346"/>
+        <item chance="3663" max="1" min="1" id="8731"/>
+        <item chance="916" max="1" min="1" id="8741"/>
+        <item chance="92" max="1" min="1" id="8751"/>
+        <item chance="18" max="1" min="1" id="8761"/>
+        <item chance="136" max="1" min="1" id="11946"/>
+        <item chance="136" max="1" min="1" id="11949"/>
+        <item chance="136" max="1" min="1" id="11953"/>
+        <item chance="136" max="1" min="1" id="11958"/>
+    </droplist>
+</npc>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29141" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Captain</name>
+        <level>69</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="32.4635364678828" max="239746.726642273"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5466.50387"/>
+                <magical speed="333.0" damage="1244.30451"/>
+            </attack>
+            <defense>
+                <physical value="2620.35567"/>
+                <magical value="1278.3"/>
+            </defense>
+            <move walk="38.0" run="150.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>8315797</experience>
+        <sp>1112310</sp>
+        <collision heigth="45.0" radius="40.0"/>
+    </info>
+    <droplist>
+        <item chance="20887" max="1" min="1" id="289"/>
+        <item chance="103993" max="1" min="1" id="729"/>
+        <item chance="779950" max="1" min="1" id="730"/>
+        <item chance="21869" max="1" min="1" id="5326"/>
+        <item chance="21869" max="1" min="1" id="5329"/>
+        <item chance="406413" max="12" min="4" id="5487"/>
+        <item chance="216754" max="22" min="8" id="5488"/>
+        <item chance="247774" max="36" min="12" id="5534"/>
+        <item chance="12479" max="1" min="1" id="6569"/>
+    </droplist>
+</npc>

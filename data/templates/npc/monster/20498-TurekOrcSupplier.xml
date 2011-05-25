@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20498" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Turek Orc Supplier</name>
+        <level>27</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="72.09915"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2485</experience>
+        <sp>127</sp>
+        <item lefthand="0" righthand="11"/>
+        <collision heigth="22.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="71544" max="1" min="1" id="1885"/>
+        <item chance="13331" max="1" min="1" id="2262"/>
+        <item chance="34341" max="1" min="1" id="3953"/>
+        <item chance="700000" max="714" min="371" id="57"/>
+        <item chance="1333" max="1" min="1" id="45"/>
+        <item chance="1901" max="1" min="1" id="626"/>
+        <item chance="25493" max="1" min="1" id="1932"/>
+        <item chance="5354" max="1" min="1" id="1875"/>
+        <item chance="13384" max="1" min="1" id="1879"/>
+        <item chance="6692" max="1" min="1" id="1885"/>
+        <item chance="1247" max="1" min="1" id="2261"/>
+        <item chance="8030" max="1" min="1" id="5549"/>
+        <item chance="1071" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

@@ -16,40 +16,54 @@
  */
 package com.l2jserver.model.template;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.template.capability.Dropable;
-import com.l2jserver.model.template.capability.Enchantable;
-import com.l2jserver.model.template.capability.Sellable;
-import com.l2jserver.model.template.capability.Tradable;
 import com.l2jserver.model.world.Item;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 
 /**
  * Template for an {@link Item}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ItemTemplate extends AbstractTemplate<Item> {
+@XmlRootElement(name = "item")
+@XmlType(namespace = "item")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ItemTemplate extends AbstractTemplate<Item> {
 	/**
 	 * The logger
 	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(ItemTemplate.class);
 
-	@Inject
-	protected NetworkService networkService;
+	@XmlAttribute(name = "id")
+	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
+	protected ItemTemplateID id;
 
+	@XmlElement(name = "weight")
 	protected int weight = 0;
+	@XmlElement(name = "price")
 	protected int price = 0;
+	@XmlElement(name = "icon")
 	protected String icon;
-	protected boolean immediateEffect = true;
+	@XmlElement(name = "weight")
+	protected EffectContainer effect;
+
+	@XmlType(namespace = "item")
+	private static class EffectContainer {
+		@XmlAttribute(name = "type")
+		protected EffectType effect = null;
+	}
 
 	protected ItemMaterial material;
 
@@ -57,62 +71,14 @@ public abstract class ItemTemplate extends AbstractTemplate<Item> {
 		COTTON, WOOD, PAPER, FISH, ORIHARUKON, HORN, ADAMANTAITE, CHRYSOLITE, MITHRIL, COBWEB, RUNE_XP, CLOTH, SCALE_OF_DRAGON, BONE, GOLD, LEATHER, FINE_STEEL, SILVER, DYESTUFF, CRYSTAL, RUNE_REMOVE_PENALTY, STEEL, BRONZE, RUNE_SP, LIQUID, BLOOD_STEEL, DAMASCUS;
 	}
 
-	public ItemTemplate(ItemTemplateID id) {
-		super(id);
-	}
-
-	public ItemTemplate(final ItemTemplateID id, String icon,
-			ItemMaterial material) {
-		super(id);
-		this.icon = icon;
-		this.material = material;
+	public enum EffectType {
+		IMMEDIATE;
 	}
 
 	@Override
 	public Item create() {
 		log.debug("Creating a new Item instance with template {}", this);
-		return new Item(this.getID());
-	}
-
-	public final void use(Item item, L2Character character) {
-		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
-		this.use(item, character, conn);
-	}
-
-	protected void use(Item item, L2Character character, Lineage2Connection conn) {
-		conn.sendActionFailed();
-	}
-
-	public void stack(Item... object) {
-	}
-
-	/**
-	 * @return true if item is enchantable
-	 */
-	public boolean isEnchantable() {
-		return (this instanceof Enchantable);
-	}
-
-	/**
-	 * @return the sellable
-	 */
-	public boolean isSellable() {
-		return (this instanceof Sellable);
-	}
-
-	/**
-	 * @return the dropable
-	 */
-	public boolean isDropable() {
-		return (this instanceof Dropable);
-	}
-
-	/**
-	 * @return the tradable
-	 */
-	public boolean isTradable() {
-		return (this instanceof Tradable);
+		return new Item(id);
 	}
 
 	/**
@@ -139,8 +105,8 @@ public abstract class ItemTemplate extends AbstractTemplate<Item> {
 	/**
 	 * @return the immediateEffect
 	 */
-	public boolean isImmediateEffect() {
-		return immediateEffect;
+	public EffectType getEffectType() {
+		return effect.effect;
 	}
 
 	/**
@@ -150,8 +116,18 @@ public abstract class ItemTemplate extends AbstractTemplate<Item> {
 		return material;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.l2jserver.model.template.AbstractTemplate#getID()
+	 */
 	@Override
 	public ItemTemplateID getID() {
-		return (ItemTemplateID) super.getID();
+		return id;
 	}
+
+	// @Override
+	// public ItemTemplateID getID() {
+	// return (ItemTemplateID) super.getID();
+	// }
 }

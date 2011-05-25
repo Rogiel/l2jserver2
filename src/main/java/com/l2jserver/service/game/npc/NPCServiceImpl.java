@@ -29,7 +29,6 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
-import com.l2jserver.util.exception.L2Exception;
 
 /**
  * Default {@link NPCService} implementation
@@ -61,11 +60,11 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(action, "action");
 
 		final NPCTemplate template = npc.getTemplate();
-		try {
-			template.action(npc, character, new String[0]);
-		} catch (L2Exception e) {
-			throw new ActionServiceException(e);
-		}
+		// try {
+		// // template.action(npc, character, new String[0]);
+		// } catch (L2Exception e) {
+		// throw new ActionServiceException(e);
+		// }
 	}
 
 	@Override
@@ -77,11 +76,11 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 			args = new String[0];
 
 		final NPCTemplate template = npc.getTemplate();
-		try {
-			template.action(npc, character, args);
-		} catch (L2Exception e) {
-			throw new ActionServiceException(e);
-		}
+		// try {
+		// // template.action(npc, character, args);
+		// } catch (L2Exception e) {
+		// throw new ActionServiceException(e);
+		// }
 	}
 
 	@Override

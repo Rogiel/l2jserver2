@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20821" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Erin Ediunce</name>
+        <level>66</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2244.67715"/>
+            <mp regen="2.7" max="1219.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="603.79903"/>
+                <magical speed="333.0" damage="412.31647"/>
+            </attack>
+            <defense>
+                <physical value="276.72752"/>
+                <magical value="184.2483"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25609</experience>
+        <sp>2411</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="23.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6570" min="3240" id="57"/>
+        <item chance="24" max="1" min="1" id="97"/>
+        <item chance="146401" max="3" min="1" id="1867"/>
+        <item chance="97601" max="3" min="1" id="1872"/>
+        <item chance="48801" max="1" min="1" id="1882"/>
+        <item chance="286943" max="1" min="1" id="1894"/>
+        <item chance="7705" max="1" min="1" id="1894"/>
+        <item chance="3660" max="1" min="1" id="4042"/>
+        <item chance="168217" max="1" min="1" id="4080"/>
+        <item chance="142125" max="1" min="1" id="4084"/>
+        <item chance="5268" max="1" min="1" id="4115"/>
+        <item chance="168" max="1" min="1" id="4195"/>
+        <item chance="293" max="1" min="1" id="5276"/>
+        <item chance="2928" max="1" min="1" id="8729"/>
+        <item chance="732" max="1" min="1" id="8739"/>
+        <item chance="73" max="1" min="1" id="8749"/>
+        <item chance="14" max="1" min="1" id="8759"/>
+    </droplist>
+</npc>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29070" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dragon Bomber</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="1353.6766"/>
+            <mp regen="3.0" max="1809.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1094.11758"/>
+                <magical speed="333.0" damage="4902.24"/>
+            </attack>
+            <defense>
+                <physical value="357.09825"/>
+                <magical value="261.309"/>
+            </defense>
+            <move walk="200.0" run="250.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="28.0" radius="37.0"/>
+    </info>
+</npc>

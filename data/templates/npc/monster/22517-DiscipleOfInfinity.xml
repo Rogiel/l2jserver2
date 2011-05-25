@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22517" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Disciple of Infinity</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1018.31276"/>
+                <magical speed="333.0" damage="699.49026"/>
+            </attack>
+            <defense>
+                <physical value="347.65631"/>
+                <magical value="254.3998"/>
+            </defense>
+            <move walk="73.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>48912</experience>
+        <sp>5151</sp>
+        <collision heigth="44.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="15093" min="7370" id="57"/>
+        <item chance="2192" max="1" min="1" id="5529"/>
+        <item chance="2408" max="1" min="1" id="5546"/>
+        <item chance="2192" max="1" min="1" id="5545"/>
+        <item chance="8" max="1" min="1" id="81"/>
+        <item chance="8" max="1" min="1" id="151"/>
+        <item chance="8" max="1" min="1" id="2500"/>
+        <item chance="88817" max="180" min="60" id="1345"/>
+        <item chance="228387" max="1" min="1" id="1895"/>
+        <item chance="15987" max="1" min="1" id="4040"/>
+        <item chance="6269" max="1" min="1" id="9628"/>
+        <item chance="4207" max="1" min="1" id="9630"/>
+        <item chance="2158" max="1" min="1" id="6849"/>
+        <item chance="341619" max="2" min="1" id="1894"/>
+        <item chance="26706" max="1" min="1" id="5533"/>
+    </droplist>
+</npc>

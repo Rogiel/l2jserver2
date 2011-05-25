@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25048" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Karte's Chief Knight</name>
+        <title send="false">Raid Fighter</title>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="49.5883641293912" max="22587.4245278026"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1620.79761"/>
+                <magical speed="333.0" damage="765.49971"/>
+            </attack>
+            <defense>
+                <physical value="286.69205"/>
+                <magical value="279.72"/>
+            </defense>
+            <move walk="40.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="71"/>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="666400" max="60" min="20" id="1342"/>
+    </droplist>
+</npc>

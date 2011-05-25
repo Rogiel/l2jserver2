@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25542" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ranku</name>
+        <title send="false">Raid Boss</title>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.223482496798" max="2230489.48877267"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3571.0363"/>
+                <magical speed="333.0" damage="2466.91014"/>
+            </attack>
+            <defense>
+                <physical value="731.98996"/>
+                <magical value="353.81079"/>
+            </defense>
+            <move walk="26.0" run="180.0"/>
+            <base wit="20" dex="30" men="80" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3100452</experience>
+        <sp>410692</sp>
+        <collision heigth="29.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="4697" max="1" min="1" id="6364"/>
+        <item chance="4697" max="1" min="1" id="6372"/>
+        <item chance="144699" max="22" min="8" id="6688"/>
+        <item chance="275620" max="12" min="4" id="6696"/>
+        <item chance="14090" max="1" min="1" id="7575"/>
+        <item chance="274444" max="36" min="12" id="7579"/>
+        <item chance="50000" max="1" min="1" id="10299"/>
+    </droplist>
+</npc>

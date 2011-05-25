@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21587" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Vampire Warrior</name>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2540.15331"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="731.52506"/>
+                <magical speed="333.0" damage="499.53679"/>
+            </attack>
+            <defense>
+                <physical value="305.35947"/>
+                <magical value="203.31178"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14223</experience>
+        <sp>1445</sp>
+        <item lefthand="0" righthand="234"/>
+        <collision heigth="29.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="1363" max="1" min="1" id="5464"/>
+        <item chance="12411" max="1" min="1" id="5542"/>
+        <item chance="12528" max="1" min="1" id="5543"/>
+        <item chance="700000" max="3706" min="1815" id="57"/>
+        <item chance="187" max="1" min="1" id="11950"/>
+        <item chance="2291" max="1" min="1" id="5539"/>
+        <item chance="154424" max="30" min="10" id="1344"/>
+        <item chance="123538" max="1" min="1" id="1865"/>
+        <item chance="123538" max="1" min="1" id="1870"/>
+        <item chance="8236" max="1" min="1" id="1875"/>
+        <item chance="20590" max="1" min="1" id="1879"/>
+        <item chance="2471" max="1" min="1" id="4040"/>
+        <item chance="55" max="1" min="1" id="5157"/>
+        <item chance="1372" max="1" min="1" id="8730"/>
+        <item chance="343" max="1" min="1" id="8740"/>
+        <item chance="34" max="1" min="1" id="8750"/>
+        <item chance="7" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

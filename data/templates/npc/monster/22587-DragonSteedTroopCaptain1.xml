@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22587" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dragon Steed Troop Captain #1</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="192.545054202338" max="112716.915514125"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="9098.07293"/>
+                <magical speed="333.0" damage="6249.35028"/>
+            </attack>
+            <defense>
+                <physical value="562.93163"/>
+                <magical value="617.89341"/>
+            </defense>
+            <move walk="55.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>365328</experience>
+        <sp>38596</sp>
+        <item lefthand="0" righthand="13978"/>
+        <collision heigth="46.5" radius="28.0"/>
+    </info>
+</npc>

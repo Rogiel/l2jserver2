@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20162" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ogre</name>
+        <level>41</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1008.23781"/>
+            <mp regen="2.1" max="504.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="187.11878"/>
+                <magical speed="333.0" damage="127.77787"/>
+            </attack>
+            <defense>
+                <physical value="160.69002"/>
+                <magical value="106.98923"/>
+            </defense>
+            <move walk="22.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2469</experience>
+        <sp>162</sp>
+        <item lefthand="0" righthand="98"/>
+        <collision heigth="44.0" radius="21.0"/>
+    </info>
+</npc>

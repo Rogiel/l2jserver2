@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20622" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Malruk Soldier</name>
+        <level>63</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2089.92274"/>
+            <mp regen="2.7" max="1127.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="541.44774"/>
+                <magical speed="333.0" damage="369.73862"/>
+            </attack>
+            <defense>
+                <physical value="262.19426"/>
+                <magical value="174.5719"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>17833</experience>
+        <sp>1610</sp>
+        <item lefthand="0" righthand="221"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4898" min="2419" id="57"/>
+        <item chance="84" max="1" min="1" id="864"/>
+        <item chance="127" max="1" min="1" id="895"/>
+        <item chance="63" max="1" min="1" id="926"/>
+        <item chance="200165" max="1" min="1" id="1867"/>
+        <item chance="200165" max="1" min="1" id="1872"/>
+        <item chance="33361" max="1" min="1" id="1882"/>
+        <item chance="5267" max="1" min="1" id="1894"/>
+        <item chance="101646" max="1" min="1" id="4042"/>
+        <item chance="2502" max="1" min="1" id="4042"/>
+        <item chance="203292" max="1" min="1" id="4044"/>
+        <item chance="10629" max="1" min="1" id="4052"/>
+        <item chance="261413" max="1" min="1" id="4053"/>
+        <item chance="12869" max="1" min="1" id="4053"/>
+        <item chance="5913" max="1" min="1" id="4054"/>
+        <item chance="300" max="1" min="1" id="4401"/>
+        <item chance="994" max="1" min="1" id="4988"/>
+        <item chance="25021" max="1" min="1" id="6670"/>
+        <item chance="2002" max="1" min="1" id="8729"/>
+        <item chance="500" max="1" min="1" id="8739"/>
+        <item chance="50" max="1" min="1" id="8749"/>
+        <item chance="10" max="1" min="1" id="8759"/>
+    </droplist>
+</npc>

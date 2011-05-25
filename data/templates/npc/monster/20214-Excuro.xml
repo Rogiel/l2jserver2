@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20214" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Excuro</name>
+        <level>41</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1008.23781"/>
+            <mp regen="2.1" max="504.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="187.11878"/>
+                <magical speed="333.0" damage="127.77787"/>
+            </attack>
+            <defense>
+                <physical value="160.69002"/>
+                <magical value="117.58598"/>
+            </defense>
+            <move walk="90.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6668</experience>
+        <sp>417</sp>
+        <collision heigth="20.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1766" min="883" id="57"/>
+        <item chance="391" max="1" min="1" id="851"/>
+        <item chance="586" max="1" min="1" id="882"/>
+        <item chance="293" max="1" min="1" id="914"/>
+        <item chance="608" max="1" min="1" id="1805"/>
+        <item chance="182306" max="1" min="1" id="1865"/>
+        <item chance="182306" max="1" min="1" id="1870"/>
+        <item chance="12154" max="1" min="1" id="1875"/>
+        <item chance="87132" max="1" min="1" id="1877"/>
+        <item chance="363049" max="1" min="1" id="1879"/>
+        <item chance="30384" max="1" min="1" id="1879"/>
+        <item chance="17734" max="1" min="1" id="1905"/>
+        <item chance="25059" max="1" min="1" id="1906"/>
+        <item chance="12682" max="1" min="1" id="1907"/>
+        <item chance="172880" max="1" min="1" id="2997"/>
+        <item chance="607" max="1" min="1" id="5269"/>
+    </droplist>
+</npc>

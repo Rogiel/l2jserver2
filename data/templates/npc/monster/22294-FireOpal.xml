@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22294" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Fire Opal</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="10982.0141560175"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6734.49668"/>
+                <magical speed="333.0" damage="4598.7882"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="54.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>34122</experience>
+        <sp>3731</sp>
+        <collision heigth="47.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7082" min="3458" id="57"/>
+        <item chance="17" max="1" min="1" id="959"/>
+        <item chance="737778" max="3" min="1" id="1895"/>
+        <item chance="121146" max="1" min="1" id="1895"/>
+        <item chance="103289" max="1" min="1" id="4040"/>
+        <item chance="8480" max="1" min="1" id="4040"/>
+        <item chance="87223" max="1" min="1" id="5514"/>
+        <item chance="3489" max="1" min="1" id="5541"/>
+        <item chance="3392" max="1" min="1" id="9546"/>
+        <item chance="3326" max="1" min="1" id="9628"/>
+        <item chance="2232" max="1" min="1" id="9630"/>
+        <item chance="226" max="1" min="1" id="11976"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25112" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Agent of Beres Meana</name>
+        <title send="false">Raid Boss</title>
+        <level>30</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="21.714038575401" max="53690.0336885106"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="111.21878"/>
+                <magical speed="333.0" damage="7.21488"/>
+            </attack>
+            <defense>
+                <physical value="355.39281"/>
+                <magical value="173.38"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2308288</experience>
+        <sp>111484</sp>
+        <collision heigth="53.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="47918" max="1" min="1" id="93"/>
+        <item chance="47918" max="1" min="1" id="294"/>
+        <item chance="26510" max="18" min="6" id="850"/>
+        <item chance="47752" max="15" min="5" id="881"/>
+        <item chance="238758" max="1" min="1" id="913"/>
+        <item chance="926570" max="36" min="12" id="956"/>
+        <item chance="71526" max="243" min="81" id="1902"/>
+        <item chance="238459" max="120" min="40" id="1903"/>
+        <item chance="34653" max="462" min="154" id="1904"/>
+        <item chance="358808" max="12" min="4" id="2033"/>
+        <item chance="191365" max="22" min="8" id="2041"/>
+    </droplist>
+</npc>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25412" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Necrosentinel Royal Guard</name>
+        <title send="false">Raid Boss</title>
+        <level>47</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="47.4740881903858" max="134366.203995058"/>
+            <mp regen="2.1" max="665.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="380.23638"/>
+                <magical speed="333.0" damage="42.89876"/>
+            </attack>
+            <defense>
+                <physical value="559.90707"/>
+                <magical value="273.14"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2205665</experience>
+        <sp>257531</sp>
+        <item lefthand="946" righthand="946"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="15949" max="1" min="1" id="299"/>
+        <item chance="15949" max="1" min="1" id="301"/>
+        <item chance="15949" max="1" min="1" id="303"/>
+        <item chance="142023" max="15" min="5" id="2113"/>
+        <item chance="78902" max="27" min="9" id="2114"/>
+        <item chance="334655" max="6" min="2" id="2122"/>
+        <item chance="142161" max="1" min="1" id="2414"/>
+        <item chance="203101" max="1" min="1" id="2497"/>
+        <item chance="96614" max="157" min="53" id="2959"/>
+        <item chance="334335" max="72" min="24" id="2966"/>
+        <item chance="316811" max="3" min="1" id="4607"/>
+        <item chance="211207" max="4" min="2" id="4608"/>
+        <item chance="158406" max="6" min="2" id="4609"/>
+        <item chance="19009" max="1" min="1" id="6573"/>
+        <item chance="810000" max="1" min="1" id="8176"/>
+        <item chance="810000" max="3" min="1" id="9814"/>
+    </droplist>
+</npc>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PenaltyMonster" id="18325" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Caught Flava</name>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="251.52857"/>
+                <magical value="179.25972"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8439</experience>
+        <sp>837</sp>
+        <collision heigth="34.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="70774" max="6" min="2" id="6521"/>
+        <item chance="212320" max="1" min="1" id="6524"/>
+        <item chance="47183" max="6" min="2" id="6527"/>
+        <item chance="17" max="1" min="1" id="6534"/>
+        <item chance="141547" max="9" min="3" id="6540"/>
+    </droplist>
+</npc>

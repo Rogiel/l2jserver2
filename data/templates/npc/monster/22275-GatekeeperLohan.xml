@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22275" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Gatekeeper Lohan</name>
+        <level>81</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="33003.982801143"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5770.14557"/>
+                <magical speed="333.0" damage="3940.26143"/>
+            </attack>
+            <defense>
+                <physical value="552.97803"/>
+                <magical value="606.96799"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>96272</experience>
+        <sp>10663</sp>
+        <collision heigth="47.0" radius="60.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="25286" min="12348" id="57"/>
+        <item chance="216303" max="3" min="1" id="1895"/>
+        <item chance="50471" max="1" min="1" id="4043"/>
+        <item chance="30282" max="1" min="1" id="4040"/>
+        <item chance="25235" max="1" min="1" id="4042"/>
+        <item chance="12113" max="1" min="1" id="9546"/>
+        <item chance="3115" max="1" min="1" id="8342"/>
+        <item chance="3115" max="1" min="1" id="5533"/>
+        <item chance="3114" max="1" min="1" id="8349"/>
+        <item chance="3112" max="1" min="1" id="5544"/>
+        <item chance="1514" max="1" min="1" id="6901"/>
+        <item chance="11" max="1" min="1" id="7902"/>
+        <item chance="11" max="1" min="1" id="7895"/>
+        <item chance="11" max="1" min="1" id="213"/>
+        <item chance="11" max="1" min="1" id="164"/>
+        <item chance="878191" max="11" min="1" id="1895"/>
+        <item chance="368840" max="1" min="1" id="4040"/>
+        <item chance="62805" max="1" min="1" id="5522"/>
+    </droplist>
+</npc>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25211" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sebek</name>
+        <title send="false">Raid Boss</title>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="28.0640450927111" max="73380.9239757113"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="176.45564"/>
+                <magical speed="333.0" damage="14.03993"/>
+            </attack>
+            <defense>
+                <physical value="421.71834"/>
+                <magical value="205.74"/>
+            </defense>
+            <move walk="18.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1916442</experience>
+        <sp>153260</sp>
+        <item lefthand="0" righthand="5130"/>
+        <collision heigth="42.0" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="25077" max="18" min="6" id="851"/>
+        <item chance="45138" max="15" min="5" id="882"/>
+        <item chance="225691" max="1" min="1" id="914"/>
+        <item chance="84294" max="243" min="81" id="1905"/>
+        <item chance="241203" max="120" min="40" id="1906"/>
+        <item chance="31707" max="462" min="154" id="1907"/>
+        <item chance="91090" max="1" min="1" id="262"/>
+        <item chance="217639" max="36" min="12" id="2053"/>
+        <item chance="42938" max="1" min="1" id="6573"/>
+    </droplist>
+</npc>

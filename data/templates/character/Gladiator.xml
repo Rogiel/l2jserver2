@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="GLADIATOR" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+    <stats crafter="false" level="40">
+        <hp add="49.4" modifier="0.37" base="1044.0"/>
+        <mp add="19.5" modifier="0.14" base="359.1"/>
+        <cp add="44.46" modifier="0.22" base="939.6"/>
+        <attack accuracy="33" critical="44" evasion="33">
+            <physical speed="300.0" damage="4.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="80.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="115.0" run="115.0"/>
+        <base wit="11" dex="30" men="25" con="43" str="40" int="21"/>
+        <maxload>81900</maxload>
+    </stats>
+    <collision>
+        <male heigth="23.0" radius="9.0"/>
+        <female heigth="23.5" radius="8.0"/>
+    </collision>
+</character>

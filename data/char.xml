@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<character class="FIGHTER">
+	<stats level="40" crafter="false">
+		<hp base="2444.46819" multiplier="7.5" add="" />
+		<mp base="2444.46819" multiplier="7.5" add="" />
+		<cp base="2444.46819" multiplier="7.5" add="" />
+		<base int="21" str="40" con="43" men="20" dex="30" wit="20" />
+		<attack critical="4" evasion="0">
+			<physical damage="688.86373" speed="253" />
+			<magical damage="470.40463" speed="333" />
+		</attack>
+		<defense>
+			<physical value="0" />
+			<magical value="0" />
+		</defense>
+		<move run="120" walk="50" />
+		<load>100</load>
+	</stats>
+	<collision>
+		<male radius="" heigth="" />
+		<female radius="" heigth="" />
+	</collision>
+</character>

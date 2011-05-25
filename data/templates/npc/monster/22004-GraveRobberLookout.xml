@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22004" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Grave Robber Lookout</name>
+        <level>27</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="515.17856"/>
+            <mp regen="1.5" max="286.92"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="74.99121"/>
+                <magical speed="333.0" damage="51.20928"/>
+            </attack>
+            <defense>
+                <physical value="108.28767"/>
+                <magical value="79.24022"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1659</experience>
+        <sp>84</sp>
+        <collision heigth="16.5" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="477" min="247" id="57"/>
+        <item chance="27844" max="1" min="1" id="1061"/>
+        <item chance="7657" max="1" min="1" id="1879"/>
+        <item chance="4599" max="1" min="1" id="2181"/>
+        <item chance="3063" max="1" min="1" id="1875"/>
+        <item chance="4594" max="1" min="1" id="5549"/>
+        <item chance="613" max="1" min="1" id="5550"/>
+        <item chance="534" max="1" min="1" id="2017"/>
+        <item chance="3829" max="1" min="1" id="1885"/>
+        <item chance="675" max="1" min="1" id="8327"/>
+        <item chance="675" max="1" min="1" id="5531"/>
+        <item chance="668" max="1" min="1" id="8332"/>
+        <item chance="26" max="1" min="1" id="123"/>
+        <item chance="26" max="1" min="1" id="5285"/>
+        <item chance="26" max="1" min="1" id="7885"/>
+        <item chance="26" max="1" min="1" id="7880"/>
+        <item chance="43085" max="1" min="1" id="2180"/>
+        <item chance="7615" max="1" min="1" id="2017"/>
+        <item chance="57361" max="1" min="1" id="2181"/>
+    </droplist>
+</npc>

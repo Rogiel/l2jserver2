@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25560" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sargon the Mad</name>
+        <title send="false">Forsaken Prisoner</title>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="88.699884116806" max="207500.502974975"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7315.33208"/>
+                <magical speed="333.0" damage="960.30752"/>
+            </attack>
+            <defense>
+                <physical value="1011.21024"/>
+                <magical value="493.3"/>
+            </defense>
+            <move walk="34.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2571289</experience>
+        <sp>385228</sp>
+        <item lefthand="0" righthand="135"/>
+        <collision heigth="43.5" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="22396" max="1" min="1" id="6684"/>
+        <item chance="360112" max="36" min="12" id="6711"/>
+        <item chance="90445" max="1" min="1" id="9627"/>
+    </droplist>
+</npc>

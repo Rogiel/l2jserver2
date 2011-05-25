@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Chest" id="21717" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Purgatory Invader Food</name>
+        <level>50</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="200.23844"/>
+                <magical value="133.32101"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3636</experience>
+        <sp>274</sp>
+        <collision heigth="8.5" radius="8.5"/>
+    </info>
+    <droplist>
+        <item chance="48537" max="1" min="1" id="1877"/>
+        <item chance="71378" max="1" min="1" id="1981"/>
+        <item chance="6974" max="1" min="1" id="2232"/>
+        <item chance="700000" max="976" min="480" id="57"/>
+        <item chance="63" max="1" min="1" id="103"/>
+        <item chance="63" max="1" min="1" id="107"/>
+        <item chance="44" max="1" min="1" id="517"/>
+        <item chance="44" max="1" min="1" id="1149"/>
+        <item chance="4021" max="1" min="1" id="1978"/>
+        <item chance="2751" max="1" min="1" id="1983"/>
+        <item chance="2751" max="1" min="1" id="2957"/>
+        <item chance="4021" max="1" min="1" id="4055"/>
+        <item chance="77200" max="30" min="10" id="1342"/>
+        <item chance="25733" max="1" min="1" id="1866"/>
+        <item chance="38600" max="1" min="1" id="1871"/>
+        <item chance="1544" max="1" min="1" id="1877"/>
+        <item chance="575" max="1" min="1" id="2234"/>
+        <item chance="720" max="1" min="1" id="3012"/>
+        <item chance="772" max="1" min="1" id="4040"/>
+        <item chance="336" max="1" min="1" id="4041"/>
+        <item chance="8977" max="1" min="1" id="6669"/>
+        <item chance="1072" max="1" min="1" id="8725"/>
+        <item chance="268" max="1" min="1" id="8735"/>
+        <item chance="27" max="1" min="1" id="8745"/>
+        <item chance="5" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

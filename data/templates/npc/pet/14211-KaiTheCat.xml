@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Pet" id="14211" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kai the Cat</name>
+        <level>58</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1828.68266"/>
+            <mp regen="2.4" max="977.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="442.8992"/>
+                <magical speed="333.0" damage="302.44274"/>
+            </attack>
+            <defense>
+                <physical value="237.99429"/>
+                <magical value="174.1539"/>
+            </defense>
+            <move walk="48.0" run="180.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="15.0" radius="7.0"/>
+    </info>
+</npc>

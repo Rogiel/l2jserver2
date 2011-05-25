@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18315" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Flame of Dark Omen</name>
+        <level>68</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="22.5" max="7037.30094"/>
+            <mp regen="2.7" max="1282.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="646.17968"/>
+                <magical speed="333.0" damage="441.25696"/>
+            </attack>
+            <defense>
+                <physical value="286.3615"/>
+                <magical value="173.47182"/>
+            </defense>
+            <move walk="48.0" run="30.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>18473</experience>
+        <sp>1784</sp>
+        <collision heigth="13.0" radius="6.0"/>
+    </info>
+</npc>

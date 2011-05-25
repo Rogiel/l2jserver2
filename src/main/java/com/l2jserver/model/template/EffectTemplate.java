@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model.template;
 
-import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.world.Actor;
 
 /**
@@ -25,10 +24,6 @@ import com.l2jserver.model.world.Actor;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class EffectTemplate extends AbstractTemplate<Object> {
-	public EffectTemplate(ItemTemplateID id) {
-		super(id);
-	}
-
 	@Override
 	public Object create() {
 		return null;
@@ -44,8 +39,8 @@ public abstract class EffectTemplate extends AbstractTemplate<Object> {
 
 	}
 
-	@Override
-	public ItemTemplateID getID() {
-		return (ItemTemplateID) super.getID();
-	}
+	// @Override
+	// public ItemTemplateID getID() {
+	// return (ItemTemplateID) super.getID();
+	// }
 }

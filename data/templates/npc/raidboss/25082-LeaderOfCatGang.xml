@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25082" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Leader of Cat Gang</name>
+        <title send="false">Raid Boss</title>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="32.4117473308651" max="86871.3492917109"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="219.96935"/>
+                <magical speed="333.0" damage="17.29939"/>
+            </attack>
+            <defense>
+                <physical value="457.40256"/>
+                <magical value="223.14"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1988451</experience>
+        <sp>173127</sp>
+        <collision heigth="26.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="38351" max="1" min="1" id="71"/>
+        <item chance="38351" max="1" min="1" id="72"/>
+        <item chance="154890" max="1" min="1" id="439"/>
+        <item chance="247518" max="1" min="1" id="471"/>
+        <item chance="249607" max="72" min="24" id="1954"/>
+        <item chance="68682" max="157" min="53" id="1962"/>
+        <item chance="167403" max="22" min="8" id="2059"/>
+        <item chance="335526" max="12" min="4" id="2060"/>
+        <item chance="486900" max="3" min="1" id="4589"/>
+        <item chance="324600" max="4" min="2" id="4590"/>
+        <item chance="166937" max="1" min="1" id="6574"/>
+    </droplist>
+</npc>

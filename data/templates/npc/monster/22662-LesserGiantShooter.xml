@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22662" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lesser Giant Shooter</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="5793.32235"/>
+                <magical speed="333.0" damage="3956.08814"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="80.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>327339</experience>
+        <sp>34009</sp>
+        <item lefthand="0" righthand="4028"/>
+        <collision heigth="66.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="24057" min="11961" id="57"/>
+        <item chance="4500" max="1" min="1" id="9616"/>
+        <item chance="4500" max="1" min="1" id="9617"/>
+        <item chance="4500" max="1" min="1" id="9618"/>
+        <item chance="20" max="1" min="1" id="9442"/>
+        <item chance="20" max="1" min="1" id="9443"/>
+        <item chance="20" max="1" min="1" id="9444"/>
+        <item chance="432800" max="1" min="1" id="1885"/>
+        <item chance="143800" max="9" min="3" id="1879"/>
+        <item chance="41900" max="1" min="1" id="9628"/>
+        <item chance="28300" max="1" min="1" id="9630"/>
+        <item chance="22500" max="1" min="1" id="9629"/>
+        <item chance="2000" max="1" min="1" id="5272"/>
+        <item chance="34900" max="1" min="1" id="9573"/>
+        <item chance="10000" max="1" min="1" id="9574"/>
+        <item chance="1200" max="1" min="1" id="9575"/>
+        <item chance="20000" max="1" min="1" id="960"/>
+        <item chance="900000" max="1" min="1" id="1894"/>
+        <item chance="300000" max="1" min="1" id="9545"/>
+    </droplist>
+</npc>

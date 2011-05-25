@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21142" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grave Keeper Spartoi</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="76.57227"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3710</experience>
+        <sp>199</sp>
+        <item lefthand="0" righthand="221"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="138128" max="1" min="1" id="1900"/>
+        <item chance="148528" max="1" min="1" id="1933"/>
+        <item chance="196344" max="1" min="1" id="2153"/>
+        <item chance="700000" max="1059" min="535" id="57"/>
+        <item chance="1052" max="1" min="1" id="848"/>
+        <item chance="1582" max="1" min="1" id="879"/>
+        <item chance="789" max="1" min="1" id="911"/>
+        <item chance="18871" max="1" min="1" id="1900"/>
+        <item chance="690" max="1" min="1" id="955"/>
+        <item chance="344952" max="1" min="1" id="1868"/>
+        <item chance="68990" max="1" min="1" id="1873"/>
+        <item chance="34495" max="1" min="1" id="1876"/>
+    </droplist>
+</npc>

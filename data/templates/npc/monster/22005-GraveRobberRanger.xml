@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22005" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Grave Robber Ranger</name>
+        <level>28</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="81.67405"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1477</experience>
+        <sp>77</sp>
+        <item lefthand="0" righthand="8529"/>
+        <collision heigth="17.5" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="425" min="217" id="57"/>
+        <item chance="4741" max="1" min="1" id="1880"/>
+        <item chance="6321" max="1" min="1" id="1881"/>
+        <item chance="5691" max="1" min="1" id="2182"/>
+        <item chance="181" max="1" min="1" id="220"/>
+        <item chance="9481" max="1" min="1" id="1876"/>
+        <item chance="1896" max="1" min="1" id="1877"/>
+        <item chance="10535" max="1" min="1" id="1882"/>
+        <item chance="6735" max="1" min="1" id="2018"/>
+        <item chance="101353" max="1" min="1" id="1876"/>
+        <item chance="50680" max="1" min="1" id="1880"/>
+    </droplist>
+</npc>

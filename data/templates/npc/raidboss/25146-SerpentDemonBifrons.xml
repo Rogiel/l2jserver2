@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25146" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Serpent Demon Bifrons</name>
+        <title send="false">Raid Boss</title>
+        <level>21</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="16.8269664693931" max="37886.4853669374"/>
+            <mp regen="1.5" max="205.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="53.12758"/>
+                <magical speed="333.0" damage="3.16861"/>
+            </attack>
+            <defense>
+                <physical value="269.19177"/>
+                <magical value="131.32"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2646357</experience>
+        <sp>60367</sp>
+        <item lefthand="0" righthand="73"/>
+        <collision heigth="72.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="106040" max="1" min="1" id="275"/>
+        <item chance="106040" max="1" min="1" id="276"/>
+        <item chance="133493" max="9" min="3" id="848"/>
+        <item chance="241022" max="7" min="3" id="879"/>
+        <item chance="85882" max="10" min="4" id="911"/>
+        <item chance="74853" max="288" min="96" id="1900"/>
+        <item chance="155932" max="36" min="12" id="2024"/>
+        <item chance="56759" max="1" min="1" id="6575"/>
+        <item chance="510833" max="1" min="1" id="6576"/>
+    </droplist>
+</npc>

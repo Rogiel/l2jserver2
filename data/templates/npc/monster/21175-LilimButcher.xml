@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21175" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lilim Butcher</name>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1324.01623"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="275.82705"/>
+                <magical speed="333.0" damage="188.35412"/>
+            </attack>
+            <defense>
+                <physical value="191.12803"/>
+                <magical value="127.2552"/>
+            </defense>
+            <move walk="36.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12374</experience>
+        <sp>904</sp>
+        <item lefthand="232" righthand="232"/>
+        <collision heigth="36.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="1258" max="1" min="1" id="440"/>
+        <item chance="409204" max="1" min="1" id="1912"/>
+        <item chance="12658" max="1" min="1" id="4590"/>
+        <item chance="38" max="1" min="1" id="227"/>
+        <item chance="38" max="1" min="1" id="242"/>
+        <item chance="2795" max="1" min="1" id="2083"/>
+        <item chance="2795" max="1" min="1" id="2084"/>
+        <item chance="437" max="1" min="1" id="951"/>
+        <item chance="160242" max="1" min="1" id="1866"/>
+        <item chance="80121" max="3" min="1" id="1871"/>
+        <item chance="9615" max="1" min="1" id="1877"/>
+        <item chance="4807" max="1" min="1" id="4040"/>
+        <item chance="2090" max="1" min="1" id="4041"/>
+        <item chance="240364" max="3" min="1" id="6037"/>
+        <item chance="700000" max="532" min="268" id="6361"/>
+        <item chance="700000" max="45" min="25" id="6362"/>
+    </droplist>
+</npc>

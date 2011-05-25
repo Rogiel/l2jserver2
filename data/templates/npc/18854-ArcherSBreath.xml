@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18854" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Archer's Breath</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="109.442978618283" max="57746.2631712621"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5858.114"/>
+                <magical speed="333.0" damage="4000.33245"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="30.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="50.0" radius="20.0"/>
+    </info>
+</npc>

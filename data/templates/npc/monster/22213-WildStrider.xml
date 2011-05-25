@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22213" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Wild Strider</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14515</experience>
+        <sp>2715</sp>
+        <collision heigth="44.2" radius="32.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6640" min="3191" id="57"/>
+        <item chance="37" max="1" min="1" id="959"/>
+        <item chance="371" max="1" min="1" id="960"/>
+        <item chance="9" max="1" min="1" id="6371"/>
+        <item chance="9000" max="1" min="1" id="6695"/>
+        <item chance="178823" max="1" min="1" id="6708"/>
+        <item chance="178823" max="1" min="1" id="6709"/>
+        <item chance="12560" max="1" min="1" id="6901"/>
+        <item chance="3710" max="1" min="1" id="8954"/>
+        <item chance="1855" max="1" min="1" id="8955"/>
+        <item chance="927" max="1" min="1" id="8956"/>
+    </droplist>
+</npc>

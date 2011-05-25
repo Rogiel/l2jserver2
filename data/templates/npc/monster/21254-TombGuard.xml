@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21254" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Tomb Guard</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="212.55774"/>
+            </defense>
+            <move walk="27.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25729</experience>
+        <sp>2714</sp>
+        <item lefthand="0" righthand="78"/>
+        <collision heigth="31.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7319" min="3587" id="57"/>
+        <item chance="808" max="1" min="1" id="729"/>
+        <item chance="290856" max="1" min="1" id="1877"/>
+        <item chance="32628" max="1" min="1" id="5480"/>
+        <item chance="67" max="1" min="1" id="6323"/>
+        <item chance="89" max="1" min="1" id="6324"/>
+        <item chance="134" max="1" min="1" id="6325"/>
+        <item chance="12376" max="1" min="1" id="6341"/>
+        <item chance="9567" max="1" min="1" id="6343"/>
+        <item chance="17118" max="1" min="1" id="6345"/>
+        <item chance="53696" max="1" min="1" id="14216"/>
+    </droplist>
+</npc>

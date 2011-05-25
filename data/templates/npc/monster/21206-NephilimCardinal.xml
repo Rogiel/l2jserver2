@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21206" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Nephilim Cardinal</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2802.89989"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="855.81387"/>
+                <magical speed="333.0" damage="584.40994"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="221.51582"/>
+            </defense>
+            <move walk="50.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>31734</experience>
+        <sp>3473</sp>
+        <collision heigth="44.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="103234" max="9" min="3" id="1868"/>
+        <item chance="123881" max="1" min="1" id="1873"/>
+        <item chance="559187" max="1" min="1" id="1875"/>
+        <item chance="61941" max="1" min="1" id="1876"/>
+        <item chance="88487" max="1" min="1" id="1895"/>
+        <item chance="5162" max="1" min="1" id="4042"/>
+        <item chance="138" max="1" min="1" id="5282"/>
+        <item chance="29" max="1" min="1" id="5287"/>
+        <item chance="46" max="1" min="1" id="5288"/>
+        <item chance="18" max="1" min="1" id="5293"/>
+        <item chance="37638" max="1" min="1" id="5481"/>
+        <item chance="37771" max="1" min="1" id="5487"/>
+        <item chance="3329" max="1" min="1" id="5520"/>
+        <item chance="2349" max="1" min="1" id="5521"/>
+        <item chance="5088" max="1" min="1" id="5524"/>
+        <item chance="700000" max="1336" min="666" id="6361"/>
+        <item chance="700000" max="24" min="12" id="6362"/>
+        <item chance="34411" max="1" min="1" id="6671"/>
+        <item chance="2581" max="1" min="1" id="8732"/>
+        <item chance="645" max="1" min="1" id="8742"/>
+        <item chance="64" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

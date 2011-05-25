@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22272" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Beleth's Minion</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16531</experience>
+        <sp>1728</sp>
+        <item lefthand="0" righthand="210"/>
+        <collision heigth="40.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4484" min="2190" id="57"/>
+        <item chance="90909" max="90" min="30" id="1344"/>
+        <item chance="66667" max="12" min="4" id="1868"/>
+        <item chance="100000" max="1" min="1" id="1873"/>
+        <item chance="40000" max="1" min="1" id="1876"/>
+        <item chance="62500" max="1" min="1" id="1895"/>
+        <item chance="3731" max="1" min="1" id="4042"/>
+        <item chance="7463" max="1" min="1" id="6346"/>
+        <item chance="7194" max="1" min="1" id="6342"/>
+        <item chance="3448" max="1" min="1" id="6344"/>
+        <item chance="287" max="1" min="1" id="12351"/>
+        <item chance="287" max="1" min="1" id="6901"/>
+        <item chance="10000" max="1" min="1" id="5157"/>
+        <item chance="130000" max="1" min="1" id="5503"/>
+        <item chance="90000" max="1" min="1" id="5502"/>
+    </droplist>
+</npc>

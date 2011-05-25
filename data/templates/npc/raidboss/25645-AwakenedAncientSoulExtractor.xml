@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25645" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Awakened Ancient Soul Extractor</name>
+        <title send="false">Raid Boss</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="188.168628266824" max="440657.534754126"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1845.69199"/>
+                <magical speed="333.0" damage="1103.56024"/>
+            </attack>
+            <defense>
+                <physical value="1110.90241"/>
+                <magical value="541.93835"/>
+            </defense>
+            <move walk="46.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3100452</experience>
+        <sp>410692</sp>
+        <collision heigth="37.2" radius="27.6"/>
+    </info>
+</npc>

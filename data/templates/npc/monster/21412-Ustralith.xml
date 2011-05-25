@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21412" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ustralith</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="239.18092"/>
+            </defense>
+            <move walk="37.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>48414</experience>
+        <sp>5497</sp>
+        <collision heigth="66.0" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="13977" min="6826" id="57"/>
+        <item chance="205" max="1" min="1" id="960"/>
+        <item chance="42686" max="450" min="150" id="1344"/>
+        <item chance="6166" max="1" min="1" id="1808"/>
+        <item chance="128059" max="12" min="4" id="1868"/>
+        <item chance="34149" max="9" min="3" id="1873"/>
+        <item chance="924871" max="5" min="1" id="1876"/>
+        <item chance="102447" max="1" min="1" id="1876"/>
+        <item chance="146353" max="1" min="1" id="1895"/>
+        <item chance="8537" max="1" min="1" id="4042"/>
+        <item chance="12964" max="1" min="1" id="5495"/>
+        <item chance="10207" max="1" min="1" id="5527"/>
+        <item chance="10207" max="1" min="1" id="5528"/>
+        <item chance="38061" max="1" min="1" id="5545"/>
+        <item chance="4268" max="1" min="1" id="8732"/>
+        <item chance="1067" max="1" min="1" id="8742"/>
+        <item chance="107" max="1" min="1" id="8752"/>
+        <item chance="2215" max="1" min="1" id="12261"/>
+        <item chance="1549" max="1" min="1" id="12268"/>
+        <item chance="1549" max="1" min="1" id="12269"/>
+    </droplist>
+</npc>

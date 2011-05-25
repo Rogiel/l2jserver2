@@ -72,12 +72,12 @@ public class CharacterSelectedPacket extends AbstractServerPacket {
 		buffer.writeInt(ActorExperience.LEVEL_1.level);
 		buffer.writeInt(0); // karma
 		buffer.writeInt(0); // pk
-		buffer.writeInt(character.getAttributes().getIntelligence());
-		buffer.writeInt(character.getAttributes().getStrength());
-		buffer.writeInt(character.getAttributes().getConcentration());
-		buffer.writeInt(character.getAttributes().getMentality());
-		buffer.writeInt(character.getAttributes().getDexterity());
-		buffer.writeInt(character.getAttributes().getWitness());
+		buffer.writeInt(character.getStats().getIntelligence());
+		buffer.writeInt(character.getStats().getStrength());
+		buffer.writeInt(character.getStats().getConcentration());
+		buffer.writeInt(character.getStats().getMentality());
+		buffer.writeInt(character.getStats().getDexterity());
+		buffer.writeInt(character.getStats().getWitness());
 
 		buffer.writeInt(0); // game time
 		buffer.writeInt(0x00); // unk

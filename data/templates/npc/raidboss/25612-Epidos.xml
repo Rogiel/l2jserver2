@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25612" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Epidos</name>
+        <title send="false">Naia Shambler</title>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="287.940361385434" max="986096.671976069"/>
+            <mp regen="3.0" max="1917.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5799.7974"/>
+                <magical speed="333.0" damage="4805.40043"/>
+            </attack>
+            <defense>
+                <physical value="1140.47846"/>
+                <magical value="834.54877"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>13455636</experience>
+        <sp>2851570</sp>
+        <collision heigth="99.5" radius="60.0"/>
+    </info>
+</npc>

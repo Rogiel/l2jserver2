@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20950" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Innersen</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="55.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5619</experience>
+        <sp>487</sp>
+        <item lefthand="0" righthand="160"/>
+        <collision heigth="40.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1534" min="754" id="57"/>
+        <item chance="763" max="1" min="1" id="947"/>
+        <item chance="102441" max="1" min="1" id="1864"/>
+        <item chance="51221" max="1" min="1" id="1869"/>
+        <item chance="5122" max="1" min="1" id="1880"/>
+        <item chance="1707" max="1" min="1" id="4043"/>
+        <item chance="10049" max="1" min="1" id="4049"/>
+        <item chance="34524" max="1" min="1" id="4056"/>
+        <item chance="1450" max="1" min="1" id="4113"/>
+        <item chance="145" max="1" min="1" id="4159"/>
+        <item chance="423" max="1" min="1" id="4990"/>
+        <item chance="683" max="1" min="1" id="5550"/>
+        <item chance="854" max="1" min="1" id="8728"/>
+        <item chance="213" max="1" min="1" id="8738"/>
+        <item chance="21" max="1" min="1" id="8748"/>
+        <item chance="4" max="1" min="1" id="8758"/>
+        <item chance="161" max="1" min="1" id="11890"/>
+    </droplist>
+</npc>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20281" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dustwind Gargoyle</name>
+        <level>53</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1570.8463"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="353.71092"/>
+                <magical speed="333.0" damage="241.5387"/>
+            </attack>
+            <defense>
+                <physical value="214.18326"/>
+                <magical value="142.60563"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4045</experience>
+        <sp>318</sp>
+        <collision heigth="65.0" radius="25.0"/>
+    </info>
+</npc>

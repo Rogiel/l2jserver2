@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21405" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tera Beetle</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="45.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>28588</experience>
+        <sp>3209</sp>
+        <collision heigth="54.5" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8230" min="4031" id="57"/>
+        <item chance="13" max="1" min="1" id="959"/>
+        <item chance="149107" max="3" min="1" id="1867"/>
+        <item chance="83873" max="6" min="2" id="1869"/>
+        <item chance="67098" max="6" min="2" id="1870"/>
+        <item chance="55915" max="9" min="3" id="1871"/>
+        <item chance="31951" max="21" min="7" id="1872"/>
+        <item chance="3634" max="1" min="1" id="5167"/>
+        <item chance="3399" max="1" min="1" id="5487"/>
+        <item chance="3399" max="1" min="1" id="5488"/>
+        <item chance="138112" max="1" min="1" id="5515"/>
+        <item chance="8178" max="1" min="1" id="6901"/>
+        <item chance="2796" max="1" min="1" id="8732"/>
+        <item chance="699" max="1" min="1" id="8742"/>
+        <item chance="70" max="1" min="1" id="8752"/>
+        <item chance="422" max="1" min="1" id="12259"/>
+        <item chance="422" max="1" min="1" id="12266"/>
+    </droplist>
+</npc>

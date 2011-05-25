@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="27065" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Roko</name>
+        <title send="false">Kaboo Chief</title>
+        <level>8</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="124.92828"/>
+            <mp regen="0.9" max="92.64"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="16.20165"/>
+                <magical speed="333.0" damage="11.06363"/>
+            </attack>
+            <defense>
+                <physical value="57.56203"/>
+                <magical value="42.1214"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="275"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+</npc>

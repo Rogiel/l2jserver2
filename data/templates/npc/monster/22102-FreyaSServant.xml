@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22102" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Freya's Servant</name>
+        <level>58</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1828.68266"/>
+            <mp regen="2.4" max="977.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="442.8992"/>
+                <magical speed="333.0" damage="302.44274"/>
+            </attack>
+            <defense>
+                <physical value="237.99429"/>
+                <magical value="174.1539"/>
+            </defense>
+            <move walk="140.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>33143</experience>
+        <sp>2723</sp>
+        <collision heigth="50.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8700" min="4271" id="57"/>
+        <item chance="24" max="1" min="1" id="229"/>
+        <item chance="24" max="1" min="1" id="243"/>
+        <item chance="106480" max="9" min="3" id="1868"/>
+        <item chance="127776" max="1" min="1" id="1873"/>
+        <item chance="63888" max="1" min="1" id="1876"/>
+        <item chance="772457" max="7" min="1" id="1895"/>
+        <item chance="91269" max="1" min="1" id="1895"/>
+        <item chance="5324" max="1" min="1" id="4042"/>
+        <item chance="195736" max="1" min="1" id="4056"/>
+        <item chance="4499" max="1" min="1" id="4109"/>
+        <item chance="4499" max="1" min="1" id="4110"/>
+        <item chance="14916" max="1" min="1" id="4617"/>
+        <item chance="244" max="1" min="1" id="8324"/>
+        <item chance="6389" max="1" min="1" id="8727"/>
+        <item chance="1597" max="1" min="1" id="8737"/>
+        <item chance="160" max="1" min="1" id="8747"/>
+        <item chance="31" max="1" min="1" id="8757"/>
+    </droplist>
+</npc>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22240" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Muertos Scout</name>
+        <level>12</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="199.62322"/>
+            <mp regen="1.2" max="124.48"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="22.99606"/>
+                <magical speed="333.0" damage="15.70333"/>
+            </attack>
+            <defense>
+                <physical value="66.32989"/>
+                <magical value="48.53733"/>
+            </defense>
+            <move walk="36.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>423</experience>
+        <sp>15</sp>
+        <collision heigth="22.5" radius="15.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="152" min="110" id="57"/>
+        <item chance="81400" max="1" min="1" id="1864"/>
+        <item chance="40700" max="1" min="1" id="1869"/>
+        <item chance="2993" max="1" min="1" id="1792"/>
+        <item chance="1584" max="1" min="1" id="2008"/>
+        <item chance="196" max="1" min="1" id="9"/>
+        <item chance="196" max="1" min="1" id="154"/>
+        <item chance="206680" max="1" min="1" id="1869"/>
+        <item chance="133342" max="1" min="1" id="1921"/>
+        <item chance="82672" max="1" min="1" id="1878"/>
+    </droplist>
+</npc>

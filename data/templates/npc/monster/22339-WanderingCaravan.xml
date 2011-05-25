@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22339" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Wandering Caravan</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1164.93244"/>
+                <magical speed="333.0" damage="809.53604"/>
+            </attack>
+            <defense>
+                <physical value="364.18253"/>
+                <magical value="266.49298"/>
+            </defense>
+            <move walk="56.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>18810</experience>
+        <sp>2006</sp>
+        <collision heigth="58.5" radius="33.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4227" min="2112" id="57"/>
+        <item chance="3" max="1" min="1" id="81"/>
+        <item chance="3" max="1" min="1" id="151"/>
+        <item chance="118" max="1" min="1" id="960"/>
+        <item chance="450440" max="1" min="1" id="1885"/>
+        <item chance="84530" max="1" min="1" id="1895"/>
+        <item chance="3" max="1" min="1" id="2500"/>
+        <item chance="5917" max="1" min="1" id="4040"/>
+        <item chance="811" max="1" min="1" id="5529"/>
+        <item chance="811" max="1" min="1" id="5545"/>
+        <item chance="891" max="1" min="1" id="5546"/>
+        <item chance="13120" max="1" min="1" id="8715"/>
+        <item chance="184900" max="1" min="1" id="9599"/>
+        <item chance="2320" max="1" min="1" id="9628"/>
+        <item chance="1557" max="1" min="1" id="9630"/>
+        <item chance="19724" max="1" min="1" id="9676"/>
+    </droplist>
+</npc>

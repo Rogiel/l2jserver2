@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22043" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ragna Orc Sorcerer</name>
+        <level>50</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="200.23844"/>
+                <magical value="146.5258"/>
+            </defense>
+            <move walk="50.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6944</experience>
+        <sp>522</sp>
+        <item lefthand="0" righthand="7"/>
+        <collision heigth="16.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1863" min="917" id="57"/>
+        <item chance="116168" max="1" min="1" id="1872"/>
+        <item chance="116168" max="1" min="1" id="1867"/>
+        <item chance="5808" max="1" min="1" id="1875"/>
+        <item chance="11617" max="1" min="1" id="1881"/>
+        <item chance="758" max="1" min="1" id="4041"/>
+        <item chance="19362" max="1" min="1" id="1539"/>
+        <item chance="2953" max="1" min="1" id="2166"/>
+        <item chance="4" max="1" min="1" id="162"/>
+        <item chance="4" max="1" min="1" id="174"/>
+        <item chance="4" max="1" min="1" id="196"/>
+        <item chance="4" max="1" min="1" id="197"/>
+        <item chance="4" max="1" min="1" id="199"/>
+        <item chance="4" max="1" min="1" id="200"/>
+        <item chance="4" max="1" min="1" id="201"/>
+        <item chance="4" max="1" min="1" id="202"/>
+        <item chance="321" max="1" min="1" id="2097"/>
+        <item chance="321" max="1" min="1" id="2098"/>
+        <item chance="338" max="1" min="1" id="2099"/>
+        <item chance="338" max="1" min="1" id="2100"/>
+        <item chance="326" max="1" min="1" id="2102"/>
+        <item chance="338" max="1" min="1" id="2103"/>
+        <item chance="338" max="1" min="1" id="2104"/>
+        <item chance="321" max="1" min="1" id="2105"/>
+        <item chance="2420" max="1" min="1" id="8725"/>
+        <item chance="605" max="1" min="1" id="8735"/>
+        <item chance="60" max="1" min="1" id="8745"/>
+        <item chance="12" max="1" min="1" id="8755"/>
+        <item chance="140926" max="1" min="1" id="1913"/>
+        <item chance="20152" max="1" min="1" id="4041"/>
+        <item chance="7725" max="1" min="1" id="4589"/>
+    </droplist>
+</npc>

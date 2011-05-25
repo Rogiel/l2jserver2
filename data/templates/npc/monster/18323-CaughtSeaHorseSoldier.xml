@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PenaltyMonster" id="18323" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Caught Sea Horse Soldier</name>
+        <level>50</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="170.20267"/>
+                <magical value="121.30026"/>
+            </defense>
+            <move walk="80.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4306</experience>
+        <sp>324</sp>
+        <item lefthand="0" righthand="291"/>
+        <collision heigth="32.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="67649" max="6" min="2" id="6521"/>
+        <item chance="202945" max="1" min="1" id="6524"/>
+        <item chance="45099" max="6" min="2" id="6527"/>
+        <item chance="41" max="1" min="1" id="6533"/>
+        <item chance="169121" max="9" min="3" id="6539"/>
+    </droplist>
+</npc>

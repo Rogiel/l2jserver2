@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21731" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Forbidden Path Invader Elite Soldier</name>
+        <level>65</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2193.43142"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="582.81759"/>
+                <magical speed="333.0" damage="397.98887"/>
+            </attack>
+            <defense>
+                <physical value="271.89033"/>
+                <magical value="181.02764"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>17859</experience>
+        <sp>1659</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="23.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="192162" max="1" min="1" id="1894"/>
+        <item chance="91277" max="1" min="1" id="4042"/>
+        <item chance="128514" max="1" min="1" id="4086"/>
+        <item chance="700000" max="4400" min="2170" id="57"/>
+        <item chance="83" max="1" min="1" id="110"/>
+        <item chance="58" max="1" min="1" id="2416"/>
+        <item chance="58" max="1" min="1" id="2417"/>
+        <item chance="12130" max="1" min="1" id="4077"/>
+        <item chance="10191" max="1" min="1" id="4088"/>
+        <item chance="10191" max="1" min="1" id="4089"/>
+        <item chance="105047" max="60" min="20" id="1343"/>
+        <item chance="65362" max="3" min="1" id="1867"/>
+        <item chance="196086" max="1" min="1" id="1872"/>
+        <item chance="32681" max="1" min="1" id="1882"/>
+        <item chance="5160" max="1" min="1" id="1894"/>
+        <item chance="2451" max="1" min="1" id="4042"/>
+        <item chance="1131" max="1" min="1" id="6339"/>
+        <item chance="1961" max="1" min="1" id="8729"/>
+        <item chance="490" max="1" min="1" id="8739"/>
+        <item chance="49" max="1" min="1" id="8749"/>
+        <item chance="10" max="1" min="1" id="8759"/>
+    </droplist>
+</npc>

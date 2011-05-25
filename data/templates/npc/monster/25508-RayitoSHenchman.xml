@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25508" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Rayito's Henchman</name>
+        <title send="false">Raid Fighter</title>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="28.0640450927111" max="7866.43505019625"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="470.5366"/>
+                <magical speed="333.0" damage="99.83515"/>
+            </attack>
+            <defense>
+                <physical value="210.85917"/>
+                <magical value="205.74"/>
+            </defense>
+            <move walk="30.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="102" righthand="66"/>
+        <collision heigth="16.6" radius="6.0"/>
+    </info>
+</npc>

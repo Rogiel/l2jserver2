@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25182" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Demon Kurikups</name>
+        <title send="false">Raid Boss</title>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="71.371053660127" max="215207.60963262"/>
+            <mp regen="2.4" max="1007.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="748.77526"/>
+                <magical speed="333.0" damage="122.63548"/>
+            </attack>
+            <defense>
+                <physical value="728.44779"/>
+                <magical value="355.36"/>
+            </defense>
+            <move walk="37.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2684275</experience>
+        <sp>381459</sp>
+        <collision heigth="180.0" radius="50.0"/>
+    </info>
+    <droplist>
+        <item chance="9965" max="1" min="1" id="80"/>
+        <item chance="9965" max="1" min="1" id="150"/>
+        <item chance="101169" max="1" min="1" id="729"/>
+        <item chance="52614" max="1" min="1" id="5290"/>
+        <item chance="52614" max="1" min="1" id="5291"/>
+        <item chance="52614" max="1" min="1" id="5295"/>
+        <item chance="52614" max="1" min="1" id="5296"/>
+        <item chance="23765" max="346" min="116" id="5496"/>
+        <item chance="121994" max="67" min="23" id="5497"/>
+        <item chance="45747" max="180" min="60" id="5508"/>
+        <item chance="171552" max="48" min="16" id="5509"/>
+        <item chance="159315" max="22" min="8" id="5547"/>
+        <item chance="298716" max="12" min="4" id="5548"/>
+        <item chance="101169" max="1" min="1" id="6570"/>
+        <item chance="700000" max="2" min="1" id="8176"/>
+        <item chance="830000" max="4" min="1" id="9814"/>
+    </droplist>
+</npc>

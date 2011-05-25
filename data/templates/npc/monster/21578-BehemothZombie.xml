@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21578" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Behemoth Zombie</name>
+        <level>71</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2492.727"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="710.2185"/>
+                <magical speed="333.0" damage="484.98717"/>
+            </attack>
+            <defense>
+                <physical value="300.65359"/>
+                <magical value="200.17855"/>
+            </defense>
+            <move walk="20.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12370</experience>
+        <sp>1241</sp>
+        <collision heigth="40.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3238" min="1588" id="57"/>
+        <item chance="135064" max="30" min="10" id="1344"/>
+        <item chance="72034" max="1" min="1" id="1866"/>
+        <item chance="108052" max="1" min="1" id="1871"/>
+        <item chance="4322" max="1" min="1" id="1877"/>
+        <item chance="2161" max="1" min="1" id="4040"/>
+        <item chance="940" max="1" min="1" id="4041"/>
+        <item chance="48" max="1" min="1" id="5277"/>
+        <item chance="1192" max="1" min="1" id="5464"/>
+        <item chance="42487" max="1" min="1" id="5482"/>
+        <item chance="27069" max="1" min="1" id="5485"/>
+        <item chance="2004" max="1" min="1" id="5539"/>
+        <item chance="1201" max="1" min="1" id="8730"/>
+        <item chance="300" max="1" min="1" id="8740"/>
+        <item chance="30" max="1" min="1" id="8750"/>
+        <item chance="5" max="1" min="1" id="8760"/>
+        <item chance="164" max="1" min="1" id="11950"/>
+    </droplist>
+</npc>

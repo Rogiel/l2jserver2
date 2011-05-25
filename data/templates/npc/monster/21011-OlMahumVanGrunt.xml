@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21011" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Van Grunt</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="50.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1571</experience>
+        <sp>86</sp>
+        <item lefthand="0" righthand="5"/>
+        <collision heigth="25.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="756" max="1" min="1" id="46"/>
+        <item chance="700000" max="448" min="224" id="57"/>
+        <item chance="1078" max="1" min="1" id="627"/>
+        <item chance="21982" max="1" min="1" id="1061"/>
+        <item chance="589975" max="1" min="1" id="1832"/>
+        <item chance="72540" max="1" min="1" id="1864"/>
+        <item chance="36270" max="1" min="1" id="1865"/>
+        <item chance="24180" max="1" min="1" id="1866"/>
+        <item chance="72540" max="1" min="1" id="1868"/>
+        <item chance="14508" max="1" min="1" id="1873"/>
+        <item chance="326755" max="1" min="1" id="1884"/>
+        <item chance="58094" max="1" min="1" id="1900"/>
+        <item chance="7140" max="1" min="1" id="2185"/>
+        <item chance="259" max="1" min="1" id="2274"/>
+    </droplist>
+</npc>

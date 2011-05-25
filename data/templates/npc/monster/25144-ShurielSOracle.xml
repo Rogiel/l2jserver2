@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25144" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shuriel's Oracle</name>
+        <title send="false">Raid Fighter</title>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="126.536105676163" max="65696.0877669096"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="5185.43774"/>
+                <magical speed="333.0" damage="3718.48344"/>
+            </attack>
+            <defense>
+                <physical value="499.05092"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="201"/>
+        <collision heigth="34.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="391833" max="180" min="60" id="1344"/>
+    </droplist>
+</npc>

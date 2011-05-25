@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25701" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Anays</name>
+        <title send="false">Master of Splendor</title>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="240.220217981479" max="937564.609209036"/>
+            <mp regen="500.0" max="21812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="11094.68934"/>
+                <magical speed="333.0" damage="1192.885"/>
+            </attack>
+            <defense>
+                <physical value="1428.96385"/>
+                <magical value="576.114"/>
+            </defense>
+            <move walk="60.0" run="120.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>6653170</experience>
+        <sp>900069</sp>
+        <item lefthand="0" righthand="8214"/>
+        <collision heigth="55.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="8472" max="1" min="1" id="14109"/>
+        <item chance="8472" max="1" min="1" id="14113"/>
+        <item chance="8472" max="1" min="1" id="14116"/>
+        <item chance="8472" max="1" min="1" id="14110"/>
+        <item chance="8472" max="1" min="1" id="14114"/>
+        <item chance="8472" max="1" min="1" id="14117"/>
+        <item chance="197697" max="1" min="1" id="15484"/>
+        <item chance="11861" max="1" min="1" id="13143"/>
+        <item chance="11861" max="1" min="1" id="13144"/>
+        <item chance="11861" max="1" min="1" id="13145"/>
+        <item chance="16945" max="1" min="1" id="14111"/>
+        <item chance="16945" max="1" min="1" id="13887"/>
+        <item chance="44847" max="1" min="1" id="959"/>
+        <item chance="448478" max="1" min="1" id="960"/>
+        <item chance="7474" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

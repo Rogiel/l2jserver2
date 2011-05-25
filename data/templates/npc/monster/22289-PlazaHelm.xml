@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22289" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Plaza Helm</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="26.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>36334</experience>
+        <sp>3792</sp>
+        <collision heigth="33.5" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9640" min="4706" id="57"/>
+        <item chance="125925" max="1" min="1" id="1873"/>
+        <item chance="104938" max="9" min="3" id="1868"/>
+        <item chance="89947" max="1" min="1" id="1895"/>
+        <item chance="62963" max="1" min="1" id="1876"/>
+        <item chance="5247" max="1" min="1" id="4042"/>
+        <item chance="2518" max="1" min="1" id="9546"/>
+        <item chance="2186" max="1" min="1" id="9573"/>
+        <item chance="1187" max="1" min="1" id="8342"/>
+        <item chance="1187" max="1" min="1" id="8349"/>
+        <item chance="1187" max="1" min="1" id="5533"/>
+        <item chance="1186" max="1" min="1" id="5544"/>
+        <item chance="547" max="1" min="1" id="9574"/>
+        <item chance="126" max="1" min="1" id="960"/>
+        <item chance="77" max="1" min="1" id="11966"/>
+        <item chance="77" max="1" min="1" id="11969"/>
+        <item chance="77" max="1" min="1" id="11970"/>
+        <item chance="77" max="1" min="1" id="11974"/>
+        <item chance="55" max="1" min="1" id="9575"/>
+        <item chance="11" max="1" min="1" id="9576"/>
+        <item chance="702978" max="3" min="1" id="1876"/>
+        <item chance="669503" max="5" min="1" id="1895"/>
+        <item chance="31544" max="1" min="1" id="5480"/>
+    </droplist>
+</npc>

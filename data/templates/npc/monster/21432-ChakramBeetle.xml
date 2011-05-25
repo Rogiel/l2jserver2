@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21432" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Chakram Beetle</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="45.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>72932</experience>
+        <sp>8186</sp>
+        <collision heigth="54.5" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="17245" min="8447" id="57"/>
+        <item chance="28" max="1" min="1" id="959"/>
+        <item chance="7616" max="1" min="1" id="1808"/>
+        <item chance="46866" max="45" min="15" id="1868"/>
+        <item chance="70299" max="6" min="2" id="1873"/>
+        <item chance="140598" max="1" min="1" id="1876"/>
+        <item chance="200854" max="1" min="1" id="1895"/>
+        <item chance="11716" max="1" min="1" id="4042"/>
+        <item chance="47043" max="1" min="1" id="5534"/>
+        <item chance="47011" max="1" min="1" id="5537"/>
+        <item chance="8678" max="1" min="1" id="5538"/>
+        <item chance="5858" max="1" min="1" id="8732"/>
+        <item chance="1465" max="1" min="1" id="8742"/>
+        <item chance="146" max="1" min="1" id="8752"/>
+        <item chance="562" max="1" min="1" id="11967"/>
+    </droplist>
+</npc>

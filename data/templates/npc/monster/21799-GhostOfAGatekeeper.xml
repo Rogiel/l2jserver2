@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21799" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of a Gatekeeper</name>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2719.97952"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="815.37145"/>
+                <magical speed="333.0" damage="556.793"/>
+            </attack>
+            <defense>
+                <physical value="323.78455"/>
+                <magical value="215.57941"/>
+            </defense>
+            <move walk="40.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>26132</experience>
+        <sp>2794</sp>
+        <item lefthand="103" righthand="150"/>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7457" min="3642" id="57"/>
+        <item chance="259750" max="1" min="1" id="1894"/>
+        <item chance="112412" max="1" min="1" id="5495"/>
+        <item chance="1152" max="1" min="1" id="5532"/>
+        <item chance="1162" max="1" min="1" id="5543"/>
+        <item chance="7403" max="1" min="1" id="6901"/>
+        <item chance="683" max="1" min="1" id="6901"/>
+        <item chance="1151" max="1" min="1" id="8341"/>
+        <item chance="1152" max="1" min="1" id="8346"/>
+        <item chance="5695" max="1" min="1" id="8732"/>
+        <item chance="1424" max="1" min="1" id="8742"/>
+        <item chance="142" max="1" min="1" id="8752"/>
+        <item chance="94" max="1" min="1" id="11946"/>
+        <item chance="94" max="1" min="1" id="11949"/>
+        <item chance="94" max="1" min="1" id="11953"/>
+        <item chance="94" max="1" min="1" id="11958"/>
+    </droplist>
+</npc>

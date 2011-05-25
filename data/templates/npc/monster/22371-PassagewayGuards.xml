@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22371" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Passageway Guards</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.897045965523" max="18734.280667127"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="10447.77116"/>
+                <magical speed="333.0" damage="7217.43231"/>
+            </attack>
+            <defense>
+                <physical value="585.59197"/>
+                <magical value="642.76618"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>88217</experience>
+        <sp>9301</sp>
+        <item lefthand="0" righthand="234"/>
+        <collision heigth="29.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="19630" min="9801" id="57"/>
+        <item chance="228966" max="60" min="20" id="1345"/>
+        <item chance="114483" max="1" min="1" id="1879"/>
+        <item chance="57241" max="1" min="1" id="1885"/>
+        <item chance="5387" max="1" min="1" id="9628"/>
+        <item chance="3615" max="1" min="1" id="9630"/>
+        <item chance="2986" max="1" min="1" id="9629"/>
+        <item chance="5495" max="1" min="1" id="9551"/>
+        <item chance="9248" max="1" min="1" id="5480"/>
+        <item chance="9248" max="1" min="1" id="5481"/>
+        <item chance="62" max="1" min="1" id="5320"/>
+        <item chance="62" max="1" min="1" id="5323"/>
+        <item chance="3318" max="1" min="1" id="14166"/>
+        <item chance="828" max="1" min="1" id="14167"/>
+        <item chance="83" max="1" min="1" id="14168"/>
+        <item chance="16" max="1" min="1" id="14169"/>
+        <item chance="275" max="1" min="1" id="960"/>
+        <item chance="271438" max="1" min="1" id="6714"/>
+        <item chance="36586" max="1" min="1" id="7579"/>
+        <item chance="16733" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

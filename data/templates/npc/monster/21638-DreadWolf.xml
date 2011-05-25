@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21638" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dread Wolf</name>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="772.73802"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="129.32896"/>
+                <magical speed="333.0" damage="88.31491"/>
+            </attack>
+            <defense>
+                <physical value="136.72948"/>
+                <magical value="91.03603"/>
+            </defense>
+            <move walk="24.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1382</experience>
+        <sp>82</sp>
+        <collision heigth="11.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="49916" max="1" min="1" id="1900"/>
+        <item chance="25488" max="1" min="1" id="1935"/>
+        <item chance="99396" max="1" min="1" id="2203"/>
+        <item chance="700000" max="384" min="193" id="57"/>
+        <item chance="22" max="1" min="1" id="316"/>
+        <item chance="22" max="1" min="1" id="317"/>
+        <item chance="946" max="1" min="1" id="2030"/>
+        <item chance="2310" max="1" min="1" id="1874"/>
+        <item chance="13861" max="1" min="1" id="1878"/>
+        <item chance="21325" max="1" min="1" id="1884"/>
+        <item chance="2310" max="1" min="1" id="1889"/>
+        <item chance="5389" max="1" min="1" id="2153"/>
+        <item chance="4639" max="1" min="1" id="2977"/>
+        <item chance="1386" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

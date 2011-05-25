@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20641" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Harit Lizardman Grunt</name>
+        <level>51</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1470.41596"/>
+            <mp regen="2.4" max="775.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="321.13207"/>
+                <magical speed="333.0" damage="219.29157"/>
+            </attack>
+            <defense>
+                <physical value="204.85194"/>
+                <magical value="136.39273"/>
+            </defense>
+            <move walk="37.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5402</experience>
+        <sp>412</sp>
+        <item lefthand="0" righthand="70"/>
+        <collision heigth="32.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1452" min="715" id="57"/>
+        <item chance="110" max="1" min="1" id="854"/>
+        <item chance="165" max="1" min="1" id="885"/>
+        <item chance="82" max="1" min="1" id="917"/>
+        <item chance="82934" max="1" min="1" id="1867"/>
+        <item chance="82934" max="1" min="1" id="1872"/>
+        <item chance="13822" max="1" min="1" id="1882"/>
+        <item chance="2182" max="1" min="1" id="1894"/>
+        <item chance="6988" max="1" min="1" id="1914"/>
+        <item chance="10959" max="1" min="1" id="1915"/>
+        <item chance="5293" max="1" min="1" id="1916"/>
+        <item chance="9668" max="1" min="1" id="2097"/>
+        <item chance="101" max="1" min="1" id="2353"/>
+        <item chance="2944" max="1" min="1" id="2355"/>
+        <item chance="30082" max="1" min="1" id="4042"/>
+        <item chance="1037" max="1" min="1" id="4042"/>
+        <item chance="2765" max="1" min="1" id="4124"/>
+        <item chance="138" max="1" min="1" id="4609"/>
+        <item chance="1728" max="1" min="1" id="8725"/>
+        <item chance="432" max="1" min="1" id="8735"/>
+        <item chance="43" max="1" min="1" id="8745"/>
+        <item chance="8" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

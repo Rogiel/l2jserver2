@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20117" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dre Vanul</name>
+        <level>20</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="342.5127"/>
+            <mp regen="1.2" max="192.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="44.32863"/>
+                <magical speed="333.0" damage="30.2707"/>
+            </attack>
+            <defense>
+                <physical value="86.87049"/>
+                <magical value="57.83936"/>
+            </defense>
+            <move walk="80.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>666</experience>
+        <sp>29</sp>
+        <collision heigth="36.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="203" min="117" id="57"/>
+        <item chance="142" max="1" min="1" id="176"/>
+        <item chance="42109" max="1" min="1" id="734"/>
+        <item chance="2488" max="1" min="1" id="735"/>
+        <item chance="39803" max="1" min="1" id="1867"/>
+        <item chance="505303" max="1" min="1" id="1868"/>
+        <item chance="39803" max="1" min="1" id="1872"/>
+        <item chance="6634" max="1" min="1" id="1882"/>
+        <item chance="165673" max="1" min="1" id="1925"/>
+        <item chance="8090" max="1" min="1" id="2173"/>
+        <item chance="142" max="1" min="1" id="2501"/>
+    </droplist>
+</npc>

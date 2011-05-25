@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22544" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dragon Steed Troop Magic Soldier</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="114.399578021039" max="33093.4274797799"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5746.81896"/>
+                <magical speed="333.0" damage="3924.33235"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="82.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>84936</experience>
+        <sp>9090</sp>
+        <item lefthand="0" righthand="13981"/>
+        <collision heigth="34.5" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="17160" min="8405" id="57"/>
+        <item chance="6924" max="1" min="1" id="5481"/>
+        <item chance="6924" max="1" min="1" id="5480"/>
+        <item chance="47" max="1" min="1" id="5323"/>
+        <item chance="47" max="1" min="1" id="5320"/>
+        <item chance="171433" max="1" min="1" id="1879"/>
+        <item chance="85716" max="1" min="1" id="1885"/>
+        <item chance="8067" max="1" min="1" id="9628"/>
+        <item chance="5414" max="1" min="1" id="9630"/>
+        <item chance="4472" max="1" min="1" id="9629"/>
+        <item chance="1916" max="1" min="1" id="6869"/>
+        <item chance="211591" max="1" min="1" id="5514"/>
+        <item chance="5568" max="1" min="1" id="5162"/>
+        <item chance="5568" max="1" min="1" id="5167"/>
+    </droplist>
+</npc>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25713" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Darnels</name>
+        <title send="false">Square</title>
+        <level>84</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="159.893968662935" max="1395831.13184129"/>
+            <mp regen="30.0" max="18120.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5370.66229"/>
+                <magical speed="333.0" damage="3746.43835"/>
+            </attack>
+            <defense>
+                <physical value="644.16101"/>
+                <magical value="345.95324"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1789794</experience>
+        <sp>1050642</sp>
+        <collision heigth="40.6" radius="20.0"/>
+    </info>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22523" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Soul Devourer</name>
+        <title send="false">Food of Ekimus</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="189.142969481803" max="112020.349673277"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9241.42475"/>
+                <magical speed="333.0" damage="6422.06032"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="110.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1168301</experience>
+        <sp>118417</sp>
+        <collision heigth="44.2" radius="70.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="217956" min="106409" id="57"/>
+        <item chance="66664" max="1" min="1" id="5522"/>
+        <item chance="66664" max="1" min="1" id="5523"/>
+        <item chance="445" max="1" min="1" id="5311"/>
+        <item chance="445" max="1" min="1" id="5316"/>
+        <item chance="186419" max="36" min="12" id="1895"/>
+        <item chance="62637" max="6" min="2" id="4040"/>
+        <item chance="122817" max="1" min="1" id="9628"/>
+        <item chance="82417" max="1" min="1" id="9630"/>
+        <item chance="27764" max="1" min="1" id="6861"/>
+        <item chance="715723" max="1" min="1" id="5487"/>
+        <item chance="713202" max="1" min="1" id="5481"/>
+        <item chance="70640" max="1" min="1" id="1808"/>
+    </droplist>
+</npc>

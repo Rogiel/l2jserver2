@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22672" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Cursed Seer</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="140.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>28777</experience>
+        <sp>3095</sp>
+        <collision heigth="65.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2947" min="1460" id="57"/>
+        <item chance="163300" max="1" min="1" id="1879"/>
+        <item chance="82700" max="1" min="1" id="1885"/>
+        <item chance="5000" max="1" min="1" id="3036"/>
+        <item chance="4" max="1" min="1" id="9517"/>
+        <item chance="4" max="1" min="1" id="9518"/>
+        <item chance="4" max="1" min="1" id="9522"/>
+        <item chance="4" max="1" min="1" id="9523"/>
+        <item chance="4" max="1" min="1" id="9527"/>
+        <item chance="4" max="1" min="1" id="9528"/>
+        <item chance="1600" max="1" min="1" id="9533"/>
+        <item chance="2100" max="1" min="1" id="9534"/>
+        <item chance="1700" max="1" min="1" id="9538"/>
+        <item chance="2000" max="1" min="1" id="9539"/>
+        <item chance="2300" max="1" min="1" id="9543"/>
+        <item chance="1700" max="1" min="1" id="9544"/>
+        <item chance="3000" max="1" min="1" id="9547"/>
+        <item chance="4600" max="1" min="1" id="9628"/>
+        <item chance="80000" max="1" min="1" id="9629"/>
+        <item chance="8500" max="1" min="1" id="9629"/>
+        <item chance="5800" max="1" min="1" id="9630"/>
+        <item chance="50000" max="1" min="1" id="9992"/>
+    </droplist>
+</npc>

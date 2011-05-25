@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22665" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lesser Giant Elder</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="5793.32235"/>
+                <magical speed="333.0" damage="3956.08814"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="15.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>330424</experience>
+        <sp>34346</sp>
+        <item lefthand="0" righthand="3938"/>
+        <collision heigth="66.0" radius="50.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="24286" min="12068" id="57"/>
+        <item chance="12800" max="1" min="1" id="9619"/>
+        <item chance="60" max="1" min="1" id="9445"/>
+        <item chance="285000" max="9" min="3" id="1895"/>
+        <item chance="120400" max="1" min="1" id="4040"/>
+        <item chance="48900" max="1" min="1" id="9628"/>
+        <item chance="29300" max="1" min="1" id="9630"/>
+        <item chance="6200" max="1" min="1" id="6901"/>
+        <item chance="41400" max="1" min="1" id="9573"/>
+        <item chance="11200" max="1" min="1" id="9574"/>
+        <item chance="1100" max="1" min="1" id="9575"/>
+        <item chance="80000" max="1" min="1" id="9623"/>
+        <item chance="30000" max="1" min="1" id="3036"/>
+        <item chance="30000" max="1" min="1" id="1808"/>
+    </droplist>
+</npc>

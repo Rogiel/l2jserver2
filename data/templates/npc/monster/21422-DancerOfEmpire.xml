@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21422" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dancer of Empire</name>
+        <level>78</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.772" max="3010.8929976"/>
+            <mp regen="3.1008" max="1777.86"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="961.93701"/>
+                <magical speed="333.0" damage="677.64411"/>
+            </attack>
+            <defense>
+                <physical value="361.08599"/>
+                <magical value="246.33071"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>41481</experience>
+        <sp>4766</sp>
+        <collision heigth="23.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11994" min="5855" id="57"/>
+        <item chance="20" max="1" min="1" id="959"/>
+        <item chance="81383" max="12" min="4" id="1867"/>
+        <item chance="217022" max="3" min="1" id="1872"/>
+        <item chance="108511" max="1" min="1" id="1882"/>
+        <item chance="17133" max="1" min="1" id="1894"/>
+        <item chance="8138" max="1" min="1" id="4042"/>
+        <item chance="5290" max="1" min="1" id="5162"/>
+        <item chance="5290" max="1" min="1" id="5167"/>
+        <item chance="6032" max="1" min="1" id="5534"/>
+        <item chance="32647" max="1" min="1" id="5538"/>
+        <item chance="4069" max="1" min="1" id="8732"/>
+        <item chance="1017" max="1" min="1" id="8742"/>
+        <item chance="102" max="1" min="1" id="8752"/>
+        <item chance="391" max="1" min="1" id="11975"/>
+    </droplist>
+</npc>

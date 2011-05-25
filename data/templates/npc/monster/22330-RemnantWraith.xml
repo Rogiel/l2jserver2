@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22330" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Remnant Wraith</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1112.35801"/>
+                <magical speed="333.0" damage="768.53275"/>
+            </attack>
+            <defense>
+                <physical value="358.02452"/>
+                <magical value="261.98681"/>
+            </defense>
+            <move walk="36.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>17815</experience>
+        <sp>1923</sp>
+        <item lefthand="0" righthand="123"/>
+        <collision heigth="24.6" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4100" min="2044" id="57"/>
+        <item chance="179200" max="1" min="1" id="9599"/>
+        <item chance="2361" max="1" min="1" id="5537"/>
+        <item chance="8" max="1" min="1" id="236"/>
+        <item chance="28679" max="1" min="1" id="1879"/>
+        <item chance="14340" max="1" min="1" id="1885"/>
+        <item chance="1350" max="1" min="1" id="9628"/>
+        <item chance="906" max="1" min="1" id="9630"/>
+        <item chance="748" max="1" min="1" id="9629"/>
+        <item chance="69" max="1" min="1" id="960"/>
+        <item chance="1195" max="1" min="1" id="9573"/>
+        <item chance="299" max="1" min="1" id="9574"/>
+        <item chance="30" max="1" min="1" id="9575"/>
+        <item chance="6" max="1" min="1" id="9576"/>
+        <item chance="49735" max="1" min="1" id="6709"/>
+        <item chance="1397" max="1" min="1" id="960"/>
+        <item chance="3493" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

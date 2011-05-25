@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20372" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Baraq Orc Fighter</name>
+        <level>10</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="163.28607"/>
+            <mp regen="0.9" max="108.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="19.33758"/>
+                <magical speed="333.0" damage="13.20506"/>
+            </attack>
+            <defense>
+                <physical value="61.82527"/>
+                <magical value="41.16396"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>303</experience>
+        <sp>10</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="22.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="933" max="1" min="1" id="3"/>
+        <item chance="700000" max="110" min="81" id="57"/>
+        <item chance="15716" max="1" min="1" id="1814"/>
+        <item chance="303261" max="1" min="1" id="1864"/>
+        <item chance="59719" max="1" min="1" id="1864"/>
+        <item chance="29860" max="1" min="1" id="1869"/>
+        <item chance="151631" max="2" min="1" id="1870"/>
+        <item chance="3200" max="1" min="1" id="2005"/>
+    </droplist>
+</npc>

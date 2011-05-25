@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22345" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Quarry Bowman</name>
+        <level>81</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="11001.327600381"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="6935.07781"/>
+                <magical speed="333.0" damage="4819.33135"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="46.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>22390</experience>
+        <sp>2303</sp>
+        <item lefthand="0" righthand="99"/>
+        <collision heigth="28.0" radius="5.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3732" min="1864" id="57"/>
+        <item chance="163300" max="1" min="1" id="9599"/>
+        <item chance="1759" max="1" min="1" id="5480"/>
+        <item chance="1759" max="1" min="1" id="5481"/>
+        <item chance="12" max="1" min="1" id="5320"/>
+        <item chance="12" max="1" min="1" id="5323"/>
+        <item chance="99510" max="3" min="1" id="1867"/>
+        <item chance="55974" max="6" min="2" id="1869"/>
+        <item chance="44780" max="6" min="2" id="1870"/>
+        <item chance="37316" max="9" min="3" id="1871"/>
+        <item chance="149265" max="3" min="1" id="1872"/>
+        <item chance="1792" max="1" min="1" id="9551"/>
+        <item chance="89" max="1" min="1" id="960"/>
+        <item chance="7722" max="1" min="1" id="8721"/>
+        <item chance="7722" max="1" min="1" id="8722"/>
+        <item chance="3182" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

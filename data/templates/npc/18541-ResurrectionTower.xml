@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18541" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Resurrection Tower</name>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="122.743258583495" max="64711.1305613164"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4492.80976"/>
+                <magical speed="333.0" damage="3068.00672"/>
+            </attack>
+            <defense>
+                <physical value="435.02453"/>
+                <magical value="477.4981"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="50.0" radius="28.0"/>
+    </info>
+</npc>

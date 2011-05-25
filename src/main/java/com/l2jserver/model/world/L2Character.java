@@ -25,9 +25,7 @@ import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.world.actor.ActorAttributes;
 import com.l2jserver.model.world.character.CharacterAppearance;
-import com.l2jserver.model.world.character.CharacterCalculatedAttributes;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
@@ -62,14 +60,6 @@ public class L2Character extends Player {
 	 * The appearance of this character
 	 */
 	private final CharacterAppearance appearance = new CharacterAppearance(this);
-	/**
-	 * The base attributes of this character
-	 */
-	private final CharacterTemplate.ActorBaseAttributes baseAttributes;
-	/**
-	 * The attributes of this character
-	 */
-	private final ActorAttributes attributes;
 	/**
 	 * The list of friend of this character
 	 */
@@ -200,8 +190,6 @@ public class L2Character extends Player {
 	 */
 	public L2Character(CharacterTemplateID templateID) {
 		super(templateID);
-		this.baseAttributes = templateID.getTemplate().getBaseAttributes();
-		this.attributes = new CharacterCalculatedAttributes(this);
 	}
 
 	/**
@@ -464,6 +452,13 @@ public class L2Character extends Player {
 	}
 
 	/**
+	 * @return true if character is doing nothing
+	 */
+	public boolean isIdle() {
+		return state == null;
+	}
+
+	/**
 	 * @return true if character is being teleported
 	 */
 	public boolean isTeleporting() {
@@ -532,20 +527,6 @@ public class L2Character extends Player {
 	 */
 	public CharacterAppearance getAppearance() {
 		return appearance;
-	}
-
-	/**
-	 * @return the base attributes
-	 */
-	public CharacterTemplate.ActorBaseAttributes getBaseAttributes() {
-		return baseAttributes;
-	}
-
-	/**
-	 * @return the attributes
-	 */
-	public ActorAttributes getAttributes() {
-		return attributes;
 	}
 
 	/**

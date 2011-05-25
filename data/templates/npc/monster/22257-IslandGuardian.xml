@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22257" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Island Guardian</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12616</experience>
+        <sp>1380</sp>
+        <collision heigth="45.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3615" min="1771" id="57"/>
+        <item chance="1565" max="1" min="1" id="1808"/>
+        <item chance="52" max="1" min="1" id="1808"/>
+        <item chance="236365" max="1" min="1" id="1868"/>
+        <item chance="47273" max="1" min="1" id="1873"/>
+        <item chance="23637" max="1" min="1" id="1876"/>
+        <item chance="15799" max="1" min="1" id="1885"/>
+        <item chance="33766" max="1" min="1" id="1895"/>
+        <item chance="1970" max="1" min="1" id="4042"/>
+        <item chance="3810" max="1" min="1" id="5496"/>
+        <item chance="3810" max="1" min="1" id="5497"/>
+        <item chance="15799" max="1" min="1" id="5503"/>
+        <item chance="3810" max="1" min="1" id="5508"/>
+        <item chance="3810" max="1" min="1" id="5509"/>
+        <item chance="945" max="1" min="1" id="9546"/>
+        <item chance="821" max="1" min="1" id="9573"/>
+        <item chance="205" max="1" min="1" id="9574"/>
+        <item chance="20" max="1" min="1" id="9575"/>
+        <item chance="4" max="1" min="1" id="9576"/>
+        <item chance="200000" max="1" min="1" id="9593"/>
+        <item chance="708" max="1" min="1" id="12221"/>
+        <item chance="708" max="1" min="1" id="12224"/>
+        <item chance="708" max="1" min="1" id="12229"/>
+        <item chance="708" max="1" min="1" id="12231"/>
+    </droplist>
+</npc>

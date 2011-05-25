@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22368" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Labyrinth Captain</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="112316.37469612"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9203.55602"/>
+                <magical speed="333.0" damage="6357.91516"/>
+            </attack>
+            <defense>
+                <physical value="585.59197"/>
+                <magical value="642.76618"/>
+            </defense>
+            <move walk="40.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>978685</experience>
+        <sp>98149</sp>
+        <item lefthand="0" righthand="78"/>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="162283" min="81028" id="57"/>
+        <item chance="115893" max="36" min="12" id="1895"/>
+        <item chance="38940" max="6" min="2" id="4040"/>
+        <item chance="76353" max="1" min="1" id="9628"/>
+        <item chance="51237" max="1" min="1" id="9630"/>
+        <item chance="3894" max="1" min="1" id="960"/>
+        <item chance="77880" max="1" min="1" id="9551"/>
+        <item chance="997" max="1" min="1" id="6883"/>
+        <item chance="143859" max="1" min="1" id="5514"/>
+        <item chance="143859" max="1" min="1" id="5503"/>
+        <item chance="143859" max="1" min="1" id="5515"/>
+        <item chance="143859" max="1" min="1" id="5502"/>
+        <item chance="1257" max="1" min="1" id="5318"/>
+        <item chance="1257" max="1" min="1" id="5314"/>
+        <item chance="1257" max="1" min="1" id="5313"/>
+        <item chance="1257" max="1" min="1" id="5319"/>
+        <item chance="922230" max="5" min="1" id="4040"/>
+        <item chance="685418" max="1" min="1" id="6711"/>
+        <item chance="138334" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25531" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Darnel</name>
+        <title send="false">Torture Maiden</title>
+        <level>81</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="155.191510697296" max="1354779.94473585"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5212.7119"/>
+                <magical speed="333.0" damage="3559.60647"/>
+            </attack>
+            <defense>
+                <physical value="622.10029"/>
+                <magical value="334.1053"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="80" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1713495</experience>
+        <sp>1026728</sp>
+        <collision heigth="40.6" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="23074" max="1" min="1" id="6578"/>
+        <item chance="15917" max="1" min="1" id="6678"/>
+        <item chance="11141" max="1" min="1" id="6679"/>
+        <item chance="11141" max="1" min="1" id="6683"/>
+        <item chance="11141" max="1" min="1" id="6687"/>
+        <item chance="82748" max="67" min="23" id="6705"/>
+        <item chance="36094" max="180" min="60" id="6706"/>
+        <item chance="206253" max="31" min="11" id="6710"/>
+        <item chance="135354" max="48" min="16" id="6714"/>
+        <item chance="7493" max="1" min="1" id="7575"/>
+        <item chance="583776" max="9" min="3" id="7579"/>
+        <item chance="6671" max="1" min="1" id="9468"/>
+        <item chance="6671" max="1" min="1" id="9474"/>
+        <item chance="6671" max="1" min="1" id="9477"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20390" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Boogle Ratman Leader</name>
+        <level>18</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="301.66622"/>
+            <mp regen="1.2" max="174.64"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="37.82932"/>
+                <magical speed="333.0" damage="25.83252"/>
+            </attack>
+            <defense>
+                <physical value="81.34791"/>
+                <magical value="54.16236"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>533</experience>
+        <sp>23</sp>
+        <item lefthand="0" righthand="12"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="84419" max="1" min="1" id="1873"/>
+        <item chance="28140" max="1" min="1" id="1881"/>
+        <item chance="50249" max="1" min="1" id="1897"/>
+        <item chance="700000" max="167" min="101" id="57"/>
+        <item chance="59" max="1" min="1" id="2"/>
+        <item chance="59" max="1" min="1" id="120"/>
+        <item chance="59" max="1" min="1" id="121"/>
+        <item chance="650" max="1" min="1" id="2012"/>
+        <item chance="4157" max="1" min="1" id="734"/>
+        <item chance="12563" max="1" min="1" id="1801"/>
+        <item chance="49872" max="1" min="1" id="1868"/>
+        <item chance="9975" max="1" min="1" id="1873"/>
+        <item chance="998" max="1" min="1" id="5158"/>
+    </droplist>
+</npc>

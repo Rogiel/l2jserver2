@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20682" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Vanor Silenos Grunt</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="34.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3693</experience>
+        <sp>262</sp>
+        <item lefthand="18" righthand="158"/>
+        <collision heigth="29.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="990" min="484" id="57"/>
+        <item chance="100" max="1" min="1" id="397"/>
+        <item chance="2236" max="1" min="1" id="951"/>
+        <item chance="58111" max="1" min="1" id="1865"/>
+        <item chance="58111" max="1" min="1" id="1870"/>
+        <item chance="3874" max="1" min="1" id="1874"/>
+        <item chance="245912" max="1" min="1" id="1876"/>
+        <item chance="4649" max="1" min="1" id="1961"/>
+        <item chance="202" max="1" min="1" id="2323"/>
+        <item chance="160" max="1" min="1" id="2387"/>
+        <item chance="7724" max="1" min="1" id="2935"/>
+        <item chance="40985" max="1" min="1" id="4039"/>
+        <item chance="1937" max="1" min="1" id="4039"/>
+        <item chance="1937" max="1" min="1" id="4043"/>
+        <item chance="2324" max="1" min="1" id="8723"/>
+        <item chance="581" max="1" min="1" id="8733"/>
+        <item chance="58" max="1" min="1" id="8743"/>
+        <item chance="12" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

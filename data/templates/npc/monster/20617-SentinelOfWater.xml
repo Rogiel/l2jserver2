@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20617" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sentinel Of Water</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="81.22111"/>
+            </defense>
+            <move walk="90.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2625</experience>
+        <sp>145</sp>
+        <collision heigth="20.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="744" min="373" id="57"/>
+        <item chance="628" max="1" min="1" id="392"/>
+        <item chance="1005" max="1" min="1" id="414"/>
+        <item chance="2296" max="1" min="1" id="435"/>
+        <item chance="128667" max="1" min="1" id="1867"/>
+        <item chance="128667" max="1" min="1" id="1872"/>
+        <item chance="58864" max="1" min="1" id="1875"/>
+        <item chance="6433" max="1" min="1" id="1875"/>
+        <item chance="12867" max="1" min="1" id="1881"/>
+        <item chance="103877" max="1" min="1" id="1933"/>
+        <item chance="10136" max="1" min="1" id="2184"/>
+    </droplist>
+</npc>

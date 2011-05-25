@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20849" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Light Worm</name>
+        <level>41</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1008.23781"/>
+            <mp regen="2.1" max="504.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="187.11878"/>
+                <magical speed="333.0" damage="127.77787"/>
+            </attack>
+            <defense>
+                <physical value="160.69002"/>
+                <magical value="106.98923"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4638</experience>
+        <sp>304</sp>
+        <collision heigth="16.0" radius="5.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1246" min="623" id="57"/>
+        <item chance="211" max="1" min="1" id="438"/>
+        <item chance="5124" max="1" min="1" id="1805"/>
+        <item chance="114360" max="1" min="1" id="1867"/>
+        <item chance="85770" max="1" min="1" id="1869"/>
+        <item chance="85770" max="1" min="1" id="1870"/>
+        <item chance="85770" max="1" min="1" id="1871"/>
+        <item chance="114360" max="1" min="1" id="1872"/>
+        <item chance="12362" max="1" min="1" id="1953"/>
+        <item chance="174488" max="1" min="1" id="1956"/>
+        <item chance="2714" max="1" min="1" id="2205"/>
+        <item chance="1923" max="1" min="1" id="2211"/>
+        <item chance="8784" max="1" min="1" id="4469"/>
+        <item chance="286" max="1" min="1" id="5274"/>
+        <item chance="286" max="1" min="1" id="5279"/>
+    </droplist>
+</npc>

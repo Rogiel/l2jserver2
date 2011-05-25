@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20470" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kaboo Orc Grunt</name>
+        <level>7</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="108.42254"/>
+            <mp regen="0.9" max="84.88"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="14.80956"/>
+                <magical speed="333.0" damage="10.11301"/>
+            </attack>
+            <defense>
+                <physical value="55.51894"/>
+                <magical value="36.96514"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>249</experience>
+        <sp>8</sp>
+        <item lefthand="0" righthand="3"/>
+        <collision heigth="21.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="11733" max="1" min="1" id="19"/>
+        <item chance="8213" max="1" min="1" id="42"/>
+        <item chance="700000" max="72" min="51" id="57"/>
+        <item chance="1198" max="1" min="1" id="735"/>
+        <item chance="216259" max="1" min="1" id="1060"/>
+        <item chance="17988" max="1" min="1" id="1791"/>
+        <item chance="28746" max="1" min="1" id="1864"/>
+        <item chance="14373" max="1" min="1" id="1869"/>
+        <item chance="6951" max="1" min="1" id="2006"/>
+        <item chance="4228" max="1" min="1" id="2135"/>
+    </droplist>
+</npc>

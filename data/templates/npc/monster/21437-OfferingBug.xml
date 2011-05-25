@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21437" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Offering Bug</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.585" max="2870.7774087"/>
+            <mp regen="3.03" max="1657.41"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="884.25257"/>
+                <magical speed="333.0" damage="609.86817"/>
+            </attack>
+            <defense>
+                <physical value="340.44078"/>
+                <magical value="226.66932"/>
+            </defense>
+            <move walk="45.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>29957</experience>
+        <sp>3320</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8604" min="4216" id="57"/>
+        <item chance="177" max="1" min="1" id="960"/>
+        <item chance="55269" max="300" min="100" id="1344"/>
+        <item chance="73692" max="6" min="2" id="1866"/>
+        <item chance="147384" max="3" min="1" id="1871"/>
+        <item chance="419120" max="1" min="1" id="1877"/>
+        <item chance="17686" max="1" min="1" id="1877"/>
+        <item chance="8843" max="1" min="1" id="4040"/>
+        <item chance="91113" max="1" min="1" id="4041"/>
+        <item chance="3845" max="1" min="1" id="4041"/>
+        <item chance="2123" max="1" min="1" id="5533"/>
+        <item chance="28712" max="1" min="1" id="5544"/>
+        <item chance="2121" max="1" min="1" id="5544"/>
+        <item chance="6" max="1" min="1" id="11970"/>
+        <item chance="6" max="1" min="1" id="11974"/>
+    </droplist>
+</npc>

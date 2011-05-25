@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22377" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Master Zelos</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="336949.124088359"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="8128.04753"/>
+                <magical speed="333.0" damage="5647.21214"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1410902</experience>
+        <sp>147054</sp>
+        <collision heigth="49.0" radius="33.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="349814" min="174669" id="57"/>
+        <item chance="899700" max="25" min="9" id="9599"/>
+        <item chance="201324" max="1" min="1" id="5541"/>
+        <item chance="708" max="1" min="1" id="305"/>
+        <item chance="31214" max="288" min="96" id="1895"/>
+        <item chance="69919" max="9" min="3" id="4040"/>
+        <item chance="139839" max="6" min="2" id="4043"/>
+        <item chance="49943" max="9" min="3" id="4042"/>
+        <item chance="2149" max="1" min="1" id="6889"/>
+        <item chance="8390" max="1" min="1" id="960"/>
+        <item chance="167807" max="1" min="1" id="9551"/>
+        <item chance="723457" max="1" min="1" id="8717"/>
+        <item chance="723457" max="1" min="1" id="8718"/>
+        <item chance="298064" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

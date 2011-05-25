@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25047" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Karte</name>
+        <title send="false">Raid Boss</title>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="51.7193112926872" max="148076.094026853"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="431.28336"/>
+                <magical speed="333.0" damage="51.9276"/>
+            </attack>
+            <defense>
+                <physical value="586.98906"/>
+                <magical value="286.36"/>
+            </defense>
+            <move walk="27.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2328069</experience>
+        <sp>284981</sp>
+        <item lefthand="0" righthand="131"/>
+        <collision heigth="47.5" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="40182" max="1" min="1" id="228"/>
+        <item chance="719198" max="9" min="3" id="2119"/>
+        <item chance="85245" max="1" min="1" id="2436"/>
+        <item chance="65568" max="1" min="1" id="2437"/>
+        <item chance="65568" max="1" min="1" id="2438"/>
+        <item chance="85245" max="1" min="1" id="2460"/>
+        <item chance="65568" max="1" min="1" id="2461"/>
+        <item chance="65568" max="1" min="1" id="2462"/>
+        <item chance="65568" max="1" min="1" id="2463"/>
+        <item chance="19820" max="432" min="144" id="2954"/>
+        <item chance="11193" max="765" min="255" id="2955"/>
+        <item chance="6200" max="1188" min="395" id="2960"/>
+        <item chance="81849" max="90" min="30" id="2961"/>
+        <item chance="62961" max="117" min="39" id="2962"/>
+        <item chance="50113" max="147" min="49" id="2963"/>
+        <item chance="40925" max="180" min="60" id="2964"/>
+        <item chance="340993" max="3" min="1" id="4610"/>
+        <item chance="227329" max="4" min="2" id="4611"/>
+        <item chance="170496" max="6" min="2" id="4612"/>
+        <item chance="175367" max="1" min="1" id="6574"/>
+        <item chance="870000" max="1" min="1" id="8176"/>
+        <item chance="870000" max="3" min="1" id="9814"/>
+    </droplist>
+</npc>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20579" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Leto Lizardman Soldier</name>
+        <level>37</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="847.31754"/>
+            <mp regen="1.8" max="432.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="146.82587"/>
+                <magical speed="333.0" damage="100.26304"/>
+            </attack>
+            <defense>
+                <physical value="144.47758"/>
+                <magical value="96.19481"/>
+            </defense>
+            <move walk="37.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2437</experience>
+        <sp>150</sp>
+        <item lefthand="0" righthand="68"/>
+        <collision heigth="32.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="675" min="338" id="57"/>
+        <item chance="90" max="1" min="1" id="606"/>
+        <item chance="90" max="1" min="1" id="1124"/>
+        <item chance="118204" max="1" min="1" id="1868"/>
+        <item chance="23641" max="1" min="1" id="1873"/>
+        <item chance="53356" max="1" min="1" id="1889"/>
+        <item chance="3940" max="1" min="1" id="1889"/>
+        <item chance="63570" max="1" min="1" id="1943"/>
+        <item chance="108154" max="1" min="1" id="1946"/>
+        <item chance="3494" max="1" min="1" id="1946"/>
+        <item chance="3494" max="1" min="1" id="1948"/>
+        <item chance="4222" max="1" min="1" id="2146"/>
+        <item chance="328" max="1" min="1" id="2286"/>
+        <item chance="90" max="1" min="1" id="2424"/>
+        <item chance="90" max="1" min="1" id="2425"/>
+        <item chance="90" max="1" min="1" id="2426"/>
+        <item chance="90" max="1" min="1" id="2448"/>
+        <item chance="90" max="1" min="1" id="2449"/>
+        <item chance="90" max="1" min="1" id="2450"/>
+        <item chance="3494" max="1" min="1" id="2923"/>
+        <item chance="3494" max="1" min="1" id="2924"/>
+        <item chance="3494" max="1" min="1" id="2925"/>
+        <item chance="3494" max="1" min="1" id="2926"/>
+        <item chance="3494" max="1" min="1" id="2927"/>
+        <item chance="3494" max="1" min="1" id="2928"/>
+        <item chance="5910" max="1" min="1" id="5549"/>
+        <item chance="21108" max="1" min="1" id="6668"/>
+    </droplist>
+</npc>

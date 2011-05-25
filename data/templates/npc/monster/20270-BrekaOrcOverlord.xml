@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20270" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Breka Orc Overlord</name>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="772.73802"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="129.32896"/>
+                <magical speed="333.0" damage="88.31491"/>
+            </attack>
+            <defense>
+                <physical value="136.72948"/>
+                <magical value="91.03603"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2857</experience>
+        <sp>169</sp>
+        <item lefthand="0" righthand="79"/>
+        <collision heigth="24.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="130274" max="1" min="1" id="1901"/>
+        <item chance="50438" max="1" min="1" id="2972"/>
+        <item chance="126263" max="1" min="1" id="2976"/>
+        <item chance="700000" max="795" min="398" id="57"/>
+        <item chance="143" max="1" min="1" id="393"/>
+        <item chance="143" max="1" min="1" id="394"/>
+        <item chance="228" max="1" min="1" id="415"/>
+        <item chance="228" max="1" min="1" id="416"/>
+        <item chance="5619" max="1" min="1" id="1938"/>
+        <item chance="7341" max="1" min="1" id="1939"/>
+        <item chance="167161" max="60" min="20" id="1341"/>
+        <item chance="100297" max="1" min="1" id="1865"/>
+        <item chance="100297" max="1" min="1" id="1870"/>
+        <item chance="6686" max="1" min="1" id="1874"/>
+        <item chance="13426" max="1" min="1" id="2980"/>
+    </droplist>
+</npc>

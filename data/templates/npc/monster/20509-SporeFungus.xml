@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20509" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Spore Fungus</name>
+        <level>9</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="143.17564"/>
+            <mp regen="0.9" max="100.48"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="17.70841"/>
+                <magical speed="333.0" damage="12.09255"/>
+            </attack>
+            <defense>
+                <physical value="59.66387"/>
+                <magical value="39.72488"/>
+            </defense>
+            <move walk="70.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>321</experience>
+        <sp>11</sp>
+        <collision heigth="22.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="109915" max="30" min="10" id="17"/>
+        <item chance="700000" max="108" min="80" id="57"/>
+        <item chance="2351" max="1" min="1" id="428"/>
+        <item chance="3758" max="1" min="1" id="463"/>
+        <item chance="330759" max="1" min="1" id="1060"/>
+        <item chance="2351" max="1" min="1" id="1100"/>
+        <item chance="3758" max="1" min="1" id="1103"/>
+        <item chance="63370" max="1" min="1" id="1129"/>
+        <item chance="43966" max="1" min="1" id="1864"/>
+        <item chance="21983" max="1" min="1" id="1869"/>
+        <item chance="10632" max="1" min="1" id="2005"/>
+        <item chance="6466" max="1" min="1" id="2136"/>
+    </droplist>
+</npc>

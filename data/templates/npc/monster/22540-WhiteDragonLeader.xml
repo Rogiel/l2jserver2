@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22540" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">White Dragon Leader</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="33003.982801143"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5770.14557"/>
+                <magical speed="333.0" damage="3940.26143"/>
+            </attack>
+            <defense>
+                <physical value="552.97803"/>
+                <magical value="606.96799"/>
+            </defense>
+            <move walk="56.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>82134</experience>
+        <sp>8708</sp>
+        <item lefthand="13980" righthand="13979"/>
+        <collision heigth="42.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="16494" min="8055" id="57"/>
+        <item chance="6" max="1" min="1" id="164"/>
+        <item chance="6" max="1" min="1" id="213"/>
+        <item chance="164608" max="1" min="1" id="1879"/>
+        <item chance="82304" max="1" min="1" id="1885"/>
+        <item chance="422090" max="1" min="1" id="1894"/>
+        <item chance="5346" max="1" min="1" id="5162"/>
+        <item chance="541770" max="1" min="1" id="5487"/>
+        <item chance="2032" max="1" min="1" id="5533"/>
+        <item chance="2030" max="1" min="1" id="5544"/>
+        <item chance="1751" max="1" min="1" id="6861"/>
+        <item chance="6" max="1" min="1" id="7895"/>
+        <item chance="6" max="1" min="1" id="7902"/>
+        <item chance="2032" max="1" min="1" id="8342"/>
+        <item chance="2032" max="1" min="1" id="8349"/>
+        <item chance="7746" max="1" min="1" id="9628"/>
+        <item chance="4294" max="1" min="1" id="9629"/>
+        <item chance="5198" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

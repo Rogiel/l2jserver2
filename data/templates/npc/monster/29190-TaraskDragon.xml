@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29190" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tarask Dragon</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="76.71" max="401551.696720203"/>
+            <mp regen="3.0" max="1809.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3584.56902"/>
+                <magical speed="333.0" damage="1386.66"/>
+            </attack>
+            <defense>
+                <physical value="1071.29474"/>
+                <magical value="522.62686"/>
+            </defense>
+            <move walk="180.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="54.0" radius="63.0"/>
+    </info>
+</npc>

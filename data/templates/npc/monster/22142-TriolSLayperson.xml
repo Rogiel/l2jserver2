@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22142" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Triol's Layperson</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="259.64067"/>
+            </defense>
+            <move walk="58.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>33855</experience>
+        <sp>3651</sp>
+        <item lefthand="8207" righthand="8207"/>
+        <collision heigth="28.4" radius="7.7"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9387" min="4584" id="57"/>
+        <item chance="23" max="1" min="1" id="959"/>
+        <item chance="127419" max="3" min="1" id="1866"/>
+        <item chance="286692" max="3" min="1" id="1871"/>
+        <item chance="47782" max="1" min="1" id="1885"/>
+        <item chance="4141" max="1" min="1" id="3957"/>
+        <item chance="4986" max="1" min="1" id="4041"/>
+        <item chance="372700" max="1" min="1" id="5220"/>
+        <item chance="22935" max="1" min="1" id="5220"/>
+        <item chance="56" max="1" min="1" id="5312"/>
+        <item chance="81" max="1" min="1" id="5315"/>
+        <item chance="56" max="1" min="1" id="5317"/>
+        <item chance="141485" max="1" min="1" id="5495"/>
+        <item chance="8706" max="1" min="1" id="5495"/>
+        <item chance="6855" max="1" min="1" id="5527"/>
+        <item chance="6855" max="1" min="1" id="5528"/>
+        <item chance="1000000" max="1" min="1" id="8274"/>
+    </droplist>
+</npc>

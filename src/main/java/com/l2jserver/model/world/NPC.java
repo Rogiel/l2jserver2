@@ -23,9 +23,8 @@ import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.service.game.ai.AIScript;
 
 /**
- * NPC stand for "Not Playable Character" and is an character that not player
- * has control over it. In most cases they are controlled by an {@link AIScript}
- * .
+ * NPC stand for "Not Playable Character" and is an character that no player has
+ * control over it. In most cases they are controlled by an {@link AIScript} .
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -61,7 +60,7 @@ public class NPC extends Actor {
 	}
 
 	public double getMaxHP() {
-		return this.getTemplate().getMaxHP();
+		return this.getTemplate().getMaximumHP();
 	}
 
 	public void setMaxHP(double maxHP) {
@@ -69,13 +68,13 @@ public class NPC extends Actor {
 	}
 
 	public double getMaxMP() {
-		return this.getTemplate().getMaxHP();
+		return this.getTemplate().getMaximumMP();
 	}
 
 	public void setMaxMP(double maxMP) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public long getExperience() {
 		return this.getTemplate().getExperience();
@@ -88,7 +87,7 @@ public class NPC extends Actor {
 
 	@Override
 	public int getSP() {
-		return this.getTemplate().getSp();
+		return this.getTemplate().getSP();
 	}
 
 	@Override

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20923" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Maille Lizardman Shaman</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="43.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>836</experience>
+        <sp>44</sp>
+        <item lefthand="0" righthand="7"/>
+        <collision heigth="29.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="241" min="123" id="57"/>
+        <item chance="334" max="1" min="1" id="432"/>
+        <item chance="535" max="1" min="1" id="465"/>
+        <item chance="2235" max="1" min="1" id="735"/>
+        <item chance="1788" max="1" min="1" id="1875"/>
+        <item chance="4470" max="1" min="1" id="1879"/>
+        <item chance="2235" max="1" min="1" id="1885"/>
+        <item chance="6166" max="1" min="1" id="2019"/>
+        <item chance="50483" max="1" min="1" id="2152"/>
+        <item chance="4453" max="1" min="1" id="2263"/>
+        <item chance="2682" max="1" min="1" id="5549"/>
+        <item chance="358" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

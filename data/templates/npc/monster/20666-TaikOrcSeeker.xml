@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20666" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Taik Orc Seeker</name>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="139.48817"/>
+            </defense>
+            <move walk="45.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5616</experience>
+        <sp>434</sp>
+        <item lefthand="0" righthand="72"/>
+        <collision heigth="29.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1507" min="746" id="57"/>
+        <item chance="206" max="1" min="1" id="64"/>
+        <item chance="206" max="1" min="1" id="608"/>
+        <item chance="8" max="1" min="1" id="875"/>
+        <item chance="59738" max="1" min="1" id="1865"/>
+        <item chance="59738" max="1" min="1" id="1870"/>
+        <item chance="3982" max="1" min="1" id="1874"/>
+        <item chance="577821" max="3" min="1" id="1884"/>
+        <item chance="27780" max="1" min="1" id="1977"/>
+        <item chance="11420" max="1" min="1" id="1981"/>
+        <item chance="11420" max="1" min="1" id="2956"/>
+        <item chance="120" max="1" min="1" id="3955"/>
+        <item chance="1991" max="1" min="1" id="4039"/>
+        <item chance="1991" max="1" min="1" id="4043"/>
+        <item chance="4173" max="1" min="1" id="4606"/>
+        <item chance="133" max="1" min="1" id="4607"/>
+        <item chance="133" max="1" min="1" id="4609"/>
+        <item chance="120" max="1" min="1" id="5280"/>
+        <item chance="1659" max="1" min="1" id="8725"/>
+        <item chance="415" max="1" min="1" id="8735"/>
+        <item chance="41" max="1" min="1" id="8745"/>
+    </droplist>
+</npc>

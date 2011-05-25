@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25383" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Revenant of Sir Calibus</name>
+        <title send="false">Raid Boss</title>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="25.6128307622386" max="65791.6741786232"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="151.7428"/>
+                <magical speed="333.0" damage="12.04061"/>
+            </attack>
+            <defense>
+                <physical value="398.8458"/>
+                <magical value="194.58"/>
+            </defense>
+            <move walk="27.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1918617</experience>
+        <sp>135504</sp>
+        <item lefthand="0" righthand="75"/>
+        <collision heigth="29.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="83474" max="1" min="1" id="225"/>
+        <item chance="22980" max="18" min="6" id="851"/>
+        <item chance="41364" max="15" min="5" id="882"/>
+        <item chance="206821" max="1" min="1" id="914"/>
+        <item chance="77246" max="243" min="81" id="1905"/>
+        <item chance="221035" max="120" min="40" id="1906"/>
+        <item chance="29055" max="462" min="154" id="1907"/>
+        <item chance="209179" max="36" min="12" id="2052"/>
+        <item chance="50028" max="1" min="1" id="6573"/>
+    </droplist>
+</npc>

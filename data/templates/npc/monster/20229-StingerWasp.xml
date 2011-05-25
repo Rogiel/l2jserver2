@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20229" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Stinger Wasp</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="90.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1745</experience>
+        <sp>95</sp>
+        <collision heigth="24.5" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="2458" max="1" min="1" id="414"/>
+        <item chance="357490" max="1" min="1" id="1061"/>
+        <item chance="589858" max="3" min="1" id="1864"/>
+        <item chance="700000" max="498" min="249" id="57"/>
+        <item chance="491" max="1" min="1" id="848"/>
+        <item chance="739" max="1" min="1" id="879"/>
+        <item chance="369" max="1" min="1" id="911"/>
+        <item chance="8817" max="1" min="1" id="1900"/>
+        <item chance="51164" max="1" min="1" id="1832"/>
+        <item chance="92095" max="1" min="1" id="1864"/>
+        <item chance="46048" max="1" min="1" id="1869"/>
+        <item chance="4605" max="1" min="1" id="1880"/>
+        <item chance="476" max="1" min="1" id="2265"/>
+        <item chance="329" max="1" min="1" id="2274"/>
+        <item chance="614" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

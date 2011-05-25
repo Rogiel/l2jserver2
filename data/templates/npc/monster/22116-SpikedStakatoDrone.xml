@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22116" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Spiked Stakato Drone</name>
+        <level>77</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2762.08447"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="835.75573"/>
+                <magical speed="333.0" damage="570.71283"/>
+            </attack>
+            <defense>
+                <physical value="328.27073"/>
+                <magical value="240.21427"/>
+            </defense>
+            <move walk="25.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>29409</experience>
+        <sp>3034</sp>
+        <item lefthand="0" righthand="235"/>
+        <collision heigth="47.3" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8166" min="3997" id="57"/>
+        <item chance="166337" max="3" min="1" id="1871"/>
+        <item chance="221783" max="1" min="1" id="1866"/>
+        <item chance="27723" max="1" min="1" id="1885"/>
+        <item chance="13307" max="1" min="1" id="5220"/>
+        <item chance="5049" max="1" min="1" id="5539"/>
+        <item chance="2893" max="1" min="1" id="4041"/>
+        <item chance="21" max="1" min="1" id="269"/>
+        <item chance="2772" max="1" min="1" id="8732"/>
+        <item chance="693" max="1" min="1" id="8742"/>
+        <item chance="69" max="1" min="1" id="8752"/>
+        <item chance="148" max="1" min="1" id="3957"/>
+        <item chance="3604" max="1" min="1" id="5277"/>
+        <item chance="123133" max="2" min="1" id="5495"/>
+        <item chance="3604" max="1" min="1" id="5167"/>
+    </droplist>
+</npc>

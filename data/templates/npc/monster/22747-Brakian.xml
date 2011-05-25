@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22747" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Brakian</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.410040552143" max="55817.8012671518"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="12008.01356"/>
+                <magical speed="333.0" damage="8707.81891"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="37.5" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>579304</experience>
+        <sp>58205</sp>
+        <collision heigth="30.0" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="80317" min="39164" id="57"/>
+        <item chance="87600" max="45" min="15" id="1879"/>
+        <item chance="220300" max="6" min="2" id="1885"/>
+        <item chance="137500" max="1" min="1" id="9628"/>
+        <item chance="71000" max="1" min="1" id="9629"/>
+        <item chance="84300" max="1" min="1" id="9630"/>
+        <item chance="20" max="1" min="1" id="14112"/>
+        <item chance="86700" max="1" min="1" id="14166"/>
+        <item chance="22100" max="1" min="1" id="14167"/>
+        <item chance="600" max="1" min="1" id="14168"/>
+        <item chance="17000" max="1" min="1" id="15664"/>
+        <item chance="16400" max="1" min="1" id="15670"/>
+    </droplist>
+</npc>

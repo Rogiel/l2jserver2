@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20547" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Reserve</name>
+        <level>23</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="410.70422"/>
+            <mp regen="1.5" max="231.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="55.84125"/>
+                <magical speed="333.0" damage="38.13234"/>
+            </attack>
+            <defense>
+                <physical value="95.64976"/>
+                <magical value="63.68469"/>
+            </defense>
+            <move walk="50.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1054</experience>
+        <sp>50</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="29.2" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="1568" max="1" min="1" id="39"/>
+        <item chance="1568" max="1" min="1" id="51"/>
+        <item chance="700000" max="305" min="173" id="57"/>
+        <item chance="7447" max="1" min="1" id="734"/>
+        <item chance="15126" max="1" min="1" id="1804"/>
+        <item chance="44679" max="1" min="1" id="1865"/>
+        <item chance="44679" max="1" min="1" id="1870"/>
+        <item chance="38844" max="1" min="1" id="1898"/>
+        <item chance="19094" max="1" min="1" id="1930"/>
+        <item chance="105333" max="1" min="1" id="2151"/>
+        <item chance="1787" max="1" min="1" id="5163"/>
+        <item chance="1787" max="1" min="1" id="5268"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22655" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Awakened Mucrokian</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="40.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>42120</experience>
+        <sp>4283</sp>
+        <collision heigth="52.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5521" min="3772" id="57"/>
+        <item chance="4000" max="1" min="1" id="9621"/>
+        <item chance="10" max="1" min="1" id="9447"/>
+        <item chance="39200" max="1" min="1" id="1894"/>
+        <item chance="30600" max="1" min="1" id="4039"/>
+        <item chance="27000" max="1" min="1" id="4044"/>
+        <item chance="2500" max="1" min="1" id="4041"/>
+        <item chance="4000" max="1" min="1" id="9547"/>
+        <item chance="6100" max="1" min="1" id="9573"/>
+        <item chance="3700" max="1" min="1" id="9574"/>
+        <item chance="600" max="1" min="1" id="9575"/>
+        <item chance="20000" max="1" min="1" id="1808"/>
+        <item chance="40000" max="1" min="1" id="9530"/>
+        <item chance="80000" max="1" min="1" id="9542"/>
+    </droplist>
+</npc>

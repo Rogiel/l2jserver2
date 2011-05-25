@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20226" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gray Ant</name>
+        <level>26</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="487.5704"/>
+            <mp regen="1.5" max="273.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="69.75926"/>
+                <magical speed="333.0" damage="47.63653"/>
+            </attack>
+            <defense>
+                <physical value="105.02818"/>
+                <magical value="69.92894"/>
+            </defense>
+            <move walk="40.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1268</experience>
+        <sp>64</sp>
+        <collision heigth="15.0" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="2937" max="1" min="1" id="413"/>
+        <item chance="884148" max="1" min="1" id="1868"/>
+        <item chance="69074" max="1" min="1" id="1899"/>
+        <item chance="700000" max="367" min="192" id="57"/>
+        <item chance="39" max="1" min="1" id="123"/>
+        <item chance="824" max="1" min="1" id="2017"/>
+        <item chance="39" max="1" min="1" id="5285"/>
+        <item chance="1041" max="1" min="1" id="5531"/>
+        <item chance="41351" max="1" min="1" id="1866"/>
+        <item chance="62027" max="1" min="1" id="1871"/>
+        <item chance="9924" max="1" min="1" id="2178"/>
+        <item chance="2481" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

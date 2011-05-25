@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20562" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Spore Zombie</name>
+        <level>47</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1276.53628"/>
+            <mp regen="2.1" max="665.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="261.69549"/>
+                <magical speed="333.0" damage="178.7041"/>
+            </attack>
+            <defense>
+                <physical value="186.63569"/>
+                <magical value="124.26415"/>
+            </defense>
+            <move walk="15.0" run="15.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4310</experience>
+        <sp>308</sp>
+        <collision heigth="27.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1069" min="524" id="57"/>
+        <item chance="440" max="1" min="1" id="440"/>
+        <item chance="130" max="1" min="1" id="853"/>
+        <item chance="196" max="1" min="1" id="884"/>
+        <item chance="98" max="1" min="1" id="916"/>
+        <item chance="90512" max="30" min="10" id="1342"/>
+        <item chance="90512" max="1" min="1" id="1864"/>
+        <item chance="885212" max="3" min="1" id="1867"/>
+        <item chance="45256" max="1" min="1" id="1869"/>
+        <item chance="4526" max="1" min="1" id="1880"/>
+        <item chance="7293" max="1" min="1" id="1911"/>
+        <item chance="10567" max="1" min="1" id="1912"/>
+        <item chance="5963" max="1" min="1" id="1913"/>
+        <item chance="1534" max="1" min="1" id="2166"/>
+        <item chance="1847" max="1" min="1" id="2226"/>
+        <item chance="877" max="1" min="1" id="2230"/>
+        <item chance="3088" max="1" min="1" id="2346"/>
+        <item chance="1509" max="1" min="1" id="4043"/>
+        <item chance="604" max="1" min="1" id="5550"/>
+        <item chance="1509" max="1" min="1" id="8724"/>
+        <item chance="377" max="1" min="1" id="8734"/>
+        <item chance="38" max="1" min="1" id="8744"/>
+        <item chance="8" max="1" min="1" id="8754"/>
+    </droplist>
+</npc>

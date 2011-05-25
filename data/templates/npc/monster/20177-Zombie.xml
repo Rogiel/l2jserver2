@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20177" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Zombie</name>
+        <level>6</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="93.54158"/>
+            <mp regen="0.9" max="77.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="13.52471"/>
+                <magical speed="333.0" damage="9.23562"/>
+            </attack>
+            <defense>
+                <physical value="53.53373"/>
+                <magical value="35.64336"/>
+            </defense>
+            <move walk="15.0" run="15.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>178</experience>
+        <sp>5</sp>
+        <collision heigth="21.0" radius="13.0"/>
+    </info>
+</npc>

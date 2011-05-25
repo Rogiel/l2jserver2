@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20353" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dre Vanul Beholder</name>
+        <level>21</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="364.30351"/>
+            <mp regen="1.5" max="205.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="47.91924"/>
+                <magical speed="333.0" damage="32.72263"/>
+            </attack>
+            <defense>
+                <physical value="89.73059"/>
+                <magical value="59.74364"/>
+            </defense>
+            <move walk="80.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>780</experience>
+        <sp>36</sp>
+        <collision heigth="36.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="183" max="1" min="1" id="16"/>
+        <item chance="700000" max="236" min="132" id="57"/>
+        <item chance="580926" max="1" min="1" id="1864"/>
+        <item chance="68639" max="1" min="1" id="1864"/>
+        <item chance="34319" max="1" min="1" id="1869"/>
+        <item chance="116185" max="1" min="1" id="1878"/>
+        <item chance="13728" max="1" min="1" id="1878"/>
+        <item chance="7102" max="1" min="1" id="2256"/>
+        <item chance="1373" max="1" min="1" id="3953"/>
+        <item chance="1373" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc id="1" type="TeleporterNPCTemplate">
+	<info attackable="false" targetable="true" aggressive="false">
+		<name send="true" show="true">Angeline</name>
+		<title send="false">Gatekeeper</title>
+		<level>70</level>
+		<sex>MALE</sex>
+		<stats>
+			<hp max="2444.46819" regen="7.5" />
+			<mp max="1345.8" regen="2.7" />
+			<attack range="40" critical="4" evasion="0">
+				<physical damage="688.86373" speed="253" />
+				<magical damage="470.40463" speed="333" />
+			</attack>
+			<defense>
+				<physical value="0" />
+				<magical value="0" />
+			</defense>
+			<move run="120" walk="50" />
+			<base int="21" str="40" con="43" men="20" dex="30" wit="20" />
+		</stats>
+		<experience>0</experience>
+		<sp>0</sp>
+		<item righthand="10" lefthand="20" />
+		<collision radius="" height="" />
+	</info>
+	<ai script="com.l2jserver.ai.TeleporterAI" />
+	<teleporter>
+		<teleport id="global">
+			<region id="KAMAEL_VILLAGE" price="200" item="57" />
+		</teleport>
+		<teleport id="nobless">
+			<region id="KAMAEL_VILLAGE" price="50">
+				<condition id="NOBLESS" />
+			</region>
+		</teleport>
+	</teleporter>
+	<talk default="welcome">
+		<!-- messages are post processed and trimmed -->
+		<chat id="welcome"><![CDATA[<html>
+					<body>
+						Hello, my name is ${info.name}!<br>
+						If you wish I can teleport you to a variety of places.<p>
+						<a action="bypass -h npc_${id}_Chat teleport_global">Teleport</a>
+					</body>
+				</html>]]></chat>
+	</talk>
+	<droplist>
+		<item id="57" min="100" max="1000" category="KILL" chance="1" /> <!-- chance 1 means 100% -->
+	</droplist>
+	<store ref="no_grade_store" />
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21039" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Snipe Cohort</name>
+        <level>43</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1094.28943"/>
+            <mp regen="2.1" max="557.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="210.04832"/>
+                <magical speed="333.0" damage="143.43577"/>
+            </attack>
+            <defense>
+                <physical value="169.13417"/>
+                <magical value="123.76505"/>
+            </defense>
+            <move walk="30.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7953</experience>
+        <sp>515</sp>
+        <collision heigth="14.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2097" min="1033" id="57"/>
+        <item chance="47" max="1" min="1" id="70"/>
+        <item chance="8706" max="1" min="1" id="1805"/>
+        <item chance="145726" max="1" min="1" id="1866"/>
+        <item chance="870607" max="5" min="1" id="1871"/>
+        <item chance="218589" max="1" min="1" id="1871"/>
+        <item chance="8744" max="1" min="1" id="1877"/>
+        <item chance="254068" max="1" min="1" id="1905"/>
+        <item chance="2882" max="1" min="1" id="2047"/>
+        <item chance="10560" max="1" min="1" id="2162"/>
+        <item chance="954" max="1" min="1" id="2312"/>
+        <item chance="47" max="1" min="1" id="2499"/>
+        <item chance="2843" max="1" min="1" id="2967"/>
+        <item chance="729" max="1" min="1" id="5159"/>
+    </droplist>
+</npc>

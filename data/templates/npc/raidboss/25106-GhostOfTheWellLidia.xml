@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25106" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of the Well Lidia</name>
+        <title send="false">Raid Boss</title>
+        <level>60</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="72.9643823396131" max="221100.02497493"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="785.17745"/>
+                <magical speed="333.0" damage="133.51196"/>
+            </attack>
+            <defense>
+                <physical value="742.95024"/>
+                <magical value="362.44"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2735033</experience>
+        <sp>394692</sp>
+        <collision heigth="85.0" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="48676" max="1" min="1" id="5290"/>
+        <item chance="48676" max="1" min="1" id="5291"/>
+        <item chance="48676" max="1" min="1" id="5295"/>
+        <item chance="48676" max="1" min="1" id="5296"/>
+        <item chance="241845" max="31" min="11" id="5496"/>
+        <item chance="112862" max="67" min="23" id="5497"/>
+        <item chance="42323" max="180" min="60" id="5508"/>
+        <item chance="158711" max="48" min="16" id="5509"/>
+        <item chance="9219" max="1" min="1" id="212"/>
+        <item chance="9219" max="1" min="1" id="2504"/>
+        <item chance="146088" max="22" min="8" id="5532"/>
+        <item chance="276498" max="12" min="4" id="5543"/>
+        <item chance="93596" max="1" min="1" id="6570"/>
+        <item chance="24068" max="1" min="1" id="6571"/>
+        <item chance="840000" max="4" min="1" id="9814"/>
+        <item chance="720000" max="2" min="1" id="8176"/>
+    </droplist>
+</npc>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PenaltyMonster" id="18324" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Caught Homunculus</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="210.50257"/>
+                <magical value="150.02125"/>
+            </defense>
+            <move walk="30.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6200</experience>
+        <sp>538</sp>
+        <collision heigth="32.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="81602" max="6" min="2" id="6521"/>
+        <item chance="244805" max="1" min="1" id="6524"/>
+        <item chance="54401" max="6" min="2" id="6527"/>
+        <item chance="61" max="1" min="1" id="6533"/>
+        <item chance="204004" max="9" min="3" id="6539"/>
+    </droplist>
+</npc>

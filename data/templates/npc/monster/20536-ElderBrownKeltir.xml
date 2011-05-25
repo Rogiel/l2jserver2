@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20536" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Elder Brown Keltir</name>
+        <level>3</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="57.54874"/>
+            <mp regen="0.9" max="54.64"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="10.24492"/>
+                <magical speed="333.0" damage="6.99595"/>
+            </attack>
+            <defense>
+                <physical value="47.91652"/>
+                <magical value="31.90336"/>
+            </defense>
+            <move walk="23.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>106</experience>
+        <sp>2</sp>
+        <collision heigth="10.0" radius="9.5"/>
+    </info>
+    <droplist>
+        <item chance="9500" max="1" min="1" id="13"/>
+        <item chance="180709" max="1" min="1" id="18"/>
+        <item chance="700000" max="20" min="13" id="57"/>
+        <item chance="7474" max="1" min="1" id="1787"/>
+        <item chance="21685" max="1" min="1" id="1788"/>
+        <item chance="18683" max="1" min="1" id="1864"/>
+        <item chance="9342" max="1" min="1" id="1869"/>
+        <item chance="27106" max="1" min="1" id="1871"/>
+    </droplist>
+</npc>

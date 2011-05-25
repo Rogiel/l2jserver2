@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22141" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Forgotten Victim</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="254.79948"/>
+            </defense>
+            <move walk="36.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>33394</experience>
+        <sp>3566</sp>
+        <item lefthand="0" righthand="123"/>
+        <collision heigth="24.6" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9322" min="4566" id="57"/>
+        <item chance="42751" max="300" min="100" id="1344"/>
+        <item chance="114002" max="3" min="1" id="1865"/>
+        <item chance="85502" max="6" min="2" id="1870"/>
+        <item chance="57001" max="1" min="1" id="1879"/>
+        <item chance="22800" max="1" min="1" id="1875"/>
+        <item chance="8655" max="1" min="1" id="5495"/>
+        <item chance="6815" max="1" min="1" id="5527"/>
+        <item chance="6840" max="1" min="1" id="4040"/>
+        <item chance="6815" max="1" min="1" id="5528"/>
+        <item chance="342" max="1" min="1" id="6901"/>
+        <item chance="2850" max="1" min="1" id="8732"/>
+        <item chance="713" max="1" min="1" id="8742"/>
+        <item chance="71" max="1" min="1" id="8752"/>
+        <item chance="80" max="1" min="1" id="5315"/>
+        <item chance="56" max="1" min="1" id="5312"/>
+        <item chance="56" max="1" min="1" id="5317"/>
+        <item chance="41711" max="1" min="1" id="5488"/>
+        <item chance="7719" max="1" min="1" id="730"/>
+        <item chance="41564" max="1" min="1" id="5480"/>
+    </droplist>
+</npc>

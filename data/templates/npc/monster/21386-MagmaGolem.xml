@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21386" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Magma Golem</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.721" max="2975.2369188"/>
+            <mp regen="3.0804" max="1742.976"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="938.20801"/>
+                <magical speed="333.0" damage="656.66638"/>
+            </attack>
+            <defense>
+                <physical value="354.81835"/>
+                <magical value="239.18092"/>
+            </defense>
+            <move walk="13.0" run="60.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>45872</experience>
+        <sp>5209</sp>
+        <collision heigth="45.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="467422" max="1" min="1" id="1877"/>
+        <item chance="101613" max="1" min="1" id="4041"/>
+        <item chance="32059" max="1" min="1" id="5537"/>
+        <item chance="700000" max="11773" min="5749" id="57"/>
+        <item chance="603" max="1" min="1" id="12266"/>
+        <item chance="603" max="1" min="1" id="12259"/>
+        <item chance="4857" max="1" min="1" id="5487"/>
+        <item chance="4857" max="1" min="1" id="5488"/>
+        <item chance="19" max="1" min="1" id="959"/>
+        <item chance="106535" max="3" min="1" id="1866"/>
+        <item chance="239703" max="3" min="1" id="1871"/>
+        <item chance="19176" max="1" min="1" id="1877"/>
+        <item chance="9588" max="1" min="1" id="4040"/>
+        <item chance="4169" max="1" min="1" id="4041"/>
+        <item chance="3995" max="1" min="1" id="8732"/>
+        <item chance="999" max="1" min="1" id="8742"/>
+        <item chance="100" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

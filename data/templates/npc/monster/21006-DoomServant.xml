@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21006" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Doom Servant</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="15.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6537</experience>
+        <sp>568</sp>
+        <collision heigth="40.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="5547" max="1" min="1" id="948"/>
+        <item chance="52315" max="1" min="1" id="4066"/>
+        <item chance="36022" max="1" min="1" id="4130"/>
+        <item chance="700000" max="1784" min="878" id="57"/>
+        <item chance="10" max="1" min="1" id="357"/>
+        <item chance="16" max="1" min="1" id="383"/>
+        <item chance="10" max="1" min="1" id="2376"/>
+        <item chance="16" max="1" min="1" id="2379"/>
+        <item chance="1483" max="1" min="1" id="4056"/>
+        <item chance="2292" max="1" min="1" id="4057"/>
+        <item chance="1483" max="1" min="1" id="4064"/>
+        <item chance="2292" max="1" min="1" id="4065"/>
+        <item chance="109241" max="1" min="1" id="1864"/>
+        <item chance="54621" max="1" min="1" id="1869"/>
+        <item chance="5462" max="1" min="1" id="1880"/>
+        <item chance="1821" max="1" min="1" id="4043"/>
+        <item chance="679" max="1" min="1" id="4173"/>
+        <item chance="42" max="1" min="1" id="4193"/>
+        <item chance="42" max="1" min="1" id="5003"/>
+        <item chance="728" max="1" min="1" id="5550"/>
+        <item chance="910" max="1" min="1" id="8728"/>
+        <item chance="228" max="1" min="1" id="8738"/>
+        <item chance="23" max="1" min="1" id="8748"/>
+        <item chance="5" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

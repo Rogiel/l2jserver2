@@ -29,7 +29,7 @@ public class BaseStrengthCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getStrength();
+				ctx.result = c.getTemplate().getBaseStrength();
 			}
 		});
 	}

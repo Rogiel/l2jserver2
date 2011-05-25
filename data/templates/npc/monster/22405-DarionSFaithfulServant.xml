@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22405" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Darion's Faithful Servant</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="10943.0943982571"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="7013.14725"/>
+                <magical speed="333.0" damage="4872.60072"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>105809</experience>
+        <sp>10510</sp>
+        <collision heigth="43.5" radius="12.0"/>
+    </info>
+</npc>

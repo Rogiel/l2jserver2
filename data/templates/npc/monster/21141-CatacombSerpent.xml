@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21141" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Catacomb Serpent</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="70.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3706</experience>
+        <sp>194</sp>
+        <item lefthand="0" righthand="73"/>
+        <collision heigth="46.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1067" min="545" id="57"/>
+        <item chance="1481" max="1" min="1" id="432"/>
+        <item chance="2371" max="1" min="1" id="465"/>
+        <item chance="190306" max="1" min="1" id="1867"/>
+        <item chance="190306" max="1" min="1" id="1872"/>
+        <item chance="9515" max="1" min="1" id="1875"/>
+        <item chance="169543" max="1" min="1" id="1881"/>
+        <item chance="19031" max="1" min="1" id="1881"/>
+        <item chance="166219" max="1" min="1" id="1931"/>
+        <item chance="203452" max="1" min="1" id="2178"/>
+        <item chance="22836" max="1" min="1" id="2178"/>
+    </droplist>
+</npc>

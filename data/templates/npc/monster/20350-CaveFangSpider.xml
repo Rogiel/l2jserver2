@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20350" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Cave Fang Spider</name>
+        <level>16</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="264.34345"/>
+            <mp regen="1.2" max="157.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="32.16396"/>
+                <magical speed="333.0" damage="21.96382"/>
+            </attack>
+            <defense>
+                <physical value="76.08628"/>
+                <magical value="50.6591"/>
+            </defense>
+            <move walk="72.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>485</experience>
+        <sp>20</sp>
+        <collision heigth="25.5" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="156" min="100" id="57"/>
+        <item chance="4971" max="1" min="1" id="734"/>
+        <item chance="872" max="1" min="1" id="845"/>
+        <item chance="1308" max="1" min="1" id="877"/>
+        <item chance="654" max="1" min="1" id="908"/>
+        <item chance="63500" max="1" min="1" id="1800"/>
+        <item chance="134620" max="1" min="1" id="1866"/>
+        <item chance="59648" max="1" min="1" id="1868"/>
+        <item chance="11930" max="1" min="1" id="1873"/>
+        <item chance="7102" max="1" min="1" id="1897"/>
+        <item chance="94803" max="1" min="1" id="2150"/>
+        <item chance="14002" max="1" min="1" id="2150"/>
+    </droplist>
+</npc>

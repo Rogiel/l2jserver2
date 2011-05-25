@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20205" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dire Wolf</name>
+        <level>24</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="435.34437"/>
+            <mp regen="1.5" max="245.52"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="60.19687"/>
+                <magical speed="333.0" damage="41.10666"/>
+            </attack>
+            <defense>
+                <physical value="98.70919"/>
+                <magical value="65.72169"/>
+            </defense>
+            <move walk="24.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1145</experience>
+        <sp>56</sp>
+        <collision heigth="11.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="334" min="181" id="57"/>
+        <item chance="256" max="1" min="1" id="257"/>
+        <item chance="814752" max="1" min="1" id="1868"/>
+        <item chance="120333" max="1" min="1" id="1868"/>
+        <item chance="407376" max="1" min="1" id="1871"/>
+        <item chance="24067" max="1" min="1" id="1873"/>
+        <item chance="59341" max="1" min="1" id="1928"/>
+        <item chance="1471" max="1" min="1" id="2255"/>
+        <item chance="120333" max="1" min="1" id="6037"/>
+    </droplist>
+</npc>

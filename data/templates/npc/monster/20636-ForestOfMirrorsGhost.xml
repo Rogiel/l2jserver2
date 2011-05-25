@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20636" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Forest of Mirrors Ghost</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3973</experience>
+        <sp>282</sp>
+        <collision heigth="16.5" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1066" min="521" id="57"/>
+        <item chance="4" max="1" min="1" id="89"/>
+        <item chance="4" max="1" min="1" id="160"/>
+        <item chance="4" max="1" min="1" id="161"/>
+        <item chance="4" max="1" min="1" id="173"/>
+        <item chance="4" max="1" min="1" id="191"/>
+        <item chance="4" max="1" min="1" id="192"/>
+        <item chance="4" max="1" min="1" id="193"/>
+        <item chance="4" max="1" min="1" id="194"/>
+        <item chance="75780" max="1" min="1" id="1867"/>
+        <item chance="75780" max="1" min="1" id="1872"/>
+        <item chance="12630" max="1" min="1" id="1882"/>
+        <item chance="1994" max="1" min="1" id="1894"/>
+        <item chance="178638" max="1" min="1" id="1909"/>
+        <item chance="302" max="1" min="1" id="2061"/>
+        <item chance="302" max="1" min="1" id="2063"/>
+        <item chance="302" max="1" min="1" id="2064"/>
+        <item chance="302" max="1" min="1" id="2065"/>
+        <item chance="307" max="1" min="1" id="2066"/>
+        <item chance="282" max="1" min="1" id="2067"/>
+        <item chance="282" max="1" min="1" id="2068"/>
+        <item chance="306" max="1" min="1" id="2069"/>
+        <item chance="67491" max="1" min="1" id="2163"/>
+        <item chance="32824" max="1" min="1" id="2214"/>
+        <item chance="1101" max="1" min="1" id="2230"/>
+        <item chance="198" max="1" min="1" id="2320"/>
+        <item chance="947" max="1" min="1" id="4042"/>
+        <item chance="2273" max="1" min="1" id="8723"/>
+        <item chance="568" max="1" min="1" id="8733"/>
+        <item chance="57" max="1" min="1" id="8743"/>
+        <item chance="11" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

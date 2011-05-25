@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18564" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Weird Bunei</name>
+        <title send="false">Kaneus</title>
+        <level>46</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="28.3020159951777" max="165222.57986374"/>
+            <mp regen="11.55" max="3189.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="470.81863"/>
+                <magical speed="333.0" damage="321.50809"/>
+            </attack>
+            <defense>
+                <physical value="291.50106"/>
+                <magical value="319.96174"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>848114</experience>
+        <sp>69276</sp>
+        <collision heigth="80.5" radius="55.0"/>
+    </info>
+    <droplist>
+        <item chance="28860" max="1" min="1" id="281"/>
+        <item chance="19240" max="1" min="1" id="281"/>
+        <item chance="299779" max="1" min="1" id="951"/>
+        <item chance="366396" max="9" min="3" id="952"/>
+        <item chance="600579" max="3" min="1" id="2074"/>
+        <item chance="300284" max="9" min="3" id="2074"/>
+    </droplist>
+</npc>

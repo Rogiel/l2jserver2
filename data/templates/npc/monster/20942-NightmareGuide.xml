@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20942" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Nightmare Guide</name>
+        <level>43</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="5.5" max="1094.28943"/>
+            <mp regen="2.1" max="557.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="210.04832"/>
+                <magical speed="333.0" damage="143.43577"/>
+            </attack>
+            <defense>
+                <physical value="169.13417"/>
+                <magical value="112.61144"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1970</experience>
+        <sp>133</sp>
+        <collision heigth="42.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="526" min="259" id="57"/>
+        <item chance="24" max="1" min="1" id="225"/>
+        <item chance="27432" max="1" min="1" id="1866"/>
+        <item chance="41147" max="1" min="1" id="1871"/>
+        <item chance="1646" max="1" min="1" id="1877"/>
+        <item chance="63768" max="1" min="1" id="1905"/>
+        <item chance="1427" max="1" min="1" id="2052"/>
+        <item chance="895" max="1" min="1" id="2225"/>
+        <item chance="2863" max="1" min="1" id="2301"/>
+        <item chance="73162" max="1" min="1" id="2931"/>
+        <item chance="1646" max="1" min="1" id="8723"/>
+        <item chance="411" max="1" min="1" id="8733"/>
+        <item chance="41" max="1" min="1" id="8743"/>
+        <item chance="8" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

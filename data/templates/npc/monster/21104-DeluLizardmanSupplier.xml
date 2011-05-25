@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21104" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Delu Lizardman Supplier</name>
+        <level>32</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="668.47132"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="106.16525"/>
+                <magical speed="333.0" damage="72.49711"/>
+            </attack>
+            <defense>
+                <physical value="125.57727"/>
+                <magical value="83.61076"/>
+            </defense>
+            <move walk="43.0" run="135.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2106</experience>
+        <sp>119</sp>
+        <item lefthand="0" righthand="223"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="595" min="296" id="57"/>
+        <item chance="1502" max="1" min="1" id="605"/>
+        <item chance="426409" max="1" min="1" id="1061"/>
+        <item chance="1502" max="1" min="1" id="1123"/>
+        <item chance="140715" max="1" min="1" id="1876"/>
+        <item chance="10985" max="1" min="1" id="1876"/>
+        <item chance="2197" max="1" min="1" id="1877"/>
+        <item chance="5493" max="1" min="1" id="1880"/>
+        <item chance="7323" max="1" min="1" id="1881"/>
+        <item chance="12206" max="1" min="1" id="1882"/>
+        <item chance="39306" max="1" min="1" id="1935"/>
+        <item chance="568" max="1" min="1" id="2264"/>
+        <item chance="34328" max="1" min="1" id="6667"/>
+    </droplist>
+</npc>

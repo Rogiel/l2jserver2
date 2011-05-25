@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22235" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mountain Werewolf</name>
+        <level>7</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="108.42254"/>
+            <mp regen="0.9" max="84.88"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="14.80956"/>
+                <magical speed="333.0" damage="10.11301"/>
+            </attack>
+            <defense>
+                <physical value="55.51894"/>
+                <magical value="40.62635"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>248</experience>
+        <sp>8</sp>
+        <item lefthand="0" righthand="5"/>
+        <collision heigth="26.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="594" max="1" min="1" id="14"/>
+        <item chance="71331" max="30" min="10" id="17"/>
+        <item chance="700000" max="71" min="51" id="57"/>
+        <item chance="214653" max="1" min="1" id="1060"/>
+        <item chance="2637" max="1" min="1" id="1790"/>
+        <item chance="9511" max="1" min="1" id="1866"/>
+        <item chance="14266" max="1" min="1" id="1871"/>
+        <item chance="3864" max="1" min="1" id="1877"/>
+        <item chance="2038" max="1" min="1" id="2007"/>
+        <item chance="840" max="1" min="1" id="4041"/>
+    </droplist>
+</npc>

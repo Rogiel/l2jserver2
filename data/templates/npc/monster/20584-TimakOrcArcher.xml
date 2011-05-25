@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20584" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Timak Orc Archer</name>
+        <level>41</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1008.23781"/>
+            <mp regen="2.1" max="504.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="187.11878"/>
+                <magical speed="333.0" damage="127.77787"/>
+            </attack>
+            <defense>
+                <physical value="160.69002"/>
+                <magical value="106.98923"/>
+            </defense>
+            <move walk="45.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3783</experience>
+        <sp>247</sp>
+        <item lefthand="0" righthand="14"/>
+        <collision heigth="21.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1017" min="508" id="57"/>
+        <item chance="45" max="1" min="1" id="280"/>
+        <item chance="4180" max="1" min="1" id="1805"/>
+        <item chance="59965" max="1" min="1" id="1866"/>
+        <item chance="89948" max="1" min="1" id="1871"/>
+        <item chance="3598" max="1" min="1" id="1877"/>
+        <item chance="2680" max="1" min="1" id="2054"/>
+        <item chance="28114" max="1" min="1" id="2211"/>
+        <item chance="393" max="1" min="1" id="2297"/>
+        <item chance="52906" max="1" min="1" id="2988"/>
+        <item chance="7139" max="1" min="1" id="2994"/>
+        <item chance="300" max="1" min="1" id="5154"/>
+        <item chance="32124" max="1" min="1" id="6668"/>
+    </droplist>
+</npc>

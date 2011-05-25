@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21337" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grazing Elder Buffalo</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="253.53446"/>
+            </defense>
+            <move walk="20.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>20950</experience>
+        <sp>2435</sp>
+        <collision heigth="31.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6057" min="2968" id="57"/>
+        <item chance="241" max="1" min="1" id="959"/>
+        <item chance="10" max="1" min="1" id="959"/>
+        <item chance="164577" max="1" min="1" id="1866"/>
+        <item chance="246866" max="1" min="1" id="1871"/>
+        <item chance="501446" max="1" min="1" id="1885"/>
+        <item chance="20572" max="1" min="1" id="1885"/>
+        <item chance="2147" max="1" min="1" id="4041"/>
+        <item chance="240694" max="1" min="1" id="5220"/>
+        <item chance="9875" max="1" min="1" id="5220"/>
+        <item chance="2501" max="1" min="1" id="5487"/>
+        <item chance="2501" max="1" min="1" id="5488"/>
+        <item chance="2057" max="1" min="1" id="8732"/>
+        <item chance="514" max="1" min="1" id="8742"/>
+        <item chance="52" max="1" min="1" id="8752"/>
+        <item chance="310" max="1" min="1" id="12259"/>
+        <item chance="310" max="1" min="1" id="12266"/>
+    </droplist>
+</npc>

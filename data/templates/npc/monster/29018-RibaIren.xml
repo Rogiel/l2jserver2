@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29018" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Riba Iren</name>
+        <level>49</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="162.0" max="13389.0"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1058.0"/>
+                <magical speed="333.0" damage="1563.0"/>
+            </attack>
+            <defense>
+                <physical value="783.0"/>
+                <magical value="286.0"/>
+            </defense>
+            <move walk="60.0" run="230.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>1</sp>
+        <collision heigth="72.0" radius="25.0"/>
+    </info>
+</npc>

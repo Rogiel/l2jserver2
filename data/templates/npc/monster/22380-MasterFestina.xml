@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22380" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Master Festina</name>
+        <level>83</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="336949.124088359"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="8128.04753"/>
+                <magical speed="333.0" damage="5647.21214"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1317481</experience>
+        <sp>137317</sp>
+        <collision heigth="40.6" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="329441" min="164496" id="57"/>
+        <item chance="157583" max="1350" min="450" id="1345"/>
+        <item chance="800200" max="27" min="9" id="9599"/>
+        <item chance="155655" max="1" min="1" id="5487"/>
+        <item chance="155655" max="1" min="1" id="5488"/>
+        <item chance="1047" max="1" min="1" id="5326"/>
+        <item chance="1047" max="1" min="1" id="5329"/>
+        <item chance="12663" max="21" min="7" id="4042"/>
+        <item chance="17046" max="1248" min="416" id="1867"/>
+        <item chance="78791" max="270" min="90" id="1872"/>
+        <item chance="28140" max="126" min="42" id="1882"/>
+        <item chance="33930" max="15" min="5" id="1894"/>
+        <item chance="85095" max="1" min="1" id="9551"/>
+        <item chance="4255" max="1" min="1" id="960"/>
+        <item chance="1090" max="1" min="1" id="6899"/>
+        <item chance="51386" max="1" min="1" id="14166"/>
+        <item chance="12831" max="1" min="1" id="14167"/>
+        <item chance="1283" max="1" min="1" id="14168"/>
+        <item chance="257" max="1" min="1" id="14169"/>
+        <item chance="681322" max="1" min="1" id="8721"/>
+        <item chance="280705" max="1" min="1" id="6901"/>
+        <item chance="112282" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

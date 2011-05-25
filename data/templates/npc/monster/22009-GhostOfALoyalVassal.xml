@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22009" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of a Loyal Vassal</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="89.26566"/>
+            </defense>
+            <move walk="45.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1910</experience>
+        <sp>106</sp>
+        <item lefthand="0" righthand="8532"/>
+        <collision heigth="22.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="542" min="272" id="57"/>
+        <item chance="535" max="1" min="1" id="848"/>
+        <item chance="805" max="1" min="1" id="879"/>
+        <item chance="402" max="1" min="1" id="911"/>
+        <item chance="9599" max="1" min="1" id="1900"/>
+        <item chance="3343" max="1" min="1" id="1875"/>
+        <item chance="8356" max="1" min="1" id="1879"/>
+        <item chance="4178" max="1" min="1" id="1885"/>
+        <item chance="669" max="1" min="1" id="5550"/>
+        <item chance="5014" max="1" min="1" id="5549"/>
+        <item chance="20055" max="1" min="1" id="1829"/>
+        <item chance="55708" max="1" min="1" id="1832"/>
+        <item chance="713613" max="1" min="1" id="1832"/>
+        <item chance="52557" max="1" min="1" id="1936"/>
+        <item chance="67463" max="1" min="1" id="2184"/>
+    </droplist>
+</npc>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22325" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Blind Watchman</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1112.35801"/>
+                <magical speed="333.0" damage="768.53275"/>
+            </attack>
+            <defense>
+                <physical value="358.02452"/>
+                <magical value="261.98681"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25716</experience>
+        <sp>2667</sp>
+        <collision heigth="35.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5843" min="2913" id="57"/>
+        <item chance="255400" max="1" min="1" id="9599"/>
+        <item chance="108987" max="1" min="1" id="9674"/>
+        <item chance="6206" max="1" min="1" id="5495"/>
+        <item chance="4886" max="1" min="1" id="5527"/>
+        <item chance="4886" max="1" min="1" id="5528"/>
+        <item chance="273" max="1" min="1" id="6901"/>
+        <item chance="40" max="1" min="1" id="5317"/>
+        <item chance="40" max="1" min="1" id="5312"/>
+        <item chance="57" max="1" min="1" id="5315"/>
+        <item chance="85146" max="120" min="40" id="1344"/>
+        <item chance="121096" max="3" min="1" id="1867"/>
+        <item chance="54494" max="6" min="2" id="1869"/>
+        <item chance="45411" max="9" min="3" id="1870"/>
+        <item chance="38924" max="9" min="3" id="1871"/>
+        <item chance="22706" max="24" min="8" id="1872"/>
+        <item chance="2180" max="1" min="1" id="9551"/>
+        <item chance="106314" max="1" min="1" id="6703"/>
+        <item chance="2987" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21190" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gigant Footman</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="49.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4532</experience>
+        <sp>248</sp>
+        <item lefthand="0" righthand="5791"/>
+        <collision heigth="40.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="3106" max="1" min="1" id="605"/>
+        <item chance="881783" max="1" min="1" id="1061"/>
+        <item chance="3106" max="1" min="1" id="1123"/>
+        <item chance="265023" max="1" min="1" id="1864"/>
+        <item chance="132512" max="1" min="1" id="1869"/>
+        <item chance="13251" max="1" min="1" id="1880"/>
+        <item chance="159184" max="1" min="1" id="1900"/>
+        <item chance="226274" max="1" min="1" id="2153"/>
+        <item chance="20608" max="1" min="1" id="2153"/>
+        <item chance="1767" max="1" min="1" id="5550"/>
+        <item chance="11042" max="1" min="1" id="6035"/>
+        <item chance="700000" max="259" min="128" id="6360"/>
+        <item chance="700000" max="44" min="24" id="6362"/>
+    </droplist>
+</npc>

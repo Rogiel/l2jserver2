@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20215" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Mordeo</name>
+        <level>42</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1050.81652"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="198.34591"/>
+                <magical speed="333.0" damage="135.44454"/>
+            </attack>
+            <defense>
+                <physical value="164.88513"/>
+                <magical value="120.65578"/>
+            </defense>
+            <move walk="30.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7709</experience>
+        <sp>493</sp>
+        <collision heigth="14.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2049" min="1014" id="57"/>
+        <item chance="91" max="1" min="1" id="297"/>
+        <item chance="105328" max="1" min="1" id="1866"/>
+        <item chance="157991" max="1" min="1" id="1871"/>
+        <item chance="839007" max="7" min="1" id="1872"/>
+        <item chance="13166" max="1" min="1" id="1885"/>
+        <item chance="5226" max="1" min="1" id="2055"/>
+        <item chance="5000" max="1" min="1" id="2205"/>
+        <item chance="66412" max="1" min="1" id="2206"/>
+        <item chance="5663" max="1" min="1" id="2212"/>
+        <item chance="690" max="1" min="1" id="2299"/>
+        <item chance="8359" max="1" min="1" id="2989"/>
+        <item chance="14383" max="1" min="1" id="4469"/>
+        <item chance="6320" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25234" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ancient Weird Drake</name>
+        <title send="false">Raid Boss</title>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="182.410955849033" max="442200.04994986"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1570.3549"/>
+                <magical speed="333.0" damage="534.04783"/>
+            </attack>
+            <defense>
+                <physical value="742.95024"/>
+                <magical value="362.44"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2735033</experience>
+        <sp>394692</sp>
+        <collision heigth="150.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="9869" max="1" min="1" id="212"/>
+        <item chance="66800" max="1" min="1" id="729"/>
+        <item chance="501003" max="1" min="1" id="730"/>
+        <item chance="9869" max="1" min="1" id="2504"/>
+        <item chance="46286" max="1" min="1" id="5289"/>
+        <item chance="66137" max="1" min="1" id="5292"/>
+        <item chance="46286" max="1" min="1" id="5294"/>
+        <item chance="81170" max="120" min="40" id="5494"/>
+        <item chance="265532" max="27" min="9" id="5525"/>
+        <item chance="170700" max="42" min="14" id="5526"/>
+        <item chance="156395" max="22" min="8" id="5532"/>
+        <item chance="296007" max="12" min="4" id="5543"/>
+        <item chance="8016" max="1" min="1" id="6569"/>
+        <item chance="720000" max="2" min="1" id="8176"/>
+        <item chance="850000" max="4" min="1" id="9815"/>
+    </droplist>
+</npc>

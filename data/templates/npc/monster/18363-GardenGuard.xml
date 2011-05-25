@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18363" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Garden Guard</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="10" evasion="0" range="700">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="61.52345"/>
+            </defense>
+            <move walk="36.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>670</experience>
+        <sp>29</sp>
+        <item lefthand="0" righthand="10128"/>
+        <collision heigth="24.5" radius="15.0"/>
+    </info>
+</npc>

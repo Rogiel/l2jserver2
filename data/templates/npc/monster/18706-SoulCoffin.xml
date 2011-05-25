@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18706" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="false" send="false">Soul Coffin</name>
+        <level>79</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="115.295936105422" max="33155.3718962619"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5781.02621"/>
+                <magical speed="333.0" damage="3971.18964"/>
+            </attack>
+            <defense>
+                <physical value="549.45119"/>
+                <magical value="603.0968"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="6.0" radius="30.5"/>
+    </info>
+</npc>

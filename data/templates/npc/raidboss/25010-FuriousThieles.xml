@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25010" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Furious Thieles</name>
+        <title send="false">Raid Boss</title>
+        <level>55</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="88.6953584956072" max="262379.847926583"/>
+            <mp regen="2.4" max="889.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1142.75903"/>
+                <magical speed="333.0" damage="324.54053"/>
+            </attack>
+            <defense>
+                <physical value="670.9086"/>
+                <magical value="327.3"/>
+            </defense>
+            <move walk="12.0" run="50.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3983098</experience>
+        <sp>535296</sp>
+        <collision heigth="90.0" radius="23.0"/>
+    </info>
+    <droplist>
+        <item chance="52171" max="1" min="1" id="300"/>
+        <item chance="64704" max="1" min="1" id="2397"/>
+        <item chance="103503" max="1" min="1" id="2402"/>
+        <item chance="39800" max="1" min="1" id="2406"/>
+        <item chance="56359" max="243" min="81" id="4069"/>
+        <item chance="173285" max="120" min="40" id="4070"/>
+        <item chance="250509" max="42" min="14" id="4071"/>
+        <item chance="373636" max="36" min="12" id="4113"/>
+        <item chance="389481" max="3" min="1" id="4622"/>
+        <item chance="259654" max="4" min="2" id="4623"/>
+        <item chance="194740" max="6" min="2" id="4624"/>
+        <item chance="150599" max="1" min="1" id="6572"/>
+        <item chance="800000" max="3" min="1" id="8176"/>
+        <item chance="720000" max="7" min="2" id="9818"/>
+    </droplist>
+</npc>

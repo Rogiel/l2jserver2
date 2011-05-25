@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25141" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hekaton Cottus</name>
+        <title send="false">Raid Fighter</title>
+        <level>64</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="109.161965526679" max="53978.8912220944"/>
+            <mp regen="2.7" max="1158.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6982.68629"/>
+                <magical speed="333.0" damage="9405.35312"/>
+            </attack>
+            <defense>
+                <physical value="400.56702"/>
+                <magical value="390.82"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="32.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="871429" max="60" min="20" id="1343"/>
+    </droplist>
+</npc>

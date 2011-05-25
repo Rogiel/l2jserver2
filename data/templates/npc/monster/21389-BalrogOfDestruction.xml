@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21389" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Balrog of Destruction</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="253.53446"/>
+            </defense>
+            <move walk="37.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>59328</experience>
+        <sp>6897</sp>
+        <collision heigth="40.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="14591" min="7149" id="57"/>
+        <item chance="580" max="1" min="1" id="959"/>
+        <item chance="24" max="1" min="1" id="959"/>
+        <item chance="148669" max="12" min="4" id="1864"/>
+        <item chance="118935" max="6" min="2" id="1865"/>
+        <item chance="66075" max="9" min="3" id="1866"/>
+        <item chance="56636" max="30" min="10" id="1868"/>
+        <item chance="29734" max="12" min="4" id="1873"/>
+        <item chance="2447" max="1" min="1" id="5529"/>
+        <item chance="2447" max="1" min="1" id="5545"/>
+        <item chance="2688" max="1" min="1" id="5546"/>
+        <item chance="31391" max="1" min="1" id="6690"/>
+        <item chance="31331" max="1" min="1" id="6691"/>
+        <item chance="4956" max="1" min="1" id="8732"/>
+        <item chance="1239" max="1" min="1" id="8742"/>
+        <item chance="123" max="1" min="1" id="8752"/>
+        <item chance="159" max="1" min="1" id="11964"/>
+        <item chance="159" max="1" min="1" id="11968"/>
+        <item chance="159" max="1" min="1" id="11971"/>
+    </droplist>
+</npc>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21158" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hell Keeper Crimson Doll</name>
+        <level>67</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2295.48154"/>
+            <mp regen="2.7" max="1251.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="624.93199"/>
+                <magical speed="333.0" damage="426.74754"/>
+            </attack>
+            <defense>
+                <physical value="281.55251"/>
+                <magical value="187.46084"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>20533</experience>
+        <sp>1955</sp>
+        <collision heigth="38.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5718" min="2798" id="57"/>
+        <item chance="72789" max="90" min="30" id="1344"/>
+        <item chance="69877" max="1" min="1" id="1830"/>
+        <item chance="174692" max="3" min="1" id="1864"/>
+        <item chance="43673" max="6" min="2" id="1869"/>
+        <item chance="17469" max="1" min="1" id="1880"/>
+        <item chance="35" max="1" min="1" id="2391"/>
+        <item chance="35" max="1" min="1" id="2392"/>
+        <item chance="5823" max="1" min="1" id="4043"/>
+        <item chance="304195" max="1" min="1" id="4053"/>
+        <item chance="5922" max="1" min="1" id="4082"/>
+        <item chance="5922" max="1" min="1" id="4083"/>
+        <item chance="9462" max="1" min="1" id="5230"/>
+        <item chance="2329" max="1" min="1" id="5550"/>
+        <item chance="95" max="1" min="1" id="8487"/>
+        <item chance="1941" max="1" min="1" id="8730"/>
+        <item chance="485" max="1" min="1" id="8740"/>
+        <item chance="49" max="1" min="1" id="8750"/>
+        <item chance="10" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

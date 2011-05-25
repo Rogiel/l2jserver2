@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25095" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Elf Renoa</name>
+        <title send="false">Raid Boss</title>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="20.9291966395288" max="51235.8374191156"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="102.7203"/>
+                <magical speed="333.0" damage="6.55639"/>
+            </attack>
+            <defense>
+                <physical value="345.01794"/>
+                <magical value="168.32"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2345715</experience>
+        <sp>104160</sp>
+        <collision heigth="21.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="193209" max="1" min="1" id="395"/>
+        <item chance="38570" max="12" min="4" id="417"/>
+        <item chance="80718" max="157" min="53" id="1942"/>
+        <item chance="274954" max="72" min="24" id="1943"/>
+        <item chance="92827" max="1" min="1" id="279"/>
+        <item chance="240310" max="36" min="12" id="2040"/>
+        <item chance="646178" max="3" min="1" id="6576"/>
+    </droplist>
+</npc>

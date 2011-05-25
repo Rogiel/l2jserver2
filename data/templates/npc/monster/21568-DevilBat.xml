@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21568" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Devil Bat</name>
+        <level>68</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2345.76698"/>
+            <mp regen="2.7" max="1282.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="646.17968"/>
+                <magical speed="333.0" damage="441.25696"/>
+            </attack>
+            <defense>
+                <physical value="286.3615"/>
+                <magical value="190.66272"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12528</experience>
+        <sp>1211</sp>
+        <collision heigth="33.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3215" min="1582" id="57"/>
+        <item chance="3332" max="1" min="1" id="730"/>
+        <item chance="153385" max="30" min="10" id="1343"/>
+        <item chance="107371" max="1" min="1" id="1865"/>
+        <item chance="107371" max="1" min="1" id="1870"/>
+        <item chance="7158" max="1" min="1" id="1874"/>
+        <item chance="3579" max="1" min="1" id="4039"/>
+        <item chance="3579" max="1" min="1" id="4043"/>
+        <item chance="61809" max="1" min="1" id="5526"/>
+        <item chance="2009" max="1" min="1" id="5536"/>
+        <item chance="15379" max="1" min="1" id="6335"/>
+        <item chance="551" max="1" min="1" id="6337"/>
+        <item chance="1193" max="1" min="1" id="8730"/>
+        <item chance="298" max="1" min="1" id="8740"/>
+        <item chance="30" max="1" min="1" id="8750"/>
+        <item chance="6" max="1" min="1" id="8760"/>
+        <item chance="163" max="1" min="1" id="11951"/>
+    </droplist>
+</npc>

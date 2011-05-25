@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25019" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Pan Dryad</name>
+        <title send="false">Raid Boss</title>
+        <level>25</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="46.0963284168942" max="86632.6170728744"/>
+            <mp regen="1.5" max="259.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="148.44464"/>
+                <magical speed="333.0" damage="18.71869"/>
+            </attack>
+            <defense>
+                <physical value="305.50599"/>
+                <magical value="149.04"/>
+            </defense>
+            <move walk="45.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2541012</experience>
+        <sp>79280</sp>
+        <item lefthand="0" righthand="291"/>
+        <collision heigth="73.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="167392" max="1" min="1" id="393"/>
+        <item chance="167392" max="1" min="1" id="394"/>
+        <item chance="33444" max="12" min="4" id="415"/>
+        <item chance="29728" max="13" min="5" id="416"/>
+        <item chance="62696" max="157" min="53" id="1938"/>
+        <item chance="179171" max="72" min="24" id="1939"/>
+        <item chance="79024" max="1" min="1" id="316"/>
+        <item chance="79024" max="1" min="1" id="317"/>
+        <item chance="572656" max="9" min="3" id="2030"/>
+        <item chance="793367" max="36" min="12" id="956"/>
+    </droplist>
+</npc>

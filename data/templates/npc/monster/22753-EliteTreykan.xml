@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22753" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Elite Treykan</name>
+        <title send="false">Bistakon</title>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.260794107867" max="111546.700057767"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="11740.1012"/>
+                <magical speed="333.0" damage="8513.53763"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="88.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1209443</experience>
+        <sp>121549</sp>
+        <collision heigth="42.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="170182" min="86370" id="57"/>
+        <item chance="223800" max="1" min="1" id="9630"/>
+        <item chance="79200" max="1" min="1" id="16160"/>
+        <item chance="150500" max="6" min="2" id="4040"/>
+        <item chance="7830" max="1" min="1" id="15644"/>
+        <item chance="75900" max="215" min="75" id="1895"/>
+        <item chance="10800" max="1" min="1" id="16161"/>
+        <item chance="46900" max="1" min="1" id="9628"/>
+        <item chance="1000" max="1" min="1" id="15825"/>
+    </droplist>
+</npc>

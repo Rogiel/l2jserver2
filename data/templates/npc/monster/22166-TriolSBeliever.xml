@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22166" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Triol's Believer</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.925" max="3107.6436594"/>
+            <mp regen="3.1518" max="1883.736"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="1033.124"/>
+                <magical speed="333.0" damage="740.57728"/>
+            </attack>
+            <defense>
+                <physical value="380.23713"/>
+                <magical value="278.24103"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>44390</experience>
+        <sp>5102</sp>
+        <item lefthand="0" righthand="8205"/>
+        <collision heigth="28.4" radius="7.7"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="12570" min="6157" id="57"/>
+        <item chance="31" max="1" min="1" id="959"/>
+        <item chance="4996" max="1" min="1" id="960"/>
+        <item chance="192159" max="12" min="4" id="1864"/>
+        <item chance="51242" max="21" min="7" id="1869"/>
+        <item chance="499612" max="1" min="1" id="1877"/>
+        <item chance="76864" max="1" min="1" id="1880"/>
+        <item chance="249806" max="1" min="1" id="4040"/>
+        <item chance="25621" max="1" min="1" id="4043"/>
+        <item chance="10248" max="1" min="1" id="5550"/>
+        <item chance="77" max="1" min="1" id="6326"/>
+        <item chance="103" max="1" min="1" id="6327"/>
+        <item chance="154" max="1" min="1" id="6328"/>
+        <item chance="17409" max="1" min="1" id="6342"/>
+        <item chance="11266" max="1" min="1" id="6344"/>
+        <item chance="25022" max="1" min="1" id="6346"/>
+    </droplist>
+</npc>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21136" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dead Pit Horror</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1178</experience>
+        <sp>62</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="339" min="173" id="57"/>
+        <item chance="144" max="1" min="1" id="220"/>
+        <item chance="50426" max="1" min="1" id="1834"/>
+        <item chance="60511" max="1" min="1" id="1867"/>
+        <item chance="60511" max="1" min="1" id="1872"/>
+        <item chance="89848" max="1" min="1" id="1882"/>
+        <item chance="10085" max="1" min="1" id="1882"/>
+        <item chance="5373" max="1" min="1" id="2017"/>
+        <item chance="7990" max="1" min="1" id="2152"/>
+        <item chance="30400" max="1" min="1" id="2180"/>
+    </droplist>
+</npc>

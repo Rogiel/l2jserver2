@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25163" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Roaring Skylancer</name>
+        <title send="false">Raid Boss</title>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="294.21090607215" max="746772.142484831"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4309.76223"/>
+                <magical speed="333.0" damage="2869.61549"/>
+            </attack>
+            <defense>
+                <physical value="887.74791"/>
+                <magical value="433.08"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4596479</experience>
+        <sp>802604</sp>
+        <collision heigth="51.5" radius="44.0"/>
+    </info>
+    <droplist>
+        <item chance="22289" max="1" min="1" id="5320"/>
+        <item chance="22289" max="1" min="1" id="5323"/>
+        <item chance="412748" max="12" min="4" id="5480"/>
+        <item chance="220132" max="22" min="8" id="5481"/>
+        <item chance="7096" max="1" min="1" id="81"/>
+        <item chance="7096" max="1" min="1" id="151"/>
+        <item chance="7096" max="1" min="1" id="2500"/>
+        <item chance="112160" max="27" min="9" id="5529"/>
+        <item chance="72103" max="42" min="14" id="5545"/>
+        <item chance="221755" max="15" min="5" id="5546"/>
+        <item chance="38156" max="1" min="1" id="959"/>
+        <item chance="381565" max="1" min="1" id="960"/>
+        <item chance="6360" max="1" min="1" id="6577"/>
+        <item chance="810000" max="7" min="3" id="9815"/>
+        <item chance="810000" max="4" min="1" id="8176"/>
+        <item chance="520000" max="1" min="1" id="8619"/>
+    </droplist>
+</npc>

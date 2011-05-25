@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25509" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dark Shaman Varangka</name>
+        <title send="false">Raid Boss</title>
+        <level>53</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="60.1633937196702" max="175997.603312156"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="546.57712"/>
+                <magical speed="333.0" damage="80.62227"/>
+            </attack>
+            <defense>
+                <physical value="642.54978"/>
+                <magical value="313.46"/>
+            </defense>
+            <move walk="50.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2368104</experience>
+        <sp>300304</sp>
+        <item lefthand="0" righthand="316"/>
+        <collision heigth="20.8" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="7113" max="1" min="1" id="91"/>
+        <item chance="7113" max="1" min="1" id="92"/>
+        <item chance="123197" max="1" min="1" id="947"/>
+        <item chance="35288" max="1" min="1" id="2397"/>
+        <item chance="56446" max="1" min="1" id="2402"/>
+        <item chance="21705" max="1" min="1" id="2406"/>
+        <item chance="276625" max="27" min="9" id="4069"/>
+        <item chance="94503" max="120" min="40" id="4070"/>
+        <item chance="136618" max="42" min="14" id="4071"/>
+        <item chance="113306" max="18" min="6" id="4105"/>
+        <item chance="334340" max="6" min="2" id="4106"/>
+        <item chance="212410" max="3" min="1" id="4613"/>
+        <item chance="141607" max="4" min="2" id="4614"/>
+        <item chance="424821" max="1" min="1" id="4615"/>
+        <item chance="7113" max="1" min="1" id="7892"/>
+        <item chance="7113" max="1" min="1" id="7900"/>
+        <item chance="64746" max="31" min="11" id="8339"/>
+        <item chance="244529" max="7" min="3" id="8347"/>
+    </droplist>
+</npc>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20756" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Talakin Archer</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="50.0" run="133.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2261</experience>
+        <sp>119</sp>
+        <item lefthand="0" righthand="14"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="651" min="333" id="57"/>
+        <item chance="276" max="1" min="1" id="274"/>
+        <item chance="174168" max="1" min="1" id="1868"/>
+        <item chance="34834" max="1" min="1" id="1873"/>
+        <item chance="17417" max="1" min="1" id="1876"/>
+        <item chance="121223" max="1" min="1" id="1899"/>
+        <item chance="123147" max="1" min="1" id="1932"/>
+        <item chance="15332" max="1" min="1" id="2152"/>
+        <item chance="12047" max="1" min="1" id="2262"/>
+        <item chance="7257" max="1" min="1" id="6035"/>
+    </droplist>
+</npc>

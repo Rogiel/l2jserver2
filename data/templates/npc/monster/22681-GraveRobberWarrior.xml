@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22681" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Grave Robber Warrior</name>
+        <title send="false">Lunatic</title>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16872</experience>
+        <sp>1845</sp>
+        <collision heigth="27.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1506" min="749" id="57"/>
+        <item chance="3000" max="1" min="1" id="9536"/>
+        <item chance="2500" max="1" min="1" id="9535"/>
+        <item chance="7" max="1" min="1" id="9520"/>
+        <item chance="4" max="1" min="1" id="9519"/>
+        <item chance="89100" max="1" min="1" id="1879"/>
+        <item chance="42100" max="1" min="1" id="1885"/>
+        <item chance="4100" max="1" min="1" id="9630"/>
+        <item chance="3000" max="1" min="1" id="9629"/>
+        <item chance="1500" max="1" min="1" id="9628"/>
+        <item chance="80000" max="1" min="1" id="9628"/>
+        <item chance="50000" max="1" min="1" id="9992"/>
+        <item chance="55000" max="1" min="1" id="9545"/>
+    </droplist>
+</npc>

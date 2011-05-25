@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18100" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Offering of Forbidden Path</name>
+        <level>76</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2719.97952"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="713.45002"/>
+                <magical speed="333.0" damage="556.793"/>
+            </attack>
+            <defense>
+                <physical value="275.21687"/>
+                <magical value="196.14192"/>
+            </defense>
+            <move walk="80.0" run="30.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8595</experience>
+        <sp>919</sp>
+        <item lefthand="0" righthand="236"/>
+        <collision heigth="20.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1804" min="902" id="57"/>
+    </droplist>
+</npc>

@@ -55,13 +55,13 @@ public class ServerObjectPacket extends AbstractServerPacket {
 		buffer.writeInt(npc.getPoint().getY()); // y
 		buffer.writeInt(npc.getPoint().getZ()); // z
 		buffer.writeInt((int) npc.getPoint().getAngle()); // angle
-		buffer.writeDouble(template.getMovementSpeedMultiplier());
-		buffer.writeDouble(template.getAttackSpeedMultiplier());
-		buffer.writeDouble(template.getCollisionRadius()); // coll radius
-		buffer.writeDouble(template.getCollisionHeight()); // coll height
+		buffer.writeDouble(0x01); // move mult
+		buffer.writeDouble(0x01); // attack spd mult
+		buffer.writeDouble(template.getCollisionRadius());
+		buffer.writeDouble(template.getCollisionHeight());
 		buffer.writeInt((int) (template.isAttackable() ? npc.getHP() : 0x00));
-		buffer.writeInt((int) (template.isAttackable() ? template.getMaxHP()
-				: 0x00));
+		buffer.writeInt((int) (template.isAttackable() ? template
+				.getMaximumHP() : 0x00));
 		buffer.writeInt(0x01); // object type
 		buffer.writeInt(0x00); // special effects
 	}

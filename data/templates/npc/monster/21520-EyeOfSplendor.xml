@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21520" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Eye of Splendor</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8960</experience>
+        <sp>778</sp>
+        <item lefthand="0" righthand="326"/>
+        <collision heigth="26.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2445" min="1203" id="57"/>
+        <item chance="36" max="1" min="1" id="947"/>
+        <item chance="99819" max="1" min="1" id="1832"/>
+        <item chance="25668" max="1" min="1" id="1895"/>
+        <item chance="1797" max="1" min="1" id="4040"/>
+        <item chance="1497" max="1" min="1" id="4042"/>
+        <item chance="2995" max="1" min="1" id="4043"/>
+        <item chance="159526" max="1" min="1" id="4049"/>
+        <item chance="7853" max="1" min="1" id="4049"/>
+        <item chance="188436" max="1" min="1" id="4050"/>
+        <item chance="9277" max="1" min="1" id="4050"/>
+        <item chance="5807" max="1" min="1" id="4051"/>
+        <item chance="32915" max="1" min="1" id="4129"/>
+        <item chance="1497" max="1" min="1" id="8728"/>
+        <item chance="374" max="1" min="1" id="8738"/>
+        <item chance="37" max="1" min="1" id="8748"/>
+        <item chance="7" max="1" min="1" id="8758"/>
+        <item chance="1227" max="1" min="1" id="12338"/>
+        <item chance="921" max="1" min="1" id="12339"/>
+        <item chance="1848" max="1" min="1" id="12340"/>
+    </droplist>
+</npc>

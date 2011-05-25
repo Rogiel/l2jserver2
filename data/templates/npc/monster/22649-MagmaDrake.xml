@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22649" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Magma Drake</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="57.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>53712</experience>
+        <sp>5596</sp>
+        <collision heigth="42.0" radius="29.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5000" min="3000" id="57"/>
+        <item chance="800000" max="1" min="1" id="1894"/>
+        <item chance="310000" max="1" min="1" id="1895"/>
+        <item chance="20000" max="1" min="1" id="4040"/>
+        <item chance="10000" max="1" min="1" id="4042"/>
+        <item chance="30000" max="1" min="1" id="4043"/>
+        <item chance="700" max="1" min="1" id="5157"/>
+        <item chance="80000" max="1" min="1" id="5533"/>
+        <item chance="20000" max="1" min="1" id="6698"/>
+        <item chance="20000" max="1" min="1" id="6699"/>
+        <item chance="10000" max="1" min="1" id="6700"/>
+        <item chance="40" max="1" min="1" id="6724"/>
+        <item chance="50" max="1" min="1" id="6725"/>
+        <item chance="30" max="1" min="1" id="6726"/>
+    </droplist>
+</npc>

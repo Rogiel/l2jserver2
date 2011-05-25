@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25128" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Vuku Grand Seer Gharmash</name>
+        <title send="false">Raid Boss</title>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="24.5170941308607" max="62398.1465210939"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="140.55753"/>
+                <magical speed="333.0" damage="11.19451"/>
+            </attack>
+            <defense>
+                <physical value="387.69285"/>
+                <magical value="189.14"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1932560</experience>
+        <sp>127255</sp>
+        <item lefthand="0" righthand="195"/>
+        <collision heigth="35.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="16016" max="1" min="1" id="159"/>
+        <item chance="16016" max="1" min="1" id="187"/>
+        <item chance="16016" max="1" min="1" id="188"/>
+        <item chance="16016" max="1" min="1" id="189"/>
+        <item chance="16016" max="1" min="1" id="190"/>
+        <item chance="22046" max="18" min="6" id="851"/>
+        <item chance="39682" max="15" min="5" id="882"/>
+        <item chance="198411" max="1" min="1" id="914"/>
+        <item chance="436305" max="1" min="1" id="951"/>
+        <item chance="533261" max="9" min="3" id="952"/>
+        <item chance="74105" max="243" min="81" id="1905"/>
+        <item chance="212048" max="120" min="40" id="1906"/>
+        <item chance="27874" max="462" min="154" id="1907"/>
+        <item chance="229594" max="6" min="2" id="2048"/>
+        <item chance="183676" max="7" min="3" id="2049"/>
+        <item chance="69556" max="21" min="7" id="2050"/>
+        <item chance="40574" max="36" min="12" id="2051"/>
+        <item chance="153061" max="9" min="3" id="2058"/>
+        <item chance="15998" max="1" min="1" id="6573"/>
+    </droplist>
+</npc>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22262" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Naiad</name>
+        <level>81</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1012.32268"/>
+                <magical speed="333.0" damage="691.28516"/>
+            </attack>
+            <defense>
+                <physical value="345.61127"/>
+                <magical value="252.90333"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12486</experience>
+        <sp>1383</sp>
+        <item lefthand="9638" righthand="9638"/>
+        <collision heigth="27.5" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3516" min="1717" id="57"/>
+        <item chance="111111" max="1" min="1" id="9594"/>
+        <item chance="36095" max="1" min="1" id="1895"/>
+        <item chance="2527" max="1" min="1" id="4040"/>
+        <item chance="991" max="1" min="1" id="9628"/>
+        <item chance="665" max="1" min="1" id="9630"/>
+        <item chance="1011" max="1" min="1" id="9546"/>
+        <item chance="433" max="1" min="1" id="8349"/>
+        <item chance="433" max="1" min="1" id="5533"/>
+        <item chance="433" max="1" min="1" id="5544"/>
+        <item chance="433" max="1" min="1" id="8342"/>
+        <item chance="877" max="1" min="1" id="9573"/>
+        <item chance="219" max="1" min="1" id="9574"/>
+        <item chance="22" max="1" min="1" id="9575"/>
+        <item chance="4" max="1" min="1" id="9576"/>
+        <item chance="51" max="1" min="1" id="960"/>
+        <item chance="28" max="1" min="1" id="11970"/>
+        <item chance="28" max="1" min="1" id="11974"/>
+        <item chance="28" max="1" min="1" id="11969"/>
+        <item chance="28" max="1" min="1" id="11966"/>
+        <item chance="43313" max="1" min="1" id="5514"/>
+        <item chance="1140" max="1" min="1" id="5162"/>
+        <item chance="1140" max="1" min="1" id="5167"/>
+    </droplist>
+</npc>

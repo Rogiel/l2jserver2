@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="25346" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shadow of Halisha</name>
+        <title send="false">Ruler of Sepulcher</title>
+        <level>80</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="73.0538466979355" max="213848.930921219"/>
+            <mp regen="3.03" max="1725.888"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="866.44981"/>
+                <magical speed="333.0" damage="251.11046"/>
+            </attack>
+            <defense>
+                <physical value="1047.20215"/>
+                <magical value="510.858"/>
+            </defense>
+            <move walk="43.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2643173</experience>
+        <sp>390090</sp>
+        <item lefthand="0" righthand="6720"/>
+        <collision heigth="60.0" radius="23.0"/>
+    </info>
+    <droplist>
+        <item chance="19519" max="1" min="1" id="959"/>
+        <item chance="195186" max="1" min="1" id="960"/>
+        <item chance="5282" max="1" min="1" id="6367"/>
+        <item chance="3253" max="1" min="1" id="6577"/>
+        <item chance="5890" max="1" min="1" id="6674"/>
+        <item chance="9425" max="1" min="1" id="6675"/>
+        <item chance="406832" max="9" min="3" id="6691"/>
+        <item chance="133615" max="22" min="8" id="6701"/>
+        <item chance="322495" max="12" min="4" id="6702"/>
+    </droplist>
+</npc>

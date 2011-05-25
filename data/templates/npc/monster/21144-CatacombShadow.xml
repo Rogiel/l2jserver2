@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21144" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Catacomb Shadow</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="80.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5016</experience>
+        <sp>293</sp>
+        <collision heigth="30.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="1507" max="1" min="1" id="47"/>
+        <item chance="700000" max="1399" min="702" id="57"/>
+        <item chance="2154" max="1" min="1" id="628"/>
+        <item chance="126159" max="1" min="1" id="1865"/>
+        <item chance="126159" max="1" min="1" id="1870"/>
+        <item chance="8411" max="1" min="1" id="1875"/>
+        <item chance="21026" max="1" min="1" id="1879"/>
+        <item chance="229413" max="1" min="1" id="1901"/>
+        <item chance="111661" max="1" min="1" id="1938"/>
+        <item chance="177832" max="1" min="1" id="2154"/>
+        <item chance="5632" max="1" min="1" id="2187"/>
+        <item chance="10513" max="1" min="1" id="6035"/>
+        <item chance="901" max="1" min="1" id="8317"/>
+    </droplist>
+</npc>

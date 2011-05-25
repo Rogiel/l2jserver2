@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22076" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Deadly Ginzu Golem V</name>
+        <level>53</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1570.8463"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="353.71092"/>
+                <magical speed="333.0" damage="241.5387"/>
+            </attack>
+            <defense>
+                <physical value="214.18326"/>
+                <magical value="156.73001"/>
+            </defense>
+            <move walk="53.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>18465</experience>
+        <sp>1385</sp>
+        <collision heigth="41.5" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4833" min="2379" id="57"/>
+        <item chance="221909" max="1" min="1" id="1871"/>
+        <item chance="147940" max="1" min="1" id="1866"/>
+        <item chance="18492" max="1" min="1" id="1885"/>
+        <item chance="8876" max="1" min="1" id="5220"/>
+        <item chance="1696" max="1" min="1" id="5530"/>
+        <item chance="1694" max="1" min="1" id="2115"/>
+        <item chance="1685" max="1" min="1" id="8335"/>
+        <item chance="1930" max="1" min="1" id="4041"/>
+        <item chance="256" max="1" min="1" id="8321"/>
+        <item chance="5137" max="1" min="1" id="8726"/>
+        <item chance="1284" max="1" min="1" id="8736"/>
+        <item chance="128" max="1" min="1" id="8746"/>
+        <item chance="26" max="1" min="1" id="8756"/>
+        <item chance="16" max="1" min="1" id="11853"/>
+        <item chance="16" max="1" min="1" id="11850"/>
+        <item chance="16" max="1" min="1" id="11843"/>
+        <item chance="28277" max="1" min="1" id="2117"/>
+        <item chance="6924" max="1" min="1" id="8310"/>
+        <item chance="28277" max="1" min="1" id="2118"/>
+    </droplist>
+</npc>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25268" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Decarbia's Escort</name>
+        <title send="false">Raid Fighter</title>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="122.142751323234" max="62863.3482253814"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="9587.96075"/>
+                <magical speed="333.0" damage="13630.35538"/>
+            </attack>
+            <defense>
+                <physical value="471.98981"/>
+                <magical value="460.5"/>
+            </defense>
+            <move walk="80.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="234"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="349167" max="180" min="60" id="1344"/>
+    </droplist>
+</npc>

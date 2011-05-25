@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model.template;
 
-import com.l2jserver.model.id.template.ItemTemplateID;
 
 /**
  * Template for an Aumentation
@@ -24,17 +23,13 @@ import com.l2jserver.model.id.template.ItemTemplateID;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AugmentTemplate extends AbstractTemplate<Object> {
-	public AugmentTemplate(ItemTemplateID id) {
-		super(id);
-	}
-
 	@Override
 	public Object create() {
 		return null;
 	}
 
-	@Override
-	public ItemTemplateID getID() {
-		return (ItemTemplateID) super.getID();
-	}
+	// @Override
+	// public ItemTemplateID getID() {
+	// return (ItemTemplateID) super.getID();
+	// }
 }

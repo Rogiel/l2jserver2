@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PenaltyMonster" id="18321" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Caught Rakul</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="100.69463"/>
+                <magical value="71.76319"/>
+            </defense>
+            <move walk="60.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1550</experience>
+        <sp>85</sp>
+        <item lefthand="0" righthand="156"/>
+        <collision heigth="39.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="33251" max="6" min="2" id="6520"/>
+        <item chance="110836" max="1" min="1" id="6523"/>
+        <item chance="133003" max="1" min="1" id="6526"/>
+        <item chance="200" max="1" min="1" id="6531"/>
+        <item chance="118753" max="36" min="12" id="6537"/>
+    </droplist>
+</npc>

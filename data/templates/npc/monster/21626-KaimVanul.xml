@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21626" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kaim Vanul</name>
+        <level>51</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1470.41596"/>
+            <mp regen="2.4" max="775.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="321.13207"/>
+                <magical speed="333.0" damage="219.29157"/>
+            </attack>
+            <defense>
+                <physical value="204.85194"/>
+                <magical value="136.39273"/>
+            </defense>
+            <move walk="37.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5345</experience>
+        <sp>408</sp>
+        <collision heigth="40.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="396845" max="1" min="1" id="1539"/>
+        <item chance="15529" max="1" min="1" id="4041"/>
+        <item chance="3968" max="1" min="1" id="4603"/>
+        <item chance="700000" max="1437" min="707" id="57"/>
+        <item chance="109" max="1" min="1" id="854"/>
+        <item chance="163" max="1" min="1" id="885"/>
+        <item chance="81" max="1" min="1" id="917"/>
+        <item chance="6914" max="1" min="1" id="1914"/>
+        <item chance="10843" max="1" min="1" id="1915"/>
+        <item chance="5237" max="1" min="1" id="1916"/>
+        <item chance="82055" max="1" min="1" id="1867"/>
+        <item chance="82055" max="1" min="1" id="1872"/>
+        <item chance="4103" max="1" min="1" id="1875"/>
+        <item chance="8205" max="1" min="1" id="1881"/>
+        <item chance="100" max="1" min="1" id="2355"/>
+        <item chance="535" max="1" min="1" id="4041"/>
+        <item chance="137" max="1" min="1" id="4601"/>
+        <item chance="137" max="1" min="1" id="4609"/>
+        <item chance="1710" max="1" min="1" id="8725"/>
+        <item chance="427" max="1" min="1" id="8735"/>
+        <item chance="43" max="1" min="1" id="8745"/>
+        <item chance="8" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

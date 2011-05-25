@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20330" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mineshaft Bat</name>
+        <level>11</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="185.38552"/>
+            <mp regen="1.2" max="116.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="21.0973"/>
+                <magical speed="333.0" damage="14.40672"/>
+            </attack>
+            <defense>
+                <physical value="64.04702"/>
+                <magical value="42.64323"/>
+            </defense>
+            <move walk="60.0" run="80.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>326</experience>
+        <sp>12</sp>
+        <collision heigth="33.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="3243" max="1" min="1" id="37"/>
+        <item chance="3243" max="1" min="1" id="49"/>
+        <item chance="700000" max="122" min="91" id="57"/>
+        <item chance="12352" max="1" min="1" id="1792"/>
+        <item chance="32431" max="1" min="1" id="1798"/>
+        <item chance="66159" max="1" min="1" id="1864"/>
+        <item chance="111988" max="1" min="1" id="1866"/>
+        <item chance="33080" max="1" min="1" id="1869"/>
+        <item chance="71179" max="1" min="1" id="1896"/>
+        <item chance="21342" max="1" min="1" id="1921"/>
+    </droplist>
+</npc>

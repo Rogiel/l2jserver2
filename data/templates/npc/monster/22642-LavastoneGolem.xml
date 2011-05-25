@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22642" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lavastone Golem</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="23.0" run="40.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>48492</experience>
+        <sp>5048</sp>
+        <collision heigth="31.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4800" min="2900" id="57"/>
+        <item chance="8" max="1" min="1" id="6370"/>
+        <item chance="5000" max="1" min="1" id="6694"/>
+        <item chance="30000" max="1" min="1" id="4039"/>
+        <item chance="30000" max="1" min="1" id="1894"/>
+        <item chance="30000" max="1" min="1" id="4044"/>
+        <item chance="8000" max="1" min="1" id="4041"/>
+        <item chance="5000" max="1" min="1" id="9551"/>
+        <item chance="5000" max="1" min="1" id="5162"/>
+        <item chance="500" max="1" min="1" id="959"/>
+        <item chance="5000" max="1" min="1" id="3957"/>
+    </droplist>
+</npc>

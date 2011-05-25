@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20439" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Officer</name>
+        <level>24</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="435.34437"/>
+            <mp regen="1.5" max="245.52"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="60.19687"/>
+                <magical speed="333.0" damage="41.10666"/>
+            </attack>
+            <defense>
+                <physical value="98.70919"/>
+                <magical value="65.72169"/>
+            </defense>
+            <move walk="50.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1123</experience>
+        <sp>55</sp>
+        <item lefthand="0" righthand="66"/>
+        <collision heigth="25.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="321" max="1" min="1" id="25"/>
+        <item chance="208" max="1" min="1" id="26"/>
+        <item chance="514" max="1" min="1" id="32"/>
+        <item chance="333" max="1" min="1" id="34"/>
+        <item chance="700000" max="327" min="177" id="57"/>
+        <item chance="157297" max="1" min="1" id="1868"/>
+        <item chance="31460" max="1" min="1" id="1873"/>
+        <item chance="3972" max="1" min="1" id="1926"/>
+        <item chance="5728" max="1" min="1" id="1928"/>
+        <item chance="4871" max="1" min="1" id="2015"/>
+        <item chance="111250" max="1" min="1" id="2151"/>
+        <item chance="9765" max="1" min="1" id="2255"/>
+        <item chance="1923" max="1" min="1" id="2257"/>
+    </droplist>
+</npc>

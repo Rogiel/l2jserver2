@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22097" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Yeti</name>
+        <level>62</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2037.81082"/>
+            <mp regen="2.7" max="1097.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="521.12391"/>
+                <magical speed="333.0" damage="355.86007"/>
+            </attack>
+            <defense>
+                <physical value="257.34267"/>
+                <magical value="188.3122"/>
+            </defense>
+            <move walk="16.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6728</experience>
+        <sp>599</sp>
+        <collision heigth="27.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1844" min="910" id="57"/>
+        <item chance="74493" max="30" min="10" id="1343"/>
+        <item chance="52145" max="1" min="1" id="1870"/>
+        <item chance="52145" max="1" min="1" id="1865"/>
+        <item chance="8691" max="1" min="1" id="1879"/>
+        <item chance="3476" max="1" min="1" id="1875"/>
+        <item chance="1988" max="1" min="1" id="4087"/>
+        <item chance="1988" max="1" min="1" id="4086"/>
+        <item chance="1473" max="1" min="1" id="4084"/>
+        <item chance="1473" max="1" min="1" id="4085"/>
+        <item chance="1043" max="1" min="1" id="4040"/>
+        <item chance="69" max="1" min="1" id="3035"/>
+        <item chance="40" max="1" min="1" id="8305"/>
+        <item chance="19" max="1" min="1" id="8326"/>
+        <item chance="150" max="1" min="1" id="12201"/>
+        <item chance="150" max="1" min="1" id="12192"/>
+        <item chance="241" max="1" min="1" id="12203"/>
+        <item chance="241" max="1" min="1" id="12205"/>
+        <item chance="45202" max="1" min="1" id="4054"/>
+        <item chance="98368" max="1" min="1" id="4053"/>
+        <item chance="3060" max="1" min="1" id="1807"/>
+        <item chance="695" max="1" min="1" id="8729"/>
+        <item chance="174" max="1" min="1" id="8739"/>
+        <item chance="17" max="1" min="1" id="8748"/>
+        <item chance="3" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25491" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guard of Gwindorr</name>
+        <title send="false">Raid Fighter</title>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="32.4117473308651" max="9312.60864407141"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="439.93871"/>
+                <magical speed="333.0" damage="69.19756"/>
+            </attack>
+            <defense>
+                <physical value="228.70128"/>
+                <magical value="223.14"/>
+            </defense>
+            <move walk="43.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="2507"/>
+        <collision heigth="22.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="14720" max="1" min="1" id="6036"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22025" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Frozen Wasteland Werewolf</name>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="886.09975"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="156.22273"/>
+                <magical speed="333.0" damage="106.67987"/>
+            </attack>
+            <defense>
+                <physical value="148.44287"/>
+                <magical value="108.62405"/>
+            </defense>
+            <move walk="50.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2662</experience>
+        <sp>166</sp>
+        <collision heigth="26.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="736" min="369" id="57"/>
+        <item chance="120193" max="1" min="1" id="1872"/>
+        <item chance="120193" max="1" min="1" id="1867"/>
+        <item chance="20032" max="1" min="1" id="1882"/>
+        <item chance="6439" max="1" min="1" id="2145"/>
+        <item chance="4457" max="1" min="1" id="2918"/>
+        <item chance="4457" max="1" min="1" id="2919"/>
+        <item chance="2988" max="1" min="1" id="1941"/>
+        <item chance="3163" max="1" min="1" id="1894"/>
+        <item chance="105" max="1" min="1" id="34"/>
+        <item chance="65" max="1" min="1" id="395"/>
+        <item chance="105" max="1" min="1" id="417"/>
+        <item chance="145444" max="1" min="1" id="1903"/>
+        <item chance="62281" max="1" min="1" id="2145"/>
+        <item chance="81375" max="1" min="1" id="1904"/>
+    </droplist>
+</npc>

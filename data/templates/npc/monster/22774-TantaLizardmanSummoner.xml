@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22774" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tanta Lizardman Summoner</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="75.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>46590</experience>
+        <sp>4740</sp>
+        <collision heigth="44.0" radius="29.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3243" min="1757" id="57"/>
+        <item chance="58200" max="1" min="1" id="1879"/>
+        <item chance="26200" max="1" min="1" id="1885"/>
+        <item chance="3200" max="1" min="1" id="9628"/>
+        <item chance="1400" max="1" min="1" id="9629"/>
+        <item chance="50000" max="1" min="1" id="9630"/>
+        <item chance="1600" max="1" min="1" id="9630"/>
+        <item chance="4500" max="1" min="1" id="10483"/>
+        <item chance="1100" max="1" min="1" id="10484"/>
+        <item chance="110" max="1" min="1" id="10485"/>
+        <item chance="10000" max="1" min="1" id="15649"/>
+        <item chance="3500" max="1" min="1" id="15649"/>
+        <item chance="3500" max="1" min="1" id="15650"/>
+        <item chance="13000" max="1" min="1" id="15652"/>
+        <item chance="5000" max="1" min="1" id="15652"/>
+        <item chance="5000" max="1" min="1" id="15653"/>
+        <item chance="3" max="1" min="1" id="15698"/>
+        <item chance="3" max="1" min="1" id="15699"/>
+        <item chance="4" max="1" min="1" id="15701"/>
+        <item chance="4" max="1" min="1" id="15702"/>
+        <item chance="700" max="1" min="1" id="15779"/>
+        <item chance="50" max="1" min="1" id="15779"/>
+        <item chance="700" max="1" min="1" id="15780"/>
+        <item chance="50" max="1" min="1" id="15780"/>
+        <item chance="700" max="1" min="1" id="15782"/>
+        <item chance="50" max="1" min="1" id="15782"/>
+        <item chance="700" max="1" min="1" id="15783"/>
+        <item chance="50" max="1" min="1" id="15783"/>
+    </droplist>
+</npc>

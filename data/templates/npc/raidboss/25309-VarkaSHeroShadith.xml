@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25309" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Varka's Hero Shadith</name>
+        <title send="false">Raid Boss</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="92.3387631310317" max="300327.053710865"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1445.33275"/>
+                <magical speed="333.0" damage="280.52214"/>
+            </attack>
+            <defense>
+                <physical value="1024.125"/>
+                <magical value="499.6"/>
+            </defense>
+            <move walk="36.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3775961</experience>
+        <sp>557272</sp>
+        <item lefthand="0" righthand="6716"/>
+        <collision heigth="47.5" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="8194" max="1" min="1" id="6674"/>
+        <item chance="13111" max="1" min="1" id="6675"/>
+        <item chance="7348" max="1" min="1" id="6367"/>
+        <item chance="565930" max="9" min="3" id="6691"/>
+        <item chance="185867" max="22" min="8" id="6701"/>
+        <item chance="448612" max="12" min="4" id="6702"/>
+        <item chance="27152" max="1" min="1" id="959"/>
+        <item chance="271517" max="1" min="1" id="960"/>
+        <item chance="4525" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

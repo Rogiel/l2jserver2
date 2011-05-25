@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20540" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gemstone Beast</name>
+        <level>12</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="199.62322"/>
+            <mp regen="1.2" max="124.48"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="22.99606"/>
+                <magical speed="333.0" damage="15.70333"/>
+            </attack>
+            <defense>
+                <physical value="66.32989"/>
+                <magical value="44.16318"/>
+            </defense>
+            <move walk="30.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>353</experience>
+        <sp>13</sp>
+        <collision heigth="14.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="1110" max="1" min="1" id="23"/>
+        <item chance="1779" max="1" min="1" id="30"/>
+        <item chance="700000" max="127" min="92" id="57"/>
+        <item chance="16987" max="1" min="1" id="736"/>
+        <item chance="460056" max="1" min="1" id="1831"/>
+        <item chance="67947" max="1" min="1" id="1868"/>
+        <item chance="69008" max="1" min="1" id="1873"/>
+        <item chance="13590" max="1" min="1" id="1873"/>
+        <item chance="73102" max="1" min="1" id="1896"/>
+        <item chance="1779" max="1" min="1" id="2386"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25255" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gargoyle Lord Tiphon</name>
+        <title send="false">Raid Boss</title>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="277.057601433902" max="688201.003654661"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3631.0152"/>
+                <magical speed="333.0" damage="2425.23781"/>
+            </attack>
+            <defense>
+                <physical value="815.67099"/>
+                <magical value="397.92"/>
+            </defense>
+            <move walk="100.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4489693</experience>
+        <sp>746626</sp>
+        <collision heigth="98.0" radius="37.0"/>
+    </info>
+    <droplist>
+        <item chance="30660" max="1" min="1" id="269"/>
+        <item chance="35962" max="1" min="1" id="5297"/>
+        <item chance="57518" max="1" min="1" id="5298"/>
+        <item chance="22127" max="1" min="1" id="5301"/>
+        <item chance="224370" max="27" min="9" id="5478"/>
+        <item chance="71047" max="60" min="20" id="5479"/>
+        <item chance="113198" max="84" min="28" id="5482"/>
+        <item chance="303675" max="36" min="12" id="5539"/>
+        <item chance="18677" max="1" min="1" id="6569"/>
+        <item chance="155645" max="1" min="1" id="6570"/>
+        <item chance="800000" max="4" min="1" id="8176"/>
+        <item chance="800000" max="7" min="3" id="9817"/>
+    </droplist>
+</npc>

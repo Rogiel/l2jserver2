@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22172" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ritual Sacrifice</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.976" max="3136.2900942"/>
+            <mp regen="3.16812" max="1919.436"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.02769"/>
+                <magical speed="333.0" damage="760.91932"/>
+            </attack>
+            <defense>
+                <physical value="386.50478"/>
+                <magical value="282.82742"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>53740</experience>
+        <sp>6251</sp>
+        <collision heigth="25.8" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="15233" min="7442" id="57"/>
+        <item chance="605" max="1" min="1" id="959"/>
+        <item chance="22" max="1" min="1" id="959"/>
+        <item chance="174487" max="120" min="40" id="1344"/>
+        <item chance="41360" max="27" min="9" id="1867"/>
+        <item chance="74448" max="15" min="5" id="1872"/>
+        <item chance="37224" max="1" min="1" id="1875"/>
+        <item chance="74448" max="1" min="1" id="1881"/>
+        <item chance="4856" max="1" min="1" id="4041"/>
+        <item chance="92" max="1" min="1" id="5312"/>
+        <item chance="131" max="1" min="1" id="5315"/>
+        <item chance="92" max="1" min="1" id="5317"/>
+        <item chance="14131" max="1" min="1" id="5495"/>
+        <item chance="11126" max="1" min="1" id="5527"/>
+        <item chance="11126" max="1" min="1" id="5528"/>
+        <item chance="245313" max="1" min="1" id="6714"/>
+        <item chance="15122" max="1" min="1" id="6901"/>
+        <item chance="4653" max="1" min="1" id="8732"/>
+        <item chance="1163" max="1" min="1" id="8742"/>
+        <item chance="116" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

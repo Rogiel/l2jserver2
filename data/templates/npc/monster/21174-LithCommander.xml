@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21174" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lith Commander</name>
+        <level>45</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1183.80594"/>
+            <mp regen="2.1" max="610.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="234.89829"/>
+                <magical speed="333.0" damage="160.40508"/>
+            </attack>
+            <defense>
+                <physical value="177.78746"/>
+                <magical value="118.3729"/>
+            </defense>
+            <move walk="53.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10925</experience>
+        <sp>760</sp>
+        <item lefthand="0" righthand="5796"/>
+        <collision heigth="42.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="667898" max="3" min="1" id="1873"/>
+        <item chance="316239" max="1" min="1" id="1908"/>
+        <item chance="170382" max="1" min="1" id="2163"/>
+        <item chance="700000" max="62" min="33" id="6360"/>
+        <item chance="90" max="1" min="1" id="281"/>
+        <item chance="5589" max="1" min="1" id="2074"/>
+        <item chance="225471" max="3" min="1" id="1868"/>
+        <item chance="90188" max="1" min="1" id="1873"/>
+        <item chance="45094" max="1" min="1" id="1876"/>
+        <item chance="64420" max="1" min="1" id="1895"/>
+        <item chance="17344" max="1" min="1" id="2164"/>
+        <item chance="14005" max="1" min="1" id="3002"/>
+        <item chance="3758" max="1" min="1" id="4042"/>
+        <item chance="700000" max="425" min="211" id="6361"/>
+        <item chance="700000" max="45" min="25" id="6362"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25585" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Medici</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>76</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="86.3741508019361" max="201046.259272195"/>
+            <mp regen="3.0" max="1540.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5484.05623"/>
+                <magical speed="333.0" damage="896.94605"/>
+            </attack>
+            <defense>
+                <physical value="971.35365"/>
+                <magical value="473.86"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2383519</experience>
+        <sp>369370</sp>
+        <collision heigth="53.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="31744" max="1" min="1" id="729"/>
+        <item chance="82545" max="1" min="1" id="5290"/>
+        <item chance="82545" max="1" min="1" id="5291"/>
+        <item chance="82545" max="1" min="1" id="5295"/>
+        <item chance="82545" max="1" min="1" id="5296"/>
+        <item chance="37284" max="346" min="116" id="5496"/>
+        <item chance="191390" max="67" min="23" id="5497"/>
+        <item chance="71771" max="180" min="60" id="5508"/>
+        <item chance="22429" max="576" min="192" id="5509"/>
+        <item chance="3809" max="1" min="1" id="6569"/>
+        <item chance="31744" max="1" min="1" id="6570"/>
+        <item chance="57140" max="1" min="1" id="9625"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21319" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hot Springs Nepenthes</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="212.55774"/>
+            </defense>
+            <move walk="48.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>27928</experience>
+        <sp>2946</sp>
+        <collision heigth="43.5" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7105" min="3482" id="57"/>
+        <item chance="271497" max="60" min="20" id="1344"/>
+        <item chance="3137" max="1" min="1" id="5157"/>
+        <item chance="107187" max="1" min="1" id="5495"/>
+        <item chance="119216" max="1" min="1" id="5502"/>
+        <item chance="4446" max="1" min="1" id="5535"/>
+        <item chance="7489" max="1" min="1" id="7649"/>
+        <item chance="7489" max="1" min="1" id="7650"/>
+        <item chance="7489" max="1" min="1" id="7651"/>
+        <item chance="7489" max="1" min="1" id="7652"/>
+        <item chance="7489" max="1" min="1" id="7653"/>
+        <item chance="359" max="1" min="1" id="11955"/>
+    </droplist>
+</npc>

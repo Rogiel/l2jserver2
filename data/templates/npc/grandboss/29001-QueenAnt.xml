@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29001" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Queen Ant</name>
+        <level>40</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="208.0" max="96596.0"/>
+            <mp regen="2.1" max="300.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="105.0"/>
+                <magical speed="333.0" damage="8.0"/>
+            </attack>
+            <defense>
+                <physical value="1252.0"/>
+                <magical value="229.0"/>
+            </defense>
+            <move walk="80.0" run="230.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2179536</experience>
+        <sp>140740</sp>
+        <collision heigth="53.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="60000" max="1" min="1" id="70"/>
+        <item chance="55000" max="1" min="1" id="159"/>
+        <item chance="55000" max="1" min="1" id="188"/>
+        <item chance="55000" max="1" min="1" id="189"/>
+        <item chance="55000" max="1" min="1" id="225"/>
+        <item chance="50000" max="1" min="1" id="262"/>
+        <item chance="55000" max="1" min="1" id="280"/>
+        <item chance="55000" max="1" min="1" id="297"/>
+        <item chance="60000" max="1" min="1" id="2499"/>
+        <item chance="350000" max="2" min="1" id="851"/>
+        <item chance="350000" max="2" min="1" id="882"/>
+        <item chance="300000" max="2" min="1" id="914"/>
+        <item chance="375000" max="2" min="1" id="353"/>
+        <item chance="375000" max="2" min="1" id="380"/>
+        <item chance="425000" max="2" min="1" id="396"/>
+        <item chance="425000" max="2" min="1" id="438"/>
+        <item chance="200000" max="3" min="1" id="607"/>
+        <item chance="200000" max="3" min="1" id="630"/>
+        <item chance="200000" max="3" min="1" id="955"/>
+        <item chance="200000" max="3" min="1" id="1125"/>
+        <item chance="200000" max="3" min="1" id="2412"/>
+        <item chance="1000000" max="170000" min="140000" id="57"/>
+        <item chance="1000000" max="170000" min="140000" id="57"/>
+        <item chance="1000000" max="170000" min="140000" id="57"/>
+        <item chance="1000000" max="170000" min="140000" id="57"/>
+        <item chance="1000000" max="170000" min="140000" id="57"/>
+        <item chance="1000000" max="170000" min="140000" id="57"/>
+        <item chance="1000000" max="150000" min="120000" id="57"/>
+        <item chance="300000" max="1" min="1" id="6660"/>
+    </droplist>
+</npc>

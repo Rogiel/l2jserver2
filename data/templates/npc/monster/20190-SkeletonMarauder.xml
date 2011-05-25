@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20190" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Skeleton Marauder</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="76.57227"/>
+            </defense>
+            <move walk="40.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1568</experience>
+        <sp>84</sp>
+        <item lefthand="0" righthand="14"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="448" min="226" id="57"/>
+        <item chance="39" max="1" min="1" id="275"/>
+        <item chance="39" max="1" min="1" id="276"/>
+        <item chance="533484" max="3" min="1" id="1864"/>
+        <item chance="38870" max="1" min="1" id="1866"/>
+        <item chance="58306" max="1" min="1" id="1871"/>
+        <item chance="4859" max="1" min="1" id="1885"/>
+        <item chance="58368" max="1" min="1" id="1900"/>
+        <item chance="1385" max="1" min="1" id="2024"/>
+        <item chance="7389" max="1" min="1" id="2025"/>
+        <item chance="9068" max="1" min="1" id="2153"/>
+        <item chance="2332" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

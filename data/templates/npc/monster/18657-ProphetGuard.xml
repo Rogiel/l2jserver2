@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18657" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Prophet Guard</name>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="17.0" max="8619.06371275888"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="445.25"/>
+                <magical speed="333.0" damage="152.024"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="34.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>37565</experience>
+        <sp>4122</sp>
+        <item lefthand="6918" righthand="2504"/>
+        <collision heigth="41.0" radius="16.0"/>
+    </info>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25125" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fierce Tiger King Angel</name>
+        <title send="false">Raid Boss</title>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="277.057601433902" max="688201.003654661"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3631.0152"/>
+                <magical speed="333.0" damage="2425.23781"/>
+            </attack>
+            <defense>
+                <physical value="815.67099"/>
+                <magical value="397.92"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4489693</experience>
+        <sp>746626</sp>
+        <collision heigth="87.0" radius="72.0"/>
+    </info>
+    <droplist>
+        <item chance="15330" max="1" min="1" id="212"/>
+        <item chance="15330" max="1" min="1" id="2504"/>
+        <item chance="35962" max="1" min="1" id="5304"/>
+        <item chance="57518" max="1" min="1" id="5305"/>
+        <item chance="22127" max="1" min="1" id="5308"/>
+        <item chance="224370" max="27" min="9" id="5485"/>
+        <item chance="71047" max="60" min="20" id="5486"/>
+        <item chance="113198" max="84" min="28" id="5489"/>
+        <item chance="242934" max="22" min="8" id="5532"/>
+        <item chance="459799" max="12" min="4" id="5543"/>
+        <item chance="18677" max="1" min="1" id="6569"/>
+        <item chance="155645" max="1" min="1" id="6570"/>
+        <item chance="800000" max="4" min="1" id="8176"/>
+        <item chance="800000" max="7" min="3" id="9816"/>
+    </droplist>
+</npc>

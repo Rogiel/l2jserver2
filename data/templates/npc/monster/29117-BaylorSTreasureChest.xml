@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29117" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Baylor's Treasure Chest</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2985.1835"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="949.52401"/>
+                <magical speed="333.0" damage="648.40181"/>
+            </attack>
+            <defense>
+                <physical value="353.86144"/>
+                <magical value="258.94045"/>
+            </defense>
+            <move walk="80.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="8.5" radius="8.5"/>
+    </info>
+    <droplist>
+        <item chance="10715" max="1" min="1" id="6577"/>
+        <item chance="71436" max="1" min="1" id="6578"/>
+        <item chance="19817" max="1" min="1" id="6678"/>
+        <item chance="13876" max="1" min="1" id="6679"/>
+        <item chance="13876" max="1" min="1" id="6683"/>
+        <item chance="13876" max="1" min="1" id="6687"/>
+        <item chance="115459" max="67" min="23" id="6705"/>
+        <item chance="50363" max="180" min="60" id="6706"/>
+        <item chance="287788" max="31" min="11" id="6710"/>
+        <item chance="188861" max="48" min="16" id="6714"/>
+        <item chance="84497" max="1" min="1" id="10170"/>
+    </droplist>
+</npc>

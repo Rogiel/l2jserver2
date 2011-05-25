@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21224" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sepulcher Guardian</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>15315</experience>
+        <sp>1329</sp>
+        <item lefthand="0" righthand="233"/>
+        <collision heigth="34.5" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4180" min="2056" id="57"/>
+        <item chance="11" max="1" min="1" id="91"/>
+        <item chance="11" max="1" min="1" id="92"/>
+        <item chance="219378" max="30" min="10" id="1343"/>
+        <item chance="182410" max="1" min="1" id="1894"/>
+        <item chance="5388" max="1" min="1" id="1894"/>
+        <item chance="173289" max="1" min="1" id="4039"/>
+        <item chance="5119" max="1" min="1" id="4039"/>
+        <item chance="1335" max="1" min="1" id="4041"/>
+        <item chance="5119" max="1" min="1" id="4044"/>
+        <item chance="2197" max="1" min="1" id="4105"/>
+        <item chance="2160" max="1" min="1" id="4106"/>
+        <item chance="326" max="1" min="1" id="4158"/>
+        <item chance="7171" max="1" min="1" id="4613"/>
+        <item chance="2559" max="1" min="1" id="8728"/>
+        <item chance="640" max="1" min="1" id="8738"/>
+        <item chance="64" max="1" min="1" id="8748"/>
+        <item chance="13" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22308" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kechi's Guard</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="90.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>30391</experience>
+        <sp>3173</sp>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8126" min="3967" id="57"/>
+        <item chance="69501" max="1" min="1" id="1879"/>
+        <item chance="34750" max="1" min="1" id="1885"/>
+        <item chance="3275" max="1" min="1" id="5480"/>
+        <item chance="3275" max="1" min="1" id="5481"/>
+        <item chance="417" max="1" min="1" id="6901"/>
+        <item chance="48761" max="1" min="1" id="8342"/>
+        <item chance="3336" max="1" min="1" id="9547"/>
+        <item chance="3271" max="1" min="1" id="9628"/>
+        <item chance="1813" max="1" min="1" id="9629"/>
+        <item chance="2195" max="1" min="1" id="9630"/>
+        <item chance="408" max="1" min="1" id="12258"/>
+        <item chance="408" max="1" min="1" id="12265"/>
+    </droplist>
+</npc>

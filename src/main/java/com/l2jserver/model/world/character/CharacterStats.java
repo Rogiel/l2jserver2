@@ -212,6 +212,10 @@ public class CharacterStats {
 	public int getEvasionRate() {
 		return (int) calc(StatType.EVASION_RATE);
 	}
+	
+	public int getMaximumLoad() {
+		return (int) calc(StatType.MAX_LOAD);
+	}
 
 	// public void add(StatType type, Calculator<?> calculator) {
 	// getCalculator(type).importFunctions(calculator);

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25293" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hestia Guardian Deity of the Hot Springs</name>
+        <title send="false">Raid Boss</title>
+        <level>78</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="126.536105676163" max="410600.548543185"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2592.71887"/>
+                <magical speed="333.0" damage="929.62086"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5346496</experience>
+        <sp>1193017</sp>
+        <collision heigth="54.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="52421" max="1" min="1" id="959"/>
+        <item chance="524215" max="1" min="1" id="960"/>
+        <item chance="8737" max="1" min="1" id="6577"/>
+        <item chance="23730" max="1" min="1" id="6674"/>
+        <item chance="37696" max="1" min="1" id="6675"/>
+        <item chance="25961" max="1" min="1" id="6684"/>
+        <item chance="76894" max="157" min="53" id="6701"/>
+        <item chance="216526" max="72" min="24" id="6702"/>
+        <item chance="417437" max="36" min="12" id="6711"/>
+    </droplist>
+</npc>

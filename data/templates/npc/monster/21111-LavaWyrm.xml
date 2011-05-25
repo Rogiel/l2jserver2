@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21111" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lava Wyrm</name>
+        <level>70</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="197.0242"/>
+            </defense>
+            <move walk="70.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8637</experience>
+        <sp>857</sp>
+        <collision heigth="72.0" radius="29.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2424" min="1191" id="57"/>
+        <item chance="92678" max="30" min="10" id="1344"/>
+        <item chance="74142" max="1" min="1" id="1865"/>
+        <item chance="74142" max="1" min="1" id="1870"/>
+        <item chance="4943" max="1" min="1" id="1875"/>
+        <item chance="12357" max="1" min="1" id="1879"/>
+        <item chance="1483" max="1" min="1" id="4040"/>
+        <item chance="26191" max="1" min="1" id="4041"/>
+        <item chance="99" max="1" min="1" id="5166"/>
+        <item chance="1247" max="1" min="1" id="5478"/>
+        <item chance="17822" max="1" min="1" id="5479"/>
+        <item chance="877" max="1" min="1" id="5479"/>
+        <item chance="39755" max="1" min="1" id="5482"/>
+        <item chance="1957" max="1" min="1" id="5482"/>
+        <item chance="40" max="1" min="1" id="8487"/>
+        <item chance="824" max="1" min="1" id="8730"/>
+        <item chance="206" max="1" min="1" id="8740"/>
+        <item chance="21" max="1" min="1" id="8750"/>
+        <item chance="4" max="1" min="1" id="8760"/>
+        <item chance="215" max="1" min="1" id="12222"/>
+        <item chance="345" max="1" min="1" id="12228"/>
+        <item chance="132" max="1" min="1" id="12230"/>
+    </droplist>
+</npc>

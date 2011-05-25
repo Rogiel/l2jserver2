@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25116" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Icarus Sample 2</name>
+        <title send="false">Raid Fighter</title>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="43.4767816366365" max="12518.7694823552"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="822.67619"/>
+                <magical speed="333.0" damage="239.8804"/>
+            </attack>
+            <defense>
+                <physical value="228.70128"/>
+                <magical value="223.14"/>
+            </defense>
+            <move walk="40.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="273"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="736000" max="60" min="20" id="1341"/>
+    </droplist>
+</npc>

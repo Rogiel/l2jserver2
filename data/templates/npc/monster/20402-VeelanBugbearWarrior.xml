@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20402" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Veelan Bugbear Warrior</name>
+        <level>24</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="435.34437"/>
+            <mp regen="1.5" max="245.52"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="60.19687"/>
+                <magical speed="333.0" damage="41.10666"/>
+            </attack>
+            <defense>
+                <physical value="98.70919"/>
+                <magical value="65.72169"/>
+            </defense>
+            <move walk="55.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1145</experience>
+        <sp>56</sp>
+        <item lefthand="0" righthand="88"/>
+        <collision heigth="35.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="328" max="1" min="1" id="25"/>
+        <item chance="212" max="1" min="1" id="26"/>
+        <item chance="524" max="1" min="1" id="32"/>
+        <item chance="340" max="1" min="1" id="34"/>
+        <item chance="700000" max="334" min="181" id="57"/>
+        <item chance="40111" max="1" min="1" id="1866"/>
+        <item chance="407376" max="1" min="1" id="1871"/>
+        <item chance="60166" max="1" min="1" id="1871"/>
+        <item chance="40738" max="1" min="1" id="1880"/>
+        <item chance="4052" max="1" min="1" id="1926"/>
+        <item chance="5843" max="1" min="1" id="1928"/>
+        <item chance="194917" max="1" min="1" id="2179"/>
+        <item chance="1471" max="1" min="1" id="2256"/>
+        <item chance="2407" max="1" min="1" id="5158"/>
+    </droplist>
+</npc>

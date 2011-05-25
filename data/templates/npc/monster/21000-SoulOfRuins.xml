@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21000" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Soul of Ruins</name>
+        <level>54</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1621.75618"/>
+            <mp regen="2.4" max="861.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="370.68904"/>
+                <magical speed="333.0" damage="253.13256"/>
+            </attack>
+            <defense>
+                <physical value="218.89589"/>
+                <magical value="145.74335"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5191</experience>
+        <sp>414</sp>
+        <collision heigth="22.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1402" min="688" id="57"/>
+        <item chance="5" max="1" min="1" id="299"/>
+        <item chance="6" max="1" min="1" id="301"/>
+        <item chance="6" max="1" min="1" id="303"/>
+        <item chance="871346" max="3" min="1" id="1865"/>
+        <item chance="49497" max="1" min="1" id="1865"/>
+        <item chance="49497" max="1" min="1" id="1870"/>
+        <item chance="3300" max="1" min="1" id="1875"/>
+        <item chance="8249" max="1" min="1" id="1879"/>
+        <item chance="75474" max="1" min="1" id="1918"/>
+        <item chance="18415" max="1" min="1" id="1986"/>
+        <item chance="520" max="1" min="1" id="2113"/>
+        <item chance="520" max="1" min="1" id="2114"/>
+        <item chance="490" max="1" min="1" id="2122"/>
+        <item chance="990" max="1" min="1" id="4040"/>
+        <item chance="317" max="1" min="1" id="4146"/>
+        <item chance="57" max="1" min="1" id="4182"/>
+        <item chance="99" max="1" min="1" id="5160"/>
+        <item chance="81" max="1" min="1" id="5436"/>
+        <item chance="1146" max="1" min="1" id="8726"/>
+        <item chance="286" max="1" min="1" id="8736"/>
+        <item chance="29" max="1" min="1" id="8746"/>
+        <item chance="6" max="1" min="1" id="8756"/>
+    </droplist>
+</npc>

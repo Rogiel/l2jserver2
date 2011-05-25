@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20773" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Conjurer Bat Lord</name>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2540.15331"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="731.52506"/>
+                <magical speed="333.0" damage="499.53679"/>
+            </attack>
+            <defense>
+                <physical value="305.35947"/>
+                <magical value="203.31178"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12643</experience>
+        <sp>1284</sp>
+        <collision heigth="33.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="4726" max="1" min="1" id="1807"/>
+        <item chance="29805" max="1" min="1" id="5478"/>
+        <item chance="20973" max="1" min="1" id="5479"/>
+        <item chance="700000" max="3569" min="1748" id="57"/>
+        <item chance="33" max="1" min="1" id="6323"/>
+        <item chance="43" max="1" min="1" id="6324"/>
+        <item chance="65" max="1" min="1" id="6325"/>
+        <item chance="6033" max="1" min="1" id="6341"/>
+        <item chance="4663" max="1" min="1" id="6343"/>
+        <item chance="8344" max="1" min="1" id="6345"/>
+        <item chance="99" max="1" min="1" id="730"/>
+        <item chance="237949" max="1" min="1" id="1868"/>
+        <item chance="47590" max="1" min="1" id="1873"/>
+        <item chance="7932" max="1" min="1" id="1889"/>
+        <item chance="3966" max="1" min="1" id="4044"/>
+        <item chance="592" max="1" min="1" id="4157"/>
+        <item chance="11897" max="1" min="1" id="5549"/>
+        <item chance="1322" max="1" min="1" id="8730"/>
+        <item chance="330" max="1" min="1" id="8740"/>
+        <item chance="33" max="1" min="1" id="8750"/>
+        <item chance="7" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

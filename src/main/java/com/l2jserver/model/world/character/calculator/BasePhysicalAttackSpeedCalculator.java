@@ -31,7 +31,7 @@ public class BasePhysicalAttackSpeedCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getAttackSpeed();
+				ctx.result = c.getTemplate().getBasePhysicalAttackSpeed();
 			}
 		}, new AbstractFunction<L2Character>(0x200) {
 			@Override

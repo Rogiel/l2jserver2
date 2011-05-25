@@ -81,12 +81,12 @@ public class CharacterEnterWorldPacket extends AbstractServerPacket {
 		buffer.writeInt(ActorExperience.LEVEL_1.level);
 		buffer.writeInt(0x00); // karma
 		buffer.writeInt(0x00); // pk
-		buffer.writeInt(character.getAttributes().getIntelligence()); // INT
-		buffer.writeInt(character.getAttributes().getStrength()); // STR
-		buffer.writeInt(character.getAttributes().getConcentration()); // CON
-		buffer.writeInt(character.getAttributes().getMentality()); // MEN
-		buffer.writeInt(character.getAttributes().getDexterity()); // DEX
-		buffer.writeInt(character.getAttributes().getWitness()); // WIT
+		buffer.writeInt(character.getStats().getIntelligence()); // INT
+		buffer.writeInt(character.getStats().getStrength()); // STR
+		buffer.writeInt(character.getStats().getConcentration()); // CON
+		buffer.writeInt(character.getStats().getMentality()); // MEN
+		buffer.writeInt(character.getStats().getDexterity()); // DEX
+		buffer.writeInt(character.getStats().getWitness()); // WIT
 
 		buffer.writeInt(250); // game time
 		buffer.writeInt(0x00);

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22018" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Bandit Hound</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="89.26566"/>
+            </defense>
+            <move walk="24.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1501</experience>
+        <sp>83</sp>
+        <collision heigth="11.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="426" min="213" id="57"/>
+        <item chance="91942" max="1" min="1" id="1872"/>
+        <item chance="91942" max="1" min="1" id="1867"/>
+        <item chance="15324" max="1" min="1" id="1882"/>
+        <item chance="359" max="1" min="1" id="392"/>
+        <item chance="574" max="1" min="1" id="414"/>
+        <item chance="276" max="1" min="1" id="955"/>
+        <item chance="16825" max="1" min="1" id="956"/>
+        <item chance="672999" max="1" min="1" id="1872"/>
+        <item chance="112167" max="1" min="1" id="1882"/>
+    </droplist>
+</npc>

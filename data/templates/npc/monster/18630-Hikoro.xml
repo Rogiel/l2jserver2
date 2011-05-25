@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18630" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hikoro</name>
+        <title send="false">Panuka</title>
+        <level>61</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="15.0" max="22092.8243635408"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="501.08068"/>
+                <magical speed="333.0" damage="342.17315"/>
+            </attack>
+            <defense>
+                <physical value="252.49346"/>
+                <magical value="184.76376"/>
+            </defense>
+            <move walk="60.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>63183</experience>
+        <sp>5562</sp>
+        <item lefthand="0" righthand="3"/>
+        <collision heigth="39.0" radius="30.0"/>
+    </info>
+</npc>

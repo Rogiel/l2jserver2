@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21014" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lesser Warlike Tyrant</name>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="702.20463"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="113.49065"/>
+                <magical speed="333.0" damage="77.49941"/>
+            </attack>
+            <defense>
+                <physical value="129.23095"/>
+                <magical value="86.04342"/>
+            </defense>
+            <move walk="70.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2385</experience>
+        <sp>137</sp>
+        <collision heigth="29.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="672" min="336" id="57"/>
+        <item chance="38" max="1" min="1" id="316"/>
+        <item chance="38" max="1" min="1" id="317"/>
+        <item chance="794911" max="1" min="1" id="1865"/>
+        <item chance="70441" max="1" min="1" id="1865"/>
+        <item chance="70441" max="1" min="1" id="1870"/>
+        <item chance="4696" max="1" min="1" id="1875"/>
+        <item chance="11740" max="1" min="1" id="1879"/>
+        <item chance="71453" max="1" min="1" id="1958"/>
+        <item chance="1648" max="1" min="1" id="2030"/>
+        <item chance="3145" max="1" min="1" id="2189"/>
+        <item chance="391" max="1" min="1" id="2286"/>
+        <item chance="106414" max="1" min="1" id="2977"/>
+    </droplist>
+</npc>

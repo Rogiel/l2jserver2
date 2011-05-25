@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20047" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Sukar Wererat Leader</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="55.97901"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>576</experience>
+        <sp>26</sp>
+        <item lefthand="0" righthand="216"/>
+        <collision heigth="25.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="420" max="1" min="1" id="24"/>
+        <item chance="671" max="1" min="1" id="31"/>
+        <item chance="8522" max="1" min="1" id="38"/>
+        <item chance="700000" max="177" min="104" id="57"/>
+        <item chance="420" max="1" min="1" id="390"/>
+        <item chance="671" max="1" min="1" id="412"/>
+        <item chance="3644" max="1" min="1" id="734"/>
+        <item chance="43717" max="1" min="1" id="1864"/>
+        <item chance="222001" max="1" min="1" id="1869"/>
+        <item chance="21859" max="1" min="1" id="1869"/>
+        <item chance="8744" max="1" min="1" id="1878"/>
+        <item chance="44400" max="1" min="1" id="2139"/>
+        <item chance="9504" max="1" min="1" id="2174"/>
+        <item chance="875" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

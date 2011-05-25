@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22291" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Weylin's Minion</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5793.32235"/>
+                <magical speed="333.0" damage="3956.08814"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="60.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>95185</experience>
+        <sp>10408</sp>
+        <collision heigth="35.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="24842" min="12128" id="57"/>
+        <item chance="127485" max="6" min="2" id="1873"/>
+        <item chance="127485" max="1" min="1" id="5549"/>
+        <item chance="84990" max="1" min="1" id="1889"/>
+        <item chance="84990" max="45" min="15" id="1868"/>
+        <item chance="42495" max="1" min="1" id="4044"/>
+        <item chance="12250" max="1" min="1" id="5534"/>
+        <item chance="10199" max="1" min="1" id="9546"/>
+        <item chance="793" max="1" min="1" id="11975"/>
+        <item chance="51" max="1" min="1" id="959"/>
+        <item chance="603856" max="3" min="1" id="1889"/>
+        <item chance="81576" max="1" min="1" id="5488"/>
+        <item chance="8051" max="1" min="1" id="3036"/>
+    </droplist>
+</npc>

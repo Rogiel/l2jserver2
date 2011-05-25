@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18920" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="false" attackable="false">
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="0.1" radius="0.1"/>
+    </info>
+</npc>

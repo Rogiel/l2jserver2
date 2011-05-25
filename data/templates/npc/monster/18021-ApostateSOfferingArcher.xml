@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18021" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Apostate's Offering Archer</name>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="368.9959"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="129.59739"/>
+                <magical value="92.36164"/>
+            </defense>
+            <move walk="45.0" run="60.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1880</experience>
+        <sp>119</sp>
+        <item lefthand="0" righthand="275"/>
+        <collision heigth="21.5" radius="11.0"/>
+    </info>
+</npc>

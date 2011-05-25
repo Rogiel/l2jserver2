@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22205" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Deinonychus</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="24.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14515</experience>
+        <sp>2715</sp>
+        <collision heigth="14.3" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6114" min="2934" id="57"/>
+        <item chance="82302" max="1" min="1" id="1879"/>
+        <item chance="41151" max="1" min="1" id="1885"/>
+        <item chance="262349" max="1" min="1" id="6699"/>
+        <item chance="12037" max="1" min="1" id="6901"/>
+        <item chance="9" max="1" min="1" id="7575"/>
+        <item chance="9000" max="1" min="1" id="7579"/>
+        <item chance="3429" max="1" min="1" id="9573"/>
+        <item chance="857" max="1" min="1" id="9574"/>
+        <item chance="86" max="1" min="1" id="9575"/>
+        <item chance="17" max="1" min="1" id="9576"/>
+        <item chance="3873" max="1" min="1" id="9628"/>
+        <item chance="2147" max="1" min="1" id="9629"/>
+        <item chance="2599" max="1" min="1" id="9630"/>
+        <item chance="167863" max="1" min="1" id="13099"/>
+    </droplist>
+</npc>

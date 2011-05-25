@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20204" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Bloody Bee</name>
+        <level>23</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="410.70422"/>
+            <mp regen="1.5" max="231.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="55.84125"/>
+                <magical speed="333.0" damage="38.13234"/>
+            </attack>
+            <defense>
+                <physical value="95.64976"/>
+                <magical value="63.68469"/>
+            </defense>
+            <move walk="90.0" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1148</experience>
+        <sp>55</sp>
+        <collision heigth="24.5" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="333" min="188" id="57"/>
+        <item chance="989" max="1" min="1" id="846"/>
+        <item chance="1484" max="1" min="1" id="878"/>
+        <item chance="742" max="1" min="1" id="909"/>
+        <item chance="129762" max="1" min="1" id="1831"/>
+        <item chance="549120" max="1" min="1" id="1867"/>
+        <item chance="64881" max="1" min="1" id="1867"/>
+        <item chance="823680" max="1" min="1" id="1868"/>
+        <item chance="64881" max="1" min="1" id="1872"/>
+        <item chance="10813" max="1" min="1" id="1882"/>
+        <item chance="6248" max="1" min="1" id="1898"/>
+        <item chance="4734" max="1" min="1" id="2014"/>
+        <item chance="1947" max="1" min="1" id="3953"/>
+    </droplist>
+</npc>

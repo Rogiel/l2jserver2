@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25653" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kanadis Herald</name>
+        <title send="false">Invading Forces</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="180.826353212712" max="423463.229546969"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="1732.89962"/>
+                <magical speed="333.0" damage="984.65036"/>
+            </attack>
+            <defense>
+                <physical value="1036.83381"/>
+                <magical value="505.8"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2730279</experience>
+        <sp>394141</sp>
+        <collision heigth="33.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="18699" max="1" min="1" id="959"/>
+        <item chance="186990" max="1" min="1" id="960"/>
+        <item chance="3117" max="1" min="1" id="6577"/>
+        <item chance="3374" max="1" min="1" id="7575"/>
+        <item chance="788531" max="3" min="1" id="7579"/>
+        <item chance="120208" max="1" min="1" id="9582"/>
+        <item chance="60848" max="1" min="1" id="9592"/>
+    </droplist>
+</npc>

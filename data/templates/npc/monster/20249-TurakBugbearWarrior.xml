@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20249" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Turak Bugbear Warrior</name>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="702.20463"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="113.49065"/>
+                <magical speed="333.0" damage="77.49941"/>
+            </attack>
+            <defense>
+                <physical value="129.23095"/>
+                <magical value="86.04342"/>
+            </defense>
+            <move walk="55.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3606</experience>
+        <sp>206</sp>
+        <item lefthand="0" righthand="73"/>
+        <collision heigth="35.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1015" min="508" id="57"/>
+        <item chance="172" max="1" min="1" id="260"/>
+        <item chance="152124" max="60" min="20" id="1341"/>
+        <item chance="600835" max="3" min="1" id="1865"/>
+        <item chance="182548" max="1" min="1" id="1868"/>
+        <item chance="480668" max="2" min="1" id="1873"/>
+        <item chance="36510" max="1" min="1" id="1873"/>
+        <item chance="6085" max="1" min="1" id="1889"/>
+        <item chance="3053" max="1" min="1" id="2186"/>
+        <item chance="9127" max="1" min="1" id="5549"/>
+        <item chance="57046" max="1" min="1" id="6667"/>
+    </droplist>
+</npc>

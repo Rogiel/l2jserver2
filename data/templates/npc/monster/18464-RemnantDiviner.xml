@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18464" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Remnant Diviner</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.26544062045" max="65918.4456223521"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5655.33186"/>
+                <magical speed="333.0" damage="3907.29218"/>
+            </attack>
+            <defense>
+                <physical value="572.83923"/>
+                <magical value="628.76834"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>254867</experience>
+        <sp>27524</sp>
+        <item lefthand="0" righthand="8532"/>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+</npc>

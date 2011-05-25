@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20515" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Skeleton Infantryman</name>
+        <level>16</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="264.34345"/>
+            <mp regen="1.2" max="157.6"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="32.16396"/>
+                <magical speed="333.0" damage="21.96382"/>
+            </attack>
+            <defense>
+                <physical value="76.08628"/>
+                <magical value="50.6591"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>571</experience>
+        <sp>23</sp>
+        <item lefthand="18" righthand="157"/>
+        <collision heigth="25.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="134" max="1" min="1" id="15"/>
+        <item chance="700000" max="183" min="118" id="57"/>
+        <item chance="19797" max="1" min="1" id="735"/>
+        <item chance="17676" max="1" min="1" id="1801"/>
+        <item chance="237565" max="1" min="1" id="1865"/>
+        <item chance="35087" max="1" min="1" id="1865"/>
+        <item chance="35087" max="1" min="1" id="1870"/>
+        <item chance="1601" max="1" min="1" id="2011"/>
+        <item chance="5127" max="1" min="1" id="2013"/>
+        <item chance="1404" max="1" min="1" id="5158"/>
+    </droplist>
+</npc>

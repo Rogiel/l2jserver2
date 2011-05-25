@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20751" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Snipe</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="126.91259"/>
+            </defense>
+            <move walk="30.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>13373</experience>
+        <sp>880</sp>
+        <collision heigth="14.5" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3517" min="1716" id="57"/>
+        <item chance="236" max="1" min="1" id="62"/>
+        <item chance="152968" max="1" min="1" id="1894"/>
+        <item chance="9037" max="1" min="1" id="1894"/>
+        <item chance="486561" max="1" min="1" id="1949"/>
+        <item chance="10289" max="1" min="1" id="1958"/>
+        <item chance="423261" max="1" min="1" id="2161"/>
+        <item chance="10643" max="1" min="1" id="2216"/>
+        <item chance="5599" max="1" min="1" id="2225"/>
+        <item chance="897" max="1" min="1" id="2321"/>
+        <item chance="236" max="1" min="1" id="2429"/>
+        <item chance="236" max="1" min="1" id="2430"/>
+        <item chance="236" max="1" min="1" id="2431"/>
+        <item chance="236" max="1" min="1" id="2432"/>
+        <item chance="236" max="1" min="1" id="2433"/>
+        <item chance="236" max="1" min="1" id="2452"/>
+        <item chance="236" max="1" min="1" id="2453"/>
+        <item chance="236" max="1" min="1" id="2454"/>
+        <item chance="10289" max="1" min="1" id="2937"/>
+        <item chance="10289" max="1" min="1" id="2938"/>
+        <item chance="10289" max="1" min="1" id="2939"/>
+        <item chance="10289" max="1" min="1" id="2940"/>
+        <item chance="10289" max="1" min="1" id="2941"/>
+        <item chance="10289" max="1" min="1" id="2942"/>
+        <item chance="10289" max="1" min="1" id="2943"/>
+        <item chance="10289" max="1" min="1" id="2944"/>
+        <item chance="10302" max="1" min="1" id="8723"/>
+        <item chance="2575" max="1" min="1" id="8733"/>
+        <item chance="258" max="1" min="1" id="8743"/>
+        <item chance="51" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

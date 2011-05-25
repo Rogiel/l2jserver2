@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22168" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Triol's Priest</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="9.027" max="3163.0432152"/>
+            <mp regen="3.1824" max="1955.34"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="1076.93138"/>
+                <magical speed="333.0" damage="781.26136"/>
+            </attack>
+            <defense>
+                <physical value="410.87895"/>
+                <magical value="300.66338"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>46504</experience>
+        <sp>5473</sp>
+        <item lefthand="0" righthand="8205"/>
+        <collision heigth="28.4" radius="7.7"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="13186" min="6433" id="57"/>
+        <item chance="44729" max="36" min="12" id="1867"/>
+        <item chance="22364" max="54" min="18" id="1869"/>
+        <item chance="161023" max="6" min="2" id="1870"/>
+        <item chance="134185" max="9" min="3" id="1871"/>
+        <item chance="76677" max="21" min="7" id="1872"/>
+        <item chance="37" max="1" min="1" id="5320"/>
+        <item chance="37" max="1" min="1" id="5323"/>
+        <item chance="5420" max="1" min="1" id="5480"/>
+        <item chance="5420" max="1" min="1" id="5481"/>
+        <item chance="256985" max="1" min="1" id="6698"/>
+        <item chance="156628" max="1" min="1" id="6699"/>
+        <item chance="285159" max="1" min="1" id="6700"/>
+        <item chance="805" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

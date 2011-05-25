@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22375" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Cosmic Priest</name>
+        <level>83</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="190.745373183435" max="112316.37469612"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="9203.55602"/>
+                <magical speed="333.0" damage="6357.91516"/>
+            </attack>
+            <defense>
+                <physical value="585.59197"/>
+                <magical value="642.76618"/>
+            </defense>
+            <move walk="46.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>533950</experience>
+        <sp>56299</sp>
+        <item lefthand="0" righthand="99"/>
+        <collision heigth="28.0" radius="5.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="89941" min="44908" id="57"/>
+        <item chance="655700" max="9" min="3" id="9599"/>
+        <item chance="12947" max="1" min="1" id="8349"/>
+        <item chance="12950" max="1" min="1" id="5533"/>
+        <item chance="12937" max="1" min="1" id="5544"/>
+        <item chance="12950" max="1" min="1" id="8342"/>
+        <item chance="46" max="1" min="1" id="164"/>
+        <item chance="46" max="1" min="1" id="213"/>
+        <item chance="46" max="1" min="1" id="7895"/>
+        <item chance="46" max="1" min="1" id="7902"/>
+        <item chance="34970" max="360" min="120" id="1868"/>
+        <item chance="69940" max="36" min="12" id="1873"/>
+        <item chance="31085" max="12" min="4" id="1889"/>
+        <item chance="139881" max="1" min="1" id="4044"/>
+        <item chance="59949" max="9" min="3" id="5549"/>
+        <item chance="33571" max="1" min="1" id="9551"/>
+        <item chance="4196" max="1" min="1" id="6901"/>
+        <item chance="5663" max="1" min="1" id="6851"/>
+        <item chance="1608" max="1" min="1" id="6873"/>
+        <item chance="186089" max="1" min="1" id="8715"/>
+        <item chance="851874" max="5" min="1" id="4044"/>
+        <item chance="30667" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

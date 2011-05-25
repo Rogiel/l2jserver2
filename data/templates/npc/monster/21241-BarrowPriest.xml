@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21241" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Barrow Priest</name>
+        <level>42</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="5.5" max="1050.81652"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="198.34591"/>
+                <magical speed="333.0" damage="135.44454"/>
+            </attack>
+            <defense>
+                <physical value="164.88513"/>
+                <magical value="109.78238"/>
+            </defense>
+            <move walk="80.0" run="135.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7654</experience>
+        <sp>510</sp>
+        <collision heigth="27.5" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2061" min="1020" id="57"/>
+        <item chance="347" max="1" min="1" id="396"/>
+        <item chance="8441" max="1" min="1" id="1805"/>
+        <item chance="242216" max="1" min="1" id="1867"/>
+        <item chance="121108" max="3" min="1" id="1872"/>
+        <item chance="12111" max="1" min="1" id="1875"/>
+        <item chance="24222" max="1" min="1" id="1881"/>
+        <item chance="246339" max="1" min="1" id="1905"/>
+        <item chance="20366" max="1" min="1" id="1952"/>
+        <item chance="8776" max="1" min="1" id="2162"/>
+        <item chance="4793" max="1" min="1" id="2206"/>
+        <item chance="14418" max="1" min="1" id="2990"/>
+        <item chance="14471" max="1" min="1" id="4469"/>
+    </droplist>
+</npc>

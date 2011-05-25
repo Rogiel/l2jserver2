@@ -50,22 +50,22 @@ public class CharacterTemplatePacket extends AbstractServerPacket {
 			buffer.writeInt(template.getRace().id);
 			buffer.writeInt(template.getCharacterClass().id);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getStrength());
+			buffer.writeInt(template.getBaseStrength());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getDexterity());
+			buffer.writeInt(template.getBaseDexterity());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getConcentration());
+			buffer.writeInt(template.getBaseConcentration());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getIntelligence());
+			buffer.writeInt(template.getBaseIntelligence());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getWitness());
+			buffer.writeInt(template.getBaseWitness());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseAttributes().getMentality());
+			buffer.writeInt(template.getBaseMentality());
 			buffer.writeInt(0x0a);
 		}
 	}

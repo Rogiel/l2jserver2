@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22651" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mucrokian Ascetic</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3835.59060587002"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1099.42362"/>
+                <magical speed="333.0" damage="750.76381"/>
+            </attack>
+            <defense>
+                <physical value="353.86144"/>
+                <magical value="258.94045"/>
+            </defense>
+            <move walk="60.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24133</experience>
+        <sp>2498</sp>
+        <collision heigth="41.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3080" min="1690" id="57"/>
+        <item chance="500" max="1" min="1" id="959"/>
+        <item chance="108200" max="1" min="1" id="1879"/>
+        <item chance="52200" max="1" min="1" id="1885"/>
+        <item chance="600" max="1" min="1" id="5167"/>
+        <item chance="2" max="1" min="1" id="9448"/>
+        <item chance="2" max="1" min="1" id="9449"/>
+        <item chance="450" max="1" min="1" id="9622"/>
+        <item chance="450" max="1" min="1" id="9623"/>
+        <item chance="6400" max="1" min="1" id="9628"/>
+        <item chance="2900" max="1" min="1" id="9629"/>
+        <item chance="50000" max="1" min="1" id="9630"/>
+        <item chance="2900" max="1" min="1" id="9630"/>
+        <item chance="2" max="1" min="1" id="10252"/>
+        <item chance="2" max="1" min="1" id="10253"/>
+        <item chance="5000" max="1" min="1" id="10405"/>
+        <item chance="450" max="1" min="1" id="10546"/>
+        <item chance="450" max="1" min="1" id="10547"/>
+    </droplist>
+</npc>

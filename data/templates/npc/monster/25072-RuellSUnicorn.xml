@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25072" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ruell's Unicorn</name>
+        <title send="false">Raid Fighter</title>
+        <level>54</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="62.194388632129" max="29260.9404249556"/>
+            <mp regen="2.4" max="861.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2312.08069"/>
+                <magical speed="333.0" damage="1393.84679"/>
+            </attack>
+            <defense>
+                <physical value="328.34384"/>
+                <magical value="320.36"/>
+            </defense>
+            <move walk="46.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="30.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="850400" max="60" min="20" id="1342"/>
+    </droplist>
+</npc>

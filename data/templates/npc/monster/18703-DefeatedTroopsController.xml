@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18703" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Defeated Troops Controller</name>
+        <level>80</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="195.708888732201" max="113229.052561999"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9366.93275"/>
+                <magical speed="333.0" damage="6585.64343"/>
+            </attack>
+            <defense>
+                <physical value="595.98709"/>
+                <magical value="654.17623"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="74.0" radius="57.0"/>
+    </info>
+</npc>

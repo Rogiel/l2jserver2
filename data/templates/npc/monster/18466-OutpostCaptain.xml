@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18466" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Outpost Captain</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.260794107867" max="111546.700057767"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9311.83315"/>
+                <magical speed="333.0" damage="6508.39315"/>
+            </attack>
+            <defense>
+                <physical value="592.48128"/>
+                <magical value="650.32814"/>
+            </defense>
+            <move walk="79.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="8203" righthand="8203"/>
+        <collision heigth="56.0" radius="20.0"/>
+    </info>
+</npc>

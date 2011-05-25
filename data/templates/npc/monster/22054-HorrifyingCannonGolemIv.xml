@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22054" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Horrifying Cannon Golem IV</name>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1324.01623"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="275.82705"/>
+                <magical speed="333.0" damage="188.35412"/>
+            </attack>
+            <defense>
+                <physical value="191.12803"/>
+                <magical value="139.8592"/>
+            </defense>
+            <move walk="130.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5451</experience>
+        <sp>397</sp>
+        <collision heigth="34.7" radius="23.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1459" min="718" id="57"/>
+        <item chance="160855" max="1" min="1" id="1864"/>
+        <item chance="80428" max="1" min="1" id="1869"/>
+        <item chance="49494" max="1" min="1" id="1884"/>
+        <item chance="32171" max="1" min="1" id="1878"/>
+        <item chance="5637" max="1" min="1" id="2949"/>
+        <item chance="4104" max="1" min="1" id="2167"/>
+        <item chance="5637" max="1" min="1" id="2948"/>
+        <item chance="5637" max="1" min="1" id="2951"/>
+        <item chance="5637" max="1" min="1" id="1974"/>
+        <item chance="5637" max="1" min="1" id="2950"/>
+        <item chance="3746" max="1" min="1" id="2946"/>
+        <item chance="2681" max="1" min="1" id="4039"/>
+        <item chance="2681" max="1" min="1" id="8724"/>
+        <item chance="670" max="1" min="1" id="8734"/>
+        <item chance="67" max="1" min="1" id="8744"/>
+        <item chance="13" max="1" min="1" id="8754"/>
+        <item chance="117" max="1" min="1" id="2455"/>
+        <item chance="108" max="1" min="1" id="2434"/>
+        <item chance="108" max="1" min="1" id="1126"/>
+        <item chance="108" max="1" min="1" id="2458"/>
+        <item chance="108" max="1" min="1" id="2457"/>
+        <item chance="108" max="1" min="1" id="2456"/>
+        <item chance="558523" max="3" min="1" id="1884"/>
+        <item chance="6051" max="1" min="1" id="4590"/>
+        <item chance="66272" max="1" min="1" id="1966"/>
+    </droplist>
+</npc>

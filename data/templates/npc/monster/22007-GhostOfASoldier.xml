@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22007" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of a Soldier</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="84.15638"/>
+            </defense>
+            <move walk="45.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1699</experience>
+        <sp>90</sp>
+        <item lefthand="0" righthand="8530"/>
+        <collision heigth="21.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="485" min="245" id="57"/>
+        <item chance="13" max="1" min="1" id="86"/>
+        <item chance="13" max="1" min="1" id="179"/>
+        <item chance="13" max="1" min="1" id="180"/>
+        <item chance="13" max="1" min="1" id="181"/>
+        <item chance="13" max="1" min="1" id="182"/>
+        <item chance="13" max="1" min="1" id="183"/>
+        <item chance="13" max="1" min="1" id="184"/>
+        <item chance="13" max="1" min="1" id="185"/>
+        <item chance="10532" max="1" min="1" id="1876"/>
+        <item chance="5266" max="1" min="1" id="1880"/>
+        <item chance="2106" max="1" min="1" id="1877"/>
+        <item chance="7021" max="1" min="1" id="1881"/>
+        <item chance="11702" max="1" min="1" id="1882"/>
+        <item chance="211" max="1" min="1" id="955"/>
+        <item chance="492" max="1" min="1" id="2022"/>
+        <item chance="392" max="1" min="1" id="2023"/>
+        <item chance="68021" max="1" min="1" id="1933"/>
+        <item chance="38038" max="1" min="1" id="2183"/>
+        <item chance="32300" max="1" min="1" id="1935"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22707" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Turka Commander's Ghost</name>
+        <title send="false">Grave Guardian Spirit</title>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="24.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>66140</experience>
+        <sp>6866</sp>
+        <item lefthand="0" righthand="6719"/>
+        <collision heigth="46.2" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6000" min="4500" id="57"/>
+        <item chance="95235" max="1" min="1" id="1895"/>
+        <item chance="28233" max="1" min="1" id="4040"/>
+        <item chance="38500" max="1" min="1" id="4042"/>
+        <item chance="47030" max="1" min="1" id="4043"/>
+        <item chance="7910" max="1" min="1" id="5162"/>
+        <item chance="13530" max="1" min="1" id="9546"/>
+        <item chance="7000" max="1" min="1" id="9622"/>
+        <item chance="7000" max="1" min="1" id="9624"/>
+        <item chance="2870" max="1" min="1" id="9991"/>
+        <item chance="1990" max="1" min="1" id="9992"/>
+        <item chance="3280" max="1" min="1" id="9993"/>
+    </droplist>
+</npc>

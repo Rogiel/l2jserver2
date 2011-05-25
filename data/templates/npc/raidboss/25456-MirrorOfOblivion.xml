@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25456" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mirror of Oblivion</name>
+        <title send="false">Raid Boss</title>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="51.7193112926872" max="148076.094026853"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="431.28336"/>
+                <magical speed="333.0" damage="51.9276"/>
+            </attack>
+            <defense>
+                <physical value="586.98906"/>
+                <magical value="286.36"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2328069</experience>
+        <sp>284981</sp>
+        <collision heigth="78.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="40182" max="1" min="1" id="266"/>
+        <item chance="111598" max="7" min="3" id="951"/>
+        <item chance="758154" max="9" min="3" id="2120"/>
+        <item chance="153011" max="1" min="1" id="2414"/>
+        <item chance="218603" max="1" min="1" id="2497"/>
+        <item chance="103989" max="157" min="53" id="2959"/>
+        <item chance="44982" max="576" min="192" id="2966"/>
+        <item chance="340993" max="3" min="1" id="4601"/>
+        <item chance="227329" max="4" min="2" id="4602"/>
+        <item chance="170497" max="1" min="1" id="4603"/>
+        <item chance="580000" max="2" min="1" id="8176"/>
+        <item chance="700000" max="4" min="1" id="9818"/>
+    </droplist>
+</npc>

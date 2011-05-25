@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22125" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Solina Lay Brother</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.772" max="3010.8929976"/>
+            <mp regen="3.1008" max="1777.86"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="961.93701"/>
+                <magical speed="333.0" damage="677.64411"/>
+            </attack>
+            <defense>
+                <physical value="361.08599"/>
+                <magical value="264.22706"/>
+            </defense>
+            <move walk="61.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>33305</experience>
+        <sp>3644</sp>
+        <item lefthand="0" righthand="8212"/>
+        <collision heigth="23.4" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9343" min="4561" id="57"/>
+        <item chance="195619" max="1" min="1" id="1895"/>
+        <item chance="22822" max="1" min="1" id="4043"/>
+        <item chance="13693" max="1" min="1" id="4040"/>
+        <item chance="11411" max="1" min="1" id="4042"/>
+        <item chance="4693" max="1" min="1" id="5541"/>
+        <item chance="274" max="1" min="1" id="960"/>
+        <item chance="17" max="1" min="1" id="305"/>
+        <item chance="41603" max="1" min="1" id="5481"/>
+        <item chance="41751" max="1" min="1" id="5487"/>
+        <item chance="4121" max="1" min="1" id="3036"/>
+    </droplist>
+</npc>

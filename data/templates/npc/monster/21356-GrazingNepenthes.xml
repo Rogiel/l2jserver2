@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21356" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grazing Nepenthes</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="48.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>15612</experience>
+        <sp>1708</sp>
+        <collision heigth="43.5" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4600" min="2254" id="57"/>
+        <item chance="67" max="1" min="1" id="960"/>
+        <item chance="210984" max="30" min="10" id="1344"/>
+        <item chance="112525" max="3" min="1" id="1867"/>
+        <item chance="75016" max="3" min="1" id="1872"/>
+        <item chance="37508" max="1" min="1" id="1882"/>
+        <item chance="5922" max="1" min="1" id="1894"/>
+        <item chance="76189" max="1" min="1" id="4042"/>
+        <item chance="2813" max="1" min="1" id="4042"/>
+        <item chance="2032" max="1" min="1" id="5277"/>
+        <item chance="77205" max="1" min="1" id="5503"/>
+        <item chance="2317" max="1" min="1" id="5534"/>
+        <item chance="1406" max="1" min="1" id="8732"/>
+        <item chance="351" max="1" min="1" id="8742"/>
+        <item chance="35" max="1" min="1" id="8752"/>
+        <item chance="150" max="1" min="1" id="11975"/>
+    </droplist>
+</npc>

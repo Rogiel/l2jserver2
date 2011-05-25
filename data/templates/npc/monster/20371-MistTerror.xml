@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20371" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Mist Terror</name>
+        <level>15</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="246.95422"/>
+            <mp regen="1.2" max="149.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="29.61691"/>
+                <magical speed="333.0" damage="20.22451"/>
+            </attack>
+            <defense>
+                <physical value="73.55216"/>
+                <magical value="48.97186"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>454</experience>
+        <sp>19</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="150" min="99" id="57"/>
+        <item chance="14583" max="1" min="1" id="114"/>
+        <item chance="950" max="1" min="1" id="429"/>
+        <item chance="1522" max="1" min="1" id="464"/>
+        <item chance="32579" max="1" min="1" id="1803"/>
+        <item chance="25846" max="1" min="1" id="1866"/>
+        <item chance="196871" max="1" min="1" id="1869"/>
+        <item chance="38769" max="1" min="1" id="1871"/>
+        <item chance="83420" max="1" min="1" id="1896"/>
+        <item chance="7418" max="1" min="1" id="1922"/>
+        <item chance="11917" max="1" min="1" id="1923"/>
+    </droplist>
+</npc>

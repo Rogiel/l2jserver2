@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20231" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Toad Lord</name>
+        <level>32</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="668.47132"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="106.16525"/>
+                <magical speed="333.0" damage="72.49711"/>
+            </attack>
+            <defense>
+                <physical value="125.57727"/>
+                <magical value="83.61076"/>
+            </defense>
+            <move walk="50.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1946</experience>
+        <sp>109</sp>
+        <collision heigth="10.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="722627" max="1" min="1" id="1832"/>
+        <item chance="26015" max="1" min="1" id="1877"/>
+        <item chance="4645" max="1" min="1" id="2282"/>
+        <item chance="700000" max="550" min="274" id="57"/>
+        <item chance="1389" max="1" min="1" id="605"/>
+        <item chance="1389" max="1" min="1" id="1123"/>
+        <item chance="237" max="1" min="1" id="955"/>
+        <item chance="65815" max="1" min="1" id="1832"/>
+        <item chance="39489" max="1" min="1" id="1866"/>
+        <item chance="59233" max="1" min="1" id="1871"/>
+        <item chance="2369" max="1" min="1" id="1877"/>
+        <item chance="423" max="1" min="1" id="2277"/>
+    </droplist>
+</npc>

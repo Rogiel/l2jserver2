@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="18140" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Imperial Mosaic</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="52.326" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="870.82765"/>
+                <magical speed="333.0" damage="554.09618"/>
+            </attack>
+            <defense>
+                <physical value="434.65794"/>
+                <magical value="263.30668"/>
+            </defense>
+            <move walk="45.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>54394</experience>
+        <sp>6176</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+</npc>

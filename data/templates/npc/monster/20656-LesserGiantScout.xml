@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20656" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lesser Giant Scout</name>
+        <level>63</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2089.92274"/>
+            <mp regen="2.7" max="1127.4"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="541.44774"/>
+                <magical speed="333.0" damage="369.73862"/>
+            </attack>
+            <defense>
+                <physical value="262.19426"/>
+                <magical value="174.5719"/>
+            </defense>
+            <move walk="80.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16702</experience>
+        <sp>1508</sp>
+        <item lefthand="0" righthand="4028"/>
+        <collision heigth="44.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4587" min="2265" id="57"/>
+        <item chance="48205" max="1" min="1" id="1895"/>
+        <item chance="23" max="1" min="1" id="2398"/>
+        <item chance="23" max="1" min="1" id="2399"/>
+        <item chance="36" max="1" min="1" id="2403"/>
+        <item chance="36" max="1" min="1" id="2404"/>
+        <item chance="114237" max="2" min="1" id="4040"/>
+        <item chance="3374" max="1" min="1" id="4040"/>
+        <item chance="2812" max="1" min="1" id="4042"/>
+        <item chance="5624" max="1" min="1" id="4043"/>
+        <item chance="134666" max="1" min="1" id="4069"/>
+        <item chance="3666" max="1" min="1" id="4084"/>
+        <item chance="3666" max="1" min="1" id="4085"/>
+        <item chance="4950" max="1" min="1" id="4086"/>
+        <item chance="4951" max="1" min="1" id="4087"/>
+        <item chance="1394" max="1" min="1" id="4990"/>
+        <item chance="28120" max="1" min="1" id="6670"/>
+        <item chance="2250" max="1" min="1" id="8729"/>
+        <item chance="562" max="1" min="1" id="8739"/>
+        <item chance="56" max="1" min="1" id="8749"/>
+        <item chance="11" max="1" min="1" id="8759"/>
+    </droplist>
+</npc>

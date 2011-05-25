@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21354" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Varka Silenos Hunter</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2974.35686398316"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="890.50086"/>
+                <magical speed="333.0" damage="608.09666"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="30.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24846</experience>
+        <sp>2618</sp>
+        <item lefthand="0" righthand="6917"/>
+        <collision heigth="37.5" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7034" min="3446" id="57"/>
+        <item chance="97731" max="90" min="30" id="1344"/>
+        <item chance="104" max="1" min="1" id="1808"/>
+        <item chance="58638" max="12" min="4" id="1868"/>
+        <item chance="93821" max="1" min="1" id="1873"/>
+        <item chance="15637" max="1" min="1" id="1889"/>
+        <item chance="7819" max="1" min="1" id="4044"/>
+        <item chance="3106" max="1" min="1" id="5282"/>
+        <item chance="4402" max="1" min="1" id="5535"/>
+        <item chance="19163" max="1" min="1" id="5541"/>
+        <item chance="23455" max="1" min="1" id="5549"/>
+        <item chance="26061" max="1" min="1" id="6671"/>
+        <item chance="6988" max="1" min="1" id="6901"/>
+        <item chance="1955" max="1" min="1" id="8732"/>
+        <item chance="489" max="1" min="1" id="8742"/>
+        <item chance="49" max="1" min="1" id="8752"/>
+        <item chance="355" max="1" min="1" id="11955"/>
+    </droplist>
+</npc>

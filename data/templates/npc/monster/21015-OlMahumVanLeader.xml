@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21015" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Van Leader</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="50.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2449</experience>
+        <sp>143</sp>
+        <item lefthand="0" righthand="67"/>
+        <collision heigth="27.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="810885" max="1" min="1" id="1869"/>
+        <item chance="324354" max="1" min="1" id="1873"/>
+        <item chance="121028" max="1" min="1" id="1940"/>
+        <item chance="700000" max="683" min="342" id="57"/>
+        <item chance="26" max="1" min="1" id="83"/>
+        <item chance="19" max="1" min="1" id="124"/>
+        <item chance="19" max="1" min="1" id="127"/>
+        <item chance="19" max="1" min="1" id="130"/>
+        <item chance="26" max="1" min="1" id="144"/>
+        <item chance="865" max="1" min="1" id="2026"/>
+        <item chance="172456" max="1" min="1" id="1868"/>
+        <item chance="34491" max="1" min="1" id="1873"/>
+        <item chance="17246" max="1" min="1" id="1876"/>
+        <item chance="616" max="1" min="1" id="2280"/>
+        <item chance="11543" max="1" min="1" id="2978"/>
+    </droplist>
+</npc>

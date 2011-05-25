@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21205" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Nephilim Royal Guard</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="212.55774"/>
+            </defense>
+            <move walk="65.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>35479</experience>
+        <sp>3742</sp>
+        <collision heigth="39.6" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="957" max="1" min="1" id="729"/>
+        <item chance="530" max="1" min="1" id="730"/>
+        <item chance="820300" max="5" min="1" id="1895"/>
+        <item chance="181728" max="1" min="1" id="1895"/>
+        <item chance="12721" max="1" min="1" id="4040"/>
+        <item chance="10601" max="1" min="1" id="4042"/>
+        <item chance="21202" max="1" min="1" id="4043"/>
+        <item chance="40" max="1" min="1" id="5297"/>
+        <item chance="63" max="1" min="1" id="5298"/>
+        <item chance="24" max="1" min="1" id="5301"/>
+        <item chance="4457" max="1" min="1" id="5478"/>
+        <item chance="3136" max="1" min="1" id="5479"/>
+        <item chance="38649" max="1" min="1" id="5480"/>
+        <item chance="6995" max="1" min="1" id="5482"/>
+        <item chance="700000" max="1400" min="700" id="6361"/>
+        <item chance="700000" max="27" min="14" id="6362"/>
+    </droplist>
+</npc>

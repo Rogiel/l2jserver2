@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22063" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ginzu Golem Prodigy X</name>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="153.30378"/>
+            </defense>
+            <move walk="50.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>18933</experience>
+        <sp>1394</sp>
+        <collision heigth="37.2" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4930" min="2440" id="57"/>
+        <item chance="112881" max="1" min="1" id="1873"/>
+        <item chance="188134" max="1" min="1" id="1866"/>
+        <item chance="94067" max="9" min="3" id="1864"/>
+        <item chance="70551" max="6" min="2" id="1865"/>
+        <item chance="7839" max="1" min="1" id="8725"/>
+        <item chance="1960" max="1" min="1" id="8735"/>
+        <item chance="196" max="1" min="1" id="8745"/>
+        <item chance="39" max="1" min="1" id="8755"/>
+        <item chance="460" max="1" min="1" id="2353"/>
+        <item chance="945" max="1" min="1" id="8329"/>
+        <item chance="989" max="1" min="1" id="2091"/>
+        <item chance="989" max="1" min="1" id="2089"/>
+        <item chance="989" max="1" min="1" id="2090"/>
+        <item chance="989" max="1" min="1" id="2095"/>
+        <item chance="989" max="1" min="1" id="2096"/>
+        <item chance="989" max="1" min="1" id="2092"/>
+        <item chance="11" max="1" min="1" id="75"/>
+        <item chance="11" max="1" min="1" id="76"/>
+        <item chance="11" max="1" min="1" id="77"/>
+        <item chance="11" max="1" min="1" id="84"/>
+        <item chance="11" max="1" min="1" id="134"/>
+        <item chance="11" max="1" min="1" id="145"/>
+        <item chance="11" max="1" min="1" id="7882"/>
+        <item chance="944873" max="25" min="1" id="1864"/>
+        <item chance="682408" max="3" min="1" id="1539"/>
+        <item chance="13648" max="1" min="1" id="4603"/>
+        <item chance="354" max="1" min="1" id="8308"/>
+    </droplist>
+</npc>

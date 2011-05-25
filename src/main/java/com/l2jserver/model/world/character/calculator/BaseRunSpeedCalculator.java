@@ -31,7 +31,7 @@ public class BaseRunSpeedCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getRunSpeed();
+				ctx.result = c.getTemplate().getBaseRunSpeed();
 			}
 		}, new AbstractFunction<L2Character>(0x300) {
 			@Override

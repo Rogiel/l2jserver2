@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22198" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Velociraptor</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="33.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24830</experience>
+        <sp>2715</sp>
+        <collision heigth="47.2" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7213" min="3530" id="57"/>
+        <item chance="1622" max="1" min="1" id="959"/>
+        <item chance="184884" max="1" min="1" id="1879"/>
+        <item chance="92442" max="1" min="1" id="1885"/>
+        <item chance="4" max="1" min="1" id="6364"/>
+        <item chance="4" max="1" min="1" id="6372"/>
+        <item chance="4000" max="1" min="1" id="6688"/>
+        <item chance="4000" max="1" min="1" id="6696"/>
+        <item chance="7704" max="1" min="1" id="9573"/>
+        <item chance="1926" max="1" min="1" id="9574"/>
+        <item chance="193" max="1" min="1" id="9575"/>
+        <item chance="39" max="1" min="1" id="9576"/>
+        <item chance="8700" max="1" min="1" id="9628"/>
+        <item chance="4823" max="1" min="1" id="9629"/>
+        <item chance="5839" max="1" min="1" id="9630"/>
+        <item chance="565534" max="1" min="1" id="13099"/>
+    </droplist>
+</npc>

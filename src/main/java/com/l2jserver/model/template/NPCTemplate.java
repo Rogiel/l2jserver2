@@ -2,406 +2,721 @@
  * This file is part of l2jserver <l2jserver.com>.
  *
  * l2jserver is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
+ * it under the terms of the GNU General public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * l2jserver is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * GNU General public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy of the GNU General public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.l2jserver.model.template;
 
-import com.google.common.base.Preconditions;
-import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
-import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.model.template.capability.Interactable;
-import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorSex;
-import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.actor.stat.Stats;
-import com.l2jserver.service.game.character.CannotSetTargetServiceException;
-import com.l2jserver.service.game.character.CharacterService;
-import com.l2jserver.service.network.NetworkService;
-import com.l2jserver.util.calculator.Calculator;
-import com.l2jserver.util.exception.L2Exception;
-import com.l2jserver.util.html.markup.HtmlTemplate;
+import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
+import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 
 /**
- * Template for {@link NPC}
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class NPCTemplate extends ActorTemplate<NPC> implements
-		Interactable<NPC> {
-	/**
-	 * The {@link NetworkService}
-	 */
-	@Inject
-	protected NetworkService networkService;
-	/**
-	 * The {@link CharacterService}
-	 */
-	@Inject
-	protected CharacterService charService;
-	/**
-	 * The {@link ItemTemplateID} provider
-	 */
-	@Inject
-	protected ItemTemplateIDProvider itemTemplateIdProvider;
-	
-	protected Stats stats;
+@XmlRootElement(name = "npc")
+@XmlType(namespace = "npc")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class NPCTemplate extends ActorTemplate<NPC> {
+	@XmlAttribute(name = "id")
+	@XmlJavaTypeAdapter(value = NPCTemplateIDAdapter.class)
+	protected NPCTemplateID id = null;
+	@XmlAttribute(name = "type")
+	protected String type = null;
 
-	/**
-	 * The NPC name
-	 */
-	protected String name = null;
-	/**
-	 * If true will send the name in the packet
-	 */
-	protected boolean serverSideName;
-	/**
-	 * The NPC title
-	 */
-	protected String title = null;
-	/**
-	 * If true will send the title in the packet
-	 */
-	protected boolean serverSideTitle;
-	/**
-	 * The attackable state of the NPC
-	 */
-	protected boolean attackable = false;
+	@XmlElement(name = "info")
+	protected NPCInformationMetadata info = null;
 
-	/**
-	 * The collision radius
-	 */
-	protected double collisionRadius = 0;
-	/**
-	 * The collision height
-	 */
-	protected double collisionHeight = 0;
+	@XmlType(namespace = "npc")
+	protected static class NPCInformationMetadata {
+		@XmlElement(name = "name")
+		public NPCNameMetadata nameMetadata = null;
 
-	/**
-	 * The NPC Sex
-	 */
-	protected ActorSex sex;
-	/**
-	 * The NPC level
-	 */
-	protected int level;
-
-	/**
-	 * The NPC attack range
-	 */
-	protected int attackRange;
-
-	/**
-	 * The HP regeneration
-	 */
-	protected double hpRegeneration;
-	/**
-	 * The MP regeneration
-	 */
-	protected double mpRegeneration;
-
-	/**
-	 * The NPC experience
-	 */
-	protected long experience;
-	/**
-	 * The NPC sp
-	 */
-	protected int sp;
-
-	/**
-	 * The NPC agressive state
-	 */
-	protected boolean aggressive;
-
-	/**
-	 * Weapon or shield in NPC right hand
-	 */
-	protected ItemTemplateID rightHand;
-	/**
-	 * Weapon or shield in NPC left hand
-	 */
-	protected ItemTemplateID leftHand;
-	/**
-	 * Enchant level in NPC weapon
-	 */
-	protected int enchantLevel;
-
-	/**
-	 * True if NPC can be targetted
-	 */
-	protected boolean targetable;
-	/**
-	 * True will display the NPC name
-	 */
-	protected boolean showName;
-	/**
-	 * TODO
-	 */
-	protected int dropHerbGroup;
-	/**
-	 * Use base attributes
-	 */
-	protected boolean baseAttributes;
-
-	protected NPCTemplate(NPCTemplateID id) {
-		super(id);
-	}
-
-	@Override
-	public void action(NPC npc, L2Character character, String... args)
-			throws L2Exception {
-		Preconditions.checkNotNull(npc, "npc");
-		Preconditions.checkNotNull(character, "character");
-		Preconditions.checkNotNull(args, "args");
-
-		final Lineage2Connection conn = networkService.discover(character
-				.getID());
-		if (conn == null)
-			return;
-
-		// target this npc
-		try {
-			charService.target(character, npc);
-		} catch (CannotSetTargetServiceException e) {
-			conn.sendActionFailed();
-			return;
+		@XmlType(namespace = "npc")
+		protected static class NPCNameMetadata {
+			@XmlValue
+			protected String name = null;
+			@XmlAttribute(name = "send")
+			protected Boolean send = null;
+			@XmlAttribute(name = "display")
+			protected Boolean display = null;
 		}
 
-		if (args.length == 0 || args[0].equals("Chat"))
-			talk(npc, character, conn, args);
-	}
+		@XmlElement(name = "title")
+		protected NPCTitleMetadata titleMetadata = null;
 
-	/**
-	 * Talks with this NPC
-	 * 
-	 * @param npc
-	 *            the npc
-	 * @param character
-	 *            the character
-	 * @param conn
-	 *            the lineage 2 connection
-	 * @param args
-	 *            the action arguments
-	 * @throws L2Exception
-	 */
-	protected void talk(NPC npc, L2Character character,
-			Lineage2Connection conn, String... args) throws L2Exception {
-		if (args.length == 0 || (args.length >= 1 && args[0].equals("Chat"))) {
-			String name = "";
-			if (args.length == 2)
-				name = args[1];
-			final HtmlTemplate template = getChat(name);
-			if (template != null) {
-				template.register("npcid", npc.getID().getID());
-				conn.write(new NPCHtmlMessagePacket(npc, template));
+		@XmlType(namespace = "npc")
+		protected static class NPCTitleMetadata {
+			@XmlValue
+			protected String title = null;
+			@XmlAttribute(name = "send")
+			protected Boolean send = null;
+		}
+
+		@XmlElement(name = "level")
+		protected int level = 0;
+		@XmlElement(name = "sex")
+		protected ActorSex sex = null;
+
+		@XmlAttribute(name = "attackable")
+		protected Boolean attackable = null;
+		@XmlAttribute(name = "targetable")
+		protected Boolean targetable = null;
+		@XmlAttribute(name = "aggressive")
+		protected Boolean aggressive = null;
+
+		@XmlElement(name = "stats")
+		protected NPCStatsMetadata stats = null;
+
+		@XmlType(namespace = "npc")
+		protected static class NPCStatsMetadata {
+			@XmlElement(name = "hp")
+			protected Stat hp = null;
+			@XmlElement(name = "mp")
+			protected Stat mp = null;
+
+			@XmlType(namespace = "npc")
+			protected static class Stat {
+				@XmlAttribute(name = "max")
+				protected double max = 0;
+				@XmlAttribute(name = "regen")
+				protected double regen = 0;
+			}
+
+			@XmlElement(name = "attack")
+			protected AttackMetadata attack = null;
+
+			@XmlType(namespace = "npc")
+			protected static class AttackMetadata {
+				@XmlAttribute(name = "range")
+				protected int range = 0;
+				@XmlAttribute(name = "evasion")
+				protected int evasion = 0;
+				@XmlAttribute(name = "critical")
+				protected int critical = 0;
+
+				@XmlElement(name = "physical")
+				protected AttackValueMetadata physical = null;
+				@XmlElement(name = "magical")
+				protected AttackValueMetadata magical = null;
+
+				@XmlType(namespace = "npc")
+				protected static class AttackValueMetadata {
+					@XmlAttribute(name = "damage")
+					protected double damage = 0;
+					@XmlAttribute(name = "speed")
+					protected double speed = 0;
+				}
+			}
+
+			@XmlElement(name = "defense")
+			protected DefenseMetadata defense = null;
+
+			@XmlType(namespace = "npc")
+			protected static class DefenseMetadata {
+				@XmlElement(name = "physical")
+				protected DefenseValueMetadata physical = null;
+				@XmlElement(name = "magical")
+				protected DefenseValueMetadata magical = null;
+
+				@XmlType(namespace = "npc")
+				protected static class DefenseValueMetadata {
+					@XmlAttribute(name = "value")
+					protected double value = 0;
+				}
+			}
+
+			@XmlElement(name = "move")
+			protected MoveMetadata move = null;
+
+			@XmlType(namespace = "npc")
+			protected static class MoveMetadata {
+				@XmlAttribute(name = "run")
+				protected double run = 0;
+				@XmlAttribute(name = "walk")
+				protected double walk = 0;
+			}
+
+			@XmlElement(name = "base")
+			public BaseMetadata base = null;
+
+			@XmlType(namespace = "npc")
+			protected static class BaseMetadata {
+				@XmlAttribute(name = "int")
+				protected int intelligence = 0;
+				@XmlAttribute(name = "str")
+				protected int strength = 0;
+				@XmlAttribute(name = "con")
+				protected int concentration = 0;
+				@XmlAttribute(name = "men")
+				protected int mentality = 0;
+				@XmlAttribute(name = "dex")
+				protected int dexterity = 0;
+				@XmlAttribute(name = "wit")
+				protected int witness = 0;
 			}
 		}
-		conn.sendActionFailed();
+
+		@XmlElement(name = "experience")
+		protected long experience = 0;
+		@XmlElement(name = "sp")
+		protected int sp = 0;
+
+		@XmlElement(name = "item")
+		protected ItemMetadata item = null;
+
+		@XmlType(namespace = "npc")
+		protected static class ItemMetadata {
+			@XmlAttribute(name = "righthand")
+			@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
+			protected ItemTemplateID rightHand = null;
+			@XmlAttribute(name = "lefthand")
+			@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
+			protected ItemTemplateID leftHand = null;
+		}
+
+		@XmlElement(name = "collision")
+		protected CollisionMetadata collision = null;
+		
+		@XmlType(namespace = "npc")
+		protected static class CollisionMetadata {
+			@XmlAttribute(name = "radius")
+			protected double radius = 0;
+			@XmlAttribute(name = "heigth")
+			protected double height = 0;
+		}
 	}
 
-	protected HtmlTemplate getChat(String name) throws L2Exception {
-		return null;
+	@XmlElement(name = "ai")
+	protected AIMetadata ai = null;
+
+	@XmlType(namespace = "npc")
+	protected static class AIMetadata {
+		@XmlAttribute(name = "script")
+		protected String script = null;
+	}
+
+	@XmlElement(name = "teleporter")
+	protected TeleporterMetadata teleporter = null;
+
+	@XmlType(namespace = "npc")
+	protected static class TeleporterMetadata {
+		@XmlElement(name = "teleport")
+		protected List<TeleporterTeleportMetadata> teleports = null;
+
+		@XmlType(namespace = "npc")
+		protected static class TeleporterTeleportMetadata {
+			@XmlAttribute(name = "id")
+			protected String id = null;
+			@XmlElement(name = "region")
+			protected List<TeleporterRegionMetadata> regions = null;
+
+			@XmlType(namespace = "npc")
+			protected static class TeleporterRegionMetadata {
+				@XmlAttribute(name = "id")
+				protected String id = null;
+				@XmlAttribute(name = "price")
+				protected int price = 0;
+				@XmlAttribute(name = "item")
+				protected int item = 57;
+
+				// TODO implement conditions
+			}
+		}
+	}
+
+	@XmlElement(name = "talk")
+	protected TalkMetadata talk = null;
+
+	@XmlType(namespace = "npc")
+	protected static class TalkMetadata {
+		@XmlAttribute(name = "default")
+		protected String defaultChat = null;
+
+		@XmlElement(name = "chat")
+		protected List<ChatMetadata> chats = null;
+
+		@XmlType(namespace = "npc")
+		protected static class ChatMetadata {
+			@XmlAttribute(name = "id")
+			protected String id = null;
+			@XmlValue
+			protected String html = null;
+		}
+	}
+
+	@XmlElementWrapper(name = "droplist")
+	@XmlElement(name = "item")
+	protected List<DropItemMetadata> droplist = null;
+
+	@XmlType(namespace = "npc")
+	protected static class DropItemMetadata {
+		@XmlAttribute(name = "id")
+		@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
+		protected ItemTemplateID item = null;
+		@XmlAttribute(name = "min")
+		protected int min = 0;
+		@XmlAttribute(name = "max")
+		protected int max = 0;
+
+		@XmlAttribute(name = "category")
+		protected DropCategory category = null;
+
+		public enum DropCategory {
+			KILL;
+		}
+
+		@XmlAttribute(name = "chance")
+		protected int chance = 0;
+	}
+
+	@Override
+	protected NPC createInstance() {
+		return new NPC(this.id);
 	}
 
 	/**
-	 * Receives an attack from an {@link Actor}
-	 * 
-	 * @param npc
-	 *            the {@link NPC} being attacked
-	 * @param calculator
-	 *            the calculator
-	 * @param attacker
-	 *            the attacker actor
+	 * @return the type
 	 */
-	public void receiveAttack(NPC npc, Calculator calculator, Actor attacker) {
-		// TODO add attributes to calculator!
-	}
-	
-
-	@Override
-	public NPC createInstance() {
-		return new NPC(this.getID());
-	}
-	
-	@Override
-	public Stats getTemplateStat() {
-		
-		
-		
-		return null;
+	public String getType() {
+		return type;
 	}
 
-	/**
-	 * @return the name
-	 */
 	public String getName() {
-		return name;
+		if (info == null)
+			return null;
+		if (info.nameMetadata == null)
+			return null;
+		return info.nameMetadata.name;
 	}
 
-	/**
-	 * @return the title
-	 */
+	public boolean getSendName() {
+		if (info == null)
+			return false;
+		if (info.nameMetadata == null)
+			return false;
+		return info.nameMetadata.send;
+	}
+
+	public boolean getDisplayName() {
+		if (info == null)
+			return false;
+		if (info.nameMetadata == null)
+			return false;
+		return info.nameMetadata.display;
+	}
+
 	public String getTitle() {
-		return title;
+		if (info == null)
+			return null;
+		if (info.titleMetadata == null)
+			return null;
+		return info.titleMetadata.title;
 	}
 
-	/**
-	 * @return the attackable
-	 */
-	public boolean isAttackable() {
-		return attackable;
-	}
-
-	/**
-	 * @return the collision radius
-	 */
-	public double getCollisionRadius() {
-		return collisionRadius;
-	}
-
-	/**
-	 * @return the collision height
-	 */
-	public double getCollisionHeight() {
-		return collisionHeight;
-	}
-
-	/**
-	 * @return the serverSideName
-	 */
-	public boolean isServerSideName() {
-		return serverSideName;
-	}
-
-	/**
-	 * @return the serverSideTitle
-	 */
-	public boolean isServerSideTitle() {
-		return serverSideTitle;
-	}
-
-	/**
-	 * @return the sex
-	 */
-	public ActorSex getSex() {
-		return sex;
+	public boolean getSendTitle() {
+		if (info == null)
+			return false;
+		if (info.titleMetadata == null)
+			return false;
+		return info.titleMetadata.send;
 	}
 
 	/**
 	 * @return the level
 	 */
 	public int getLevel() {
-		return level;
+		if (info == null)
+			return -1;
+		return info.level;
 	}
 
 	/**
-	 * @return the attackRange
+	 * @return the sex
 	 */
-	public int getAttackRange() {
-		return attackRange;
+	public ActorSex getSex() {
+		if (info == null)
+			return null;
+		return info.sex;
 	}
 
 	/**
-	 * @return the hpRegeneration
+	 * @return the attackable
 	 */
-	public double getHPRegeneration() {
-		return hpRegeneration;
-	}
-
-	/**
-	 * @return the mpRegeneration
-	 */
-	public double getMPRegeneration() {
-		return mpRegeneration;
-	}
-
-	/**
-	 * @return the experience
-	 */
-	public long getExperience() {
-		return experience;
-	}
-
-	/**
-	 * @return the sp
-	 */
-	public int getSp() {
-		return sp;
-	}
-
-	/**
-	 * @return the aggressive
-	 */
-	public boolean isAggressive() {
-		return aggressive;
-	}
-
-	/**
-	 * @return the right Hand item
-	 */
-	public ItemTemplateID getRightHand() {
-		return rightHand;
-	}
-
-	/**
-	 * @return the left Hand item
-	 */
-	public ItemTemplateID getLeftHand() {
-		return leftHand;
-	}
-
-	/**
-	 * @return the enchantLevel
-	 */
-	public int getEnchantLevel() {
-		return enchantLevel;
+	public boolean isAttackable() {
+		if (info == null)
+			return false;
+		return info.attackable;
 	}
 
 	/**
 	 * @return the targetable
 	 */
 	public boolean isTargetable() {
-		return targetable;
+		if (info == null)
+			return false;
+		return info.targetable;
 	}
 
 	/**
-	 * @return the showName
+	 * @return the aggressive
 	 */
-	public boolean isShowName() {
-		return showName;
+	public boolean isAggressive() {
+		if (info == null)
+			return false;
+		return info.aggressive;
 	}
 
 	/**
-	 * @return the dropHerbGroup
+	 * @return the experience
 	 */
-	public int getDropHerbGroup() {
-		return dropHerbGroup;
+	public long getExperience() {
+		if (info == null)
+			return 0;
+		return info.experience;
 	}
 
 	/**
-	 * @return the baseAttributes
+	 * @return the sp
 	 */
-	public boolean isBaseAttributes() {
-		return baseAttributes;
+	public int getSP() {
+		if (info == null)
+			return 0;
+		return info.sp;
+	}
+
+	public double getMaximumHP() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.hp == null)
+			return 0;
+		return info.stats.hp.max;
+	}
+
+	public double getHPRegeneration() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.hp == null)
+			return 0;
+		return info.stats.hp.regen;
+	}
+
+	public double getMaximumMP() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.mp == null)
+			return 0;
+		return info.stats.mp.max;
+	}
+
+	public double getMPRegeneration() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.mp == null)
+			return 0;
+		return info.stats.mp.regen;
+	}
+
+	/**
+	 * @return the range
+	 */
+	public int getRange() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		return info.stats.attack.range;
+	}
+
+	/**
+	 * @return the evasion
+	 */
+	public int getEvasion() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		return info.stats.attack.evasion;
+	}
+
+	/**
+	 * @return the critical
+	 */
+	public int getCritical() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		return info.stats.attack.critical;
+	}
+
+	/**
+	 * @return the physical attack
+	 */
+	public double getPhysicalAttack() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		if (info.stats.attack.physical == null)
+			return 0;
+		return info.stats.attack.physical.damage;
+	}
+
+	/**
+	 * @return the physical defense
+	 */
+	public double getPhysicalDefense() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.defense == null)
+			return 0;
+		if (info.stats.defense.physical == null)
+			return 0;
+		return info.stats.defense.physical.value;
+	}
+
+	/**
+	 * @return the physical attack speed
+	 */
+	public double getPhysicalAttackSpeed() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		if (info.stats.attack.physical == null)
+			return 0;
+		return info.stats.attack.physical.speed;
+	}
+
+	/**
+	 * @return the magical attack
+	 */
+	public double getMagicalAttack() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		if (info.stats.attack.magical == null)
+			return 0;
+		return info.stats.attack.magical.damage;
+	}
+
+	/**
+	 * @return the magical attack
+	 */
+	public double getMagicalDefense() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.defense == null)
+			return 0;
+		if (info.stats.defense.magical == null)
+			return 0;
+		return info.stats.defense.magical.value;
+	}
+
+	/**
+	 * @return the magical attack speed
+	 */
+	public double getMagicalAttackSpeed() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.attack == null)
+			return 0;
+		if (info.stats.attack.magical == null)
+			return 0;
+		return info.stats.attack.magical.speed;
+	}
+
+	public double getRunSpeed() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.move == null)
+			return 0;
+		return info.stats.move.run;
+	}
+
+	public double getWalkSpeed() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.move == null)
+			return 0;
+		return info.stats.move.walk;
+	}
+
+	/**
+	 * @return the intelligence
+	 */
+	public int getIntelligence() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.base == null)
+			return 0;
+		return info.stats.base.intelligence;
+	}
+
+	/**
+	 * @return the strength
+	 */
+	public int getStrength() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.base == null)
+			return 0;
+		return info.stats.base.strength;
+	}
+
+	/**
+	 * @return the concentration
+	 */
+	public int getConcentration() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.base == null)
+			return 0;
+		return info.stats.base.concentration;
+	}
+
+	/**
+	 * @return the mentality
+	 */
+	public int getMentality() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.base == null)
+			return 0;
+		return info.stats.base.mentality;
+	}
+
+	/**
+	 * @return the dexterity
+	 */
+	public int getDexterity() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.base == null)
+			return 0;
+		return info.stats.base.dexterity;
+	}
+
+	/**
+	 * @return the witness
+	 */
+	public int getWitness() {
+		if (info == null)
+			return 0;
+		if (info.stats == null)
+			return 0;
+		if (info.stats.base == null)
+			return 0;
+		return info.stats.base.witness;
+	}
+
+	public ItemTemplateID getRightHand() {
+		if (info == null)
+			return null;
+		if (info.item == null)
+			return null;
+		return info.item.rightHand;
+	}
+
+	public ItemTemplateID getLeftHand() {
+		if (info == null)
+			return null;
+		if (info.item == null)
+			return null;
+		return info.item.leftHand;
+	}
+
+	public double getCollisionRadius() {
+		if (info == null)
+			return 0;
+		if (info.collision == null)
+			return 0;
+		return info.collision.radius;
+	}
+
+	public double getCollisionHeight() {
+		if (info == null)
+			return 0;
+		if (info.collision == null)
+			return 0;
+		return info.collision.height;
+	}
+
+	public String getAIScriptName() {
+		if (ai == null)
+			return null;
+		return ai.script;
 	}
 
 	@Override
-	public NPCTemplateID getID() {
-		return (NPCTemplateID) super.getID();
+	public TemplateID<?> getID() {
+		return id;
 	}
 }

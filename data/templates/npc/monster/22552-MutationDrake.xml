@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22552" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Mutation Drake</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="116.187487396794" max="33212.8736495519"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5606.14187"/>
+                <magical speed="333.0" damage="3828.26821"/>
+            </attack>
+            <defense>
+                <physical value="532.32098"/>
+                <magical value="584.29409"/>
+            </defense>
+            <move walk="46.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>92347</experience>
+        <sp>9614</sp>
+        <collision heigth="53.5" radius="48.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="17478" min="8566" id="57"/>
+        <item chance="45" max="1" min="1" id="269"/>
+        <item chance="597368" max="1" min="1" id="1894"/>
+        <item chance="44113" max="1" min="1" id="1894"/>
+        <item chance="7567" max="1" min="1" id="3957"/>
+        <item chance="559" max="1" min="1" id="3957"/>
+        <item chance="41908" max="1" min="1" id="4039"/>
+        <item chance="10932" max="1" min="1" id="4041"/>
+        <item chance="41908" max="1" min="1" id="4044"/>
+        <item chance="287536" max="1" min="1" id="5515"/>
+        <item chance="10599" max="1" min="1" id="5539"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21423" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dancer of Empire</name>
+        <level>78</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.772" max="3010.8929976"/>
+            <mp regen="3.1008" max="1777.86"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="961.93701"/>
+                <magical speed="333.0" damage="677.64411"/>
+            </attack>
+            <defense>
+                <physical value="361.08599"/>
+                <magical value="246.33071"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>43973</experience>
+        <sp>5052</sp>
+        <collision heigth="23.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="12714" min="6207" id="57"/>
+        <item chance="21" max="1" min="1" id="959"/>
+        <item chance="86273" max="12" min="4" id="1867"/>
+        <item chance="230061" max="3" min="1" id="1872"/>
+        <item chance="115030" max="1" min="1" id="1882"/>
+        <item chance="18163" max="1" min="1" id="1894"/>
+        <item chance="8627" max="1" min="1" id="4042"/>
+        <item chance="5608" max="1" min="1" id="5162"/>
+        <item chance="5608" max="1" min="1" id="5167"/>
+        <item chance="6395" max="1" min="1" id="5534"/>
+        <item chance="34609" max="1" min="1" id="5538"/>
+        <item chance="4314" max="1" min="1" id="8732"/>
+        <item chance="1079" max="1" min="1" id="8742"/>
+        <item chance="108" max="1" min="1" id="8752"/>
+        <item chance="414" max="1" min="1" id="11975"/>
+    </droplist>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20928" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hatu Weird Bee</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="90.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>881</experience>
+        <sp>48</sp>
+        <collision heigth="24.5" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="251" min="126" id="57"/>
+        <item chance="79" max="1" min="1" id="348"/>
+        <item chance="127" max="1" min="1" id="377"/>
+        <item chance="22608" max="1" min="1" id="1832"/>
+        <item chance="27130" max="1" min="1" id="1867"/>
+        <item chance="27130" max="1" min="1" id="1872"/>
+        <item chance="1356" max="1" min="1" id="1875"/>
+        <item chance="2713" max="1" min="1" id="1881"/>
+        <item chance="2273" max="1" min="1" id="1935"/>
+        <item chance="3496" max="1" min="1" id="1937"/>
+        <item chance="4126" max="1" min="1" id="2025"/>
+        <item chance="46326" max="1" min="1" id="2153"/>
+        <item chance="19597" max="1" min="1" id="2183"/>
+        <item chance="2137" max="1" min="1" id="2184"/>
+        <item chance="145" max="1" min="1" id="2274"/>
+        <item chance="2724" max="1" min="1" id="2978"/>
+    </droplist>
+</npc>

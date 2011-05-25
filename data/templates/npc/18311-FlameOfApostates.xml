@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="18311" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Flame of Apostates</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="16.5" max="3689.36034"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="110.36578"/>
+            </defense>
+            <move walk="48.0" run="30.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8454</experience>
+        <sp>599</sp>
+        <collision heigth="13.0" radius="6.0"/>
+    </info>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25050" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Verfa</name>
+        <title send="false">Raid Boss</title>
+        <level>51</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="139.95474844594" max="324092.589187485"/>
+            <mp regen="2.4" max="775.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="973.55312"/>
+                <magical speed="333.0" damage="271.817"/>
+            </attack>
+            <defense>
+                <physical value="614.55582"/>
+                <magical value="299.8"/>
+            </defense>
+            <move walk="100.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2256714</experience>
+        <sp>285537</sp>
+        <item lefthand="0" righthand="1472"/>
+        <collision heigth="141.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="34356" max="1" min="1" id="2384"/>
+        <item chance="54956" max="1" min="1" id="2388"/>
+        <item chance="21132" max="1" min="1" id="2390"/>
+        <item chance="269319" max="27" min="9" id="4066"/>
+        <item chance="92007" max="120" min="40" id="4067"/>
+        <item chance="133009" max="42" min="14" id="4068"/>
+        <item chance="27701" max="1" min="1" id="300"/>
+        <item chance="198387" max="36" min="12" id="4113"/>
+        <item chance="333178" max="3" min="1" id="4610"/>
+        <item chance="222119" max="4" min="2" id="4611"/>
+        <item chance="166589" max="6" min="2" id="4612"/>
+        <item chance="171348" max="1" min="1" id="6574"/>
+        <item chance="850000" max="3" min="1" id="9814"/>
+        <item chance="850000" max="1" min="1" id="8176"/>
+    </droplist>
+</npc>

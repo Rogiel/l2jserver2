@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29097" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Splendor Disciple</name>
+        <title send="false">Raid Fighter</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="145.013611476234" max="37734.3404839904"/>
+            <mp regen="3.18" max="1994.708"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6012.14777"/>
+                <magical speed="333.0" damage="4732.40644"/>
+            </attack>
+            <defense>
+                <physical value="581.33612"/>
+                <magical value="567.1848"/>
+            </defense>
+            <move walk="30.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="8221"/>
+        <collision heigth="47.0" radius="13.0"/>
+    </info>
+</npc>

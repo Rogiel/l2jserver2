@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22360" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Town Patrolman</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="33003.982801143"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5995.95197"/>
+                <magical speed="333.0" damage="4190.79811"/>
+            </attack>
+            <defense>
+                <physical value="592.48128"/>
+                <magical value="650.32814"/>
+            </defense>
+            <move walk="50.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>143958</experience>
+        <sp>15178</sp>
+        <item lefthand="0" righthand="7887"/>
+        <collision heigth="26.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="24611" min="12288" id="57"/>
+        <item chance="538300" max="3" min="1" id="9599"/>
+        <item chance="114829" max="150" min="50" id="1345"/>
+        <item chance="30758" max="84" min="28" id="1864"/>
+        <item chance="47845" max="27" min="9" id="1869"/>
+        <item chance="86122" max="1" min="1" id="1880"/>
+        <item chance="28707" max="1" min="1" id="4043"/>
+        <item chance="14186" max="1" min="1" id="5534"/>
+        <item chance="11483" max="1" min="1" id="5550"/>
+        <item chance="6890" max="1" min="1" id="9551"/>
+        <item chance="50" max="1" min="1" id="289"/>
+        <item chance="4161" max="1" min="1" id="14166"/>
+        <item chance="1039" max="1" min="1" id="14167"/>
+        <item chance="861" max="1" min="1" id="6901"/>
+        <item chance="104" max="1" min="1" id="14168"/>
+        <item chance="21" max="1" min="1" id="14169"/>
+        <item chance="143782" max="2" min="1" id="6702"/>
+        <item chance="279723" max="1" min="1" id="5550"/>
+        <item chance="20979" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

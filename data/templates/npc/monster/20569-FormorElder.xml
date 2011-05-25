@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20569" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Formor Elder</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="55.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3841</experience>
+        <sp>272</sp>
+        <collision heigth="35.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="40920" max="1" min="1" id="1961"/>
+        <item chance="19856" max="1" min="1" id="2213"/>
+        <item chance="79425" max="1" min="1" id="3001"/>
+        <item chance="700000" max="1030" min="504" id="57"/>
+        <item chance="198" max="1" min="1" id="631"/>
+        <item chance="8139" max="1" min="1" id="1964"/>
+        <item chance="138" max="1" min="1" id="2413"/>
+        <item chance="198" max="1" min="1" id="2495"/>
+        <item chance="7392" max="1" min="1" id="2936"/>
+        <item chance="8139" max="1" min="1" id="2945"/>
+        <item chance="50363" max="1" min="1" id="1865"/>
+        <item chance="50363" max="1" min="1" id="1870"/>
+        <item chance="3358" max="1" min="1" id="1875"/>
+        <item chance="8394" max="1" min="1" id="1879"/>
+        <item chance="1043" max="1" min="1" id="2220"/>
+        <item chance="976" max="1" min="1" id="2230"/>
+        <item chance="41969" max="1" min="1" id="2508"/>
+        <item chance="1007" max="1" min="1" id="4040"/>
+        <item chance="2015" max="1" min="1" id="8723"/>
+        <item chance="504" max="1" min="1" id="8733"/>
+        <item chance="50" max="1" min="1" id="8743"/>
+        <item chance="10" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

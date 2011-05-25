@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22051" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Spelunking Spider</name>
+        <level>47</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1276.53628"/>
+            <mp regen="2.1" max="665.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="261.69549"/>
+                <magical speed="333.0" damage="178.7041"/>
+            </attack>
+            <defense>
+                <physical value="186.63569"/>
+                <magical value="136.5719"/>
+            </defense>
+            <move walk="72.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3673</experience>
+        <sp>263</sp>
+        <collision heigth="25.5" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="984" min="482" id="57"/>
+        <item chance="3794" max="1" min="1" id="2951"/>
+        <item chance="3794" max="1" min="1" id="1974"/>
+        <item chance="3794" max="1" min="1" id="2948"/>
+        <item chance="3794" max="1" min="1" id="2949"/>
+        <item chance="3794" max="1" min="1" id="2950"/>
+        <item chance="2521" max="1" min="1" id="2946"/>
+        <item chance="2110" max="1" min="1" id="1894"/>
+        <item chance="2005" max="1" min="1" id="4039"/>
+        <item chance="2005" max="1" min="1" id="4044"/>
+        <item chance="2005" max="1" min="1" id="8724"/>
+        <item chance="501" max="1" min="1" id="8734"/>
+        <item chance="50" max="1" min="1" id="8744"/>
+        <item chance="10" max="1" min="1" id="8754"/>
+        <item chance="523" max="1" min="1" id="4041"/>
+        <item chance="73" max="1" min="1" id="1126"/>
+        <item chance="73" max="1" min="1" id="2434"/>
+        <item chance="79" max="1" min="1" id="2455"/>
+        <item chance="73" max="1" min="1" id="2456"/>
+        <item chance="73" max="1" min="1" id="2457"/>
+        <item chance="73" max="1" min="1" id="2458"/>
+        <item chance="109" max="1" min="1" id="951"/>
+        <item chance="42869" max="1" min="1" id="1894"/>
+        <item chance="4073" max="1" min="1" id="4589"/>
+        <item chance="90871" max="1" min="1" id="1911"/>
+    </droplist>
+</npc>

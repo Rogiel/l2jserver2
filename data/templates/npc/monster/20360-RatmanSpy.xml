@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20360" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ratman Spy</name>
+        <level>16</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="264.34345"/>
+            <mp regen="1.2" max="157.6"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="32.16396"/>
+                <magical speed="333.0" damage="21.96382"/>
+            </attack>
+            <defense>
+                <physical value="76.08628"/>
+                <magical value="50.6591"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>571</experience>
+        <sp>23</sp>
+        <item lefthand="0" righthand="12"/>
+        <collision heigth="18.7" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="897" max="1" min="1" id="44"/>
+        <item chance="700000" max="183" min="118" id="57"/>
+        <item chance="1283" max="1" min="1" id="102"/>
+        <item chance="5210" max="1" min="1" id="908"/>
+        <item chance="2658" max="1" min="1" id="945"/>
+        <item chance="119680" max="1" min="1" id="1801"/>
+        <item chance="46782" max="1" min="1" id="1867"/>
+        <item chance="46782" max="1" min="1" id="1872"/>
+        <item chance="11319" max="1" min="1" id="1924"/>
+        <item chance="9509" max="1" min="1" id="2173"/>
+        <item chance="193143" max="1" min="1" id="2175"/>
+        <item chance="1404" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

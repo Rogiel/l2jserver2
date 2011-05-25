@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21596" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Requiem Lord</name>
+        <level>68</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2345.76698"/>
+            <mp regen="2.7" max="1282.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="646.17968"/>
+                <magical speed="333.0" damage="441.25696"/>
+            </attack>
+            <defense>
+                <physical value="286.3615"/>
+                <magical value="190.66272"/>
+            </defense>
+            <move walk="19.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14446</experience>
+        <sp>1396</sp>
+        <item lefthand="0" righthand="178"/>
+        <collision heigth="30.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="17090" max="1" min="1" id="5535"/>
+        <item chance="25686" max="1" min="1" id="6337"/>
+        <item chance="38529" max="1" min="1" id="6339"/>
+        <item chance="700000" max="4028" min="1981" id="57"/>
+        <item chance="204" max="1" min="1" id="11960"/>
+        <item chance="2494" max="1" min="1" id="5542"/>
+        <item chance="14" max="1" min="1" id="729"/>
+        <item chance="88067" max="60" min="20" id="1343"/>
+        <item chance="164390" max="1" min="1" id="1867"/>
+        <item chance="164390" max="1" min="1" id="1872"/>
+        <item chance="8219" max="1" min="1" id="1875"/>
+        <item chance="16439" max="1" min="1" id="1881"/>
+        <item chance="1072" max="1" min="1" id="4041"/>
+        <item chance="160" max="1" min="1" id="5350"/>
+        <item chance="1370" max="1" min="1" id="8730"/>
+        <item chance="342" max="1" min="1" id="8740"/>
+        <item chance="34" max="1" min="1" id="8750"/>
+        <item chance="7" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

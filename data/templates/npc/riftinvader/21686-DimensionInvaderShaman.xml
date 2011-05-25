@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21686" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dimension Invader Shaman</name>
+        <level>43</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1094.28943"/>
+            <mp regen="2.1" max="557.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="210.04832"/>
+                <magical speed="333.0" damage="143.43577"/>
+            </attack>
+            <defense>
+                <physical value="169.13417"/>
+                <magical value="112.61144"/>
+            </defense>
+            <move walk="60.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9599</experience>
+        <sp>649</sp>
+        <collision heigth="38.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2040" min="1004" id="57"/>
+        <item chance="92" max="1" min="1" id="280"/>
+        <item chance="846642" max="11" min="1" id="1864"/>
+        <item chance="85029" max="9" min="3" id="1864"/>
+        <item chance="846642" max="5" min="1" id="1869"/>
+        <item chance="63772" max="6" min="2" id="1869"/>
+        <item chance="102035" max="1" min="1" id="1878"/>
+        <item chance="156977" max="1" min="1" id="1884"/>
+        <item chance="5427" max="1" min="1" id="2054"/>
+        <item chance="24766" max="1" min="1" id="2161"/>
+        <item chance="14514" max="1" min="1" id="4470"/>
+    </droplist>
+</npc>

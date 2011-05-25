@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21429" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hasturan</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="253.53446"/>
+            </defense>
+            <move walk="31.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>38239</experience>
+        <sp>4445</sp>
+        <collision heigth="50.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11055" min="5417" id="57"/>
+        <item chance="162" max="1" min="1" id="960"/>
+        <item chance="33793" max="450" min="150" id="1344"/>
+        <item chance="101381" max="12" min="4" id="1868"/>
+        <item chance="162209" max="1" min="1" id="1873"/>
+        <item chance="27035" max="1" min="1" id="1889"/>
+        <item chance="13517" max="1" min="1" id="4044"/>
+        <item chance="5563" max="1" min="1" id="5537"/>
+        <item chance="40552" max="1" min="1" id="5549"/>
+        <item chance="58474" max="1" min="1" id="6701"/>
+        <item chance="75272" max="1" min="1" id="6702"/>
+        <item chance="156374" max="1" min="1" id="6703"/>
+        <item chance="3379" max="1" min="1" id="8732"/>
+        <item chance="845" max="1" min="1" id="8742"/>
+        <item chance="85" max="1" min="1" id="8752"/>
+        <item chance="360" max="1" min="1" id="11973"/>
+    </droplist>
+</npc>

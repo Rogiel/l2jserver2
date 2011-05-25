@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21784" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Messenger Invader Disciple</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="253.53446"/>
+            </defense>
+            <move walk="39.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24213</experience>
+        <sp>2815</sp>
+        <item lefthand="6721" righthand="134"/>
+        <collision heigth="30.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="278" max="1" min="1" id="959"/>
+        <item chance="60474" max="1" min="1" id="4041"/>
+        <item chance="231818" max="1" min="1" id="4044"/>
+        <item chance="700000" max="7000" min="3430" id="57"/>
+        <item chance="42" max="1" min="1" id="5312"/>
+        <item chance="60" max="1" min="1" id="5315"/>
+        <item chance="42" max="1" min="1" id="5317"/>
+        <item chance="6498" max="1" min="1" id="5495"/>
+        <item chance="5116" max="1" min="1" id="5527"/>
+        <item chance="5116" max="1" min="1" id="5528"/>
+        <item chance="13" max="1" min="1" id="959"/>
+        <item chance="11262" max="1" min="1" id="1894"/>
+        <item chance="10699" max="1" min="1" id="4039"/>
+        <item chance="2791" max="1" min="1" id="4041"/>
+        <item chance="10699" max="1" min="1" id="4044"/>
+        <item chance="2675" max="1" min="1" id="8732"/>
+        <item chance="669" max="1" min="1" id="8742"/>
+        <item chance="67" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FeedableBeast" id="18896" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Young Grendel</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="40.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>27445</experience>
+        <sp>2908</sp>
+        <collision heigth="12.5" radius="9.0"/>
+    </info>
+</npc>

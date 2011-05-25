@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21083" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Amon's Spirits</name>
+        <level>74</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="209.50409"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24232</experience>
+        <sp>2526</sp>
+        <collision heigth="25.0" radius="5.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6075" min="2980" id="57"/>
+        <item chance="169" max="1" min="1" id="730"/>
+        <item chance="270" max="1" min="1" id="1807"/>
+        <item chance="135246" max="1" min="1" id="1866"/>
+        <item chance="202718" max="1" min="1" id="1871"/>
+        <item chance="16893" max="1" min="1" id="1885"/>
+        <item chance="1763" max="1" min="1" id="4041"/>
+        <item chance="8052" max="1" min="1" id="5156"/>
+        <item chance="8109" max="1" min="1" id="5220"/>
+        <item chance="50785" max="1" min="1" id="5485"/>
+        <item chance="35736" max="1" min="1" id="5486"/>
+        <item chance="55" max="1" min="1" id="6323"/>
+        <item chance="74" max="1" min="1" id="6324"/>
+        <item chance="111" max="1" min="1" id="6325"/>
+        <item chance="10279" max="1" min="1" id="6341"/>
+        <item chance="7946" max="1" min="1" id="6343"/>
+        <item chance="14217" max="1" min="1" id="6345"/>
+        <item chance="1877" max="1" min="1" id="8731"/>
+        <item chance="469" max="1" min="1" id="8741"/>
+        <item chance="47" max="1" min="1" id="8751"/>
+        <item chance="9" max="1" min="1" id="8761"/>
+    </droplist>
+</npc>

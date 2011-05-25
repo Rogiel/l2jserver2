@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22744" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ornithomimus</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="36.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5701</experience>
+        <sp>862</sp>
+        <collision heigth="37.2" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1127" min="477" id="57"/>
+        <item chance="4" max="1" min="1" id="959"/>
+        <item chance="1000" max="1" min="1" id="960"/>
+        <item chance="40" max="1" min="1" id="960"/>
+        <item chance="5000" max="1" min="1" id="6901"/>
+        <item chance="815" max="1" min="1" id="8954"/>
+        <item chance="408" max="1" min="1" id="8955"/>
+        <item chance="104" max="1" min="1" id="8956"/>
+        <item chance="1" max="1" min="1" id="9448"/>
+        <item chance="1" max="1" min="1" id="9449"/>
+        <item chance="200" max="1" min="1" id="9622"/>
+        <item chance="200" max="1" min="1" id="9623"/>
+        <item chance="10000" max="1" min="1" id="9630"/>
+        <item chance="1" max="1" min="1" id="10252"/>
+        <item chance="1" max="1" min="1" id="10253"/>
+        <item chance="200" max="1" min="1" id="10546"/>
+        <item chance="200" max="1" min="1" id="10547"/>
+    </droplist>
+</npc>

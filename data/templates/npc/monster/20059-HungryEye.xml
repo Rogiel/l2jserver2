@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20059" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hungry Eye</name>
+        <level>22</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="387.02878"/>
+            <mp regen="1.5" max="218.52"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="51.75278"/>
+                <magical speed="333.0" damage="35.34044"/>
+            </attack>
+            <defense>
+                <physical value="92.65694"/>
+                <magical value="61.69203"/>
+            </defense>
+            <move walk="90.0" run="159.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>986</experience>
+        <sp>47</sp>
+        <collision heigth="43.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="4734" max="1" min="1" id="32"/>
+        <item chance="700000" max="295" min="164" id="57"/>
+        <item chance="2161" max="1" min="1" id="625"/>
+        <item chance="1506" max="1" min="1" id="1148"/>
+        <item chance="53483" max="1" min="1" id="1865"/>
+        <item chance="53483" max="1" min="1" id="1870"/>
+        <item chance="60354" max="1" min="1" id="1879"/>
+        <item chance="115695" max="1" min="1" id="2177"/>
+        <item chance="2139" max="1" min="1" id="3032"/>
+        <item chance="2139" max="1" min="1" id="5158"/>
+    </droplist>
+</npc>

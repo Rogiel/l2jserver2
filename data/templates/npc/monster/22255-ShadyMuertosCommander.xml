@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22255" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shady Muertos Commander</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="61.52345"/>
+            </defense>
+            <move walk="36.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1039</experience>
+        <sp>44</sp>
+        <collision heigth="22.5" radius="15.5"/>
+    </info>
+    <droplist>
+        <item chance="746" max="1" min="1" id="24"/>
+        <item chance="1190" max="1" min="1" id="31"/>
+        <item chance="700000" max="314" min="185" id="57"/>
+        <item chance="746" max="1" min="1" id="390"/>
+        <item chance="1190" max="1" min="1" id="412"/>
+        <item chance="4846" max="1" min="1" id="735"/>
+        <item chance="116295" max="1" min="1" id="1868"/>
+        <item chance="23259" max="1" min="1" id="1873"/>
+        <item chance="127002" max="1" min="1" id="1924"/>
+        <item chance="78741" max="1" min="1" id="2140"/>
+        <item chance="78741" max="1" min="1" id="2141"/>
+        <item chance="11629" max="1" min="1" id="2142"/>
+    </droplist>
+</npc>

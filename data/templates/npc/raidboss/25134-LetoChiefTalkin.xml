@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25134" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Leto Chief Talkin</name>
+        <title send="false">Raid Boss</title>
+        <level>40</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="34.0387779378852" max="91937.3861400206"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="236.34363"/>
+                <magical speed="333.0" damage="18.66292"/>
+            </attack>
+            <defense>
+                <physical value="469.65105"/>
+                <magical value="229.12"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2030965</experience>
+        <sp>181264</sp>
+        <collision heigth="30.0" radius="37.5"/>
+    </info>
+    <droplist>
+        <item chance="78771" max="1" min="1" id="281"/>
+        <item chance="27504" max="16" min="6" id="631"/>
+        <item chance="155854" max="120" min="40" id="1964"/>
+        <item chance="204903" max="36" min="12" id="2074"/>
+        <item chance="211799" max="1" min="1" id="2413"/>
+        <item chance="25212" max="18" min="6" id="2495"/>
+        <item chance="40445" max="420" min="140" id="2936"/>
+        <item chance="76965" max="243" min="81" id="2945"/>
+        <item chance="375022" max="3" min="1" id="4597"/>
+        <item chance="250015" max="4" min="2" id="4598"/>
+        <item chance="187511" max="6" min="2" id="4599"/>
+        <item chance="15001" max="1" min="1" id="6573"/>
+        <item chance="650000" max="1" min="1" id="8176"/>
+        <item chance="850000" max="2" min="1" id="9816"/>
+    </droplist>
+</npc>

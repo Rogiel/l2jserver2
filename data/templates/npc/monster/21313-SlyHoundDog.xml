@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21313" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sly Hound Dog</name>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2540.15331"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="731.52506"/>
+                <magical speed="333.0" damage="499.53679"/>
+            </attack>
+            <defense>
+                <physical value="305.35947"/>
+                <magical value="203.31178"/>
+            </defense>
+            <move walk="30.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>37061</experience>
+        <sp>3766</sp>
+        <collision heigth="25.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10462" min="5124" id="57"/>
+        <item chance="8658" max="1" min="1" id="730"/>
+        <item chance="116253" max="9" min="3" id="1868"/>
+        <item chance="139504" max="1" min="1" id="1873"/>
+        <item chance="69752" max="1" min="1" id="1876"/>
+        <item chance="742151" max="7" min="1" id="1895"/>
+        <item chance="99646" max="1" min="1" id="1895"/>
+        <item chance="173169" max="1" min="1" id="4042"/>
+        <item chance="5813" max="1" min="1" id="4042"/>
+        <item chance="155" max="1" min="1" id="5272"/>
+        <item chance="1982" max="1" min="1" id="5380"/>
+        <item chance="6545" max="1" min="1" id="5535"/>
+        <item chance="3875" max="1" min="1" id="8730"/>
+        <item chance="969" max="1" min="1" id="8740"/>
+        <item chance="97" max="1" min="1" id="8750"/>
+        <item chance="19" max="1" min="1" id="8760"/>
+        <item chance="528" max="1" min="1" id="11955"/>
+    </droplist>
+</npc>

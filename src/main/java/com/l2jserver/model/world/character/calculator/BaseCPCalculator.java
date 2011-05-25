@@ -32,7 +32,7 @@ public class BaseCPCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getCpBase();
+				ctx.result = c.getTemplate().getBaseCP();
 			}
 		}, new AbstractFunction<L2Character>(0x100) {
 			@Override
@@ -40,9 +40,9 @@ public class BaseCPCalculator extends CharacterCalculator {
 				final CharacterTemplate template = c.getTemplate();
 
 				int lvl = c.getLevel() - template.getMinimumLevel();
-				double mod = template.getCpMultiplier() * lvl;
-				double max = (template.getCpAdd() + mod) * lvl;
-				double min = (template.getCpAdd() * lvl) + mod;
+				double mod = template.getBaseCPModifier() * lvl;
+				double max = (template.getBaseCPAdd() + mod) * lvl;
+				double min = (template.getBaseCPAdd() * lvl) + mod;
 
 				ctx.result += (max + min) / 2;
 			}

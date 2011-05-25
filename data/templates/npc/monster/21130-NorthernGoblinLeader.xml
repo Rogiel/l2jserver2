@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21130" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Northern Goblin Leader</name>
+        <level>24</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="435.34437"/>
+            <mp regen="1.5" max="245.52"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="60.19687"/>
+                <magical speed="333.0" damage="41.10666"/>
+            </attack>
+            <defense>
+                <physical value="98.70919"/>
+                <magical value="65.72169"/>
+            </defense>
+            <move walk="30.0" run="125.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1145</experience>
+        <sp>56</sp>
+        <item lefthand="102" righthand="66"/>
+        <collision heigth="15.0" radius="4.0"/>
+    </info>
+    <droplist>
+        <item chance="1689" max="1" min="1" id="39"/>
+        <item chance="1689" max="1" min="1" id="51"/>
+        <item chance="700000" max="334" min="181" id="57"/>
+        <item chance="10028" max="1" min="1" id="734"/>
+        <item chance="40111" max="1" min="1" id="1866"/>
+        <item chance="60167" max="1" min="1" id="1871"/>
+        <item chance="52565" max="1" min="1" id="1929"/>
+        <item chance="104455" max="1" min="1" id="1930"/>
+        <item chance="20570" max="1" min="1" id="1930"/>
+        <item chance="130152" max="1" min="1" id="2177"/>
+        <item chance="2407" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

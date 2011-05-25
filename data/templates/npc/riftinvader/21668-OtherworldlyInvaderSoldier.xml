@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21668" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Otherworldly Invader Soldier</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="50.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3215</experience>
+        <sp>176</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="917" min="459" id="57"/>
+        <item chance="290" max="1" min="1" id="348"/>
+        <item chance="463" max="1" min="1" id="377"/>
+        <item chance="59999" max="1" min="1" id="1061"/>
+        <item chance="39599" max="1" min="1" id="1829"/>
+        <item chance="603864" max="3" min="1" id="1832"/>
+        <item chance="724636" max="5" min="1" id="1864"/>
+        <item chance="197994" max="1" min="1" id="1864"/>
+        <item chance="98997" max="1" min="1" id="1869"/>
+        <item chance="9900" max="1" min="1" id="1880"/>
+        <item chance="8296" max="1" min="1" id="1935"/>
+        <item chance="88949" max="1" min="1" id="1936"/>
+        <item chance="12758" max="1" min="1" id="1937"/>
+        <item chance="1321" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

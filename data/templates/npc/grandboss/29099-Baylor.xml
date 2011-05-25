@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29099" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Baylor</name>
+        <title send="false">Warden</title>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="100.862738374864" max="1078413.49462422"/>
+            <mp regen="1000.0" max="100000.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2098.52696"/>
+                <magical speed="333.0" damage="1433.02187"/>
+            </attack>
+            <defense>
+                <physical value="1415.44576"/>
+                <magical value="1035.7618"/>
+            </defense>
+            <move walk="34.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3190205</experience>
+        <sp>2191683</sp>
+        <collision heigth="77.5" radius="54.0"/>
+    </info>
+</npc>

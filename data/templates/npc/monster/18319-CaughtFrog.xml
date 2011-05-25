@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="PenaltyMonster" id="18319" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Caught Frog</name>
+        <level>10</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="163.28607"/>
+            <mp regen="0.9" max="108.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="19.33758"/>
+                <magical speed="333.0" damage="13.20506"/>
+            </attack>
+            <defense>
+                <physical value="52.55148"/>
+                <magical value="37.45246"/>
+            </defense>
+            <move walk="50.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>422</experience>
+        <sp>14</sp>
+        <collision heigth="10.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="86953" max="1" min="1" id="6519"/>
+        <item chance="57969" max="1" min="1" id="6522"/>
+        <item chance="72461" max="1" min="1" id="6525"/>
+        <item chance="1159" max="1" min="1" id="6529"/>
+        <item chance="120768" max="36" min="12" id="6535"/>
+    </droplist>
+</npc>

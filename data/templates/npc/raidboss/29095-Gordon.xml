@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29095" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Gordon</name>
+        <title send="false">Knight of Destruction</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="369.61370264709" max="961780.70191152"/>
+            <mp regen="3.21" max="2051.19"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6129.55481"/>
+                <magical speed="333.0" damage="4888.35448"/>
+            </attack>
+            <defense>
+                <physical value="1185.644"/>
+                <magical value="578.3992"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5885017</experience>
+        <sp>1455305</sp>
+        <collision heigth="46.6" radius="43.0"/>
+    </info>
+    <droplist>
+        <item chance="32993" max="1" min="1" id="959"/>
+        <item chance="329928" max="1" min="1" id="960"/>
+        <item chance="8120" max="1" min="1" id="6371"/>
+        <item chance="5499" max="1" min="1" id="6577"/>
+        <item chance="13185" max="1" min="1" id="6684"/>
+        <item chance="700327" max="9" min="3" id="6695"/>
+        <item chance="236814" max="36" min="12" id="6711"/>
+        <item chance="50000" max="1" min="1" id="10298"/>
+    </droplist>
+</npc>

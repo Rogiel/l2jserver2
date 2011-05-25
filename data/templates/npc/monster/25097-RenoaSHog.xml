@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25097" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Renoa's Hog</name>
+        <title send="false">Raid Fighter</title>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="20.2128543987694" max="7837.43564186984"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="379.21383"/>
+                <magical speed="333.0" damage="96.9583"/>
+            </attack>
+            <defense>
+                <physical value="167.42052"/>
+                <magical value="163.34"/>
+            </defense>
+            <move walk="35.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="27.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="821156" max="30" min="10" id="1341"/>
+    </droplist>
+</npc>

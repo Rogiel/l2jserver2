@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21579" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ghost of Rebellion Leader</name>
+        <level>71</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2492.727"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="710.2185"/>
+                <magical speed="333.0" damage="484.98717"/>
+            </attack>
+            <defense>
+                <physical value="300.65359"/>
+                <magical value="200.17855"/>
+            </defense>
+            <move walk="80.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>13012</experience>
+        <sp>1306</sp>
+        <item lefthand="945" righthand="221"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="374" max="1" min="1" id="729"/>
+        <item chance="672353" max="1" min="1" id="1876"/>
+        <item chance="56029" max="1" min="1" id="4042"/>
+        <item chance="700000" max="3381" min="1659" id="57"/>
+        <item chance="171" max="1" min="1" id="11955"/>
+        <item chance="2118" max="1" min="1" id="5535"/>
+        <item chance="248254" max="1" min="1" id="1868"/>
+        <item chance="49651" max="1" min="1" id="1873"/>
+        <item chance="24825" max="1" min="1" id="1876"/>
+        <item chance="35465" max="1" min="1" id="1895"/>
+        <item chance="2069" max="1" min="1" id="4042"/>
+        <item chance="55" max="1" min="1" id="5282"/>
+        <item chance="1379" max="1" min="1" id="8730"/>
+        <item chance="345" max="1" min="1" id="8740"/>
+        <item chance="34" max="1" min="1" id="8750"/>
+        <item chance="7" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

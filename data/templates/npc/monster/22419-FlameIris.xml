@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22419" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Flame Iris</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>26322</experience>
+        <sp>2738</sp>
+        <collision heigth="35.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7022" min="3428" id="57"/>
+        <item chance="72075" max="1" min="1" id="1895"/>
+        <item chance="5045" max="1" min="1" id="4040"/>
+        <item chance="2018" max="1" min="1" id="9547"/>
+        <item chance="1979" max="1" min="1" id="9628"/>
+        <item chance="1752" max="1" min="1" id="10483"/>
+        <item chance="1328" max="1" min="1" id="9630"/>
+        <item chance="1267" max="1" min="1" id="5546"/>
+        <item chance="1153" max="1" min="1" id="5529"/>
+        <item chance="1153" max="1" min="1" id="5545"/>
+        <item chance="438" max="1" min="1" id="10484"/>
+        <item chance="101" max="1" min="1" id="960"/>
+        <item chance="44" max="1" min="1" id="10485"/>
+        <item chance="9" max="1" min="1" id="10486"/>
+        <item chance="4" max="1" min="1" id="151"/>
+        <item chance="4" max="1" min="1" id="2500"/>
+        <item chance="4" max="1" min="1" id="81"/>
+        <item chance="86487" max="1" min="1" id="5502"/>
+        <item chance="77761" max="1" min="1" id="5495"/>
+        <item chance="2276" max="1" min="1" id="5157"/>
+    </droplist>
+</npc>

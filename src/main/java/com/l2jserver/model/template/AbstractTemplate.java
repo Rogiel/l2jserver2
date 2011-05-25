@@ -27,22 +27,20 @@ import com.l2jserver.model.id.TemplateID;
  *            the type of object created by this template
  */
 public abstract class AbstractTemplate<T> implements Template<T> {
-	/**
-	 * The {@link TemplateID}F
-	 */
-	private final TemplateID<?> id;
+	// /**
+	// * The {@link TemplateID}
+	// */
+	// private final TemplateID<?> id;
 
-	/**
-	 * Creates a new instance
-	 * 
-	 * @param id
-	 */
-	protected AbstractTemplate(TemplateID<?> id) {
-		this.id = id;
-	}
+	// /**
+	// * Creates a new instance
+	// *
+	// * @param id
+	// */
+	// protected AbstractTemplate(TemplateID<?> id) {
+	// this.id = id;
+	// }
 
 	@Override
-	public TemplateID<?> getID() {
-		return id;
-	}
+	public abstract TemplateID<?> getID();
 }

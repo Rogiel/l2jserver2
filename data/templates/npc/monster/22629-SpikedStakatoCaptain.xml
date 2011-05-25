@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22629" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Spiked Stakato Captain</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3835.59060587002"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="1099.42362"/>
+                <magical speed="333.0" damage="750.76381"/>
+            </attack>
+            <defense>
+                <physical value="353.86144"/>
+                <magical value="258.94045"/>
+            </defense>
+            <move walk="80.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>94846</experience>
+        <sp>9748</sp>
+        <item lefthand="0" righthand="234"/>
+        <collision heigth="29.1" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7600" min="4600" id="57"/>
+        <item chance="2000" max="1" min="1" id="9624"/>
+        <item chance="12" max="1" min="1" id="9450"/>
+        <item chance="40000" max="1" min="1" id="4039"/>
+        <item chance="40000" max="1" min="1" id="1894"/>
+        <item chance="40000" max="1" min="1" id="4044"/>
+        <item chance="9000" max="1" min="1" id="4041"/>
+        <item chance="300" max="1" min="1" id="5277"/>
+        <item chance="7000" max="1" min="1" id="9573"/>
+        <item chance="2000" max="1" min="1" id="9574"/>
+        <item chance="100" max="1" min="1" id="9575"/>
+        <item chance="600000" max="1" min="1" id="1894"/>
+        <item chance="500" max="1" min="1" id="959"/>
+    </droplist>
+</npc>

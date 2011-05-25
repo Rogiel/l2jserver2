@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20791" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Crokian Warrior</name>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="886.09975"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="156.22273"/>
+                <magical speed="333.0" damage="106.67987"/>
+            </attack>
+            <defense>
+                <physical value="148.44287"/>
+                <magical value="98.83494"/>
+            </defense>
+            <move walk="18.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5307</experience>
+        <sp>331</sp>
+        <item lefthand="0" righthand="5128"/>
+        <collision heigth="29.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1467" min="735" id="57"/>
+        <item chance="130" max="1" min="1" id="352"/>
+        <item chance="124190" max="1" min="1" id="1825"/>
+        <item chance="25679" max="1" min="1" id="1876"/>
+        <item chance="5136" max="1" min="1" id="1877"/>
+        <item chance="12839" max="1" min="1" id="1880"/>
+        <item chance="17119" max="1" min="1" id="1881"/>
+        <item chance="28532" max="1" min="1" id="1882"/>
+        <item chance="5957" max="1" min="1" id="1941"/>
+        <item chance="19395" max="1" min="1" id="2041"/>
+        <item chance="71256" max="1" min="1" id="2196"/>
+        <item chance="2692" max="1" min="1" id="2198"/>
+        <item chance="209" max="1" min="1" id="2377"/>
+        <item chance="209" max="1" min="1" id="2378"/>
+        <item chance="8887" max="1" min="1" id="2918"/>
+        <item chance="8887" max="1" min="1" id="2919"/>
+        <item chance="713" max="1" min="1" id="3020"/>
+    </droplist>
+</npc>

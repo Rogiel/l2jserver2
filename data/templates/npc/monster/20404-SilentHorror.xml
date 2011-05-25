@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20404" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Silent Horror</name>
+        <level>16</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="264.34345"/>
+            <mp regen="1.2" max="157.6"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="32.16396"/>
+                <magical speed="333.0" damage="21.96382"/>
+            </attack>
+            <defense>
+                <physical value="76.08628"/>
+                <magical value="50.6591"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>485</experience>
+        <sp>20</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="156" min="100" id="57"/>
+        <item chance="16828" max="1" min="1" id="735"/>
+        <item chance="765" max="1" min="1" id="1101"/>
+        <item chance="1221" max="1" min="1" id="1104"/>
+        <item chance="19883" max="1" min="1" id="1866"/>
+        <item chance="29824" max="1" min="1" id="1871"/>
+        <item chance="48079" max="1" min="1" id="1897"/>
+        <item chance="8276" max="1" min="1" id="2253"/>
+        <item chance="1223" max="1" min="1" id="2254"/>
+        <item chance="2486" max="1" min="1" id="6035"/>
+    </droplist>
+</npc>

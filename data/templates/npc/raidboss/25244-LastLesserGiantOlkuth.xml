@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25244" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Last Lesser Giant Olkuth</name>
+        <title send="false">Raid Boss</title>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="308.04072385958" max="794874.502880181"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="4902.44696"/>
+                <magical speed="333.0" damage="3475.50411"/>
+            </attack>
+            <defense>
+                <physical value="957.73869"/>
+                <magical value="467.22"/>
+            </defense>
+            <move walk="15.0" run="140.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5231148</experience>
+        <sp>864099</sp>
+        <item lefthand="0" righthand="78"/>
+        <collision heigth="69.0" radius="31.5"/>
+    </info>
+    <droplist>
+        <item chance="19369" max="1" min="1" id="6680"/>
+        <item chance="311439" max="36" min="12" id="6707"/>
+        <item chance="10584" max="1" min="1" id="6367"/>
+        <item chance="203791" max="36" min="12" id="6691"/>
+        <item chance="39110" max="1" min="1" id="959"/>
+        <item chance="391104" max="1" min="1" id="960"/>
+        <item chance="6519" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

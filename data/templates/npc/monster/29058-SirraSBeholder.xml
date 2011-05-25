@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29058" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sirra's Beholder</name>
+        <title send="false">Raid Fighter</title>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="57.96894" max="3860.731"/>
+            <mp regen="2.4" max="1007.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1181.241"/>
+                <magical speed="333.0" damage="386.9314"/>
+            </attack>
+            <defense>
+                <physical value="971.28"/>
+                <magical value="355.36"/>
+            </defense>
+            <move walk="70.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="36.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="227733" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

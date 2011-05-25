@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18568" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Knight Montagnar</name>
+        <title send="false">Kaneus</title>
+        <level>56</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="50.7554330723992" max="318250.283048557"/>
+            <mp regen="13.2" max="4594.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1114.68191"/>
+                <magical speed="333.0" damage="761.18324"/>
+            </attack>
+            <defense>
+                <physical value="365.44216"/>
+                <magical value="401.12208"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1002611</experience>
+        <sp>124970</sp>
+        <item lefthand="945" righthand="946"/>
+        <collision heigth="28.5" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="12556" max="1" min="1" id="357"/>
+        <item chance="8371" max="1" min="1" id="357"/>
+        <item chance="20086" max="1" min="1" id="383"/>
+        <item chance="13390" max="1" min="1" id="383"/>
+        <item chance="103909" max="1" min="1" id="947"/>
+        <item chance="649434" max="1" min="1" id="948"/>
+        <item chance="12556" max="1" min="1" id="2376"/>
+        <item chance="8371" max="1" min="1" id="2376"/>
+        <item chance="20086" max="1" min="1" id="2379"/>
+        <item chance="13390" max="1" min="1" id="2379"/>
+        <item chance="56673" max="48" min="16" id="4056"/>
+        <item chance="37781" max="48" min="16" id="4056"/>
+        <item chance="233561" max="18" min="6" id="4057"/>
+        <item chance="155704" max="18" min="6" id="4057"/>
+        <item chance="241800" max="7" min="3" id="4064"/>
+        <item chance="40301" max="67" min="23" id="4064"/>
+        <item chance="133464" max="31" min="11" id="4065"/>
+        <item chance="88974" max="31" min="11" id="4065"/>
+    </droplist>
+</npc>

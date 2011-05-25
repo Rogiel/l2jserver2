@@ -31,7 +31,7 @@ public class BaseWalkSpeedCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getWalkSpeed();
+				ctx.result = c.getTemplate().getBaseWalkSpeed();
 			}
 		}, new AbstractFunction<L2Character>(0x300) {
 			@Override

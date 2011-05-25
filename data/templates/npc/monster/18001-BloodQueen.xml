@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18001" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Blood Queen</name>
+        <level>60</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="150.02125"/>
+            </defense>
+            <move walk="80.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4536</experience>
+        <sp>394</sp>
+        <collision heigth="40.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1528" min="765" id="57"/>
+        <item chance="200000" max="1" min="1" id="1419"/>
+        <item chance="10868" max="1" min="1" id="1806"/>
+        <item chance="166667" max="1" min="1" id="1864"/>
+        <item chance="62500" max="1" min="1" id="1866"/>
+        <item chance="37037" max="1" min="1" id="1878"/>
+        <item chance="7092" max="1" min="1" id="1885"/>
+        <item chance="5435" max="1" min="1" id="1889"/>
+        <item chance="2102" max="1" min="1" id="4069"/>
+        <item chance="3192" max="1" min="1" id="4070"/>
+        <item chance="1615" max="1" min="1" id="4071"/>
+        <item chance="8" max="1" min="1" id="4197"/>
+    </droplist>
+</npc>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22337" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Desiccator</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="11001.327600381"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6935.07781"/>
+                <magical speed="333.0" damage="4819.33135"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="40.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>47148</experience>
+        <sp>5030</sp>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8167" min="4080" id="57"/>
+        <item chance="108871" max="3" min="1" id="1866"/>
+        <item chance="244959" max="3" min="1" id="1871"/>
+        <item chance="19597" max="1" min="1" id="1877"/>
+        <item chance="9799" max="1" min="1" id="4040"/>
+        <item chance="4260" max="1" min="1" id="4041"/>
+        <item chance="63" max="1" min="1" id="5313"/>
+        <item chance="63" max="1" min="1" id="5314"/>
+        <item chance="63" max="1" min="1" id="5318"/>
+        <item chance="63" max="1" min="1" id="5319"/>
+        <item chance="7240" max="1" min="1" id="5502"/>
+        <item chance="7240" max="1" min="1" id="5503"/>
+        <item chance="7240" max="1" min="1" id="5514"/>
+        <item chance="7240" max="1" min="1" id="5515"/>
+        <item chance="6962" max="1" min="1" id="6901"/>
+        <item chance="490" max="1" min="1" id="6901"/>
+        <item chance="16897" max="1" min="1" id="8712"/>
+        <item chance="16897" max="1" min="1" id="8713"/>
+        <item chance="3919" max="1" min="1" id="9549"/>
+        <item chance="357200" max="1" min="1" id="9599"/>
+    </droplist>
+</npc>

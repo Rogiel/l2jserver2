@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21684" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dimension Invader Archer</name>
+        <level>43</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1094.28943"/>
+            <mp regen="2.1" max="557.4"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="210.04832"/>
+                <magical speed="333.0" damage="143.43577"/>
+            </attack>
+            <defense>
+                <physical value="169.13417"/>
+                <magical value="112.61144"/>
+            </defense>
+            <move walk="40.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7603</experience>
+        <sp>514</sp>
+        <item lefthand="0" righthand="279"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1865" min="919" id="57"/>
+        <item chance="194" max="1" min="1" id="353"/>
+        <item chance="310" max="1" min="1" id="380"/>
+        <item chance="103683" max="3" min="1" id="1867"/>
+        <item chance="155525" max="3" min="1" id="1872"/>
+        <item chance="15553" max="1" min="1" id="1875"/>
+        <item chance="31105" max="1" min="1" id="1881"/>
+        <item chance="319295" max="1" min="1" id="1906"/>
+        <item chance="161591" max="1" min="1" id="1907"/>
+        <item chance="9465" max="1" min="1" id="1950"/>
+        <item chance="14721" max="1" min="1" id="1951"/>
+        <item chance="149862" max="1" min="1" id="2160"/>
+        <item chance="15051" max="1" min="1" id="2160"/>
+    </droplist>
+</npc>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21244" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Crypt Archon</name>
+        <level>50</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1421.00103"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="305.54906"/>
+                <magical speed="333.0" damage="208.6504"/>
+            </attack>
+            <defense>
+                <physical value="200.23844"/>
+                <magical value="133.32101"/>
+            </defense>
+            <move walk="40.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10635</experience>
+        <sp>801</sp>
+        <item lefthand="0" righthand="131"/>
+        <collision heigth="33.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2854" min="1404" id="57"/>
+        <item chance="120" max="1" min="1" id="60"/>
+        <item chance="788726" max="1" min="1" id="1539"/>
+        <item chance="133433" max="1" min="1" id="1865"/>
+        <item chance="133433" max="1" min="1" id="1870"/>
+        <item chance="8896" max="1" min="1" id="1875"/>
+        <item chance="22239" max="1" min="1" id="1879"/>
+        <item chance="199397" max="1" min="1" id="1914"/>
+        <item chance="10855" max="1" min="1" id="1977"/>
+        <item chance="3147" max="1" min="1" id="2170"/>
+        <item chance="4732" max="1" min="1" id="2970"/>
+        <item chance="2669" max="1" min="1" id="4040"/>
+        <item chance="7887" max="1" min="1" id="4601"/>
+        <item chance="3707" max="1" min="1" id="8725"/>
+        <item chance="927" max="1" min="1" id="8735"/>
+        <item chance="93" max="1" min="1" id="8745"/>
+        <item chance="18" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

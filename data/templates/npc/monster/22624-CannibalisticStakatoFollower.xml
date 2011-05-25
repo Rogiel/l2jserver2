@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22624" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Cannibalistic Stakato Follower</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="23.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>90357</experience>
+        <sp>9403</sp>
+        <item lefthand="0" righthand="223"/>
+        <collision heigth="29.8" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7600" min="4600" id="57"/>
+        <item chance="20" max="1" min="1" id="9520"/>
+        <item chance="12" max="1" min="1" id="9519"/>
+        <item chance="5000" max="1" min="1" id="9536"/>
+        <item chance="4000" max="1" min="1" id="9535"/>
+        <item chance="40000" max="1" min="1" id="4039"/>
+        <item chance="40000" max="1" min="1" id="1894"/>
+        <item chance="40000" max="1" min="1" id="4044"/>
+        <item chance="9000" max="1" min="1" id="4041"/>
+        <item chance="3000" max="1" min="1" id="9550"/>
+        <item chance="7000" max="1" min="1" id="9573"/>
+        <item chance="1000" max="1" min="1" id="9574"/>
+        <item chance="300" max="1" min="1" id="9575"/>
+        <item chance="60000" max="1" min="1" id="9535"/>
+        <item chance="600000" max="1" min="1" id="1894"/>
+    </droplist>
+</npc>

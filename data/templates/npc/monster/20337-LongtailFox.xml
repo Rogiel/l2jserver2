@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20337" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Longtail Fox</name>
+        <level>2</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="48.09168"/>
+            <mp regen="0.9" max="47.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9.32203"/>
+                <magical speed="333.0" damage="6.36574"/>
+            </attack>
+            <defense>
+                <physical value="46.15385"/>
+                <magical value="30.72975"/>
+            </defense>
+            <move walk="23.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>59</experience>
+        <sp>2</sp>
+        <collision heigth="10.0" radius="9.5"/>
+    </info>
+</npc>

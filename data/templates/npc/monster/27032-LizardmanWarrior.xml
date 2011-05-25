@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="27032" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lizardman Warrior</name>
+        <title send="false">Quest Monster</title>
+        <level>13</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="214.61578"/>
+            <mp regen="1.2" max="132.64"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="25.04271"/>
+                <magical speed="333.0" damage="17.10092"/>
+            </attack>
+            <defense>
+                <physical value="68.67458"/>
+                <magical value="50.25308"/>
+            </defense>
+            <move walk="52.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="16"/>
+        <collision heigth="30.0" radius="12.0"/>
+    </info>
+</npc>

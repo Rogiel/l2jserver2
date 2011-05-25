@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25190" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mumu's Wizard</name>
+        <title send="false">Raid Fighter</title>
+        <level>33</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="24.5170941308607" max="6689.08130706126"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="374.81071"/>
+                <magical speed="333.0" damage="79.6019"/>
+            </attack>
+            <defense>
+                <physical value="193.84643"/>
+                <magical value="189.14"/>
+            </defense>
+            <move walk="48.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="15.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="10720" max="1" min="1" id="6036"/>
+    </droplist>
+</npc>

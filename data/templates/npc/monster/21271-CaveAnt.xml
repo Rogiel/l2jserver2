@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21271" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Cave Ant</name>
+        <level>37</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="847.31754"/>
+            <mp regen="1.8" max="432.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="146.82587"/>
+                <magical speed="333.0" damage="100.26304"/>
+            </attack>
+            <defense>
+                <physical value="144.47758"/>
+                <magical value="96.19481"/>
+            </defense>
+            <move walk="40.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2758</experience>
+        <sp>169</sp>
+        <collision heigth="15.0" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="764" min="383" id="57"/>
+        <item chance="44" max="1" min="1" id="129"/>
+        <item chance="905720" max="3" min="1" id="1864"/>
+        <item chance="187275" max="1" min="1" id="1864"/>
+        <item chance="905720" max="1" min="1" id="1869"/>
+        <item chance="93637" max="1" min="1" id="1869"/>
+        <item chance="37455" max="1" min="1" id="1878"/>
+        <item chance="57623" max="1" min="1" id="1884"/>
+        <item chance="125099" max="1" min="1" id="1901"/>
+        <item chance="2473" max="1" min="1" id="2034"/>
+        <item chance="10026" max="1" min="1" id="2154"/>
+    </droplist>
+</npc>

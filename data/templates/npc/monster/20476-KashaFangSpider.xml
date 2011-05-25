@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20476" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kasha Fang Spider</name>
+        <level>16</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="264.34345"/>
+            <mp regen="1.2" max="157.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="32.16396"/>
+                <magical speed="333.0" damage="21.96382"/>
+            </attack>
+            <defense>
+                <physical value="76.08628"/>
+                <magical value="50.6591"/>
+            </defense>
+            <move walk="72.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>571</experience>
+        <sp>23</sp>
+        <collision heigth="25.5" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="67" max="1" min="1" id="2"/>
+        <item chance="700000" max="183" min="118" id="57"/>
+        <item chance="67" max="1" min="1" id="120"/>
+        <item chance="67" max="1" min="1" id="121"/>
+        <item chance="17997" max="1" min="1" id="945"/>
+        <item chance="11034" max="1" min="1" id="1800"/>
+        <item chance="158377" max="1" min="1" id="1866"/>
+        <item chance="70174" max="1" min="1" id="1868"/>
+        <item chance="14035" max="1" min="1" id="1873"/>
+        <item chance="732" max="1" min="1" id="2012"/>
+        <item chance="1404" max="1" min="1" id="5273"/>
+        <item chance="23757" max="1" min="1" id="5549"/>
+    </droplist>
+</npc>

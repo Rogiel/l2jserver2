@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20678" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tortured Undead</name>
+        <level>53</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1570.8463"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="353.71092"/>
+                <magical speed="333.0" damage="241.5387"/>
+            </attack>
+            <defense>
+                <physical value="214.18326"/>
+                <magical value="142.60563"/>
+            </defense>
+            <move walk="15.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4902</experience>
+        <sp>385</sp>
+        <collision heigth="40.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1321" min="650" id="57"/>
+        <item chance="13" max="1" min="1" id="266"/>
+        <item chance="15751" max="1" min="1" id="1895"/>
+        <item chance="71130" max="1" min="1" id="1918"/>
+        <item chance="49499" max="1" min="1" id="1989"/>
+        <item chance="1456" max="1" min="1" id="2120"/>
+        <item chance="1103" max="1" min="1" id="4040"/>
+        <item chance="919" max="1" min="1" id="4042"/>
+        <item chance="1838" max="1" min="1" id="4043"/>
+        <item chance="682" max="1" min="1" id="4128"/>
+        <item chance="424" max="1" min="1" id="4134"/>
+        <item chance="12634" max="1" min="1" id="4142"/>
+        <item chance="110" max="1" min="1" id="5280"/>
+        <item chance="1276" max="1" min="1" id="8726"/>
+        <item chance="319" max="1" min="1" id="8736"/>
+        <item chance="32" max="1" min="1" id="8746"/>
+        <item chance="6" max="1" min="1" id="8756"/>
+    </droplist>
+</npc>

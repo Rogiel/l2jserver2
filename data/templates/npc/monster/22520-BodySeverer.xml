@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22520" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Body Severer</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3835.59060587002"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1112.35801"/>
+                <magical speed="333.0" damage="768.53275"/>
+            </attack>
+            <defense>
+                <physical value="358.02452"/>
+                <magical value="261.98681"/>
+            </defense>
+            <move walk="50.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>56345</experience>
+        <sp>5798</sp>
+        <collision heigth="47.5" radius="43.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="12974" min="6468" id="57"/>
+        <item chance="7251" max="1" min="1" id="5534"/>
+        <item chance="25" max="1" min="1" id="289"/>
+        <item chance="97810" max="180" min="60" id="1345"/>
+        <item chance="251512" max="1" min="1" id="1895"/>
+        <item chance="17606" max="1" min="1" id="4040"/>
+        <item chance="6904" max="1" min="1" id="9628"/>
+        <item chance="4633" max="1" min="1" id="9630"/>
+        <item chance="655" max="1" min="1" id="6855"/>
+        <item chance="376209" max="2" min="1" id="1894"/>
+        <item chance="22739" max="1" min="1" id="6689"/>
+    </droplist>
+</npc>

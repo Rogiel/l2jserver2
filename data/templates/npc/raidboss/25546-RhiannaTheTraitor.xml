@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25546" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Rhianna the Traitor</name>
+        <title send="false">Forsaken Prisoner</title>
+        <level>75</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="85.6354519750785" max="198851.79298499"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5343.97939"/>
+                <magical speed="333.0" damage="876.21289"/>
+            </attack>
+            <defense>
+                <physical value="957.73869"/>
+                <magical value="467.22"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2329614</experience>
+        <sp>373311</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="38.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="34957" max="1" min="1" id="729"/>
+        <item chance="24504" max="1" min="1" id="5320"/>
+        <item chance="24504" max="1" min="1" id="5323"/>
+        <item chance="453771" max="12" min="4" id="5480"/>
+        <item chance="242011" max="22" min="8" id="5481"/>
+        <item chance="4195" max="1" min="1" id="6569"/>
+        <item chance="34957" max="1" min="1" id="6570"/>
+        <item chance="41949" max="1" min="1" id="9626"/>
+    </droplist>
+</npc>

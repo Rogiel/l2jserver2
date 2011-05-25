@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25158" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">King Tarlk</name>
+        <title send="false">Raid Boss</title>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="169.608687032915" max="386886.590885451"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1515.63787"/>
+                <magical speed="333.0" damage="663.49812"/>
+            </attack>
+            <defense>
+                <physical value="573.38409"/>
+                <magical value="279.72"/>
+            </defense>
+            <move walk="55.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3443211</experience>
+        <sp>354989</sp>
+        <item lefthand="0" righthand="160"/>
+        <collision heigth="126.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="26834" max="1" min="1" id="135"/>
+        <item chance="88525" max="1" min="1" id="400"/>
+        <item chance="41919" max="1" min="1" id="401"/>
+        <item chance="141703" max="1" min="1" id="420"/>
+        <item chance="37192" max="243" min="81" id="1984"/>
+        <item chance="173071" max="84" min="28" id="1985"/>
+        <item chance="107203" max="60" min="20" id="1987"/>
+        <item chance="193453" max="22" min="8" id="2115"/>
+        <item chance="91087" max="15" min="5" id="4610"/>
+        <item chance="303622" max="4" min="2" id="4611"/>
+        <item chance="227717" max="6" min="2" id="4612"/>
+        <item chance="26834" max="1" min="1" id="5286"/>
+        <item chance="362619" max="12" min="4" id="5530"/>
+        <item chance="234223" max="1" min="1" id="6574"/>
+        <item chance="770000" max="2" min="1" id="8176"/>
+        <item chance="760000" max="4" min="2" id="9817"/>
+    </droplist>
+</npc>

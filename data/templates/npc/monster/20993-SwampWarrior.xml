@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20993" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Swamp Warrior</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="115.47533"/>
+            </defense>
+            <move walk="18.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>11717</experience>
+        <sp>802</sp>
+        <item lefthand="0" righthand="5127"/>
+        <collision heigth="28.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3142" min="1533" id="57"/>
+        <item chance="211" max="1" min="1" id="62"/>
+        <item chance="865485" max="17" min="1" id="1864"/>
+        <item chance="184069" max="3" min="1" id="1864"/>
+        <item chance="778937" max="9" min="1" id="1869"/>
+        <item chance="184069" max="1" min="1" id="1869"/>
+        <item chance="18407" max="1" min="1" id="1880"/>
+        <item chance="9192" max="1" min="1" id="1958"/>
+        <item chance="198708" max="1" min="1" id="2163"/>
+        <item chance="7053" max="1" min="1" id="2165"/>
+        <item chance="641" max="1" min="1" id="2318"/>
+        <item chance="211" max="1" min="1" id="2429"/>
+        <item chance="211" max="1" min="1" id="2430"/>
+        <item chance="211" max="1" min="1" id="2431"/>
+        <item chance="211" max="1" min="1" id="2432"/>
+        <item chance="211" max="1" min="1" id="2433"/>
+        <item chance="211" max="1" min="1" id="2452"/>
+        <item chance="211" max="1" min="1" id="2453"/>
+        <item chance="211" max="1" min="1" id="2454"/>
+        <item chance="9192" max="1" min="1" id="2937"/>
+        <item chance="9192" max="1" min="1" id="2938"/>
+        <item chance="9192" max="1" min="1" id="2939"/>
+        <item chance="9192" max="1" min="1" id="2940"/>
+        <item chance="9192" max="1" min="1" id="2941"/>
+        <item chance="9192" max="1" min="1" id="2942"/>
+        <item chance="9192" max="1" min="1" id="2943"/>
+        <item chance="9192" max="1" min="1" id="2944"/>
+        <item chance="2454" max="1" min="1" id="5550"/>
+        <item chance="7363" max="1" min="1" id="8723"/>
+        <item chance="1841" max="1" min="1" id="8733"/>
+        <item chance="184" max="1" min="1" id="8743"/>
+        <item chance="37" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

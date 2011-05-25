@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25572" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hager the Outlaw</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="83.4559083071402" max="192008.832471315"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4529.55926"/>
+                <magical speed="333.0" damage="815.68988"/>
+            </attack>
+            <defense>
+                <physical value="916.07841"/>
+                <magical value="446.9"/>
+            </defense>
+            <move walk="70.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2192267</experience>
+        <sp>353878</sp>
+        <item lefthand="0" righthand="201"/>
+        <collision heigth="54.0" radius="22.5"/>
+    </info>
+    <droplist>
+        <item chance="25916" max="1" min="1" id="97"/>
+        <item chance="237685" max="36" min="12" id="4115"/>
+        <item chance="203409" max="1" min="1" id="9625"/>
+    </droplist>
+</npc>

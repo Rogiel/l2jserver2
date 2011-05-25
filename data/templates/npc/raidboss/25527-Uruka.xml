@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25527" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Uruka</name>
+        <title send="false">Raid Boss</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="259.751563024682" max="675862.82488359"/>
+            <mp regen="3.18" max="203.52"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="3068.49967"/>
+                <magical speed="333.0" damage="1381.13521"/>
+            </attack>
+            <defense>
+                <physical value="1162.67224"/>
+                <magical value="567.1848"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3775961</experience>
+        <sp>557272</sp>
+        <collision heigth="42.51" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="2551" max="1" min="1" id="6365"/>
+        <item chance="2551" max="1" min="1" id="6366"/>
+        <item chance="2551" max="1" min="1" id="6369"/>
+        <item chance="2551" max="1" min="1" id="6579"/>
+        <item chance="289231" max="6" min="2" id="6689"/>
+        <item chance="56257" max="31" min="11" id="6690"/>
+        <item chance="100043" max="18" min="6" id="6693"/>
+        <item chance="231387" max="7" min="3" id="6697"/>
+        <item chance="58788" max="243" min="81" id="6698"/>
+        <item chance="132098" max="120" min="40" id="6699"/>
+        <item chance="207304" max="42" min="14" id="6700"/>
+        <item chance="29654" max="1" min="1" id="6724"/>
+        <item chance="44482" max="1" min="1" id="6725"/>
+        <item chance="22236" max="1" min="1" id="6726"/>
+    </droplist>
+</npc>

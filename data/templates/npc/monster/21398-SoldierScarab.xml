@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21398" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Soldier Scarab</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2802.89989"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="855.81387"/>
+                <magical speed="333.0" damage="584.40994"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="221.51582"/>
+            </defense>
+            <move walk="45.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>40465</experience>
+        <sp>4428</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11595" min="5681" id="57"/>
+        <item chance="151890" max="1" min="1" id="1895"/>
+        <item chance="10632" max="1" min="1" id="4040"/>
+        <item chance="8860" max="1" min="1" id="4042"/>
+        <item chance="17721" max="1" min="1" id="4043"/>
+        <item chance="5119" max="1" min="1" id="5157"/>
+        <item chance="236" max="1" min="1" id="5167"/>
+        <item chance="51685" max="1" min="1" id="5480"/>
+        <item chance="7171" max="1" min="1" id="5542"/>
+        <item chance="375006" max="2" min="1" id="6346"/>
+        <item chance="4430" max="1" min="1" id="8732"/>
+        <item chance="1108" max="1" min="1" id="8742"/>
+        <item chance="111" max="1" min="1" id="8752"/>
+        <item chance="585" max="1" min="1" id="11960"/>
+    </droplist>
+</npc>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25282" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Death Lord Shax</name>
+        <title send="false">Raid Boss</title>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="308.04072385958" max="794874.502880181"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4902.44696"/>
+                <magical speed="333.0" damage="3475.50411"/>
+            </attack>
+            <defense>
+                <physical value="957.73869"/>
+                <magical value="467.22"/>
+            </defense>
+            <move walk="40.0" run="210.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5231148</experience>
+        <sp>864099</sp>
+        <item lefthand="0" righthand="2500"/>
+        <collision heigth="61.5" radius="31.0"/>
+    </info>
+    <droplist>
+        <item chance="15739" max="1" min="1" id="6676"/>
+        <item chance="15739" max="1" min="1" id="6677"/>
+        <item chance="15739" max="1" min="1" id="6681"/>
+        <item chance="15739" max="1" min="1" id="6682"/>
+        <item chance="15739" max="1" min="1" id="6685"/>
+        <item chance="15739" max="1" min="1" id="6686"/>
+        <item chance="223739" max="24" min="8" id="6703"/>
+        <item chance="132586" max="40" min="14" id="6704"/>
+        <item chance="89496" max="60" min="20" id="6708"/>
+        <item chance="65807" max="82" min="28" id="6709"/>
+        <item chance="49720" max="108" min="36" id="6712"/>
+        <item chance="39340" max="136" min="46" id="6713"/>
+        <item chance="2646" max="1" min="1" id="6365"/>
+        <item chance="2646" max="1" min="1" id="6366"/>
+        <item chance="2646" max="1" min="1" id="6369"/>
+        <item chance="2646" max="1" min="1" id="6579"/>
+        <item chance="299966" max="6" min="2" id="6689"/>
+        <item chance="58345" max="31" min="11" id="6690"/>
+        <item chance="103756" max="18" min="6" id="6693"/>
+        <item chance="239975" max="7" min="3" id="6697"/>
+        <item chance="39110" max="1" min="1" id="959"/>
+        <item chance="391104" max="1" min="1" id="960"/>
+        <item chance="6519" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22391" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Foundry Assistant Overseer</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="32829.2831947712"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5815.28895"/>
+                <magical speed="333.0" damage="3971.08851"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="41.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>286741</experience>
+        <sp>29436</sp>
+        <collision heigth="37.5" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="18155" min="9065" id="57"/>
+        <item chance="793800" max="1" min="1" id="9599"/>
+        <item chance="10448" max="1" min="1" id="5541"/>
+        <item chance="37" max="1" min="1" id="305"/>
+        <item chance="362878" max="1" min="1" id="1895"/>
+        <item chance="25401" max="1" min="1" id="4040"/>
+        <item chance="9961" max="1" min="1" id="9628"/>
+        <item chance="6685" max="1" min="1" id="9630"/>
+        <item chance="51" max="1" min="1" id="959"/>
+        <item chance="10161" max="1" min="1" id="9551"/>
+        <item chance="883971" max="9" min="1" id="1895"/>
+        <item chance="337173" max="1" min="1" id="6699"/>
+        <item chance="6188" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

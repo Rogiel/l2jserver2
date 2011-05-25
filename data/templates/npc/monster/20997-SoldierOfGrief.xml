@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20997" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Soldier of Grief</name>
+        <level>51</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1470.41596"/>
+            <mp regen="2.4" max="775.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="321.13207"/>
+                <magical speed="333.0" damage="219.29157"/>
+            </attack>
+            <defense>
+                <physical value="204.85194"/>
+                <magical value="136.39273"/>
+            </defense>
+            <move walk="21.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4539</experience>
+        <sp>346</sp>
+        <collision heigth="26.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1220" min="601" id="57"/>
+        <item chance="51" max="1" min="1" id="60"/>
+        <item chance="337056" max="1" min="1" id="1539"/>
+        <item chance="114043" max="1" min="1" id="1868"/>
+        <item chance="22809" max="1" min="1" id="1873"/>
+        <item chance="11404" max="1" min="1" id="1876"/>
+        <item chance="16292" max="1" min="1" id="1895"/>
+        <item chance="133634" max="1" min="1" id="1915"/>
+        <item chance="4639" max="1" min="1" id="1977"/>
+        <item chance="1345" max="1" min="1" id="2170"/>
+        <item chance="1064" max="1" min="1" id="3012"/>
+        <item chance="950" max="1" min="1" id="4042"/>
+        <item chance="3371" max="1" min="1" id="4601"/>
+        <item chance="1584" max="1" min="1" id="8725"/>
+        <item chance="396" max="1" min="1" id="8735"/>
+        <item chance="40" max="1" min="1" id="8745"/>
+        <item chance="8" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

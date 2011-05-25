@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="DWARVEN_FIGHTER" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+    <stats crafter="true" level="1">
+        <hp add="12.64" modifier="0.37" base="80.0"/>
+        <mp add="5.36" modifier="0.14" base="30.0"/>
+        <cp add="8.82" modifier="0.22" base="56.0"/>
+        <attack accuracy="33" critical="43" evasion="33">
+            <physical speed="300.0" damage="4.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="80.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="115.0" run="115.0"/>
+        <base wit="10" dex="29" men="27" con="45" str="39" int="20"/>
+        <maxload>83000</maxload>
+    </stats>
+    <collision>
+        <male heigth="18.0" radius="9.0"/>
+        <female heigth="19.0" radius="5.0"/>
+    </collision>
+</character>

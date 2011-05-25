@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18575" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Warlord Tamuze</name>
+        <title send="false">Kaneus</title>
+        <level>66</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="66.5389693316175" max="445990.929574085"/>
+            <mp regen="16.47" max="6099.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2129.66944"/>
+                <magical speed="333.0" damage="1454.28817"/>
+            </attack>
+            <defense>
+                <physical value="442.76403"/>
+                <magical value="485.99326"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1052061</experience>
+        <sp>186892</sp>
+        <item lefthand="0" righthand="8686"/>
+        <collision heigth="43.0" radius="22.0"/>
+    </info>
+    <droplist>
+        <item chance="2122" max="1" min="1" id="171"/>
+        <item chance="1415" max="1" min="1" id="171"/>
+        <item chance="2122" max="1" min="1" id="175"/>
+        <item chance="1415" max="1" min="1" id="175"/>
+        <item chance="2122" max="1" min="1" id="210"/>
+        <item chance="1415" max="1" min="1" id="210"/>
+        <item chance="38550" max="1" min="1" id="729"/>
+        <item chance="289124" max="1" min="1" id="730"/>
+        <item chance="233901" max="3" min="1" id="4116"/>
+        <item chance="155938" max="3" min="1" id="4116"/>
+        <item chance="155934" max="4" min="2" id="4117"/>
+        <item chance="103958" max="4" min="2" id="4117"/>
+        <item chance="295484" max="1" min="1" id="4118"/>
+        <item chance="73869" max="9" min="3" id="4118"/>
+        <item chance="2122" max="1" min="1" id="7893"/>
+        <item chance="1415" max="1" min="1" id="7893"/>
+        <item chance="2122" max="1" min="1" id="7901"/>
+        <item chance="1415" max="1" min="1" id="7901"/>
+        <item chance="116950" max="6" min="2" id="8340"/>
+        <item chance="77969" max="6" min="2" id="8340"/>
+        <item chance="93402" max="7" min="3" id="8348"/>
+        <item chance="62270" max="7" min="3" id="8348"/>
+    </droplist>
+</npc>

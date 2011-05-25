@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21382" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Mercenary of Destruction</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="40.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>51904</experience>
+        <sp>5826</sp>
+        <item lefthand="103" righthand="150"/>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="801799" max="1" min="1" id="1889"/>
+        <item chance="203124" max="1" min="1" id="5502"/>
+        <item chance="601349" max="3" min="1" id="5549"/>
+        <item chance="700000" max="12104" min="5929" id="57"/>
+        <item chance="620" max="1" min="1" id="12265"/>
+        <item chance="620" max="1" min="1" id="12258"/>
+        <item chance="4982" max="1" min="1" id="5480"/>
+        <item chance="4982" max="1" min="1" id="5481"/>
+        <item chance="20" max="1" min="1" id="959"/>
+        <item chance="164472" max="9" min="3" id="1868"/>
+        <item chance="197366" max="1" min="1" id="1873"/>
+        <item chance="32895" max="1" min="1" id="1889"/>
+        <item chance="16447" max="1" min="1" id="4044"/>
+        <item chance="49341" max="1" min="1" id="5549"/>
+        <item chance="4112" max="1" min="1" id="8732"/>
+        <item chance="1028" max="1" min="1" id="8742"/>
+        <item chance="102" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

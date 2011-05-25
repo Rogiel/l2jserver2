@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20321" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Goblin Thief</name>
+        <level>10</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="163.28607"/>
+            <mp regen="0.9" max="108.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="19.33758"/>
+                <magical speed="333.0" damage="13.20506"/>
+            </attack>
+            <defense>
+                <physical value="61.82527"/>
+                <magical value="41.16396"/>
+            </defense>
+            <move walk="40.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>356</experience>
+        <sp>12</sp>
+        <item lefthand="0" righthand="217"/>
+        <collision heigth="21.4" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="549" max="1" min="1" id="5"/>
+        <item chance="549" max="1" min="1" id="8"/>
+        <item chance="700000" max="130" min="96" id="57"/>
+        <item chance="850" max="1" min="1" id="152"/>
+        <item chance="396420" max="1" min="1" id="1060"/>
+        <item chance="2783" max="1" min="1" id="1791"/>
+        <item chance="40148" max="1" min="1" id="1833"/>
+        <item chance="30111" max="1" min="1" id="1864"/>
+        <item chance="15056" max="1" min="1" id="1865"/>
+        <item chance="10037" max="1" min="1" id="1866"/>
+        <item chance="30111" max="1" min="1" id="1868"/>
+        <item chance="178389" max="1" min="1" id="1870"/>
+        <item chance="6023" max="1" min="1" id="1873"/>
+        <item chance="12742" max="1" min="1" id="2005"/>
+        <item chance="1882" max="1" min="1" id="2006"/>
+    </droplist>
+</npc>

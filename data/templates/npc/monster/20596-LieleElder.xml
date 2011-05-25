@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20596" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Liele Elder</name>
+        <level>52</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="139.48817"/>
+            </defense>
+            <move walk="60.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8953</experience>
+        <sp>692</sp>
+        <collision heigth="27.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2403" min="1189" id="57"/>
+        <item chance="5" max="1" min="1" id="162"/>
+        <item chance="5" max="1" min="1" id="174"/>
+        <item chance="5" max="1" min="1" id="196"/>
+        <item chance="5" max="1" min="1" id="197"/>
+        <item chance="5" max="1" min="1" id="199"/>
+        <item chance="5" max="1" min="1" id="200"/>
+        <item chance="5" max="1" min="1" id="201"/>
+        <item chance="5" max="1" min="1" id="202"/>
+        <item chance="665319" max="1" min="1" id="1539"/>
+        <item chance="176872" max="1" min="1" id="1868"/>
+        <item chance="35375" max="1" min="1" id="1873"/>
+        <item chance="199596" max="1" min="1" id="1875"/>
+        <item chance="17687" max="1" min="1" id="1876"/>
+        <item chance="25267" max="1" min="1" id="1895"/>
+        <item chance="414" max="1" min="1" id="2097"/>
+        <item chance="414" max="1" min="1" id="2098"/>
+        <item chance="436" max="1" min="1" id="2099"/>
+        <item chance="436" max="1" min="1" id="2100"/>
+        <item chance="421" max="1" min="1" id="2102"/>
+        <item chance="436" max="1" min="1" id="2103"/>
+        <item chance="436" max="1" min="1" id="2104"/>
+        <item chance="414" max="1" min="1" id="2105"/>
+        <item chance="2470" max="1" min="1" id="3017"/>
+        <item chance="1474" max="1" min="1" id="4042"/>
+        <item chance="197" max="1" min="1" id="4608"/>
+        <item chance="6653" max="1" min="1" id="4609"/>
+        <item chance="192" max="1" min="1" id="4609"/>
+        <item chance="177" max="1" min="1" id="5155"/>
+        <item chance="20566" max="1" min="1" id="6669"/>
+        <item chance="2456" max="1" min="1" id="8725"/>
+        <item chance="614" max="1" min="1" id="8735"/>
+        <item chance="61" max="1" min="1" id="8745"/>
+        <item chance="13" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

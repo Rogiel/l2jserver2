@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29143" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lost Assistant Guard</name>
+        <level>69</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="16.2317682339414" max="14118.8406588518"/>
+            <mp regen="13.5" max="1314.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1822.16796"/>
+                <magical speed="333.0" damage="1244.30451"/>
+            </attack>
+            <defense>
+                <physical value="436.72595"/>
+                <magical value="213.05"/>
+            </defense>
+            <move walk="60.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="43.5" radius="36.0"/>
+    </info>
+</npc>

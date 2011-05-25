@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20784" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tasaba Lizardman</name>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="809.52639"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="137.86467"/>
+                <magical speed="333.0" damage="94.1437"/>
+            </attack>
+            <defense>
+                <physical value="140.57278"/>
+                <magical value="93.59494"/>
+            </defense>
+            <move walk="43.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1111</experience>
+        <sp>67</sp>
+        <item lefthand="0" righthand="2507"/>
+        <collision heigth="22.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="309" min="154" id="57"/>
+        <item chance="12" max="1" min="1" id="83"/>
+        <item chance="9" max="1" min="1" id="124"/>
+        <item chance="9" max="1" min="1" id="127"/>
+        <item chance="9" max="1" min="1" id="130"/>
+        <item chance="12" max="1" min="1" id="144"/>
+        <item chance="2163" max="1" min="1" id="1875"/>
+        <item chance="5408" max="1" min="1" id="1879"/>
+        <item chance="2704" max="1" min="1" id="1885"/>
+        <item chance="4623" max="1" min="1" id="2021"/>
+        <item chance="390" max="1" min="1" id="2026"/>
+        <item chance="56945" max="1" min="1" id="2153"/>
+        <item chance="38461" max="1" min="1" id="2184"/>
+        <item chance="8112" max="1" min="1" id="2250"/>
+        <item chance="3245" max="1" min="1" id="5549"/>
+        <item chance="433" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

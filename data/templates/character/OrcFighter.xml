@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="ORC_FIGHTER" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+    <stats crafter="false" level="1">
+        <hp add="12.64" modifier="0.37" base="80.0"/>
+        <mp add="5.36" modifier="0.14" base="30.0"/>
+        <cp add="6.27" modifier="0.22" base="40.0"/>
+        <attack accuracy="31" critical="42" evasion="31">
+            <physical speed="300.0" damage="4.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="80.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="117.0" run="117.0"/>
+        <base wit="12" dex="26" men="27" con="47" str="40" int="18"/>
+        <maxload>87000</maxload>
+    </stats>
+    <collision>
+        <male heigth="28.0" radius="11.0"/>
+        <female heigth="27.0" radius="7.0"/>
+    </collision>
+</character>

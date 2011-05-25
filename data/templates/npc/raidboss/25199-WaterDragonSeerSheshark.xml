@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25199" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Water Dragon Seer Sheshark</name>
+        <title send="false">Raid Boss</title>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="119.969286557872" max="383459.920989612"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2280.56634"/>
+                <magical speed="333.0" damage="813.63722"/>
+            </attack>
+            <defense>
+                <physical value="916.07841"/>
+                <magical value="446.9"/>
+            </defense>
+            <move walk="43.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5140647</experience>
+        <sp>827123</sp>
+        <item lefthand="0" righthand="181"/>
+        <collision heigth="29.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="7171" max="1" min="1" id="270"/>
+        <item chance="339970" max="13" min="5" id="5538"/>
+        <item chance="74440" max="1" min="1" id="6326"/>
+        <item chance="99287" max="1" min="1" id="6327"/>
+        <item chance="148880" max="1" min="1" id="6328"/>
+        <item chance="140381" max="270" min="90" id="6342"/>
+        <item chance="4068" max="720" min="240" id="6344"/>
+        <item chance="58957" max="924" min="308" id="6346"/>
+        <item chance="160666" max="1" min="1" id="6570"/>
+        <item chance="64267" max="1" min="1" id="6578"/>
+        <item chance="820000" max="4" min="1" id="8176"/>
+        <item chance="540000" max="1" min="1" id="8619"/>
+        <item chance="820000" max="7" min="3" id="9816"/>
+    </droplist>
+</npc>

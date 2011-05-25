@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20068" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Monster Eye Destroyer</name>
+        <level>26</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="487.5704"/>
+            <mp regen="1.5" max="273.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="69.75926"/>
+                <magical speed="333.0" damage="47.63653"/>
+            </attack>
+            <defense>
+                <physical value="105.02818"/>
+                <magical value="69.92894"/>
+            </defense>
+            <move walk="90.0" run="159.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1294</experience>
+        <sp>65</sp>
+        <collision heigth="43.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="1871" max="1" min="1" id="391"/>
+        <item chance="70456" max="1" min="1" id="1899"/>
+        <item chance="7002" max="1" min="1" id="2261"/>
+        <item chance="700000" max="374" min="196" id="57"/>
+        <item chance="32" max="1" min="1" id="101"/>
+        <item chance="32" max="1" min="1" id="312"/>
+        <item chance="32" max="1" min="1" id="313"/>
+        <item chance="32" max="1" min="1" id="314"/>
+        <item chance="886" max="1" min="1" id="2020"/>
+        <item chance="126534" max="1" min="1" id="1864"/>
+        <item chance="63267" max="1" min="1" id="1869"/>
+        <item chance="25307" max="1" min="1" id="1878"/>
+        <item chance="982" max="1" min="1" id="2262"/>
+    </droplist>
+</npc>

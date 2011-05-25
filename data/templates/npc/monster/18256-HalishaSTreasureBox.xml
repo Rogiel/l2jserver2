@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SepulcherMonster" id="18256" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Halisha's Treasure Box</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="0.0" max="1.07"/>
+            <mp regen="0.0" max="1.07"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1.07"/>
+                <magical speed="333.0" damage="1.1449"/>
+            </attack>
+            <defense>
+                <physical value="1.07"/>
+                <magical value="1.07"/>
+            </defense>
+            <move walk="80.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="8.5" radius="8.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2743" min="1370" id="57"/>
+        <item chance="2" max="1" min="1" id="81"/>
+        <item chance="2" max="1" min="1" id="151"/>
+        <item chance="8" max="1" min="1" id="959"/>
+        <item chance="54858" max="1" min="1" id="1895"/>
+        <item chance="2" max="1" min="1" id="2500"/>
+        <item chance="3841" max="1" min="1" id="4040"/>
+        <item chance="3201" max="1" min="1" id="4042"/>
+        <item chance="6401" max="1" min="1" id="4043"/>
+        <item chance="440" max="1" min="1" id="5529"/>
+        <item chance="440" max="1" min="1" id="5545"/>
+        <item chance="483" max="1" min="1" id="5546"/>
+    </droplist>
+</npc>

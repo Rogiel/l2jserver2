@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21312" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Eye of Ruler</name>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="209.50409"/>
+            </defense>
+            <move walk="30.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>38709</experience>
+        <sp>4036</sp>
+        <collision heigth="63.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="10974" min="5384" id="57"/>
+        <item chance="1212" max="1" min="1" id="729"/>
+        <item chance="179" max="1" min="1" id="1808"/>
+        <item chance="89520" max="3" min="1" id="1866"/>
+        <item chance="201419" max="3" min="1" id="1871"/>
+        <item chance="33570" max="1" min="1" id="1885"/>
+        <item chance="3503" max="1" min="1" id="4041"/>
+        <item chance="16113" max="1" min="1" id="5220"/>
+        <item chance="4041" max="1" min="1" id="5448"/>
+        <item chance="6873" max="1" min="1" id="5535"/>
+        <item chance="301763" max="1" min="1" id="6341"/>
+        <item chance="3730" max="1" min="1" id="8731"/>
+        <item chance="932" max="1" min="1" id="8741"/>
+        <item chance="93" max="1" min="1" id="8751"/>
+        <item chance="19" max="1" min="1" id="8761"/>
+        <item chance="554" max="1" min="1" id="11955"/>
+    </droplist>
+</npc>

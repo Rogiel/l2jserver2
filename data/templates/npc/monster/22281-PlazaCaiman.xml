@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22281" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Plaza Caiman</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="10982.0141560175"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="6734.49668"/>
+                <magical speed="333.0" damage="4598.7882"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>13121</experience>
+        <sp>1370</sp>
+        <collision heigth="33.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2593" min="1266" id="57"/>
+        <item chance="44360" max="1" min="1" id="1895"/>
+        <item chance="3105" max="1" min="1" id="4040"/>
+        <item chance="1277" max="1" min="1" id="5541"/>
+        <item chance="1242" max="1" min="1" id="9546"/>
+        <item chance="1218" max="1" min="1" id="9628"/>
+        <item chance="817" max="1" min="1" id="9630"/>
+        <item chance="155" max="1" min="1" id="6901"/>
+        <item chance="83" max="1" min="1" id="11976"/>
+        <item chance="5187" max="1" min="1" id="5538"/>
+        <item chance="840" max="1" min="1" id="3957"/>
+        <item chance="840" max="1" min="1" id="3036"/>
+    </droplist>
+</npc>

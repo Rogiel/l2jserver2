@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20105" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dark Horror</name>
+        <level>16</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="264.34345"/>
+            <mp regen="1.2" max="157.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="32.16396"/>
+                <magical speed="333.0" damage="21.96382"/>
+            </attack>
+            <defense>
+                <physical value="76.08628"/>
+                <magical value="50.6591"/>
+            </defense>
+            <move walk="100.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>577</experience>
+        <sp>23</sp>
+        <collision heigth="35.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="135" max="1" min="1" id="15"/>
+        <item chance="700000" max="185" min="119" id="57"/>
+        <item chance="39986" max="1" min="1" id="734"/>
+        <item chance="2953" max="1" min="1" id="735"/>
+        <item chance="120865" max="1" min="1" id="1801"/>
+        <item chance="47246" max="1" min="1" id="1867"/>
+        <item chance="319890" max="1" min="1" id="1872"/>
+        <item chance="47246" max="1" min="1" id="1872"/>
+        <item chance="1617" max="1" min="1" id="2011"/>
+        <item chance="7087" max="1" min="1" id="2140"/>
+    </droplist>
+</npc>

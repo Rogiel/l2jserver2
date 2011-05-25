@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21004" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dismal Pole</name>
+        <level>58</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1828.68266"/>
+            <mp regen="2.4" max="977.4"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="442.8992"/>
+                <magical speed="333.0" damage="302.44274"/>
+            </attack>
+            <defense>
+                <physical value="237.99429"/>
+                <magical value="158.45929"/>
+            </defense>
+            <move walk="55.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6288</experience>
+        <sp>532</sp>
+        <collision heigth="80.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="72742" max="1" min="1" id="1920"/>
+        <item chance="23007" max="1" min="1" id="4129"/>
+        <item chance="9324" max="1" min="1" id="4951"/>
+        <item chance="700000" max="1710" min="840" id="57"/>
+        <item chance="334" max="1" min="1" id="12151"/>
+        <item chance="535" max="1" min="1" id="12150"/>
+        <item chance="205" max="1" min="1" id="12165"/>
+        <item chance="2468" max="1" min="1" id="4066"/>
+        <item chance="3747" max="1" min="1" id="4067"/>
+        <item chance="1896" max="1" min="1" id="4068"/>
+        <item chance="104659" max="1" min="1" id="1868"/>
+        <item chance="20932" max="1" min="1" id="1873"/>
+        <item chance="10466" max="1" min="1" id="1876"/>
+        <item chance="14951" max="1" min="1" id="1895"/>
+        <item chance="872" max="1" min="1" id="4042"/>
+        <item chance="566" max="1" min="1" id="4129"/>
+        <item chance="651" max="1" min="1" id="4167"/>
+        <item chance="40" max="1" min="1" id="4197"/>
+        <item chance="872" max="1" min="1" id="8728"/>
+        <item chance="218" max="1" min="1" id="8738"/>
+        <item chance="22" max="1" min="1" id="8748"/>
+        <item chance="4" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22297" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Reef Golem</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5793.32235"/>
+                <magical speed="333.0" damage="3956.08814"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="54.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>103023</experience>
+        <sp>11265</sp>
+        <collision heigth="47.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="21361" min="10429" id="57"/>
+        <item chance="243607" max="3" min="1" id="1866"/>
+        <item chance="137029" max="12" min="4" id="1871"/>
+        <item chance="43849" max="1" min="1" id="1877"/>
+        <item chance="21924" max="1" min="1" id="4040"/>
+        <item chance="9533" max="1" min="1" id="4041"/>
+        <item chance="8770" max="1" min="1" id="9546"/>
+        <item chance="8639" max="1" min="1" id="5487"/>
+        <item chance="8639" max="1" min="1" id="5488"/>
+        <item chance="1072" max="1" min="1" id="12259"/>
+        <item chance="1072" max="1" min="1" id="12266"/>
+        <item chance="44" max="1" min="1" id="959"/>
+        <item chance="186245" max="1" min="1" id="5527"/>
+        <item chance="53050" max="1" min="1" id="5523"/>
+        <item chance="6923" max="1" min="1" id="5272"/>
+    </droplist>
+</npc>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25044" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Barion</name>
+        <title send="false">Raid Boss</title>
+        <level>47</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="47.4740881903858" max="134366.203995058"/>
+            <mp regen="2.1" max="665.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="380.23638"/>
+                <magical speed="333.0" damage="42.89876"/>
+            </attack>
+            <defense>
+                <physical value="559.90707"/>
+                <magical value="273.14"/>
+            </defense>
+            <move walk="40.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2205665</experience>
+        <sp>257531</sp>
+        <item lefthand="0" righthand="70"/>
+        <collision heigth="39.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="79200" max="1" min="1" id="2436"/>
+        <item chance="60919" max="1" min="1" id="2437"/>
+        <item chance="60919" max="1" min="1" id="2438"/>
+        <item chance="79200" max="1" min="1" id="2460"/>
+        <item chance="60919" max="1" min="1" id="2461"/>
+        <item chance="60919" max="1" min="1" id="2462"/>
+        <item chance="60919" max="1" min="1" id="2463"/>
+        <item chance="18415" max="432" min="144" id="2954"/>
+        <item chance="10399" max="765" min="255" id="2955"/>
+        <item chance="5761" max="1188" min="396" id="2960"/>
+        <item chance="76045" max="90" min="30" id="2961"/>
+        <item chance="58496" max="117" min="39" id="2962"/>
+        <item chance="46558" max="147" min="49" id="2963"/>
+        <item chance="38023" max="180" min="60" id="2964"/>
+        <item chance="37332" max="1" min="1" id="228"/>
+        <item chance="668197" max="9" min="3" id="2119"/>
+        <item chance="90517" max="63" min="21" id="952"/>
+        <item chance="158406" max="6" min="2" id="4604"/>
+        <item chance="126724" max="7" min="3" id="4605"/>
+        <item chance="105604" max="9" min="3" id="4606"/>
+        <item chance="810000" max="3" min="1" id="9814"/>
+        <item chance="810000" max="1" min="1" id="8176"/>
+    </droplist>
+</npc>

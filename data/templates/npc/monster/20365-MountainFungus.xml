@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20365" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mountain Fungus</name>
+        <level>8</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="124.92828"/>
+            <mp regen="0.9" max="92.64"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="16.20165"/>
+                <magical speed="333.0" damage="11.06363"/>
+            </attack>
+            <defense>
+                <physical value="57.56203"/>
+                <magical value="38.32545"/>
+            </defense>
+            <move walk="70.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>285</experience>
+        <sp>10</sp>
+        <collision heigth="22.5" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="249244" max="1" min="1" id="1864"/>
+        <item chance="83081" max="1" min="1" id="1866"/>
+        <item chance="124622" max="1" min="1" id="1871"/>
+        <item chance="700000" max="91" min="67" id="57"/>
+        <item chance="3937" max="1" min="1" id="22"/>
+        <item chance="6293" max="1" min="1" id="29"/>
+        <item chance="8181" max="1" min="1" id="1666"/>
+        <item chance="16361" max="1" min="1" id="1866"/>
+        <item chance="24541" max="1" min="1" id="1871"/>
+    </droplist>
+</npc>

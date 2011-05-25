@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25038" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tirak</name>
+        <title send="false">Raid Boss</title>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="20.2128543987694" max="48983.9727616865"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="94.80346"/>
+                <magical speed="333.0" damage="6.05989"/>
+            </attack>
+            <defense>
+                <physical value="334.84104"/>
+                <magical value="163.34"/>
+            </defense>
+            <move walk="80.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2390045</experience>
+        <sp>97281</sp>
+        <collision heigth="75.0" radius="28.0"/>
+    </info>
+    <droplist>
+        <item chance="58466" max="1" min="1" id="83"/>
+        <item chance="43313" max="1" min="1" id="124"/>
+        <item chance="43313" max="1" min="1" id="127"/>
+        <item chance="43313" max="1" min="1" id="130"/>
+        <item chance="58466" max="1" min="1" id="144"/>
+        <item chance="93126" max="10" min="4" id="849"/>
+        <item chance="195168" max="7" min="3" id="880"/>
+        <item chance="61083" max="12" min="4" id="912"/>
+        <item chance="417444" max="9" min="3" id="955"/>
+        <item chance="154441" max="216" min="72" id="1901"/>
+        <item chance="322992" max="9" min="3" id="2026"/>
+    </droplist>
+</npc>

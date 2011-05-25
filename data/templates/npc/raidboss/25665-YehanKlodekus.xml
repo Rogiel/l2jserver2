@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25665" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Yehan Klodekus</name>
+        <title send="false">Soul Destroyer</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="53.2190190842186" max="148936.33253589"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="2153.20693"/>
+                <magical speed="333.0" damage="1624.01433"/>
+            </attack>
+            <defense>
+                <physical value="703.66454"/>
+                <magical value="514.91118"/>
+            </defense>
+            <move walk="73.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5044000</experience>
+        <sp>1152586</sp>
+        <item lefthand="0" righthand="13982"/>
+        <collision heigth="62.4" radius="34.32"/>
+    </info>
+    <droplist>
+        <item chance="48980" max="1" min="1" id="959"/>
+        <item chance="489799" max="1" min="1" id="960"/>
+        <item chance="13255" max="1" min="1" id="6371"/>
+        <item chance="8164" max="1" min="1" id="6577"/>
+        <item chance="250412" max="36" min="12" id="6695"/>
+        <item chance="76356" max="243" min="81" id="6698"/>
+        <item chance="171573" max="120" min="40" id="6699"/>
+        <item chance="269254" max="42" min="14" id="6700"/>
+        <item chance="38516" max="1" min="1" id="6724"/>
+        <item chance="57775" max="1" min="1" id="6725"/>
+        <item chance="28881" max="1" min="1" id="6726"/>
+    </droplist>
+</npc>

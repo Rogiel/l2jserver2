@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21125" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Northern Trimden</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="55.97901"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>685</experience>
+        <sp>31</sp>
+        <collision heigth="25.5" radius="27.0"/>
+    </info>
+    <droplist>
+        <item chance="148" max="1" min="1" id="15"/>
+        <item chance="700000" max="211" min="124" id="57"/>
+        <item chance="6493" max="1" min="1" id="734"/>
+        <item chance="82944" max="1" min="1" id="1800"/>
+        <item chance="132878" max="1" min="1" id="1801"/>
+        <item chance="25971" max="1" min="1" id="1866"/>
+        <item chance="38956" max="1" min="1" id="1871"/>
+        <item chance="85085" max="1" min="1" id="1924"/>
+        <item chance="1778" max="1" min="1" id="2011"/>
+        <item chance="7792" max="1" min="1" id="2140"/>
+    </droplist>
+</npc>

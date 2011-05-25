@@ -49,8 +49,7 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(npc.getID().getID());
 		buffer.writeInt(template.getID().getID() + 1000000); // npctype id
 		if (npc instanceof NPC) {
-			buffer.writeInt(((template).isAttackable() ? 0x01
-					: 0x00));
+			buffer.writeInt((template.isAttackable() ? 0x01 : 0x00));
 		} else {
 			buffer.writeInt(0x01);
 		}
@@ -59,8 +58,8 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeInt(npc.getPoint().getZ());
 		buffer.writeInt((int) npc.getPoint().getAngle());
 		buffer.writeInt(0x00); // unk
-		buffer.writeInt(template.getCastSpeed());
-		buffer.writeInt(template.getAttackSpeed());
+		buffer.writeInt((int) template.getMagicalAttackSpeed());
+		buffer.writeInt((int) template.getPhysicalAttackSpeed());
 		buffer.writeInt((int) template.getRunSpeed());
 		buffer.writeInt((int) template.getWalkSpeed());
 		buffer.writeInt((int) template.getRunSpeed()); // swim run speed
@@ -69,8 +68,8 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeInt((int) template.getWalkSpeed()); // swim walk speed
 		buffer.writeInt((int) template.getRunSpeed()); // fly run speed
 		buffer.writeInt((int) template.getWalkSpeed()); // fly run speed
-		buffer.writeDouble(template.getMovementSpeedMultiplier());
-		buffer.writeDouble(template.getAttackSpeedMultiplier());
+		buffer.writeDouble(0x01); // TODO
+		buffer.writeDouble(0x01);// TODO
 		buffer.writeDouble(template.getCollisionRadius());
 		buffer.writeDouble(template.getCollisionHeight());
 		buffer.writeInt((template.getRightHand() != null ? template
@@ -83,8 +82,8 @@ public class NPCInformationPacket extends AbstractServerPacket {
 		buffer.writeByte(0x00); // is in combat
 		buffer.writeByte(0x00); // is like dead (faking)
 		buffer.writeByte(0x00); // 0=teleported 1=default 2=summoned
-		BufferUtils.writeString(buffer, (template).getName());
-		BufferUtils.writeString(buffer, (template).getTitle());
+		BufferUtils.writeString(buffer, template.getName());
+		BufferUtils.writeString(buffer, template.getTitle());
 		buffer.writeInt(0x00); // Title color 0=client default
 		buffer.writeInt(0x00); // pvp flag
 		buffer.writeInt(0x00); // karma

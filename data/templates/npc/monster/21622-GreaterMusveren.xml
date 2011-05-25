@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21622" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Greater Musveren</name>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1372.18568"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="290.44588"/>
+                <magical speed="333.0" damage="198.33688"/>
+            </attack>
+            <defense>
+                <physical value="195.66302"/>
+                <magical value="130.27465"/>
+            </defense>
+            <move walk="70.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12257</experience>
+        <sp>906</sp>
+        <collision heigth="36.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="7427" max="1" min="1" id="951"/>
+        <item chance="817018" max="9" min="1" id="1865"/>
+        <item chance="248409" max="1" min="1" id="1913"/>
+        <item chance="700000" max="3288" min="1612" id="57"/>
+        <item chance="401" max="1" min="1" id="853"/>
+        <item chance="602" max="1" min="1" id="884"/>
+        <item chance="301" max="1" min="1" id="916"/>
+        <item chance="22439" max="1" min="1" id="1911"/>
+        <item chance="32510" max="1" min="1" id="1912"/>
+        <item chance="18346" max="1" min="1" id="1913"/>
+        <item chance="82273" max="120" min="40" id="1342"/>
+        <item chance="32909" max="15" min="5" id="1864"/>
+        <item chance="27424" max="9" min="3" id="1865"/>
+        <item chance="109697" max="1" min="1" id="1866"/>
+        <item chance="109697" max="3" min="1" id="1868"/>
+        <item chance="65818" max="1" min="1" id="1873"/>
+        <item chance="5578" max="1" min="1" id="2166"/>
+        <item chance="5485" max="1" min="1" id="8724"/>
+        <item chance="1371" max="1" min="1" id="8734"/>
+        <item chance="137" max="1" min="1" id="8744"/>
+        <item chance="27" max="1" min="1" id="8754"/>
+    </droplist>
+</npc>

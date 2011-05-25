@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20628" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Limal Karinness</name>
+        <level>69</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2395.45533"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="667.50361"/>
+                <magical speed="333.0" damage="455.81844"/>
+            </attack>
+            <defense>
+                <physical value="291.15063"/>
+                <magical value="193.85137"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>32098</experience>
+        <sp>3140</sp>
+        <collision heigth="40.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8967" min="4416" id="57"/>
+        <item chance="14876" max="1" min="1" id="1807"/>
+        <item chance="796908" max="7" min="1" id="1895"/>
+        <item chance="94158" max="1" min="1" id="1895"/>
+        <item chance="6591" max="1" min="1" id="4040"/>
+        <item chance="5493" max="1" min="1" id="4042"/>
+        <item chance="10985" max="1" min="1" id="4043"/>
+        <item chance="659" max="1" min="1" id="4401"/>
+        <item chance="2182" max="1" min="1" id="4988"/>
+        <item chance="41" max="1" min="1" id="5304"/>
+        <item chance="66" max="1" min="1" id="5305"/>
+        <item chance="25" max="1" min="1" id="5308"/>
+        <item chance="66016" max="1" min="1" id="5479"/>
+        <item chance="4618" max="1" min="1" id="5485"/>
+        <item chance="3250" max="1" min="1" id="5486"/>
+        <item chance="7249" max="1" min="1" id="5489"/>
+        <item chance="3662" max="1" min="1" id="8730"/>
+        <item chance="915" max="1" min="1" id="8740"/>
+        <item chance="92" max="1" min="1" id="8750"/>
+        <item chance="18" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

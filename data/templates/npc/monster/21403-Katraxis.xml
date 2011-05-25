@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21403" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Katraxis</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.585" max="2870.7774087"/>
+            <mp regen="3.03" max="1657.41"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="884.25257"/>
+                <magical speed="333.0" damage="609.86817"/>
+            </attack>
+            <defense>
+                <physical value="340.44078"/>
+                <magical value="226.66932"/>
+            </defense>
+            <move walk="37.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>34642</experience>
+        <sp>3839</sp>
+        <collision heigth="52.8" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9950" min="4875" id="57"/>
+        <item chance="16" max="1" min="1" id="959"/>
+        <item chance="135224" max="9" min="3" id="1868"/>
+        <item chance="162270" max="1" min="1" id="1873"/>
+        <item chance="27045" max="1" min="1" id="1889"/>
+        <item chance="329609" max="1" min="1" id="4044"/>
+        <item chance="13523" max="1" min="1" id="4044"/>
+        <item chance="4395" max="1" min="1" id="5157"/>
+        <item chance="27147" max="1" min="1" id="5534"/>
+        <item chance="5011" max="1" min="1" id="5534"/>
+        <item chance="40567" max="1" min="1" id="5549"/>
+        <item chance="3381" max="1" min="1" id="8732"/>
+        <item chance="845" max="1" min="1" id="8742"/>
+        <item chance="84" max="1" min="1" id="8752"/>
+        <item chance="325" max="1" min="1" id="11975"/>
+    </droplist>
+</npc>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21082" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Amon's Captain of the Guards</name>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="209.50409"/>
+            </defense>
+            <move walk="50.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>20511</experience>
+        <sp>2138</sp>
+        <item lefthand="0" righthand="150"/>
+        <collision heigth="32.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="5815" min="2853" id="57"/>
+        <item chance="213452" max="1" min="1" id="1865"/>
+        <item chance="213452" max="1" min="1" id="1870"/>
+        <item chance="14230" max="1" min="1" id="1875"/>
+        <item chance="35575" max="1" min="1" id="1879"/>
+        <item chance="4269" max="1" min="1" id="4040"/>
+        <item chance="7708" max="1" min="1" id="5156"/>
+        <item chance="284" max="1" min="1" id="5281"/>
+        <item chance="27" max="1" min="1" id="5304"/>
+        <item chance="43" max="1" min="1" id="5305"/>
+        <item chance="16" max="1" min="1" id="5308"/>
+        <item chance="76302" max="1" min="1" id="5482"/>
+        <item chance="2991" max="1" min="1" id="5485"/>
+        <item chance="34207" max="1" min="1" id="5486"/>
+        <item chance="2105" max="1" min="1" id="5486"/>
+        <item chance="4695" max="1" min="1" id="5489"/>
+        <item chance="1976" max="1" min="1" id="8731"/>
+        <item chance="494" max="1" min="1" id="8741"/>
+        <item chance="49" max="1" min="1" id="8751"/>
+        <item chance="11" max="1" min="1" id="8761"/>
+    </droplist>
+</npc>

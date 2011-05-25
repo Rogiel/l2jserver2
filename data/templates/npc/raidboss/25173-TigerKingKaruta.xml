@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25173" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tiger King Karuta</name>
+        <title send="false">Raid Boss</title>
+        <level>45</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="43.342559280568" max="121183.101253532"/>
+            <mp regen="2.1" max="610.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="333.67447"/>
+                <magical speed="333.0" damage="35.73201"/>
+            </attack>
+            <defense>
+                <physical value="533.36238"/>
+                <magical value="260.2"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2085510</experience>
+        <sp>229987</sp>
+        <collision heigth="87.0" radius="72.0"/>
+    </info>
+    <droplist>
+        <item chance="286396" max="1" min="1" id="64"/>
+        <item chance="286396" max="1" min="1" id="608"/>
+        <item chance="151462" max="157" min="53" id="1981"/>
+        <item chance="41415" max="576" min="192" id="2956"/>
+        <item chance="49092" max="1" min="1" id="326"/>
+        <item chance="190501" max="36" min="12" id="2110"/>
+        <item chance="292053" max="3" min="1" id="4610"/>
+        <item chance="194702" max="4" min="2" id="4611"/>
+        <item chance="146027" max="6" min="2" id="4612"/>
+        <item chance="150198" max="1" min="1" id="6574"/>
+        <item chance="750000" max="3" min="1" id="9816"/>
+        <item chance="750000" max="1" min="1" id="8176"/>
+    </droplist>
+</npc>

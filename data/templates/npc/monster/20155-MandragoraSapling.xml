@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20155" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Mandragora Sapling</name>
+        <level>23</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="3.5" max="410.70422"/>
+            <mp regen="1.5" max="231.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="55.84125"/>
+                <magical speed="333.0" damage="38.13234"/>
+            </attack>
+            <defense>
+                <physical value="95.64976"/>
+                <magical value="63.68469"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1075</experience>
+        <sp>52</sp>
+        <collision heigth="26.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="312" min="177" id="57"/>
+        <item chance="2713" max="1" min="1" id="735"/>
+        <item chance="926" max="1" min="1" id="846"/>
+        <item chance="1389" max="1" min="1" id="878"/>
+        <item chance="695" max="1" min="1" id="909"/>
+        <item chance="15428" max="1" min="1" id="1804"/>
+        <item chance="65104" max="1" min="1" id="1864"/>
+        <item chance="385707" max="1" min="1" id="1865"/>
+        <item chance="32552" max="1" min="1" id="1869"/>
+        <item chance="3255" max="1" min="1" id="1880"/>
+        <item chance="39621" max="1" min="1" id="1898"/>
+        <item chance="5852" max="1" min="1" id="1898"/>
+        <item chance="1302" max="1" min="1" id="3032"/>
+        <item chance="1302" max="1" min="1" id="5273"/>
+        <item chance="32552" max="1" min="1" id="6666"/>
+    </droplist>
+</npc>

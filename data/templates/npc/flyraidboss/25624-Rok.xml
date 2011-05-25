@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FlyRaidBoss" id="25624" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Rok</name>
+        <title send="false">King of Birds</title>
+        <level>80</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="34.2550295355049" max="319298.066079636"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="623.11769"/>
+                <magical speed="333.0" damage="125.47423"/>
+            </attack>
+            <defense>
+                <physical value="972.38611"/>
+                <magical value="474.36582"/>
+            </defense>
+            <move walk="60.0" run="300.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3658390</experience>
+        <sp>1026322</sp>
+        <collision heigth="130.5" radius="197.0"/>
+    </info>
+</npc>

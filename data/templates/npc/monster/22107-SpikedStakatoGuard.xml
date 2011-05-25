@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22107" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Spiked Stakato Guard</name>
+        <level>74</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2632.19636"/>
+            <mp regen="3.0" max="1475.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="773.81598"/>
+                <magical speed="333.0" damage="528.41601"/>
+            </attack>
+            <defense>
+                <physical value="314.65987"/>
+                <magical value="230.25444"/>
+            </defense>
+            <move walk="23.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>32594</experience>
+        <sp>3239</sp>
+        <item lefthand="0" righthand="123"/>
+        <collision heigth="22.8" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8971" min="4401" id="57"/>
+        <item chance="12839" max="1" min="1" id="1894"/>
+        <item chance="12197" max="1" min="1" id="4044"/>
+        <item chance="12197" max="1" min="1" id="4039"/>
+        <item chance="3182" max="1" min="1" id="4041"/>
+        <item chance="5553" max="1" min="1" id="5542"/>
+        <item chance="23" max="1" min="1" id="98"/>
+        <item chance="163" max="1" min="1" id="3957"/>
+        <item chance="3388" max="1" min="1" id="8731"/>
+        <item chance="847" max="1" min="1" id="8741"/>
+        <item chance="85" max="1" min="1" id="8751"/>
+        <item chance="17" max="1" min="1" id="8761"/>
+        <item chance="991" max="1" min="1" id="729"/>
+        <item chance="297302" max="1" min="1" id="4039"/>
+        <item chance="77557" max="1" min="1" id="4041"/>
+    </droplist>
+</npc>

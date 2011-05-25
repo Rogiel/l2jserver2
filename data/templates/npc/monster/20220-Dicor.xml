@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20220" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dicor</name>
+        <level>47</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="5.5" max="1276.53628"/>
+            <mp regen="2.1" max="665.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="261.69549"/>
+                <magical speed="333.0" damage="178.7041"/>
+            </attack>
+            <defense>
+                <physical value="186.63569"/>
+                <magical value="136.5719"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9429</experience>
+        <sp>646</sp>
+        <collision heigth="25.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2490" min="1221" id="57"/>
+        <item chance="208" max="1" min="1" id="951"/>
+        <item chance="184" max="1" min="1" id="1126"/>
+        <item chance="76127" max="1" min="1" id="1866"/>
+        <item chance="114191" max="1" min="1" id="1871"/>
+        <item chance="4568" max="1" min="1" id="1877"/>
+        <item chance="883618" max="1" min="1" id="1895"/>
+        <item chance="230023" max="1" min="1" id="1911"/>
+        <item chance="9603" max="1" min="1" id="1974"/>
+        <item chance="266" max="1" min="1" id="2343"/>
+        <item chance="266" max="1" min="1" id="2345"/>
+        <item chance="184" max="1" min="1" id="2434"/>
+        <item chance="200" max="1" min="1" id="2455"/>
+        <item chance="184" max="1" min="1" id="2456"/>
+        <item chance="184" max="1" min="1" id="2457"/>
+        <item chance="184" max="1" min="1" id="2458"/>
+        <item chance="277992" max="1" min="1" id="2944"/>
+        <item chance="6382" max="1" min="1" id="2946"/>
+        <item chance="9603" max="1" min="1" id="2948"/>
+        <item chance="9603" max="1" min="1" id="2949"/>
+        <item chance="9603" max="1" min="1" id="2950"/>
+        <item chance="9603" max="1" min="1" id="2951"/>
+        <item chance="2284" max="1" min="1" id="4040"/>
+        <item chance="993" max="1" min="1" id="4041"/>
+        <item chance="3806" max="1" min="1" id="8724"/>
+        <item chance="952" max="1" min="1" id="8734"/>
+        <item chance="95" max="1" min="1" id="8744"/>
+        <item chance="19" max="1" min="1" id="8754"/>
+    </droplist>
+</npc>

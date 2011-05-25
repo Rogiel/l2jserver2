@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18465" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Derek</name>
+        <title send="false">First Generation Seer</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="194.030406814438" max="338766.60216791"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7824.36515"/>
+                <magical speed="333.0" damage="5405.88625"/>
+            </attack>
+            <defense>
+                <physical value="572.83923"/>
+                <magical value="628.76834"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1067320</experience>
+        <sp>115266</sp>
+        <item lefthand="0" righthand="8678"/>
+        <collision heigth="28.1" radius="10.0"/>
+    </info>
+</npc>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21173" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lith Shaman</name>
+        <level>42</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1050.81652"/>
+            <mp regen="2.1" max="531.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="198.34591"/>
+                <magical speed="333.0" damage="135.44454"/>
+            </attack>
+            <defense>
+                <physical value="164.88513"/>
+                <magical value="109.78238"/>
+            </defense>
+            <move walk="25.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8473</experience>
+        <sp>564</sp>
+        <item lefthand="0" righthand="5798"/>
+        <collision heigth="40.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="173070" max="1" min="1" id="1875"/>
+        <item chance="346140" max="1" min="1" id="1881"/>
+        <item chance="252534" max="1" min="1" id="1905"/>
+        <item chance="700000" max="111" min="56" id="6360"/>
+        <item chance="94" max="1" min="1" id="262"/>
+        <item chance="5390" max="1" min="1" id="2053"/>
+        <item chance="543" max="1" min="1" id="1805"/>
+        <item chance="217269" max="1" min="1" id="1867"/>
+        <item chance="217269" max="1" min="1" id="1872"/>
+        <item chance="10863" max="1" min="1" id="1875"/>
+        <item chance="21727" max="1" min="1" id="1881"/>
+        <item chance="12933" max="1" min="1" id="2990"/>
+        <item chance="543" max="1" min="1" id="5164"/>
+        <item chance="5433" max="1" min="1" id="6036"/>
+        <item chance="700000" max="274" min="137" id="6361"/>
+        <item chance="700000" max="41" min="22" id="6362"/>
+    </droplist>
+</npc>

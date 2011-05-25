@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22089" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Ice Tarantula</name>
+        <level>57</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1776.58018"/>
+            <mp regen="2.4" max="948.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="424.23295"/>
+                <magical speed="333.0" damage="289.69611"/>
+            </attack>
+            <defense>
+                <physical value="233.18839"/>
+                <magical value="170.63714"/>
+            </defense>
+            <move walk="72.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5402</experience>
+        <sp>449</sp>
+        <collision heigth="25.5" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1469" min="719" id="57"/>
+        <item chance="107727" max="1" min="1" id="1868"/>
+        <item chance="21545" max="1" min="1" id="1873"/>
+        <item chance="10773" max="1" min="1" id="1876"/>
+        <item chance="15389" max="1" min="1" id="1895"/>
+        <item chance="898" max="1" min="1" id="4042"/>
+        <item chance="33004" max="1" min="1" id="4056"/>
+        <item chance="385" max="1" min="1" id="4105"/>
+        <item chance="379" max="1" min="1" id="4106"/>
+        <item chance="21580" max="1" min="1" id="4154"/>
+        <item chance="5663" max="1" min="1" id="4155"/>
+        <item chance="41" max="1" min="1" id="8312"/>
+        <item chance="385" max="1" min="1" id="8339"/>
+        <item chance="346" max="1" min="1" id="8347"/>
+        <item chance="1077" max="1" min="1" id="8727"/>
+        <item chance="269" max="1" min="1" id="8737"/>
+        <item chance="27" max="1" min="1" id="8747"/>
+        <item chance="5" max="1" min="1" id="8757"/>
+        <item chance="39" max="1" min="1" id="11902"/>
+        <item chance="39" max="1" min="1" id="11904"/>
+        <item chance="39" max="1" min="1" id="11908"/>
+        <item chance="39" max="1" min="1" id="11918"/>
+    </droplist>
+</npc>

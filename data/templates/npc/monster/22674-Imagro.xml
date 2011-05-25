@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22674" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Imagro</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="140.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24023</experience>
+        <sp>2561</sp>
+        <collision heigth="65.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2453" min="1217" id="57"/>
+        <item chance="600" max="1" min="1" id="9617"/>
+        <item chance="400" max="1" min="1" id="9616"/>
+        <item chance="400" max="1" min="1" id="9618"/>
+        <item chance="1" max="1" min="1" id="9442"/>
+        <item chance="1" max="1" min="1" id="9443"/>
+        <item chance="1" max="1" min="1" id="9444"/>
+        <item chance="276900" max="1" min="1" id="1895"/>
+        <item chance="32300" max="1" min="1" id="4043"/>
+        <item chance="19800" max="1" min="1" id="4040"/>
+        <item chance="16100" max="1" min="1" id="4042"/>
+        <item chance="3000" max="1" min="1" id="9549"/>
+        <item chance="5000" max="1" min="1" id="5157"/>
+        <item chance="40000" max="1" min="1" id="9537"/>
+        <item chance="50000" max="1" min="1" id="9992"/>
+    </droplist>
+</npc>

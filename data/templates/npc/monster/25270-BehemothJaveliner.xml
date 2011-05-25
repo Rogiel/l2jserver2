@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25270" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Behemoth Javeliner</name>
+        <title send="false">Raid Fighter</title>
+        <level>69</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="116.468584127042" max="39454.5022530506"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="4178.50449"/>
+                <magical speed="333.0" damage="2773.51841"/>
+            </attack>
+            <defense>
+                <physical value="436.72595"/>
+                <magical value="426.1"/>
+            </defense>
+            <move walk="43.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="2507"/>
+        <collision heigth="22.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="898500" max="60" min="20" id="1344"/>
+    </droplist>
+</npc>

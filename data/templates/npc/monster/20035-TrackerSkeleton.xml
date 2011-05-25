@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20035" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tracker Skeleton</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="52.38915"/>
+            </defense>
+            <move walk="60.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>606</experience>
+        <sp>25</sp>
+        <item lefthand="945" righthand="946"/>
+        <collision heigth="25.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="1860" max="1" min="1" id="38"/>
+        <item chance="1860" max="1" min="1" id="50"/>
+        <item chance="700000" max="193" min="120" id="57"/>
+        <item chance="7269" max="1" min="1" id="1817"/>
+        <item chance="492156" max="1" min="1" id="1868"/>
+        <item chance="72688" max="1" min="1" id="1868"/>
+        <item chance="14538" max="1" min="1" id="1873"/>
+        <item chance="161363" max="1" min="1" id="1925"/>
+        <item chance="31776" max="1" min="1" id="1925"/>
+        <item chance="49216" max="1" min="1" id="2140"/>
+        <item chance="1454" max="1" min="1" id="5268"/>
+    </droplist>
+</npc>

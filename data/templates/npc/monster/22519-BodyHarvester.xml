@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22519" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Body Harvester</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3835.59060587002"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1112.35801"/>
+                <magical speed="333.0" damage="768.53275"/>
+            </attack>
+            <defense>
+                <physical value="358.02452"/>
+                <magical value="261.98681"/>
+            </defense>
+            <move walk="50.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>58036</experience>
+        <sp>5981</sp>
+        <collision heigth="34.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="12974" min="6468" id="57"/>
+        <item chance="26" max="1" min="1" id="270"/>
+        <item chance="442" max="1" min="1" id="959"/>
+        <item chance="311146" max="1" min="1" id="1895"/>
+        <item chance="21780" max="1" min="1" id="4040"/>
+        <item chance="7468" max="1" min="1" id="5538"/>
+        <item chance="23892" max="1" min="1" id="6688"/>
+        <item chance="507" max="1" min="1" id="6853"/>
+        <item chance="11053" max="1" min="1" id="6901"/>
+        <item chance="8541" max="1" min="1" id="9628"/>
+        <item chance="5732" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

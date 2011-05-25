@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22340" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Sandstorm</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.419259781018" max="33003.982801143"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="5940.39947"/>
+                <magical speed="333.0" damage="4128.10846"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="180.0" run="250.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>146852</experience>
+        <sp>15668</sp>
+        <collision heigth="28.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="25440" min="12708" id="57"/>
+        <item chance="13" max="1" min="1" id="164"/>
+        <item chance="13" max="1" min="1" id="213"/>
+        <item chance="254341" max="3" min="1" id="1895"/>
+        <item chance="35608" max="1" min="1" id="4040"/>
+        <item chance="3663" max="1" min="1" id="5533"/>
+        <item chance="3659" max="1" min="1" id="5544"/>
+        <item chance="21685" max="1" min="1" id="6901"/>
+        <item chance="1780" max="1" min="1" id="6901"/>
+        <item chance="13" max="1" min="1" id="7895"/>
+        <item chance="13" max="1" min="1" id="7902"/>
+        <item chance="3663" max="1" min="1" id="8342"/>
+        <item chance="3662" max="1" min="1" id="8349"/>
+        <item chance="52634" max="1" min="1" id="8716"/>
+        <item chance="14244" max="1" min="1" id="9549"/>
+        <item chance="556400" max="3" min="1" id="9599"/>
+        <item chance="13964" max="1" min="1" id="9628"/>
+        <item chance="9370" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21660" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Otherworldly Invader Soldier</name>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="772.73802"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="129.32896"/>
+                <magical speed="333.0" damage="88.31491"/>
+            </attack>
+            <defense>
+                <physical value="136.72948"/>
+                <magical value="91.03603"/>
+            </defense>
+            <move walk="50.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6221</experience>
+        <sp>368</sp>
+        <collision heigth="22.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="887208" max="3" min="1" id="1870"/>
+        <item chance="264838" max="1" min="1" id="1940"/>
+        <item chance="126744" max="1" min="1" id="2190"/>
+        <item chance="700000" max="1495" min="749" id="57"/>
+        <item chance="689" max="1" min="1" id="63"/>
+        <item chance="689" max="1" min="1" id="553"/>
+        <item chance="20116" max="1" min="1" id="1940"/>
+        <item chance="689" max="1" min="1" id="2422"/>
+        <item chance="689" max="1" min="1" id="2423"/>
+        <item chance="689" max="1" min="1" id="2446"/>
+        <item chance="689" max="1" min="1" id="2447"/>
+        <item chance="235862" max="1" min="1" id="1865"/>
+        <item chance="117931" max="3" min="1" id="1870"/>
+        <item chance="15725" max="1" min="1" id="1874"/>
+        <item chance="30085" max="1" min="1" id="2192"/>
+    </droplist>
+</npc>

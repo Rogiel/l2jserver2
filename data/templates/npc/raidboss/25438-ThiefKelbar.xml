@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25438" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Thief Kelbar</name>
+        <title send="false">Raid Boss</title>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="41.3470424277186" max="114863.791375267"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="312.06213"/>
+                <magical speed="333.0" damage="32.63272"/>
+            </attack>
+            <defense>
+                <physical value="520.30656"/>
+                <magical value="253.82"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2030767</experience>
+        <sp>217826</sp>
+        <item lefthand="0" righthand="239"/>
+        <collision heigth="50.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="84722" max="1" min="1" id="60"/>
+        <item chance="47190" max="1" min="1" id="283"/>
+        <item chance="91878" max="7" min="3" id="951"/>
+        <item chance="320369" max="36" min="12" id="1977"/>
+        <item chance="728579" max="9" min="3" id="2109"/>
+        <item chance="280738" max="3" min="1" id="4601"/>
+        <item chance="187159" max="4" min="2" id="4602"/>
+        <item chance="140369" max="6" min="2" id="4603"/>
+        <item chance="720000" max="1" min="1" id="8176"/>
+        <item chance="720000" max="3" min="1" id="9814"/>
+    </droplist>
+</npc>

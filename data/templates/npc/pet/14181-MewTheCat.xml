@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Pet" id="14181" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mew the Cat</name>
+        <level>79</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="2842.35387"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="875.49759"/>
+                <magical speed="333.0" damage="597.85136"/>
+            </attack>
+            <defense>
+                <physical value="337.07008"/>
+                <magical value="246.65326"/>
+            </defense>
+            <move walk="48.0" run="140.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="15.0" radius="8.0"/>
+    </info>
+</npc>

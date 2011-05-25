@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="SPECTRAL_MASTER" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+    <stats crafter="false" level="76">
+        <hp add="66.4" modifier="0.37" base="3198.3"/>
+        <mp add="33.2" modifier="0.14" base="1540.8"/>
+        <cp add="39.84" modifier="0.22" base="1918.9"/>
+        <attack accuracy="29" critical="41" evasion="29">
+            <physical speed="300.0" damage="3.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="54.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="122.0" run="122.0"/>
+        <base wit="19" dex="23" men="37" con="24" str="23" int="44"/>
+        <maxload>61000</maxload>
+    </stats>
+    <collision>
+        <male heigth="24.0" radius="7.5"/>
+        <female heigth="23.5" radius="7.0"/>
+    </collision>
+</character>

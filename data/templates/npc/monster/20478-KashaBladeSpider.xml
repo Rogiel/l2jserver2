@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20478" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kasha Blade Spider</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="52.38915"/>
+            </defense>
+            <move walk="72.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>667</experience>
+        <sp>28</sp>
+        <collision heigth="25.5" radius="26.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="212" min="132" id="57"/>
+        <item chance="153" max="1" min="1" id="217"/>
+        <item chance="153" max="1" min="1" id="218"/>
+        <item chance="22557" max="1" min="1" id="735"/>
+        <item chance="2221" max="1" min="1" id="735"/>
+        <item chance="136366" max="1" min="1" id="1801"/>
+        <item chance="5331" max="1" min="1" id="1817"/>
+        <item chance="71073" max="1" min="1" id="1831"/>
+        <item chance="53305" max="1" min="1" id="1864"/>
+        <item chance="26653" max="1" min="1" id="1869"/>
+        <item chance="64449" max="1" min="1" id="1897"/>
+        <item chance="53305" max="1" min="1" id="6037"/>
+    </droplist>
+</npc>

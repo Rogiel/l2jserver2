@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29032" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kerinne's Golem</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="48.0" max="2854.42094757852"/>
+            <mp regen="3.84" max="1607.808"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4864.32"/>
+                <magical speed="333.0" damage="3386.88"/>
+            </attack>
+            <defense>
+                <physical value="1310.88"/>
+                <magical value="479.616"/>
+            </defense>
+            <move walk="13.0" run="60.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="45.0" radius="22.0"/>
+    </info>
+</npc>

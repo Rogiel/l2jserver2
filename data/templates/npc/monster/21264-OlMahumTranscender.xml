@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21264" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Transcender</name>
+        <level>58</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1828.68266"/>
+            <mp regen="2.4" max="977.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="442.8992"/>
+                <magical speed="333.0" damage="302.44274"/>
+            </attack>
+            <defense>
+                <physical value="237.99429"/>
+                <magical value="174.1539"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>13535</experience>
+        <sp>933</sp>
+        <item lefthand="0" righthand="127"/>
+        <collision heigth="26.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="242396" max="1" min="1" id="1914"/>
+        <item chance="76366" max="1" min="1" id="2169"/>
+        <item chance="101761" max="1" min="1" id="2170"/>
+        <item chance="700000" max="3471" min="1704" id="57"/>
+        <item chance="10" max="1" min="1" id="11915"/>
+        <item chance="10" max="1" min="1" id="11919"/>
+        <item chance="1795" max="1" min="1" id="4109"/>
+        <item chance="1795" max="1" min="1" id="4110"/>
+        <item chance="25748" max="1" min="1" id="1539"/>
+        <item chance="231724" max="1" min="1" id="1864"/>
+        <item chance="115862" max="1" min="1" id="1869"/>
+        <item chance="11586" max="1" min="1" id="1880"/>
+        <item chance="499" max="1" min="1" id="2231"/>
+        <item chance="3862" max="1" min="1" id="4043"/>
+        <item chance="1545" max="1" min="1" id="5550"/>
+        <item chance="2317" max="1" min="1" id="8727"/>
+        <item chance="579" max="1" min="1" id="8737"/>
+        <item chance="58" max="1" min="1" id="8747"/>
+        <item chance="11" max="1" min="1" id="8757"/>
+    </droplist>
+</npc>

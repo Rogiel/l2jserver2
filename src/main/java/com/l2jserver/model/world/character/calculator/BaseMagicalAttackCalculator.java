@@ -31,7 +31,7 @@ public class BaseMagicalAttackCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getMagicalAttack();
+				ctx.result = c.getTemplate().getBaseMagicalAttack();
 			}
 		}, new AbstractFunction<L2Character>(0x200) {
 			@Override

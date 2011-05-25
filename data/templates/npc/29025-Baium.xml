@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="29025" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Baium</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="718.0" max="1709400.0"/>
+            <mp regen="99.0" max="18000.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1874.18"/>
+                <magical speed="333.0" damage="1596.95"/>
+            </attack>
+            <defense>
+                <physical value="3300.0"/>
+                <magical value="2200.0"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="82.0" radius="65.0"/>
+    </info>
+</npc>

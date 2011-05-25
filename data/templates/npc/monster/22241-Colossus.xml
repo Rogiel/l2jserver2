@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22241" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Colossus</name>
+        <level>13</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="214.61578"/>
+            <mp regen="1.2" max="132.64"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="25.04271"/>
+                <magical speed="333.0" damage="17.10092"/>
+            </attack>
+            <defense>
+                <physical value="68.67458"/>
+                <magical value="50.25308"/>
+            </defense>
+            <move walk="23.0" run="23.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>566</experience>
+        <sp>22</sp>
+        <collision heigth="31.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="196" min="138" id="57"/>
+        <item chance="51803" max="1" min="1" id="1871"/>
+        <item chance="34535" max="1" min="1" id="1866"/>
+        <item chance="3809" max="1" min="1" id="1793"/>
+        <item chance="747" max="1" min="1" id="271"/>
+        <item chance="701496" max="1" min="1" id="1831"/>
+        <item chance="67107" max="1" min="1" id="1922"/>
+        <item chance="19343" max="1" min="1" id="1794"/>
+    </droplist>
+</npc>

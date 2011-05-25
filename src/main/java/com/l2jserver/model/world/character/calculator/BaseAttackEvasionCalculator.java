@@ -32,7 +32,7 @@ public class BaseAttackEvasionCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getEvasionChance();
+				ctx.result = c.getTemplate().getBaseEvasion();
 			}
 		}, new AbstractFunction<L2Character>(0x100) {
 			@Override

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22302" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Darnel's Guardian</name>
+        <level>82</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="192.697893809876" max="56403.1943232691"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9266.31774"/>
+                <magical speed="333.0" damage="6327.69377"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="80.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>182298</experience>
+        <sp>19934</sp>
+        <collision heigth="54.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="36581" min="17859" id="57"/>
+        <item chance="375453" max="3" min="1" id="1895"/>
+        <item chance="52564" max="1" min="1" id="4040"/>
+        <item chance="20613" max="1" min="1" id="9628"/>
+        <item chance="13832" max="1" min="1" id="9630"/>
+        <item chance="4506" max="1" min="1" id="8342"/>
+        <item chance="4506" max="1" min="1" id="5533"/>
+        <item chance="4505" max="1" min="1" id="8349"/>
+        <item chance="4501" max="1" min="1" id="5544"/>
+        <item chance="2628" max="1" min="1" id="6901"/>
+        <item chance="292" max="1" min="1" id="11966"/>
+        <item chance="292" max="1" min="1" id="11969"/>
+        <item chance="292" max="1" min="1" id="11970"/>
+        <item chance="292" max="1" min="1" id="11974"/>
+        <item chance="73171" max="1" min="1" id="5538"/>
+        <item chance="11856" max="1" min="1" id="3957"/>
+        <item chance="11856" max="1" min="1" id="3036"/>
+    </droplist>
+</npc>

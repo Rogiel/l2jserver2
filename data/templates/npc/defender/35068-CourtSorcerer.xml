@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Defender" id="35068" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Court Sorcerer</name>
+        <title send="false">Gludio</title>
+        <level>77</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="2856.7687256316"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="856.44056"/>
+                <magical speed="333.0" damage="584.83789"/>
+            </attack>
+            <defense>
+                <physical value="328.27073"/>
+                <magical value="240.21427"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="21" men="20" con="27" str="22" int="41"/>
+        </stats>
+        <experience>593</experience>
+        <sp>1</sp>
+        <item lefthand="0" righthand="193"/>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+</npc>

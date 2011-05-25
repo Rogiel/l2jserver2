@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22659" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guardian Waterspirit</name>
+        <level>84</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="60.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>23543</experience>
+        <sp>2400</sp>
+        <item lefthand="9638" righthand="9638"/>
+        <collision heigth="27.5" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3169" min="1745" id="57"/>
+        <item chance="20" max="1" min="1" id="9454"/>
+        <item chance="16" max="1" min="1" id="9452"/>
+        <item chance="12" max="1" min="1" id="9453"/>
+        <item chance="2000" max="1" min="1" id="9993"/>
+        <item chance="2000" max="1" min="1" id="9991"/>
+        <item chance="2000" max="1" min="1" id="9992"/>
+        <item chance="83300" max="1" min="1" id="1879"/>
+        <item chance="45600" max="1" min="1" id="1885"/>
+        <item chance="6000" max="1" min="1" id="9628"/>
+        <item chance="3600" max="1" min="1" id="9629"/>
+        <item chance="3300" max="1" min="1" id="9630"/>
+        <item chance="3000" max="1" min="1" id="9551"/>
+        <item chance="4000" max="1" min="1" id="9573"/>
+        <item chance="2000" max="1" min="1" id="9574"/>
+        <item chance="500" max="1" min="1" id="9575"/>
+        <item chance="500" max="1" min="1" id="959"/>
+        <item chance="45000" max="1" min="1" id="9991"/>
+        <item chance="50000" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25714" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kietch</name>
+        <title send="false">Flames</title>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="196.415209791805" max="344947.576547878"/>
+            <mp regen="30.0" max="18120.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4613.33483"/>
+                <magical speed="333.0" damage="3161.66317"/>
+            </attack>
+            <defense>
+                <physical value="644.16101"/>
+                <magical value="345.95304"/>
+            </defense>
+            <move walk="26.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2662111</experience>
+        <sp>1460807</sp>
+        <collision heigth="29.0" radius="12.0"/>
+    </info>
+</npc>

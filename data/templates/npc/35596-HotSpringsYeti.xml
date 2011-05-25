@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="35596" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hot Springs Yeti</name>
+        <title send="false">Maitre 'D</title>
+        <level>56</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1724.6831"/>
+            <mp regen="2.4" max="918.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="10000.0"/>
+                <magical speed="333.0" damage="277.22116"/>
+            </attack>
+            <defense>
+                <physical value="228.40135"/>
+                <magical value="167.1342"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="10.5" radius="5.0"/>
+    </info>
+</npc>

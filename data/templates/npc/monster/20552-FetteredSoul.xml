@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20552" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fettered Soul</name>
+        <level>38</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="886.09975"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="156.22273"/>
+                <magical speed="333.0" damage="106.67987"/>
+            </attack>
+            <defense>
+                <physical value="148.44287"/>
+                <magical value="98.83494"/>
+            </defense>
+            <move walk="10.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5152</experience>
+        <sp>322</sp>
+        <collision heigth="21.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1424" min="714" id="57"/>
+        <item chance="81" max="1" min="1" id="129"/>
+        <item chance="120549" max="1" min="1" id="1825"/>
+        <item chance="145401" max="3" min="1" id="1864"/>
+        <item chance="145401" max="1" min="1" id="1869"/>
+        <item chance="58160" max="1" min="1" id="1878"/>
+        <item chance="89477" max="1" min="1" id="1884"/>
+        <item chance="170992" max="1" min="1" id="1902"/>
+        <item chance="281516" max="1" min="1" id="1903"/>
+        <item chance="4609" max="1" min="1" id="2034"/>
+        <item chance="14868" max="1" min="1" id="2208"/>
+        <item chance="808" max="1" min="1" id="2285"/>
+    </droplist>
+</npc>

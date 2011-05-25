@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20228" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Giant Crimson Ant</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="80.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1555</experience>
+        <sp>82</sp>
+        <collision heigth="17.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="328429" max="1" min="1" id="1884"/>
+        <item chance="69764" max="1" min="1" id="1931"/>
+        <item chance="40128" max="1" min="1" id="2180"/>
+        <item chance="700000" max="448" min="229" id="57"/>
+        <item chance="724" max="1" min="1" id="847"/>
+        <item chance="1085" max="1" min="1" id="890"/>
+        <item chance="543" max="1" min="1" id="910"/>
+        <item chance="11701" max="1" min="1" id="1899"/>
+        <item chance="133123" max="1" min="1" id="1831"/>
+        <item chance="99843" max="1" min="1" id="1868"/>
+        <item chance="19969" max="1" min="1" id="1873"/>
+        <item chance="3328" max="1" min="1" id="1889"/>
+        <item chance="3754" max="1" min="1" id="2180"/>
+        <item chance="4992" max="1" min="1" id="5549"/>
+    </droplist>
+</npc>

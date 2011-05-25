@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20634" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Taik Orc Captain</name>
+        <level>44</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1138.62924"/>
+            <mp regen="2.1" max="584.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="222.23112"/>
+                <magical speed="333.0" damage="151.75505"/>
+            </attack>
+            <defense>
+                <physical value="173.43552"/>
+                <magical value="115.47533"/>
+            </defense>
+            <move walk="36.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7065</experience>
+        <sp>484</sp>
+        <item lefthand="104" righthand="75"/>
+        <collision heigth="24.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1895" min="925" id="57"/>
+        <item chance="143" max="1" min="1" id="354"/>
+        <item chance="228" max="1" min="1" id="381"/>
+        <item chance="123326" max="1" min="1" id="1867"/>
+        <item chance="123326" max="1" min="1" id="1872"/>
+        <item chance="6166" max="1" min="1" id="1875"/>
+        <item chance="234850" max="1" min="1" id="1880"/>
+        <item chance="12333" max="1" min="1" id="1881"/>
+        <item chance="222396" max="1" min="1" id="1908"/>
+        <item chance="7474" max="1" min="1" id="1959"/>
+        <item chance="15204" max="1" min="1" id="1960"/>
+        <item chance="36467" max="1" min="1" id="2213"/>
+        <item chance="1178" max="1" min="1" id="2215"/>
+        <item chance="2011" max="1" min="1" id="2225"/>
+        <item chance="15416" max="1" min="1" id="2251"/>
+        <item chance="322" max="1" min="1" id="2321"/>
+        <item chance="3700" max="1" min="1" id="8723"/>
+        <item chance="925" max="1" min="1" id="8733"/>
+        <item chance="92" max="1" min="1" id="8743"/>
+        <item chance="18" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

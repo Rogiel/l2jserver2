@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21303" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Homunculus</name>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2586.66898"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="752.73928"/>
+                <magical speed="333.0" damage="514.02335"/>
+            </attack>
+            <defense>
+                <physical value="310.02959"/>
+                <magical value="206.4212"/>
+            </defense>
+            <move walk="30.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25867</experience>
+        <sp>2662</sp>
+        <collision heigth="26.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7313" min="3592" id="57"/>
+        <item chance="69943" max="120" min="40" id="1344"/>
+        <item chance="99474" max="3" min="1" id="1867"/>
+        <item chance="149211" max="3" min="1" id="1872"/>
+        <item chance="14921" max="1" min="1" id="1875"/>
+        <item chance="29842" max="1" min="1" id="1881"/>
+        <item chance="1946" max="1" min="1" id="4041"/>
+        <item chance="99" max="1" min="1" id="5167"/>
+        <item chance="1272" max="1" min="1" id="5406"/>
+        <item chance="2694" max="1" min="1" id="5466"/>
+        <item chance="1132" max="1" min="1" id="5532"/>
+        <item chance="1143" max="1" min="1" id="5543"/>
+        <item chance="24748" max="1" min="1" id="5547"/>
+        <item chance="24748" max="1" min="1" id="5548"/>
+        <item chance="1131" max="1" min="1" id="8341"/>
+        <item chance="1132" max="1" min="1" id="8346"/>
+        <item chance="2072" max="1" min="1" id="8731"/>
+        <item chance="518" max="1" min="1" id="8741"/>
+        <item chance="52" max="1" min="1" id="8751"/>
+        <item chance="10" max="1" min="1" id="8761"/>
+        <item chance="92" max="1" min="1" id="11946"/>
+        <item chance="92" max="1" min="1" id="11949"/>
+        <item chance="92" max="1" min="1" id="11953"/>
+        <item chance="92" max="1" min="1" id="11958"/>
+    </droplist>
+</npc>

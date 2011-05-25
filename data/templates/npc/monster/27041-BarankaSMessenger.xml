@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="27041" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Baranka's Messenger</name>
+        <title send="false">Quest Monster</title>
+        <level>12</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="199.62322"/>
+            <mp regen="1.2" max="124.48"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="22.99606"/>
+                <magical speed="333.0" damage="15.70333"/>
+            </attack>
+            <defense>
+                <physical value="66.32989"/>
+                <magical value="48.53733"/>
+            </defense>
+            <move walk="45.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="22.0" radius="12.0"/>
+    </info>
+</npc>

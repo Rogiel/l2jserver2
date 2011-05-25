@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18800" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fledgling Lavasaurus</name>
+        <level>77</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2856.7687256316"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="856.44056"/>
+                <magical speed="333.0" damage="584.83789"/>
+            </attack>
+            <defense>
+                <physical value="328.27073"/>
+                <magical value="240.21427"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>49441</experience>
+        <sp>5079</sp>
+        <collision heigth="75.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4200" min="2600" id="57"/>
+        <item chance="3000" max="1" min="1" id="960"/>
+        <item chance="700000" max="1" min="1" id="1894"/>
+        <item chance="30" max="1" min="1" id="6680"/>
+        <item chance="10000" max="1" min="1" id="6707"/>
+        <item chance="25000" max="1" min="1" id="9540"/>
+        <item chance="10000" max="1" min="1" id="9628"/>
+        <item chance="8000" max="1" min="1" id="9629"/>
+        <item chance="7000" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25372" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Discarded Guardian</name>
+        <title send="false">Raid Boss</title>
+        <level>20</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="41.3500808058837" max="73694.3721507883"/>
+            <mp regen="1.2" max="192.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="97.65033"/>
+                <magical speed="333.0" damage="9.52955"/>
+            </attack>
+            <defense>
+                <physical value="260.61147"/>
+                <magical value="127.14"/>
+            </defense>
+            <move walk="23.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3041766</experience>
+        <sp>59634</sp>
+        <collision heigth="40.3" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="128884" max="1" min="1" id="123"/>
+        <item chance="374353" max="4" min="2" id="391"/>
+        <item chance="224798" max="12" min="4" id="413"/>
+        <item chance="100243" max="10" min="4" id="955"/>
+        <item chance="389836" max="22" min="8" id="956"/>
+        <item chance="179838" max="22" min="8" id="2017"/>
+        <item chance="128884" max="1" min="1" id="5285"/>
+        <item chance="71005" max="72" min="24" id="5531"/>
+        <item chance="146188" max="72" min="24" id="6387"/>
+    </droplist>
+</npc>

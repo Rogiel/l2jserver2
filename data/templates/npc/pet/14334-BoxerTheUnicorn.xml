@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Pet" id="14334" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Boxer the Unicorn</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2993.515405"/>
+            <mp regen="3.0" max="1786.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="953.95015"/>
+                <magical speed="333.0" damage="651.42429"/>
+            </attack>
+            <defense>
+                <physical value="354.88311"/>
+                <magical value="259.68806"/>
+            </defense>
+            <move walk="27.0" run="140.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="18.0" radius="11.0"/>
+    </info>
+</npc>

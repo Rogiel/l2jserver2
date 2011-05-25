@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25322" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Demon's Agent Falston</name>
+        <title send="false">Raid Boss</title>
+        <level>66</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.374447843527" max="350517.310357172"/>
+            <mp regen="2.7" max="1219.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1885.06251"/>
+                <magical speed="333.0" damage="624.88606"/>
+            </attack>
+            <defense>
+                <physical value="830.18256"/>
+                <magical value="405.0"/>
+            </defense>
+            <move walk="43.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4512325</experience>
+        <sp>757636</sp>
+        <item lefthand="0" righthand="6723"/>
+        <collision heigth="31.5" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="15392" max="1" min="1" id="212"/>
+        <item chance="104185" max="1" min="1" id="729"/>
+        <item chance="781387" max="1" min="1" id="730"/>
+        <item chance="15392" max="1" min="1" id="2504"/>
+        <item chance="243921" max="22" min="8" id="5532"/>
+        <item chance="461666" max="12" min="4" id="5543"/>
+        <item chance="71974" max="1" min="1" id="6323"/>
+        <item chance="95966" max="1" min="1" id="6324"/>
+        <item chance="143948" max="1" min="1" id="6325"/>
+        <item chance="82332" max="243" min="81" id="6341"/>
+        <item chance="36284" max="420" min="140" id="6343"/>
+        <item chance="230598" max="120" min="40" id="6345"/>
+        <item chance="12502" max="1" min="1" id="6569"/>
+        <item chance="800000" max="4" min="1" id="8176"/>
+        <item chance="800000" max="7" min="3" id="9814"/>
+    </droplist>
+</npc>

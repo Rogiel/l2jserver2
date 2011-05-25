@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22579" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Warrior of Light</name>
+        <level>79</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="197.379006428133" max="56759.8007674414"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9122.90867"/>
+                <magical speed="333.0" damage="6229.76399"/>
+            </attack>
+            <defense>
+                <physical value="539.31213"/>
+                <magical value="591.96782"/>
+            </defense>
+            <move walk="100.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>156549</experience>
+        <sp>16504</sp>
+        <collision heigth="55.0" radius="50.0"/>
+    </info>
+</npc>

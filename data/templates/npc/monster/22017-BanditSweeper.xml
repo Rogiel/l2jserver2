@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22017" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Bandit Sweeper</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="86.68702"/>
+            </defense>
+            <move walk="30.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1750</experience>
+        <sp>95</sp>
+        <item lefthand="0" righthand="152"/>
+        <collision heigth="15.0" radius="4.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="499" min="249" id="57"/>
+        <item chance="129279" max="1" min="1" id="1864"/>
+        <item chance="64639" max="1" min="1" id="1869"/>
+        <item chance="6464" max="1" min="1" id="1880"/>
+        <item chance="6464" max="1" min="1" id="737"/>
+        <item chance="817" max="1" min="1" id="2021"/>
+        <item chance="862" max="1" min="1" id="5550"/>
+        <item chance="26" max="1" min="1" id="125"/>
+        <item chance="26" max="1" min="1" id="128"/>
+        <item chance="26" max="1" min="1" id="69"/>
+        <item chance="26" max="1" min="1" id="126"/>
+        <item chance="64708" max="1" min="1" id="1900"/>
+        <item chance="91981" max="1" min="1" id="2153"/>
+        <item chance="69581" max="1" min="1" id="1933"/>
+    </droplist>
+</npc>

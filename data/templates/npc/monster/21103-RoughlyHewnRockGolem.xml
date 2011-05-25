@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21103" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Roughly Hewn Rock Golem</name>
+        <level>31</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="635.76437"/>
+            <mp regen="1.8" max="343.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="99.21986"/>
+                <magical speed="333.0" damage="67.7543"/>
+            </attack>
+            <defense>
+                <physical value="121.98819"/>
+                <magical value="81.22111"/>
+            </defense>
+            <move walk="23.0" run="23.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1677</experience>
+        <sp>94</sp>
+        <collision heigth="40.3" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="476" min="239" id="57"/>
+        <item chance="150" max="1" min="1" id="348"/>
+        <item chance="240" max="1" min="1" id="377"/>
+        <item chance="2256" max="1" min="1" id="955"/>
+        <item chance="26687" max="1" min="1" id="1061"/>
+        <item chance="2936" max="1" min="1" id="1875"/>
+        <item chance="94011" max="1" min="1" id="1879"/>
+        <item chance="7339" max="1" min="1" id="1879"/>
+        <item chance="3670" max="1" min="1" id="1885"/>
+        <item chance="66361" max="1" min="1" id="1933"/>
+        <item chance="4305" max="1" min="1" id="1935"/>
+        <item chance="6620" max="1" min="1" id="1937"/>
+        <item chance="8668" max="1" min="1" id="2185"/>
+        <item chance="4403" max="1" min="1" id="5549"/>
+        <item chance="587" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20930" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hatu Brown Bear</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="40.0" run="143.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1317</experience>
+        <sp>77</sp>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="367" min="184" id="57"/>
+        <item chance="14" max="1" min="1" id="83"/>
+        <item chance="10" max="1" min="1" id="124"/>
+        <item chance="10" max="1" min="1" id="127"/>
+        <item chance="10" max="1" min="1" id="130"/>
+        <item chance="14" max="1" min="1" id="144"/>
+        <item chance="2760" max="1" min="1" id="735"/>
+        <item chance="66249" max="1" min="1" id="1864"/>
+        <item chance="33125" max="1" min="1" id="1869"/>
+        <item chance="3312" max="1" min="1" id="1880"/>
+        <item chance="465" max="1" min="1" id="2026"/>
+        <item chance="5182" max="1" min="1" id="2028"/>
+        <item chance="46692" max="1" min="1" id="2154"/>
+        <item chance="34888" max="1" min="1" id="2156"/>
+        <item chance="237" max="1" min="1" id="2279"/>
+        <item chance="442" max="1" min="1" id="5550"/>
+        <item chance="237" max="1" min="1" id="8317"/>
+    </droplist>
+</npc>

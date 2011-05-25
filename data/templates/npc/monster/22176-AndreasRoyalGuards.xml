@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22176" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Andreas' Royal Guards</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.925" max="3107.6436594"/>
+            <mp regen="3.1518" max="1883.736"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="1033.124"/>
+                <magical speed="333.0" damage="740.57728"/>
+            </attack>
+            <defense>
+                <physical value="380.23713"/>
+                <magical value="278.24103"/>
+            </defense>
+            <move walk="38.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1871</experience>
+        <sp>211</sp>
+        <item lefthand="0" righthand="8215"/>
+        <collision heigth="22.3" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="511" min="250" id="57"/>
+        <item chance="33502" max="30" min="10" id="1344"/>
+        <item chance="26802" max="1" min="1" id="1871"/>
+        <item chance="17868" max="1" min="1" id="1866"/>
+        <item chance="211" max="1" min="1" id="5481"/>
+        <item chance="211" max="1" min="1" id="5480"/>
+        <item chance="11" max="1" min="1" id="960"/>
+        <item chance="1" max="1" min="1" id="5320"/>
+        <item chance="1" max="1" min="1" id="5323"/>
+        <item chance="1072" max="1" min="1" id="1877"/>
+        <item chance="233" max="1" min="1" id="4041"/>
+        <item chance="536" max="1" min="1" id="4040"/>
+        <item chance="20325" max="1" min="1" id="1877"/>
+        <item chance="508" max="1" min="1" id="6901"/>
+        <item chance="1100" max="1" min="1" id="6690"/>
+    </droplist>
+</npc>

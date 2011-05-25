@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22751" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Elite Brakian</name>
+        <title send="false">Bistakon</title>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="187.260794107867" max="111546.700057767"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="11740.1012"/>
+                <magical speed="333.0" damage="8513.53763"/>
+            </attack>
+            <defense>
+                <physical value="578.86102"/>
+                <magical value="635.37806"/>
+            </defense>
+            <move walk="37.5" run="90.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1209443</experience>
+        <sp>121549</sp>
+        <collision heigth="41.5" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="170369" min="87637" id="57"/>
+        <item chance="47900" max="215" min="75" id="1895"/>
+        <item chance="108400" max="6" min="2" id="4040"/>
+        <item chance="12600" max="1" min="1" id="9554"/>
+        <item chance="215800" max="1" min="1" id="9628"/>
+        <item chance="156400" max="1" min="1" id="9630"/>
+        <item chance="16000" max="1" min="1" id="15640"/>
+        <item chance="16500" max="1" min="1" id="15641"/>
+        <item chance="16000" max="1" min="1" id="15642"/>
+        <item chance="30800" max="1" min="1" id="15643"/>
+        <item chance="2300" max="1" min="1" id="15821"/>
+        <item chance="2700" max="1" min="1" id="15822"/>
+        <item chance="2300" max="1" min="1" id="15823"/>
+        <item chance="2400" max="1" min="1" id="15824"/>
+        <item chance="91600" max="1" min="1" id="16160"/>
+        <item chance="16300" max="1" min="1" id="16161"/>
+    </droplist>
+</npc>

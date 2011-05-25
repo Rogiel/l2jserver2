@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29054" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Benom</name>
+        <title send="false">Triol's Leader</title>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="357.0" max="568382.4"/>
+            <mp regen="8.1" max="4071.06"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4510.0"/>
+                <magical speed="333.0" damage="3279.0"/>
+            </attack>
+            <defense>
+                <physical value="2554.0"/>
+                <magical value="467.22"/>
+            </defense>
+            <move walk="79.0" run="220.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2499951</experience>
+        <sp>1757872</sp>
+        <item lefthand="8203" righthand="8203"/>
+        <collision heigth="56.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="7859" max="1" min="1" id="6364"/>
+        <item chance="7859" max="1" min="1" id="6372"/>
+        <item chance="276329" max="22" min="8" id="6688"/>
+        <item chance="87725" max="72" min="24" id="6696"/>
+        <item chance="17880" max="1" min="1" id="6674"/>
+        <item chance="28535" max="1" min="1" id="6675"/>
+        <item chance="453748" max="22" min="8" id="6701"/>
+        <item chance="182529" max="72" min="24" id="6702"/>
+        <item chance="50000" max="1" min="1" id="10297"/>
+    </droplist>
+</npc>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20574" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Elder Tarlk Basilisk</name>
+        <level>51</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1470.41596"/>
+            <mp regen="2.4" max="775.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="321.13207"/>
+                <magical speed="333.0" damage="219.29157"/>
+            </attack>
+            <defense>
+                <physical value="204.85194"/>
+                <magical value="149.90176"/>
+            </defense>
+            <move walk="35.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4506</experience>
+        <sp>343</sp>
+        <collision heigth="25.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1009" min="497" id="57"/>
+        <item chance="3" max="1" min="1" id="75"/>
+        <item chance="3" max="1" min="1" id="76"/>
+        <item chance="3" max="1" min="1" id="77"/>
+        <item chance="3" max="1" min="1" id="84"/>
+        <item chance="3" max="1" min="1" id="134"/>
+        <item chance="3" max="1" min="1" id="145"/>
+        <item chance="278794" max="1" min="1" id="1539"/>
+        <item chance="8868" max="1" min="1" id="1539"/>
+        <item chance="79817" max="1" min="1" id="1864"/>
+        <item chance="836382" max="3" min="1" id="1867"/>
+        <item chance="39909" max="1" min="1" id="1869"/>
+        <item chance="3991" max="1" min="1" id="1880"/>
+        <item chance="236" max="1" min="1" id="2089"/>
+        <item chance="236" max="1" min="1" id="2090"/>
+        <item chance="236" max="1" min="1" id="2091"/>
+        <item chance="236" max="1" min="1" id="2092"/>
+        <item chance="236" max="1" min="1" id="2095"/>
+        <item chance="236" max="1" min="1" id="2096"/>
+        <item chance="1330" max="1" min="1" id="4043"/>
+        <item chance="1774" max="1" min="1" id="4122"/>
+        <item chance="1774" max="1" min="1" id="4123"/>
+        <item chance="2788" max="1" min="1" id="4601"/>
+        <item chance="89" max="1" min="1" id="4609"/>
+        <item chance="532" max="1" min="1" id="5550"/>
+        <item chance="1109" max="1" min="1" id="8725"/>
+        <item chance="277" max="1" min="1" id="8735"/>
+        <item chance="28" max="1" min="1" id="8745"/>
+        <item chance="6" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

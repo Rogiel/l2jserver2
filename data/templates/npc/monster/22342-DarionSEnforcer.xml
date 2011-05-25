@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22342" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Darion's Enforcer</name>
+        <level>81</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1164.93244"/>
+                <magical speed="333.0" damage="809.53604"/>
+            </attack>
+            <defense>
+                <physical value="364.18253"/>
+                <magical value="266.49298"/>
+            </defense>
+            <move walk="80.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12425</experience>
+        <sp>1325</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2792" min="1395" id="57"/>
+        <item chance="122100" max="1" min="1" id="9599"/>
+        <item chance="58629" max="1" min="1" id="9674"/>
+        <item chance="6" max="1" min="1" id="236"/>
+        <item chance="1608" max="1" min="1" id="5537"/>
+        <item chance="183216" max="30" min="10" id="1344"/>
+        <item chance="5143" max="1" min="1" id="1894"/>
+        <item chance="42028" max="1" min="1" id="4044"/>
+        <item chance="4886" max="1" min="1" id="4039"/>
+        <item chance="1275" max="1" min="1" id="4041"/>
+        <item chance="59" max="1" min="1" id="960"/>
+        <item chance="1173" max="1" min="1" id="9551"/>
+        <item chance="20698" max="1" min="1" id="4041"/>
+        <item chance="5777" max="1" min="1" id="8718"/>
+        <item chance="2380" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

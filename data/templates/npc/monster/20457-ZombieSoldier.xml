@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20457" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Zombie Soldier</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="55.97901"/>
+            </defense>
+            <move walk="15.0" run="15.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>959</experience>
+        <sp>43</sp>
+        <collision heigth="21.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="165" max="1" min="1" id="15"/>
+        <item chance="700000" max="234" min="138" id="57"/>
+        <item chance="587232" max="1" min="1" id="1864"/>
+        <item chance="69384" max="1" min="1" id="1864"/>
+        <item chance="195744" max="1" min="1" id="1866"/>
+        <item chance="34692" max="1" min="1" id="1869"/>
+        <item chance="3470" max="1" min="1" id="1880"/>
+        <item chance="1979" max="1" min="1" id="2011"/>
+        <item chance="6337" max="1" min="1" id="2013"/>
+        <item chance="1422" max="1" min="1" id="2254"/>
+        <item chance="1388" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

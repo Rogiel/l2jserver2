@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22024" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Bandit Inspector</name>
+        <level>37</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="847.31754"/>
+            <mp regen="1.8" max="432.72"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="146.82587"/>
+                <magical speed="333.0" damage="100.26304"/>
+            </attack>
+            <defense>
+                <physical value="144.47758"/>
+                <magical value="105.72243"/>
+            </defense>
+            <move walk="30.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2661</experience>
+        <sp>163</sp>
+        <item lefthand="0" righthand="66"/>
+        <collision heigth="18.5" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="737" min="369" id="57"/>
+        <item chance="120476" max="1" min="1" id="1867"/>
+        <item chance="120476" max="1" min="1" id="1872"/>
+        <item chance="12048" max="1" min="1" id="1881"/>
+        <item chance="8971" max="1" min="1" id="1943"/>
+        <item chance="6454" max="1" min="1" id="1825"/>
+        <item chance="6024" max="1" min="1" id="1875"/>
+        <item chance="5761" max="1" min="1" id="1942"/>
+        <item chance="210" max="1" min="1" id="417"/>
+        <item chance="131" max="1" min="1" id="395"/>
+        <item chance="29133" max="1" min="1" id="6036"/>
+        <item chance="88550" max="1" min="1" id="1902"/>
+        <item chance="62428" max="1" min="1" id="1825"/>
+    </droplist>
+</npc>

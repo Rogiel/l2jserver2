@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20269" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Breka Orc Shaman</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2018</experience>
+        <sp>118</sp>
+        <item lefthand="0" righthand="7"/>
+        <collision heigth="16.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="563" min="282" id="57"/>
+        <item chance="32" max="1" min="1" id="157"/>
+        <item chance="32" max="1" min="1" id="186"/>
+        <item chance="2960" max="1" min="1" id="1875"/>
+        <item chance="111342" max="1" min="1" id="1879"/>
+        <item chance="7400" max="1" min="1" id="1879"/>
+        <item chance="3700" max="1" min="1" id="1885"/>
+        <item chance="1551" max="1" min="1" id="2027"/>
+        <item chance="7969" max="1" min="1" id="2029"/>
+        <item chance="71526" max="1" min="1" id="2154"/>
+        <item chance="317" max="1" min="1" id="2275"/>
+        <item chance="247" max="1" min="1" id="2286"/>
+        <item chance="4440" max="1" min="1" id="5549"/>
+        <item chance="592" max="1" min="1" id="5550"/>
+        <item chance="27750" max="1" min="1" id="6667"/>
+    </droplist>
+</npc>

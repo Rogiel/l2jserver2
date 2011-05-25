@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22287" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Crystalline Unicorn</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="46.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>34503</experience>
+        <sp>3583</sp>
+        <collision heigth="30.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9008" min="4398" id="57"/>
+        <item chance="230482" max="1" min="1" id="1894"/>
+        <item chance="18923" max="1" min="1" id="1894"/>
+        <item chance="218958" max="1" min="1" id="4039"/>
+        <item chance="17977" max="1" min="1" id="4039"/>
+        <item chance="4690" max="1" min="1" id="4041"/>
+        <item chance="17977" max="1" min="1" id="4044"/>
+        <item chance="8189" max="1" min="1" id="5495"/>
+        <item chance="6448" max="1" min="1" id="5527"/>
+        <item chance="6448" max="1" min="1" id="5528"/>
+        <item chance="539" max="1" min="1" id="6901"/>
+        <item chance="18018" max="1" min="1" id="8342"/>
+        <item chance="4314" max="1" min="1" id="9546"/>
+        <item chance="979" max="1" min="1" id="12261"/>
+        <item chance="1399" max="1" min="1" id="12268"/>
+        <item chance="979" max="1" min="1" id="12269"/>
+    </droplist>
+</npc>

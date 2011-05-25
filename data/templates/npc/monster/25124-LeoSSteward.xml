@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25124" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Leo's Steward</name>
+        <title send="false">Raid Fighter</title>
+        <level>55</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="64.1713408913048" max="15172.8103488362"/>
+            <mp regen="2.4" max="889.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1220.87802"/>
+                <magical speed="333.0" damage="374.0746"/>
+            </attack>
+            <defense>
+                <physical value="335.4543"/>
+                <magical value="327.3"/>
+            </defense>
+            <move walk="15.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="3938"/>
+        <collision heigth="44.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="883200" max="60" min="20" id="1342"/>
+    </droplist>
+</npc>

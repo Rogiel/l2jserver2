@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22791" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Savior Solina</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3835.59060587002"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1099.42362"/>
+                <magical speed="333.0" damage="750.76381"/>
+            </attack>
+            <defense>
+                <physical value="353.86144"/>
+                <magical value="258.94045"/>
+            </defense>
+            <move walk="65.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>26927</experience>
+        <sp>2759</sp>
+        <collision heigth="15.6" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2009" min="1055" id="57"/>
+        <item chance="400" max="1" min="1" id="15640"/>
+        <item chance="400" max="1" min="1" id="15641"/>
+        <item chance="400" max="1" min="1" id="15642"/>
+        <item chance="400" max="1" min="1" id="15643"/>
+        <item chance="1" max="1" min="1" id="13463"/>
+        <item chance="1" max="1" min="1" id="13464"/>
+        <item chance="1" max="1" min="1" id="13465"/>
+        <item chance="1" max="1" min="1" id="13466"/>
+        <item chance="81200" max="1" min="1" id="1895"/>
+        <item chance="5200" max="1" min="1" id="4040"/>
+        <item chance="3400" max="1" min="1" id="9628"/>
+        <item chance="1500" max="1" min="1" id="9630"/>
+        <item chance="100" max="1" min="1" id="9557"/>
+        <item chance="4500" max="1" min="1" id="9573"/>
+        <item chance="1100" max="1" min="1" id="9574"/>
+        <item chance="110" max="1" min="1" id="9575"/>
+        <item chance="200" max="1" min="1" id="15821"/>
+        <item chance="200" max="1" min="1" id="15822"/>
+        <item chance="200" max="1" min="1" id="15823"/>
+        <item chance="200" max="1" min="1" id="15824"/>
+        <item chance="2000" max="1" min="1" id="15640"/>
+        <item chance="2000" max="1" min="1" id="15641"/>
+        <item chance="2000" max="1" min="1" id="15642"/>
+        <item chance="2000" max="1" min="1" id="15643"/>
+    </droplist>
+</npc>

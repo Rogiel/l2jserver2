@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21426" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Abraxion</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.823" max="3044.88717"/>
+            <mp regen="3.111" max="1812.948"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="985.66601"/>
+                <magical speed="333.0" damage="699.25752"/>
+            </attack>
+            <defense>
+                <physical value="367.35364"/>
+                <magical value="253.53446"/>
+            </defense>
+            <move walk="31.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>65250</experience>
+        <sp>7585</sp>
+        <collision heigth="50.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="293497" max="1" min="1" id="6698"/>
+        <item chance="325674" max="1" min="1" id="6699"/>
+        <item chance="178881" max="1" min="1" id="6700"/>
+        <item chance="700000" max="15040" min="7369" id="57"/>
+        <item chance="490" max="1" min="1" id="11975"/>
+        <item chance="7574" max="1" min="1" id="5534"/>
+        <item chance="221" max="1" min="1" id="960"/>
+        <item chance="45975" max="450" min="150" id="1344"/>
+        <item chance="137925" max="12" min="4" id="1868"/>
+        <item chance="36780" max="9" min="3" id="1873"/>
+        <item chance="110340" max="1" min="1" id="1876"/>
+        <item chance="22518" max="9" min="3" id="1895"/>
+        <item chance="9195" max="1" min="1" id="4042"/>
+        <item chance="4598" max="1" min="1" id="8732"/>
+        <item chance="1149" max="1" min="1" id="8742"/>
+        <item chance="115" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

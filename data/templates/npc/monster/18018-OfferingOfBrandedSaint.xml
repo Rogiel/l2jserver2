@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FestivalMonster" id="18018" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Offering of Branded Saint</name>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="166.06476"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="152.46752"/>
+                <magical value="92.36164"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2172</experience>
+        <sp>138</sp>
+        <item lefthand="0" righthand="72"/>
+        <collision heigth="25.3" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="504" min="253" id="57"/>
+    </droplist>
+</npc>

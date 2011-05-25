@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22702" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Varangka's Destroyer</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="37.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16090</experience>
+        <sp>1759</sp>
+        <collision heigth="32.0" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1666" min="829" id="57"/>
+        <item chance="5000" max="1" min="1" id="1808"/>
+        <item chance="60000" max="1" min="1" id="1895"/>
+        <item chance="4000" max="1" min="1" id="4040"/>
+        <item chance="100" max="1" min="1" id="5157"/>
+        <item chance="2" max="1" min="1" id="9446"/>
+        <item chance="6000" max="1" min="1" id="9530"/>
+        <item chance="1000" max="1" min="1" id="9573"/>
+        <item chance="300" max="1" min="1" id="9574"/>
+        <item chance="80" max="1" min="1" id="9575"/>
+        <item chance="300" max="1" min="1" id="9620"/>
+        <item chance="3000" max="1" min="1" id="9621"/>
+        <item chance="2000" max="1" min="1" id="9628"/>
+        <item chance="1000" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

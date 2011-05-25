@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22271" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Water Dragon Detractor</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>11436</experience>
+        <sp>1250</sp>
+        <collision heigth="43.5" radius="36.0"/>
+    </info>
+    <droplist>
+        <item chance="1000000" max="1" min="1" id="9689"/>
+        <item chance="700000" max="3147" min="1537" id="57"/>
+        <item chance="100000" max="1" min="1" id="9595"/>
+        <item chance="53837" max="1" min="1" id="1895"/>
+        <item chance="3769" max="1" min="1" id="4040"/>
+        <item chance="1478" max="1" min="1" id="9628"/>
+        <item chance="992" max="1" min="1" id="9630"/>
+        <item chance="1507" max="1" min="1" id="9549"/>
+        <item chance="6135" max="1" min="1" id="6346"/>
+        <item chance="4268" max="1" min="1" id="6342"/>
+        <item chance="2762" max="1" min="1" id="6344"/>
+        <item chance="348" max="1" min="1" id="12350"/>
+        <item chance="464" max="1" min="1" id="12352"/>
+        <item chance="695" max="1" min="1" id="12351"/>
+        <item chance="75" max="1" min="1" id="960"/>
+        <item chance="655731" max="1" min="1" id="1895"/>
+        <item chance="34850" max="1" min="1" id="5495"/>
+        <item chance="1020" max="1" min="1" id="3957"/>
+    </droplist>
+</npc>

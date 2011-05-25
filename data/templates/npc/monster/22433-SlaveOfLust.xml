@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22433" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Slave of Lust</name>
+        <level>83</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="10943.0943982571"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7013.14725"/>
+                <magical speed="333.0" damage="4872.60072"/>
+            </attack>
+            <defense>
+                <physical value="595.19567"/>
+                <magical value="653.30756"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>35640</experience>
+        <sp>3714</sp>
+        <collision heigth="30.7" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11073" min="5529" id="57"/>
+        <item chance="484100" max="1" min="1" id="9599"/>
+        <item chance="5215" max="1" min="1" id="5480"/>
+        <item chance="5215" max="1" min="1" id="5481"/>
+        <item chance="35" max="1" min="1" id="5320"/>
+        <item chance="35" max="1" min="1" id="5323"/>
+        <item chance="129106" max="3" min="1" id="1866"/>
+        <item chance="48415" max="1" min="1" id="1885"/>
+        <item chance="72622" max="12" min="4" id="1871"/>
+        <item chance="5052" max="1" min="1" id="4041"/>
+        <item chance="23239" max="1" min="1" id="5220"/>
+        <item chance="4648" max="1" min="1" id="9551"/>
+        <item chance="581" max="1" min="1" id="6901"/>
+        <item chance="1082" max="1" min="1" id="6867"/>
+        <item chance="9435" max="1" min="1" id="6901"/>
+        <item chance="64664" max="1" min="1" id="6702"/>
+    </droplist>
+</npc>

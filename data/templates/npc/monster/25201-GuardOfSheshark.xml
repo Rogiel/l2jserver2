@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25201" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guard of Sheshark</name>
+        <title send="false">Raid Fighter</title>
+        <level>71</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="118.846913053688" max="60562.4910401227"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="8875.022"/>
+                <magical speed="333.0" damage="12726.72719"/>
+            </attack>
+            <defense>
+                <physical value="450.98039"/>
+                <magical value="440.02"/>
+            </defense>
+            <move walk="52.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="6370"/>
+        <collision heigth="30.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="957000" max="60" min="20" id="1344"/>
+    </droplist>
+</npc>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21645" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Lienrik Lad</name>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="966.57792"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="176.36077"/>
+                <magical speed="333.0" damage="120.43155"/>
+            </attack>
+            <defense>
+                <physical value="156.55035"/>
+                <magical value="104.23299"/>
+            </defense>
+            <move walk="100.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2302</experience>
+        <sp>149</sp>
+        <collision heigth="50.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="720648" max="1" min="1" id="1870"/>
+        <item chance="8596" max="1" min="1" id="2029"/>
+        <item chance="72065" max="1" min="1" id="5549"/>
+        <item chance="700000" max="600" min="301" id="57"/>
+        <item chance="173" max="1" min="1" id="850"/>
+        <item chance="259" max="1" min="1" id="881"/>
+        <item chance="130" max="1" min="1" id="913"/>
+        <item chance="6290" max="1" min="1" id="1902"/>
+        <item chance="10356" max="1" min="1" id="1903"/>
+        <item chance="5794" max="1" min="1" id="1904"/>
+        <item chance="137974" max="30" min="10" id="1341"/>
+        <item chance="45991" max="1" min="1" id="1832"/>
+        <item chance="2759" max="1" min="1" id="1875"/>
+        <item chance="6899" max="1" min="1" id="1879"/>
+        <item chance="3449" max="1" min="1" id="1885"/>
+        <item chance="2956" max="1" min="1" id="2188"/>
+        <item chance="2956" max="1" min="1" id="5473"/>
+        <item chance="4139" max="1" min="1" id="5549"/>
+        <item chance="552" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

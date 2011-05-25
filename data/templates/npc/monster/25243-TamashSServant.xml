@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25243" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tamash's Servant</name>
+        <title send="false">Raid Fighter</title>
+        <level>54</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="85.8638759565958" max="40437.0514862199"/>
+            <mp regen="2.4" max="861.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="4328.17162"/>
+                <magical speed="333.0" damage="4836.98728"/>
+            </attack>
+            <defense>
+                <physical value="328.34384"/>
+                <magical value="320.36"/>
+            </defense>
+            <move walk="37.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="234"/>
+        <collision heigth="32.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="850400" max="60" min="20" id="1342"/>
+    </droplist>
+</npc>

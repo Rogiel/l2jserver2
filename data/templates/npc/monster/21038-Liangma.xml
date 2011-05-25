@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21038" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Liangma</name>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1372.18568"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="290.44588"/>
+                <magical speed="333.0" damage="198.33688"/>
+            </attack>
+            <defense>
+                <physical value="195.66302"/>
+                <magical value="143.17771"/>
+            </defense>
+            <move walk="80.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8025</experience>
+        <sp>560</sp>
+        <collision heigth="22.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2115" min="1037" id="57"/>
+        <item chance="209" max="1" min="1" id="500"/>
+        <item chance="298" max="1" min="1" id="632"/>
+        <item chance="1411" max="1" min="1" id="952"/>
+        <item chance="141087" max="1" min="1" id="1867"/>
+        <item chance="141087" max="1" min="1" id="1872"/>
+        <item chance="7054" max="1" min="1" id="1875"/>
+        <item chance="14109" max="1" min="1" id="1881"/>
+        <item chance="195390" max="1" min="1" id="1911"/>
+        <item chance="11876" max="1" min="1" id="1971"/>
+        <item chance="15519" max="1" min="1" id="1972"/>
+        <item chance="89051" max="1" min="1" id="2166"/>
+        <item chance="1438" max="1" min="1" id="2224"/>
+        <item chance="323" max="1" min="1" id="2496"/>
+        <item chance="13856" max="1" min="1" id="2947"/>
+        <item chance="920" max="1" min="1" id="4041"/>
+        <item chance="187644" max="1" min="1" id="5231"/>
+        <item chance="3527" max="1" min="1" id="8724"/>
+        <item chance="882" max="1" min="1" id="8734"/>
+        <item chance="88" max="1" min="1" id="8744"/>
+        <item chance="17" max="1" min="1" id="8754"/>
+    </droplist>
+</npc>

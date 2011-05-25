@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21792" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Messenger Invader Elite Soldier</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="40.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>49693</experience>
+        <sp>5578</sp>
+        <item lefthand="0" righthand="78"/>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="14306" min="7008" id="57"/>
+        <item chance="498770" max="2" min="1" id="1894"/>
+        <item chance="592289" max="3" min="1" id="6672"/>
+        <item chance="273364" max="3" min="1" id="6672"/>
+        <item chance="54673" max="1" min="1" id="8732"/>
+        <item chance="13668" max="1" min="1" id="8742"/>
+        <item chance="1366" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

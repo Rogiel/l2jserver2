@@ -101,7 +101,7 @@ public class CharacterInformationPacket extends AbstractServerPacket {
 		buffer.writeInt((int) character.getMP()); // cur mp
 		buffer.writeInt(character.getSP()); // sp
 		buffer.writeInt(0); // load
-		buffer.writeInt(character.getAttributes().getMaxWeigth()); // max load
+		buffer.writeInt(character.getStats().getMaximumLoad()); // max load
 
 		// 20 no weapon, 40 weapon equippe
 		buffer.writeInt(20);

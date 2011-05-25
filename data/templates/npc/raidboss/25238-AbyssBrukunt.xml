@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25238" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Abyss Brukunt</name>
+        <title send="false">Raid Boss</title>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="71.371053660127" max="215207.60963262"/>
+            <mp regen="2.4" max="1007.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="748.77526"/>
+                <magical speed="333.0" damage="122.63548"/>
+            </attack>
+            <defense>
+                <physical value="728.44779"/>
+                <magical value="355.36"/>
+            </defense>
+            <move walk="70.0" run="185.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2684275</experience>
+        <sp>381459</sp>
+        <collision heigth="150.0" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="49902" max="1" min="1" id="5289"/>
+        <item chance="71304" max="1" min="1" id="5292"/>
+        <item chance="49902" max="1" min="1" id="5294"/>
+        <item chance="87511" max="120" min="40" id="5494"/>
+        <item chance="286277" max="27" min="9" id="5525"/>
+        <item chance="184036" max="42" min="14" id="5526"/>
+        <item chance="10640" max="1" min="1" id="80"/>
+        <item chance="10640" max="1" min="1" id="150"/>
+        <item chance="170118" max="22" min="8" id="5547"/>
+        <item chance="318971" max="12" min="4" id="5548"/>
+        <item chance="72019" max="1" min="1" id="729"/>
+        <item chance="540144" max="1" min="1" id="730"/>
+        <item chance="8642" max="1" min="1" id="6569"/>
+        <item chance="840000" max="4" min="1" id="9815"/>
+        <item chance="700000" max="2" min="1" id="8176"/>
+    </droplist>
+</npc>

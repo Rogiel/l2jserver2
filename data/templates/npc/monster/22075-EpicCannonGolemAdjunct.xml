@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22075" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Epic Cannon Golem Adjunct</name>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1520.38155"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="337.18867"/>
+                <magical speed="333.0" damage="230.25615"/>
+            </attack>
+            <defense>
+                <physical value="209.50106"/>
+                <magical value="153.30378"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9777</experience>
+        <sp>756</sp>
+        <collision heigth="43.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2624" min="1299" id="57"/>
+        <item chance="42920" max="1" min="1" id="1895"/>
+        <item chance="5007" max="1" min="1" id="4043"/>
+        <item chance="3004" max="1" min="1" id="4040"/>
+        <item chance="1842" max="1" min="1" id="2106"/>
+        <item chance="2504" max="1" min="1" id="4042"/>
+        <item chance="1842" max="1" min="1" id="2107"/>
+        <item chance="20" max="1" min="1" id="231"/>
+        <item chance="20" max="1" min="1" id="233"/>
+        <item chance="2659" max="1" min="1" id="2169"/>
+        <item chance="65387" max="1" min="1" id="4040"/>
+        <item chance="7265" max="1" min="1" id="4604"/>
+        <item chance="5333" max="1" min="1" id="8308"/>
+        <item chance="4173" max="1" min="1" id="8725"/>
+        <item chance="1043" max="1" min="1" id="8735"/>
+        <item chance="104" max="1" min="1" id="8745"/>
+        <item chance="21" max="1" min="1" id="8755"/>
+    </droplist>
+</npc>

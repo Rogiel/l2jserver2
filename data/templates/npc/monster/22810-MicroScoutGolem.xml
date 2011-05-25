@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22810" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Micro Scout Golem</name>
+        <level>72</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2540.15331"/>
+            <mp regen="3.0" max="1410.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="731.52506"/>
+                <magical speed="333.0" damage="499.53679"/>
+            </attack>
+            <defense>
+                <physical value="305.35947"/>
+                <magical value="223.44881"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>17331</experience>
+        <sp>1676</sp>
+        <collision heigth="43.5" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4000" min="2000" id="57"/>
+        <item chance="8" max="1" min="1" id="6724"/>
+        <item chance="10" max="1" min="1" id="6725"/>
+        <item chance="6" max="1" min="1" id="6726"/>
+        <item chance="150000" max="1" min="1" id="1895"/>
+        <item chance="15000" max="1" min="1" id="4040"/>
+        <item chance="5000" max="1" min="1" id="9628"/>
+        <item chance="4000" max="1" min="1" id="9630"/>
+        <item chance="3000" max="1" min="1" id="5157"/>
+        <item chance="80000" max="1" min="1" id="6708"/>
+        <item chance="80000" max="1" min="1" id="6709"/>
+    </droplist>
+</npc>

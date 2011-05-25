@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18791" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Defeated Troops Javelin Thrower</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="195.86371266283" max="56659.3136360673"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="9218.40693"/>
+                <magical speed="333.0" damage="6294.97689"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="89.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="13843"/>
+        <collision heigth="46.5" radius="25.0"/>
+    </info>
+</npc>

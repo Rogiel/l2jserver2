@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21102" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Watchman of the Plains</name>
+        <level>30</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="604.08419"/>
+            <mp regen="1.5" max="329.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="92.64226"/>
+                <magical speed="333.0" damage="63.26266"/>
+            </attack>
+            <defense>
+                <physical value="118.46427"/>
+                <magical value="78.87485"/>
+            </defense>
+            <move walk="90.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1602</experience>
+        <sp>88</sp>
+        <collision heigth="20.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="457" min="228" id="57"/>
+        <item chance="96" max="1" min="1" id="433"/>
+        <item chance="96" max="1" min="1" id="434"/>
+        <item chance="96" max="1" min="1" id="435"/>
+        <item chance="154" max="1" min="1" id="466"/>
+        <item chance="154" max="1" min="1" id="467"/>
+        <item chance="154" max="1" min="1" id="468"/>
+        <item chance="1644" max="1" min="1" id="956"/>
+        <item chance="3288" max="1" min="1" id="1874"/>
+        <item chance="19731" max="1" min="1" id="1878"/>
+        <item chance="30355" max="1" min="1" id="1884"/>
+        <item chance="3288" max="1" min="1" id="1889"/>
+        <item chance="59256" max="1" min="1" id="1900"/>
+        <item chance="4352" max="1" min="1" id="1933"/>
+        <item chance="3027" max="1" min="1" id="1936"/>
+        <item chance="84230" max="1" min="1" id="2153"/>
+        <item chance="35631" max="1" min="1" id="2183"/>
+        <item chance="1973" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

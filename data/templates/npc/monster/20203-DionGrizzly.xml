@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20203" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dion Grizzly</name>
+        <level>20</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="342.5127"/>
+            <mp regen="1.2" max="192.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="44.32863"/>
+                <magical speed="333.0" damage="30.2707"/>
+            </attack>
+            <defense>
+                <physical value="86.87049"/>
+                <magical value="57.83936"/>
+            </defense>
+            <move walk="40.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>706</experience>
+        <sp>31</sp>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="215" min="124" id="57"/>
+        <item chance="151" max="1" min="1" id="176"/>
+        <item chance="42148" max="1" min="1" id="1867"/>
+        <item chance="42148" max="1" min="1" id="1872"/>
+        <item chance="59453" max="2" min="1" id="1882"/>
+        <item chance="7025" max="1" min="1" id="1882"/>
+        <item chance="63700" max="1" min="1" id="1897"/>
+        <item chance="13744" max="1" min="1" id="2174"/>
+        <item chance="151" max="1" min="1" id="2501"/>
+        <item chance="1265" max="1" min="1" id="5273"/>
+    </droplist>
+</npc>

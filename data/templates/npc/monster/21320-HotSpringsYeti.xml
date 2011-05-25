@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21320" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hot Springs Yeti</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="212.55774"/>
+            </defense>
+            <move walk="16.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>22728</experience>
+        <sp>2398</sp>
+        <collision heigth="32.0" radius="18.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="6465" min="3168" id="57"/>
+        <item chance="158111" max="3" min="1" id="1867"/>
+        <item chance="105408" max="3" min="1" id="1872"/>
+        <item chance="52704" max="1" min="1" id="1882"/>
+        <item chance="225378" max="1" min="1" id="1894"/>
+        <item chance="8322" max="1" min="1" id="1894"/>
+        <item chance="105" max="1" min="1" id="3036"/>
+        <item chance="108483" max="1" min="1" id="4042"/>
+        <item chance="3953" max="1" min="1" id="4042"/>
+        <item chance="107055" max="1" min="1" id="5503"/>
+        <item chance="4035" max="1" min="1" id="5536"/>
+        <item chance="2196" max="1" min="1" id="8731"/>
+        <item chance="549" max="1" min="1" id="8741"/>
+        <item chance="55" max="1" min="1" id="8751"/>
+        <item chance="11" max="1" min="1" id="8761"/>
+        <item chance="326" max="1" min="1" id="11951"/>
+    </droplist>
+</npc>

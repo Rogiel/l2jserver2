@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20764" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shaman of the Plains</name>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="166.06476"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="152.46752"/>
+                <magical value="101.5146"/>
+            </defense>
+            <move walk="43.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4150</experience>
+        <sp>264</sp>
+        <item lefthand="0" righthand="179"/>
+        <collision heigth="35.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1146" min="575" id="57"/>
+        <item chance="204" max="1" min="1" id="437"/>
+        <item chance="326" max="1" min="1" id="470"/>
+        <item chance="97110" max="1" min="1" id="1825"/>
+        <item chance="156173" max="1" min="1" id="1867"/>
+        <item chance="156173" max="1" min="1" id="1872"/>
+        <item chance="7809" max="1" min="1" id="1875"/>
+        <item chance="15617" max="1" min="1" id="1881"/>
+        <item chance="137744" max="1" min="1" id="1902"/>
+        <item chance="226779" max="1" min="1" id="1903"/>
+        <item chance="8962" max="1" min="1" id="1944"/>
+        <item chance="13955" max="1" min="1" id="1945"/>
+        <item chance="8366" max="1" min="1" id="2149"/>
+        <item chance="8366" max="1" min="1" id="5473"/>
+    </droplist>
+</npc>

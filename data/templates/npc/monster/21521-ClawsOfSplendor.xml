@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21521" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Claws of Splendor</name>
+        <level>60</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1933.24044"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="481.34551"/>
+                <magical speed="333.0" damage="328.69659"/>
+            </attack>
+            <defense>
+                <physical value="247.65008"/>
+                <magical value="164.88822"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>8809</experience>
+        <sp>764</sp>
+        <item lefthand="0" righthand="326"/>
+        <collision heigth="28.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2404" min="1183" id="57"/>
+        <item chance="4" max="1" min="1" id="78"/>
+        <item chance="4" max="1" min="1" id="142"/>
+        <item chance="4" max="1" min="1" id="148"/>
+        <item chance="1196" max="1" min="1" id="947"/>
+        <item chance="201" max="1" min="1" id="948"/>
+        <item chance="89218" max="1" min="1" id="1832"/>
+        <item chance="160591" max="1" min="1" id="1868"/>
+        <item chance="32118" max="1" min="1" id="1873"/>
+        <item chance="5353" max="1" min="1" id="1889"/>
+        <item chance="2677" max="1" min="1" id="4044"/>
+        <item chance="115966" max="1" min="1" id="4051"/>
+        <item chance="842" max="1" min="1" id="4104"/>
+        <item chance="829" max="1" min="1" id="4107"/>
+        <item chance="829" max="1" min="1" id="4108"/>
+        <item chance="48542" max="1" min="1" id="4130"/>
+        <item chance="8030" max="1" min="1" id="5549"/>
+        <item chance="1338" max="1" min="1" id="8728"/>
+        <item chance="335" max="1" min="1" id="8738"/>
+        <item chance="34" max="1" min="1" id="8748"/>
+        <item chance="7" max="1" min="1" id="8758"/>
+    </droplist>
+</npc>

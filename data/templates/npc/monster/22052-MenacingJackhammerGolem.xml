@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22052" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Menacing Jackhammer Golem</name>
+        <level>47</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1276.53628"/>
+            <mp regen="2.1" max="665.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="261.69549"/>
+                <magical speed="333.0" damage="178.7041"/>
+            </attack>
+            <defense>
+                <physical value="186.63569"/>
+                <magical value="136.5719"/>
+            </defense>
+            <move walk="72.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>5386</experience>
+        <sp>385</sp>
+        <collision heigth="32.8" radius="23.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1443" min="707" id="57"/>
+        <item chance="144321" max="30" min="10" id="1342"/>
+        <item chance="28864" max="1" min="1" id="1873"/>
+        <item chance="20617" max="1" min="1" id="1895"/>
+        <item chance="14432" max="1" min="1" id="1876"/>
+        <item chance="7584" max="1" min="1" id="1969"/>
+        <item chance="4782" max="1" min="1" id="1968"/>
+        <item chance="962" max="1" min="1" id="952"/>
+        <item chance="2405" max="1" min="1" id="8724"/>
+        <item chance="601" max="1" min="1" id="8734"/>
+        <item chance="50" max="1" min="1" id="8744"/>
+        <item chance="10" max="1" min="1" id="8754"/>
+        <item chance="1203" max="1" min="1" id="4042"/>
+        <item chance="168" max="1" min="1" id="8296"/>
+        <item chance="128" max="1" min="1" id="382"/>
+        <item chance="80" max="1" min="1" id="355"/>
+        <item chance="193047" max="1" min="1" id="1912"/>
+        <item chance="60728" max="1" min="1" id="2166"/>
+        <item chance="91402" max="1" min="1" id="2167"/>
+    </droplist>
+</npc>

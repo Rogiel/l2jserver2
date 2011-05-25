@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25143" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fire of Wrath Shuriel</name>
+        <title send="false">Raid Boss</title>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="126.536105676163" max="410600.548543185"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="2592.71887"/>
+                <magical speed="333.0" damage="929.62086"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>5346496</experience>
+        <sp>1193017</sp>
+        <item lefthand="0" righthand="2500"/>
+        <collision heigth="36.5" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="26701" max="1" min="1" id="6680"/>
+        <item chance="429334" max="36" min="12" id="6707"/>
+        <item chance="14590" max="1" min="1" id="6371"/>
+        <item chance="275646" max="36" min="12" id="6695"/>
+        <item chance="53915" max="1" min="1" id="959"/>
+        <item chance="539155" max="1" min="1" id="960"/>
+        <item chance="8986" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

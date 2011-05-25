@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20576" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Oel Mahum Witch Doctor</name>
+        <level>55</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1673.05473"/>
+            <mp regen="2.4" max="889.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="388.11142"/>
+                <magical speed="333.0" damage="265.02979"/>
+            </attack>
+            <defense>
+                <physical value="223.6362"/>
+                <magical value="163.64727"/>
+            </defense>
+            <move walk="70.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>10289</experience>
+        <sp>791</sp>
+        <item lefthand="0" righthand="201"/>
+        <collision heigth="34.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2284" min="1121" id="57"/>
+        <item chance="80" max="1" min="1" id="119"/>
+        <item chance="107" max="1" min="1" id="855"/>
+        <item chance="161" max="1" min="1" id="886"/>
+        <item chance="80580" max="1" min="1" id="1865"/>
+        <item chance="80580" max="1" min="1" id="1870"/>
+        <item chance="5372" max="1" min="1" id="1875"/>
+        <item chance="13430" max="1" min="1" id="1879"/>
+        <item chance="7562" max="1" min="1" id="1918"/>
+        <item chance="5974" max="1" min="1" id="1920"/>
+        <item chance="12928" max="1" min="1" id="2119"/>
+        <item chance="10029" max="1" min="1" id="2917"/>
+        <item chance="1612" max="1" min="1" id="4040"/>
+        <item chance="12443" max="1" min="1" id="4145"/>
+        <item chance="1478" max="1" min="1" id="4178"/>
+        <item chance="93" max="1" min="1" id="4187"/>
+        <item chance="9457" max="1" min="1" id="4591"/>
+        <item chance="161" max="1" min="1" id="5155"/>
+        <item chance="161" max="1" min="1" id="5275"/>
+        <item chance="1865" max="1" min="1" id="8726"/>
+        <item chance="466" max="1" min="1" id="8736"/>
+        <item chance="47" max="1" min="1" id="8746"/>
+        <item chance="10" max="1" min="1" id="8756"/>
+    </droplist>
+</npc>

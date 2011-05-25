@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25367" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kuroboros' Follower</name>
+        <title send="false">Raid Fighter</title>
+        <level>22</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="17.1576881427546" max="6247.18478795455"/>
+            <mp regen="1.5" max="218.52"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="231.18622"/>
+                <magical speed="333.0" damage="58.17787"/>
+            </attack>
+            <defense>
+                <physical value="138.98541"/>
+                <magical value="135.6"/>
+            </defense>
+            <move walk="43.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="102" righthand="1"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="30644" max="1" min="1" id="734"/>
+    </droplist>
+</npc>

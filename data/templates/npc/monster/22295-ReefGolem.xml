@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22295" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Reef Golem</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="112.558039826218" max="32946.0424680524"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5793.32235"/>
+                <magical speed="333.0" damage="3956.08814"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="54.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>99513</experience>
+        <sp>10881</sp>
+        <collision heigth="47.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="20633" min="10074" id="57"/>
+        <item chance="352959" max="1" min="1" id="1895"/>
+        <item chance="41178" max="1" min="1" id="4043"/>
+        <item chance="24707" max="1" min="1" id="4040"/>
+        <item chance="20589" max="1" min="1" id="4042"/>
+        <item chance="9883" max="1" min="1" id="9546"/>
+        <item chance="8315" max="1" min="1" id="5480"/>
+        <item chance="8315" max="1" min="1" id="5481"/>
+        <item chance="1035" max="1" min="1" id="12258"/>
+        <item chance="1035" max="1" min="1" id="12265"/>
+        <item chance="494" max="1" min="1" id="960"/>
+        <item chance="254123" max="1" min="1" id="5515"/>
+        <item chance="6687" max="1" min="1" id="5167"/>
+        <item chance="6687" max="1" min="1" id="5162"/>
+    </droplist>
+</npc>

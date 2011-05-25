@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="FeedableBeast" id="18895" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Young Grendel</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="40.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>20911</experience>
+        <sp>2111</sp>
+        <collision heigth="12.5" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3238" min="1586" id="57"/>
+        <item chance="2000" max="1" min="1" id="960"/>
+        <item chance="70000" max="1" min="1" id="1895"/>
+        <item chance="5000" max="1" min="1" id="4040"/>
+        <item chance="2000" max="1" min="1" id="9573"/>
+        <item chance="400" max="1" min="1" id="9574"/>
+        <item chance="1000" max="1" min="1" id="9628"/>
+        <item chance="1000" max="1" min="1" id="9630"/>
+        <item chance="13000" max="1" min="1" id="15654"/>
+        <item chance="13000" max="1" min="1" id="15655"/>
+        <item chance="13000" max="1" min="1" id="15656"/>
+        <item chance="13000" max="1" min="1" id="15657"/>
+        <item chance="500" max="1" min="1" id="15657"/>
+        <item chance="13000" max="1" min="1" id="15658"/>
+        <item chance="500" max="1" min="1" id="15658"/>
+        <item chance="13000" max="1" min="1" id="15659"/>
+        <item chance="6000" max="1" min="1" id="15659"/>
+        <item chance="5" max="1" min="1" id="15706"/>
+        <item chance="3" max="1" min="1" id="15707"/>
+        <item chance="3" max="1" min="1" id="15708"/>
+        <item chance="1500" max="1" min="1" id="15784"/>
+        <item chance="50" max="1" min="1" id="15784"/>
+        <item chance="1500" max="1" min="1" id="15785"/>
+        <item chance="50" max="1" min="1" id="15785"/>
+        <item chance="1500" max="1" min="1" id="15786"/>
+        <item chance="50" max="1" min="1" id="15786"/>
+        <item chance="1500" max="1" min="1" id="15787"/>
+        <item chance="50" max="1" min="1" id="15787"/>
+        <item chance="1500" max="1" min="1" id="15788"/>
+        <item chance="50" max="1" min="1" id="15788"/>
+        <item chance="1500" max="1" min="1" id="15789"/>
+        <item chance="50" max="1" min="1" id="15789"/>
+    </droplist>
+</npc>

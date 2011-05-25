@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22350" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Chimera of Darkness</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="113.26544062045" max="65918.4456223521"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5706.3176"/>
+                <magical speed="333.0" damage="3965.44005"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="36.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>293014</experience>
+        <sp>31262</sp>
+        <collision heigth="36.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="58280" min="29112" id="57"/>
+        <item chance="637300" max="6" min="2" id="9599"/>
+        <item chance="25641" max="1" min="1" id="9680"/>
+        <item chance="6803" max="1" min="1" id="9681"/>
+        <item chance="27456" max="1" min="1" id="5480"/>
+        <item chance="27456" max="1" min="1" id="5481"/>
+        <item chance="3496" max="1" min="1" id="6901"/>
+        <item chance="185" max="1" min="1" id="5320"/>
+        <item chance="185" max="1" min="1" id="5323"/>
+        <item chance="97111" max="9" min="3" id="1879"/>
+        <item chance="291334" max="1" min="1" id="1885"/>
+        <item chance="27420" max="1" min="1" id="9628"/>
+        <item chance="18400" max="1" min="1" id="9630"/>
+        <item chance="15200" max="1" min="1" id="9629"/>
+        <item chance="27968" max="1" min="1" id="9551"/>
+        <item chance="692815" max="1" min="1" id="13099"/>
+        <item chance="107379" max="1" min="1" id="6691"/>
+        <item chance="1987" max="1" min="1" id="959"/>
+    </droplist>
+</npc>

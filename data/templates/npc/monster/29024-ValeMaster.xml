@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="29024" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Vale master</name>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1880.0"/>
+            <mp regen="2.4" max="861.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="461.0"/>
+                <magical speed="333.0" damage="315.0"/>
+            </attack>
+            <defense>
+                <physical value="267.0"/>
+                <magical value="195.0"/>
+            </defense>
+            <move walk="70.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="40.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="200000" max="8" min="4" id="1061"/>
+    </droplist>
+</npc>

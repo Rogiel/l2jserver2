@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25115" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Icarus Sample 1</name>
+        <title send="false">Raid Boss</title>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="45.7692657718863" max="123885.15069835"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="441.8825"/>
+                <magical speed="333.0" damage="64.68561"/>
+            </attack>
+            <defense>
+                <physical value="469.65105"/>
+                <magical value="229.12"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2741414</experience>
+        <sp>271385</sp>
+        <collision heigth="45.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="7593" max="33" min="11" id="62"/>
+        <item chance="124211" max="1" min="1" id="263"/>
+        <item chance="112639" max="63" min="21" id="952"/>
+        <item chance="16567" max="660" min="220" id="1958"/>
+        <item chance="352609" max="36" min="12" id="2073"/>
+        <item chance="7263" max="34" min="12" id="2429"/>
+        <item chance="6960" max="36" min="12" id="2430"/>
+        <item chance="6682" max="37" min="13" id="2431"/>
+        <item chance="6424" max="39" min="13" id="2432"/>
+        <item chance="6187" max="40" min="14" id="2433"/>
+        <item chance="5966" max="42" min="14" id="2452"/>
+        <item chance="5760" max="43" min="15" id="2453"/>
+        <item chance="167038" max="1" min="1" id="2454"/>
+        <item chance="9643" max="1134" min="378" id="2937"/>
+        <item chance="140186" max="78" min="26" id="2938"/>
+        <item chance="104137" max="105" min="35" id="2939"/>
+        <item chance="80996" max="135" min="45" id="2940"/>
+        <item chance="65086" max="168" min="56" id="2941"/>
+        <item chance="53600" max="204" min="68" id="2942"/>
+        <item chance="44998" max="243" min="81" id="2943"/>
+        <item chance="38366" max="285" min="95" id="2944"/>
+        <item chance="295679" max="6" min="2" id="4594"/>
+        <item chance="236542" max="7" min="3" id="4595"/>
+        <item chance="197119" max="9" min="3" id="4596"/>
+        <item chance="680000" max="2" min="1" id="8176"/>
+        <item chance="810000" max="4" min="1" id="9817"/>
+    </droplist>
+</npc>

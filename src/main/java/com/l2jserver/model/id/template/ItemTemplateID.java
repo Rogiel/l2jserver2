@@ -34,7 +34,8 @@ public class ItemTemplateID extends TemplateID<ItemTemplate> {
 	private final TemplateService templateService;
 
 	@Inject
-	protected ItemTemplateID(@Assisted int id, TemplateService templateService) {
+	// FIXME this should be protected
+	public ItemTemplateID(@Assisted int id, TemplateService templateService) {
 		super(id);
 		this.templateService = templateService;
 	}

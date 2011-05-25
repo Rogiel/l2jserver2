@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25213" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Sebek's Fanatic</name>
+        <title send="false">Raid Fighter</title>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="26.794392073316" max="5555.96547636925"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="327.3913"/>
+                <magical speed="333.0" damage="51.71999"/>
+            </attack>
+            <defense>
+                <physical value="205.09422"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="18.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="5127"/>
+        <collision heigth="28.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="11947" max="1" min="1" id="6036"/>
+    </droplist>
+</npc>

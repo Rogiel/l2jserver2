@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22420" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Brimstone Iris</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="60.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>28704</experience>
+        <sp>2998</sp>
+        <collision heigth="35.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7678" min="3748" id="57"/>
+        <item chance="137906" max="1" min="1" id="1873"/>
+        <item chance="114922" max="9" min="3" id="1868"/>
+        <item chance="98505" max="1" min="1" id="1895"/>
+        <item chance="68953" max="1" min="1" id="1876"/>
+        <item chance="57461" max="120" min="40" id="1345"/>
+        <item chance="5746" max="1" min="1" id="4042"/>
+        <item chance="2758" max="1" min="1" id="9547"/>
+        <item chance="946" max="1" min="1" id="8342"/>
+        <item chance="946" max="1" min="1" id="8349"/>
+        <item chance="946" max="1" min="1" id="5533"/>
+        <item chance="945" max="1" min="1" id="5544"/>
+        <item chance="345" max="1" min="1" id="6901"/>
+        <item chance="3" max="1" min="1" id="7902"/>
+        <item chance="3" max="1" min="1" id="7895"/>
+        <item chance="3" max="1" min="1" id="213"/>
+        <item chance="3" max="1" min="1" id="164"/>
+        <item chance="799855" max="3" min="1" id="1895"/>
+        <item chance="94561" max="1" min="1" id="5503"/>
+        <item chance="93316" max="1" min="1" id="4042"/>
+    </droplist>
+</npc>

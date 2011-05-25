@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21696" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Dimension Invader Elite Soldier</name>
+        <level>45</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1183.80594"/>
+            <mp regen="2.1" max="610.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="234.89829"/>
+                <magical speed="333.0" damage="160.40508"/>
+            </attack>
+            <defense>
+                <physical value="177.78746"/>
+                <magical value="118.3729"/>
+            </defense>
+            <move walk="70.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16162</experience>
+        <sp>1124</sp>
+        <item lefthand="0" righthand="135"/>
+        <collision heigth="31.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4323" min="2128" id="57"/>
+        <item chance="144" max="1" min="1" id="281"/>
+        <item chance="188808" max="1" min="1" id="1894"/>
+        <item chance="9915" max="1" min="1" id="1894"/>
+        <item chance="172193" max="1" min="1" id="1962"/>
+        <item chance="9007" max="1" min="1" id="2074"/>
+        <item chance="68548" max="1" min="1" id="2215"/>
+        <item chance="16720" max="1" min="1" id="2217"/>
+        <item chance="9419" max="1" min="1" id="4039"/>
+        <item chance="2457" max="1" min="1" id="4041"/>
+        <item chance="9419" max="1" min="1" id="4044"/>
+        <item chance="11303" max="1" min="1" id="8723"/>
+        <item chance="2826" max="1" min="1" id="8733"/>
+        <item chance="283" max="1" min="1" id="8743"/>
+        <item chance="57" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

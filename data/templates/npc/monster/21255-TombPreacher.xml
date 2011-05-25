@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21255" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Tomb Preacher</name>
+        <level>77</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2762.08447"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="835.75573"/>
+                <magical speed="333.0" damage="570.71283"/>
+            </attack>
+            <defense>
+                <physical value="328.27073"/>
+                <magical value="218.56635"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>28763</experience>
+        <sp>3113</sp>
+        <collision heigth="50.4" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7793" min="3814" id="57"/>
+        <item chance="95235" max="9" min="3" id="1868"/>
+        <item chance="114282" max="1" min="1" id="1873"/>
+        <item chance="57141" max="1" min="1" id="1876"/>
+        <item chance="81630" max="1" min="1" id="1895"/>
+        <item chance="67285" max="1" min="1" id="4041"/>
+        <item chance="4762" max="1" min="1" id="4042"/>
+        <item chance="127" max="1" min="1" id="5282"/>
+        <item chance="36" max="1" min="1" id="5297"/>
+        <item chance="57" max="1" min="1" id="5298"/>
+        <item chance="22" max="1" min="1" id="5301"/>
+        <item chance="4994" max="1" min="1" id="5478"/>
+        <item chance="2817" max="1" min="1" id="5479"/>
+        <item chance="34721" max="1" min="1" id="5481"/>
+        <item chance="6284" max="1" min="1" id="5482"/>
+        <item chance="34844" max="1" min="1" id="5487"/>
+        <item chance="31745" max="1" min="1" id="6671"/>
+        <item chance="2381" max="1" min="1" id="8732"/>
+        <item chance="595" max="1" min="1" id="8742"/>
+        <item chance="59" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

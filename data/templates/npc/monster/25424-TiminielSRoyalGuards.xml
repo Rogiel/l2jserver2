@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25424" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Timiniel's Royal Guards</name>
+        <title send="false">Raid Fighter</title>
+        <level>60</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="72.9643823396131" max="17688.0019979944"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1570.3549"/>
+                <magical speed="333.0" damage="534.04783"/>
+            </attack>
+            <defense>
+                <physical value="371.47512"/>
+                <magical value="362.44"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="25.0" radius="5.0"/>
+    </info>
+    <droplist>
+        <item chance="196267" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

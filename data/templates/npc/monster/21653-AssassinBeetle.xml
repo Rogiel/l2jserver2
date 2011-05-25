@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21653" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Assassin Beetle</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="45.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>34021</experience>
+        <sp>3819</sp>
+        <collision heigth="54.5" radius="19.0"/>
+    </info>
+    <droplist>
+        <item chance="4325" max="1" min="1" id="5157"/>
+        <item chance="26668" max="1" min="1" id="5544"/>
+        <item chance="26699" max="1" min="1" id="5545"/>
+        <item chance="700000" max="9794" min="4798" id="57"/>
+        <item chance="17" max="1" min="1" id="270"/>
+        <item chance="4929" max="1" min="1" id="5538"/>
+        <item chance="160" max="1" min="1" id="960"/>
+        <item chance="249536" max="60" min="20" id="1344"/>
+        <item chance="114074" max="1" min="1" id="1895"/>
+        <item chance="7985" max="1" min="1" id="4040"/>
+        <item chance="6654" max="1" min="1" id="4042"/>
+        <item chance="13309" max="1" min="1" id="4043"/>
+        <item chance="3327" max="1" min="1" id="8732"/>
+        <item chance="832" max="1" min="1" id="8742"/>
+        <item chance="83" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

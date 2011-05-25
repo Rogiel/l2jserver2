@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18005" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Mimic</name>
+        <level>52</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1569.5"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="348.07"/>
+                <magical speed="333.0" damage="230.26"/>
+            </attack>
+            <defense>
+                <physical value="216.26"/>
+                <magical value="126.90823"/>
+            </defense>
+            <move walk="80.0" run="156.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3245</experience>
+        <sp>251</sp>
+        <collision heigth="8.5" radius="8.5"/>
+    </info>
+</npc>

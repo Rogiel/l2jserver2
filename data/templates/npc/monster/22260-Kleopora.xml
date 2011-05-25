@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22260" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Kleopora</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="140.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>11681</experience>
+        <sp>1311</sp>
+        <collision heigth="50.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3363" min="1647" id="57"/>
+        <item chance="250000" max="1" min="1" id="9593"/>
+        <item chance="20853" max="1" min="1" id="10557"/>
+        <item chance="1030" max="1" min="1" id="5522"/>
+        <item chance="1030" max="1" min="1" id="5523"/>
+        <item chance="127" max="1" min="1" id="12263"/>
+        <item chance="127" max="1" min="1" id="12262"/>
+        <item chance="41467" max="1" min="1" id="5502"/>
+        <item chance="37283" max="1" min="1" id="5495"/>
+        <item chance="1091" max="1" min="1" id="5157"/>
+    </droplist>
+</npc>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20442" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Elder Wolf</name>
+        <level>5</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="80.17319"/>
+            <mp regen="0.9" max="69.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="12.34006"/>
+                <magical speed="333.0" damage="8.42666"/>
+            </attack>
+            <defense>
+                <physical value="51.60553"/>
+                <magical value="34.35955"/>
+            </defense>
+            <move walk="24.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>176</experience>
+        <sp>5</sp>
+        <collision heigth="9.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="9823" max="1" min="1" id="4"/>
+        <item chance="9823" max="1" min="1" id="7"/>
+        <item chance="72442" max="30" min="10" id="17"/>
+        <item chance="700000" max="42" min="30" id="57"/>
+        <item chance="44845" max="1" min="1" id="1786"/>
+        <item chance="11591" max="1" min="1" id="1787"/>
+        <item chance="112112" max="1" min="1" id="1864"/>
+        <item chance="28977" max="1" min="1" id="1868"/>
+        <item chance="5796" max="1" min="1" id="1873"/>
+        <item chance="5606" max="1" min="1" id="5549"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25671" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Queen Shyeed</name>
+        <title send="false">Raid Boss</title>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="96.0880871925918" max="312521.536403012"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1504.01905"/>
+                <magical speed="333.0" damage="298.22125"/>
+            </attack>
+            <defense>
+                <physical value="1073.60169"/>
+                <magical value="523.74"/>
+            </defense>
+            <move walk="45.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4292368</experience>
+        <sp>580689</sp>
+        <collision heigth="50.8" radius="45.0"/>
+    </info>
+    <droplist>
+        <item chance="4066" max="1" min="1" id="9524"/>
+        <item chance="6506" max="1" min="1" id="9525"/>
+        <item chance="332765" max="4" min="2" id="9540"/>
+        <item chance="183429" max="12" min="4" id="9541"/>
+        <item chance="4574" max="1" min="1" id="9514"/>
+        <item chance="7319" max="1" min="1" id="9515"/>
+        <item chance="304761" max="6" min="2" id="9530"/>
+        <item chance="120194" max="45" min="15" id="9531"/>
+        <item chance="28933" max="1" min="1" id="959"/>
+        <item chance="289340" max="1" min="1" id="960"/>
+        <item chance="4822" max="1" min="1" id="6577"/>
+    </droplist>
+</npc>

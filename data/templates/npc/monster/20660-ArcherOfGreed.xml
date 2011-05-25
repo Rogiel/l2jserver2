@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20660" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Archer of Greed</name>
+        <level>46</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="5.5" max="1229.78678"/>
+            <mp regen="2.1" max="637.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="248.0526"/>
+                <magical speed="333.0" damage="169.38777"/>
+            </attack>
+            <defense>
+                <physical value="182.18816"/>
+                <magical value="121.30293"/>
+            </defense>
+            <move walk="40.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4858</experience>
+        <sp>344</sp>
+        <item lefthand="0" righthand="14"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="153154" max="1" min="1" id="1908"/>
+        <item chance="10746" max="1" min="1" id="2084"/>
+        <item chance="3761" max="1" min="1" id="2330"/>
+        <item chance="700000" max="1303" min="637" id="57"/>
+        <item chance="131" max="1" min="1" id="439"/>
+        <item chance="210" max="1" min="1" id="471"/>
+        <item chance="10160" max="1" min="1" id="1954"/>
+        <item chance="6115" max="1" min="1" id="1962"/>
+        <item chance="152872" max="1" min="1" id="1864"/>
+        <item chance="76436" max="1" min="1" id="1869"/>
+        <item chance="7644" max="1" min="1" id="1880"/>
+        <item chance="3900" max="1" min="1" id="2163"/>
+        <item chance="2548" max="1" min="1" id="4043"/>
+        <item chance="1019" max="1" min="1" id="5550"/>
+        <item chance="3057" max="1" min="1" id="8723"/>
+        <item chance="764" max="1" min="1" id="8733"/>
+        <item chance="76" max="1" min="1" id="8743"/>
+        <item chance="15" max="1" min="1" id="8753"/>
+    </droplist>
+</npc>

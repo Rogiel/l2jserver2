@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25480" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hisilrome's Page</name>
+        <title send="false">Raid Fighter</title>
+        <level>64</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="78.4516811865918" max="38779.9397178227"/>
+            <mp regen="2.7" max="1158.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1870.56281"/>
+                <magical speed="333.0" damage="679.58089"/>
+            </attack>
+            <defense>
+                <physical value="400.56702"/>
+                <magical value="390.82"/>
+            </defense>
+            <move walk="100.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="50.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="871429" max="60" min="20" id="1343"/>
+    </droplist>
+</npc>

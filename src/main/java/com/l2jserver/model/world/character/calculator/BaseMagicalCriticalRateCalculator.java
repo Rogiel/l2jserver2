@@ -31,7 +31,7 @@ public class BaseMagicalCriticalRateCalculator extends CharacterCalculator {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
 				// XXX is the same as physical????
-				ctx.result = c.getTemplate().getCriticalChance();
+				ctx.result = c.getTemplate().getBaseCritical();
 			}
 		}, new AbstractFunction<L2Character>(0x300) {
 			@Override

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="SORCEROR" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+    <stats crafter="false" level="40">
+        <hp add="45.6" modifier="0.37" base="1021.5"/>
+        <mp add="26.1" modifier="0.14" base="478.8"/>
+        <cp add="22.85" modifier="0.22" base="612.8"/>
+        <attack accuracy="28" critical="40" evasion="28">
+            <physical speed="300.0" damage="3.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="54.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="120.0" run="120.0"/>
+        <base wit="20" dex="21" men="39" con="27" str="22" int="41"/>
+        <maxload>62500</maxload>
+    </stats>
+    <collision>
+        <male heigth="22.8" radius="7.5"/>
+        <female heigth="22.5" radius="6.5"/>
+    </collision>
+</character>

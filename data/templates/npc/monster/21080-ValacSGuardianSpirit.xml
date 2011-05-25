@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21080" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Valac's Guardian Spirit</name>
+        <level>69</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2395.45533"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="667.50361"/>
+                <magical speed="333.0" damage="455.81844"/>
+            </attack>
+            <defense>
+                <physical value="291.15063"/>
+                <magical value="193.85137"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>17096</experience>
+        <sp>1673</sp>
+        <collision heigth="30.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4776" min="2352" id="57"/>
+        <item chance="7923" max="1" min="1" id="1807"/>
+        <item chance="146273" max="3" min="1" id="1864"/>
+        <item chance="146273" max="1" min="1" id="1869"/>
+        <item chance="58509" max="1" min="1" id="1878"/>
+        <item chance="90014" max="1" min="1" id="1884"/>
+        <item chance="7923" max="1" min="1" id="3035"/>
+        <item chance="4876" max="1" min="1" id="4039"/>
+        <item chance="195" max="1" min="1" id="5166"/>
+        <item chance="35162" max="1" min="1" id="5479"/>
+        <item chance="4876" max="1" min="1" id="6036"/>
+        <item chance="44" max="1" min="1" id="6323"/>
+        <item chance="58" max="1" min="1" id="6324"/>
+        <item chance="87" max="1" min="1" id="6325"/>
+        <item chance="8091" max="1" min="1" id="6341"/>
+        <item chance="6255" max="1" min="1" id="6343"/>
+        <item chance="11191" max="1" min="1" id="6345"/>
+        <item chance="80" max="1" min="1" id="8314"/>
+        <item chance="1625" max="1" min="1" id="8730"/>
+        <item chance="406" max="1" min="1" id="8740"/>
+        <item chance="41" max="1" min="1" id="8750"/>
+        <item chance="8" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

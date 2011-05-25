@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22103" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Freya's White Bear</name>
+        <level>57</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1776.58018"/>
+            <mp regen="2.4" max="948.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="424.23295"/>
+                <magical speed="333.0" damage="289.69611"/>
+            </attack>
+            <defense>
+                <physical value="233.18839"/>
+                <magical value="170.63714"/>
+            </defense>
+            <move walk="40.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>33473</experience>
+        <sp>2705</sp>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8781" min="4299" id="57"/>
+        <item chance="146375" max="3" min="1" id="1871"/>
+        <item chance="195168" max="1" min="1" id="1866"/>
+        <item chance="24396" max="1" min="1" id="1885"/>
+        <item chance="11710" max="1" min="1" id="5220"/>
+        <item chance="2546" max="1" min="1" id="4041"/>
+        <item chance="224" max="1" min="1" id="8323"/>
+        <item chance="224" max="1" min="1" id="8305"/>
+        <item chance="50" max="1" min="1" id="357"/>
+        <item chance="81" max="1" min="1" id="383"/>
+        <item chance="50" max="1" min="1" id="2376"/>
+        <item chance="81" max="1" min="1" id="2379"/>
+        <item chance="7288" max="1" min="1" id="4056"/>
+        <item chance="11263" max="1" min="1" id="4057"/>
+        <item chance="7288" max="1" min="1" id="4064"/>
+        <item chance="11263" max="1" min="1" id="4065"/>
+        <item chance="5855" max="1" min="1" id="8727"/>
+        <item chance="1464" max="1" min="1" id="8737"/>
+        <item chance="146" max="1" min="1" id="8747"/>
+        <item chance="29" max="1" min="1" id="8757"/>
+        <item chance="304949" max="1" min="1" id="4057"/>
+        <item chance="129017" max="1" min="1" id="4154"/>
+        <item chance="88634" max="1" min="1" id="4131"/>
+    </droplist>
+</npc>

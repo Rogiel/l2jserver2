@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20549" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Ol Mahum Lord</name>
+        <level>34</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="736.96177"/>
+            <mp regen="1.8" max="387.72"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="121.20802"/>
+                <magical speed="333.0" damage="82.76936"/>
+            </attack>
+            <defense>
+                <physical value="132.9486"/>
+                <magical value="88.51867"/>
+            </defense>
+            <move walk="50.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4233</experience>
+        <sp>247</sp>
+        <item lefthand="19" righthand="69"/>
+        <collision heigth="27.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1181" min="592" id="57"/>
+        <item chance="45" max="1" min="1" id="83"/>
+        <item chance="33" max="1" min="1" id="124"/>
+        <item chance="33" max="1" min="1" id="127"/>
+        <item chance="33" max="1" min="1" id="130"/>
+        <item chance="45" max="1" min="1" id="144"/>
+        <item chance="207017" max="60" min="20" id="1341"/>
+        <item chance="82807" max="1" min="1" id="1866"/>
+        <item chance="124210" max="1" min="1" id="1871"/>
+        <item chance="4968" max="1" min="1" id="1877"/>
+        <item chance="140167" max="1" min="1" id="1880"/>
+        <item chance="193601" max="1" min="1" id="1901"/>
+        <item chance="94230" max="1" min="1" id="1938"/>
+        <item chance="1495" max="1" min="1" id="2026"/>
+        <item chance="887" max="1" min="1" id="2277"/>
+        <item chance="77631" max="1" min="1" id="6667"/>
+    </droplist>
+</npc>

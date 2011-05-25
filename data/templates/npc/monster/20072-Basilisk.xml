@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20072" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Basilisk</name>
+        <level>28</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="543.79576"/>
+            <mp regen="1.5" max="300.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="80.54056"/>
+                <magical speed="333.0" damage="54.99876"/>
+            </attack>
+            <defense>
+                <physical value="111.61368"/>
+                <magical value="74.31365"/>
+            </defense>
+            <move walk="35.0" run="131.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1428</experience>
+        <sp>74</sp>
+        <collision heigth="25.0" radius="34.0"/>
+    </info>
+    <droplist>
+        <item chance="64050" max="1" min="1" id="1931"/>
+        <item chance="7608" max="1" min="1" id="2263"/>
+        <item chance="19599" max="1" min="1" id="3953"/>
+        <item chance="700000" max="411" min="210" id="57"/>
+        <item chance="761" max="1" min="1" id="45"/>
+        <item chance="1085" max="1" min="1" id="626"/>
+        <item chance="14550" max="1" min="1" id="1932"/>
+        <item chance="26190" max="1" min="1" id="1866"/>
+        <item chance="39285" max="1" min="1" id="1871"/>
+        <item chance="3274" max="1" min="1" id="1885"/>
+        <item chance="610" max="1" min="1" id="2262"/>
+        <item chance="1571" max="1" min="1" id="5220"/>
+        <item chance="3274" max="1" min="1" id="6035"/>
+        <item chance="39285" max="1" min="1" id="6666"/>
+    </droplist>
+</npc>

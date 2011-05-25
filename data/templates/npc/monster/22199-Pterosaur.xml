@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22199" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Pterosaur</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="54.0" run="210.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>24830</experience>
+        <sp>2715</sp>
+        <collision heigth="43.7" radius="36.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="8483" min="3768" id="57"/>
+        <item chance="6000" max="1" min="1" id="6698"/>
+        <item chance="8000" max="1" min="1" id="6699"/>
+        <item chance="4000" max="1" min="1" id="6700"/>
+        <item chance="30" max="1" min="1" id="6724"/>
+        <item chance="40" max="1" min="1" id="6725"/>
+        <item chance="20" max="1" min="1" id="6726"/>
+        <item chance="197901" max="1" min="1" id="1879"/>
+        <item chance="87901" max="1" min="1" id="1885"/>
+        <item chance="14861" max="1" min="1" id="9628"/>
+        <item chance="9973" max="1" min="1" id="9630"/>
+        <item chance="8238" max="1" min="1" id="9629"/>
+        <item chance="3559" max="1" min="1" id="9573"/>
+        <item chance="890" max="1" min="1" id="9574"/>
+        <item chance="89" max="1" min="1" id="9575"/>
+        <item chance="18" max="1" min="1" id="9576"/>
+        <item chance="101640" max="1" min="1" id="6693"/>
+        <item chance="99831" max="1" min="1" id="6691"/>
+        <item chance="46186" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20143" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grizzly</name>
+        <level>12</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="199.62322"/>
+            <mp regen="1.2" max="124.48"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="22.99606"/>
+                <magical speed="333.0" damage="15.70333"/>
+            </attack>
+            <defense>
+                <physical value="66.32989"/>
+                <magical value="44.16318"/>
+            </defense>
+            <move walk="40.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>436</experience>
+        <sp>16</sp>
+        <collision heigth="40.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="157499" max="30" min="10" id="17"/>
+        <item chance="5888" max="1" min="1" id="20"/>
+        <item chance="4117" max="1" min="1" id="43"/>
+        <item chance="700000" max="157" min="114" id="57"/>
+        <item chance="15682" max="1" min="1" id="1792"/>
+        <item chance="30882" max="1" min="1" id="1798"/>
+        <item chance="21000" max="1" min="1" id="1866"/>
+        <item chance="284370" max="1" min="1" id="1867"/>
+        <item chance="31500" max="1" min="1" id="1871"/>
+        <item chance="284370" max="1" min="1" id="1872"/>
+    </droplist>
+</npc>

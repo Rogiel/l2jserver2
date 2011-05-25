@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18569" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Follower of Montagnar</name>
+        <level>56</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1724.6831"/>
+            <mp regen="13.2" max="4594.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="405.96455"/>
+                <magical speed="333.0" damage="277.22116"/>
+            </attack>
+            <defense>
+                <physical value="228.40135"/>
+                <magical value="167.1342"/>
+            </defense>
+            <move walk="25.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="13.0" radius="7.0"/>
+    </info>
+</npc>

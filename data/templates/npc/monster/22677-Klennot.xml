@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22677" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Klennot</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="22.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25475</experience>
+        <sp>2724</sp>
+        <item lefthand="0" righthand="194"/>
+        <collision heigth="44.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2604" min="1297" id="57"/>
+        <item chance="2500" max="1" min="1" id="9619"/>
+        <item chance="3" max="1" min="1" id="9445"/>
+        <item chance="158300" max="1" min="1" id="1879"/>
+        <item chance="73400" max="1" min="1" id="1885"/>
+        <item chance="10" max="1" min="1" id="959"/>
+        <item chance="4100" max="1" min="1" id="9629"/>
+        <item chance="3300" max="1" min="1" id="9628"/>
+        <item chance="2200" max="1" min="1" id="9630"/>
+        <item chance="250000" max="1" min="1" id="1894"/>
+        <item chance="5000" max="1" min="1" id="5162"/>
+        <item chance="65000" max="1" min="1" id="9993"/>
+    </droplist>
+</npc>

@@ -32,7 +32,7 @@ public class BaseMPCalculator extends CharacterCalculator {
 		super(new AbstractFunction<L2Character>(0x000) {
 			@Override
 			public void calculate(L2Character c, CalculatorContext ctx) {
-				ctx.result = c.getTemplate().getMpBase();
+				ctx.result = c.getTemplate().getBaseBaseMP();
 			}
 		}, new AbstractFunction<L2Character>(0x100) {
 			@Override
@@ -40,9 +40,9 @@ public class BaseMPCalculator extends CharacterCalculator {
 				final CharacterTemplate template = c.getTemplate();
 
 				int lvl = c.getLevel() - template.getMinimumLevel();
-				double mod = template.getMpMultiplier() * lvl;
-				double max = (template.getMpAdd() + mod) * lvl;
-				double min = (template.getMpAdd() * lvl) + mod;
+				double mod = template.getBaseMPModifier() * lvl;
+				double max = (template.getBaseMPAdd() + mod) * lvl;
+				double min = (template.getBaseMPAdd() * lvl) + mod;
 
 				ctx.result += (max + min) / 2;
 			}

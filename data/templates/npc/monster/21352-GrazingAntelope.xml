@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21352" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Grazing Antelope</name>
+        <level>77</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2856.7687256316"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="856.44056"/>
+                <magical speed="333.0" damage="584.83789"/>
+            </attack>
+            <defense>
+                <physical value="328.27073"/>
+                <magical value="240.21427"/>
+            </defense>
+            <move walk="45.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>11091</experience>
+        <sp>1200</sp>
+        <collision heigth="34.0" radius="17.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3172" min="1553" id="57"/>
+        <item chance="258446" max="1" min="1" id="1864"/>
+        <item chance="129223" max="1" min="1" id="1869"/>
+        <item chance="12922" max="1" min="1" id="1880"/>
+        <item chance="4307" max="1" min="1" id="4043"/>
+        <item chance="1400" max="1" min="1" id="5162"/>
+        <item chance="58" max="1" min="1" id="5167"/>
+        <item chance="1630" max="1" min="1" id="5478"/>
+        <item chance="1147" max="1" min="1" id="5479"/>
+        <item chance="2559" max="1" min="1" id="5482"/>
+        <item chance="37659" max="1" min="1" id="5527"/>
+        <item chance="37659" max="1" min="1" id="5528"/>
+        <item chance="1723" max="1" min="1" id="5550"/>
+        <item chance="1077" max="1" min="1" id="8732"/>
+        <item chance="269" max="1" min="1" id="8742"/>
+        <item chance="27" max="1" min="1" id="8752"/>
+        <item chance="282" max="1" min="1" id="12222"/>
+        <item chance="451" max="1" min="1" id="12228"/>
+        <item chance="173" max="1" min="1" id="12230"/>
+    </droplist>
+</npc>

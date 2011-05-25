@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25391" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Nurka's Messenger</name>
+        <title send="false">Raid Boss</title>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="61.2927353271519" max="124796.293042188"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="281.11506"/>
+                <magical speed="333.0" damage="44.77803"/>
+            </attack>
+            <defense>
+                <physical value="387.69285"/>
+                <magical value="189.14"/>
+            </defense>
+            <move walk="50.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1932560</experience>
+        <sp>127255</sp>
+        <item lefthand="0" righthand="127"/>
+        <collision heigth="40.5" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="9654" max="25" min="9" id="61"/>
+        <item chance="80080" max="1" min="1" id="297"/>
+        <item chance="9117" max="27" min="9" id="607"/>
+        <item chance="8638" max="28" min="10" id="1125"/>
+        <item chance="30746" max="336" min="112" id="1949"/>
+        <item chance="10761" max="960" min="320" id="1957"/>
+        <item chance="17005" max="607" min="203" id="1963"/>
+        <item chance="191332" max="36" min="12" id="2055"/>
+        <item chance="8206" max="30" min="10" id="2427"/>
+        <item chance="164117" max="1" min="1" id="2428"/>
+        <item chance="164117" max="1" min="1" id="2451"/>
+        <item chance="125220" max="82" min="28" id="2931"/>
+        <item chance="95653" max="108" min="36" id="2932"/>
+        <item chance="756838" max="136" min="46" id="2933"/>
+        <item chance="411373" max="1" min="1" id="6574"/>
+    </droplist>
+</npc>

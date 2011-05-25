@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20825" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Hallate's Inspector</name>
+        <level>68</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2345.76698"/>
+            <mp regen="2.7" max="1282.4"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="646.17968"/>
+                <magical speed="333.0" damage="441.25696"/>
+            </attack>
+            <defense>
+                <physical value="286.3615"/>
+                <magical value="190.66272"/>
+            </defense>
+            <move walk="37.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25991</experience>
+        <sp>2510</sp>
+        <collision heigth="110.0" radius="31.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7246" min="3565" id="57"/>
+        <item chance="12015" max="1" min="1" id="1807"/>
+        <item chance="161322" max="1" min="1" id="1866"/>
+        <item chance="241983" max="1" min="1" id="1871"/>
+        <item chance="901136" max="3" min="1" id="1876"/>
+        <item chance="9679" max="1" min="1" id="1877"/>
+        <item chance="4839" max="1" min="1" id="4040"/>
+        <item chance="2104" max="1" min="1" id="4041"/>
+        <item chance="484" max="1" min="1" id="4402"/>
+        <item chance="1967" max="1" min="1" id="4975"/>
+        <item chance="66" max="1" min="1" id="5289"/>
+        <item chance="95" max="1" min="1" id="5292"/>
+        <item chance="66" max="1" min="1" id="5294"/>
+        <item chance="9317" max="1" min="1" id="5494"/>
+        <item chance="6857" max="1" min="1" id="5525"/>
+        <item chance="6857" max="1" min="1" id="5526"/>
+        <item chance="2689" max="1" min="1" id="8730"/>
+        <item chance="672" max="1" min="1" id="8740"/>
+        <item chance="67" max="1" min="1" id="8750"/>
+        <item chance="13" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

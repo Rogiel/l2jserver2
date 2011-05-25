@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20008" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Felim Lizardman</name>
+        <level>14</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="230.38548"/>
+            <mp regen="1.2" max="140.88"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="27.24646"/>
+                <magical speed="333.0" damage="18.6058"/>
+            </attack>
+            <defense>
+                <physical value="71.08179"/>
+                <magical value="47.32706"/>
+            </defense>
+            <move walk="43.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>499</experience>
+        <sp>19</sp>
+        <item lefthand="0" righthand="1"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="168" min="114" id="57"/>
+        <item chance="317" max="1" min="1" id="255"/>
+        <item chance="3228" max="1" min="1" id="1792"/>
+        <item chance="16388" max="1" min="1" id="1793"/>
+        <item chance="43891" max="1" min="1" id="1865"/>
+        <item chance="222882" max="1" min="1" id="1870"/>
+        <item chance="43891" max="1" min="1" id="1870"/>
+        <item chance="222882" max="1" min="1" id="1871"/>
+        <item chance="675" max="1" min="1" id="2371"/>
+    </droplist>
+</npc>

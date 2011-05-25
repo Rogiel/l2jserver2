@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20786" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lienrik</name>
+        <level>39</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="166.06476"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="152.46752"/>
+                <magical value="101.5146"/>
+            </defense>
+            <move walk="100.0" run="150.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1195</experience>
+        <sp>76</sp>
+        <collision heigth="50.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="330" min="166" id="57"/>
+        <item chance="59" max="1" min="1" id="395"/>
+        <item chance="94" max="1" min="1" id="417"/>
+        <item chance="1686" max="1" min="1" id="1875"/>
+        <item chance="4215" max="1" min="1" id="1879"/>
+        <item chance="2107" max="1" min="1" id="1885"/>
+        <item chance="2580" max="1" min="1" id="1942"/>
+        <item chance="4017" max="1" min="1" id="1943"/>
+        <item chance="4711" max="1" min="1" id="2026"/>
+        <item chance="62822" max="1" min="1" id="2155"/>
+        <item chance="181" max="1" min="1" id="2278"/>
+        <item chance="141" max="1" min="1" id="2286"/>
+        <item chance="3385" max="1" min="1" id="2977"/>
+        <item chance="2529" max="1" min="1" id="5549"/>
+        <item chance="5218" max="1" min="1" id="5550"/>
+        <item chance="337" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

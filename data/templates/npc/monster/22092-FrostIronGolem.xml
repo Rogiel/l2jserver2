@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22092" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Frost Iron Golem</name>
+        <level>59</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1880.92519"/>
+            <mp regen="2.4" max="1007.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="461.94387"/>
+                <magical speed="333.0" damage="315.44778"/>
+            </attack>
+            <defense>
+                <physical value="242.81593"/>
+                <magical value="177.68216"/>
+            </defense>
+            <move walk="20.0" run="20.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>6239</experience>
+        <sp>521</sp>
+        <collision heigth="46.4" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1662" min="816" id="57"/>
+        <item chance="81378" max="1" min="1" id="1867"/>
+        <item chance="61033" max="1" min="1" id="1869"/>
+        <item chance="61033" max="1" min="1" id="1870"/>
+        <item chance="61033" max="1" min="1" id="1871"/>
+        <item chance="81378" max="1" min="1" id="1872"/>
+        <item chance="57797" max="1" min="1" id="4065"/>
+        <item chance="582" max="1" min="1" id="4104"/>
+        <item chance="573" max="1" min="1" id="4107"/>
+        <item chance="573" max="1" min="1" id="4108"/>
+        <item chance="722" max="1" min="1" id="4154"/>
+        <item chance="10280" max="1" min="1" id="4157"/>
+        <item chance="1129" max="1" min="1" id="8314"/>
+        <item chance="1221" max="1" min="1" id="8727"/>
+        <item chance="305" max="1" min="1" id="8737"/>
+        <item chance="31" max="1" min="1" id="8747"/>
+        <item chance="6" max="1" min="1" id="8757"/>
+        <item chance="58" max="1" min="1" id="11889"/>
+        <item chance="58" max="1" min="1" id="11900"/>
+        <item chance="58" max="1" min="1" id="11916"/>
+    </droplist>
+</npc>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="29096" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Anais</name>
+        <title send="false">Lord of Splendor</title>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="147.845481058836" max="480890.35095576"/>
+            <mp regen="3.21" max="2051.19"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3064.77741"/>
+                <magical speed="333.0" damage="1222.08862"/>
+            </attack>
+            <defense>
+                <physical value="1185.644"/>
+                <magical value="578.3992"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>8827525</experience>
+        <sp>2036475</sp>
+        <item lefthand="0" righthand="8214"/>
+        <collision heigth="41.8" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="24745" max="1" min="1" id="959"/>
+        <item chance="247447" max="1" min="1" id="960"/>
+        <item chance="8120" max="1" min="1" id="6370"/>
+        <item chance="4124" max="1" min="1" id="6577"/>
+        <item chance="8022" max="1" min="1" id="6674"/>
+        <item chance="12803" max="1" min="1" id="6675"/>
+        <item chance="726675" max="9" min="3" id="6694"/>
+        <item chance="203579" max="22" min="8" id="6701"/>
+        <item chance="491363" max="12" min="4" id="6702"/>
+        <item chance="247447" max="1" min="1" id="8920"/>
+    </droplist>
+</npc>

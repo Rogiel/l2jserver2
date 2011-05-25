@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18810" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Varangka's Page</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="1821.695"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="492.29855"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>17412</experience>
+        <sp>1904</sp>
+        <item lefthand="0" righthand="8680"/>
+        <collision heigth="20.8" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3358" min="1809" id="57"/>
+        <item chance="81200" max="1" min="1" id="1895"/>
+        <item chance="5200" max="1" min="1" id="4040"/>
+        <item chance="4500" max="1" min="1" id="4042"/>
+        <item chance="8200" max="1" min="1" id="4043"/>
+        <item chance="4500" max="1" min="1" id="10483"/>
+        <item chance="1100" max="1" min="1" id="10484"/>
+        <item chance="110" max="1" min="1" id="10485"/>
+        <item chance="8" max="1" min="1" id="14109"/>
+        <item chance="8" max="1" min="1" id="14110"/>
+        <item chance="8" max="1" min="1" id="14113"/>
+        <item chance="8" max="1" min="1" id="14114"/>
+        <item chance="8" max="1" min="1" id="14116"/>
+        <item chance="8" max="1" min="1" id="14117"/>
+        <item chance="6000" max="1" min="1" id="15667"/>
+        <item chance="2500" max="1" min="1" id="15667"/>
+        <item chance="6000" max="1" min="1" id="15668"/>
+        <item chance="2500" max="1" min="1" id="15668"/>
+        <item chance="6000" max="1" min="1" id="15671"/>
+        <item chance="2500" max="1" min="1" id="15671"/>
+        <item chance="6000" max="1" min="1" id="15672"/>
+        <item chance="2500" max="1" min="1" id="15672"/>
+        <item chance="6000" max="1" min="1" id="15674"/>
+        <item chance="2500" max="1" min="1" id="15674"/>
+        <item chance="6000" max="1" min="1" id="15675"/>
+        <item chance="2500" max="1" min="1" id="15675"/>
+        <item chance="600" max="1" min="1" id="15801"/>
+        <item chance="600" max="1" min="1" id="15802"/>
+        <item chance="600" max="1" min="1" id="15803"/>
+        <item chance="600" max="1" min="1" id="15804"/>
+        <item chance="600" max="1" min="1" id="15805"/>
+        <item chance="600" max="1" min="1" id="15806"/>
+    </droplist>
+</npc>

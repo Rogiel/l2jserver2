@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21407" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Knight of Empire</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.67" max="2937.9838056"/>
+            <mp regen="3.06" max="1708.296"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="912.65371"/>
+                <magical speed="333.0" damage="635.68866"/>
+            </attack>
+            <defense>
+                <physical value="348.2025"/>
+                <magical value="231.83715"/>
+            </defense>
+            <move walk="40.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>27052</experience>
+        <sp>3036</sp>
+        <item lefthand="103" righthand="150"/>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="7185" min="3520" id="57"/>
+        <item chance="12" max="1" min="1" id="959"/>
+        <item chance="97635" max="9" min="3" id="1868"/>
+        <item chance="117163" max="1" min="1" id="1873"/>
+        <item chance="58581" max="1" min="1" id="1876"/>
+        <item chance="83688" max="1" min="1" id="1895"/>
+        <item chance="4882" max="1" min="1" id="4042"/>
+        <item chance="3173" max="1" min="1" id="5277"/>
+        <item chance="5565" max="1" min="1" id="5502"/>
+        <item chance="5565" max="1" min="1" id="5503"/>
+        <item chance="5565" max="1" min="1" id="5514"/>
+        <item chance="5565" max="1" min="1" id="5515"/>
+        <item chance="24314" max="1" min="1" id="5523"/>
+        <item chance="85361" max="1" min="1" id="5527"/>
+        <item chance="2441" max="1" min="1" id="8732"/>
+        <item chance="610" max="1" min="1" id="8742"/>
+        <item chance="61" max="1" min="1" id="8752"/>
+        <item chance="897" max="1" min="1" id="12257"/>
+        <item chance="897" max="1" min="1" id="12260"/>
+        <item chance="897" max="1" min="1" id="12264"/>
+        <item chance="897" max="1" min="1" id="12267"/>
+    </droplist>
+</npc>

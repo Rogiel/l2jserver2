@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29020" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Baium</name>
+        <level>75</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="750.0" max="1709400.0"/>
+            <mp regen="99.0" max="18000.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="3374.18"/>
+                <magical speed="333.0" damage="2200.0"/>
+            </attack>
+            <defense>
+                <physical value="3300.0"/>
+                <magical value="2200.0"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>10253400</experience>
+        <sp>1081544</sp>
+        <collision heigth="174.0" radius="65.0"/>
+    </info>
+    <droplist>
+        <item chance="60000" max="1" min="1" id="80"/>
+        <item chance="60000" max="1" min="1" id="98"/>
+        <item chance="60000" max="1" min="1" id="150"/>
+        <item chance="60000" max="1" min="1" id="288"/>
+        <item chance="12000" max="1" min="1" id="6364"/>
+        <item chance="12000" max="1" min="1" id="6365"/>
+        <item chance="9000" max="1" min="1" id="6367"/>
+        <item chance="9000" max="1" min="1" id="6369"/>
+        <item chance="9000" max="1" min="1" id="6370"/>
+        <item chance="9000" max="1" min="1" id="6580"/>
+        <item chance="60000" max="1" min="1" id="212"/>
+        <item chance="60000" max="1" min="1" id="235"/>
+        <item chance="60000" max="1" min="1" id="269"/>
+        <item chance="60000" max="1" min="1" id="2504"/>
+        <item chance="12000" max="1" min="1" id="6366"/>
+        <item chance="12000" max="1" min="1" id="6371"/>
+        <item chance="12000" max="1" min="1" id="6372"/>
+        <item chance="12000" max="1" min="1" id="6579"/>
+        <item chance="12000" max="1" min="1" id="7575"/>
+        <item chance="1000000" max="1" min="1" id="6658"/>
+        <item chance="450000" max="2" min="1" id="8751"/>
+        <item chance="100000" max="1" min="1" id="8761"/>
+        <item chance="400000" max="2" min="1" id="8752"/>
+        <item chance="50000" max="1" min="1" id="8762"/>
+        <item chance="1000000" max="15" min="5" id="8620"/>
+    </droplist>
+</npc>

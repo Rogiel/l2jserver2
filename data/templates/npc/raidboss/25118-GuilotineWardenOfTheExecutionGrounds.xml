@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25118" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Guilotine Warden of the Execution Grounds</name>
+        <title send="false">Raid Boss</title>
+        <level>35</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="66.9859801832901" max="138899.136909231"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="327.3913"/>
+                <magical speed="333.0" damage="51.71999"/>
+            </attack>
+            <defense>
+                <physical value="410.18844"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1912395</experience>
+        <sp>144137</sp>
+        <item lefthand="0" righthand="96"/>
+        <collision heigth="58.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="134016" max="1" min="1" id="353"/>
+        <item chance="214426" max="1" min="1" id="380"/>
+        <item chance="62305" max="157" min="53" id="1950"/>
+        <item chance="211973" max="72" min="24" id="1951"/>
+        <item chance="17439" max="1" min="1" id="159"/>
+        <item chance="17439" max="1" min="1" id="187"/>
+        <item chance="17439" max="1" min="1" id="188"/>
+        <item chance="17439" max="1" min="1" id="189"/>
+        <item chance="17439" max="1" min="1" id="190"/>
+        <item chance="27777" max="54" min="18" id="2048"/>
+        <item chance="199993" max="7" min="3" id="2049"/>
+        <item chance="75735" max="21" min="7" id="2050"/>
+        <item chance="44179" max="36" min="12" id="2051"/>
+        <item chance="166660" max="9" min="3" id="2058"/>
+        <item chance="326602" max="3" min="1" id="4591"/>
+        <item chance="217735" max="4" min="2" id="4592"/>
+        <item chance="163301" max="6" min="2" id="4593"/>
+        <item chance="13064" max="1" min="1" id="6573"/>
+    </droplist>
+</npc>

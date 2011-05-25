@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22303" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Guardian of the Square</name>
+        <level>82</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="192.697893809876" max="56403.1943232691"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9266.31774"/>
+                <magical speed="333.0" damage="6327.69377"/>
+            </attack>
+            <defense>
+                <physical value="559.63963"/>
+                <magical value="614.28"/>
+            </defense>
+            <move walk="30.0" run="250.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>190116</experience>
+        <sp>20789</sp>
+        <collision heigth="35.6" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="38159" min="18630" id="57"/>
+        <item chance="152311" max="21" min="7" id="1869"/>
+        <item chance="95194" max="72" min="24" id="1864"/>
+        <item chance="76155" max="1" min="1" id="4043"/>
+        <item chance="32638" max="9" min="3" id="1880"/>
+        <item chance="30462" max="1" min="1" id="5550"/>
+        <item chance="18801" max="1" min="1" id="5538"/>
+        <item chance="1218" max="1" min="1" id="11967"/>
+        <item chance="91" max="1" min="1" id="959"/>
+        <item chance="927572" max="1" min="1" id="4043"/>
+        <item chance="371029" max="1" min="1" id="5550"/>
+        <item chance="76313" max="1" min="1" id="5541"/>
+    </droplist>
+</npc>

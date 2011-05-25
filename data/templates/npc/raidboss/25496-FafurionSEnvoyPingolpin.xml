@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25496" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fafurion's Envoy Pingolpin</name>
+        <title send="false">Raid Boss</title>
+        <level>52</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="58.0887964751743" max="169041.653947489"/>
+            <mp regen="2.4" max="804.0"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="516.1512"/>
+                <magical speed="333.0" damage="73.27274"/>
+            </attack>
+            <defense>
+                <physical value="628.50318"/>
+                <magical value="306.6"/>
+            </defense>
+            <move walk="60.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2313340</experience>
+        <sp>287521</sp>
+        <collision heigth="72.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="27543" max="1" min="1" id="267"/>
+        <item chance="76839" max="1" min="1" id="554"/>
+        <item chance="76839" max="1" min="1" id="600"/>
+        <item chance="76839" max="1" min="1" id="612"/>
+        <item chance="76839" max="1" min="1" id="2464"/>
+        <item chance="177329" max="67" min="23" id="4073"/>
+        <item chance="66498" max="180" min="60" id="4097"/>
+        <item chance="34545" max="346" min="116" id="4098"/>
+        <item chance="20781" max="576" min="192" id="4100"/>
+        <item chance="219361" max="36" min="12" id="4111"/>
+        <item chance="331275" max="3" min="1" id="4610"/>
+        <item chance="220850" max="4" min="2" id="4611"/>
+        <item chance="165638" max="6" min="2" id="4612"/>
+        <item chance="170370" max="1" min="1" id="6574"/>
+        <item chance="850000" max="1" min="1" id="8176"/>
+        <item chance="850000" max="3" min="1" id="9816"/>
+    </droplist>
+</npc>

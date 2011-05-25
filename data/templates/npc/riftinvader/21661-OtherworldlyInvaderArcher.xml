@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21661" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Otherworldly Invader Archer</name>
+        <level>33</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="702.20463"/>
+            <mp regen="1.8" max="372.96"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="113.49065"/>
+                <magical speed="333.0" damage="77.49941"/>
+            </attack>
+            <defense>
+                <physical value="129.23095"/>
+                <magical value="86.04342"/>
+            </defense>
+            <move walk="40.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>4478</experience>
+        <sp>257</sp>
+        <item lefthand="0" righthand="275"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="91332" max="1" min="1" id="1875"/>
+        <item chance="228329" max="1" min="1" id="1879"/>
+        <item chance="189223" max="1" min="1" id="1901"/>
+        <item chance="700000" max="1158" min="579" id="57"/>
+        <item chance="98" max="1" min="1" id="278"/>
+        <item chance="4345" max="1" min="1" id="2029"/>
+        <item chance="8094" max="1" min="1" id="1875"/>
+        <item chance="20234" max="1" min="1" id="1879"/>
+        <item chance="10117" max="1" min="1" id="1885"/>
+        <item chance="12998" max="1" min="1" id="2154"/>
+        <item chance="12141" max="1" min="1" id="5549"/>
+        <item chance="1619" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

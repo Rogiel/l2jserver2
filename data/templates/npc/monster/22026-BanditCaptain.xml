@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22026" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Bandit Captain</name>
+        <level>40</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="966.57792"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="176.36077"/>
+                <magical speed="333.0" damage="120.43155"/>
+            </attack>
+            <defense>
+                <physical value="156.55035"/>
+                <magical value="114.55675"/>
+            </defense>
+            <move walk="50.0" run="145.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3488</experience>
+        <sp>224</sp>
+        <item lefthand="19" righthand="69"/>
+        <collision heigth="27.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="954" min="478" id="57"/>
+        <item chance="236710" max="1" min="1" id="1864"/>
+        <item chance="118355" max="1" min="1" id="1869"/>
+        <item chance="72834" max="1" min="1" id="1884"/>
+        <item chance="47342" max="1" min="1" id="1878"/>
+        <item chance="8454" max="1" min="1" id="2146"/>
+        <item chance="972" max="1" min="1" id="8333"/>
+        <item chance="941" max="1" min="1" id="8328"/>
+        <item chance="1042" max="1" min="1" id="2034"/>
+        <item chance="18" max="1" min="1" id="129"/>
+        <item chance="18" max="1" min="1" id="7886"/>
+        <item chance="18" max="1" min="1" id="7881"/>
+        <item chance="763202" max="5" min="1" id="1864"/>
+        <item chance="572402" max="3" min="1" id="1869"/>
+        <item chance="38160" max="1" min="1" id="6036"/>
+    </droplist>
+</npc>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22450" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Tortured Native</name>
+        <level>86</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4439.74358540587"/>
+            <mp regen="3.0" max="1881.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1233.98508"/>
+                <magical speed="333.0" damage="842.65185"/>
+            </attack>
+            <defense>
+                <physical value="365.6202"/>
+                <magical value="267.545"/>
+            </defense>
+            <move walk="50.0" run="100.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9210</experience>
+        <sp>959</sp>
+        <item lefthand="0" righthand="946"/>
+        <collision heigth="24.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1976" min="987" id="57"/>
+        <item chance="86400" max="1" min="1" id="9599"/>
+        <item chance="276536" max="1" min="1" id="1868"/>
+        <item chance="55307" max="1" min="1" id="1873"/>
+        <item chance="39505" max="1" min="1" id="1895"/>
+        <item chance="1139" max="1" min="1" id="5534"/>
+        <item chance="74" max="1" min="1" id="11975"/>
+        <item chance="6" max="1" min="1" id="959"/>
+        <item chance="27654" max="1" min="1" id="1876"/>
+        <item chance="2304" max="1" min="1" id="4042"/>
+        <item chance="481173" max="1" min="1" id="1895"/>
+        <item chance="28068" max="1" min="1" id="4042"/>
+        <item chance="674" max="1" min="1" id="960"/>
+    </droplist>
+</npc>

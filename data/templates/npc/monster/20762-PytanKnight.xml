@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20762" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Pytan Knight</name>
+        <level>68</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2345.76698"/>
+            <mp regen="2.7" max="1282.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="646.17968"/>
+                <magical speed="333.0" damage="441.25696"/>
+            </attack>
+            <defense>
+                <physical value="286.3615"/>
+                <magical value="190.66272"/>
+            </defense>
+            <move walk="100.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16852</experience>
+        <sp>1628</sp>
+        <item lefthand="0" righthand="1472"/>
+        <collision heigth="45.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="4698" min="2311" id="57"/>
+        <item chance="7790" max="1" min="1" id="1807"/>
+        <item chance="209" max="1" min="1" id="1807"/>
+        <item chance="209196" max="1" min="1" id="1867"/>
+        <item chance="209196" max="1" min="1" id="1872"/>
+        <item chance="10460" max="1" min="1" id="1875"/>
+        <item chance="20920" max="1" min="1" id="1881"/>
+        <item chance="1365" max="1" min="1" id="4041"/>
+        <item chance="22" max="1" min="1" id="5297"/>
+        <item chance="34" max="1" min="1" id="5298"/>
+        <item chance="13" max="1" min="1" id="5301"/>
+        <item chance="203" max="1" min="1" id="5336"/>
+        <item chance="49132" max="1" min="1" id="5478"/>
+        <item chance="2419" max="1" min="1" id="5478"/>
+        <item chance="1702" max="1" min="1" id="5479"/>
+        <item chance="3796" max="1" min="1" id="5482"/>
+        <item chance="1734" max="1" min="1" id="8730"/>
+        <item chance="436" max="1" min="1" id="8740"/>
+        <item chance="44" max="1" min="1" id="8750"/>
+        <item chance="9" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

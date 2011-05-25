@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20974" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Spiteful Soul Leader</name>
+        <level>65</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2193.43142"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="582.81759"/>
+                <magical speed="333.0" damage="397.98887"/>
+            </attack>
+            <defense>
+                <physical value="271.89033"/>
+                <magical value="198.95754"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14127</experience>
+        <sp>1313</sp>
+        <item lefthand="945" righthand="946"/>
+        <collision heigth="44.0" radius="16.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="3904" min="1925" id="57"/>
+        <item chance="14" max="1" min="1" id="268"/>
+        <item chance="109" max="1" min="1" id="730"/>
+        <item chance="86982" max="1" min="1" id="1866"/>
+        <item chance="130472" max="1" min="1" id="1871"/>
+        <item chance="5219" max="1" min="1" id="1877"/>
+        <item chance="2609" max="1" min="1" id="4040"/>
+        <item chance="1135" max="1" min="1" id="4041"/>
+        <item chance="172021" max="1" min="1" id="4052"/>
+        <item chance="3136" max="1" min="1" id="4120"/>
+        <item chance="864" max="1" min="1" id="4164"/>
+        <item chance="6478" max="1" min="1" id="5230"/>
+        <item chance="1740" max="1" min="1" id="8729"/>
+        <item chance="435" max="1" min="1" id="8739"/>
+        <item chance="43" max="1" min="1" id="8749"/>
+        <item chance="9" max="1" min="1" id="8759"/>
+    </droplist>
+</npc>

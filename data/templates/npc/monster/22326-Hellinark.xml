@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22326" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Hellinark</name>
+        <title send="false">Naia's Guardian</title>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="194.030406814438" max="338766.60216791"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7957.47326"/>
+                <magical speed="333.0" damage="5529.81543"/>
+            </attack>
+            <defense>
+                <physical value="582.69205"/>
+                <magical value="639.58314"/>
+            </defense>
+            <move walk="37.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2629658</experience>
+        <sp>267913</sp>
+        <collision heigth="90.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="576519" min="287985" id="57"/>
+        <item chance="869600" max="44" min="14" id="9599"/>
+        <item chance="121534" max="1" min="1" id="5546"/>
+        <item chance="110646" max="1" min="1" id="5529"/>
+        <item chance="110646" max="1" min="1" id="5545"/>
+        <item chance="389" max="1" min="1" id="81"/>
+        <item chance="389" max="1" min="1" id="151"/>
+        <item chance="389" max="1" min="1" id="2500"/>
+        <item chance="141569" max="15" min="5" id="1894"/>
+        <item chance="42028" max="48" min="16" id="4044"/>
+        <item chance="74717" max="27" min="9" id="4039"/>
+        <item chance="50121" max="9" min="3" id="4041"/>
+        <item chance="1614" max="1" min="1" id="959"/>
+        <item chance="35864" max="12" min="4" id="9551"/>
+        <item chance="910052" max="35" min="1" id="4039"/>
+        <item chance="874614" max="15" min="1" id="6704"/>
+        <item chance="491428" max="1" min="1" id="6901"/>
+    </droplist>
+</npc>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21514" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Needle Stakato Worker</name>
+        <level>71</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2492.727"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="710.2185"/>
+                <magical speed="333.0" damage="484.98717"/>
+            </attack>
+            <defense>
+                <physical value="300.65359"/>
+                <magical value="220.00525"/>
+            </defense>
+            <move walk="25.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9134</experience>
+        <sp>916</sp>
+        <collision heigth="40.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="2614" min="1283" id="57"/>
+        <item chance="191935" max="1" min="1" id="1864"/>
+        <item chance="95967" max="1" min="1" id="1869"/>
+        <item chance="38387" max="1" min="1" id="1878"/>
+        <item chance="59057" max="1" min="1" id="1884"/>
+        <item chance="86637" max="1" min="1" id="4039"/>
+        <item chance="3199" max="1" min="1" id="4039"/>
+        <item chance="43" max="1" min="1" id="5272"/>
+        <item chance="963" max="1" min="1" id="5462"/>
+        <item chance="15379" max="1" min="1" id="5479"/>
+        <item chance="405" max="1" min="1" id="5532"/>
+        <item chance="408" max="1" min="1" id="5543"/>
+        <item chance="404" max="1" min="1" id="8341"/>
+        <item chance="405" max="1" min="1" id="8346"/>
+        <item chance="1066" max="1" min="1" id="8730"/>
+        <item chance="267" max="1" min="1" id="8740"/>
+        <item chance="27" max="1" min="1" id="8750"/>
+        <item chance="6" max="1" min="1" id="8760"/>
+        <item chance="33" max="1" min="1" id="11946"/>
+        <item chance="33" max="1" min="1" id="11949"/>
+        <item chance="33" max="1" min="1" id="11953"/>
+        <item chance="33" max="1" min="1" id="11958"/>
+    </droplist>
+</npc>

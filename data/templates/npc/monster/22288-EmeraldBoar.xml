@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22288" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Emerald Boar</name>
+        <level>82</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3643.38976668326"/>
+            <mp regen="3.0" max="1743.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1055.28566"/>
+                <magical speed="333.0" damage="720.6233"/>
+            </attack>
+            <defense>
+                <physical value="349.77477"/>
+                <magical value="255.95"/>
+            </defense>
+            <move walk="35.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>37724</experience>
+        <sp>3936</sp>
+        <collision heigth="27.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="9894" min="4830" id="57"/>
+        <item chance="20" max="1" min="1" id="959"/>
+        <item chance="169252" max="9" min="3" id="1868"/>
+        <item chance="50776" max="6" min="2" id="1873"/>
+        <item chance="101551" max="1" min="1" id="1876"/>
+        <item chance="145073" max="1" min="1" id="1895"/>
+        <item chance="8463" max="1" min="1" id="4042"/>
+        <item chance="3207" max="1" min="1" id="5277"/>
+        <item chance="3207" max="1" min="1" id="5282"/>
+        <item chance="8995" max="1" min="1" id="5495"/>
+        <item chance="7082" max="1" min="1" id="5527"/>
+        <item chance="7083" max="1" min="1" id="5528"/>
+        <item chance="19787" max="1" min="1" id="8349"/>
+        <item chance="4062" max="1" min="1" id="9546"/>
+        <item chance="1075" max="1" min="1" id="12261"/>
+        <item chance="1537" max="1" min="1" id="12268"/>
+        <item chance="1075" max="1" min="1" id="12269"/>
+    </droplist>
+</npc>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21538" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Fang of Splendor</name>
+        <level>67</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2295.48154"/>
+            <mp regen="2.7" max="1251.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="624.93199"/>
+                <magical speed="333.0" damage="426.74754"/>
+            </attack>
+            <defense>
+                <physical value="281.55251"/>
+                <magical value="187.46084"/>
+            </defense>
+            <move walk="25.0" run="155.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>13091</experience>
+        <sp>1247</sp>
+        <collision heigth="13.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="301635" max="1" min="1" id="1874"/>
+        <item chance="150818" max="1" min="1" id="4043"/>
+        <item chance="203121" max="1" min="1" id="4099"/>
+        <item chance="700000" max="3645" min="1784" id="57"/>
+        <item chance="218" max="1" min="1" id="11944"/>
+        <item chance="2911" max="1" min="1" id="4121"/>
+        <item chance="133647" max="1" min="1" id="1865"/>
+        <item chance="133647" max="1" min="1" id="1870"/>
+        <item chance="8910" max="1" min="1" id="1874"/>
+        <item chance="4455" max="1" min="1" id="4039"/>
+        <item chance="4455" max="1" min="1" id="4043"/>
+        <item chance="49" max="1" min="1" id="5442"/>
+        <item chance="1485" max="1" min="1" id="8730"/>
+        <item chance="371" max="1" min="1" id="8740"/>
+        <item chance="37" max="1" min="1" id="8750"/>
+        <item chance="8" max="1" min="1" id="8760"/>
+    </droplist>
+</npc>

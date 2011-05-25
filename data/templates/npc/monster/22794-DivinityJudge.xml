@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22794" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Divinity Judge</name>
+        <level>84</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="110.577296732991" max="32744.8265190398"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5837.38676"/>
+                <magical speed="333.0" damage="3986.17844"/>
+            </attack>
+            <defense>
+                <physical value="572.58757"/>
+                <magical value="628.4921"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>159424</experience>
+        <sp>17009</sp>
+        <item lefthand="0" righthand="148"/>
+        <collision heigth="36.5" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="11245" min="5731" id="57"/>
+        <item chance="6000" max="1" min="1" id="15639"/>
+        <item chance="12" max="1" min="1" id="13462"/>
+        <item chance="321200" max="1" min="1" id="1895"/>
+        <item chance="20200" max="1" min="1" id="4040"/>
+        <item chance="12400" max="1" min="1" id="9628"/>
+        <item chance="6000" max="1" min="1" id="9630"/>
+        <item chance="500" max="1" min="1" id="960"/>
+        <item chance="18000" max="1" min="1" id="9573"/>
+        <item chance="4400" max="1" min="1" id="9574"/>
+        <item chance="440" max="1" min="1" id="9575"/>
+        <item chance="800" max="1" min="1" id="15820"/>
+        <item chance="8000" max="1" min="1" id="15639"/>
+        <item chance="400" max="1" min="1" id="959"/>
+    </droplist>
+</npc>

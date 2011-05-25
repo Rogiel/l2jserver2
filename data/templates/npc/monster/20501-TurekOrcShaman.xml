@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20501" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Turek Orc Shaman</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="76.57227"/>
+            </defense>
+            <move walk="45.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>2776</experience>
+        <sp>149</sp>
+        <item lefthand="0" righthand="7"/>
+        <collision heigth="22.0" radius="9.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="793" min="400" id="57"/>
+        <item chance="168" max="1" min="1" id="433"/>
+        <item chance="168" max="1" min="1" id="434"/>
+        <item chance="168" max="1" min="1" id="435"/>
+        <item chance="269" max="1" min="1" id="466"/>
+        <item chance="269" max="1" min="1" id="467"/>
+        <item chance="269" max="1" min="1" id="468"/>
+        <item chance="944489" max="1" min="1" id="1870"/>
+        <item chance="4915" max="1" min="1" id="1875"/>
+        <item chance="12289" max="1" min="1" id="1879"/>
+        <item chance="6144" max="1" min="1" id="1885"/>
+        <item chance="111116" max="1" min="1" id="1933"/>
+        <item chance="7590" max="1" min="1" id="1933"/>
+        <item chance="5280" max="1" min="1" id="1936"/>
+        <item chance="146888" max="1" min="1" id="2153"/>
+        <item chance="762" max="1" min="1" id="2264"/>
+        <item chance="527" max="1" min="1" id="2274"/>
+        <item chance="7373" max="1" min="1" id="5549"/>
+        <item chance="983" max="1" min="1" id="5550"/>
+    </droplist>
+</npc>

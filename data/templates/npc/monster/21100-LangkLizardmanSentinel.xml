@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21100" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Langk Lizardman Sentinel</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="55.97901"/>
+            </defense>
+            <move walk="43.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>692</experience>
+        <sp>31</sp>
+        <item lefthand="0" righthand="2"/>
+        <collision heigth="23.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="213" min="125" id="57"/>
+        <item chance="1150" max="1" min="1" id="845"/>
+        <item chance="1726" max="1" min="1" id="877"/>
+        <item chance="863" max="1" min="1" id="908"/>
+        <item chance="83774" max="1" min="1" id="1800"/>
+        <item chance="7870" max="1" min="1" id="1817"/>
+        <item chance="78691" max="1" min="1" id="1864"/>
+        <item chance="39346" max="1" min="1" id="1869"/>
+        <item chance="3935" max="1" min="1" id="1880"/>
+        <item chance="63429" max="1" min="1" id="1897"/>
+        <item chance="9369" max="1" min="1" id="1897"/>
+        <item chance="85936" max="1" min="1" id="1924"/>
+    </droplist>
+</npc>

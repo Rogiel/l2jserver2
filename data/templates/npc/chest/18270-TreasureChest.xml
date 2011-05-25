@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Chest" id="18270" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Treasure Chest</name>
+        <level>36</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="1.8" max="835.657991997797"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="137.86467"/>
+                <magical speed="333.0" damage="94.1437"/>
+            </attack>
+            <defense>
+                <physical value="145.11049"/>
+                <magical value="87.9049"/>
+            </defense>
+            <move walk="80.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="8.5" radius="8.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="1520" min="758" id="57"/>
+        <item chance="6163" max="1" min="1" id="955"/>
+        <item chance="51357" max="1" min="1" id="956"/>
+    </droplist>
+</npc>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25575" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">All-Seeing Rango</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="84.1856152463255" max="194342.366232331"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4658.99941"/>
+                <magical speed="333.0" damage="838.41114"/>
+            </attack>
+            <defense>
+                <physical value="930.08877"/>
+                <magical value="453.74"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2234730</experience>
+        <sp>360602</sp>
+        <collision heigth="45.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="28970" max="1" min="1" id="729"/>
+        <item chance="33468" max="1" min="1" id="5297"/>
+        <item chance="53529" max="1" min="1" id="5298"/>
+        <item chance="20593" max="1" min="1" id="5301"/>
+        <item chance="208809" max="27" min="9" id="5478"/>
+        <item chance="66120" max="60" min="20" id="5479"/>
+        <item chance="105347" max="84" min="28" id="5482"/>
+        <item chance="3476" max="1" min="1" id="6569"/>
+        <item chance="28979" max="1" min="1" id="6570"/>
+        <item chance="52146" max="1" min="1" id="9625"/>
+    </droplist>
+</npc>

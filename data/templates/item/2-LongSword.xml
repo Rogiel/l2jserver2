@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item id="2" icon="icon.etc_adena_i00">
+	<name>Adena</name>
+	<material>GOLD</material>
+	<effect type="IMMEDIATE" />
+	<price>1</price>
+</item>

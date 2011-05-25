@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20024" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Langk Lizardman Warrior</name>
+        <level>17</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="282.57403"/>
+            <mp regen="1.2" max="166.08"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="34.8979"/>
+                <magical speed="333.0" damage="23.83074"/>
+            </attack>
+            <defense>
+                <physical value="78.68469"/>
+                <magical value="52.38915"/>
+            </defense>
+            <move walk="52.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>618</experience>
+        <sp>26</sp>
+        <item lefthand="0" righthand="16"/>
+        <collision heigth="30.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="71" max="1" min="1" id="2"/>
+        <item chance="700000" max="197" min="122" id="57"/>
+        <item chance="71" max="1" min="1" id="120"/>
+        <item chance="71" max="1" min="1" id="121"/>
+        <item chance="41833" max="1" min="1" id="734"/>
+        <item chance="24901" max="1" min="1" id="1801"/>
+        <item chance="501999" max="1" min="1" id="1864"/>
+        <item chance="98856" max="1" min="1" id="1864"/>
+        <item chance="49428" max="1" min="1" id="1869"/>
+        <item chance="59762" max="1" min="1" id="1897"/>
+        <item chance="773" max="1" min="1" id="2012"/>
+    </droplist>
+</npc>

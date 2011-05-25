@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20297" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Virud Lizardman Shaman</name>
+        <level>23</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="410.70422"/>
+            <mp regen="1.5" max="231.96"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="55.84125"/>
+                <magical speed="333.0" damage="38.13234"/>
+            </attack>
+            <defense>
+                <physical value="95.64976"/>
+                <magical value="63.68469"/>
+            </defense>
+            <move walk="43.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>878</experience>
+        <sp>42</sp>
+        <item lefthand="0" righthand="7"/>
+        <collision heigth="29.0" radius="10.0"/>
+    </info>
+</npc>

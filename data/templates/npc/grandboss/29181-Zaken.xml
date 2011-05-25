@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="GrandBoss" id="29181" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Zaken</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="818.275841116973" max="3155900.34672804"/>
+            <mp regen="300.0" max="177740.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="8022.87946"/>
+                <magical speed="333.0" damage="2559.96936"/>
+            </attack>
+            <defense>
+                <physical value="1061.58432"/>
+                <magical value="517.88"/>
+            </defense>
+            <move walk="42.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>15282889</experience>
+        <sp>2051807</sp>
+        <collision heigth="32.0" radius="16.0"/>
+    </info>
+</npc>

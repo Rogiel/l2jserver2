@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Pet" id="14877" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Feline King</name>
+        <level>83</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2967.29713577778"/>
+            <mp regen="6.0" max="1765.89333333333"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="941.07256"/>
+                <magical speed="333.0" damage="642.63056"/>
+            </attack>
+            <defense>
+                <physical value="352.12097"/>
+                <magical value="257.66684"/>
+            </defense>
+            <move walk="160.0" run="180.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="16.01" radius="6.0"/>
+    </info>
+</npc>

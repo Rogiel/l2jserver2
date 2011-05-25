@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22135" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Beholder of Light</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="9.027" max="3163.0432152"/>
+            <mp regen="3.1824" max="1955.34"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="1076.93138"/>
+                <magical speed="333.0" damage="781.26136"/>
+            </attack>
+            <defense>
+                <physical value="410.87895"/>
+                <magical value="300.66338"/>
+            </defense>
+            <move walk="30.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>60962</experience>
+        <sp>7152</sp>
+        <item lefthand="0" righthand="8221"/>
+        <collision heigth="47.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="16989" min="8288" id="57"/>
+        <item chance="222272" max="1" min="1" id="1895"/>
+        <item chance="33767" max="1" min="1" id="6346"/>
+        <item chance="25932" max="1" min="1" id="4043"/>
+        <item chance="32258" max="1" min="1" id="8056"/>
+        <item chance="15559" max="1" min="1" id="4040"/>
+        <item chance="23494" max="1" min="1" id="6342"/>
+        <item chance="12966" max="1" min="1" id="4042"/>
+        <item chance="15204" max="1" min="1" id="6344"/>
+        <item chance="778" max="1" min="1" id="6901"/>
+        <item chance="104" max="1" min="1" id="6326"/>
+        <item chance="138" max="1" min="1" id="6327"/>
+        <item chance="208" max="1" min="1" id="6328"/>
+        <item chance="37093" max="1" min="1" id="6694"/>
+        <item chance="36433" max="1" min="1" id="6691"/>
+        <item chance="37093" max="1" min="1" id="6693"/>
+        <item chance="6483" max="1" min="1" id="8732"/>
+        <item chance="1621" max="1" min="1" id="8742"/>
+        <item chance="162" max="1" min="1" id="8752"/>
+    </droplist>
+</npc>

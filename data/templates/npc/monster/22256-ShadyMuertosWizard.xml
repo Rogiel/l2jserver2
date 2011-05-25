@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22256" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shady Muertos Wizard</name>
+        <level>19</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="321.63954"/>
+            <mp regen="1.2" max="183.28"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="40.96915"/>
+                <magical speed="333.0" damage="27.97662"/>
+            </attack>
+            <defense>
+                <physical value="84.07638"/>
+                <magical value="61.52345"/>
+            </defense>
+            <move walk="36.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1145</experience>
+        <sp>48</sp>
+        <collision heigth="22.5" radius="15.5"/>
+    </info>
+    <droplist>
+        <item chance="823" max="1" min="1" id="24"/>
+        <item chance="1314" max="1" min="1" id="31"/>
+        <item chance="700000" max="347" min="204" id="57"/>
+        <item chance="823" max="1" min="1" id="390"/>
+        <item chance="1314" max="1" min="1" id="412"/>
+        <item chance="17119" max="1" min="1" id="1792"/>
+        <item chance="57062" max="1" min="1" id="1866"/>
+        <item chance="434649" max="1" min="1" id="1871"/>
+        <item chance="85593" max="1" min="1" id="1871"/>
+        <item chance="285016" max="1" min="1" id="1925"/>
+        <item chance="17386" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

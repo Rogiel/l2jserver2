@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="25458" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Shadow of Oblivion</name>
+        <title send="false">Raid Fighter</title>
+        <level>48</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="49.5883641293912" max="22587.4245278026"/>
+            <mp regen="2.1" max="692.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="810.39881"/>
+                <magical speed="333.0" damage="191.37493"/>
+            </attack>
+            <defense>
+                <physical value="286.69205"/>
+                <magical value="279.72"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="21.0" radius="7.0"/>
+    </info>
+    <droplist>
+        <item chance="148089" max="1" min="1" id="1539"/>
+    </droplist>
+</npc>

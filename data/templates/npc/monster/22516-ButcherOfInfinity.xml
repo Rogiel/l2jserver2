@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22516" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Butcher of Infinity</name>
+        <level>80</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3461.77253215841"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1018.31276"/>
+                <magical speed="333.0" damage="699.49026"/>
+            </attack>
+            <defense>
+                <physical value="347.65631"/>
+                <magical value="254.3998"/>
+            </defense>
+            <move walk="92.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>55248</experience>
+        <sp>5826</sp>
+        <collision heigth="48.5" radius="27.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="15093" min="7370" id="57"/>
+        <item chance="13723" max="1" min="1" id="5495"/>
+        <item chance="10805" max="1" min="1" id="5527"/>
+        <item chance="10805" max="1" min="1" id="5528"/>
+        <item chance="89" max="1" min="1" id="5317"/>
+        <item chance="89" max="1" min="1" id="5312"/>
+        <item chance="127" max="1" min="1" id="5315"/>
+        <item chance="309856" max="1" min="1" id="1895"/>
+        <item chance="21690" max="1" min="1" id="4040"/>
+        <item chance="8506" max="1" min="1" id="9628"/>
+        <item chance="5708" max="1" min="1" id="9630"/>
+        <item chance="1954" max="1" min="1" id="6847"/>
+        <item chance="30199" max="1" min="1" id="5529"/>
+        <item chance="4892" max="1" min="1" id="1808"/>
+        <item chance="4892" max="1" min="1" id="5282"/>
+    </droplist>
+</npc>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="18867" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Abyss Weed</name>
+        <level>85</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="1000.0"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1188.87259"/>
+                <magical speed="333.0" damage="811.84586"/>
+            </attack>
+            <defense>
+                <physical value="361.78814"/>
+                <magical value="264.74086"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="27.0" radius="30.0"/>
+    </info>
+</npc>

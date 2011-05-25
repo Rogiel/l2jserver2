@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25392" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Captain of Queen's Royal Guards</name>
+        <title send="false">Raid Boss</title>
+        <level>32</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="23.5043088957683" max="59258.1847978112"/>
+            <mp regen="1.8" max="358.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="130.1006"/>
+                <magical speed="333.0" damage="10.40631"/>
+            </attack>
+            <defense>
+                <physical value="376.73181"/>
+                <magical value="183.78"/>
+            </defense>
+            <move walk="130.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1962692</experience>
+        <sp>119633</sp>
+        <item lefthand="0" righthand="129"/>
+        <collision heigth="37.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="98899" max="1" min="1" id="279"/>
+        <item chance="102760" max="1" min="1" id="352"/>
+        <item chance="137691" max="7" min="3" id="955"/>
+        <item chance="167627" max="42" min="14" id="1941"/>
+        <item chance="256030" max="36" min="12" id="2040"/>
+        <item chance="164373" max="1" min="1" id="2377"/>
+        <item chance="164373" max="1" min="1" id="2378"/>
+        <item chance="87526" max="120" min="40" id="2918"/>
+        <item chance="43222" max="243" min="81" id="2919"/>
+        <item chance="344224" max="3" min="1" id="4562"/>
+        <item chance="229483" max="4" min="2" id="4563"/>
+        <item chance="172112" max="6" min="2" id="4564"/>
+    </droplist>
+</npc>

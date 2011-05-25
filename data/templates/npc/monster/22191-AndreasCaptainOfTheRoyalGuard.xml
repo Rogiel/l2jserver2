@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22191" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="true" targetable="true" attackable="false">
+        <name display="true" send="false">Andreas' Captain of the Royal Guard</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="9.027" max="3163.0432152"/>
+            <mp regen="3.1824" max="1955.34"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1076.93138"/>
+                <magical speed="333.0" damage="781.26136"/>
+            </attack>
+            <defense>
+                <physical value="410.87895"/>
+                <magical value="300.66338"/>
+            </defense>
+            <move walk="30.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>16894</experience>
+        <sp>1956</sp>
+        <item lefthand="0" righthand="8208"/>
+        <collision heigth="23.2" radius="13.0"/>
+    </info>
+</npc>

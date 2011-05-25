@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="SiegeSummon" id="14782" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Wild Hog Cannon</name>
+        <level>81</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2926.029605"/>
+            <mp regen="3.0" max="1717.3"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="918.24595"/>
+                <magical speed="333.0" damage="630.25073"/>
+            </attack>
+            <defense>
+                <physical value="347.72941"/>
+                <magical value="254.45329"/>
+            </defense>
+            <move walk="10.0" run="10.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="90.0" radius="93.0"/>
+    </info>
+</npc>

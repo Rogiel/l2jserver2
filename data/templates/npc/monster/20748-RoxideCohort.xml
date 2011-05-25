@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="20748" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Roxide Cohort</name>
+        <level>29</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="573.42917"/>
+            <mp regen="1.5" max="315.12"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="86.42002"/>
+                <magical speed="333.0" damage="59.01367"/>
+            </attack>
+            <defense>
+                <physical value="115.00598"/>
+                <magical value="76.57227"/>
+            </defense>
+            <move walk="60.0" run="159.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>3240</experience>
+        <sp>174</sp>
+        <item lefthand="0" righthand="73"/>
+        <collision heigth="27.0" radius="11.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="925" min="467" id="57"/>
+        <item chance="81" max="1" min="1" id="275"/>
+        <item chance="81" max="1" min="1" id="276"/>
+        <item chance="2869" max="1" min="1" id="956"/>
+        <item chance="668138" max="1" min="1" id="1061"/>
+        <item chance="229499" max="1" min="1" id="1831"/>
+        <item chance="734952" max="1" min="1" id="1866"/>
+        <item chance="57375" max="1" min="1" id="1866"/>
+        <item chance="551214" max="3" min="1" id="1871"/>
+        <item chance="86062" max="1" min="1" id="1871"/>
+        <item chance="7172" max="1" min="1" id="1885"/>
+        <item chance="2861" max="1" min="1" id="2024"/>
+        <item chance="6147" max="1" min="1" id="2190"/>
+        <item chance="3442" max="1" min="1" id="5220"/>
+    </droplist>
+</npc>

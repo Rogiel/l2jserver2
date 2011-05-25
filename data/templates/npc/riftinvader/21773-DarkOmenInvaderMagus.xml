@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RiftInvader" id="21773" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Dark Omen Invader Magus</name>
+        <level>73</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2586.66898"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="752.73928"/>
+                <magical speed="333.0" damage="514.02335"/>
+            </attack>
+            <defense>
+                <physical value="310.02959"/>
+                <magical value="206.4212"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>39450</experience>
+        <sp>4059</sp>
+        <collision heigth="42.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="1233" max="1" min="1" id="729"/>
+        <item chance="9245" max="1" min="1" id="730"/>
+        <item chance="146420" max="1" min="1" id="5482"/>
+        <item chance="700000" max="11154" min="5478" id="57"/>
+        <item chance="29" max="1" min="1" id="288"/>
+        <item chance="6989" max="1" min="1" id="5535"/>
+        <item chance="76" max="1" min="1" id="729"/>
+        <item chance="569" max="1" min="1" id="730"/>
+        <item chance="6321" max="1" min="1" id="8731"/>
+        <item chance="1580" max="1" min="1" id="8741"/>
+        <item chance="158" max="1" min="1" id="8751"/>
+        <item chance="32" max="1" min="1" id="8761"/>
+    </droplist>
+</npc>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="21433" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Jamadar Beetle</name>
+        <level>78</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.585" max="2870.7774087"/>
+            <mp regen="3.03" max="1657.41"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="884.25257"/>
+                <magical speed="333.0" damage="609.86817"/>
+            </attack>
+            <defense>
+                <physical value="340.44078"/>
+                <magical value="226.66932"/>
+            </defense>
+            <move walk="45.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>70729</experience>
+        <sp>7839</sp>
+        <collision heigth="43.6" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="16701" min="8184" id="57"/>
+        <item chance="27" max="1" min="1" id="959"/>
+        <item chance="45397" max="45" min="15" id="1868"/>
+        <item chance="68095" max="6" min="2" id="1873"/>
+        <item chance="136190" max="1" min="1" id="1876"/>
+        <item chance="194558" max="1" min="1" id="1895"/>
+        <item chance="11349" max="1" min="1" id="4042"/>
+        <item chance="7377" max="1" min="1" id="5167"/>
+        <item chance="5218" max="1" min="1" id="5522"/>
+        <item chance="5218" max="1" min="1" id="5523"/>
+        <item chance="45528" max="1" min="1" id="5538"/>
+        <item chance="45519" max="1" min="1" id="5541"/>
+        <item chance="5675" max="1" min="1" id="8732"/>
+        <item chance="1419" max="1" min="1" id="8742"/>
+        <item chance="142" max="1" min="1" id="8752"/>
+        <item chance="642" max="1" min="1" id="12262"/>
+        <item chance="642" max="1" min="1" id="12263"/>
+    </droplist>
+</npc>

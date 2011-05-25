@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="Monster" id="22449" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Amaskari</name>
+        <title send="false">Torture Expert</title>
+        <level>86</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="108.314129048672" max="64890.8971327631"/>
+            <mp regen="3.0" max="1881.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="5640.35101"/>
+                <magical speed="333.0" damage="3851.62856"/>
+            </attack>
+            <defense>
+                <physical value="584.99232"/>
+                <magical value="642.108"/>
+            </defense>
+            <move walk="35.0" run="185.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>213008</experience>
+        <sp>22201</sp>
+        <item lefthand="0" righthand="6722"/>
+        <collision heigth="57.75" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" max="41297" min="20620" id="57"/>
+        <item chance="84" max="1" min="1" id="270"/>
+        <item chance="137570" max="9" min="3" id="1895"/>
+        <item chance="57779" max="1" min="1" id="4040"/>
+        <item chance="23773" max="1" min="1" id="5538"/>
+        <item chance="74624" max="1" min="1" id="6689"/>
+        <item chance="76202" max="1" min="1" id="6690"/>
+        <item chance="35188" max="1" min="1" id="6901"/>
+        <item chance="2889" max="1" min="1" id="6901"/>
+        <item chance="23112" max="1" min="1" id="9551"/>
+        <item chance="601900" max="4" min="2" id="9599"/>
+        <item chance="22659" max="1" min="1" id="9628"/>
+        <item chance="15205" max="1" min="1" id="9630"/>
+    </droplist>
+</npc>

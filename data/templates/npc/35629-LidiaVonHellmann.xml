@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="" id="35629" xsi:schemaLocation="npc ../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Lidia von Hellmann</name>
+        <level>78</level>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="37.3" max="903214.01529417"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1575.77421"/>
+                <magical speed="333.0" damage="556.49512"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.91174"/>
+            </defense>
+            <move walk="20.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="8209"/>
+        <collision heigth="25.4" radius="10.0"/>
+    </info>
+</npc>

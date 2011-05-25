@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="RaidBoss" id="25026" xsi:schemaLocation="npc ../../npc.xsd" xsi:noNamespaceSchemaLocation="npc">
+    <info aggressive="false" targetable="true" attackable="false">
+        <name display="true" send="false">Katu Van Leader Atui</name>
+        <title send="false">Raid Boss</title>
+        <level>49</level>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="51.7193112926872" max="148076.094026853"/>
+            <mp regen="2.1" max="720.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="431.28336"/>
+                <magical speed="333.0" damage="51.9276"/>
+            </attack>
+            <defense>
+                <physical value="586.98906"/>
+                <magical value="286.36"/>
+            </defense>
+            <move walk="33.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2328069</experience>
+        <sp>284981</sp>
+        <item lefthand="0" righthand="84"/>
+        <collision heigth="24.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="96888" max="1" min="1" id="119"/>
+        <item chance="129184" max="1" min="1" id="855"/>
+        <item chance="193777" max="1" min="1" id="886"/>
+        <item chance="56259" max="243" min="81" id="1918"/>
+        <item chance="25717" max="420" min="140" id="1920"/>
+        <item chance="151092" max="120" min="40" id="2917"/>
+        <item chance="40182" max="1" min="1" id="286"/>
+        <item chance="725814" max="9" min="3" id="2121"/>
+        <item chance="340993" max="3" min="1" id="4607"/>
+        <item chance="227328" max="4" min="2" id="4608"/>
+        <item chance="170496" max="6" min="2" id="4609"/>
+        <item chance="20459" max="1" min="1" id="6573"/>
+        <item chance="870000" max="3" min="1" id="9814"/>
+        <item chance="870000" max="1" min="1" id="8176"/>
+    </droplist>
+</npc>
