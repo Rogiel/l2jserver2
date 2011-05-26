@@ -21,6 +21,12 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
+ * Calculates the character base mentality
+ * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseMentality();
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseMentalityCalculator extends CharacterCalculator {

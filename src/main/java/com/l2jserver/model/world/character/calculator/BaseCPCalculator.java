@@ -23,8 +23,21 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character maximum CP
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseCP();
+ * 
+ * int lvl = c.getLevel() - template.getMinimumLevel();
+ * double mod = template.getBaseCPModifier() * lvl;
+ * double max = (template.getBaseCPAdd() + mod) * lvl;
+ * double min = (template.getBaseCPAdd() * lvl) + mod;
+ * ctx.result += (max + min) / 2;
+ * 
+ * ctx.result *= BaseStats.CON.calculateBonus(c.getStats().getConcentration());
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseCPCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

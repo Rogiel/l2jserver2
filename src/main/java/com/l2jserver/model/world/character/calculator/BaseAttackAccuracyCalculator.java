@@ -23,8 +23,19 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character base accuracy.
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseAccuracy();
+ * ctx.result += sqrt(DEX) * 6
+ * ctx.result += level;
+ * if (level > 77)
+ * 	ctx.result += (level - 77) + 1;
+ * if (level > 69)
+ * 	ctx.result += (level - 69);
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseAttackAccuracyCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

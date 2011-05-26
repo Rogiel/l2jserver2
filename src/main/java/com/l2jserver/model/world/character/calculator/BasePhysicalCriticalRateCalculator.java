@@ -22,6 +22,14 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
+ * Calculates the character base critical rate
+ * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseCritical();
+ * ctx.result *= BaseStats.DEX.calculateBonus(c.getStats().getDexterity());
+ * ctx.result *= 10;
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BasePhysicalCriticalRateCalculator extends CharacterCalculator {

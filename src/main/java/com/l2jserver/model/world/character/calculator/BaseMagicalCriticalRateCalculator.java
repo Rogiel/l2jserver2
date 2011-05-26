@@ -22,6 +22,13 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
+ * Calculates the base magical attack critical rate
+ * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseCritical(); // must be checked
+ * ctx.result *= BaseStats.WIT.calculateBonus(c.getStats().getWitness());
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseMagicalCriticalRateCalculator extends CharacterCalculator {

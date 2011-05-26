@@ -85,7 +85,6 @@ public class ProxyConfigurationService extends AbstractService implements
 		Properties properties;
 		try {
 			properties = findProperties(config);
-			System.out.println(properties);
 		} catch (IOException e) {
 			properties = new Properties();
 			logger.info(

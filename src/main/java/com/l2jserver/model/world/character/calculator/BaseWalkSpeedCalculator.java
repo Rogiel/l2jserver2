@@ -22,8 +22,14 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character base walk speed
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseWalkSpeed();
+ * ctx.result *= BaseStats.DEX.calculateBonus(c.getStats().getDexterity());
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseWalkSpeedCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

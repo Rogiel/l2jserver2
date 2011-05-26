@@ -29,6 +29,23 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
+ * Calculates the character base magical defense.
+ * 
+ * <pre>
+ * if (inv.has(LEFT_FINGER))
+ * 	ctx.result -= 5;
+ * if (inv.has(RIGHT_FINGER))
+ * 	ctx.result -= 5;
+ * if (inv.has(LEFT_EAR))
+ * 	ctx.result -= 9;
+ * if (inv.has(RIGHT_EAR))
+ * 	ctx.result -= 9;
+ * if (inv.has(NECK))
+ * 	ctx.result -= 13;
+ * ctx.result *= BaseStats.MEN.calculateBonus(c.getStats().getMentality())
+ * 		* ((100.0 - 11 + c.getLevel()) / 100.0);
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseMagicalDefenseCalculator extends CharacterCalculator {

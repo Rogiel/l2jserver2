@@ -23,8 +23,13 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character base HP regeneration
  * 
+ * <pre>
+ * TODO base hp regen
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseHPRegenerationCalculator extends CharacterCalculator {
 	/**

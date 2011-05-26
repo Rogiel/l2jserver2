@@ -21,6 +21,12 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
+ * Calculates the character base intelligence
+ * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseIntelligence();
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseIntelligenceCalculator extends CharacterCalculator {

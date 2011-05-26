@@ -20,8 +20,9 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.calculator.ActorCalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculator context for character formulas
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterCalculatorContext extends ActorCalculatorContext {
 	/**

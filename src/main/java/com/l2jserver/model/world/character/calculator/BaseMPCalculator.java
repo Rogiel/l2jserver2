@@ -23,8 +23,21 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character base MP
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseBaseMP();
+ * 
+ * int lvl = c.getLevel() - template.getMinimumLevel();
+ * double mod = template.getBaseMPModifier() * lvl;
+ * double max = (template.getBaseMPAdd() + mod) * lvl;
+ * double min = (template.getBaseMPAdd() * lvl) + mod;
+ * ctx.result += (max + min) / 2;
+ * 
+ * ctx.result *= BaseStats.MEN.calculateBonus(c.getStats().getMentality());
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseMPCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

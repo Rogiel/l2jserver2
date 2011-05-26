@@ -22,8 +22,15 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character base physical attack
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBasePhysicalAttack();
+ * ctx.result *= BaseStats.STR.calculateBonus(c.getStats().getStrength())
+ * 		* ((100.0 - 11 + c.getLevel()) / 100.0);
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BasePhysicalAttackCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

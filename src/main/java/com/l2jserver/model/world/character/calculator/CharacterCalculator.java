@@ -21,12 +21,12 @@ import com.l2jserver.util.calculator.Calculator;
 import com.l2jserver.util.calculator.Function;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * An calculator for character formulas.
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterCalculator extends Calculator<L2Character> {
-	public CharacterCalculator(
-			Function<L2Character>... functions) {
+	public CharacterCalculator(Function<L2Character>... functions) {
 		super(functions);
 	}
 }

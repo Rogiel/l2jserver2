@@ -31,6 +31,25 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
+ * Calculates the character base physical defense
+ * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBasePhysicalDefense();
+ * 
+ * if (inv.has(HEAD))
+ * 	ctx.result -= 12;
+ * final Item chest = inv.getItem(CHEST);
+ * if (chest != null)
+ * 	ctx.result -= hasMagePDef ? 15 : 31;
+ * if (inv.has(LEGS))
+ * 	ctx.result -= hasMagePDef ? 8 : 18;
+ * if (inv.has(GLOVES))
+ * 	ctx.result -= 8;
+ * if (inv.has(FEET))
+ * 	ctx.result -= 7;
+ * ctx.result *= ((100.0 - 11 + c.getLevel()) / 100.0);
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BasePhysicalDefenseCalculator extends CharacterCalculator {

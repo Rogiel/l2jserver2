@@ -22,8 +22,14 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character base magical attack
  * 
+ * <pre>
+ * ctx.result *= (((100.0 - 11 + c.getLevel()) / 100.0) &circ; 2)
+ * 		* (BaseStats.INT.calculateBonus(c.getStats().getIntelligence()) &circ; 2);
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseMagicalAttackCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

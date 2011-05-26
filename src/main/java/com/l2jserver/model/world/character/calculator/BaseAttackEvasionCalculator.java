@@ -23,8 +23,19 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the character evasion
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseEvasion();
+ * ctx.result += sqrt(DEX) * 6;
+ * ctx.result += level;
+ * if (level &gt; 77)
+ * 	ctx.result += (level - 77) + 1;
+ * if (level &gt; 69)
+ * 	ctx.result += (level - 69);
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseAttackEvasionCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

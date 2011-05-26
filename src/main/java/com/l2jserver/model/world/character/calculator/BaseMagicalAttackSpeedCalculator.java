@@ -22,8 +22,14 @@ import com.l2jserver.util.calculator.AbstractFunction;
 import com.l2jserver.util.calculator.CalculatorContext;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Calculates the base magical attack speed
  * 
+ * <pre>
+ * ctx.result = c.getTemplate().getBaseMagicalAttackSpeed();
+ * ctx.result *= BaseStats.WIT.calculateBonus(c.getStats().getWitness());
+ * </pre>
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BaseMagicalAttackSpeedCalculator extends CharacterCalculator {
 	@SuppressWarnings("unchecked")

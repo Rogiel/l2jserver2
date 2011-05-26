@@ -22,7 +22,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 
 /**
- * An packet informing that the character was created with success.
+ * An packet authorizing the client to open the map
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
