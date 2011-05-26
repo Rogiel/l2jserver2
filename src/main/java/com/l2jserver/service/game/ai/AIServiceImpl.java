@@ -40,18 +40,22 @@ public class AIServiceImpl extends AbstractService implements AIService {
 	/**
 	 * The {@link WorldService}
 	 */
+	@SuppressWarnings("unused")
 	private final WorldService worldService;
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
+	@SuppressWarnings("unused")
 	private final WorldEventDispatcher eventDispatcher;
 	/**
 	 * The {@link ThreadService}
 	 */
+	@SuppressWarnings("unused")
 	private final ThreadService threadService;
 	/**
 	 * The {@link NetworkService}
 	 */
+	@SuppressWarnings("unused")
 	private final NetworkService networkService;
 
 	@Inject

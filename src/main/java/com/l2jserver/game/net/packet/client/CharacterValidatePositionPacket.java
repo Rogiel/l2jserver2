@@ -41,6 +41,7 @@ public class CharacterValidatePositionPacket extends AbstractClientPacket {
 	private final CharacterService charService;
 
 	private Point point;
+	@SuppressWarnings("unused")
 	private int extra; // vehicle id
 
 	@Inject

@@ -39,6 +39,7 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 * The {@link WorldEventDispatcher} is used to dispatch attack events to the
 	 * world
 	 */
+	@SuppressWarnings("unused")
 	private final WorldEventDispatcher eventDispatcher;
 
 	@Inject
@@ -66,10 +67,12 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 		/**
 		 * The attacker
 		 */
+		@SuppressWarnings("unused")
 		private final Actor attacker;
 		/**
 		 * The target
 		 */
+		@SuppressWarnings("unused")
 		private final Actor target;
 
 		public AttackCallable(Actor attacker, Actor target) {

@@ -21,11 +21,10 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
-import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.character.CharacterClass;
 
 /**
- * TODO this should use an {@link ItemTemplateIDProvider}!
+ * This class is an JAXB Adapter for {@link CharacterTemplateIDProvider}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

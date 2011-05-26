@@ -23,8 +23,6 @@ import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * This decoder parses Lineage II frames. Each frame is has a header of 2 bytes
@@ -34,9 +32,6 @@ import org.slf4j.LoggerFactory;
  */
 public class Lineage2FrameDecoder extends FrameDecoder {
 	private static final int HEADER_SIZE = 2;
-
-	private static final Logger logger = LoggerFactory
-			.getLogger(Lineage2FrameDecoder.class);
 
 	@Override
 	protected Object decode(ChannelHandlerContext ctx, Channel channel,

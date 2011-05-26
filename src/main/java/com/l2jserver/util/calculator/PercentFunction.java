@@ -16,13 +16,15 @@
  */
 package com.l2jserver.util.calculator;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * This function performs a multiplication: <blockquote><code>chain value *
  * (value / 100)</code></blockquote>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PercentFunction extends MultiplicationFunction {
+public class PercentFunction<O extends Actor> extends MultiplicationFunction<O> {
 	/**
 	 * The value
 	 */

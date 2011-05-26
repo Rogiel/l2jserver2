@@ -50,6 +50,7 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan, ClanID> implements
 	/**
 	 * The {@link CharacterID} factory
 	 */
+	@SuppressWarnings("unused")
 	private final CharacterIDProvider charIdFactory;
 
 	/**

@@ -18,6 +18,7 @@ package com.l2jserver.service.admin;
 
 import java.util.List;
 
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
 
@@ -27,7 +28,8 @@ import com.l2jserver.service.AbstractService;
  */
 public class AdministratorServiceImpl extends AbstractService implements
 		AdministratorService {
-	private List<L2Character> online;
+	@SuppressWarnings("unused")
+	private List<CharacterID> online;
 	
 	@Override
 	public void command(L2Character character, String command, String... args) {

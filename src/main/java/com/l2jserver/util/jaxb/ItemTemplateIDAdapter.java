@@ -23,7 +23,7 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 
 /**
- * TODO this should use an {@link ItemTemplateIDProvider}!
+ * This class is an JAXB Adapter for {@link ItemTemplateIDProvider}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -43,7 +43,7 @@ public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
 	public ItemTemplateID unmarshal(Integer v) throws Exception {
 		if (v == 0)
 			return null;
-		if(provider == null)
+		if (provider == null)
 			return new ItemTemplateID(v, null);
 		return provider.createID(v);
 	}

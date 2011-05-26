@@ -16,9 +16,6 @@
  */
 package com.l2jserver.service.game.spawn;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
@@ -50,11 +47,6 @@ import com.l2jserver.util.dimensional.Point;
  */
 @Depends({ WorldService.class })
 public class SpawnServiceImpl extends AbstractService implements SpawnService {
-	/**
-	 * The logger
-	 */
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
 	/**
 	 * The {@link WorldService}
 	 */

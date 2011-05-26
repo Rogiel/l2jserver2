@@ -80,7 +80,9 @@ public class CharacterRequestActionUse extends AbstractClientPacket {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private boolean ctrlPressed;
+	@SuppressWarnings("unused")
 	private boolean shiftPressed;
 
 	@Inject

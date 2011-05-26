@@ -48,14 +48,20 @@ public class RequestShortcutRegistry extends AbstractClientPacket {
 	/**
 	 * The shortcut type
 	 */
+	@SuppressWarnings("unused")
 	private int type;
 	/**
 	 * The shortcut ID
 	 */
+	@SuppressWarnings("unused")
 	private int id;
+	@SuppressWarnings("unused")
 	private int slot;
+	@SuppressWarnings("unused")
 	private int page;
+	@SuppressWarnings("unused")
 	private int lvl;
+	@SuppressWarnings("unused")
 	private int characterType;
 
 	@Override

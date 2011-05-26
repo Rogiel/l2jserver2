@@ -20,11 +20,10 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
-import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.TeleportationTemplateIDProvider;
 
 /**
- * TODO this should use an {@link ItemTemplateIDProvider}!
+ * This class is an JAXB Adapter for {@link TeleportationTemplateIDProvider}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

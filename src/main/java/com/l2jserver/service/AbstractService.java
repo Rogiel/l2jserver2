@@ -41,6 +41,7 @@ public abstract class AbstractService implements Service {
 			this.running = true;
 		} catch (ServiceStartException e) {
 			this.running = false;
+			throw e;
 		}
 	}
 

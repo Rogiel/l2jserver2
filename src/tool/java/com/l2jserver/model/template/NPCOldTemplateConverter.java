@@ -81,6 +81,7 @@ public class NPCOldTemplateConverter {
 
 	private static String[] generateJavaClass(ResultSet rs) throws SQLException {
 		String npcName = "";
+		@SuppressWarnings("unused")
 		String npcClass = "";
 		String npcTitle = "";
 		String npcType = "";
@@ -189,7 +190,7 @@ public class NPCOldTemplateConverter {
 			return "";
 		if (l2j.contains("VillageMaster"))
 			return (l2j.replaceAll("VillageMaster", "") + "VillageMaster");
-		if(l2j.contains("Npc"))
+		if (l2j.contains("Npc"))
 			l2j = l2j.replaceAll("Npc", "");
 		return l2j;
 	}

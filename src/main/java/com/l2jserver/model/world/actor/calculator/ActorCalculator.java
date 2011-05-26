@@ -22,6 +22,7 @@ import com.l2jserver.model.world.Actor;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ActorCalculator {
+	@SuppressWarnings("unused")
 	private final Actor actor;
 
 	public ActorCalculator(Actor actor) {

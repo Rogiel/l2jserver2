@@ -23,8 +23,6 @@ import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ServerPacket;
@@ -41,12 +39,6 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 	 * The handler name
 	 */
 	public static final String HANDLER_NAME = "packet.writer";
-
-	/**
-	 * The logger
-	 */
-	private static final Logger log = LoggerFactory
-			.getLogger(Lineage2PacketWriter.class);
 
 	/**
 	 * The active Lineage 2 connection
