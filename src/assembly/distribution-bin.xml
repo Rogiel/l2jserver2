@@ -15,8 +15,6 @@
 			<outputDirectory>/</outputDirectory>
 			<includes>
 				<include>data/**</include>
-				<include>README</include>
-				<include>LICENSE</include>
 			</includes>
 		</fileSet>
 		<fileSet>
@@ -35,6 +33,13 @@
 			</excludes>
 		</fileSet>
 	</fileSets>
+	<!-- <files> -->
+	<!-- <file> -->
+	<!-- <outputDirectory>/data/</outputDirectory> -->
+	<!-- <destName>templates.zip</destName> -->
+	<!-- <source>*templates.zip</source> -->
+	<!-- </file> -->
+	<!-- </files> -->
 	<dependencySets>
 		<dependencySet>
 			<outputDirectory>/libs</outputDirectory>

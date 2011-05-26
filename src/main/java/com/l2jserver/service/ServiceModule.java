@@ -25,6 +25,8 @@ import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
 import com.l2jserver.service.core.Log4JLoggingService;
 import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.vfs.VFSService;
+import com.l2jserver.service.core.vfs.VFSServiceImpl;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.MySQLDatabaseService;
 import com.l2jserver.service.game.character.CharacterService;
@@ -63,6 +65,7 @@ public class ServiceModule extends AbstractModule {
 		bind(ServiceManager.class).in(Scopes.SINGLETON);
 		bind(LoggingService.class).to(Log4JLoggingService.class).in(
 				Scopes.SINGLETON);
+		bind(VFSService.class).to(VFSServiceImpl.class).in(Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
 				.in(Scopes.SINGLETON);
 		bind(CacheService.class).to(EhCacheService.class).in(Scopes.SINGLETON);

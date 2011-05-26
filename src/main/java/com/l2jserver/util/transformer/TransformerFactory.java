@@ -18,6 +18,8 @@ package com.l2jserver.util.transformer;
 
 import java.io.File;
 import java.net.InetSocketAddress;
+import java.net.URI;
+import java.net.URL;
 
 import com.l2jserver.util.transformer.impl.BooleanTransformer;
 import com.l2jserver.util.transformer.impl.ByteTransformer;
@@ -29,6 +31,8 @@ import com.l2jserver.util.transformer.impl.InetSocketAddressTransformer;
 import com.l2jserver.util.transformer.impl.IntegerTransformer;
 import com.l2jserver.util.transformer.impl.LongTransformer;
 import com.l2jserver.util.transformer.impl.ShortTransformer;
+import com.l2jserver.util.transformer.impl.URITransformer;
+import com.l2jserver.util.transformer.impl.URLTransformer;
 
 /**
  * The {@link TransformerFactory} return the transformer instance for any given
@@ -65,6 +69,10 @@ public class TransformerFactory {
 			return FileTransformer.SHARED_INSTANCE;
 		} else if (type == Class.class) {
 			return ClassTransformer.SHARED_INSTANCE;
+		} else if (type == URI.class) {
+			return URITransformer.SHARED_INSTANCE;
+		} else if (type == URL.class) {
+			return URLTransformer.SHARED_INSTANCE;
 		}
 		return null;
 	}

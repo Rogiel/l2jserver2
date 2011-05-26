@@ -14,18 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.template;
+package com.l2jserver.util.transformer.impl;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
-import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
+import com.l2jserver.util.transformer.Transformer;
 
-@ConfigurationName("template")
-public interface XMLTemplateServiceConfiguration extends Configuration {
-	@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "zip:data/templates.zip")
-	URI getTemplateDirectory();
+/**
+ * Transform an {@link URI} into an string.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public class URITransformer implements Transformer<URI> {
+	public static final URITransformer SHARED_INSTANCE = new URITransformer();
 
-	@ConfigurationPropertySetter(name = "template.directory")
-	void setTemplateDirectory(URI file);
+	@Override
+	public String transform(URI value) {
+		return value.toString();
+	}
+
+	@Override
+	public URI untransform(String value) {
+		try {
+			return new URI(value);
+		} catch (URISyntaxException e) {
+			return null;
+		}
+	}
+
 }

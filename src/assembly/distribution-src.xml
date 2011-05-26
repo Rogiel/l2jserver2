@@ -16,8 +16,6 @@
 			<includes>
 				<include>data/**</include>
 				<include>src/**</include>
-				<include>README</include>
-				<include>LICENSE</include>
 			</includes>
 		</fileSet>
 		<fileSet>

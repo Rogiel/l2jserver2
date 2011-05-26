@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skill id="3" name="Power Strike" delay="3000" cooldown="720">
+	<stats overhit="true" type="PHYSICAL_DAMAGE" range="40">
+		<levels max="9">
+			<level level="1" mpConsume="9" runSpeed="spd" abnormal="1" power="30" magic="3" />
+			<level level="2" mpConsume="9" power="32" magic="4" />
+			<level level="3" mpConsume="10" power="35" magic="5" />
+			<level level="4" mpConsume="11" power="46" magic="8" />
+			<level level="5" mpConsume="12" power="61" magic="9" />
+			<level level="6" mpConsume="13" power="65" magic="10" />
+			<level level="7" mpConsume="16" power="71" magic="13" />
+			<level level="8" mpConsume="16" power="78" magic="14" />
+			<level level="9" mpConsume="17" power="84" magic="15" />
+		</levels>
+		<soulshot count="1" boost="2.0" />
+		<hit time="1080" />
+		<effects range="400">
+			<effect name="BUFF" duration="15" abnormalType="speed_up_special">
+				<add order="0x40" stat="RUN_SPEED" />
+			</effect>
+		</effects>
+	</stats>
+	<info nextAction="ATTACK" target="SINGLE">
+		<weapon>
+			<allowed type="SWORD" />
+			<allowed type="BIG_SWORD" />
+			<allowed type="BLUNT" />
+			<allowed type="BIG_BLUNT" />
+		</weapon>
+		<operate type="OP_ACTIVE" />
+	</info>
+</skill>

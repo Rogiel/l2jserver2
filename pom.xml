@@ -9,6 +9,7 @@
 	<inceptionYear>2011</inceptionYear>
 
 	<dependencies>
+		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -16,12 +17,14 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
+		<!-- netty -->
 		<dependency>
 			<groupId>org.jboss.netty</groupId>
 			<artifactId>netty</artifactId>
 			<version>3.2.4.Final</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- google guice -->
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
@@ -37,6 +40,14 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-multibindings</artifactId>
+			<version>3.0</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<!--  logging -->
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.6.1</version>
@@ -44,9 +55,55 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- database -->
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.16</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>20030825.184428</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- cache -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.4.2</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- html parser/generator -->
+		<dependency>
+			<groupId>org.htmlparser</groupId>
+			<artifactId>htmlparser</artifactId>
+			<version>2.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- utils -->
+		<dependency>
+			<groupId>javolution</groupId>
+			<artifactId>javolution</artifactId>
+			<version>5.5.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>r09</version>
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
@@ -61,13 +118,6 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>20030825.184428</version>
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
@@ -92,45 +142,12 @@
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- vfs -->
 		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-core</artifactId>
-			<version>2.4.2</version>
+			<groupId>commons-vfs</groupId>
+			<artifactId>commons-vfs</artifactId>
+			<version>20050307052300</version>
 			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-multibindings</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>javolution</groupId>
-			<artifactId>javolution</artifactId>
-			<version>5.5.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.htmlparser</groupId>
-			<artifactId>htmlparser</artifactId>
-			<version>2.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>r09</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-			<version>2.2.0</version>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>

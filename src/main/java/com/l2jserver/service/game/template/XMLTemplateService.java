@@ -16,8 +16,8 @@
  */
 package com.l2jserver.service.game.template;
 
-import java.io.File;
-import java.util.Collection;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.vfs.FileObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,16 +48,20 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
+import com.l2jserver.util.vfs.ExtensionFileSelector;
 
-@Depends({ LoggingService.class, ConfigurationService.class })
+@Depends({ LoggingService.class, VFSService.class, ConfigurationService.class })
 public class XMLTemplateService extends AbstractService implements
 		TemplateService {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+	private final VFSService vfsService;
 
 	private final XMLTemplateServiceConfiguration config;
 	private final NPCTemplateIDAdapter npcTemplateIdAdapter;
@@ -72,11 +76,13 @@ public class XMLTemplateService extends AbstractService implements
 	private Map<TemplateID, Template> templates = CollectionFactory.newMap();
 
 	@Inject
-	public XMLTemplateService(ConfigurationService configService,
+	public XMLTemplateService(final VFSService vfsService,
+			ConfigurationService configService,
 			NPCTemplateIDAdapter npcTemplateIdAdapter,
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
 			CharacterTemplateIDAdapter charIdTemplateAdapter,
 			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
+		this.vfsService = vfsService;
 		this.config = configService.get(XMLTemplateServiceConfiguration.class);
 		this.npcTemplateIdAdapter = npcTemplateIdAdapter;
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
@@ -91,7 +97,7 @@ public class XMLTemplateService extends AbstractService implements
 			context = JAXBContext.newInstance(CharacterTemplate.class,
 					NPCTemplate.class, ItemTemplate.class,
 					TeleportationTemplateContainer.class);
-			
+
 			log.debug("Creating Unmarshaller instance");
 			unmarshaller = context.createUnmarshaller();
 
@@ -104,24 +110,33 @@ public class XMLTemplateService extends AbstractService implements
 			unmarshaller.setAdapter(TeleportationTemplateIDAdapter.class,
 					teleportationIdTemplateAdapter);
 
-			@SuppressWarnings("unchecked")
-			Collection<File> files = FileUtils
-					.listFiles(config.getTemplateDirectory(),
-							new String[] { "xml" }, true);
-			log.debug("Located {} XML template files", files.size());
-			for (final File file : files) {
-				log.debug("Loading template {}", file);
+			final FileObject root = vfsService.resolve(config
+					.getTemplateDirectory());
+			
+			log.info("Scanning {} for XML templates", root);
+			
+			FileObject[] files = root.findFiles(ExtensionFileSelector
+					.ext("xml"));
+
+			log.info("Located {} XML template files", files.length);
+			for (final FileObject file : files) {
 				loadTemplate(file);
 			}
-			TeleportationTemplateContainer container = (TeleportationTemplateContainer) unmarshaller
-					.unmarshal(new File(config.getTemplateDirectory(),
-							"../teleports.xml"));
-			for (final TeleportationTemplate template : container.templates) {
-				templates.put(template.getID(), template);
+			final FileObject teleportsXml = root.getParent().resolveFile(
+					"teleports.xml");
+			final InputStream in = teleportsXml.getContent().getInputStream();
+			try {
+				TeleportationTemplateContainer container = (TeleportationTemplateContainer) unmarshaller
+						.unmarshal(in);
+				for (final TeleportationTemplate template : container.templates) {
+					templates.put(template.getID(), template);
+				}
+			} finally {
+				in.close();
 			}
 		} catch (JAXBException e) {
-			e.printStackTrace();
-			System.exit(0);
+			throw new ServiceStartException(e);
+		} catch (IOException e) {
 			throw new ServiceStartException(e);
 		}
 	}
@@ -133,11 +148,18 @@ public class XMLTemplateService extends AbstractService implements
 		return (T) templates.get(id);
 	}
 
-	public void loadTemplate(File file) throws JAXBException {
+	public void loadTemplate(FileObject file) throws JAXBException, IOException {
 		Preconditions.checkNotNull(file, "file");
-		final Template<?> template = (Template<?>) unmarshaller.unmarshal(file);
-		if (template.getID() != null)
-			templates.put(template.getID(), template);
+		log.debug("Loading template {}", file);
+		final InputStream in = file.getContent().getInputStream();
+		try {
+			final Template<?> template = (Template<?>) unmarshaller
+					.unmarshal(in);
+			if (template.getID() != null)
+				templates.put(template.getID(), template);
+		} finally {
+			in.close();
+		}
 	}
 
 	public void removeTemplate(Template<?> template) {

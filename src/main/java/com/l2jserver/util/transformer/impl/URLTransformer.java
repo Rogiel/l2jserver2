@@ -14,18 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.template;
+package com.l2jserver.util.transformer.impl;
 
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 
-import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
+import com.l2jserver.util.transformer.Transformer;
 
-@ConfigurationName("template")
-public interface XMLTemplateServiceConfiguration extends Configuration {
-	@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "zip:data/templates.zip")
-	URI getTemplateDirectory();
+/**
+ * Transform an {@link URI} into an string.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
+public class URLTransformer implements Transformer<URL> {
+	public static final URLTransformer SHARED_INSTANCE = new URLTransformer();
 
-	@ConfigurationPropertySetter(name = "template.directory")
-	void setTemplateDirectory(URI file);
+	@Override
+	public String transform(URL value) {
+		return value.toString();
+	}
+
+	@Override
+	public URL untransform(String value) {
+		try {
+			return new URL(value);
+		} catch (MalformedURLException e) {
+			return null;
+		}
+	}
+
 }

@@ -28,8 +28,6 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.eclipse.persistence.oxm.annotations.XmlCDATA;
-
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.world.Actor.ActorSex;
@@ -240,7 +238,6 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		@XmlAttribute(name = "id")
 		protected String id = null;
 		@XmlValue
-		@XmlCDATA
 		protected String html = null;
 	}
 
