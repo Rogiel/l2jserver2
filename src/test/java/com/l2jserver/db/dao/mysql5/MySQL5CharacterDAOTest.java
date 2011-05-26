@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Stage;
 import com.l2jserver.GameServerModule;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
@@ -30,15 +31,17 @@ import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.template.TemplateService;
+import com.l2jserver.service.game.world.WorldService;
 
 public class MySQL5CharacterDAOTest {
 	private final Injector injector = Guice
-			.createInjector(new GameServerModule());
+			.createInjector(Stage.PRODUCTION, new GameServerModule());
 
 	@Test
 	public void testCachedLoad() throws ServiceStartException {
 		injector.getInstance(ServiceManager.class).start(TemplateService.class);
 		injector.getInstance(ServiceManager.class).start(DatabaseService.class);
+		injector.getInstance(ServiceManager.class).start(WorldService.class);
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
 		final L2Character char1 = dao.select(injector.getInstance(

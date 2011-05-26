@@ -147,8 +147,6 @@ public class CachedWorldIDService extends AbstractService implements
 	@Override
 	public <I extends ObjectID<?>> void add(I id) {
 		Preconditions.checkNotNull(id, "id");
-		if (id == null)
-			return;
 		cache.put(new Element(id.getID(), id));
 	}
 

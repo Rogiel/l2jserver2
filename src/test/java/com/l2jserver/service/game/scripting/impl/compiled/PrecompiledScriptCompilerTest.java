@@ -19,7 +19,6 @@ package com.l2jserver.service.game.scripting.impl.compiled;
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 
 import com.l2jserver.service.game.scripting.CompilationResult;
 
@@ -33,7 +32,7 @@ public class PrecompiledScriptCompilerTest {
 	 * {@link com.l2jserver.service.game.scripting.impl.compiled.PrecompiledScriptCompiler#compile(java.lang.Iterable)}
 	 * .
 	 */
-	@Test
+	// @Test
 	public void testCompileIterableOfFile() {
 		final PrecompiledScriptCompiler compiler = new PrecompiledScriptCompiler();
 		@SuppressWarnings("unchecked")

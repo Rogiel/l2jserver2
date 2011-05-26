@@ -17,6 +17,7 @@
 package com.l2jserver.service.cache;
 
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
@@ -75,12 +76,21 @@ public class EhCacheService extends AbstractService implements CacheService {
 							return method.invoke(instance, args);
 						final MethodInvocation invocation = new MethodInvocation(
 								method, args);
-						Object result = interfaceCache.get(invocation)
-								.getObjectValue();
-						if (result == null) {
-							result = method.invoke(instance, args);
-							interfaceCache.put(new Element(invocation, result));
-						}
+						Element element = interfaceCache.get(invocation);
+						if (element == null)
+							return doInvoke(invocation, proxy, method, args);
+						Object result = element.getObjectValue();
+						if (result == null)
+							return doInvoke(invocation, proxy, method, args);
+						return result;
+					}
+
+					private Object doInvoke(MethodInvocation invocation,
+							Object proxy, Method method, Object[] args)
+							throws IllegalArgumentException,
+							IllegalAccessException, InvocationTargetException {
+						Object result = method.invoke(instance, args);
+						interfaceCache.put(new Element(invocation, result));
 						return result;
 					}
 				});

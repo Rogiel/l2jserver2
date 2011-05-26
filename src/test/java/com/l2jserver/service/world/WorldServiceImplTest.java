@@ -21,48 +21,66 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Scopes;
+import com.l2jserver.GameServerModule;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.WorldServiceImpl;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
-import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
 
 public class WorldServiceImplTest {
 	private WorldService world;
+	private CharacterIDProvider provider;
 
 	@Before
 	public void tearUp() throws ServiceStartException {
-		Injector injector = Guice.createInjector(new AbstractModule() {
-			@Override
-			protected void configure() {
-				bind(WorldService.class).to(WorldServiceImpl.class).in(
-						Scopes.SINGLETON);
-				bind(WorldEventDispatcher.class).to(
-						WorldEventDispatcherImpl.class).in(Scopes.SINGLETON);
-			}
-		});
+		Injector injector = Guice.createInjector(new GameServerModule());
 
-		world = injector.getInstance(WorldService.class);
-		Assert.assertNotNull(world);
-		world.start();
+		world = injector.getInstance(ServiceManager.class).start(
+				WorldService.class);
+		provider = injector.getInstance(CharacterIDProvider.class);
 	}
 
 	@Test
 	public void testAdd() {
+		final L2Character character = new L2Character(null);
+		character.setID(provider.createID());
+		Assert.assertTrue(world.add(character));
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testAddNullId() {
 		final L2Character character = new L2Character(null);
 		world.add(character);
 	}
 
 	@Test
 	public void testRemove() {
+		final L2Character character = new L2Character(null);
+		character.setID(provider.createID());
+		Assert.assertTrue(world.add(character));
+		Assert.assertTrue(world.remove(character));
+	}
+
+	@Test
+	public void testRemoveOther() {
+		final L2Character character1 = new L2Character(null);
+		character1.setID(provider.createID());
+
+		final L2Character character2 = new L2Character(null);
+		character2.setID(provider.createID());
+
+		Assert.assertTrue(world.add(character1));
+		Assert.assertFalse(world.remove(character2));
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testRemoveNullId() {
 		final L2Character character = new L2Character(null);
 		world.add(character);
 		world.remove(character);
@@ -71,6 +89,14 @@ public class WorldServiceImplTest {
 	@Test
 	public void testContains() {
 		final L2Character character = new L2Character(null);
+		character.setID(provider.createID());
+		Assert.assertTrue(world.add(character));
+		Assert.assertTrue(world.contains(character));
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testContainsNullId() {
+		final L2Character character = new L2Character(null);
 		world.add(character);
 		Assert.assertTrue(world.contains(character));
 	}
@@ -78,8 +104,11 @@ public class WorldServiceImplTest {
 	@Test
 	public void testIterator() {
 		final L2Character character1 = new L2Character(null);
+		character1.setID(provider.createID());
 		final L2Character character2 = new L2Character(null);
+		character2.setID(provider.createID());
 		final Item item1 = new Item(null);
+		item1.setID(provider.createID());
 		world.add(character1);
 		world.add(character2);
 		world.add(item1);

@@ -18,7 +18,7 @@ package com.l2jserver.model.id.factory;
 
 import junit.framework.Assert;
 
-import org.apache.log4j.BasicConfigurator;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.google.inject.Guice;
@@ -29,17 +29,25 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
+import com.l2jserver.service.game.world.WorldService;
 
 public class IDFactoryTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
 			new MySQL5DAOModule(), new IDProviderModule());
-	private final CharacterIDProvider charIdFactory = injector
-			.getInstance(CharacterIDProvider.class);
+	private CharacterIDProvider charIdFactory;
+
+	@Before
+	public void tearUp() throws ServiceStartException {
+		injector.getInstance(ServiceManager.class).start(TemplateService.class);
+		injector.getInstance(ServiceManager.class).start(DatabaseService.class);
+		injector.getInstance(ServiceManager.class).start(WorldService.class);
+		charIdFactory = injector.getInstance(CharacterIDProvider.class);
+	}
 
 	@Test
 	public void testCreateID() {
@@ -58,11 +66,6 @@ public class IDFactoryTest {
 
 	@Test
 	public void testGetObject() throws ServiceStartException {
-		BasicConfigurator.configure();
-		injector.getInstance(ScriptingService.class).start();
-		injector.getInstance(TemplateService.class).start();
-
-		injector.getInstance(DatabaseService.class).start();
 		final CharacterID id = charIdFactory.createID(268437456);
 		final L2Character character = id.getObject();
 

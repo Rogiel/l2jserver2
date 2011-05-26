@@ -23,20 +23,19 @@ import com.google.inject.Injector;
 import com.l2jserver.db.dao.MySQL5DAOModule;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 
 public class StaticTemplateServiceTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
 			new IDProviderModule(), new MySQL5DAOModule());
-	private final TemplateService service = injector
-			.getInstance(TemplateService.class);
 	private final ItemTemplateIDProvider factory = injector
 			.getInstance(ItemTemplateIDProvider.class);
 
 	@Test
 	public void testAdena() throws ServiceStartException {
-		service.start();
+		injector.getInstance(ServiceManager.class).start(TemplateService.class);
 		System.out.println(factory.createID(57).getTemplate());
 	}
 }

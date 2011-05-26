@@ -89,6 +89,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public boolean add(WorldObject object) {
 		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkNotNull(object.getID(), "id");
 		log.debug("Adding object {} to world", object);
 		return objects.add(object);
 	}
@@ -96,6 +97,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public boolean remove(WorldObject object) {
 		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkNotNull(object.getID(), "id");
 		log.debug("Removing object {} from world", object);
 		// we also need to remove all listeners for this object
 		dispatcher.clear(object.getID());
@@ -105,6 +107,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	@Override
 	public boolean contains(WorldObject object) {
 		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkNotNull(object.getID(), "id");
 		return objects.contains(object);
 	}
 

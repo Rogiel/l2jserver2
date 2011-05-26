@@ -20,10 +20,18 @@ import java.util.Random;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import com.l2jserver.service.ServiceStartException;
 
 public class SimpleCacheServiceTest {
 	private final EhCacheService cacheService = new EhCacheService();
+	
+	@Before
+	public void tearUp() throws ServiceStartException {
+		cacheService.start();
+	}
 
 	@Test
 	public void testNoArgs() {
