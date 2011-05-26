@@ -55,7 +55,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	/**
 	 * The directory in which configuration files are stored
 	 */
-	private File directory = new File("./config");
+	private final File directory = new File("./config");
 	/**
 	 * The logger
 	 */
@@ -85,6 +85,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		Properties properties;
 		try {
 			properties = findProperties(config);
+			System.out.println(properties);
 		} catch (IOException e) {
 			properties = new Properties();
 			logger.info(
@@ -248,9 +249,15 @@ public class ProxyConfigurationService extends AbstractService implements
 
 		ConfigurationName config = findAnnotation(ConfigurationName.class,
 				clazz);
-		if (config == null)
-			return null;
-		final Properties prop = new Properties();
+		Properties prop;
+		if (config == null) {
+			for (final Class<?> parent : clazz.getInterfaces()) {
+				prop = findProperties(parent);
+				if(prop != null)
+					return prop;
+			}
+		}
+		prop = new Properties();
 		final File file = new File(directory, config.value() + ".properties");
 		final InputStream in = new FileInputStream(file);
 		try {
@@ -296,16 +303,5 @@ public class ProxyConfigurationService extends AbstractService implements
 	 */
 	public File getDirectory() {
 		return directory;
-	}
-
-	/**
-	 * Set the configuration store directory
-	 * 
-	 * @param directory
-	 *            the directory
-	 */
-	public void setDirectory(File directory) {
-		Preconditions.checkNotNull(directory, "directory");
-		this.directory = directory;
 	}
 }
