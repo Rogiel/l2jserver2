@@ -25,6 +25,7 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.npc.ActionServiceException;
 import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.util.geometry.Coordinate;
@@ -96,6 +97,8 @@ public class CharacterActionPacket extends AbstractClientPacket {
 		try {
 			npcService.action(npc, conn.getCharacter(), action);
 		} catch (ActionServiceException e) {
+			conn.sendActionFailed();
+		} catch (CannotSetTargetServiceException e) {
 			conn.sendActionFailed();
 		}
 	}

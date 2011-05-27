@@ -16,9 +16,11 @@
  */
 package com.l2jserver.game.ai;
 
+import com.google.inject.Inject;
 import com.l2jserver.game.ai.desires.Desire;
 import com.l2jserver.game.ai.desires.DesireQueue;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -26,14 +28,35 @@ import com.l2jserver.model.world.Actor;
  *            the {@link Actor} type for this {@link AI}
  */
 public abstract class AI<T extends Actor> {
+	/**
+	 * The desire queue for this AI
+	 */
 	protected DesireQueue desireQueue = new DesireQueue();
-	protected final T creature;
+	/**
+	 * The actor controlled by this AI
+	 */
+	protected final T actor;
 
-	protected AI(T creature) {
-		this.creature = creature;
+	@Inject
+	protected WorldEventDispatcher eventDispatcher;
+
+	protected AI(T actor) {
+		this.actor = actor;
 	}
 
-	protected void handleDesire(Desire desire) {
-		desire.handleDesire(this);
+	/**
+	 * Executes an AI tick
+	 */
+	protected void tick() {
+		Desire desire = desireQueue.poll();
+		handleDesire(desire);
 	}
+
+	/**
+	 * Handles the given desire
+	 * 
+	 * @param desire
+	 *            the desire
+	 */
+	protected abstract void handleDesire(Desire desire);
 }

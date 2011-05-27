@@ -24,8 +24,11 @@ import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.core.threading.AsyncFuture;
+import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This service manages {@link NPC} instances
@@ -43,9 +46,11 @@ public interface NPCService extends Service {
 	 *            the character
 	 * @param action
 	 *            the action type
+	 * @throws CannotSetTargetServiceException
+	 *             if was not possible to set the target
 	 */
 	void action(NPC npc, L2Character character, CharacterAction action)
-			throws ActionServiceException;
+			throws ActionServiceException, CannotSetTargetServiceException;
 
 	/**
 	 * Executes an action for an NPC. Each {@link NPCTemplate} have it's own
@@ -57,9 +62,22 @@ public interface NPCService extends Service {
 	 *            the character
 	 * @param args
 	 *            the action arguments
+	 * @throws CannotSetTargetServiceException
+	 *             if was not possible to set the target
 	 */
 	void action(NPC npc, L2Character character, String... args)
-			throws ActionServiceException;
+			throws ActionServiceException, CannotSetTargetServiceException;
+
+	/**
+	 * Moves an given <tt>npc</tt> to an <tt>point</tt>
+	 * 
+	 * @param npc
+	 *            the NPC
+	 * @param point
+	 *            the destination point
+	 * @return the future informing once the NPC has been moved to that location
+	 */
+	AsyncFuture<Boolean> move(NPC npc, Point3D point);
 
 	/**
 	 * Load from database and spawn all {@link NPC NPCs} instances

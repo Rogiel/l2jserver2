@@ -18,6 +18,8 @@ package com.l2jserver.service.game.npc;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
@@ -27,10 +29,16 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
 import com.l2jserver.game.net.packet.server.ActorAttackPacket;
 import com.l2jserver.model.server.AttackHit;
+import com.l2jserver.model.server.AttackHit.AttackHitFlag;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.NPC.NPCState;
 import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.core.threading.AsyncFuture;
+import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -38,12 +46,15 @@ import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.factory.CollectionFactory;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Default {@link NPCService} implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ SpawnService.class, NetworkService.class, CharacterService.class,
+		ThreadService.class })
 public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The {@link SpawnService} used to spawn the {@link NPC} instances
@@ -56,8 +67,11 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The {@link CharacterService}
 	 */
-	@SuppressWarnings("unused")
 	private final CharacterService characterService;
+	/**
+	 * The {@link ThreadService}
+	 */
+	private final ThreadService threadService;
 
 	/**
 	 * The {@link NPCDAO}
@@ -79,20 +93,24 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
 			NetworkService networkService, CharacterService characterService,
-			NPCDAO npcDao, Injector injector) {
+			ThreadService threadService, NPCDAO npcDao, Injector injector) {
 		this.spawnService = spawnService;
 		this.networkService = networkService;
 		this.characterService = characterService;
+		this.threadService = threadService;
 		this.npcDao = npcDao;
 		this.injector = injector;
 	}
 
 	@Override
 	public void action(NPC npc, L2Character character, CharacterAction action)
-			throws ActionServiceException {
+			throws ActionServiceException, CannotSetTargetServiceException {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(action, "action");
+
+		if (npc.getTemplate().isTargetable())
+			characterService.target(character, npc);
 
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());
@@ -106,11 +124,14 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 
 	@Override
 	public void action(NPC npc, L2Character character, String... args)
-			throws ActionServiceException {
+			throws ActionServiceException, CannotSetTargetServiceException {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(character, "character");
 		if (args == null)
 			args = new String[0];
+
+		if (npc.getTemplate().isTargetable())
+			characterService.target(character, npc);
 
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());
@@ -123,7 +144,30 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	}
 
 	@Override
-	public Collection<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
+	public AsyncFuture<Boolean> move(final NPC npc, final Point3D point) {
+		if (!npc.isIdle())
+			// TODO throw an exception
+			return null;
+		npc.setState(NPCState.MOVING);
+		// calculate walking time
+		final Point3D start = npc.getPoint();
+		final double distance = start.getDistance(point);
+		final double seconds = distance / npc.getTemplate().getRunSpeed();
+		// TODO this is an dirty implementation!
+		return threadService.async((int) (seconds * 1000),
+				TimeUnit.MILLISECONDS, new Callable<Boolean>() {
+					@Override
+					public Boolean call() throws Exception {
+						npc.setState(null);
+						npc.setPoint(point);
+						return false;
+					}
+				});
+	}
+
+	@Override
+	public Collection<NPC> spawnAll()
+			throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException {
 		final Collection<NPC> npcs = npcDao.loadAll();
 		for (final NPC npc : npcs) {
@@ -140,7 +184,8 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(attacker, "attacker");
 
 		conn.write(new ActorAttackPacket(conn.getCharacter(), new AttackHit(
-				conn.getCharacter(), npc)));
+				conn.getCharacter(), npc, AttackHitFlag.MISS,
+				AttackHitFlag.SOULSHOT)));
 	}
 
 	private NPCController getController(NPC npc) {

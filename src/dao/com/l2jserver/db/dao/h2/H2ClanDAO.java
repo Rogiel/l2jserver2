@@ -16,6 +16,7 @@
  */
 package com.l2jserver.db.dao.h2;
 
+import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.db.dao.jdbc.JDBCClanDAO;
@@ -29,6 +30,7 @@ import com.l2jserver.service.database.DatabaseService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class H2ClanDAO extends JDBCClanDAO implements ClanDAO {
+	@Inject
 	public H2ClanDAO(DatabaseService database,
 			ClanIDProvider clanIdFactory, CharacterIDProvider idFactory) {
 		super(database, clanIdFactory, idFactory);

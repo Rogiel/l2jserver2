@@ -16,6 +16,7 @@
  */
 package com.l2jserver.db.dao.h2;
 
+import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.db.dao.jdbc.JDBCNPCDAO;
@@ -29,6 +30,7 @@ import com.l2jserver.service.database.DatabaseService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class H2NPCDAO extends JDBCNPCDAO implements NPCDAO {
+	@Inject
 	public H2NPCDAO(DatabaseService database, NPCIDProvider idProvider,
 			NPCTemplateIDProvider templateIdProvider) {
 		super(database, idProvider, templateIdProvider);

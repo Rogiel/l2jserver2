@@ -19,7 +19,6 @@ package com.l2jserver.service.game.world.event;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -30,8 +29,11 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.common.util.concurrent.AbstractFuture;
+import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.service.core.threading.ThreadPool;
+import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -46,10 +48,12 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	private static final Logger log = LoggerFactory
 			.getLogger(WorldEventDispatcherImpl.class);
 
+	private final ThreadService threadService;
+
 	/**
 	 * The execution thread
 	 */
-	private Timer timer;
+	private ThreadPool threadPool;
 
 	/**
 	 * The list of all global listeners
@@ -66,10 +70,14 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	private Queue<EventContainer> events = CollectionFactory
 			.newConcurrentQueue();
 
+	@Inject
+	public WorldEventDispatcherImpl(ThreadService threadService) {
+		this.threadService = threadService;
+	}
+
 	public void start() {
-		// TODO event dispatching should be done using ThreadService
-		timer = new Timer();
-		final TimerTask task = new TimerTask() {
+		threadPool = threadService.createThreadPool("event-dispatcher", 1);
+		threadPool.async(0, TimeUnit.MILLISECONDS, 20, new TimerTask() {
 			@Override
 			public void run() {
 				EventContainer event;
@@ -91,8 +99,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 					}
 				}
 			}
-		};
-		timer.scheduleAtFixedRate(task, 0, 50);
+		});
 	}
 
 	@Override
@@ -223,8 +230,8 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	}
 
 	public void stop() {
-		timer.cancel();
-		timer = null;
+		threadService.dispose(threadPool);
+		threadPool = null;
 	}
 
 	/**

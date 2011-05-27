@@ -200,7 +200,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 			final Element element = cache.get(key);
 			if (element == null)
 				return null;
-			return (V) element.getValue();
+			return (V) element.getObjectValue();
 		}
 
 		@Override

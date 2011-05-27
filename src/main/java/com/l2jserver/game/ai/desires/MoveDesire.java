@@ -16,7 +16,6 @@
  */
 package com.l2jserver.game.ai.desires;
 
-import com.l2jserver.game.ai.AI;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -45,14 +44,6 @@ public final class MoveDesire extends AbstractDesire {
 	}
 
 	@Override
-	public void handleDesire(AI<?> ai) {
-		// TODO: Implement
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -64,9 +55,6 @@ public final class MoveDesire extends AbstractDesire {
 		return point.equals(that.point);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode() {
 		return point.hashCode();

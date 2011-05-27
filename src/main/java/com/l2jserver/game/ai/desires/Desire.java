@@ -16,14 +16,8 @@
  */
 package com.l2jserver.game.ai.desires;
 
-import com.l2jserver.game.ai.AI;
-
 /**
- * This interface represents basic desire functions.<br>
- * Each desire should implement {@link #handleDesire(com.l2jserver.game.ai.AI)}
- * method with default behavior.<br>
- * AI can override {@link com.l2jserver.game.ai.AI#handleDesire(Desire)} to
- * implement custom behavior of desire.<br>
+ * This interface represents basic desire functions.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * @see com.l2jserver.game.ai.AI
@@ -31,15 +25,6 @@ import com.l2jserver.game.ai.AI;
  * @see com.l2jserver.game.ai.desires.AbstractDesire
  */
 public interface Desire extends Comparable<Desire> {
-	/**
-	 * Invokes default desire action. AI can override invocation of this method
-	 * to handle desire in it's own way
-	 * 
-	 * @param ai
-	 *            actor that is doing this desire
-	 */
-	void handleDesire(AI<?> ai);
-
 	/**
 	 * Returns hashcode for this object, must be overrided by child
 	 * 

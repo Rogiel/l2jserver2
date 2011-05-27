@@ -27,6 +27,7 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.npc.ActionServiceException;
 import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.util.BufferUtils;
@@ -85,6 +86,8 @@ public class CharacterRequestBypass extends AbstractClientPacket {
 				npcService.action(npc, conn.getCharacter(),
 						createArgumentArray(tokenizer));
 			} catch (ActionServiceException e) {
+				conn.sendActionFailed();
+			} catch (CannotSetTargetServiceException e) {
 				conn.sendActionFailed();
 			}
 		}

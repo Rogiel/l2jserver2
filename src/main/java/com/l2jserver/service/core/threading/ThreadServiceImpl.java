@@ -17,11 +17,12 @@
 package com.l2jserver.service.core.threading;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -44,25 +45,19 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	/**
-	 * The scheduler Thread pool
-	 */
-	private ScheduledExecutorService scheduler;
-	/**
-	 * The asynchronous Thread pool
-	 */
-	private ExecutorService async;
+	private ThreadPool pool;
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		scheduler = Executors.newScheduledThreadPool(10);
-		async = Executors.newCachedThreadPool();
+		pool = createThreadPool("shared", 20);
+		// scheduler = Executors.newScheduledThreadPool(10);
+		// async = Executors.newCachedThreadPool();
 	}
 
 	@Override
 	public <T> AsyncFuture<T> async(Callable<T> callable) {
 		Preconditions.checkNotNull(callable, "callable");
-		return new AsyncFutureImpl<T>(async.submit(callable));
+		return pool.async(callable);
 	}
 
 	@Override
@@ -71,25 +66,37 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		Preconditions.checkArgument(delay >= 0, "delay < 0");
 		Preconditions.checkNotNull(unit, "unit");
 		Preconditions.checkNotNull(callable, "callable");
-		return new AsyncFutureImpl<T>(scheduler.schedule(callable, delay, unit));
+		return pool.async(delay, unit, callable);
+	}
+
+	@Override
+	public ScheduledAsyncFuture async(long delay, TimeUnit unit, long repeat,
+			Runnable task) {
+		Preconditions.checkArgument(delay >= 0, "delay < 0");
+		Preconditions.checkArgument(repeat >= 0, "repeat < 0");
+		Preconditions.checkNotNull(unit, "unit");
+		Preconditions.checkNotNull(task, "task");
+		return pool.async(delay, unit, repeat, task);
+	}
+
+	@Override
+	public ThreadPool createThreadPool(String name, int maxThreads) {
+		return new ThreadPoolImpl(name,
+				Executors.newScheduledThreadPool(maxThreads));
+	}
+
+	@Override
+	public void dispose(ThreadPool pool) {
+		if (pool instanceof ThreadPoolImpl)
+			((ThreadPoolImpl) pool).executor.shutdown();
+		throw new UnsupportedOperationException(
+				"The given ThreadPool is not supported by this service");
 	}
 
 	@Override
 	protected void doStop() throws ServiceStopException {
-		scheduler.shutdown();
-		async.shutdown();
-		try {
-			scheduler.awaitTermination(60, TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			log.warn("Scheduler thread did not stop in 60 seconds", e);
-		}
-		try {
-			async.awaitTermination(60, TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			log.warn("Asynchronous thread did not stop in 60 seconds", e);
-		}
-		scheduler = null;
-		async = null;
+		dispose(pool);
+		pool = null;
 	}
 
 	/**
@@ -99,7 +106,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	 * @param <T>
 	 *            the return type
 	 */
-	public static class AsyncFutureImpl<T> implements AsyncFuture<T> {
+	private class AsyncFutureImpl<T> implements AsyncFuture<T> {
 		/**
 		 * The future that is delegated in this implementation
 		 */
@@ -182,6 +189,94 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 			} catch (TimeoutException e) {
 				return false;
 			}
+		}
+	}
+
+	private class ScheduledAsyncFutureImpl implements ScheduledAsyncFuture {
+		private final ScheduledFuture<?> future;
+
+		public ScheduledAsyncFutureImpl(ScheduledFuture<?> future) {
+			this.future = future;
+		}
+
+		@Override
+		public long getDelay(TimeUnit unit) {
+			return future.getDelay(unit);
+		}
+
+		@Override
+		public boolean cancel(boolean mayInterruptIfRunning) {
+			return future.cancel(mayInterruptIfRunning);
+		}
+
+		@Override
+		public int compareTo(Delayed o) {
+			return future.compareTo(o);
+		}
+
+		@Override
+		public boolean isCancelled() {
+			return future.isCancelled();
+		}
+
+		@Override
+		public boolean isDone() {
+			return future.isDone();
+		}
+
+		@Override
+		public Object get() throws InterruptedException, ExecutionException {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public Object get(long timeout, TimeUnit unit)
+				throws InterruptedException, ExecutionException,
+				TimeoutException {
+			throw new UnsupportedOperationException();
+		}
+
+	}
+
+	private class ThreadPoolImpl implements ThreadPool {
+		/**
+		 * This thread pool name
+		 */
+		private final String name;
+		/**
+		 * The backing executor
+		 */
+		private final ScheduledExecutorService executor;
+
+		public ThreadPoolImpl(String name, ScheduledExecutorService executor) {
+			this.name = name;
+			this.executor = executor;
+		}
+
+		@Override
+		public <T> AsyncFuture<T> async(Callable<T> callable) {
+			log.debug("Task {} submited to {}", callable, name);
+			return new AsyncFutureImpl<T>(executor.submit(callable));
+		}
+
+		@Override
+		public <T> AsyncFuture<T> async(long delay, TimeUnit unit,
+				Callable<T> callable) {
+			if (log.isDebugEnabled())
+				log.debug("Task {} scheduled in {} {} to {}", new Object[] {
+						callable, delay, unit, name });
+			return new AsyncFutureImpl<T>(executor.schedule(callable, delay,
+					unit));
+		}
+
+		@Override
+		public ScheduledAsyncFuture async(long delay, TimeUnit unit,
+				long repeat, Runnable task) {
+			if (log.isDebugEnabled())
+				log.debug("Task {} scheduled every {} {} to {}", new Object[] {
+						task, repeat, unit, name });
+			return new ScheduledAsyncFutureImpl(executor.scheduleAtFixedRate(
+					task, delay, repeat, unit));
 		}
 	}
 }

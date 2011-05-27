@@ -16,7 +16,6 @@
  */
 package com.l2jserver.game.ai.desires;
 
-import com.l2jserver.game.ai.AI;
 import com.l2jserver.model.world.Actor;
 
 /**
@@ -41,11 +40,6 @@ public final class AttackDesire extends AbstractDesire {
 	protected AttackDesire(Actor target, int desirePower) {
 		super(desirePower);
 		this.target = target;
-	}
-
-	@Override
-	public void handleDesire(AI<?> ai) {
-		// TODO: Implement
 	}
 
 	@Override

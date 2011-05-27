@@ -16,6 +16,7 @@
  */
 package com.l2jserver.db.dao.h2;
 
+import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterFriendDAO;
 import com.l2jserver.db.dao.jdbc.JDBCCharacterFriendDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
@@ -29,6 +30,7 @@ import com.l2jserver.service.database.DatabaseService;
  */
 public class H2CharacterFriendDAO extends JDBCCharacterFriendDAO implements
 		CharacterFriendDAO {
+	@Inject
 	public H2CharacterFriendDAO(DatabaseService database,
 			FriendIDProvider idProvider, CharacterIDProvider charIdProvider) {
 		super(database, idProvider, charIdProvider);

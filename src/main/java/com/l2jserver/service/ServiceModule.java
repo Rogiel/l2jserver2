@@ -25,6 +25,8 @@ import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
 import com.l2jserver.service.core.Log4JLoggingService;
 import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.core.threading.ThreadServiceImpl;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.core.vfs.VFSServiceImpl;
 import com.l2jserver.service.database.DatabaseService;
@@ -66,9 +68,12 @@ public class ServiceModule extends AbstractModule {
 		bind(LoggingService.class).to(Log4JLoggingService.class).in(
 				Scopes.SINGLETON);
 		bind(VFSService.class).to(VFSServiceImpl.class).in(Scopes.SINGLETON);
+		bind(ThreadService.class).to(ThreadServiceImpl.class).in(
+				Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
 				.in(Scopes.SINGLETON);
 		bind(CacheService.class).to(EhCacheService.class).in(Scopes.SINGLETON);
+
 		bind(DatabaseService.class).to(JDBCDatabaseService.class).in(
 				Scopes.SINGLETON);
 		bind(WorldIDService.class).to(CachedWorldIDService.class).in(

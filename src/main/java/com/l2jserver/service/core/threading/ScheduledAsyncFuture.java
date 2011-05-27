@@ -14,26 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.h2;
+package com.l2jserver.service.core.threading;
 
-import com.google.inject.Inject;
-import com.l2jserver.db.dao.ItemDAO;
-import com.l2jserver.db.dao.jdbc.JDBCItemDAO;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.object.provider.ItemIDProvider;
-import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.service.database.DatabaseService;
+import java.util.concurrent.ScheduledFuture;
 
 /**
- * {@link ItemDAO} implementation for MySQL5
+ * This future instance extends {@link ScheduledFuture}. An scheduled future
+ * cannot return values neither await for its termination because its execution
+ * is continuously repeated.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class H2ItemDAO extends JDBCItemDAO implements ItemDAO {
-	@Inject
-	public H2ItemDAO(DatabaseService database, ItemIDProvider idFactory,
-			ItemTemplateIDProvider templateIdFactory,
-			CharacterIDProvider charIdFactory) {
-		super(database, idFactory, templateIdFactory, charIdFactory);
-	}
+public interface ScheduledAsyncFuture extends ScheduledFuture<Object> {
 }

@@ -19,19 +19,15 @@ package com.l2jserver.service.core.threading;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
-import com.l2jserver.service.Service;
-
 /**
- * This service is responsible for scheduling tasks and executing them in
- * parallel.
+ * This is an ThreadPool you can use it to schedule tasks in the future or to
+ * repeat them many times.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ThreadService extends Service {
+public interface ThreadPool {
 	/**
 	 * Executes an asynchronous tasks.
-	 * <p>
-	 * Tasks scheduled here will go to an default shared thread pool.
 	 * 
 	 * @param <T>
 	 *            the task return type
@@ -42,11 +38,7 @@ public interface ThreadService extends Service {
 	<T> AsyncFuture<T> async(Callable<T> callable);
 
 	/**
-	 * Executes an asynchronous tasks at an scheduled time. <b>Please note that
-	 * resources in scheduled thread pool are limited and tasks should be
-	 * performed fast.</b>
-	 * <p>
-	 * Tasks scheduled here will go to an default shared thread pool.
+	 * Executes an asynchronous tasks at an scheduled time.
 	 * 
 	 * @param <T>
 	 *            the task return type
@@ -61,11 +53,7 @@ public interface ThreadService extends Service {
 	<T> AsyncFuture<T> async(long delay, TimeUnit unit, Callable<T> callable);
 
 	/**
-	 * Executes an asynchronous tasks at an scheduled time. <b>Please note that
-	 * resources in scheduled thread pool are limited and tasks should be
-	 * performed fast.</b>
-	 * <p>
-	 * Tasks scheduled here will go to an default shared thread pool.
+	 * Executes an asynchronous tasks at an scheduled time.
 	 * 
 	 * @param callable
 	 *            the callable instance
@@ -80,23 +68,4 @@ public interface ThreadService extends Service {
 	ScheduledAsyncFuture async(long delay, TimeUnit unit, long repeat,
 			Runnable task);
 
-	/**
-	 * Creates a new thread pool.
-	 * 
-	 * @param name
-	 *            the pool name
-	 * @param maxThreads
-	 *            the maximum amount of threads.
-	 * @return the new thread pool
-	 */
-	ThreadPool createThreadPool(String name, int maxThreads);
-
-	/**
-	 * Disposes an given thread pool. After disposing the thread pool will no
-	 * longer be usable.
-	 * 
-	 * @param pool
-	 *            the thread pool to be disposed
-	 */
-	void dispose(ThreadPool pool);
 }

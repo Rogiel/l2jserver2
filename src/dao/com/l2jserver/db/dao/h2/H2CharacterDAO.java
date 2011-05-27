@@ -16,6 +16,7 @@
  */
 package com.l2jserver.db.dao.h2;
 
+import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.jdbc.JDBCCharacterDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
@@ -31,6 +32,7 @@ import com.l2jserver.service.database.DatabaseService;
  */
 public class H2CharacterDAO extends JDBCCharacterDAO implements
 		CharacterDAO {
+	@Inject
 	public H2CharacterDAO(DatabaseService database,
 			CharacterIDProvider idFactory,
 			CharacterTemplateIDProvider templateIdFactory,
