@@ -28,7 +28,7 @@ import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.core.vfs.VFSServiceImpl;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.MySQLDatabaseService;
+import com.l2jserver.service.database.JDBCDatabaseService;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.character.CharacterServiceImpl;
 import com.l2jserver.service.game.chat.ChatService;
@@ -69,7 +69,7 @@ public class ServiceModule extends AbstractModule {
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
 				.in(Scopes.SINGLETON);
 		bind(CacheService.class).to(EhCacheService.class).in(Scopes.SINGLETON);
-		bind(DatabaseService.class).to(MySQLDatabaseService.class).in(
+		bind(DatabaseService.class).to(JDBCDatabaseService.class).in(
 				Scopes.SINGLETON);
 		bind(WorldIDService.class).to(CachedWorldIDService.class).in(
 				Scopes.SINGLETON);

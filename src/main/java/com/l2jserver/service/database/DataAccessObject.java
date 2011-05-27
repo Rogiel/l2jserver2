@@ -16,8 +16,8 @@
  */
 package com.l2jserver.service.database;
 
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
@@ -56,7 +56,7 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @return the list containing all {@link ID} objects
 	 */
 	@IgnoreCaching
-	List<I> selectIDs();
+	Collection<I> selectIDs();
 
 	/**
 	 * Save the instance to the database. If a new database entry was created

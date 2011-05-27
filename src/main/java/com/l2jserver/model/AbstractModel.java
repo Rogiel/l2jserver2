@@ -32,7 +32,7 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	/**
 	 * The database object state
 	 */
-	protected ObjectState state = ObjectState.NOT_STORED;
+	protected transient ObjectState state = ObjectState.NOT_STORED;
 
 	@Override
 	public T getID() {

@@ -98,11 +98,6 @@ public class L2Character extends Player {
 	private Date lastAccess;
 
 	/**
-	 * The character stat
-	 */
-	private final CharacterStats stats = new CharacterStats(this);
-
-	/**
 	 * The character karma points
 	 */
 	private int karma;
@@ -119,11 +114,15 @@ public class L2Character extends Player {
 	// / RUNTIME
 	// ////////////////////////////////////
 	/**
+	 * The character stat
+	 */
+	private transient final CharacterStats stats = new CharacterStats(this);
+	/**
 	 * The character walk mode.
 	 * <p>
 	 * This field is not persisted.
 	 */
-	private CharacterMoveType moveType = CharacterMoveType.WALK;
+	private transient CharacterMoveType moveType = CharacterMoveType.WALK;
 
 	/**
 	 * The character walking mode
@@ -143,11 +142,11 @@ public class L2Character extends Player {
 	/**
 	 * The character target, if any.
 	 */
-	private ActorID<?> targetID;
+	private transient ActorID<?> targetID;
 	/**
 	 * State of the character. Will be null if it is idle
 	 */
-	private CharacterState state;
+	private transient CharacterState state;
 
 	/**
 	 * The valid states for an character
@@ -180,7 +179,7 @@ public class L2Character extends Player {
 	/**
 	 * The point the player is moving, teleporting etc...
 	 */
-	private Point targetLocation;
+	private transient Point targetLocation;
 
 	/**
 	 * Creates a new instance

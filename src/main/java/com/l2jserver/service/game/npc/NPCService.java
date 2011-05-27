@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.npc;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
@@ -69,7 +69,7 @@ public interface NPCService extends Service {
 	 * @throws SpawnPointNotFoundServiceException
 	 *             if one of the NPCs does not have an spawn point defined
 	 */
-	List<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
+	Collection<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException;
 
 	/**

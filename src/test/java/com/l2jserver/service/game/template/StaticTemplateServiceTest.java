@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.l2jserver.db.dao.MySQL5DAOModule;
+import com.l2jserver.db.dao.H2DAOModule;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.service.ServiceManager;
@@ -29,7 +29,7 @@ import com.l2jserver.service.ServiceStartException;
 
 public class StaticTemplateServiceTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new IDProviderModule(), new MySQL5DAOModule());
+			new IDProviderModule(), new H2DAOModule());
 	private final ItemTemplateIDProvider factory = injector
 			.getInstance(ItemTemplateIDProvider.class);
 

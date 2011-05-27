@@ -24,6 +24,8 @@ import org.apache.commons.vfs.FileSystemException;
 import org.apache.commons.vfs.FileSystemManager;
 import org.apache.commons.vfs.impl.DefaultFileSystemManager;
 import org.apache.commons.vfs.impl.StandardFileSystemManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
@@ -35,6 +37,11 @@ import com.l2jserver.service.ServiceStopException;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class VFSServiceImpl extends AbstractService implements VFSService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The CommonsVFS {@link FileSystemManager}
 	 */
@@ -62,6 +69,7 @@ public class VFSServiceImpl extends AbstractService implements VFSService {
 		try {
 			return manager.resolveFile(uri);
 		} catch (FileSystemException e) {
+			log.error("Error resolving file", e);
 			return null;
 		}
 	}

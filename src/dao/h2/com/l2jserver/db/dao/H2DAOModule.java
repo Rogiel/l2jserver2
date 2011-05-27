@@ -14,24 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.db.dao;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
-import com.l2jserver.db.dao.H2DAOModule;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
+import com.google.inject.Scopes;
+import com.l2jserver.db.dao.h2.H2CharacterDAO;
+import com.l2jserver.db.dao.h2.H2CharacterFriendDAO;
+import com.l2jserver.db.dao.h2.H2ClanDAO;
+import com.l2jserver.db.dao.h2.H2ItemDAO;
+import com.l2jserver.db.dao.h2.H2NPCDAO;
 
 /**
- * The game server Google Guice {@link Module}.
+ * Google Guice {@link Module} for H2 DAOs
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class GameServerModule extends AbstractModule {
+public class H2DAOModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new H2DAOModule());
+		bind(CharacterDAO.class).to(H2CharacterDAO.class).in(Scopes.SINGLETON);
+		bind(CharacterFriendDAO.class).to(H2CharacterFriendDAO.class).in(
+				Scopes.SINGLETON);
+
+		bind(NPCDAO.class).to(H2NPCDAO.class).in(Scopes.SINGLETON);
+
+		bind(ItemDAO.class).to(H2ItemDAO.class).in(Scopes.SINGLETON);
+		bind(ClanDAO.class).to(H2ClanDAO.class).in(Scopes.SINGLETON);
 	}
 }

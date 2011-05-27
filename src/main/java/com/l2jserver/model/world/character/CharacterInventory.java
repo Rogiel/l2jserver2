@@ -16,8 +16,8 @@
  */
 package com.l2jserver.model.world.character;
 
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import com.l2jserver.model.world.Item;
@@ -76,7 +76,7 @@ public class CharacterInventory implements Iterable<Item> {
 	 * @param items
 	 *            the items to be added
 	 */
-	public void load(List<Item> items) {
+	public void load(Collection<Item> items) {
 		this.items.clear();
 		this.items.addAll(items);
 	}

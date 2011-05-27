@@ -71,8 +71,9 @@ public class XMLMappingTest {
 		//
 		// System.out.println("Took " + ((end - start) / 1000) + " seconds");
 
-		final NPCTemplate t = (NPCTemplate) u
-				.unmarshal(new File("data/templates/npc/teleporter/30059-Trisha.xml"));
-		System.out.println(t.getControllerClass());
+		final CharacterTemplate t = (CharacterTemplate) u.unmarshal(new File(
+				"data/templates/character/HumanFighter.xml"));
+		System.out.println(t.getID());
+		System.out.println(t.getCharacterClass());
 	}
 }

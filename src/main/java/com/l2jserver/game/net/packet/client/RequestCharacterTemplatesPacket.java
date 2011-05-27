@@ -76,13 +76,13 @@ public class RequestCharacterTemplatesPacket extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Connection conn) {
 		log.debug("Requested character templates");
+
+		final CharacterTemplate[] templates = new CharacterTemplate[TEMPLATE_CLASSES.length];
+		int i = 0;
 		for (final CharacterClass charClass : TEMPLATE_CLASSES) {
 			final CharacterTemplateID id = idFactory.createID(charClass.id);
-			final CharacterTemplate template = id.getTemplate();
-			final CharacterTemplatePacket templatePacket = new CharacterTemplatePacket(
-					template);
-
-			conn.write(templatePacket);
+			templates[i++] = id.getTemplate();
 		}
+		conn.write(new CharacterTemplatePacket(templates));
 	}
 }

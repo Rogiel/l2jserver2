@@ -16,10 +16,13 @@
  */
 package com.l2jserver.service.database;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -34,6 +37,7 @@ import org.apache.commons.dbcp.ConnectionFactory;
 import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
 import org.apache.commons.dbcp.PoolingDataSource;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.pool.ObjectPool;
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.slf4j.Logger;
@@ -63,18 +67,18 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 @Depends({ LoggingService.class, CacheService.class,
 		ConfigurationService.class, TemplateService.class })
-public class MySQLDatabaseService extends AbstractService implements
+public class JDBCDatabaseService extends AbstractService implements
 		DatabaseService {
 	/**
 	 * The configuration object
 	 */
-	private final MySQLDatabaseConfiguration config;
+	private final JDBCDatabaseConfiguration config;
 	/**
 	 * The logger
 	 */
 	private final Logger logger = LoggerFactory
-			.getLogger(MySQLDatabaseService.class);
-	// services
+			.getLogger(JDBCDatabaseService.class);
+
 	/**
 	 * The cache service
 	 */
@@ -104,9 +108,9 @@ public class MySQLDatabaseService extends AbstractService implements
 	private Cache objectCache;
 
 	@Inject
-	public MySQLDatabaseService(ConfigurationService configService,
+	public JDBCDatabaseService(ConfigurationService configService,
 			CacheService cacheService) {
-		config = configService.get(MySQLDatabaseConfiguration.class);
+		config = configService.get(JDBCDatabaseConfiguration.class);
 		this.cacheService = cacheService;
 	}
 
@@ -127,6 +131,30 @@ public class MySQLDatabaseService extends AbstractService implements
 				.overflowToDisk(true).eternal(true).diskPersistent(false)
 				.diskExpiryThreadIntervalSeconds(0));
 		cacheService.register(objectCache);
+	}
+
+	@Override
+	public void install() {
+		@SuppressWarnings("unchecked")
+		Collection<File> files = FileUtils.listFiles(new File("dist/sql/h2"),
+				new String[] { "sql" }, false);
+		try {
+			final Connection conn = dataSource.getConnection();
+			try {
+				for (final File file : files) {
+					conn.createStatement().execute(
+							FileUtils.readFileToString(file));
+				}
+			} finally {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
 	}
 
 	/**
@@ -156,7 +184,6 @@ public class MySQLDatabaseService extends AbstractService implements
 		}
 	}
 
-	@Override
 	public Object getCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
 		final Element element = objectCache.get(id);
@@ -165,20 +192,17 @@ public class MySQLDatabaseService extends AbstractService implements
 		return element.getObjectValue();
 	}
 
-	@Override
 	public boolean hasCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
 		return objectCache.get(id) != null;
 	}
 
-	@Override
 	public void updateCache(Object key, Object value) {
 		Preconditions.checkNotNull(key, "key");
 		Preconditions.checkNotNull(value, "value");
 		objectCache.put(new Element(key, value));
 	}
 
-	@Override
 	public void removeCache(Object key) {
 		Preconditions.checkNotNull(key, "key");
 		objectCache.remove(key);
@@ -189,6 +213,7 @@ public class MySQLDatabaseService extends AbstractService implements
 		if (objectCache != null)
 			objectCache.dispose();
 		objectCache = null;
+
 		try {
 			if (connectionPool != null)
 				connectionPool.close();
@@ -473,7 +498,7 @@ public class MySQLDatabaseService extends AbstractService implements
 		/**
 		 * The database service instance
 		 */
-		private final MySQLDatabaseService database;
+		private final JDBCDatabaseService database;
 
 		private final Mapper<I> idMapper;
 
@@ -483,7 +508,7 @@ public class MySQLDatabaseService extends AbstractService implements
 		 * @param database
 		 *            the database service
 		 */
-		public CachedMapper(MySQLDatabaseService database, Mapper<I> idMapper) {
+		public CachedMapper(JDBCDatabaseService database, Mapper<I> idMapper) {
 			this.database = database;
 			this.idMapper = idMapper;
 		}

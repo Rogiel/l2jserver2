@@ -21,7 +21,7 @@ import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.database.AbstractDAO;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.MySQLDatabaseService;
+import com.l2jserver.service.database.JDBCDatabaseService;
 
 /**
  * {@link AbstractDAO} for MySQL DAO implementation
@@ -38,11 +38,11 @@ public abstract class AbstractMySQL5DAO<T extends Model<?>, I extends ID<?>>
 	/**
 	 * The MySQL Database Service
 	 */
-	protected final MySQLDatabaseService database;
+	protected final JDBCDatabaseService database;
 
 	@Inject
 	protected AbstractMySQL5DAO(DatabaseService database) {
 		super(database);
-		this.database = (MySQLDatabaseService) database;
+		this.database = (JDBCDatabaseService) database;
 	}
 }

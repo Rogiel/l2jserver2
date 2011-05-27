@@ -87,9 +87,7 @@ public class AuthLoginPacket extends AbstractClientPacket {
 
 		final List<L2Character> chars = characterDao.selectByAccount(accountId);
 		conn.write(CharacterSelectionListPacket.fromL2Session(
-				conn.getSession(), chars.get(0)));
-		// conn.setCharacterID(chars.get(0).getID());
-		// conn.write(new CharacterEnterWorldPacket(chars.get(0), playKey1));
+				conn.getSession(), chars.toArray(new L2Character[chars.size()])));
 	}
 
 	/**

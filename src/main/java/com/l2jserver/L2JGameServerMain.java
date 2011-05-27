@@ -59,15 +59,11 @@ public class L2JGameServerMain {
 
 			// spawn
 			serviceManager.get(NPCService.class).spawnAll();
-
-			// staticSpawn(server.getInjector());
 		} catch (Exception e) {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();
 			System.exit(0);
 		}
-
-		// Thread.sleep(60 * 60 * 1000);
 	}
 	//
 	// /**

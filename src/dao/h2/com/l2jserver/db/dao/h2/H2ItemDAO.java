@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.h2;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,11 +44,11 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.util.dimensional.Coordinate;
 
 /**
- * {@link ItemDAO} implementation for MySQL5
+ * {@link ItemDAO} implementation for H2f
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
+public class H2ItemDAO extends AbstractH2DAO<Item, ItemID> implements
 		ItemDAO {
 	/**
 	 * The {@link ItemID} factory
@@ -70,7 +70,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
 	// FIELDS
 	public static final String ITEM_ID = "item_id";
 	public static final String TEMPLATE_ID = "template_id";
-	public static final String CHAR_ID = MySQL5CharacterDAO.CHAR_ID;
+	public static final String CHAR_ID = H2CharacterDAO.CHAR_ID;
 
 	public static final String LOCATION = "location";
 	public static final String PAPERDOLL = "paperdoll";
@@ -80,7 +80,7 @@ public class MySQL5ItemDAO extends AbstractMySQL5DAO<Item, ItemID> implements
 	public static final String COORD_Z = "coord_z";
 
 	@Inject
-	public MySQL5ItemDAO(DatabaseService database,
+	public H2ItemDAO(DatabaseService database,
 			final ItemIDProvider idFactory,
 			ItemTemplateIDProvider templateIdFactory,
 			CharacterIDProvider charIdFactory) {

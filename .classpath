@@ -2,8 +2,9 @@
 <classpath>
 	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
-	<classpathentry excluding="mysql5/|db4o/" kind="src" path="src/dao"/>
+	<classpathentry excluding="mysql5/|db4o/|neodatis/|h2/" kind="src" path="src/dao"/>
 	<classpathentry kind="src" path="src/dao/mysql5"/>
+	<classpathentry kind="src" path="src/dao/h2"/>
 	<classpathentry kind="src" output="target/scripts" path="data/script/quest"/>
 	<classpathentry kind="src" output="target/scripts" path="data/script/ai"/>
 	<classpathentry kind="src" output="target/scripts" path="data/plugin"/>

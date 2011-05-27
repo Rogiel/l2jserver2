@@ -33,7 +33,6 @@ import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
 
-import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata;
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata.AttackMetadata;
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata.AttackMetadata.AttackValueMetadata;
@@ -44,7 +43,6 @@ import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata.Mov
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata.Stat;
 import com.l2jserver.model.template.CharacterTemplate.CollitionMetadataContainer;
 import com.l2jserver.model.template.CharacterTemplate.CollitionMetadataContainer.CollisionMetadata;
-import com.l2jserver.model.world.character.CharacterClass;
 
 /**
  * The need to use this package to get access to protected fields.
@@ -91,7 +89,7 @@ public class CharacterTemplateConverter {
 					CharacterTemplate t = fillTemplate(rs);
 
 					final File file = new File(target, "character/"
-							+ camelCase(t.characterClass.name()) + ".xml");
+							+ camelCase(t.getCharacterClass().name()) + ".xml");
 					file.getParentFile().mkdirs();
 
 					m.marshal(t, file);
@@ -111,8 +109,6 @@ public class CharacterTemplateConverter {
 			throws SQLException {
 		final CharacterTemplate t = new CharacterTemplate();
 
-		t.characterClass = CharacterClass.fromID(rs.getInt("ClassId"));
-		// this.hpBase = ${defaulthpbase};
 		t.stats = new CharacterStatsMetadata();
 		t.stats.hp = new Stat();
 		t.stats.hp.base = rs.getDouble("defaulthpbase");

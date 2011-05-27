@@ -23,7 +23,7 @@ import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
 @ConfigurationName("template")
 public interface XMLTemplateServiceConfiguration extends Configuration {
-	@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "zip:data/templates.zip")
+	@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "data/templates")
 	URI getTemplateDirectory();
 
 	@ConfigurationPropertySetter(name = "template.directory")

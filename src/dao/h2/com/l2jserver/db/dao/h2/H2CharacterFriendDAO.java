@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.h2;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,13 +38,12 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
 
 /**
- * {@link CharacterFriendDAO} implementation for MySQL5
+ * {@link CharacterFriendDAO} implementation for H2
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5CharacterFriendDAO extends
-		AbstractMySQL5DAO<CharacterFriend, FriendID> implements
-		CharacterFriendDAO {
+public class H2CharacterFriendDAO extends
+		AbstractH2DAO<CharacterFriend, FriendID> implements CharacterFriendDAO {
 	/**
 	 * The {@link FriendID} provider
 	 */
@@ -59,12 +58,12 @@ public class MySQL5CharacterFriendDAO extends
 	 */
 	public static final String TABLE = "character_friend";
 	// FIELDS
-	public static final String CHAR_ID = MySQL5CharacterDAO.CHAR_ID;
-	public static final String CHAR_ID_FRIEND = MySQL5CharacterDAO.CHAR_ID
+	public static final String CHAR_ID = H2CharacterDAO.CHAR_ID;
+	public static final String CHAR_ID_FRIEND = H2CharacterDAO.CHAR_ID
 			+ "_friend";
 
 	@Inject
-	public MySQL5CharacterFriendDAO(DatabaseService database,
+	public H2CharacterFriendDAO(DatabaseService database,
 			final FriendIDProvider idProvider,
 			CharacterIDProvider charIdProvider) {
 		super(database);

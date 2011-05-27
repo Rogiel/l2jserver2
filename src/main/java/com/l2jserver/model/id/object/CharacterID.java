@@ -31,7 +31,7 @@ public final class CharacterID extends ActorID<L2Character> {
 	/**
 	 * Data Access Object (DAO) for characters
 	 */
-	private final CharacterDAO characterDao;
+	private transient final CharacterDAO characterDao;
 
 	@Inject
 	public CharacterID(@Assisted int id, CharacterDAO characterDao) {

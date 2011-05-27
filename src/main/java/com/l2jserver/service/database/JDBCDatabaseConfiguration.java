@@ -17,60 +17,60 @@
 package com.l2jserver.service.database;
 
 /**
- * Configuration interface for {@link MySQLDatabaseService}.
+ * Configuration interface for {@link JDBCDatabaseService}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface MySQLDatabaseConfiguration extends DatabaseConfiguration {
+public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
 	/**
 	 * @return the jdbc url
 	 */
-	@ConfigurationPropertyGetter(name = "jdbc.mysql.url", defaultValue = "jdbc:mysql://localhost/l2jserver2")
+	@ConfigurationPropertyGetter(name = "jdbc.url", defaultValue = "jdbc:mysql://localhost/l2jserver2")
 	String getJdbcUrl();
 
 	/**
 	 * @param jdbcUrl
 	 *            the new jdbc url
 	 */
-	@ConfigurationPropertySetter(name = "jdbc.mysql.url")
+	@ConfigurationPropertySetter(name = "jdbc.url")
 	void setJdbcUrl(String jdbcUrl);
 
 	/**
 	 * @return the jdbc driver class
 	 */
-	@ConfigurationPropertyGetter(name = "jdbc.mysql.driver", defaultValue = "com.mysql.jdbc.Driver")
+	@ConfigurationPropertyGetter(name = "jdbc.driver", defaultValue = "com.jdbc.jdbc.Driver")
 	String getDriver();
 
 	/**
 	 * @param driver
 	 *            the new jdbc driver
 	 */
-	@ConfigurationPropertySetter(name = "jdbc.mysql.driver")
+	@ConfigurationPropertySetter(name = "jdbc.driver")
 	void setDriver(Class<?> driver);
 
 	/**
-	 * @return the mysql database username
+	 * @return the jdbc database username
 	 */
-	@ConfigurationPropertyGetter(name = "jdbc.mysql.username", defaultValue = "l2j")
+	@ConfigurationPropertyGetter(name = "jdbc.username", defaultValue = "l2j")
 	String getUsername();
 
 	/**
 	 * @param username
-	 *            the mysql database username
+	 *            the jdbc database username
 	 */
-	@ConfigurationPropertySetter(name = "jdbc.mysql.username")
+	@ConfigurationPropertySetter(name = "jdbc.username")
 	void setUsername(String username);
 
 	/**
-	 * @return the mysql database password
+	 * @return the jdbc database password
 	 */
-	@ConfigurationPropertyGetter(name = "jdbc.mysql.password", defaultValue = "changeme")
+	@ConfigurationPropertyGetter(name = "jdbc.password", defaultValue = "changeme")
 	String getPassword();
 
 	/**
 	 * @param password
-	 *            the mysql database password
+	 *            the jdbc database password
 	 */
-	@ConfigurationPropertySetter(name = "jdbc.mysql.password")
+	@ConfigurationPropertySetter(name = "jdbc.password")
 	void setPassword(String password);
 }

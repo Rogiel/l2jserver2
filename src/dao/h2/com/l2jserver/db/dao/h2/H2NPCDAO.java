@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.h2;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,12 +42,11 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.util.dimensional.Point;
 
 /**
- * {@link CharacterDAO} implementation for MySQL5
+ * {@link CharacterDAO} implementation for H2
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC, NPCID> implements
-		NPCDAO {
+public class H2NPCDAO extends AbstractH2DAO<NPC, NPCID> implements NPCDAO {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
@@ -73,8 +72,7 @@ public class MySQL5NPCDAO extends AbstractMySQL5DAO<NPC, NPCID> implements
 	public static final String POINT_ANGLE = "point_angle";
 
 	@Inject
-	public MySQL5NPCDAO(DatabaseService database,
-			final NPCIDProvider idProvider,
+	public H2NPCDAO(DatabaseService database, final NPCIDProvider idProvider,
 			NPCTemplateIDProvider templateIdProvider) {
 		super(database);
 		this.idProvider = idProvider;

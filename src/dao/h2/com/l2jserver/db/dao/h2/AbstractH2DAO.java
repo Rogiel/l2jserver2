@@ -14,29 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database;
+package com.l2jserver.db.dao.h2;
 
-import java.io.File;
-
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
+import com.google.inject.Inject;
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
+import com.l2jserver.service.database.AbstractDAO;
+import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.JDBCDatabaseService;
 
 /**
- * Configuration for DB4O Database Service
+ * {@link AbstractDAO} for H2 DAO implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <T>
+ *            the object for the DAO
+ * @param <I>
+ *            the object ID type
  */
-@ConfigurationName("db4o")
-public interface DB4ODatabaseConfiguration extends DatabaseConfiguration {
+public abstract class AbstractH2DAO<T extends Model<?>, I extends ID<?>>
+		extends AbstractDAO<T, I> {
 	/**
-	 * @return the database file
+	 * The H2 Database Service
 	 */
-	@ConfigurationPropertyGetter(name = "db4o.file", defaultValue = "database.bin")
-	File getDatabaseFile();
+	protected final JDBCDatabaseService database;
 
-	/**
-	 * @param jdbcUrl
-	 *            the new database file
-	 */
-	@ConfigurationPropertySetter(name = "db4o.file")
-	void setDatabaseFile(File file);
+	@Inject
+	protected AbstractH2DAO(DatabaseService database) {
+		super(database);
+		this.database = (JDBCDatabaseService) database;
+	}
 }

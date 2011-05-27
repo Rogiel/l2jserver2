@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.h2;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,12 +37,11 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
 
 /**
- * {@link CharacterDAO} implementation for MySQL5
+ * {@link CharacterDAO} implementation for H2
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan, ClanID> implements
-		ClanDAO {
+public class H2ClanDAO extends AbstractH2DAO<Clan, ClanID> implements ClanDAO {
 	/**
 	 * The {@link ClanID} factory
 	 */
@@ -62,8 +61,8 @@ public class MySQL5ClanDAO extends AbstractMySQL5DAO<Clan, ClanID> implements
 	public static final String CHAR_ID_LEADER = "character_id_leader";
 
 	@Inject
-	public MySQL5ClanDAO(DatabaseService database,
-			ClanIDProvider clanIdFactory, final CharacterIDProvider idFactory) {
+	public H2ClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
+			final CharacterIDProvider idFactory) {
 		super(database);
 		this.idFactory = clanIdFactory;
 		this.charIdFactory = idFactory;

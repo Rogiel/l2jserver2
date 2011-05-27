@@ -31,7 +31,8 @@ import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 
 /**
- * The {@link L2Character} template. Each character instance is backed by an template.
+ * The {@link L2Character} template. Each character instance is backed by an
+ * template.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -42,9 +43,6 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 	@XmlJavaTypeAdapter(CharacterTemplateIDAdapter.class)
 	@XmlAttribute(name = "class")
 	protected CharacterTemplateID id = null;
-
-	@XmlAttribute(name = "class")
-	protected CharacterClass characterClass = null;
 
 	@XmlElement(name = "stats")
 	protected CharacterStatsMetadata stats = null;
@@ -181,14 +179,14 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 	 * @return the character Class
 	 */
 	public CharacterClass getCharacterClass() {
-		return characterClass;
+		return CharacterClass.fromID(id.getID());
 	}
 
 	/**
 	 * @return the character race
 	 */
 	public ActorRace getRace() {
-		return characterClass.race;
+		return getCharacterClass().race;
 	}
 
 	/**

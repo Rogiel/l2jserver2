@@ -25,40 +25,5 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface DatabaseService extends Service {
-	/**
-	 * Get the database object cached. Will return null if the object is not in
-	 * cache
-	 * 
-	 * @param id
-	 *            the object id
-	 * @return the cached object
-	 */
-	Object getCachedObject(Object id);
-
-	/**
-	 * Tests if the object is cached
-	 * 
-	 * @param id
-	 *            the object id
-	 * @return true if object is in cache
-	 */
-	boolean hasCachedObject(Object id);
-
-	/**
-	 * Adds or update the cache object
-	 * 
-	 * @param key
-	 *            the cache key
-	 * @param value
-	 *            the object
-	 */
-	void updateCache(Object key, Object value);
-
-	/**
-	 * Removes an object from the cache
-	 * 
-	 * @param key
-	 *            the cache key
-	 */
-	void removeCache(Object key);
+	void install();
 }

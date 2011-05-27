@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.npc;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
 
 import com.google.common.base.Preconditions;
@@ -123,9 +123,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	}
 
 	@Override
-	public List<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
+	public Collection<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException {
-		final List<NPC> npcs = npcDao.loadAll();
+		final Collection<NPC> npcs = npcDao.loadAll();
 		for (final NPC npc : npcs) {
 			spawnService.spawn(npc, null);
 		}

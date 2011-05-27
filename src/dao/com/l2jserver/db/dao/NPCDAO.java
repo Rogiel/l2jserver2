@@ -16,6 +16,7 @@
  */
 package com.l2jserver.db.dao;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.l2jserver.model.id.object.NPCID;
@@ -35,7 +36,7 @@ public interface NPCDAO extends DataAccessObject<NPC, NPCID>, Cacheable {
 	 * 
 	 * @return all NPC instances
 	 */
-	List<NPC> loadAll();
+	Collection<NPC> loadAll();
 
 	/**
 	 * Select an {@link NPC} by its template.

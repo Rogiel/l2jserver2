@@ -30,7 +30,7 @@ import com.l2jserver.service.game.template.TemplateService;
  */
 public class CharacterTemplateID extends ActorTemplateID<CharacterTemplate> {
 	@Inject
-	protected CharacterTemplateID(@Assisted int id,
+	public CharacterTemplateID(@Assisted int id,
 			TemplateService templateService) {
 		super(id, templateService);
 	}

@@ -70,7 +70,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 	/**
 	 * The {@link CharacterTemplateID} factory
 	 */
-	private final CharacterTemplateIDProvider characterTemplateIdFactory;
+	private final CharacterTemplateIDProvider characterTemplateIdProvider;
 
 	// packet
 	/**
@@ -140,7 +140,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 			CharacterTemplateIDProvider characterTemplateIdFactory) {
 		this.characterDao = characterDao;
 		this.characterIdFactory = characterIdFactory;
-		this.characterTemplateIdFactory = characterTemplateIdFactory;
+		this.characterTemplateIdProvider = characterTemplateIdFactory;
 	}
 
 	@Override
@@ -192,7 +192,7 @@ public class CharacterCreatePacket extends AbstractClientPacket {
 		}
 
 		// create template id and lookup for the template instance
-		final CharacterTemplateID templateId = characterTemplateIdFactory
+		final CharacterTemplateID templateId = characterTemplateIdProvider
 				.createID(characterClass.id);
 		final CharacterTemplate template = templateId.getTemplate();
 		log.debug("Creating character with template {}", template);

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.h2;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,12 +51,12 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.util.dimensional.Point;
 
 /**
- * {@link CharacterDAO} implementation for MySQL5
+ * {@link CharacterDAO} implementation for H2
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5CharacterDAO extends
-		AbstractMySQL5DAO<L2Character, CharacterID> implements CharacterDAO {
+public class H2CharacterDAO extends
+		AbstractH2DAO<L2Character, CharacterID> implements CharacterDAO {
 	/**
 	 * The {@link CharacterID} factory
 	 */
@@ -106,7 +106,7 @@ public class MySQL5CharacterDAO extends
 	public static final String APPEARANCE_FACE = "apperance_face";
 
 	@Inject
-	public MySQL5CharacterDAO(DatabaseService database,
+	public H2CharacterDAO(DatabaseService database,
 			final CharacterIDProvider idFactory,
 			CharacterTemplateIDProvider templateIdFactory,
 			AccountIDProvider accountIdFactory, ClanIDProvider clanIdFactory) {

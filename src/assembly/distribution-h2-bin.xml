@@ -2,7 +2,7 @@
 	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
-	<id>bin</id>
+	<id>h2-bin</id>
 	<formats>
 		<format>tar.gz</format>
 		<format>tar.bz2</format>
@@ -16,6 +16,12 @@
 			<includes>
 				<include>data/**</include>
 			</includes>
+			<excludes>
+				<exclude>.gitignore</exclude>
+				<exclude>data/cache/**</exclude>
+				<exclude>data/pathing.db</exclude>
+				<exclude>data/database.h2.*</exclude>
+			</excludes>
 		</fileSet>
 		<fileSet>
 			<directory>${project.basedir}/dist</directory>
@@ -33,19 +39,15 @@
 			</excludes>
 		</fileSet>
 	</fileSets>
-	<!-- <files> -->
-	<!-- <file> -->
-	<!-- <outputDirectory>/data/</outputDirectory> -->
-	<!-- <destName>templates.zip</destName> -->
-	<!-- <source>*templates.zip</source> -->
-	<!-- </file> -->
-	<!-- </files> -->
 	<dependencySets>
 		<dependencySet>
 			<outputDirectory>/libs</outputDirectory>
 			<useProjectArtifact>true</useProjectArtifact>
 			<unpack>false</unpack>
 			<scope>runtime</scope>
+			<excludes>
+				<exclude>mysql:mysql-connector-java</exclude>
+			</excludes>
 		</dependencySet>
 	</dependencySets>
 </assembly>

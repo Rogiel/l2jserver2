@@ -70,6 +70,13 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.154</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>20030825.184428</version>
@@ -108,7 +115,7 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>javacc</groupId>
+			<groupId>net.java.dev.javacc</groupId>
 			<artifactId>javacc</artifactId>
 			<version>4.1</version>
 			<type>jar</type>
@@ -221,7 +228,8 @@
 				<version>2.2.1</version>
 				<configuration>
 					<descriptors>
-						<descriptor>src/assembly/distribution-bin.xml</descriptor>
+						<descriptor>src/assembly/distribution-mysql5-bin.xml</descriptor>
+						<descriptor>src/assembly/distribution-h2-bin.xml</descriptor>
 						<descriptor>src/assembly/distribution-src.xml</descriptor>
 					</descriptors>
 				</configuration>

@@ -29,11 +29,12 @@ import com.l2jserver.service.game.template.TemplateService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ActorTemplateID<T extends ActorTemplate<?>> extends TemplateID<T, Integer> {
+public class ActorTemplateID<T extends ActorTemplate<?>> extends
+		TemplateID<T, Integer> {
 	/**
 	 * The template service
 	 */
-	private final TemplateService templateService;
+	private transient final TemplateService templateService;
 
 	@Inject
 	protected ActorTemplateID(@Assisted int id, TemplateService templateService) {
