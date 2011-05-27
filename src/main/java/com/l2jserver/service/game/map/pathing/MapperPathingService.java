@@ -14,13 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.pathing;
+package com.l2jserver.service.game.map.pathing;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
+import java.util.Arrays;
+import java.util.Iterator;
 
 import javolution.io.Struct;
 
@@ -28,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -88,8 +90,9 @@ public class MapperPathingService extends AbstractService implements
 	@Override
 	protected void doStart() throws ServiceStartException {
 		try {
-			this.channel = new FileOutputStream(file).getChannel();
-		} catch (FileNotFoundException e) {
+			this.channel = new RandomAccessFile(file, "rw").getChannel();
+			this.channel.position(file.length());
+		} catch (IOException e) {
 			throw new ServiceStartException(
 					"Could not open pathing database file", e);
 		}
@@ -109,6 +112,11 @@ public class MapperPathingService extends AbstractService implements
 				return true;
 			}
 		});
+	}
+
+	@Override
+	public Path findPath(PositionableObject object, Point3D point) {
+		return new VoidPath(object.getPoint(), point);
 	}
 
 	@Override
@@ -140,6 +148,46 @@ public class MapperPathingService extends AbstractService implements
 			struct.y.set(coordinate.getY());
 			struct.z.set(coordinate.getZ());
 			return struct;
+		}
+	}
+
+	/**
+	 * A pseudo-path. It will always trace the path in straight line.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	private class VoidPath implements Path {
+		private final Point3D source;
+		private final Point3D target;
+
+		public VoidPath(Point3D source, Point3D target) {
+			this.source = source;
+			this.target = target;
+		}
+
+		@Override
+		public Iterator<Point3D> iterator() {
+			return Arrays.asList(target).iterator();
+		}
+
+		@Override
+		public double getDistance() {
+			return source.getDistance(target);
+		}
+
+		@Override
+		public Point3D getSource() {
+			return source;
+		}
+
+		@Override
+		public Point3D getTarget() {
+			return target;
+		}
+
+		@Override
+		public int getPointCount() {
+			return 1;
 		}
 	}
 }

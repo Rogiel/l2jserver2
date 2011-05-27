@@ -14,15 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.pathing;
+package com.l2jserver.service.game.map;
 
-import com.l2jserver.service.Service;
+import com.l2jserver.service.AbstractService;
 
 /**
- * This service handles the pathing.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface PathingService extends Service {
+public class GeoDataMapService extends AbstractService implements MapService {
 
 }
