@@ -20,9 +20,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.Arrays;
 
-import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
@@ -48,7 +46,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 	/**
 	 * The interface cache
 	 */
-	private Cache interfaceCache;
+	private Cache<MethodInvocation, Object> interfaceCache;
 
 	@Override
 	protected void doStart() throws ServiceStartException {
@@ -76,10 +74,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 							return method.invoke(instance, args);
 						final MethodInvocation invocation = new MethodInvocation(
 								method, args);
-						Element element = interfaceCache.get(invocation);
-						if (element == null)
-							return doInvoke(invocation, proxy, method, args);
-						Object result = element.getObjectValue();
+						Object result = interfaceCache.get(invocation);
 						if (result == null)
 							return doInvoke(invocation, proxy, method, args);
 						return result;
@@ -90,43 +85,94 @@ public class EhCacheService extends AbstractService implements CacheService {
 							throws IllegalArgumentException,
 							IllegalAccessException, InvocationTargetException {
 						Object result = method.invoke(instance, args);
-						interfaceCache.put(new Element(invocation, result));
+						interfaceCache.put(invocation, result);
 						return result;
 					}
 				});
 		return proxy;
 	}
 
+	// @Override
+	// public Cache createCache(String name, int size) {
+	// Preconditions.checkNotNull(name, "name");
+	// Preconditions.checkArgument(size > 0, "size <= 0");
+	//
+	// Cache cache = new Cache(new CacheConfiguration(name, size)
+	// .memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
+	// .overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
+	// .timeToIdleSeconds(30).diskPersistent(false)
+	// .diskExpiryThreadIntervalSeconds(0));
+	// register(cache);
+	// return cache;
+	// }
+	//
+	// @Override
+	// public Cache createCache(String name) {
+	// Preconditions.checkNotNull(name, "name");
+	// return createCache(name, 200);
+	// }
+	//
+	// @Override
+	// public void register(Cache cache) {
+	// Preconditions.checkNotNull(cache, "cache");
+	// manager.addCache(cache);
+	// }
+	//
+	// @Override
+	// public void unregister(Cache cache) {
+	// Preconditions.checkNotNull(cache, "cache");
+	// manager.removeCache(cache.getName());
+	// }
+
 	@Override
-	public Cache createCache(String name, int size) {
+	public <K, V> Cache<K, V> createCache(String name, int size) {
 		Preconditions.checkNotNull(name, "name");
 		Preconditions.checkArgument(size > 0, "size <= 0");
 
-		Cache cache = new Cache(new CacheConfiguration(name, size)
-				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
-				.overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
-				.timeToIdleSeconds(30).diskPersistent(false)
-				.diskExpiryThreadIntervalSeconds(0));
-		register(cache);
-		return cache;
-	}
-
-	@Override
-	public Cache createCache(String name) {
-		Preconditions.checkNotNull(name, "name");
-		return createCache(name, 200);
-	}
-
-	@Override
-	public void register(Cache cache) {
-		Preconditions.checkNotNull(cache, "cache");
+		net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(
+				new CacheConfiguration(name, size)
+						.memoryStoreEvictionPolicy(
+								MemoryStoreEvictionPolicy.LRU)
+						.overflowToDisk(true).eternal(false)
+						.timeToLiveSeconds(60).timeToIdleSeconds(30)
+						.diskPersistent(false)
+						.diskExpiryThreadIntervalSeconds(0));
 		manager.addCache(cache);
+		return new EhCacheFacade<K, V>(cache);
 	}
 
 	@Override
-	public void unregister(Cache cache) {
-		Preconditions.checkNotNull(cache, "cache");
-		manager.removeCache(cache.getName());
+	public <K, V> Cache<K, V> createEternalCache(String name, int size) {
+		Preconditions.checkNotNull(name, "name");
+		Preconditions.checkArgument(size > 0, "size <= 0");
+
+		net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(
+				new CacheConfiguration(name, size)
+						.memoryStoreEvictionPolicy(
+								MemoryStoreEvictionPolicy.LRU)
+						.overflowToDisk(true).eternal(true)
+						.diskExpiryThreadIntervalSeconds(0));
+		manager.addCache(cache);
+		return new EhCacheFacade<K, V>(cache);
+	}
+
+	@Override
+	public <K, V> Cache<K, V> createCache(String name) {
+		net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(
+				new CacheConfiguration(name, 200)
+						.memoryStoreEvictionPolicy(
+								MemoryStoreEvictionPolicy.LRU)
+						.overflowToDisk(true).eternal(true)
+						.diskExpiryThreadIntervalSeconds(0));
+		manager.addCache(cache);
+		return new EhCacheFacade<K, V>(cache);
+	}
+
+	@Override
+	public <K, V> void dispose(Cache<K, V> cache) {
+		if (cache instanceof EhCacheFacade) {
+			manager.removeCache(((EhCacheFacade<K, V>) cache).cache.getName());
+		}
 	}
 
 	@Override
@@ -136,42 +182,40 @@ public class EhCacheService extends AbstractService implements CacheService {
 		interfaceCache = null;
 	}
 
-	private static class MethodInvocation {
-		private final Method method;
-		private final Object[] args;
+	private class EhCacheFacade<K, V> implements Cache<K, V> {
+		private final net.sf.ehcache.Cache cache;
 
-		public MethodInvocation(Method method, Object[] args) {
-			this.method = method;
-			this.args = args;
+		public EhCacheFacade(net.sf.ehcache.Cache cache) {
+			this.cache = cache;
 		}
 
 		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + Arrays.hashCode(args);
-			result = prime * result
-					+ ((method == null) ? 0 : method.hashCode());
-			return result;
+		public void put(K key, V value) {
+			cache.put(new Element(key, value));
 		}
 
 		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			MethodInvocation other = (MethodInvocation) obj;
-			if (!Arrays.equals(args, other.args))
-				return false;
-			if (method == null) {
-				if (other.method != null)
-					return false;
-			} else if (!method.equals(other.method))
-				return false;
-			return true;
+		@SuppressWarnings("unchecked")
+		public V get(K key) {
+			final Element element = cache.get(key);
+			if (element == null)
+				return null;
+			return (V) element.getValue();
+		}
+
+		@Override
+		public boolean contains(K key) {
+			return cache.get(key) != null;
+		}
+
+		@Override
+		public void remove(K key) {
+			cache.remove(key);
+		}
+
+		@Override
+		public void clear() {
+			cache.removeAll();
 		}
 	}
 }

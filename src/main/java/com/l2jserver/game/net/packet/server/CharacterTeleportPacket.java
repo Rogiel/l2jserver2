@@ -22,7 +22,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.game.net.packet.server.CharacterCreateFailPacket.Reason;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This packet notifies the client that the chosen character has been
@@ -44,9 +44,9 @@ public class CharacterTeleportPacket extends AbstractServerPacket {
 	/**
 	 * The teleportation point
 	 */
-	private final Point point;
+	private final Point3D point;
 
-	public CharacterTeleportPacket(L2Character character, Point point) {
+	public CharacterTeleportPacket(L2Character character, Point3D point) {
 		super(OPCODE);
 		this.character = character;
 		this.point = point;

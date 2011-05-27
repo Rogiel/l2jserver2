@@ -19,7 +19,7 @@ package com.l2jserver.util.jaxb;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.jaxb.CoordinateAdapter.CoordinateElement;
 
 /**

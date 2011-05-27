@@ -19,7 +19,7 @@ package com.l2jserver.service.game.world.filter.impl;
 import com.google.common.base.Preconditions;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Filter objects that are in the <tt>range</tt> of <tt>coordinate</tt>
@@ -30,7 +30,7 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 	/**
 	 * The coordinate point
 	 */
-	private final Point point;
+	private final Point3D point;
 	/**
 	 * The desired maximum distance of the object
 	 */
@@ -44,7 +44,7 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 	 * @param range
 	 *            the desired maximum distance of the object
 	 */
-	public RangePointFilter(final Point point, final int range) {
+	public RangePointFilter(final Point3D point, final int range) {
 		Preconditions.checkNotNull(point, "point");
 		Preconditions.checkState(range >= 0, "range < 0");
 		this.point = point;

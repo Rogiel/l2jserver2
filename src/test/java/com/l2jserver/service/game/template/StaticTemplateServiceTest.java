@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.l2jserver.db.dao.H2DAOModule;
+import com.l2jserver.db.H2DAOModule;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.service.ServiceManager;

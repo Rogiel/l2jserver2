@@ -23,16 +23,20 @@ package com.l2jserver.game;
  */
 public enum ProtocolVersion {
 	/**
-	 * Release version
+	 * The Release version, this is acctually a pseudo version. It never really
+	 * existed.
 	 */
 	RELEASE(0),
-
 	/**
-	 * Freya(216)
+	 * The Interlude(200) version
+	 */
+	INTERLUDE(200, RELEASE),
+	/**
+	 * The Freya(216) version
 	 */
 	FREYA(216, RELEASE),
 	/**
-	 * High5(268)
+	 * The High5(268) version
 	 */
 	HIGH5(268, FREYA);
 

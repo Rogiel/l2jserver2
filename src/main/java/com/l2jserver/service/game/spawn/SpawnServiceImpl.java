@@ -37,8 +37,8 @@ import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.NetworkService;
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Default implementation for {@link SpawnService}
@@ -69,7 +69,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public void spawn(PositionableObject object, Point point)
+	public void spawn(PositionableObject object, Point3D point)
 			throws SpawnPointNotFoundServiceException {
 		Preconditions.checkNotNull(object, "object");
 		// sanitize

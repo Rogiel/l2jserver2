@@ -18,11 +18,6 @@ package com.l2jserver.service.game.world;
 
 import java.util.Collection;
 
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.Element;
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
-
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
@@ -35,6 +30,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.database.DatabaseService;
 
@@ -73,7 +69,7 @@ public class CachedWorldIDService extends AbstractService implements
 	/**
 	 * The ID cache
 	 */
-	private Cache cache;
+	private Cache<Integer, ObjectID<?>> cache;
 
 	/**
 	 * The loaded state
@@ -94,12 +90,8 @@ public class CachedWorldIDService extends AbstractService implements
 	@Override
 	protected void doStart() throws ServiceStartException {
 		// we allocate an cache which can fit all ids
-		cache = new Cache(new CacheConfiguration("id-cache",
-				IDAllocator.ALLOCABLE_IDS)
-				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
-				.overflowToDisk(true).eternal(true).diskPersistent(false)
-				.diskExpiryThreadIntervalSeconds(0));
-		cacheService.register(cache);
+		cache = cacheService.createEternalCache("id-cache",
+				IDAllocator.ALLOCABLE_IDS);
 	}
 
 	@Override
@@ -112,7 +104,7 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	public void unload() {
-		cache.removeAll();
+		cache.clear();
 	}
 
 	/**
@@ -137,17 +129,13 @@ public class CachedWorldIDService extends AbstractService implements
 			// ignore resolving before all IDs are loaded
 			return null;
 		}
-
-		final Element element = cache.get(id);
-		if (element == null)
-			return null;
-		return (I) element.getObjectValue();
+		return (I) cache.get(id);
 	}
 
 	@Override
 	public <I extends ObjectID<?>> void add(I id) {
 		Preconditions.checkNotNull(id, "id");
-		cache.put(new Element(id.getID(), id));
+		cache.put(id.getID(), id);
 	}
 
 	@Override
@@ -158,7 +146,7 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	protected void doStop() throws ServiceStopException {
-		cacheService.unregister(cache);
+		cacheService.dispose(cache);
 		cache = null;
 		allocator.clear();
 	}

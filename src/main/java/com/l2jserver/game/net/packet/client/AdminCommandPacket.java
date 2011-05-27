@@ -27,7 +27,7 @@ import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceExcept
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.BufferUtils;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * Executes an administrator action

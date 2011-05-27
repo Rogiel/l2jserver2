@@ -33,7 +33,7 @@ import com.l2jserver.service.game.character.ActorIsNotAttackableServiceException
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * Completes the creation of an character. Creates the object, inserts into the

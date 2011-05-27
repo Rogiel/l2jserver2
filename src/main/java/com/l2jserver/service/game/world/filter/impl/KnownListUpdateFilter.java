@@ -20,7 +20,7 @@ import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.game.world.filter.AndFilter;
 import com.l2jserver.service.game.world.filter.NotFilter;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This filter will only accept {@link WorldObject} which are in vision of
@@ -32,7 +32,7 @@ public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
 	public static final int KNOWNLIST_RANGE = 2000;
 
 	@SuppressWarnings("unchecked")
-	public KnownListUpdateFilter(PositionableObject object, Point old) {
+	public KnownListUpdateFilter(PositionableObject object, Point3D old) {
 		super(new KnownListFilter(object), new NotFilter<PositionableObject>(
 				new RangePointFilter(old, KNOWNLIST_RANGE)));
 	}

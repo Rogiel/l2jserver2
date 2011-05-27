@@ -22,7 +22,7 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.game.character.CharacterService;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This packet notifies the server which character the player has chosen to use.
@@ -40,7 +40,7 @@ public class CharacterValidatePositionPacket extends AbstractClientPacket {
 	 */
 	private final CharacterService charService;
 
-	private Point point;
+	private Point3D point;
 	@SuppressWarnings("unused")
 	private int extra; // vehicle id
 
@@ -51,7 +51,7 @@ public class CharacterValidatePositionPacket extends AbstractClientPacket {
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
-		point = Point.fromXYZA(buffer.readInt(), buffer.readInt(),
+		point = Point3D.fromXYZA(buffer.readInt(), buffer.readInt(),
 				buffer.readInt(), buffer.readInt());
 		extra = buffer.readInt();
 	}

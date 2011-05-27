@@ -20,7 +20,7 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event dispatched once an player has started his teleported to another
@@ -30,7 +30,7 @@ import com.l2jserver.util.dimensional.Point;
  */
 public class PlayerTeleportingEvent implements PlayerEvent {
 	private final Player player;
-	private final Point point;
+	private final Point3D point;
 
 	/**
 	 * Creates a new instance
@@ -40,7 +40,7 @@ public class PlayerTeleportingEvent implements PlayerEvent {
 	 * @param point
 	 *            the teleport point
 	 */
-	public PlayerTeleportingEvent(Player player, Point point) {
+	public PlayerTeleportingEvent(Player player, Point3D point) {
 		this.player = player;
 		this.point = point;
 	}
@@ -65,7 +65,7 @@ public class PlayerTeleportingEvent implements PlayerEvent {
 	 * 
 	 * @return the teleported point
 	 */
-	public Point getPoint() {
+	public Point3D getPoint() {
 		return point;
 	}
 

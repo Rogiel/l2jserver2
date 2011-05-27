@@ -23,8 +23,8 @@ import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This service manages {@link L2Character} instances
@@ -132,7 +132,7 @@ public interface CharacterService extends Service {
 	 * @param point
 	 *            the validated point
 	 */
-	void validate(L2Character character, Point point);
+	void validate(L2Character character, Point3D point);
 
 	/**
 	 * Called when received the validation of the position of an character
@@ -142,7 +142,7 @@ public interface CharacterService extends Service {
 	 * @param point
 	 *            the validated point
 	 */
-	void receivedValidation(L2Character character, Point point);
+	void receivedValidation(L2Character character, Point3D point);
 
 	/**
 	 * Set the character to walking mode

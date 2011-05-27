@@ -17,7 +17,7 @@
 package com.l2jserver.model.world.event;
 
 import com.l2jserver.service.game.world.event.WorldEvent;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event for objects spawning
@@ -28,5 +28,5 @@ public interface SpawnEvent extends WorldEvent {
 	/**
 	 * @return the spawning point
 	 */
-	Point getPoint();
+	Point3D getPoint();
 }

@@ -17,7 +17,7 @@
 package com.l2jserver.model.world.player.event;
 
 import com.l2jserver.model.world.Player;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event dispatched once an player has completed its teleportation to another
@@ -34,7 +34,7 @@ public class PlayerTeleportedEvent extends PlayerSpawnEvent {
 	 * @param point
 	 *            the teleport point
 	 */
-	public PlayerTeleportedEvent(Player player, Point point) {
+	public PlayerTeleportedEvent(Player player, Point3D point) {
 		super(player, point);
 	}
 }

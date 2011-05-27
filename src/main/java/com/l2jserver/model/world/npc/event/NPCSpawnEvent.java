@@ -18,7 +18,7 @@ package com.l2jserver.model.world.npc.event;
 
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.event.ActorSpawnEvent;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event dispatched once a {@link NPC} has spawned in the world.
@@ -32,7 +32,7 @@ public class NPCSpawnEvent extends ActorSpawnEvent implements NPCEvent {
 	 * @param point
 	 *            the spawn point
 	 */
-	public NPCSpawnEvent(NPC npc, Point point) {
+	public NPCSpawnEvent(NPC npc, Point3D point) {
 		super(npc, point);
 	}
 

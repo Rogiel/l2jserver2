@@ -68,8 +68,8 @@ import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.model.world.npc.controller.NotImplementedNPCController;
 import com.l2jserver.model.world.npc.controller.TeleporterController;
 import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTemplateContainer;
-import com.l2jserver.util.dimensional.Coordinate;
 import com.l2jserver.util.factory.CollectionFactory;
+import com.l2jserver.util.geometry.Coordinate;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 

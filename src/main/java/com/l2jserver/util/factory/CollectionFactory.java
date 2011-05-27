@@ -16,6 +16,7 @@
  */
 package com.l2jserver.util.factory;
 
+import java.lang.ref.ReferenceQueue;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +80,15 @@ public class CollectionFactory {
 	 */
 	public static final <T> PriorityQueue<T> newPriorityQueue() {
 		return new PriorityQueue<T>();
+	}
+
+	/**
+	 * Creates a new reference queue of type <tt>T</tt>
+	 * 
+	 * @return the created queue
+	 */
+	public static final <T> ReferenceQueue<T> newReferenceQueue() {
+		return new ReferenceQueue<T>();
 	}
 
 	/**

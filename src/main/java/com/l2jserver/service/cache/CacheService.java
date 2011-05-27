@@ -16,8 +16,6 @@
  */
 package com.l2jserver.service.cache;
 
-import net.sf.ehcache.Cache;
-
 import com.l2jserver.service.Service;
 
 /**
@@ -31,7 +29,6 @@ import com.l2jserver.service.Service;
  * {@link IgnoreCaching}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
 public interface CacheService extends Service {
 	/**
@@ -50,39 +47,60 @@ public interface CacheService extends Service {
 
 	/**
 	 * Creates a new cache with default configurations. Eviction mode is LRU
-	 * (Last Recently Used). If you wish more customization, you should manually
-	 * create the cache and register it using {@link #register(Cache)}.
+	 * (Last Recently Used). The size is only a guarantee that you can store
+	 * <b>at least</b> <tt>n</tt> items.
 	 * 
+	 * @param <K>
+	 *            the cache key type
+	 * @param <V>
+	 *            the cache value type
 	 * @param name
 	 *            the cache name
 	 * @size the maximum cache size
 	 * @return the created cache
 	 */
-	Cache createCache(String name, int size);
+	<K, V> Cache<K, V> createCache(String name, int size);
+
+	/**
+	 * Creates a new eternal cache with default configurations. An eternal cache
+	 * is guaranteed to never automatically expire items. The size is only a
+	 * guarantee that you can store <b>at least</b> <tt>n</tt> items.
+	 * 
+	 * @param <K>
+	 *            the cache key type
+	 * @param <V>
+	 *            the cache value type
+	 * @param name
+	 *            the cache name
+	 * @size the maximum cache size
+	 * @return the created cache
+	 */
+	<K, V> Cache<K, V> createEternalCache(String name, int size);
 
 	/**
 	 * Creates a new cache with default configurations. The default cache size
-	 * is 200.
+	 * is 200. The size is only a guarantee that you can store <b>at least</b>
+	 * 200 items.
 	 * 
+	 * @param <K>
+	 *            the cache key type
+	 * @param <V>
+	 *            the cache value type
 	 * @param name
 	 *            the cache name
 	 * @return the created cache
 	 */
-	Cache createCache(String name);
+	<K, V> Cache<K, V> createCache(String name);
 
 	/**
-	 * Registers a new cache
+	 * Disposes the cache. Once the cache is disposed it cannot be used anymore.
 	 * 
+	 * @param <K>
+	 *            the cache key type
+	 * @param <V>
+	 *            the cache value type
 	 * @param cache
 	 *            the cache
 	 */
-	void register(Cache cache);
-
-	/**
-	 * Unregisters an already registered cache
-	 * 
-	 * @param cache
-	 *            the cache
-	 */
-	void unregister(Cache cache);
+	<K, V> void dispose(Cache<K, V> cache);
 }

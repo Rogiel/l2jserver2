@@ -16,8 +16,8 @@
  */
 package com.l2jserver.model.world;
 
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This is an abstract object that objects that can be placed in world should
@@ -29,12 +29,12 @@ public abstract class PositionableObject extends AbstractObject {
 	/**
 	 * The point this object is currently in
 	 */
-	private Point point;
+	private Point3D point;
 
 	/**
 	 * @return the coordinate point
 	 */
-	public Point getPoint() {
+	public Point3D getPoint() {
 		return point;
 	}
 
@@ -42,7 +42,7 @@ public abstract class PositionableObject extends AbstractObject {
 	 * @param point
 	 *            the coordinate point to set
 	 */
-	public void setPoint(Point point) {
+	public void setPoint(Point3D point) {
 		this.point = point;
 	}
 
@@ -51,6 +51,6 @@ public abstract class PositionableObject extends AbstractObject {
 	}
 
 	public void setPosition(Coordinate coord) {
-		this.point = new Point(coord, (point != null ? point.getAngle() : 0));
+		this.point = new Point3D(coord, (point != null ? point.getAngle() : 0));
 	}
 }

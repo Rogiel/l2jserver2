@@ -18,7 +18,7 @@ package com.l2jserver.service.game.ai.script;
 
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.game.ai.AIScript;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a

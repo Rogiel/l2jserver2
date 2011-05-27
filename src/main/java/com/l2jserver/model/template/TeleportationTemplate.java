@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.jaxb.CoordinateAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;

@@ -21,7 +21,7 @@ import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event triggered once a character moves
@@ -36,7 +36,7 @@ public class CharacterStopMoveEvent implements CharacterEvent {
 	/**
 	 * The new point of the character
 	 */
-	private final Point point;
+	private final Point3D point;
 
 	/**
 	 * Creates a new instance
@@ -46,7 +46,7 @@ public class CharacterStopMoveEvent implements CharacterEvent {
 	 * @param point
 	 *            the character point
 	 */
-	public CharacterStopMoveEvent(L2Character character, Point point) {
+	public CharacterStopMoveEvent(L2Character character, Point3D point) {
 		this.character = character;
 		this.point = point;
 	}
@@ -54,7 +54,7 @@ public class CharacterStopMoveEvent implements CharacterEvent {
 	/**
 	 * @return the point
 	 */
-	public Point getPoint() {
+	public Point3D getPoint() {
 		return point;
 	}
 

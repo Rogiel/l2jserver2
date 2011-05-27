@@ -28,11 +28,6 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.Element;
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
-
 import org.apache.commons.dbcp.ConnectionFactory;
 import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
@@ -53,6 +48,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
@@ -105,7 +101,7 @@ public class JDBCDatabaseService extends AbstractService implements
 	/**
 	 * An cache object
 	 */
-	private Cache objectCache;
+	private Cache<Object, Object> objectCache;
 
 	@Inject
 	public JDBCDatabaseService(ConfigurationService configService,
@@ -125,12 +121,8 @@ public class JDBCDatabaseService extends AbstractService implements
 
 		// cache must be large enough for all world objects, to avoid
 		// duplication... this would endanger non-persistent states
-		objectCache = new Cache(new CacheConfiguration("database-service",
-				IDAllocator.ALLOCABLE_IDS)
-				.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
-				.overflowToDisk(true).eternal(true).diskPersistent(false)
-				.diskExpiryThreadIntervalSeconds(0));
-		cacheService.register(objectCache);
+		objectCache = cacheService.createEternalCache("database-service",
+				IDAllocator.ALLOCABLE_IDS);
 	}
 
 	@Override
@@ -186,21 +178,18 @@ public class JDBCDatabaseService extends AbstractService implements
 
 	public Object getCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
-		final Element element = objectCache.get(id);
-		if (element == null)
-			return null;
-		return element.getObjectValue();
+		return objectCache.get(id);
 	}
 
 	public boolean hasCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
-		return objectCache.get(id) != null;
+		return objectCache.contains(id);
 	}
 
 	public void updateCache(Object key, Object value) {
 		Preconditions.checkNotNull(key, "key");
 		Preconditions.checkNotNull(value, "value");
-		objectCache.put(new Element(key, value));
+		objectCache.put(key, value);
 	}
 
 	public void removeCache(Object key) {
@@ -210,8 +199,7 @@ public class JDBCDatabaseService extends AbstractService implements
 
 	@Override
 	protected void doStop() throws ServiceStopException {
-		if (objectCache != null)
-			objectCache.dispose();
+		cacheService.dispose(objectCache);
 		objectCache = null;
 
 		try {

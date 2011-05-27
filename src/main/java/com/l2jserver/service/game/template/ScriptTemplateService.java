@@ -97,11 +97,6 @@ public class ScriptTemplateService extends AbstractService implements
 	}
 
 	@Override
-	public void reload() {
-		context.reload();
-	}
-
-	@Override
 	protected void doStop() throws ServiceStopException {
 		if (context.isInitialized())
 			context.shutdown();

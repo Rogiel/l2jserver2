@@ -21,7 +21,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Actor;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * This packet notifies the client that the character is moving to an certain

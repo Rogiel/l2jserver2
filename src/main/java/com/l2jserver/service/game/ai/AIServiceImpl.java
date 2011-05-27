@@ -27,7 +27,7 @@ import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.NetworkService;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * Default implementation for {@link AIService}.

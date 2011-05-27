@@ -74,8 +74,8 @@ import com.l2jserver.service.game.world.filter.impl.IDFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListUpdateFilter;
 import com.l2jserver.service.network.NetworkService;
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Default implementation for {@link CharacterService}.
@@ -417,21 +417,21 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public void validate(L2Character character, Point point) {
+	public void validate(L2Character character, Point3D point) {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(point, "point");
 		// TODO implement position validation
 	}
 
 	@Override
-	public void receivedValidation(L2Character character, Point point) {
+	public void receivedValidation(L2Character character, Point3D point) {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(point, "point");
 		if (character.isTeleporting())
 			// ignore while teleporting, for some reason the client sends a
 			// validation just before teleport packet
 			return;
-		final Point old = character.getPoint();
+		final Point3D old = character.getPoint();
 		character.setPoint(point);
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, old));
 

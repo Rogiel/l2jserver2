@@ -24,8 +24,8 @@ import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This service is responsible for spawning monsters, npcs and players.
@@ -50,7 +50,7 @@ public interface SpawnService extends Service {
 	 * @throws AlreadySpawnedServiceException
 	 *             if the object is already spawned in the world
 	 */
-	void spawn(PositionableObject object, Point point)
+	void spawn(PositionableObject object, Point3D point)
 			throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException;
 

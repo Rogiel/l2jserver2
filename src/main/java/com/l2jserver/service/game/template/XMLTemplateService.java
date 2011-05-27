@@ -19,7 +19,6 @@ package com.l2jserver.service.game.template;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -46,22 +45,25 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.cache.Cache;
+import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
-import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 import com.l2jserver.util.vfs.ExtensionFileSelector;
 
-@Depends({ LoggingService.class, VFSService.class, ConfigurationService.class })
+@Depends({ LoggingService.class, VFSService.class, CacheService.class,
+		ConfigurationService.class })
 public class XMLTemplateService extends AbstractService implements
 		TemplateService {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	private final VFSService vfsService;
+	private final CacheService cacheService;
 
 	private final XMLTemplateServiceConfiguration config;
 	private final NPCTemplateIDAdapter npcTemplateIdAdapter;
@@ -73,16 +75,17 @@ public class XMLTemplateService extends AbstractService implements
 	private Unmarshaller unmarshaller;
 
 	@SuppressWarnings("rawtypes")
-	private Map<TemplateID, Template> templates = CollectionFactory.newMap();
+	private Cache<TemplateID, Template> templates;
 
 	@Inject
 	public XMLTemplateService(final VFSService vfsService,
-			ConfigurationService configService,
+			CacheService cacheService, ConfigurationService configService,
 			NPCTemplateIDAdapter npcTemplateIdAdapter,
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
 			CharacterTemplateIDAdapter charIdTemplateAdapter,
 			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
 		this.vfsService = vfsService;
+		this.cacheService = cacheService;
 		this.config = configService.get(XMLTemplateServiceConfiguration.class);
 		this.npcTemplateIdAdapter = npcTemplateIdAdapter;
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
@@ -92,6 +95,7 @@ public class XMLTemplateService extends AbstractService implements
 
 	@Override
 	protected void doStart() throws ServiceStartException {
+		templates = cacheService.createEternalCache("templates", 100 * 1000);
 		try {
 			log.debug("Creating JAXBContext instance");
 			context = JAXBContext.newInstance(CharacterTemplate.class,
@@ -112,9 +116,9 @@ public class XMLTemplateService extends AbstractService implements
 
 			final FileObject root = vfsService.resolve(config
 					.getTemplateDirectory());
-			
+
 			log.info("Scanning {} for XML templates", root);
-			
+
 			FileObject[] files = root.findFiles(ExtensionFileSelector
 					.ext("xml"));
 
@@ -168,14 +172,9 @@ public class XMLTemplateService extends AbstractService implements
 	}
 
 	@Override
-	public void reload() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	protected void doStop() throws ServiceStopException {
-		templates.clear();
+		cacheService.dispose(templates);
+		templates = null;
 		unmarshaller = null;
 		context = null;
 	}

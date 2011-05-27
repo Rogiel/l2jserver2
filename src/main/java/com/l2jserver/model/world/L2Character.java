@@ -31,7 +31,7 @@ import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.model.world.character.CharacterShortcutContainer;
 import com.l2jserver.model.world.character.CharacterStats;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This class represents a playable character in Lineage II world.
@@ -179,7 +179,7 @@ public class L2Character extends Player {
 	/**
 	 * The point the player is moving, teleporting etc...
 	 */
-	private transient Point targetLocation;
+	private transient Point3D targetLocation;
 
 	/**
 	 * Creates a new instance
@@ -502,7 +502,7 @@ public class L2Character extends Player {
 	/**
 	 * @return the targetLocation
 	 */
-	public Point getTargetLocation() {
+	public Point3D getTargetLocation() {
 		return targetLocation;
 	}
 
@@ -510,7 +510,7 @@ public class L2Character extends Player {
 	 * @param targetLocation
 	 *            the targetLocation to set
 	 */
-	public void setTargetLocation(Point targetLocation) {
+	public void setTargetLocation(Point3D targetLocation) {
 		this.targetLocation = targetLocation;
 	}
 

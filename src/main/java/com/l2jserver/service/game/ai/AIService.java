@@ -18,7 +18,7 @@ package com.l2jserver.service.game.ai;
 
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.service.Service;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * This service executes AI operations

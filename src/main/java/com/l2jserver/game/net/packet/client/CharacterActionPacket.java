@@ -27,7 +27,7 @@ import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.game.npc.ActionServiceException;
 import com.l2jserver.service.game.npc.NPCService;
-import com.l2jserver.util.dimensional.Coordinate;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * Executes an action from an character to an NPC

@@ -18,7 +18,7 @@ package com.l2jserver.model.world.player.event;
 
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.actor.event.ActorSpawnEvent;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event dispatcher once an player has spawned in the world
@@ -32,7 +32,7 @@ public class PlayerSpawnEvent extends ActorSpawnEvent implements PlayerEvent {
 	 * @param point
 	 *            the spawn point
 	 */
-	public PlayerSpawnEvent(Player player, Point point) {
+	public PlayerSpawnEvent(Player player, Point3D point) {
 		super(player, point);
 	}
 

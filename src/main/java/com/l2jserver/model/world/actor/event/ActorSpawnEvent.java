@@ -20,7 +20,7 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.event.SpawnEvent;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * Event dispatcher once an actor has spawned in the world
@@ -35,7 +35,7 @@ public class ActorSpawnEvent implements ActorEvent, SpawnEvent {
 	/**
 	 * The spawning point
 	 */
-	private final Point point;
+	private final Point3D point;
 
 	/**
 	 * Creates a new instance
@@ -45,7 +45,7 @@ public class ActorSpawnEvent implements ActorEvent, SpawnEvent {
 	 * @param point
 	 *            the spawn point
 	 */
-	public ActorSpawnEvent(Actor actor, Point point) {
+	public ActorSpawnEvent(Actor actor, Point3D point) {
 		this.actor = actor;
 		this.point = point;
 	}
@@ -61,7 +61,7 @@ public class ActorSpawnEvent implements ActorEvent, SpawnEvent {
 	}
 
 	@Override
-	public Point getPoint() {
+	public Point3D getPoint() {
 		return point;
 	}
 

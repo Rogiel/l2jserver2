@@ -37,8 +37,8 @@ import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.TypedWorldListener;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
-import com.l2jserver.util.dimensional.Coordinate;
-import com.l2jserver.util.dimensional.Point;
+import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * <h1>This implementation does not validate pathing!</h1>
@@ -97,7 +97,7 @@ public class MapperPathingService extends AbstractService implements
 				CharacterMoveEvent.class) {
 			@Override
 			protected boolean dispatch(CharacterMoveEvent e) {
-				final Point point = e.getPoint();
+				final Point3D point = e.getPoint();
 				final CoordinateStruct struct = CoordinateStruct
 						.fromCoordinate(point.getCoordinate());
 				try {
