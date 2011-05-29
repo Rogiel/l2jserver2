@@ -21,17 +21,17 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
-import com.l2jserver.game.net.packet.server.ActorChatMessagePacket;
-import com.l2jserver.game.net.packet.server.ActorMovementPacket;
-import com.l2jserver.game.net.packet.server.CharacterInformationBroadcastPacket;
-import com.l2jserver.game.net.packet.server.CharacterInformationExtraPacket;
-import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
-import com.l2jserver.game.net.packet.server.CharacterInventoryPacket;
-import com.l2jserver.game.net.packet.server.CharacterMovementTypePacket;
-import com.l2jserver.game.net.packet.server.CharacterTargetSelectedPacket;
-import com.l2jserver.game.net.packet.server.GameGuardQueryPacket;
-import com.l2jserver.game.net.packet.server.NPCInformationPacket;
-import com.l2jserver.game.net.packet.server.ObjectRemove;
+import com.l2jserver.game.net.packet.server.SM_CHAT;
+import com.l2jserver.game.net.packet.server.SM_MOVE;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
+import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
+import com.l2jserver.game.net.packet.server.SM_TARGET;
+import com.l2jserver.game.net.packet.server.SM_GG_QUERY;
+import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
+import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
@@ -153,7 +153,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			@Override
 			public void onMessage(ChatChannel channel, CharacterID source,
 					String message) {
-				conn.write(new ActorChatMessagePacket(source.getObject(),
+				conn.write(new SM_CHAT(source.getObject(),
 						ChatMessageDestination.ALL, message));
 			}
 		};
@@ -161,7 +161,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			@Override
 			public void onMessage(ChatChannel channel, CharacterID source,
 					String message) {
-				conn.write(new ActorChatMessagePacket(source.getObject(),
+				conn.write(new SM_CHAT(source.getObject(),
 						ChatMessageDestination.TRADE, message));
 			}
 		};
@@ -171,36 +171,35 @@ public class CharacterServiceImpl extends AbstractService implements
 		// dispatched, once a event arrives will be possible to check check if
 		// the given event will be broadcasted or not
 		// TODO this should not be here, it should be in world service or a
-		// newly
-		// created broadcast service.
+		// newly created broadcast service.
 		final WorldListener neighboorListener = new FilteredWorldListener<PositionableObject>(
 				new KnownListFilter(character)) {
 			@Override
 			protected boolean dispatch(WorldEvent e, PositionableObject object) {
 				if (e instanceof NPCSpawnEvent) {
-					conn.write(new NPCInformationPacket((NPC) object));
+					conn.write(new SM_NPC_INFO((NPC) object));
 				} else if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
-					conn.write(new ActorMovementPacket((L2Character) object,
-							evt.getPoint().getCoordinate()));
+					conn.write(new SM_MOVE((L2Character) object, evt.getPoint()
+							.getCoordinate()));
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
 					if (object instanceof NPC) {
-						conn.write(new NPCInformationPacket((NPC) object));
+						conn.write(new SM_NPC_INFO((NPC) object));
 					} else if (object instanceof L2Character) {
-						conn.write(new CharacterInformationBroadcastPacket(
+						conn.write(new SM_CHAR_INFO_BROADCAST(
 								(L2Character) object));
 					}
 				} else if (e instanceof PlayerTeleportingEvent
 						|| e instanceof CharacterLeaveWorldEvent) {
 					// object is not out of sight
-					conn.write(new ObjectRemove(object));
+					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof CharacterWalkingEvent) {
-					conn.write(new CharacterMovementTypePacket(
-							((CharacterWalkingEvent) e).getCharacter()));
+					conn.write(new SM_MOVE_TYPE(((CharacterWalkingEvent) e)
+							.getCharacter()));
 				} else if (e instanceof CharacterRunningEvent) {
-					conn.write(new CharacterMovementTypePacket(
-							((CharacterRunningEvent) e).getCharacter()));
+					conn.write(new SM_MOVE_TYPE(((CharacterRunningEvent) e)
+							.getCharacter()));
 				}
 				// keep listener alive
 				return true;
@@ -218,9 +217,9 @@ public class CharacterServiceImpl extends AbstractService implements
 							.iterable(new KnownListUpdateFilter(character, evt
 									.getPoint()))) {
 						if (o instanceof NPC) {
-							conn.write(new NPCInformationPacket((NPC) o));
+							conn.write(new SM_NPC_INFO((NPC) o));
 						} else if (o instanceof L2Character) {
-							conn.write(new CharacterInformationBroadcastPacket(
+							conn.write(new SM_CHAR_INFO_BROADCAST(
 									(L2Character) o));
 						}
 					}
@@ -262,11 +261,11 @@ public class CharacterServiceImpl extends AbstractService implements
 		chatService.getTradeChannel().addChatChannelListener(tradeChatListener);
 
 		// send this user information
-		conn.write(new CharacterInformationPacket(character));
-		conn.write(new CharacterInformationExtraPacket(character));
+		conn.write(new SM_CHAR_INFO(character));
+		conn.write(new SM_CHAR_INFO_EXTRA(character));
 		// TODO game guard enforcing
-		conn.write(new GameGuardQueryPacket());
-		conn.write(new CharacterInventoryPacket(character.getInventory()));
+		conn.write(new SM_GG_QUERY());
+		conn.write(new SM_CHAR_INVENTORY(character.getInventory()));
 
 		conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);
 		conn.sendMessage("This an an development version for l2jserver 2.0");
@@ -296,10 +295,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		for (final WorldObject o : worldService.iterable(new KnownListFilter(
 				character))) {
 			if (o instanceof NPC) {
-				conn.write(new NPCInformationPacket((NPC) o));
+				conn.write(new SM_NPC_INFO((NPC) o));
 			} else if (o instanceof L2Character) {
-				conn.write(new CharacterInformationBroadcastPacket(
-						(L2Character) o));
+				conn.write(new SM_CHAR_INFO_BROADCAST((L2Character) o));
 			}
 		}
 	}
@@ -341,8 +339,8 @@ public class CharacterServiceImpl extends AbstractService implements
 			character.setTargetID(target.getID());
 			eventDispatcher.dispatch(new CharacterTargetSelectedEvent(
 					character, target));
-			conn.write(new CharacterTargetSelectedPacket(target, character
-					.getLevel() - target.getLevel()));
+			conn.write(new SM_TARGET(target, character.getLevel()
+					- target.getLevel()));
 		} else {
 			// this indicates an inconsistency: reset target and throws an
 			// exception
@@ -411,7 +409,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		// for now, let's just write the packet, we don't have much validation
 		// to be done yet. With character validation packet, another packet of
 		// these will be broadcasted.
-		conn.write(new ActorMovementPacket(character, coordinate));
+		conn.write(new SM_MOVE(character, coordinate));
 		// we don't dispatch events here, they will be dispatched by
 		// with the same packet referred up here.
 	}
@@ -456,7 +454,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		character.setMoveType(CharacterMoveType.WALK);
 
 		eventDispatcher.dispatch(new CharacterWalkingEvent(character));
-		conn.write(new CharacterMovementTypePacket(character));
+		conn.write(new SM_MOVE_TYPE(character));
 	}
 
 	@Override
@@ -472,6 +470,6 @@ public class CharacterServiceImpl extends AbstractService implements
 		character.setMoveType(CharacterMoveType.RUN);
 
 		eventDispatcher.dispatch(new CharacterRunningEvent(character));
-		conn.write(new CharacterMovementTypePacket(character));
+		conn.write(new SM_MOVE_TYPE(character));
 	}
 }

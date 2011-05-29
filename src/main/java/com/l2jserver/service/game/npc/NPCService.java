@@ -19,7 +19,7 @@ package com.l2jserver.service.game.npc;
 import java.util.Collection;
 
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
+import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;

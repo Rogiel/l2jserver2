@@ -16,7 +16,7 @@
  */
 package com.l2jserver.game.net;
 
-import com.l2jserver.game.net.packet.server.SystemMessagePacket;
+import com.l2jserver.game.net.packet.server.SM_SYSTEM_MESSAGE;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -15207,10 +15207,10 @@ public enum SystemMessage {
 	THOMAS_D_TURKEY_DISAPPEARED(6505);
 
 	public final int id;
-	public final SystemMessagePacket packet;
+	public final SM_SYSTEM_MESSAGE packet;
 
 	SystemMessage(int id) {
 		this.id = id;
-		this.packet = new SystemMessagePacket(this);
+		this.packet = new SM_SYSTEM_MESSAGE(this);
 	}
 }

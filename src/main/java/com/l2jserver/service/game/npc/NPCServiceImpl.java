@@ -26,8 +26,8 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.client.CharacterActionPacket.CharacterAction;
-import com.l2jserver.game.net.packet.server.ActorAttackPacket;
+import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
+import com.l2jserver.game.net.packet.server.SM_ATTACK;
 import com.l2jserver.model.server.AttackHit;
 import com.l2jserver.model.server.AttackHit.AttackHitFlag;
 import com.l2jserver.model.world.L2Character;
@@ -183,7 +183,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(conn, "conn");
 		Preconditions.checkNotNull(attacker, "attacker");
 
-		conn.write(new ActorAttackPacket(conn.getCharacter(), new AttackHit(
+		conn.write(new SM_ATTACK(conn.getCharacter(), new AttackHit(
 				conn.getCharacter(), npc, AttackHitFlag.MISS,
 				AttackHitFlag.SOULSHOT)));
 	}

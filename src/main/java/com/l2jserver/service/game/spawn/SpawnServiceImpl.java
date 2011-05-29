@@ -19,9 +19,9 @@ package com.l2jserver.service.game.spawn;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.CharacterInformationExtraPacket;
-import com.l2jserver.game.net.packet.server.CharacterInformationPacket;
-import com.l2jserver.game.net.packet.server.CharacterTeleportPacket;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
+import com.l2jserver.game.net.packet.server.SM_TELEPORT;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterState;
@@ -119,7 +119,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			if (conn == null)
 				// TODO throw an exception here
 				return;
-			conn.write(new CharacterTeleportPacket(conn.getCharacter(),
+			conn.write(new SM_TELEPORT(conn.getCharacter(),
 					coordinate.toPoint()));
 			((L2Character) player).setState(CharacterState.TELEPORTING);
 			((L2Character) player).setTargetLocation(coordinate.toPoint());
@@ -150,8 +150,8 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 		character.setTargetLocation(null);
 
-		conn.write(new CharacterInformationPacket(character));
-		conn.write(new CharacterInformationExtraPacket(character));
+		conn.write(new SM_CHAR_INFO(character));
+		conn.write(new SM_CHAR_INFO_EXTRA(character));
 	}
 
 	@Override

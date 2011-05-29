@@ -27,8 +27,8 @@ import com.l2jserver.game.net.codec.Lineage2Encrypter;
 import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.packet.ServerPacket;
-import com.l2jserver.game.net.packet.server.ActionFailedPacket;
-import com.l2jserver.game.net.packet.server.SystemMessagePacket;
+import com.l2jserver.game.net.packet.server.SM_ACTION_FAILED;
+import com.l2jserver.game.net.packet.server.SM_SYSTEM_MESSAGE;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
@@ -255,7 +255,7 @@ public class Lineage2Connection {
 	 *         has been written.
 	 */
 	public ChannelFuture sendMessage(String message) {
-		return write(new SystemMessagePacket(SystemMessage.S1)
+		return write(new SM_SYSTEM_MESSAGE(SystemMessage.S1)
 				.addString(message));
 	}
 
@@ -278,15 +278,15 @@ public class Lineage2Connection {
 	 *            the {@link SystemMessage}
 	 * @param args
 	 *            the arguments of the message, they will be automatically
-	 *            detected and inserted. See {@link SystemMessagePacket} for
+	 *            detected and inserted. See {@link SM_SYSTEM_MESSAGE} for
 	 *            more about supported formats.
 	 * @return the {@link ChannelFuture} that will be notified once the packet
 	 *         has been written.
-	 * @see SystemMessagePacket
+	 * @see SM_SYSTEM_MESSAGE
 	 */
 	public ChannelFuture sendSystemMessage(SystemMessage message,
 			Object... args) {
-		final SystemMessagePacket packet = new SystemMessagePacket(message);
+		final SM_SYSTEM_MESSAGE packet = new SM_SYSTEM_MESSAGE(message);
 		for (final Object obj : args) {
 			if (obj instanceof String)
 				packet.addString((String) obj);
@@ -299,7 +299,7 @@ public class Lineage2Connection {
 	}
 
 	/**
-	 * Sends a {@link ActionFailedPacket} to the client.
+	 * Sends a {@link SM_ACTION_FAILED} to the client.
 	 * <p>
 	 * This is an convenience method for <blockquote><code>
 	 * conn.write(ActionFailedPacket.SHARED_INSTANCE);</code></blockquote>
@@ -308,7 +308,7 @@ public class Lineage2Connection {
 	 *         has been written.
 	 */
 	public ChannelFuture sendActionFailed() {
-		return write(ActionFailedPacket.SHARED_INSTANCE);
+		return write(SM_ACTION_FAILED.SHARED_INSTANCE);
 	}
 
 	/**

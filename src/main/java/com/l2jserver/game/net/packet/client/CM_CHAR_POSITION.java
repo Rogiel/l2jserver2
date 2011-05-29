@@ -14,35 +14,50 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.game.net.packet.client;
+
+import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE.Stat;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.NPC;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.game.character.CharacterService;
-import com.l2jserver.util.exception.L2Exception;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This controller is used to control teleporters (e.g. gatekeepers)
+ * This packet notifies the server which character the player has chosen to use.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MonsterController extends BaseNPCController {
+public class CM_CHAR_POSITION extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
+	public static final int OPCODE = 0x59;
+
 	/**
 	 * The {@link CharacterService}
 	 */
+	private final CharacterService charService;
+
+	private Point3D point;
+	@SuppressWarnings("unused")
+	private int extra; // vehicle id
+
 	@Inject
-	protected CharacterService charService;
+	public CM_CHAR_POSITION(CharacterService charService) {
+		this.charService = charService;
+	}
 
 	@Override
-	public void action(NPC npc, Lineage2Connection conn, L2Character character,
-			String... args) throws L2Exception {
-		// send hp update
-		conn.write(new SM_STATUS_UPDATE(npc).add(Stat.MAX_HP,
-				(int) npc.getTemplate().getMaximumHP()).add(Stat.HP,
-				(int) npc.getHP()));
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+		point = Point3D.fromXYZA(buffer.readInt(), buffer.readInt(),
+				buffer.readInt(), buffer.readInt());
+		extra = buffer.readInt();
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		charService.receivedValidation(conn.getCharacter(), point);
 	}
 }

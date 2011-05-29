@@ -14,20 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet;
+package com.l2jserver.game.net.packet.client;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.SM_CHAR_OPEN_MAP;
 
 /**
- * Google Guice {@link Module} for server packets
+ * Executes an bypass command
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ServerPacketModule extends AbstractModule {
+public class CM_CHAR_OPEN_MAP extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE
+	 */
+	public static final int OPCODE = 0x6c;
+	
 	@Override
-	protected void configure() {
-		bind(CM_PROTOCOL_VERSION.class);
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		conn.write(new SM_CHAR_OPEN_MAP(1665));
 	}
 }

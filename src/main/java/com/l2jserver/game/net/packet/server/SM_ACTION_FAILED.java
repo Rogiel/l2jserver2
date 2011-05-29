@@ -14,20 +14,37 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet;
+package com.l2jserver.game.net.packet.server;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractServerPacket;
 
 /**
- * Google Guice {@link Module} for server packets
+ * This packet responds to the Restart request
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ServerPacketModule extends AbstractModule {
+public class SM_ACTION_FAILED extends AbstractServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
+	public static final int OPCODE = 0x1f;
+
+	/**
+	 * The {@link SM_ACTION_FAILED} shared instance
+	 */
+	public static final SM_ACTION_FAILED SHARED_INSTANCE = new SM_ACTION_FAILED();
+
+	/**
+	 * Creates a new instance
+	 */
+	public SM_ACTION_FAILED() {
+		super(OPCODE);
+	}
+
 	@Override
-	protected void configure() {
-		bind(CM_PROTOCOL_VERSION.class);
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 	}
 }

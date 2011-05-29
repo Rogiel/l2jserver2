@@ -14,20 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet;
+package com.l2jserver.game.net.packet.client;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.SM_FORT_INFO;
 
 /**
- * Google Guice {@link Module} for server packets
+ * The client is requesting the manor list.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ServerPacketModule extends AbstractModule {
+public class CM_REQUEST_ALL_FORTRESS_INFO extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE1
+	 */
+	public static final int OPCODE1 = 0xd0;
+	/**
+	 * The packet OPCODE2
+	 */
+	public static final int OPCODE2 = 0x3d;
+
 	@Override
-	protected void configure() {
-		bind(CM_PROTOCOL_VERSION.class);
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		conn.write(new SM_FORT_INFO());
 	}
 }

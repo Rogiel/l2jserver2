@@ -28,7 +28,7 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import com.google.common.base.Throwables;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
-import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
+import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.util.html.markup.HtmlTemplate;
@@ -118,7 +118,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 					body.text(exception);
 				}
 			};
-			connection.write(new NPCHtmlMessagePacket(null, template));
+			connection.write(new SM_HTML(null, template));
 			connection.sendActionFailed(); // order client not to wait any packet
 	
 			final String[] lines = Throwables.getStackTraceAsString(e).split("\n");

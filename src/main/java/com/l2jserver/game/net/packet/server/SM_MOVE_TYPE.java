@@ -14,35 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.game.net.packet.server;
 
-import com.google.inject.Inject;
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE.Stat;
+import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.NPC;
-import com.l2jserver.service.game.character.CharacterService;
-import com.l2jserver.util.exception.L2Exception;
 
 /**
- * This controller is used to control teleporters (e.g. gatekeepers)
+ * This packet updates the movement type
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @see Reason
  */
-public class MonsterController extends BaseNPCController {
+public class SM_MOVE_TYPE extends AbstractServerPacket {
 	/**
-	 * The {@link CharacterService}
+	 * The packet OPCODE
 	 */
-	@Inject
-	protected CharacterService charService;
+	public static final int OPCODE = 0x28;
+
+	/**
+	 * The character
+	 */
+	private final L2Character character;
+
+	public SM_MOVE_TYPE(L2Character character) {
+		super(OPCODE);
+		this.character = character;
+	}
 
 	@Override
-	public void action(NPC npc, Lineage2Connection conn, L2Character character,
-			String... args) throws L2Exception {
-		// send hp update
-		conn.write(new SM_STATUS_UPDATE(npc).add(Stat.MAX_HP,
-				(int) npc.getTemplate().getMaximumHP()).add(Stat.HP,
-				(int) npc.getHP()));
+	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+		buffer.writeInt(character.getID().getID());
+		buffer.writeInt(character.getMoveType().id);
+		buffer.writeInt(0x00); // unk
 	}
 }

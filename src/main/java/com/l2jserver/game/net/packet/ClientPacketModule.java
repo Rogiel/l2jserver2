@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
-import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
+import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
 
 /**
  * Google Guice {@link Module} for client packets
@@ -28,6 +28,6 @@ import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
 public class ClientPacketModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(ProtocolVersionPacket.class);
+		bind(CM_PROTOCOL_VERSION.class);
 	}
 }

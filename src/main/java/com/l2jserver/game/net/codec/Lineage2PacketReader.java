@@ -27,29 +27,29 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
-import com.l2jserver.game.net.packet.client.AdminCommandPacket;
-import com.l2jserver.game.net.packet.client.AuthLoginPacket;
-import com.l2jserver.game.net.packet.client.CharacterActionPacket;
-import com.l2jserver.game.net.packet.client.CharacterAppearingPacket;
-import com.l2jserver.game.net.packet.client.CharacterAttackRequestPacket;
-import com.l2jserver.game.net.packet.client.CharacterChatMessagePacket;
-import com.l2jserver.game.net.packet.client.CharacterCreatePacket;
-import com.l2jserver.game.net.packet.client.CharacterRequestActionUse;
-import com.l2jserver.game.net.packet.client.CharacterRequestBypass;
-import com.l2jserver.game.net.packet.client.CharacterRequestInventoryPacket;
-import com.l2jserver.game.net.packet.client.CharacterRequestMovePacket;
-import com.l2jserver.game.net.packet.client.CharacterRequestOpenMap;
-import com.l2jserver.game.net.packet.client.CharacterSelectPacket;
-import com.l2jserver.game.net.packet.client.CharacterValidatePositionPacket;
-import com.l2jserver.game.net.packet.client.EnterWorld;
-import com.l2jserver.game.net.packet.client.LogoutPacket;
-import com.l2jserver.game.net.packet.client.ProtocolVersionPacket;
-import com.l2jserver.game.net.packet.client.RequestAllFortressInfoPacket;
-import com.l2jserver.game.net.packet.client.RequestCharacterTemplatesPacket;
-import com.l2jserver.game.net.packet.client.RequestGotoLobbyPacket;
-import com.l2jserver.game.net.packet.client.RequestKeyMappingPacket;
-import com.l2jserver.game.net.packet.client.RequestManorListPacket;
-import com.l2jserver.game.net.packet.client.RequestRestartPacket;
+import com.l2jserver.game.net.packet.client.CM_ADMIN_COMMAND;
+import com.l2jserver.game.net.packet.client.CM_AUTH_LOGIN;
+import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION;
+import com.l2jserver.game.net.packet.client.CM_CHAR_APPEARING;
+import com.l2jserver.game.net.packet.client.CM_CHAR_ATTACK;
+import com.l2jserver.game.net.packet.client.CM_CHAT;
+import com.l2jserver.game.net.packet.client.CM_CHAR_CREATE;
+import com.l2jserver.game.net.packet.client.CM_ACTION_USE;
+import com.l2jserver.game.net.packet.client.CM_BYPASS;
+import com.l2jserver.game.net.packet.client.CM_CHAR_REQ_INVENTORY;
+import com.l2jserver.game.net.packet.client.CM_CHAR_MOVE;
+import com.l2jserver.game.net.packet.client.CM_CHAR_OPEN_MAP;
+import com.l2jserver.game.net.packet.client.CM_CHAR_SELECT;
+import com.l2jserver.game.net.packet.client.CM_CHAR_POSITION;
+import com.l2jserver.game.net.packet.client.CM_ENTER_WORLD;
+import com.l2jserver.game.net.packet.client.CM_LOGOUT;
+import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
+import com.l2jserver.game.net.packet.client.CM_REQUEST_ALL_FORTRESS_INFO;
+import com.l2jserver.game.net.packet.client.CM_REQUEST_CHAR_TEMPLATE;
+import com.l2jserver.game.net.packet.client.CM_GOTO_LOBBY;
+import com.l2jserver.game.net.packet.client.CM_REQUEST_KEY_MAPPING;
+import com.l2jserver.game.net.packet.client.CM_REQUEST_MANOR_LIST;
+import com.l2jserver.game.net.packet.client.CM_RESTART;
 
 /**
  * This decoder reads an frame and decodes the packet in it. Each packet has an
@@ -129,61 +129,61 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 	private Class<? extends ClientPacket> getPacketClass(ChannelBuffer buffer) {
 		final short opcode = buffer.readUnsignedByte();
 		switch (opcode) {
-		case LogoutPacket.OPCODE:
-			return LogoutPacket.class;
-		case ProtocolVersionPacket.OPCODE:
-			return ProtocolVersionPacket.class;
-		case AuthLoginPacket.OPCODE:
-			return AuthLoginPacket.class;
-		case CharacterCreatePacket.OPCODE:
-			return CharacterCreatePacket.class;
-		case RequestCharacterTemplatesPacket.OPCODE:
-			return RequestCharacterTemplatesPacket.class;
+		case CM_LOGOUT.OPCODE:
+			return CM_LOGOUT.class;
+		case CM_PROTOCOL_VERSION.OPCODE:
+			return CM_PROTOCOL_VERSION.class;
+		case CM_AUTH_LOGIN.OPCODE:
+			return CM_AUTH_LOGIN.class;
+		case CM_CHAR_CREATE.OPCODE:
+			return CM_CHAR_CREATE.class;
+		case CM_REQUEST_CHAR_TEMPLATE.OPCODE:
+			return CM_REQUEST_CHAR_TEMPLATE.class;
 		case 0xd0: // COMPOSED
 			final int opcode2 = buffer.readUnsignedShort();
 			switch (opcode2) {
-			case RequestGotoLobbyPacket.OPCODE2:
-				return RequestGotoLobbyPacket.class;
-			case RequestKeyMappingPacket.OPCODE2:
-				return RequestKeyMappingPacket.class;
-			case RequestManorListPacket.OPCODE2:
-				return RequestManorListPacket.class;
-			case RequestAllFortressInfoPacket.OPCODE2:
-				return RequestAllFortressInfoPacket.class;
+			case CM_GOTO_LOBBY.OPCODE2:
+				return CM_GOTO_LOBBY.class;
+			case CM_REQUEST_KEY_MAPPING.OPCODE2:
+				return CM_REQUEST_KEY_MAPPING.class;
+			case CM_REQUEST_MANOR_LIST.OPCODE2:
+				return CM_REQUEST_MANOR_LIST.class;
+			case CM_REQUEST_ALL_FORTRESS_INFO.OPCODE2:
+				return CM_REQUEST_ALL_FORTRESS_INFO.class;
 			default:
 				logger.warn("Unknown opcode2 for 0xd0: 0x{}",
 						Integer.toHexString(opcode2));
 				break;
 			}
 			break;
-		case CharacterSelectPacket.OPCODE:
-			return CharacterSelectPacket.class;
-		case CharacterRequestMovePacket.OPCODE:
-			return CharacterRequestMovePacket.class;
-		case RequestRestartPacket.OPCODE:
-			return RequestRestartPacket.class;
-		case CharacterChatMessagePacket.OPCODE:
-			return CharacterChatMessagePacket.class;
-		case CharacterValidatePositionPacket.OPCODE:
-			return CharacterValidatePositionPacket.class;
-		case EnterWorld.OPCODE:
-			return EnterWorld.class;
-		case CharacterActionPacket.OPCODE:
-			return CharacterActionPacket.class;
-		case CharacterRequestInventoryPacket.OPCODE:
-			return CharacterRequestInventoryPacket.class;
-		case AdminCommandPacket.OPCODE:
-			return AdminCommandPacket.class;
-		case CharacterRequestBypass.OPCODE:
-			return CharacterRequestBypass.class;
-		case CharacterAppearingPacket.OPCODE:
-			return CharacterAppearingPacket.class;
-		case CharacterRequestActionUse.OPCODE:
-			return CharacterRequestActionUse.class;
-		case CharacterRequestOpenMap.OPCODE:
-			return CharacterRequestOpenMap.class;
-		case CharacterAttackRequestPacket.OPCODE:
-			return CharacterAttackRequestPacket.class;
+		case CM_CHAR_SELECT.OPCODE:
+			return CM_CHAR_SELECT.class;
+		case CM_CHAR_MOVE.OPCODE:
+			return CM_CHAR_MOVE.class;
+		case CM_RESTART.OPCODE:
+			return CM_RESTART.class;
+		case CM_CHAT.OPCODE:
+			return CM_CHAT.class;
+		case CM_CHAR_POSITION.OPCODE:
+			return CM_CHAR_POSITION.class;
+		case CM_ENTER_WORLD.OPCODE:
+			return CM_ENTER_WORLD.class;
+		case CM_CHAR_ACTION.OPCODE:
+			return CM_CHAR_ACTION.class;
+		case CM_CHAR_REQ_INVENTORY.OPCODE:
+			return CM_CHAR_REQ_INVENTORY.class;
+		case CM_ADMIN_COMMAND.OPCODE:
+			return CM_ADMIN_COMMAND.class;
+		case CM_BYPASS.OPCODE:
+			return CM_BYPASS.class;
+		case CM_CHAR_APPEARING.OPCODE:
+			return CM_CHAR_APPEARING.class;
+		case CM_ACTION_USE.OPCODE:
+			return CM_ACTION_USE.class;
+		case CM_CHAR_OPEN_MAP.OPCODE:
+			return CM_CHAR_OPEN_MAP.class;
+		case CM_CHAR_ATTACK.OPCODE:
+			return CM_CHAR_ATTACK.class;
 		default:
 			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
 			break;

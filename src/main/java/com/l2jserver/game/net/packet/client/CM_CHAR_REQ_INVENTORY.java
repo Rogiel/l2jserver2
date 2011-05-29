@@ -14,35 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.game.net.packet.client;
 
-import com.google.inject.Inject;
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE.Stat;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.NPC;
-import com.l2jserver.service.game.character.CharacterService;
-import com.l2jserver.util.exception.L2Exception;
 
 /**
- * This controller is used to control teleporters (e.g. gatekeepers)
+ * Completes the creation of an character. Creates the object, inserts into the
+ * database and notifies the client about the status of the operation.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MonsterController extends BaseNPCController {
+public class CM_CHAR_REQ_INVENTORY extends AbstractClientPacket {
 	/**
-	 * The {@link CharacterService}
+	 * The packet OPCODE
 	 */
-	@Inject
-	protected CharacterService charService;
+	public static final int OPCODE = 0x14;
 
 	@Override
-	public void action(NPC npc, Lineage2Connection conn, L2Character character,
-			String... args) throws L2Exception {
-		// send hp update
-		conn.write(new SM_STATUS_UPDATE(npc).add(Stat.MAX_HP,
-				(int) npc.getTemplate().getMaximumHP()).add(Stat.HP,
-				(int) npc.getHP()));
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		final L2Character character = conn.getCharacter();
+		conn.write(new SM_CHAR_INVENTORY(character.getInventory()));
 	}
 }

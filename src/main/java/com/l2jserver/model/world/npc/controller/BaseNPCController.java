@@ -22,7 +22,7 @@ import org.htmlparser.Parser;
 import org.htmlparser.util.ParserException;
 
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.NPCHtmlMessagePacket;
+import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
@@ -62,7 +62,7 @@ public class BaseNPCController implements NPCController {
 				body.text("Arguments: " + Arrays.toString(args));
 			}
 		}.register("name", character.getName());
-		conn.write(new NPCHtmlMessagePacket(npc, template));
+		conn.write(new SM_HTML(npc, template));
 		conn.sendActionFailed();
 	}
 
@@ -89,7 +89,7 @@ public class BaseNPCController implements NPCController {
 		final String html = getHTML(npc, id);
 		if (html == null)
 			return false;
-		conn.write(new NPCHtmlMessagePacket(npc, html));
+		conn.write(new SM_HTML(npc, html));
 		conn.sendActionFailed();
 		return true;
 	}
