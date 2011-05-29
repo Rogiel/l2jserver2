@@ -73,4 +73,43 @@ public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
 	 */
 	@ConfigurationPropertySetter(name = "jdbc.password")
 	void setPassword(String password);
+
+	/**
+	 * @return the maximum number of active connections
+	 */
+	@ConfigurationPropertyGetter(name = "jdbc.active.max", defaultValue = "20")
+	int getMaxActiveConnections();
+
+	/**
+	 * @param password
+	 *            the maximum number of active connections
+	 */
+	@ConfigurationPropertySetter(name = "jdbc.active.max")
+	void setMaxActiveConnections(int password);
+	
+	/**
+	 * @return the maximum number of idle connections
+	 */
+	@ConfigurationPropertyGetter(name = "jdbc.idle.max", defaultValue = "20")
+	int getMaxIdleConnections();
+
+	/**
+	 * @param password
+	 *            the maximum number of idle connections
+	 */
+	@ConfigurationPropertySetter(name = "jdbc.idle.max")
+	void setMaxIdleConnections(int password);
+	
+	/**
+	 * @return the minimum number of idle connections
+	 */
+	@ConfigurationPropertyGetter(name = "jdbc.idle.min", defaultValue = "5")
+	int getMinIdleConnections();
+
+	/**
+	 * @param password
+	 *            the minimum number of idle connections
+	 */
+	@ConfigurationPropertySetter(name = "jdbc.idle.min")
+	void setMinIdleConnections(int password);
 }

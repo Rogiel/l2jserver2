@@ -134,7 +134,6 @@ public class ScriptContextImpl implements ScriptContext {
 
 		ScriptCompiler scriptCompiler = instantiateCompiler();
 
-		@SuppressWarnings("unchecked")
 		Collection<File> files = FileUtils.listFiles(root,
 				scriptCompiler.getSupportedFileTypes(), true);
 

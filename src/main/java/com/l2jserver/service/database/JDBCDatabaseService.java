@@ -33,7 +33,6 @@ import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
 import org.apache.commons.dbcp.PoolingDataSource;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.pool.ObjectPool;
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,7 +82,7 @@ public class JDBCDatabaseService extends AbstractService implements
 	/**
 	 * The database connection pool
 	 */
-	private ObjectPool connectionPool;
+	private GenericObjectPool connectionPool;
 	/**
 	 * The dayabase connection factory
 	 */
@@ -113,10 +112,18 @@ public class JDBCDatabaseService extends AbstractService implements
 	@Override
 	protected void doStart() throws ServiceStartException {
 		connectionPool = new GenericObjectPool(null);
+		connectionPool.setMaxActive(config.getMaxActiveConnections());
+		connectionPool.setMinIdle(config.getMinIdleConnections());
+		connectionPool.setMaxIdle(config.getMaxIdleConnections());
+
+		// test if connections are active while idle
+		connectionPool.setTestWhileIdle(true);
+
 		connectionFactory = new DriverManagerConnectionFactory(
 				config.getJdbcUrl(), config.getUsername(), config.getPassword());
 		poolableConnectionFactory = new PoolableConnectionFactory(
-				connectionFactory, connectionPool, null, null, false, true);
+				connectionFactory, connectionPool, null, "SELECT 1", false,
+				true);
 		dataSource = new PoolingDataSource(connectionPool);
 
 		// cache must be large enough for all world objects, to avoid
@@ -127,7 +134,6 @@ public class JDBCDatabaseService extends AbstractService implements
 
 	@Override
 	public void install() {
-		@SuppressWarnings("unchecked")
 		Collection<File> files = FileUtils.listFiles(new File("dist/sql/h2"),
 				new String[] { "sql" }, false);
 		try {
