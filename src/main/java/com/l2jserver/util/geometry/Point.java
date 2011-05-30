@@ -44,6 +44,29 @@ public class Point {
 		this.y = y;
 	}
 
+	/**
+	 * @return the x
+	 */
+	public int getX() {
+		return x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return y;
+	}
+
+	/**
+	 * Creates a new point from X and Y axis
+	 * 
+	 * @param x
+	 *            the x axis
+	 * @param y
+	 *            the y axis
+	 * @return the new created Point
+	 */
 	public static final Point fromXY(int x, int y) {
 		return new Point(x, y);
 	}

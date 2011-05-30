@@ -16,20 +16,18 @@
  */
 package com.l2jserver.util.calculator;
 
-import com.l2jserver.model.world.Actor;
-
 /**
  * This function performs an rounding in the number.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RoundFunction<O extends Actor> extends AbstractFunction<O> {
+public class RoundFunction extends AbstractFunction<CalculatorContext> {
 	public RoundFunction(int order) {
 		super(order);
 	}
 
 	@Override
-	public void calculate(O actor, CalculatorContext ctx) {
-		ctx.result = Math.round(ctx.result);
+	public double calculate(CalculatorContext ctx, double value) {
+		return Math.round(value);
 	}
 }

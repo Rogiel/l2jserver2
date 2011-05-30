@@ -16,16 +16,13 @@
  */
 package com.l2jserver.util.calculator;
 
-import com.l2jserver.model.world.Actor;
-
 /**
  * This function performs an multiplication: <blockquote><code>chain value *
  * value</code></blockquote>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MultiplicationFunction<O extends Actor> extends
-		AbstractFunction<O> {
+public class MultiplicationFunction extends AbstractFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */
@@ -37,7 +34,7 @@ public class MultiplicationFunction<O extends Actor> extends
 	}
 
 	@Override
-	public void calculate(O actor, CalculatorContext ctx) {
-		ctx.result *= this.value;
+	public double calculate(CalculatorContext ctx, double value) {
+		return value * this.value;
 	}
 }

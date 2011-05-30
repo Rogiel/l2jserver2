@@ -18,30 +18,34 @@ package com.l2jserver.model.world.character;
 
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.ActorStats;
-import com.l2jserver.model.world.actor.stat.Stats.StatType;
-import com.l2jserver.model.world.character.calculator.BaseAttackAccuracyCalculator;
-import com.l2jserver.model.world.character.calculator.BaseAttackEvasionCalculator;
-import com.l2jserver.model.world.character.calculator.BaseCPCalculator;
-import com.l2jserver.model.world.character.calculator.BaseConcentrationCalculator;
-import com.l2jserver.model.world.character.calculator.BaseDexterityCalculator;
-import com.l2jserver.model.world.character.calculator.BaseHPCalculator;
-import com.l2jserver.model.world.character.calculator.BaseIntelligenceCalculator;
-import com.l2jserver.model.world.character.calculator.BaseMPCalculator;
-import com.l2jserver.model.world.character.calculator.BaseMagicalAttackCalculator;
-import com.l2jserver.model.world.character.calculator.BaseMagicalAttackSpeedCalculator;
-import com.l2jserver.model.world.character.calculator.BaseMagicalCriticalRateCalculator;
-import com.l2jserver.model.world.character.calculator.BaseMagicalDefenseCalculator;
-import com.l2jserver.model.world.character.calculator.BaseMentalityCalculator;
-import com.l2jserver.model.world.character.calculator.BasePhysicalAttackCalculator;
-import com.l2jserver.model.world.character.calculator.BasePhysicalAttackSpeedCalculator;
-import com.l2jserver.model.world.character.calculator.BasePhysicalCriticalRateCalculator;
-import com.l2jserver.model.world.character.calculator.BasePhysicalDefenseCalculator;
-import com.l2jserver.model.world.character.calculator.BaseRunSpeedCalculator;
-import com.l2jserver.model.world.character.calculator.BaseStrengthCalculator;
-import com.l2jserver.model.world.character.calculator.BaseWalkSpeedCalculator;
-import com.l2jserver.model.world.character.calculator.BaseWitnessCalculator;
+import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.character.calculator.CharacterCalculator;
 import com.l2jserver.model.world.character.calculator.CharacterCalculatorContext;
+import com.l2jserver.model.world.character.calculator.MaximumCPAddCalculator;
+import com.l2jserver.model.world.character.calculator.MaximumCPBonusCalculator;
+import com.l2jserver.model.world.character.calculator.MaximumHPAddCalculator;
+import com.l2jserver.model.world.character.calculator.MaximumMPAddCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseAttackAccuracyCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseAttackEvasionCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseCPCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseConcentrationCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseDexterityCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseHPCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseIntelligenceCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseMPCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseMagicalAttackCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseMagicalAttackSpeedCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseMagicalCriticalRateCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseMagicalDefenseCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseMentalityCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBasePhysicalAttackCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBasePhysicalAttackSpeedCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBasePhysicalCriticalRateCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBasePhysicalDefenseCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseRunSpeedCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseStrengthCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseWalkSpeedCalculator;
+import com.l2jserver.model.world.character.calculator.base.CharacterBaseWitnessCalculator;
 import com.l2jserver.util.calculator.Calculator;
 
 /**
@@ -61,28 +65,29 @@ import com.l2jserver.util.calculator.Calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterStats extends ActorStats {
-	/**
-	 * The calculator for base maximum HP
-	 * <p>
-	 * <u>This calculator does not store any state and thus is safe to be
-	 * shared.</u>
-	 */
-	private static final CharacterCalculator BASE_HP_CALCULATOR = new BaseHPCalculator();
+public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
+	// base calculators
 	/**
 	 * The calculator for base maximum MP
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_MP_CALCULATOR = new BaseMPCalculator();
+	private static final CharacterCalculator BASE_HP_CALCULATOR = new CharacterBaseHPCalculator();
+	/**
+	 * The calculator for base maximum MP
+	 * <p>
+	 * <u>This calculator does not store any state and thus is safe to be
+	 * shared.</u>
+	 */
+	private static final CharacterCalculator BASE_MP_CALCULATOR = new CharacterBaseMPCalculator();
 	/**
 	 * The calculator for base maximum CP
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_CP_CALCULATOR = new BaseCPCalculator();
+	private static final CharacterCalculator BASE_CP_CALCULATOR = new CharacterBaseCPCalculator();
 
 	/**
 	 * The calculator for base intelligence
@@ -90,42 +95,42 @@ public class CharacterStats extends ActorStats {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_INT_CALCULATOR = new BaseIntelligenceCalculator();
+	private static final CharacterCalculator BASE_INT_CALCULATOR = new CharacterBaseIntelligenceCalculator();
 	/**
 	 * The calculator for base strength
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_STR_CALCULATOR = new BaseStrengthCalculator();
+	private static final CharacterCalculator BASE_STR_CALCULATOR = new CharacterBaseStrengthCalculator();
 	/**
 	 * The calculator for base concentration
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_CON_CALCULATOR = new BaseConcentrationCalculator();
+	private static final CharacterCalculator BASE_CON_CALCULATOR = new CharacterBaseConcentrationCalculator();
 	/**
 	 * The calculator for base mentality
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_MEN_CALCULATOR = new BaseMentalityCalculator();
+	private static final CharacterCalculator BASE_MEN_CALCULATOR = new CharacterBaseMentalityCalculator();
 	/**
 	 * The calculator for base dexterity
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_DEX_CALCULATOR = new BaseDexterityCalculator();
+	private static final CharacterCalculator BASE_DEX_CALCULATOR = new CharacterBaseDexterityCalculator();
 	/**
 	 * The calculator for base witness
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_WIT_CALCULATOR = new BaseWitnessCalculator();
+	private static final CharacterCalculator BASE_WIT_CALCULATOR = new CharacterBaseWitnessCalculator();
 
 	/**
 	 * The calculator for base run speed
@@ -133,14 +138,14 @@ public class CharacterStats extends ActorStats {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_RUN_SPEED_CALCULATOR = new BaseRunSpeedCalculator();
+	private static final CharacterCalculator BASE_RUN_SPEED_CALCULATOR = new CharacterBaseRunSpeedCalculator();
 	/**
 	 * The calculator for base walk speed
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_WALK_SPEED_CALCULATOR = new BaseWalkSpeedCalculator();
+	private static final CharacterCalculator BASE_WALK_SPEED_CALCULATOR = new CharacterBaseWalkSpeedCalculator();
 
 	/**
 	 * The calculator base physical attack
@@ -148,28 +153,28 @@ public class CharacterStats extends ActorStats {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_PHYSICAL_ATTACK_CALCULATOR = new BasePhysicalAttackCalculator();
+	private static final CharacterCalculator BASE_PHYSICAL_ATTACK_CALCULATOR = new CharacterBasePhysicalAttackCalculator();
 	/**
 	 * The calculator base physical attack speed
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_PHYSICAL_ATTACK_SPEED_CALCULATOR = new BasePhysicalAttackSpeedCalculator();
+	private static final CharacterCalculator BASE_PHYSICAL_ATTACK_SPEED_CALCULATOR = new CharacterBasePhysicalAttackSpeedCalculator();
 	/**
 	 * The calculator base physical attack critical rate
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_PHYSICAL_CRITICAL_RATE_CALCULATOR = new BasePhysicalCriticalRateCalculator();
+	private static final CharacterCalculator BASE_PHYSICAL_CRITICAL_RATE_CALCULATOR = new CharacterBasePhysicalCriticalRateCalculator();
 	/**
 	 * The calculator base physical defense
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_PHYSICAL_DEFENSE_CALCULATOR = new BasePhysicalDefenseCalculator();
+	private static final CharacterCalculator BASE_PHYSICAL_DEFENSE_CALCULATOR = new CharacterBasePhysicalDefenseCalculator();
 
 	/**
 	 * The calculator base magical attack
@@ -177,28 +182,28 @@ public class CharacterStats extends ActorStats {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_MAGICAL_ATTACK_CALCULATOR = new BaseMagicalAttackCalculator();
+	private static final CharacterCalculator BASE_MAGICAL_ATTACK_CALCULATOR = new CharacterBaseMagicalAttackCalculator();
 	/**
 	 * The calculator base magical attack speed
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_MAGICAL_ATTACK_SPEED_CALCULATOR = new BaseMagicalAttackSpeedCalculator();
+	private static final CharacterCalculator BASE_MAGICAL_ATTACK_SPEED_CALCULATOR = new CharacterBaseMagicalAttackSpeedCalculator();
 	/**
 	 * The calculator base magical attack critical rate
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_MAGICAL_CRITICAL_RATE_CALCULATOR = new BaseMagicalCriticalRateCalculator();
+	private static final CharacterCalculator BASE_MAGICAL_CRITICAL_RATE_CALCULATOR = new CharacterBaseMagicalCriticalRateCalculator();
 	/**
 	 * The calculator base magical defense
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_MAGICAL_DEFENSE_CALCULATOR = new BaseMagicalDefenseCalculator();
+	private static final CharacterCalculator BASE_MAGICAL_DEFENSE_CALCULATOR = new CharacterBaseMagicalDefenseCalculator();
 
 	/**
 	 * The calculator base attack accuracy
@@ -206,31 +211,51 @@ public class CharacterStats extends ActorStats {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_ATTACK_ACCURACY_CALCULATOR = new BaseAttackAccuracyCalculator();
+	private static final CharacterCalculator BASE_ATTACK_ACCURACY_CALCULATOR = new CharacterBaseAttackAccuracyCalculator();
 	/**
 	 * The calculator base evasion
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final CharacterCalculator BASE_ATTACK_EVASION_CALCULATOR = new BaseAttackEvasionCalculator();
+	private static final CharacterCalculator BASE_ATTACK_EVASION_CALCULATOR = new CharacterBaseAttackEvasionCalculator();
+	
+	// BONUS
+	/**
+	 * The calculator for CP bonus
+	 * <p>
+	 * <u>This calculator does not store any state and thus is safe to be
+	 * shared.</u>
+	 */
+	private static final CharacterCalculator CP_BONUS_CALCULATOR = new MaximumCPBonusCalculator();
+	
+	// ADD
+	/**
+	 * The calculator for HP add
+	 * <p>
+	 * <u>This calculator does not store any state and thus is safe to be
+	 * shared.</u>
+	 */
+	private static final CharacterCalculator HP_ADD_CALCULATOR = new MaximumHPAddCalculator();
+	/**
+	 * The calculator for MP add
+	 * <p>
+	 * <u>This calculator does not store any state and thus is safe to be
+	 * shared.</u>
+	 */
+	private static final CharacterCalculator MP_ADD_CALCULATOR = new MaximumMPAddCalculator();
+	/**
+	 * The calculator for CP add
+	 * <p>
+	 * <u>This calculator does not store any state and thus is safe to be
+	 * shared.</u>
+	 */
+	private static final CharacterCalculator CP_ADD_CALCULATOR = new MaximumCPAddCalculator();
 
 	/**
 	 * The character
 	 */
 	private final L2Character character;
-	/**
-	 * The list of calculators for this character
-	 * <p>
-	 * It is safe to use an array since this number cannot be changed in
-	 * runtime, it would be required to be able to change the {@link StatType}
-	 * enum. Also, an full-sized array is created because this way we don't need
-	 * to change the array size very often. A bit of memory is "lost", but the
-	 * speed gain is much higher.
-	 */
-	@SuppressWarnings("unchecked")
-	private final Calculator<L2Character>[] calculators = new Calculator[StatType
-			.values().length];
 
 	/**
 	 * Creates a new {@link CharacterStats} and adds default calculators
@@ -239,12 +264,10 @@ public class CharacterStats extends ActorStats {
 	 *            the character
 	 */
 	public CharacterStats(L2Character character) {
+		super();
 		this.character = character;
-		for (int i = 0; i < calculators.length; i++) {
-			calculators[i] = new Calculator<L2Character>();
-		}
 
-		// import default functions
+		// base
 		add(StatType.MAX_HP, BASE_HP_CALCULATOR);
 		add(StatType.MAX_MP, BASE_MP_CALCULATOR);
 		add(StatType.MAX_CP, BASE_CP_CALCULATOR);
@@ -272,21 +295,15 @@ public class CharacterStats extends ActorStats {
 		add(StatType.ACCURACY_COMBAT, BASE_ATTACK_ACCURACY_CALCULATOR);
 		add(StatType.EVASION_RATE, BASE_ATTACK_EVASION_CALCULATOR);
 
+		// add hp/mp/cp add functions
+		add(StatType.MAX_HP, HP_ADD_CALCULATOR);
+		add(StatType.MAX_MP, MP_ADD_CALCULATOR);
+		add(StatType.MAX_CP, CP_ADD_CALCULATOR);
+		
+		// bonus
+		add(StatType.MAX_CP, CP_BONUS_CALCULATOR);
+		
 		// TODO henna stats calculators
-	}
-
-	/**
-	 * @return the calculated maximum HP
-	 */
-	public int getMaxHP() {
-		return (int) calc(StatType.MAX_HP);
-	}
-
-	/**
-	 * @return the calculated maximum MP
-	 */
-	public int getMaxMP() {
-		return (int) calc(StatType.MAX_MP);
 	}
 
 	/**
@@ -297,166 +314,14 @@ public class CharacterStats extends ActorStats {
 	}
 
 	/**
-	 * @return the calculated intelligence
-	 */
-	public int getIntelligence() {
-		return (int) calc(StatType.STAT_INT);
-	}
-
-	/**
-	 * @return the calculated strength
-	 */
-	public int getStrength() {
-		return (int) calc(StatType.STAT_STR);
-	}
-
-	/**
-	 * @return the calculated concentration
-	 */
-	public int getConcentration() {
-		return (int) calc(StatType.STAT_CON);
-	}
-
-	/**
-	 * @return the calculated mentality
-	 */
-	public int getMentality() {
-		return (int) calc(StatType.STAT_MEN);
-	}
-
-	/**
-	 * @return the calculated dexterity
-	 */
-	public int getDexterity() {
-		return (int) calc(StatType.STAT_DEX);
-	}
-
-	/**
-	 * @return the calculated witness
-	 */
-	public int getWitness() {
-		return (int) calc(StatType.STAT_WIT);
-	}
-
-	/**
-	 * @return the calculated run speed
-	 */
-	public int getRunSpeed() {
-		return (int) calc(StatType.RUN_SPEED);
-	}
-
-	/**
-	 * @return the calculated walk speed
-	 */
-	public int getWalkSpeed() {
-		return (int) calc(StatType.WALK_SPEED);
-	}
-
-	/**
-	 * @return the calculated physical attack
-	 */
-	public int getPhysicalAttack() {
-		return (int) calc(StatType.POWER_ATTACK);
-	}
-
-	/**
-	 * @return the calculated physical attack speed
-	 */
-	public int getPhysicalAttackSpeed() {
-		return (int) calc(StatType.POWER_ATTACK_SPEED);
-	}
-
-	/**
-	 * @return the calculated physical attack critical rate
-	 */
-	public int getPhysicalCriticalRate() {
-		return (int) calc(StatType.CRITICAL_RATE);
-	}
-
-	/**
-	 * @return the calculated physical defense
-	 */
-	public int getPhysicalDefense() {
-		return (int) calc(StatType.POWER_DEFENSE);
-	}
-
-	/**
-	 * @return the calculated magical attack
-	 */
-	public int getMagicalAttack() {
-		return (int) calc(StatType.MAGIC_ATTACK);
-	}
-
-	/**
-	 * @return the calculated magical attack speed
-	 */
-	public int getMagicalAttackSpeed() {
-		return (int) calc(StatType.MAGIC_ATTACK_SPEED);
-	}
-
-	/**
-	 * @return the calculated magical attack critical rate
-	 */
-	public int getMagicalCriticalRate() {
-		return (int) calc(StatType.MCRITICAL_RATE);
-	}
-
-	/**
-	 * @return the calculated magical defense
-	 */
-	public int getMagicalDefense() {
-		return (int) calc(StatType.MAGIC_DEFENSE);
-	}
-
-	/**
-	 * @return the calculated accuracy
-	 */
-	public int getAccuracy() {
-		return (int) calc(StatType.ACCURACY_COMBAT);
-	}
-
-	/**
-	 * @return the calculated evasion rate
-	 */
-	public int getEvasionRate() {
-		return (int) calc(StatType.EVASION_RATE);
-	}
-
-	/**
 	 * @return the calculated maximum load
 	 */
 	public int getMaximumLoad() {
 		return (int) calc(StatType.MAX_LOAD);
 	}
 
-	public void add(StatType type, Calculator<L2Character> calculator) {
-		getCalculator(type).importFunctions(calculator);
-	}
-
-	public void remove(StatType type, Calculator<L2Character> calculator) {
-		getCalculator(type).removeFunctions(calculator);
-	}
-
-	/**
-	 * @param the
-	 *            calculator {@link StatType}
-	 * @return the calculator object associated with the given <tt>type</tt>
-	 */
-	protected Calculator<L2Character> getCalculator(StatType type) {
-		return calculators[type.ordinal()];
-	}
-
-	/**
-	 * Does the calculation of an given {@link StatType}
-	 * 
-	 * @param type
-	 *            the type
-	 * @return the value calculated
-	 */
-	public double calc(StatType type) {
-		final CharacterCalculatorContext ctx = new CharacterCalculatorContext(
-				character);
-		getCalculator(type).calculate(character, ctx);
-		return ctx.result;
+	@Override
+	protected CharacterCalculatorContext createContext() {
+		return new CharacterCalculatorContext(character);
 	}
 }

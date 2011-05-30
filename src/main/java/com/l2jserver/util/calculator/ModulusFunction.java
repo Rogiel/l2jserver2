@@ -16,22 +16,19 @@
  */
 package com.l2jserver.util.calculator;
 
-import com.l2jserver.model.world.Actor;
-
 /**
  * This function performs an modulus: <blockquote><code>|chain value|</code>
  * </blockquote>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ModulusFunction<O extends Actor> extends AbstractFunction<O> {
+public class ModulusFunction extends AbstractFunction<CalculatorContext> {
 	public ModulusFunction(int order) {
 		super(order);
 	}
 
 	@Override
-	public void calculate(O actor, CalculatorContext ctx) {
-		if (ctx.result < 0)
-			ctx.result *= -1;
+	public double calculate(CalculatorContext ctx, double value) {
+		return Math.abs(value);
 	}
 }

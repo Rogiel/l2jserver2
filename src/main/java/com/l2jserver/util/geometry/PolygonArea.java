@@ -118,7 +118,6 @@ public class PolygonArea extends AbstractArea {
 
 	@Override
 	public Point getClosestPoint(int x, int y) {
-
 		Point closestPoint = null;
 		double closestDistance = 0;
 

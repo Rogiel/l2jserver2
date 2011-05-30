@@ -19,6 +19,7 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.template.ActorTemplateID;
+import com.l2jserver.model.world.actor.stat.ActorStats;
 
 /**
  * This class represents an Pet in the Lineage II World
@@ -81,5 +82,14 @@ public class Pet extends Player {
 	 */
 	public void setItemID(ItemID itemID) {
 		this.itemID = itemID;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.l2jserver.model.world.Actor#getStats()
+	 */
+	@Override
+	public ActorStats<?> getStats() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

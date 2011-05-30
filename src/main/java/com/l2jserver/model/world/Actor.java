@@ -21,6 +21,7 @@ import com.l2jserver.model.id.template.ActorTemplateID;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.actor.ActorEffects;
 import com.l2jserver.model.world.actor.ActorSkillContainer;
+import com.l2jserver.model.world.actor.stat.ActorStats;
 
 /**
  * Abstract {@link Actor} class.
@@ -132,6 +133,8 @@ public abstract class Actor extends PositionableObject {
 	protected Actor(ActorTemplateID<?> templateID) {
 		this.templateID = templateID;
 	}
+	
+	public abstract ActorStats<?> getStats();
 
 	/**
 	 * @return the race

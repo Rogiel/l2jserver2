@@ -16,15 +16,13 @@
  */
 package com.l2jserver.util.calculator;
 
-import com.l2jserver.model.world.Actor;
-
 /**
  * This function performs a sum: <blockquote><code>chain value +
  * value</code></blockquote>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SumFunction<O extends Actor> extends AbstractFunction<O> {
+public class SumFunction extends AbstractFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */
@@ -36,7 +34,7 @@ public class SumFunction<O extends Actor> extends AbstractFunction<O> {
 	}
 
 	@Override
-	public void calculate(O actor, CalculatorContext ctx) {
-		ctx.result += value;
+	public double calculate(CalculatorContext ctx, double value) {
+		return value + this.value;
 	}
 }

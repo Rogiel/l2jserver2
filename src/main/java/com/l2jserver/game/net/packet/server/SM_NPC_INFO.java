@@ -58,16 +58,16 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeInt(npc.getPoint().getZ());
 		buffer.writeInt((int) npc.getPoint().getAngle());
 		buffer.writeInt(0x00); // unk
-		buffer.writeInt((int) template.getMagicalAttackSpeed());
-		buffer.writeInt((int) template.getPhysicalAttackSpeed());
-		buffer.writeInt((int) template.getRunSpeed());
-		buffer.writeInt((int) template.getWalkSpeed());
-		buffer.writeInt((int) template.getRunSpeed()); // swim run speed
-		buffer.writeInt((int) template.getWalkSpeed()); // swim walk speed
-		buffer.writeInt((int) template.getRunSpeed()); // swim run speed
-		buffer.writeInt((int) template.getWalkSpeed()); // swim walk speed
-		buffer.writeInt((int) template.getRunSpeed()); // fly run speed
-		buffer.writeInt((int) template.getWalkSpeed()); // fly run speed
+		buffer.writeInt(npc.getStats().getMagicalAttackSpeed());
+		buffer.writeInt(npc.getStats().getPhysicalAttackSpeed());
+		buffer.writeInt(npc.getStats().getRunSpeed());
+		buffer.writeInt(npc.getStats().getWalkSpeed());
+		buffer.writeInt(npc.getStats().getRunSpeed()); // swim run speed
+		buffer.writeInt(npc.getStats().getWalkSpeed()); // swim walk speed
+		buffer.writeInt(npc.getStats().getRunSpeed()); // swim run speed
+		buffer.writeInt(npc.getStats().getWalkSpeed()); // swim walk speed
+		buffer.writeInt(npc.getStats().getRunSpeed()); // fly run speed
+		buffer.writeInt(npc.getStats().getWalkSpeed()); // fly run speed
 		buffer.writeDouble(0x01); // TODO
 		buffer.writeDouble(0x01);// TODO
 		buffer.writeDouble(template.getCollisionRadius());
@@ -79,7 +79,7 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 				.getLeftHand().getID() : 0x00));
 		buffer.writeByte(1); // name above char 1=true ... ??
 		buffer.writeByte(0x00); // is running
-		buffer.writeByte(0x00); // is in combat
+		buffer.writeByte((npc.isAttacking() ? 0x01 : 0x00)); // is in combat
 		buffer.writeByte(0x00); // is like dead (faking)
 		buffer.writeByte(0x00); // 0=teleported 1=default 2=summoned
 		BufferUtils.writeString(buffer, template.getName());
@@ -102,8 +102,11 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeInt(0x00); // C6 -- is flying
 		buffer.writeInt(0x00); // unk
 		buffer.writeInt(0x00);// CT1.5 Pet form and skills, Color effect
-		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide name
-		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide name, again
+		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide
+																		// name
+		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide
+																		// name,
+																		// again
 
 		buffer.writeInt(0x00); // special effects
 		buffer.writeInt(0x00); // display effect

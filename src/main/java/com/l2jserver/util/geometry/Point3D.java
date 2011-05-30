@@ -22,7 +22,7 @@ package com.l2jserver.util.geometry;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Point3D {
+public class Point3D extends Point {
 	/**
 	 * The point coordinate
 	 */
@@ -41,6 +41,7 @@ public class Point3D {
 	 *            the angle
 	 */
 	public Point3D(Coordinate coordinate, double angle) {
+		super(coordinate.getX(), coordinate.getY());
 		this.coordinate = coordinate;
 		this.angle = angle;
 	}
@@ -63,6 +64,7 @@ public class Point3D {
 	 * @return the x
 	 * @see com.l2jserver.util.geometry.Coordinate#getX()
 	 */
+	@Override
 	public int getX() {
 		return coordinate.getX();
 	}
@@ -71,6 +73,7 @@ public class Point3D {
 	 * @return the y
 	 * @see com.l2jserver.util.geometry.Coordinate#getY()
 	 */
+	@Override
 	public int getY() {
 		return coordinate.getY();
 	}
@@ -130,7 +133,7 @@ public class Point3D {
 	 *            the angle
 	 * @return the new {@link Point3D} object created
 	 */
-	public static Point3D fromXYZA(int x, int y, int z, double angle) {
+	public static final Point3D fromXYZA(int x, int y, int z, double angle) {
 		return new Point3D(Coordinate.fromXYZ(x, y, z), angle);
 	}
 
@@ -145,7 +148,7 @@ public class Point3D {
 	 *            the z point
 	 * @return the new {@link Point3D} object created
 	 */
-	public static Point3D fromXYZ(int x, int y, int z) {
+	public static final Point3D fromXYZ(int x, int y, int z) {
 		return fromXYZA(x, y, z, 0);
 	}
 }

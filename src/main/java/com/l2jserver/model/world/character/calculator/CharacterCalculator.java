@@ -16,17 +16,15 @@
  */
 package com.l2jserver.model.world.character.calculator;
 
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.util.calculator.Calculator;
-import com.l2jserver.util.calculator.Function;
+import com.l2jserver.model.world.actor.calculator.ActorCalculator;
 
 /**
  * An calculator for character formulas.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterCalculator extends Calculator<L2Character> {
-	public CharacterCalculator(Function<L2Character>... functions) {
+public class CharacterCalculator extends ActorCalculator {
+	public CharacterCalculator(CharacterCalculatorFunction... functions) {
 		super(functions);
 	}
 }

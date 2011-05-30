@@ -16,20 +16,13 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.world.Actor;
+import com.l2jserver.util.calculator.Calculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ActorCalculator {
-	@SuppressWarnings("unused")
-	private final Actor actor;
-
-	public ActorCalculator(Actor actor) {
-		this.actor = actor;
-	}
-
-	public double calculateMaxHP() {
-		return 0;
+public class ActorCalculator extends Calculator<ActorCalculatorContext> {
+	public ActorCalculator(ActorCalculatorFunction... functions) {
+		super(functions);
 	}
 }

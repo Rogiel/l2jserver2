@@ -20,6 +20,7 @@ import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.world.npc.NPCStats;
 import com.l2jserver.service.game.ai.AIScript;
 
 /**
@@ -29,6 +30,8 @@ import com.l2jserver.service.game.ai.AIScript;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPC extends Actor {
+	private NPCStats stats;
+
 	private NPCState state;
 
 	public enum NPCState {
@@ -43,6 +46,13 @@ public class NPC extends Actor {
 	 */
 	public NPC(NPCTemplateID templateID) {
 		super(templateID);
+	}
+
+	/**
+	 * @return the stats
+	 */
+	public NPCStats getStats() {
+		return stats;
 	}
 
 	/**

@@ -20,7 +20,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -29,11 +28,13 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Calculator<O extends Actor> extends AbstractFunction<O> {
+public class Calculator<T extends CalculatorContext> extends
+		AbstractFunction<T> {
 	/**
 	 * List of operations in this calculator
 	 */
-	private final List<Function<O>> functions = CollectionFactory.newList();
+	private final List<Function<? super T>> functions = CollectionFactory
+			.newList();
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using
@@ -50,9 +51,9 @@ public class Calculator<O extends Actor> extends AbstractFunction<O> {
 	 * @param functions
 	 *            the calculator functions
 	 */
-	public Calculator(Function<O>... functions) {
+	public Calculator(Function<? super T>... functions) {
 		super(0x00);
-		for (final Function<O> func : functions) {
+		for (final Function<? super T> func : functions) {
 			this.functions.add(func);
 		}
 	}
@@ -68,7 +69,7 @@ public class Calculator<O extends Actor> extends AbstractFunction<O> {
 	 * @param function
 	 *            the operation
 	 */
-	public void add(Function<O> function) {
+	public void add(Function<? super T> function) {
 		functions.add(function);
 		Collections.sort(functions, FunctionOrderComparator.SHARED_INSTANCE);
 	}
@@ -83,10 +84,10 @@ public class Calculator<O extends Actor> extends AbstractFunction<O> {
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void importFunctions(Calculator<O> calculator) {
-		for (final Function<O> function : calculator.functions) {
+	public void importFunctions(Calculator<? super T> calculator) {
+		for (final Function<? super T> function : calculator.functions) {
 			if (function instanceof Calculator) {
-				importFunctions((Calculator<O>) function);
+				importFunctions((Calculator<? super T>) function);
 			} else {
 				functions.add(function);
 			}
@@ -101,10 +102,10 @@ public class Calculator<O extends Actor> extends AbstractFunction<O> {
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void removeFunctions(Calculator<O> calculator) {
-		for (final Function<O> function : calculator.functions) {
+	public void removeFunctions(Calculator<? super T> calculator) {
+		for (final Function<? super T> function : calculator.functions) {
 			if (function instanceof Calculator) {
-				removeFunctions((Calculator<O>) function);
+				removeFunctions((Calculator<? super T>) function);
 			} else {
 				functions.remove(function);
 			}
@@ -112,10 +113,15 @@ public class Calculator<O extends Actor> extends AbstractFunction<O> {
 	}
 
 	@Override
-	public void calculate(O object, CalculatorContext ctx) {
-		for (final Function<O> function : functions) {
-			function.calculate(object, ctx);
+	public double calculate(T ctx, double value) {
+		for (final Function<? super T> function : functions) {
+			value = function.calculate(ctx, value);
 		}
+		return value;
+	}
+
+	public double calculate(T ctx) {
+		return calculate(ctx, 0);
 	}
 
 	public static class FunctionOrderComparator implements
