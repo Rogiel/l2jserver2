@@ -35,7 +35,7 @@ public class CM_GG_KEY extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x00;
+	public static final int OPCODE = 0xcb;
 
 	/**
 	 * The logger

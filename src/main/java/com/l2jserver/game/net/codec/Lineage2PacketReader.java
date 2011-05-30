@@ -27,28 +27,29 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
+import com.l2jserver.game.net.packet.client.CM_ACTION_USE;
 import com.l2jserver.game.net.packet.client.CM_ADMIN_COMMAND;
+import com.l2jserver.game.net.packet.client.CM_ATTACK;
 import com.l2jserver.game.net.packet.client.CM_AUTH_LOGIN;
+import com.l2jserver.game.net.packet.client.CM_BYPASS;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION;
 import com.l2jserver.game.net.packet.client.CM_CHAR_APPEARING;
-import com.l2jserver.game.net.packet.client.CM_ATTACK;
-import com.l2jserver.game.net.packet.client.CM_CHAT;
 import com.l2jserver.game.net.packet.client.CM_CHAR_CREATE;
-import com.l2jserver.game.net.packet.client.CM_ACTION_USE;
-import com.l2jserver.game.net.packet.client.CM_BYPASS;
-import com.l2jserver.game.net.packet.client.CM_CHAR_REQ_INVENTORY;
 import com.l2jserver.game.net.packet.client.CM_CHAR_MOVE;
 import com.l2jserver.game.net.packet.client.CM_CHAR_OPEN_MAP;
-import com.l2jserver.game.net.packet.client.CM_CHAR_SELECT;
 import com.l2jserver.game.net.packet.client.CM_CHAR_POSITION;
+import com.l2jserver.game.net.packet.client.CM_CHAR_REQ_INVENTORY;
+import com.l2jserver.game.net.packet.client.CM_CHAR_SELECT;
+import com.l2jserver.game.net.packet.client.CM_CHAT;
 import com.l2jserver.game.net.packet.client.CM_ENTER_WORLD;
-import com.l2jserver.game.net.packet.client.CM_LOGOUT;
-import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_ALL_FORTRESS_INFO;
-import com.l2jserver.game.net.packet.client.CM_REQUEST_CHAR_TEMPLATE;
-import com.l2jserver.game.net.packet.client.CM_GOTO_LOBBY;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_KEY_MAPPING;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_MANOR_LIST;
+import com.l2jserver.game.net.packet.client.CM_GG_KEY;
+import com.l2jserver.game.net.packet.client.CM_GOTO_LOBBY;
+import com.l2jserver.game.net.packet.client.CM_LOGOUT;
+import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
+import com.l2jserver.game.net.packet.client.CM_REQUEST_CHAR_TEMPLATE;
 import com.l2jserver.game.net.packet.client.CM_RESTART;
 
 /**
@@ -158,6 +159,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			break;
 		case CM_CHAR_SELECT.OPCODE:
 			return CM_CHAR_SELECT.class;
+		case CM_GG_KEY.OPCODE:
+			return CM_GG_KEY.class;
 		case CM_CHAR_MOVE.OPCODE:
 			return CM_CHAR_MOVE.class;
 		case CM_RESTART.OPCODE:
