@@ -16,11 +16,9 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.template.ActorTemplate;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
-import com.l2jserver.model.world.character.calculator.CharacterCalculator;
-import com.l2jserver.model.world.character.calculator.CharacterCalculatorFunction;
 
 /**
  * Calculates the character base walk speed
@@ -31,12 +29,11 @@ import com.l2jserver.model.world.character.calculator.CharacterCalculatorFunctio
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class WalkSpeedBonusCalculator extends CharacterCalculator {
+public class WalkSpeedBonusCalculator extends ActorCalculator {
 	public WalkSpeedBonusCalculator() {
-		super(new CharacterCalculatorFunction(0x300) {
+		super(new ActorCalculatorFunction(0x300) {
 			@Override
-			protected double calculate(L2Character c, CharacterTemplate t,
-					double value) {
+			protected double calculate(Actor c, ActorTemplate<?> t, double value) {
 				return value
 						* BaseStats.DEX.calculateBonus(c.getStats()
 								.getDexterity());

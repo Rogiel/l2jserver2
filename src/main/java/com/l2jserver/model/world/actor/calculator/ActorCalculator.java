@@ -16,12 +16,12 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.calculator.SimpleCalculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ActorCalculator extends Calculator<ActorCalculatorContext> {
+public class ActorCalculator extends SimpleCalculator<ActorCalculatorContext> {
 	public ActorCalculator(ActorCalculatorFunction... functions) {
 		super(functions);
 	}

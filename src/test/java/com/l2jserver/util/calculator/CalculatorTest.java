@@ -27,7 +27,7 @@ import org.junit.Test;
 public class CalculatorTest {
 	@Test
 	public void testSimple() {
-		final Calculator<CalculatorContext> calc = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc = new SimpleCalculator<CalculatorContext>();
 
 		calc.add(new SetFunction(0, 10));
 		calc.add(new MultiplicationFunction(1, 2));
@@ -39,7 +39,7 @@ public class CalculatorTest {
 
 	@Test
 	public void testPercent() {
-		final Calculator<CalculatorContext> calc = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc = new SimpleCalculator<CalculatorContext>();
 
 		calc.add(new SetFunction(0, 10));
 		calc.add(new MultiplicationFunction(1, 2));
@@ -51,7 +51,7 @@ public class CalculatorTest {
 
 	@Test
 	public void testComplex() {
-		final Calculator<CalculatorContext> calc = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc = new SimpleCalculator<CalculatorContext>();
 
 		calc.add(new SetFunction(0, 10));
 		calc.add(new MultiplicationFunction(1, 2));
@@ -66,7 +66,7 @@ public class CalculatorTest {
 
 	@Test
 	public void testNesting() {
-		final Calculator<CalculatorContext> calc1 = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc1 = new SimpleCalculator<CalculatorContext>();
 		final CalculatorContext ctx1 = new CalculatorContext();
 
 		calc1.add(new SetFunction(0, 10));
@@ -78,7 +78,7 @@ public class CalculatorTest {
 
 		Assert.assertEquals(5.0, calc1.calculate(ctx1));
 
-		final Calculator<CalculatorContext> calc2 = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc2 = new SimpleCalculator<CalculatorContext>();
 		final CalculatorContext ctx2 = new CalculatorContext();
 
 		calc2.add(new MultiplicationFunction(0, 2));
@@ -89,7 +89,7 @@ public class CalculatorTest {
 
 		Assert.assertEquals(-2.5, calc2.calculate(ctx2));
 
-		final Calculator<CalculatorContext> calc3 = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc3 = new SimpleCalculator<CalculatorContext>();
 		final CalculatorContext ctx3 = new CalculatorContext();
 		calc3.add(calc1);
 		calc3.add(calc2);
@@ -102,7 +102,7 @@ public class CalculatorTest {
 
 	@Test
 	public void testImporting() {
-		final Calculator<CalculatorContext> calc1 = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc1 = new SimpleCalculator<CalculatorContext>();
 		final CalculatorContext ctx1 = new CalculatorContext();
 
 		calc1.add(new SetFunction(0, 10));
@@ -114,7 +114,7 @@ public class CalculatorTest {
 
 		Assert.assertEquals(5.0, calc1.calculate(ctx1));
 
-		final Calculator<CalculatorContext> calc2 = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc2 = new SimpleCalculator<CalculatorContext>();
 		final CalculatorContext ctx2 = new CalculatorContext();
 
 		calc2.add(new MultiplicationFunction(1, 2));
@@ -125,7 +125,7 @@ public class CalculatorTest {
 
 		Assert.assertEquals(-2.5, calc2.calculate(ctx2));
 
-		final Calculator<CalculatorContext> calc3 = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc3 = new SimpleCalculator<CalculatorContext>();
 		final CalculatorContext ctx3 = new CalculatorContext();
 		calc3.importFunctions(calc1);
 		calc3.importFunctions(calc2);
@@ -138,7 +138,7 @@ public class CalculatorTest {
 
 	@Test
 	public void testRounding() {
-		final Calculator<CalculatorContext> calc = new Calculator<CalculatorContext>();
+		final SimpleCalculator<CalculatorContext> calc = new SimpleCalculator<CalculatorContext>();
 
 		calc.add(new MultiplicationFunction(0, 2));
 		calc.add(new PercentFunction(1, 75));

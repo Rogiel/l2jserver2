@@ -42,7 +42,7 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCCharacterFriendDAO extends
+public abstract class JDBCCharacterFriendDAO extends
 		AbstractJDBCDAO<CharacterFriend, FriendID> implements
 		CharacterFriendDAO {
 	/**

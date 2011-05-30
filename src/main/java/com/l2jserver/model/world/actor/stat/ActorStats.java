@@ -32,7 +32,7 @@ import com.l2jserver.model.world.actor.calculator.PhysicalCriticalRateBonusCalcu
 import com.l2jserver.model.world.actor.calculator.PhysicalDefenseBonusCalculator;
 import com.l2jserver.model.world.actor.calculator.RunSpeedBonusCalculator;
 import com.l2jserver.model.world.actor.calculator.WalkSpeedBonusCalculator;
-import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.calculator.SimpleCalculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -152,12 +152,12 @@ public abstract class ActorStats<T extends ActorCalculatorContext> {
 	 * speed gain is much higher.
 	 */
 	@SuppressWarnings("unchecked")
-	private final Calculator<T>[] calculators = new Calculator[StatType
+	private final SimpleCalculator<T>[] calculators = new SimpleCalculator[StatType
 			.values().length];
 
 	public ActorStats() {
 		for (int i = 0; i < calculators.length; i++) {
-			calculators[i] = new Calculator<T>();
+			calculators[i] = new SimpleCalculator<T>();
 		}
 
 		// bonuses
@@ -334,7 +334,7 @@ public abstract class ActorStats<T extends ActorCalculatorContext> {
 	 *            calculator {@link StatType}
 	 * @return the calculator object associated with the given <tt>type</tt>
 	 */
-	protected Calculator<T> getCalculator(StatType type) {
+	protected SimpleCalculator<T> getCalculator(StatType type) {
 		return calculators[type.ordinal()];
 	}
 
@@ -350,5 +350,9 @@ public abstract class ActorStats<T extends ActorCalculatorContext> {
 		return getCalculator(type).calculate(ctx);
 	}
 
+	public void updateCalculators() {
+		
+	}
+	
 	protected abstract T createContext();
 }

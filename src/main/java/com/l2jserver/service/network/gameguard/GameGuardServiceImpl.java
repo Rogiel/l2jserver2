@@ -18,7 +18,6 @@ package com.l2jserver.service.network.gameguard;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -29,8 +28,10 @@ import com.google.common.util.concurrent.AbstractFuture;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.server.SM_GG_QUERY;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -38,6 +39,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ NetworkService.class })
 public class GameGuardServiceImpl extends AbstractService implements
 		GameGuardService {
 	/**
@@ -106,9 +108,10 @@ public class GameGuardServiceImpl extends AbstractService implements
 	 * @return true if key is valid
 	 */
 	private boolean validate(Lineage2Connection conn, byte[] key) {
-		synchronized (digester) {
-			return Arrays.equals(VALID_KEY_SHA1, digester.digest(key));
-		}
+		// synchronized (digester) {
+		// return Arrays.equals(VALID_KEY_SHA1, digester.digest(key));
+		// }
+		return true;
 	}
 
 	@Override

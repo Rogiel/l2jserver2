@@ -41,7 +41,7 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implements
+public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implements
 		ClanDAO {
 	/**
 	 * The {@link ClanID} factory

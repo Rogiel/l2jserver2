@@ -18,7 +18,7 @@ package com.l2jserver.model.world.actor.calculator;
 
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
-import com.l2jserver.util.calculator.AbstractFunction;
+import com.l2jserver.util.calculator.AbstractDoubleFunction;
 
 /**
  * An calculator for character formulas.
@@ -26,7 +26,7 @@ import com.l2jserver.util.calculator.AbstractFunction;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ActorCalculatorFunction extends
-		AbstractFunction<ActorCalculatorContext> {
+		AbstractDoubleFunction<ActorCalculatorContext> {
 	public ActorCalculatorFunction(int order) {
 		super(order);
 	}

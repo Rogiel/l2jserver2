@@ -14,29 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.model.template.calculator;
+
+import com.l2jserver.model.template.ActorTemplate;
+import com.l2jserver.model.template.ItemTemplate.StatAttribute.StatSet;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.actor.calculator.ActorCalculator;
+import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
 
 /**
- * An function is nothing more than a mathematical operation.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface Function<C extends CalculatorContext> {
-	/**
-	 * Performs the operation in the calculation process.
-	 * <p>
-	 * The <tt>value</tt> in the argument is normally used for calculation, but
-	 * an {@link Function} can ignore the value if required to (i.e.
-	 * {@link SetFunction})
-	 * 
-	 * @param value
-	 *            the input value
-	 * @return the output value
-	 */
-	double calculate(C ctx, double value);
-
-	/**
-	 * @return the order this function will be executed
-	 */
-	int order();
+public class ItemPhysicalDamageActorCalculator extends ActorCalculator {
+	public ItemPhysicalDamageActorCalculator(final StatSet set) {
+		super(new ActorCalculatorFunction(set.getOrder()) {
+			@Override
+			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+				return set.getValue();
+			}
+		});
+	}
 }

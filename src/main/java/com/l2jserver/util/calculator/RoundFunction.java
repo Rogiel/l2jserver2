@@ -21,7 +21,7 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RoundFunction extends AbstractFunction<CalculatorContext> {
+public class RoundFunction extends AbstractDoubleFunction<CalculatorContext> {
 	public RoundFunction(int order) {
 		super(order);
 	}

@@ -35,7 +35,6 @@ public class PrecompiledScriptCompilerTest {
 	// @Test
 	public void testCompileIterableOfFile() {
 		final PrecompiledScriptCompiler compiler = new PrecompiledScriptCompiler();
-		@SuppressWarnings("unchecked")
 		final CompilationResult result = compiler.compile(FileUtils.listFiles(
 				new File("target/scripts/script/template"),
 				new String[] { "class" }, true));

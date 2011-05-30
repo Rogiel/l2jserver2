@@ -16,11 +16,8 @@
  */
 package com.l2jserver.util.calculator;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
-
-import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * An calculator is used to compute data and outputs its result. Note also, that
@@ -28,20 +25,21 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Calculator<T extends CalculatorContext> extends
-		AbstractFunction<T> {
+public class SimpleCalculator<T extends CalculatorContext> extends
+		AbstractDoubleFunction<T> {
 	/**
 	 * List of operations in this calculator
 	 */
-	private final List<Function<? super T>> functions = CollectionFactory
-			.newList();
+	private Function<? super T>[] functions;
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using
 	 * {@link #add(int, Function)}.
 	 */
-	public Calculator() {
+	@SuppressWarnings("unchecked")
+	public SimpleCalculator() {
 		super(0x00);
+		functions = new Function[0];
 	}
 
 	/**
@@ -51,11 +49,9 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param functions
 	 *            the calculator functions
 	 */
-	public Calculator(Function<? super T>... functions) {
+	public SimpleCalculator(Function<? super T>... functions) {
 		super(0x00);
-		for (final Function<? super T> func : functions) {
-			this.functions.add(func);
-		}
+		this.functions = functions;
 	}
 
 	/**
@@ -70,8 +66,9 @@ public class Calculator<T extends CalculatorContext> extends
 	 *            the operation
 	 */
 	public void add(Function<? super T> function) {
-		functions.add(function);
-		Collections.sort(functions, FunctionOrderComparator.SHARED_INSTANCE);
+		functions = Arrays.copyOf(functions, functions.length + 1);
+		functions[functions.length - 1] = function;
+		Arrays.sort(functions, FunctionOrderComparator.SHARED_INSTANCE);
 	}
 
 	/**
@@ -84,12 +81,12 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void importFunctions(Calculator<? super T> calculator) {
+	public void importFunctions(SimpleCalculator<? super T> calculator) {
 		for (final Function<? super T> function : calculator.functions) {
-			if (function instanceof Calculator) {
-				importFunctions((Calculator<? super T>) function);
+			if (function instanceof SimpleCalculator) {
+				importFunctions((SimpleCalculator<? super T>) function);
 			} else {
-				functions.add(function);
+				add(function);
 			}
 		}
 	}
@@ -102,12 +99,13 @@ public class Calculator<T extends CalculatorContext> extends
 	 * @param calculator
 	 *            the calculator
 	 */
-	public void removeFunctions(Calculator<? super T> calculator) {
+	public void removeFunctions(SimpleCalculator<? super T> calculator) {
 		for (final Function<? super T> function : calculator.functions) {
-			if (function instanceof Calculator) {
-				removeFunctions((Calculator<? super T>) function);
+			if (function instanceof SimpleCalculator) {
+				removeFunctions((SimpleCalculator<? super T>) function);
 			} else {
-				functions.remove(function);
+				// TODO
+				// remove(function);
 			}
 		}
 	}

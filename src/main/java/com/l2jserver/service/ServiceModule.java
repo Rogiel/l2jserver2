@@ -31,6 +31,8 @@ import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.core.vfs.VFSServiceImpl;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.JDBCDatabaseService;
+import com.l2jserver.service.game.AttackService;
+import com.l2jserver.service.game.AttackServiceImpl;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.character.CharacterServiceImpl;
 import com.l2jserver.service.game.chat.ChatService;
@@ -53,6 +55,8 @@ import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.gameguard.GameGuardService;
+import com.l2jserver.service.network.gameguard.GameGuardServiceImpl;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 import com.l2jserver.service.network.keygen.SecureBlowfishKeygenService;
 
@@ -86,6 +90,8 @@ public class ServiceModule extends AbstractModule {
 				.in(Scopes.SINGLETON);
 		bind(NetworkService.class).to(NettyNetworkService.class).in(
 				Scopes.SINGLETON);
+		bind(GameGuardService.class).to(GameGuardServiceImpl.class).in(
+				Scopes.SINGLETON);
 		bind(ScriptingService.class).to(ScriptingServiceImpl.class).in(
 				Scopes.SINGLETON);
 		bind(TemplateService.class).to(XMLTemplateService.class).in(
@@ -96,6 +102,8 @@ public class ServiceModule extends AbstractModule {
 		bind(SpawnService.class).to(SpawnServiceImpl.class)
 				.in(Scopes.SINGLETON);
 		bind(CharacterService.class).to(CharacterServiceImpl.class).in(
+				Scopes.SINGLETON);
+		bind(AttackService.class).to(AttackServiceImpl.class).in(
 				Scopes.SINGLETON);
 		bind(NPCService.class).to(NPCServiceImpl.class).in(Scopes.SINGLETON);
 

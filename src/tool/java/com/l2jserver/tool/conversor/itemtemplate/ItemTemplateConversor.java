@@ -36,7 +36,6 @@ public class ItemTemplateConversor {
 		template = IOUtils.toString(ItemTemplateConversor.class
 				.getResourceAsStream("ItemTemplateBase.txt"));
 
-		@SuppressWarnings("unchecked")
 		Collection<File> files = FileUtils
 				.listFiles(
 						new File(

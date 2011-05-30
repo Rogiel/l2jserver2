@@ -19,13 +19,14 @@ package com.l2jserver.service.network.gameguard;
 import java.util.concurrent.Future;
 
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.service.Service;
 
 /**
  * This service is responsible for querying and validating GameGuard packets
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface GameGuardService {
+public interface GameGuardService extends Service {
 	/**
 	 * Queries the client GameGuard for an response
 	 * 

@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.jdbc.h2;
 
+import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.db.dao.jdbc.JDBCNPCDAO;
@@ -28,8 +29,9 @@ import com.l2jserver.service.database.DatabaseService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5NPCDAO extends JDBCNPCDAO implements NPCDAO {
-	public MySQL5NPCDAO(DatabaseService database, NPCIDProvider idProvider,
+public class H2NPCDAO extends JDBCNPCDAO implements NPCDAO {
+	@Inject
+	public H2NPCDAO(DatabaseService database, NPCIDProvider idProvider,
 			NPCTemplateIDProvider templateIdProvider) {
 		super(database, idProvider, templateIdProvider);
 	}

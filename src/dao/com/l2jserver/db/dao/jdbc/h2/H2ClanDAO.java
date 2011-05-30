@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.h2;
+package com.l2jserver.db.dao.jdbc.h2;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;

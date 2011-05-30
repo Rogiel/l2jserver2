@@ -14,29 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.db.dao.jdbc.h2;
+
+import com.google.inject.Inject;
+import com.l2jserver.db.dao.CharacterFriendDAO;
+import com.l2jserver.db.dao.jdbc.JDBCCharacterFriendDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.FriendIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * An function is nothing more than a mathematical operation.
+ * {@link CharacterFriendDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Function<C extends CalculatorContext> {
-	/**
-	 * Performs the operation in the calculation process.
-	 * <p>
-	 * The <tt>value</tt> in the argument is normally used for calculation, but
-	 * an {@link Function} can ignore the value if required to (i.e.
-	 * {@link SetFunction})
-	 * 
-	 * @param value
-	 *            the input value
-	 * @return the output value
-	 */
-	double calculate(C ctx, double value);
-
-	/**
-	 * @return the order this function will be executed
-	 */
-	int order();
+public class H2CharacterFriendDAO extends JDBCCharacterFriendDAO implements
+		CharacterFriendDAO {
+	@Inject
+	public H2CharacterFriendDAO(DatabaseService database,
+			FriendIDProvider idProvider, CharacterIDProvider charIdProvider) {
+		super(database, idProvider, charIdProvider);
+	}
 }

@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.db.dao.jdbc.h2;
 
+import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.jdbc.JDBCCharacterDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
@@ -29,9 +30,10 @@ import com.l2jserver.service.database.DatabaseService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5CharacterDAO extends JDBCCharacterDAO implements
+public class H2CharacterDAO extends JDBCCharacterDAO implements
 		CharacterDAO {
-	public MySQL5CharacterDAO(DatabaseService database,
+	@Inject
+	public H2CharacterDAO(DatabaseService database,
 			CharacterIDProvider idFactory,
 			CharacterTemplateIDProvider templateIdFactory,
 			AccountIDProvider accountIdFactory, ClanIDProvider clanIdFactory) {

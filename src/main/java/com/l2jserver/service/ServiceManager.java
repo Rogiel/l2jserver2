@@ -41,7 +41,9 @@ public class ServiceManager {
 	 * The Guice Injector
 	 */
 	private final Injector injector;
-
+	/**
+	 * List of all known services by this manager
+	 */
 	private final Set<Service> knownServices = CollectionFactory.newSet();
 
 	@Inject

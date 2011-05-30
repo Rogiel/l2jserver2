@@ -14,24 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.mysql5;
+package com.l2jserver.model.server.attack;
 
-import com.l2jserver.db.dao.ItemDAO;
-import com.l2jserver.db.dao.jdbc.JDBCItemDAO;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.object.provider.ItemIDProvider;
-import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.util.calculator.AbstractDoubleFunction;
 
 /**
- * {@link ItemDAO} implementation for MySQL5
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ItemDAO extends JDBCItemDAO implements ItemDAO {
-	public MySQL5ItemDAO(DatabaseService database, ItemIDProvider idFactory,
-			ItemTemplateIDProvider templateIdFactory,
-			CharacterIDProvider charIdFactory) {
-		super(database, idFactory, templateIdFactory, charIdFactory);
+public abstract class AttackCalculatorFunction extends
+		AbstractDoubleFunction<AttackCalculatorContext> {
+	public AttackCalculatorFunction(int order) {
+		super(order);
 	}
+
+	@Override
+	public double calculate(AttackCalculatorContext ctx, double value) {
+		return calculate(ctx.attacker, ctx.target, value);
+	}
+
+	public abstract double calculate(Actor attacker, Actor target, double value);
 }

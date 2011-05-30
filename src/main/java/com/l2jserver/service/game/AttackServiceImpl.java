@@ -21,8 +21,13 @@ import java.util.concurrent.Callable;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.server.AttackHit;
+import com.l2jserver.model.server.attack.AttackCalculator;
+import com.l2jserver.model.server.attack.AttackCalculatorContext;
+import com.l2jserver.model.server.attack.PhysicalAttackCalculator;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
@@ -30,7 +35,13 @@ import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends({ ThreadService.class })
 public class AttackServiceImpl extends AbstractService implements AttackService {
+	/**
+	 * Calculator used to compute physical attacks
+	 */
+	private static final AttackCalculator PHYSICAL_ATTACK_CALCULATOR = new PhysicalAttackCalculator();
+
 	/**
 	 * The {@link ThreadService} is used to schedule asynchronous attacks
 	 */
@@ -39,7 +50,6 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 * The {@link WorldEventDispatcher} is used to dispatch attack events to the
 	 * world
 	 */
-	@SuppressWarnings("unused")
 	private final WorldEventDispatcher eventDispatcher;
 
 	@Inject
@@ -67,12 +77,10 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 		/**
 		 * The attacker
 		 */
-		@SuppressWarnings("unused")
 		private final Actor attacker;
 		/**
 		 * The target
 		 */
-		@SuppressWarnings("unused")
 		private final Actor target;
 
 		public AttackCallable(Actor attacker, Actor target) {
@@ -82,8 +90,15 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 
 		@Override
 		public AttackHit call() throws Exception {
-			
-			return null;
+			final double damage = PHYSICAL_ATTACK_CALCULATOR
+					.calculate(new AttackCalculatorContext(attacker, target));
+			// TODO calculate miss
+			// TODO calculate critical
+			// TODO calculate soulshot
+
+			final AttackHit hit = new AttackHit(attacker, target, damage);
+			eventDispatcher.dispatch(new ActorAttackHitEvent(hit));
+			return hit;
 		}
 	}
 }

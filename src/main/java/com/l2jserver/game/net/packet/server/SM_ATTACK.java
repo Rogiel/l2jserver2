@@ -54,6 +54,10 @@ public class SM_ATTACK extends AbstractServerPacket {
 		Collections.addAll(this.hits, hits);
 	}
 
+	public SM_ATTACK(AttackHit... hits) {
+		this(hits[0].getAttacker(), hits);
+	}
+
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
 		buffer.writeInt(attacker.getID().getID());

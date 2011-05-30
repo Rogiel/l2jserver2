@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item id="1" icon="icon.etc_adena_i00">
-	<name>Adena</name>
-	<material>GOLD</material>
+	<name>Short Sword</name>
+	<material>STEEL</material>
 	<effect type="IMMEDIATE" />
 	<price>1</price>
+	<stats>
+		<physicalDamage>
+			<set order="0x80">8</set>
+		</physicalDamage>
+		<magicalDamage>
+			<set order="0x80">6</set>
+		</magicalDamage>
+		<criticalChance>
+			<set order="0x80">8</set>
+		</criticalChance>
+		<physicalAttackSpeed>
+			<set order="0x80">379</set>
+		</physicalAttackSpeed>
+	</stats>
 </item>

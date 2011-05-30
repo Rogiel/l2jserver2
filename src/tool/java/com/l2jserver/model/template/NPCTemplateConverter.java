@@ -87,7 +87,6 @@ public class NPCTemplateConverter {
 	private static Collection<File> htmlScannedFiles;
 	private static TeleportationTemplateContainer teleportation = new TeleportationTemplateContainer();
 
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws SQLException, IOException,
 			ClassNotFoundException, JAXBException {
 		controllers.put("L2Teleporter", TeleporterController.class);

@@ -14,25 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.db.dao.h2;
+package com.l2jserver.db.dao.jdbc.h2;
 
 import com.google.inject.Inject;
-import com.l2jserver.db.dao.CharacterFriendDAO;
-import com.l2jserver.db.dao.jdbc.JDBCCharacterFriendDAO;
+import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.db.dao.jdbc.JDBCItemDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.provider.FriendIDProvider;
+import com.l2jserver.model.id.object.provider.ItemIDProvider;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.service.database.DatabaseService;
 
 /**
- * {@link CharacterFriendDAO} implementation for MySQL5
+ * {@link ItemDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class H2CharacterFriendDAO extends JDBCCharacterFriendDAO implements
-		CharacterFriendDAO {
+public class H2ItemDAO extends JDBCItemDAO implements ItemDAO {
 	@Inject
-	public H2CharacterFriendDAO(DatabaseService database,
-			FriendIDProvider idProvider, CharacterIDProvider charIdProvider) {
-		super(database, idProvider, charIdProvider);
+	public H2ItemDAO(DatabaseService database, ItemIDProvider idFactory,
+			ItemTemplateIDProvider templateIdFactory,
+			CharacterIDProvider charIdFactory) {
+		super(database, idFactory, templateIdFactory, charIdFactory);
 	}
 }

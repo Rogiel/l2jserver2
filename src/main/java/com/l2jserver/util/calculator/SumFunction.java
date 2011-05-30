@@ -22,7 +22,7 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SumFunction extends AbstractFunction<CalculatorContext> {
+public class SumFunction extends AbstractDoubleFunction<CalculatorContext> {
 	/**
 	 * The value
 	 */

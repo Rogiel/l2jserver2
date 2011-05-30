@@ -254,8 +254,7 @@ public class Lineage2Connection {
 	 *         has been written.
 	 */
 	public ChannelFuture sendMessage(String message) {
-		return write(new SM_SYSTEM_MESSAGE(SystemMessage.S1)
-				.addString(message));
+		return write(new SM_SYSTEM_MESSAGE(SystemMessage.S1).addString(message));
 	}
 
 	/**
@@ -277,8 +276,8 @@ public class Lineage2Connection {
 	 *            the {@link SystemMessage}
 	 * @param args
 	 *            the arguments of the message, they will be automatically
-	 *            detected and inserted. See {@link SM_SYSTEM_MESSAGE} for
-	 *            more about supported formats.
+	 *            detected and inserted. See {@link SM_SYSTEM_MESSAGE} for more
+	 *            about supported formats.
 	 * @return the {@link ChannelFuture} that will be notified once the packet
 	 *         has been written.
 	 * @see SM_SYSTEM_MESSAGE
@@ -293,8 +292,10 @@ public class Lineage2Connection {
 				packet.addItem((ItemTemplate) obj);
 			else if (obj instanceof Item)
 				packet.addItem((Item) obj);
+			else if (obj instanceof Number)
+				packet.addNumber((Integer) obj);
 		}
-		return write(message.packet);
+		return write(packet);
 	}
 
 	/**

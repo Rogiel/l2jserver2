@@ -22,7 +22,7 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NegateFunction extends AbstractFunction<CalculatorContext> {
+public class NegateFunction extends AbstractDoubleFunction<CalculatorContext> {
 	public NegateFunction(int order) {
 		super(order);
 	}

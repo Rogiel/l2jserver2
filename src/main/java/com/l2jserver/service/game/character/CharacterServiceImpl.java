@@ -21,6 +21,7 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
+import com.l2jserver.game.net.packet.server.SM_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
@@ -32,7 +33,6 @@ import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
@@ -40,6 +40,7 @@ import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
@@ -54,6 +55,7 @@ import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.chat.ChatChannel;
 import com.l2jserver.service.game.chat.ChatChannelListener;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
@@ -83,7 +85,7 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ WorldService.class, ChatService.class, NetworkService.class,
-		SpawnService.class })
+		SpawnService.class, AttackService.class, GameGuardService.class })
 public class CharacterServiceImpl extends AbstractService implements
 		CharacterService {
 	/**
@@ -152,6 +154,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		itemDao.loadInventory(character);
 
 		character.setOnline(true);
+		
+		// inventory interfere on calculators
+		character.getStats().updateCalculators();
 
 		// chat listener
 		final ChatChannelListener globalChatListener = new ChatChannelListener() {
@@ -231,6 +236,11 @@ public class CharacterServiceImpl extends AbstractService implements
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
 					broadcast(conn, character);
+				} else if (e instanceof ActorAttackHitEvent) {
+					conn.write(new SM_ATTACK(((ActorAttackHitEvent) e).getHit()));
+					conn.sendSystemMessage(SystemMessage.YOU_DID_S1_DMG,
+							(int) ((ActorAttackHitEvent) e).getHit()
+									.getDamage());
 				}
 				// keep listener alive
 				return true;
@@ -369,10 +379,6 @@ public class CharacterServiceImpl extends AbstractService implements
 		// check if this Actor can be attacked
 		if (target instanceof NPC) {
 			final NPC npc = (NPC) target;
-			final NPCTemplate template = npc.getTemplate();
-			if (!template.isAttackable()) {
-				throw new ActorIsNotAttackableServiceException();
-			}
 			// first try to target this, if it is not already
 			target(character, target);
 

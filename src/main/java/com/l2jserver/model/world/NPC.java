@@ -30,8 +30,14 @@ import com.l2jserver.service.game.ai.AIScript;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPC extends Actor {
-	private NPCStats stats;
+	/**
+	 * This NPC stats
+	 */
+	private final NPCStats stats = new NPCStats(this);
 
+	/**
+	 * The npc state
+	 */
 	private NPCState state;
 
 	public enum NPCState {
@@ -48,9 +54,7 @@ public class NPC extends Actor {
 		super(templateID);
 	}
 
-	/**
-	 * @return the stats
-	 */
+	@Override
 	public NPCStats getStats() {
 		return stats;
 	}
@@ -90,7 +94,8 @@ public class NPC extends Actor {
 	public void setState(NPCState state) {
 		this.state = state;
 	}
-
+	
+	// TEMPLATE WRAPPERS
 	@Override
 	public ActorSex getSex() {
 		return this.getTemplate().getSex();

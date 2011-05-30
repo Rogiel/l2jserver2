@@ -48,7 +48,7 @@ import com.l2jserver.util.geometry.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID> implements
+public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID> implements
 		ItemDAO {
 	/**
 	 * The {@link ItemID} factory

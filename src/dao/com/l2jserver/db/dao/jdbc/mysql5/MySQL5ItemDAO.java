@@ -14,31 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.calculator.base;
+package com.l2jserver.db.dao.jdbc.mysql5;
 
-import com.l2jserver.model.template.NPCTemplate;
-import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.npc.calculator.NPCCalculator;
-import com.l2jserver.model.world.npc.calculator.NPCCalculatorFunction;
+import com.google.inject.Inject;
+import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.db.dao.jdbc.JDBCItemDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.object.provider.ItemIDProvider;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * Calculates the character base accuracy.
- * 
- * <pre>
- * ctx.result = c.getTemplate().getBaseAccuracy();
- * </pre>
+ * {@link ItemDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NPCBaseAttackAccuracyCalculator extends NPCCalculator {
-	public NPCBaseAttackAccuracyCalculator() {
-		super(new NPCCalculatorFunction(0x000) {
-			@Override
-			protected double calculate(NPC c, NPCTemplate t, double value) {
-				// return t.getEvasion()
-				// TODO
-				return value;
-			}
-		});
+public class MySQL5ItemDAO extends JDBCItemDAO implements ItemDAO {
+	@Inject
+	public MySQL5ItemDAO(DatabaseService database, ItemIDProvider idFactory,
+			ItemTemplateIDProvider templateIdFactory,
+			CharacterIDProvider charIdFactory) {
+		super(database, idFactory, templateIdFactory, charIdFactory);
 	}
 }

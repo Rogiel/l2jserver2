@@ -18,7 +18,7 @@ package com.l2jserver;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
-import com.l2jserver.db.H2DAOModule;
+import com.l2jserver.db.MySQL5DAOModule;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.service.ServiceModule;
 
@@ -32,6 +32,6 @@ public class GameServerModule extends AbstractModule {
 	protected void configure() {
 		install(new ServiceModule());
 		install(new IDProviderModule());
-		install(new H2DAOModule());
+		install(new MySQL5DAOModule());
 	}
 }

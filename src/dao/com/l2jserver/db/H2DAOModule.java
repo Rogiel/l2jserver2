@@ -24,11 +24,11 @@ import com.l2jserver.db.dao.CharacterFriendDAO;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.db.dao.NPCDAO;
-import com.l2jserver.db.dao.h2.H2CharacterDAO;
-import com.l2jserver.db.dao.h2.H2CharacterFriendDAO;
-import com.l2jserver.db.dao.h2.H2ClanDAO;
-import com.l2jserver.db.dao.h2.H2ItemDAO;
-import com.l2jserver.db.dao.h2.H2NPCDAO;
+import com.l2jserver.db.dao.jdbc.h2.H2CharacterDAO;
+import com.l2jserver.db.dao.jdbc.h2.H2CharacterFriendDAO;
+import com.l2jserver.db.dao.jdbc.h2.H2ClanDAO;
+import com.l2jserver.db.dao.jdbc.h2.H2ItemDAO;
+import com.l2jserver.db.dao.jdbc.h2.H2NPCDAO;
 
 /**
  * Google Guice {@link Module} for H2 DAOs

@@ -21,7 +21,6 @@ import com.l2jserver.model.world.actor.stat.ActorStats;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.npc.calculator.NPCCalculator;
 import com.l2jserver.model.world.npc.calculator.NPCCalculatorContext;
-import com.l2jserver.model.world.npc.calculator.base.NPCBaseAttackAccuracyCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseAttackEvasionCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseConcentrationCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseDexterityCalculator;
@@ -41,16 +40,16 @@ import com.l2jserver.model.world.npc.calculator.base.NPCBaseRunSpeedCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseStrengthCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseWalkSpeedCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseWitnessCalculator;
-import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.calculator.SimpleCalculator;
 
 /**
  * This class is responsible for calculating the real NPC stats. The real stats
  * vary from the values from the templates, also, skills and items equipped can
  * change those values. Once an buff is applied, a new calculator is
- * {@link Calculator#importFunctions(Calculator) imported} and their functions
+ * {@link SimpleCalculator#importFunctions(SimpleCalculator) imported} and their functions
  * are added to this class calculator. Once the skill effect has past away, all
  * the functions that were imported are now
- * {@link Calculator#removeFunctions(Calculator) removed} and the calculator
+ * {@link SimpleCalculator#removeFunctions(SimpleCalculator) removed} and the calculator
  * return to its original state.
  * <p>
  * Another important note is that calculators should perform calculations as
@@ -193,13 +192,6 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	private static final NPCCalculator BASE_MAGICAL_DEFENSE_CALCULATOR = new NPCBaseMagicalDefenseCalculator();
 
 	/**
-	 * The calculator base attack accuracy
-	 * <p>
-	 * <u>This calculator does not store any state and thus is safe to be
-	 * shared.</u>
-	 */
-	private static final NPCCalculator BASE_ATTACK_ACCURACY_CALCULATOR = new NPCBaseAttackAccuracyCalculator();
-	/**
 	 * The calculator base evasion
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
@@ -245,7 +237,6 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 		add(StatType.MCRITICAL_RATE, BASE_MAGICAL_CRITICAL_RATE_CALCULATOR);
 		add(StatType.MAGIC_DEFENSE, BASE_MAGICAL_DEFENSE_CALCULATOR);
 
-		add(StatType.ACCURACY_COMBAT, BASE_ATTACK_ACCURACY_CALCULATOR);
 		add(StatType.EVASION_RATE, BASE_ATTACK_EVASION_CALCULATOR);
 	}
 

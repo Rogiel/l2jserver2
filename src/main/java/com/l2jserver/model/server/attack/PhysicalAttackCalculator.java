@@ -14,29 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.actor.calculator;
+package com.l2jserver.model.server.attack;
 
-import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
-import com.l2jserver.model.world.actor.stat.BaseStats;
 
 /**
- * Calculates the character base run speed
- * 
- * <pre>
- * ctx.result *= BaseStats.DEX.calculateBonus(c.getStats().getDexterity());
- * </pre>
+ * Calculator used to calculate physical damage on each hit.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RunSpeedBonusCalculator extends ActorCalculator {
-	public RunSpeedBonusCalculator() {
-		super(new ActorCalculatorFunction(0x300) {
+public class PhysicalAttackCalculator extends AttackCalculator {
+	public PhysicalAttackCalculator() {
+		super(new AttackCalculatorFunction(0x000) {
 			@Override
-			protected double calculate(Actor c, ActorTemplate<?> t, double value) {
-				return value
-						* BaseStats.DEX.calculateBonus(c.getStats()
-								.getDexterity());
+			public double calculate(Actor attacker, Actor target, double value) {
+				// TODO this is certainly not right!!!
+				// this is just an simple calculator for testing!
+				return attacker.getStats().getPhysicalAttack()
+						- target.getStats().getPhysicalDefense();
+			}
+		}, new AttackCalculatorFunction(Integer.MAX_VALUE) {
+			@Override
+			public double calculate(Actor attacker, Actor target, double value) {
+				if (value <= 0)
+					return 1;
+				return value;
 			}
 		});
 	}

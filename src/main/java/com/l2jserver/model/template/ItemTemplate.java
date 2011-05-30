@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.template.calculator.ItemPhysicalDamageActorCalculator;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 
@@ -58,14 +59,25 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	protected int price = 0;
 	@XmlElement(name = "icon")
 	protected String icon;
-	@XmlElement(name = "weight")
+	@XmlElement(name = "effect")
 	protected EffectContainer effect;
 
 	@XmlType(namespace = "item")
 	private static class EffectContainer {
 		@XmlAttribute(name = "type")
-		protected EffectType effect = null;
+		protected EffectType effect;
 	}
+
+	@XmlType(namespace = "item")
+	protected static class StatsContainer {
+		@XmlElement(name = "physicalDamage")
+		protected StatAttribute physicalDamage;
+		@XmlElement(name = "magicalDamage")
+		protected StatAttribute magicalDamage;
+	}
+
+	@XmlElement(name = "stats")
+	protected StatsContainer stats;
 
 	protected ItemMaterial material;
 
@@ -75,6 +87,38 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 
 	public enum EffectType {
 		IMMEDIATE;
+	}
+
+	@XmlType(namespace = "item")
+	public static class StatAttribute {
+		@XmlElement(name = "set")
+		protected StatSet set;
+
+		public static class StatSet {
+			protected int order;
+			protected double value;
+
+			/**
+			 * @return the order
+			 */
+			public int getOrder() {
+				return order;
+			}
+
+			/**
+			 * @return the value
+			 */
+			public double getValue() {
+				return value;
+			}
+		}
+
+		/**
+		 * @return the set
+		 */
+		public StatSet getSet() {
+			return set;
+		}
 	}
 
 	@Override
@@ -123,6 +167,24 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	 */
 	public ItemMaterial getMaterial() {
 		return material;
+	}
+
+	/**
+	 * @return the physical damage
+	 */
+	public ItemPhysicalDamageActorCalculator getPhysicalDamage() {
+		if (stats == null)
+			return null;
+		return new ItemPhysicalDamageActorCalculator(stats.physicalDamage.set);
+	}
+
+	/**
+	 * @return the magical damage
+	 */
+	public StatAttribute getMagicalDamage() {
+		if (stats == null)
+			return null;
+		return stats.magicalDamage;
 	}
 
 	/*

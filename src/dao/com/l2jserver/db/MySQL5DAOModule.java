@@ -24,11 +24,11 @@ import com.l2jserver.db.dao.CharacterFriendDAO;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.db.dao.NPCDAO;
-import com.l2jserver.db.dao.mysql5.MySQL5CharacterDAO;
-import com.l2jserver.db.dao.mysql5.MySQL5CharacterFriendDAO;
-import com.l2jserver.db.dao.mysql5.MySQL5ClanDAO;
-import com.l2jserver.db.dao.mysql5.MySQL5ItemDAO;
-import com.l2jserver.db.dao.mysql5.MySQL5NPCDAO;
+import com.l2jserver.db.dao.jdbc.mysql5.MySQL5CharacterDAO;
+import com.l2jserver.db.dao.jdbc.mysql5.MySQL5CharacterFriendDAO;
+import com.l2jserver.db.dao.jdbc.mysql5.MySQL5ClanDAO;
+import com.l2jserver.db.dao.jdbc.mysql5.MySQL5ItemDAO;
+import com.l2jserver.db.dao.jdbc.mysql5.MySQL5NPCDAO;
 
 /**
  * Google Guice {@link Module} for MySQL5 DAOs

@@ -20,11 +20,11 @@ package com.l2jserver.util.calculator;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public abstract class AbstractFunction<T extends CalculatorContext> implements
+public abstract class AbstractDoubleFunction<T extends CalculatorContext> implements
 		Function<T> {
 	private final int order;
 
-	public AbstractFunction(int order) {
+	public AbstractDoubleFunction(int order) {
 		this.order = order;
 	}
 

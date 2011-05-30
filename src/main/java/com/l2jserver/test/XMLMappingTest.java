@@ -74,6 +74,6 @@ public class XMLMappingTest {
 		final CharacterTemplate t = (CharacterTemplate) u.unmarshal(new File(
 				"data/templates/character/HumanFighter.xml"));
 		System.out.println(t.getID());
-		System.out.println(t.getCharacterClass());
+		System.out.println(t.getBasePhysicalAttack());
 	}
 }

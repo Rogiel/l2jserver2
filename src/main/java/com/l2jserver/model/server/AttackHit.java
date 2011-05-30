@@ -85,6 +85,22 @@ public class AttackHit {
 	 *            the actor attacking <tt>target</tt>
 	 * @param target
 	 *            the actor being attacked by <tt>attacker</tt>
+	 * @param damage
+	 *            the damage issued in this hit
+	 */
+	public AttackHit(Actor attacker, Actor target, double damage) {
+		this.attacker = attacker;
+		this.target = target;
+		this.damage = damage;
+	}
+
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param attacker
+	 *            the actor attacking <tt>target</tt>
+	 * @param target
+	 *            the actor being attacked by <tt>attacker</tt>
 	 */
 	public AttackHit(Actor attacker, Actor target) {
 		this.attacker = attacker;

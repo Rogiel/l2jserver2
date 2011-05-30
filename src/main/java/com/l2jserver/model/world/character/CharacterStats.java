@@ -19,6 +19,7 @@ package com.l2jserver.model.world.character;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.ActorStats;
 import com.l2jserver.model.world.actor.stat.StatType;
+import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.character.calculator.CharacterCalculator;
 import com.l2jserver.model.world.character.calculator.CharacterCalculatorContext;
 import com.l2jserver.model.world.character.calculator.MaximumCPAddCalculator;
@@ -46,17 +47,17 @@ import com.l2jserver.model.world.character.calculator.base.CharacterBaseRunSpeed
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseStrengthCalculator;
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseWalkSpeedCalculator;
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseWitnessCalculator;
-import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.calculator.SimpleCalculator;
 
 /**
  * This class is responsible for calculating the real character stats. The real
  * stats vary from the values from the templates, also, skills and items
  * equipped can change those values. Once an buff is applied, a new calculator
- * is {@link Calculator#importFunctions(Calculator) imported} and their
- * functions are added to this class calculator. Once the skill effect has past
- * away, all the functions that were imported are now
- * {@link Calculator#removeFunctions(Calculator) removed} and the calculator
- * return to its original state.
+ * is {@link SimpleCalculator#importFunctions(SimpleCalculator) imported} and
+ * their functions are added to this class calculator. Once the skill effect has
+ * past away, all the functions that were imported are now
+ * {@link SimpleCalculator#removeFunctions(SimpleCalculator) removed} and the
+ * calculator return to its original state.
  * <p>
  * Another important note is that calculators should perform calculations as
  * fast as possible.
@@ -219,7 +220,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	 * shared.</u>
 	 */
 	private static final CharacterCalculator BASE_ATTACK_EVASION_CALCULATOR = new CharacterBaseAttackEvasionCalculator();
-	
+
 	// BONUS
 	/**
 	 * The calculator for CP bonus
@@ -228,7 +229,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	 * shared.</u>
 	 */
 	private static final CharacterCalculator CP_BONUS_CALCULATOR = new MaximumCPBonusCalculator();
-	
+
 	// ADD
 	/**
 	 * The calculator for HP add
@@ -299,10 +300,10 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 		add(StatType.MAX_HP, HP_ADD_CALCULATOR);
 		add(StatType.MAX_MP, MP_ADD_CALCULATOR);
 		add(StatType.MAX_CP, CP_ADD_CALCULATOR);
-		
+
 		// bonus
 		add(StatType.MAX_CP, CP_BONUS_CALCULATOR);
-		
+
 		// TODO henna stats calculators
 	}
 
@@ -318,6 +319,17 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	 */
 	public int getMaximumLoad() {
 		return (int) calc(StatType.MAX_LOAD);
+	}
+
+	@Override
+	public void updateCalculators() {
+		super.updateCalculators();
+		if (character.getInventory().has(InventoryPaperdoll.RIGHT_HAND)) {
+			add(StatType.POWER_ATTACK,
+					character.getInventory()
+							.getItem(InventoryPaperdoll.RIGHT_HAND)
+							.getTemplateID().getTemplate().getPhysicalDamage());
+		}
 	}
 
 	@Override

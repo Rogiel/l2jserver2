@@ -27,9 +27,7 @@ import com.google.inject.Injector;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
-import com.l2jserver.game.net.packet.server.SM_ATTACK;
-import com.l2jserver.model.server.AttackHit;
-import com.l2jserver.model.server.AttackHit.AttackHitFlag;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.NPC.NPCState;
@@ -38,6 +36,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
@@ -54,7 +53,7 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ SpawnService.class, NetworkService.class, CharacterService.class,
-		ThreadService.class })
+		ThreadService.class, AttackService.class })
 public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The {@link SpawnService} used to spawn the {@link NPC} instances
@@ -72,6 +71,10 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 * The {@link ThreadService}
 	 */
 	private final ThreadService threadService;
+	/**
+	 * The {@link AttackService}
+	 */
+	private final AttackService attackService;
 
 	/**
 	 * The {@link NPCDAO}
@@ -93,11 +96,13 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
 			NetworkService networkService, CharacterService characterService,
-			ThreadService threadService, NPCDAO npcDao, Injector injector) {
+			ThreadService threadService, AttackService attackService,
+			NPCDAO npcDao, Injector injector) {
 		this.spawnService = spawnService;
 		this.networkService = networkService;
 		this.characterService = characterService;
 		this.threadService = threadService;
+		this.attackService = attackService;
 		this.npcDao = npcDao;
 		this.injector = injector;
 	}
@@ -183,9 +188,12 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(conn, "conn");
 		Preconditions.checkNotNull(attacker, "attacker");
 
-		conn.write(new SM_ATTACK(conn.getCharacter(), new AttackHit(
-				conn.getCharacter(), npc, AttackHitFlag.MISS,
-				AttackHitFlag.SOULSHOT)));
+		final NPCTemplate template = npc.getTemplate();
+		if (!template.isAttackable()) {
+			throw new NotAttackableNPCServiceException();
+		}
+
+		attackService.attack(attacker, npc);
 	}
 
 	private NPCController getController(NPC npc) {
