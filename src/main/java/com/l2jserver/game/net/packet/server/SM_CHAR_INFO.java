@@ -56,6 +56,13 @@ import com.l2jserver.util.BufferUtils;
 /**
  * This is an message informing the client of an given player
  * 
+ * <pre>
+ * (c) dddddSddddQdddddddddddddddddddddddddddddddddddddddddddddddddd
+ * ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+ * fdfdfdfddddSdddddcccddh[h]cdcdhhdhddddccdcccddddcdddddhhhhhhhdddd
+ * d
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SM_CHAR_INFO extends AbstractServerPacket {

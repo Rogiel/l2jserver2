@@ -24,9 +24,9 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.L2JConstant;
-import com.l2jserver.game.ProtocolVersion;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
+import com.l2jserver.game.net.ProtocolVersion;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_KEY;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;

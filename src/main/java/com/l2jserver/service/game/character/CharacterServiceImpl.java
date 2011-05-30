@@ -21,17 +21,16 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
-import com.l2jserver.game.net.packet.server.SM_CHAT;
-import com.l2jserver.game.net.packet.server.SM_MOVE;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
-import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
+import com.l2jserver.game.net.packet.server.SM_CHAT;
+import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
-import com.l2jserver.game.net.packet.server.SM_TARGET;
-import com.l2jserver.game.net.packet.server.SM_GG_QUERY;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
+import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
@@ -74,6 +73,7 @@ import com.l2jserver.service.game.world.filter.impl.IDFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListUpdateFilter;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.gameguard.GameGuardService;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -111,6 +111,10 @@ public class CharacterServiceImpl extends AbstractService implements
 	 */
 	private final NPCService npcService;
 	/**
+	 * The {@link GameGuardService}
+	 */
+	private final GameGuardService ggService;
+	/**
 	 * The {@link ItemDAO}
 	 */
 	private final ItemDAO itemDao;
@@ -124,13 +128,14 @@ public class CharacterServiceImpl extends AbstractService implements
 	public CharacterServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
 			NetworkService networkService, SpawnService spawnService,
-			NPCService npcService, ItemDAO itemDao) {
+			NPCService npcService, GameGuardService ggService, ItemDAO itemDao) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.chatService = chatService;
 		this.networkService = networkService;
 		this.spawnService = spawnService;
 		this.npcService = npcService;
+		this.ggService = ggService;
 		this.itemDao = itemDao;
 	}
 
@@ -260,11 +265,13 @@ public class CharacterServiceImpl extends AbstractService implements
 				globalChatListener);
 		chatService.getTradeChannel().addChatChannelListener(tradeChatListener);
 
+		// query client game guard -- if key is invalid, the connection will be
+		// closed as soon as possible
+		ggService.query(conn);
+
 		// send this user information
 		conn.write(new SM_CHAR_INFO(character));
 		conn.write(new SM_CHAR_INFO_EXTRA(character));
-		// TODO game guard enforcing
-		conn.write(new SM_GG_QUERY());
 		conn.write(new SM_CHAR_INVENTORY(character.getInventory()));
 
 		conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);

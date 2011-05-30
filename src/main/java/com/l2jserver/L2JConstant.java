@@ -16,7 +16,7 @@
  */
 package com.l2jserver;
 
-import com.l2jserver.game.ProtocolVersion;
+import com.l2jserver.game.net.ProtocolVersion;
 
 /**
  * Constant values for this L2J compilation

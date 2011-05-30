@@ -16,7 +16,7 @@
  */
 package com.l2jserver.game.net.packet.server;
 
-import static com.l2jserver.game.ProtocolVersion.FREYA;
+import static com.l2jserver.game.net.ProtocolVersion.FREYA;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.BELT;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.CHEST;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.CLOAK;

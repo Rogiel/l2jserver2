@@ -82,7 +82,7 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 
 		@Override
 		public AttackHit call() throws Exception {
-
+			
 			return null;
 		}
 	}

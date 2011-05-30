@@ -17,6 +17,7 @@
 package com.l2jserver.model.world.character;
 
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.actor.stat.ActorStats;
 import com.l2jserver.model.world.actor.stat.Stats.StatType;
 import com.l2jserver.model.world.character.calculator.BaseAttackAccuracyCalculator;
 import com.l2jserver.model.world.character.calculator.BaseAttackEvasionCalculator;
@@ -60,7 +61,7 @@ import com.l2jserver.util.calculator.Calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterStats {
+public class CharacterStats extends ActorStats {
 	/**
 	 * The calculator for base maximum HP
 	 * <p>
@@ -244,44 +245,32 @@ public class CharacterStats {
 		}
 
 		// import default functions
-		getCalculator(StatType.MAX_HP).importFunctions(BASE_HP_CALCULATOR);
-		getCalculator(StatType.MAX_MP).importFunctions(BASE_MP_CALCULATOR);
-		getCalculator(StatType.MAX_CP).importFunctions(BASE_CP_CALCULATOR);
+		add(StatType.MAX_HP, BASE_HP_CALCULATOR);
+		add(StatType.MAX_MP, BASE_MP_CALCULATOR);
+		add(StatType.MAX_CP, BASE_CP_CALCULATOR);
 
-		getCalculator(StatType.STAT_INT).importFunctions(BASE_INT_CALCULATOR);
-		getCalculator(StatType.STAT_STR).importFunctions(BASE_STR_CALCULATOR);
-		getCalculator(StatType.STAT_CON).importFunctions(BASE_CON_CALCULATOR);
-		getCalculator(StatType.STAT_MEN).importFunctions(BASE_MEN_CALCULATOR);
-		getCalculator(StatType.STAT_DEX).importFunctions(BASE_DEX_CALCULATOR);
-		getCalculator(StatType.STAT_WIT).importFunctions(BASE_WIT_CALCULATOR);
+		add(StatType.STAT_INT, BASE_INT_CALCULATOR);
+		add(StatType.STAT_STR, BASE_STR_CALCULATOR);
+		add(StatType.STAT_CON, BASE_CON_CALCULATOR);
+		add(StatType.STAT_MEN, BASE_MEN_CALCULATOR);
+		add(StatType.STAT_DEX, BASE_DEX_CALCULATOR);
+		add(StatType.STAT_WIT, BASE_WIT_CALCULATOR);
 
-		getCalculator(StatType.RUN_SPEED).importFunctions(
-				BASE_RUN_SPEED_CALCULATOR);
-		getCalculator(StatType.WALK_SPEED).importFunctions(
-				BASE_WALK_SPEED_CALCULATOR);
+		add(StatType.RUN_SPEED, BASE_RUN_SPEED_CALCULATOR);
+		add(StatType.WALK_SPEED, BASE_WALK_SPEED_CALCULATOR);
 
-		getCalculator(StatType.POWER_ATTACK).importFunctions(
-				BASE_PHYSICAL_ATTACK_CALCULATOR);
-		getCalculator(StatType.POWER_ATTACK_SPEED).importFunctions(
-				BASE_PHYSICAL_ATTACK_SPEED_CALCULATOR);
-		getCalculator(StatType.CRITICAL_RATE).importFunctions(
-				BASE_PHYSICAL_CRITICAL_RATE_CALCULATOR);
-		getCalculator(StatType.POWER_DEFENSE).importFunctions(
-				BASE_PHYSICAL_DEFENSE_CALCULATOR);
+		add(StatType.POWER_ATTACK, BASE_PHYSICAL_ATTACK_CALCULATOR);
+		add(StatType.POWER_ATTACK_SPEED, BASE_PHYSICAL_ATTACK_SPEED_CALCULATOR);
+		add(StatType.CRITICAL_RATE, BASE_PHYSICAL_CRITICAL_RATE_CALCULATOR);
+		add(StatType.POWER_DEFENSE, BASE_PHYSICAL_DEFENSE_CALCULATOR);
 
-		getCalculator(StatType.MAGIC_ATTACK).importFunctions(
-				BASE_MAGICAL_ATTACK_CALCULATOR);
-		getCalculator(StatType.MAGIC_ATTACK_SPEED).importFunctions(
-				BASE_MAGICAL_ATTACK_SPEED_CALCULATOR);
-		getCalculator(StatType.MCRITICAL_RATE).importFunctions(
-				BASE_MAGICAL_CRITICAL_RATE_CALCULATOR);
-		getCalculator(StatType.MAGIC_DEFENSE).importFunctions(
-				BASE_MAGICAL_DEFENSE_CALCULATOR);
+		add(StatType.MAGIC_ATTACK, BASE_MAGICAL_ATTACK_CALCULATOR);
+		add(StatType.MAGIC_ATTACK_SPEED, BASE_MAGICAL_ATTACK_SPEED_CALCULATOR);
+		add(StatType.MCRITICAL_RATE, BASE_MAGICAL_CRITICAL_RATE_CALCULATOR);
+		add(StatType.MAGIC_DEFENSE, BASE_MAGICAL_DEFENSE_CALCULATOR);
 
-		getCalculator(StatType.ACCURACY_COMBAT).importFunctions(
-				BASE_ATTACK_ACCURACY_CALCULATOR);
-		getCalculator(StatType.EVASION_RATE).importFunctions(
-				BASE_ATTACK_EVASION_CALCULATOR);
+		add(StatType.ACCURACY_COMBAT, BASE_ATTACK_ACCURACY_CALCULATOR);
+		add(StatType.EVASION_RATE, BASE_ATTACK_EVASION_CALCULATOR);
 
 		// TODO henna stats calculators
 	}
@@ -440,9 +429,13 @@ public class CharacterStats {
 		return (int) calc(StatType.MAX_LOAD);
 	}
 
-	// public void add(StatType type, Calculator<?> calculator) {
-	// getCalculator(type).importFunctions(calculator);
-	// }
+	public void add(StatType type, Calculator<L2Character> calculator) {
+		getCalculator(type).importFunctions(calculator);
+	}
+
+	public void remove(StatType type, Calculator<L2Character> calculator) {
+		getCalculator(type).removeFunctions(calculator);
+	}
 
 	/**
 	 * @param the

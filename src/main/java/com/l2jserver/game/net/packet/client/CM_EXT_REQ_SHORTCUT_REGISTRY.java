@@ -29,7 +29,7 @@ import com.l2jserver.game.net.packet.AbstractClientPacket;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CM_REQUEST_SHORTCUT_REGISTRY extends AbstractClientPacket {
+public class CM_EXT_REQ_SHORTCUT_REGISTRY extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE1
 	 */
@@ -43,7 +43,7 @@ public class CM_REQUEST_SHORTCUT_REGISTRY extends AbstractClientPacket {
 	 * The logger
 	 */
 	private static final Logger log = LoggerFactory
-			.getLogger(CM_REQUEST_SHORTCUT_REGISTRY.class);
+			.getLogger(CM_EXT_REQ_SHORTCUT_REGISTRY.class);
 
 	/**
 	 * The shortcut type

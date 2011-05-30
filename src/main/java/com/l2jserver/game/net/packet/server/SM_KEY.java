@@ -28,6 +28,10 @@ import com.l2jserver.game.net.packet.AbstractServerPacket;
  * This packet send the encryptation keys for the client. After this message all
  * communication is done with the cryptography engine enabled.
  * 
+ * <pre>
+ * (c) cbddcd
+ * </pre>
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SM_KEY extends AbstractServerPacket {

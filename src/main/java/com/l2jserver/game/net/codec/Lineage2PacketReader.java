@@ -31,7 +31,7 @@ import com.l2jserver.game.net.packet.client.CM_ADMIN_COMMAND;
 import com.l2jserver.game.net.packet.client.CM_AUTH_LOGIN;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION;
 import com.l2jserver.game.net.packet.client.CM_CHAR_APPEARING;
-import com.l2jserver.game.net.packet.client.CM_CHAR_ATTACK;
+import com.l2jserver.game.net.packet.client.CM_ATTACK;
 import com.l2jserver.game.net.packet.client.CM_CHAT;
 import com.l2jserver.game.net.packet.client.CM_CHAR_CREATE;
 import com.l2jserver.game.net.packet.client.CM_ACTION_USE;
@@ -44,11 +44,11 @@ import com.l2jserver.game.net.packet.client.CM_CHAR_POSITION;
 import com.l2jserver.game.net.packet.client.CM_ENTER_WORLD;
 import com.l2jserver.game.net.packet.client.CM_LOGOUT;
 import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
-import com.l2jserver.game.net.packet.client.CM_REQUEST_ALL_FORTRESS_INFO;
+import com.l2jserver.game.net.packet.client.CM_EXT_REQ_ALL_FORTRESS_INFO;
 import com.l2jserver.game.net.packet.client.CM_REQUEST_CHAR_TEMPLATE;
 import com.l2jserver.game.net.packet.client.CM_GOTO_LOBBY;
-import com.l2jserver.game.net.packet.client.CM_REQUEST_KEY_MAPPING;
-import com.l2jserver.game.net.packet.client.CM_REQUEST_MANOR_LIST;
+import com.l2jserver.game.net.packet.client.CM_EXT_REQ_KEY_MAPPING;
+import com.l2jserver.game.net.packet.client.CM_EXT_REQ_MANOR_LIST;
 import com.l2jserver.game.net.packet.client.CM_RESTART;
 
 /**
@@ -139,17 +139,17 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CM_CHAR_CREATE.class;
 		case CM_REQUEST_CHAR_TEMPLATE.OPCODE:
 			return CM_REQUEST_CHAR_TEMPLATE.class;
-		case 0xd0: // COMPOSED
+		case 0xd0: // CM_EXTENDED
 			final int opcode2 = buffer.readUnsignedShort();
 			switch (opcode2) {
 			case CM_GOTO_LOBBY.OPCODE2:
 				return CM_GOTO_LOBBY.class;
-			case CM_REQUEST_KEY_MAPPING.OPCODE2:
-				return CM_REQUEST_KEY_MAPPING.class;
-			case CM_REQUEST_MANOR_LIST.OPCODE2:
-				return CM_REQUEST_MANOR_LIST.class;
-			case CM_REQUEST_ALL_FORTRESS_INFO.OPCODE2:
-				return CM_REQUEST_ALL_FORTRESS_INFO.class;
+			case CM_EXT_REQ_KEY_MAPPING.OPCODE2:
+				return CM_EXT_REQ_KEY_MAPPING.class;
+			case CM_EXT_REQ_MANOR_LIST.OPCODE2:
+				return CM_EXT_REQ_MANOR_LIST.class;
+			case CM_EXT_REQ_ALL_FORTRESS_INFO.OPCODE2:
+				return CM_EXT_REQ_ALL_FORTRESS_INFO.class;
 			default:
 				logger.warn("Unknown opcode2 for 0xd0: 0x{}",
 						Integer.toHexString(opcode2));
@@ -182,8 +182,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CM_ACTION_USE.class;
 		case CM_CHAR_OPEN_MAP.OPCODE:
 			return CM_CHAR_OPEN_MAP.class;
-		case CM_CHAR_ATTACK.OPCODE:
-			return CM_CHAR_ATTACK.class;
+		case CM_ATTACK.OPCODE:
+			return CM_ATTACK.class;
 		default:
 			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
 			break;

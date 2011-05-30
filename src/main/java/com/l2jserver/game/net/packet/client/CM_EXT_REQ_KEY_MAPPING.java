@@ -14,14 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.ai.script;
+package com.l2jserver.game.net.packet.client;
 
-import com.l2jserver.model.world.Actor;
-import com.l2jserver.service.game.ai.AIScript;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.AbstractClientPacket;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a
+ * The client is requesting a the key mappings.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface AttackAIScript extends AIScript {
-	void attack(Actor actor);
+public class CM_EXT_REQ_KEY_MAPPING extends AbstractClientPacket {
+	/**
+	 * The packet OPCODE1
+	 */
+	public static final int OPCODE1 = 0xd0;
+	/**
+	 * The packet OPCODE2
+	 */
+	public static final int OPCODE2 = 0x21;
+
+	@Override
+	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	}
+
+	@Override
+	public void process(final Lineage2Connection conn) {
+		// TODO
+	}
 }

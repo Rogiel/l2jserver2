@@ -20,14 +20,14 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.SM_FORT_INFO;
+import com.l2jserver.game.net.packet.server.SM_MANOR_LIST;
 
 /**
  * The client is requesting the manor list.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CM_REQUEST_ALL_FORTRESS_INFO extends AbstractClientPacket {
+public class CM_EXT_REQ_MANOR_LIST extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE1
 	 */
@@ -35,7 +35,7 @@ public class CM_REQUEST_ALL_FORTRESS_INFO extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE2
 	 */
-	public static final int OPCODE2 = 0x3d;
+	public static final int OPCODE2 = 0x01;
 
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
@@ -43,6 +43,7 @@ public class CM_REQUEST_ALL_FORTRESS_INFO extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		conn.write(new SM_FORT_INFO());
+		conn.write(new SM_MANOR_LIST("gludio", "dion", "giran", "oren",
+				"aden", "innadril", "goddard", "rune", "schuttgart"));
 	}
 }
