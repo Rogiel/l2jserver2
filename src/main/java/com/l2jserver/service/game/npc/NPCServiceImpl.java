@@ -115,9 +115,6 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(action, "action");
 
-		if (npc.getTemplate().isTargetable())
-			characterService.target(character, npc);
-
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());
 		try {
@@ -135,9 +132,6 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(character, "character");
 		if (args == null)
 			args = new String[0];
-
-		if (npc.getTemplate().isTargetable())
-			characterService.target(character, npc);
 
 		final Lineage2Connection conn = networkService.discover(character
 				.getID());

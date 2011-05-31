@@ -88,7 +88,7 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 		log.debug("Client protocol version: {}", version);
 		conn.setVersion(version);
 		if (L2JConstant.SUPPORTED_PROTOCOL != version) {
-			log.info("Incorrect protocol version: {}. Only {} is supported.",
+			log.warn("Incorrect protocol version: {}. Only {} is supported.",
 					version, L2JConstant.SUPPORTED_PROTOCOL);
 			// notify wrong protocol and close connection
 			conn.write(new SM_KEY(inKey, false)).addListener(

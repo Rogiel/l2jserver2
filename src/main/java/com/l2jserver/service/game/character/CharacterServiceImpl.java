@@ -162,9 +162,6 @@ public class CharacterServiceImpl extends AbstractService implements
 			}
 		};
 
-		// start broadcasting -- will broadcast all nearby objects
-		broadcastService.broadcast(conn);
-
 		// leave world event
 		eventDispatcher.addListener(id, new CharacterListener() {
 			@Override
@@ -204,6 +201,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);
 		conn.sendMessage("This an an development version for l2jserver 2.0");
 		conn.sendMessage("Please note that many of the features are not yet implemented.");
+
+		// start broadcasting -- will broadcast all nearby objects
+		broadcastService.broadcast(conn);
 
 		// characters start in run mode
 		try {
@@ -282,9 +282,12 @@ public class CharacterServiceImpl extends AbstractService implements
 		// check if this Actor can be attacked
 		if (target instanceof NPC) {
 			final NPC npc = (NPC) target;
-			// first try to target this, if it is not already
-			target(character, target);
 
+			// first try to target this, if it is not already
+			if (!npc.getID().equals(character.getTargetID()))
+				target(character, target);
+
+			// now attack the npc
 			npcService.attack(npc, conn, character);
 		} else {
 			// TODO throw an exception

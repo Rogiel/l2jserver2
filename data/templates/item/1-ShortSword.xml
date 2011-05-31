@@ -6,10 +6,10 @@
 	<price>1</price>
 	<stats>
 		<physicalDamage>
-			<set order="128">8</set>
+			<set order="128">510</set>
 		</physicalDamage>
 		<magicalDamage>
-			<set order="128">6</set>
+			<set order="128">508</set>
 		</magicalDamage>
 		<criticalChance>
 			<set order="128">8</set>

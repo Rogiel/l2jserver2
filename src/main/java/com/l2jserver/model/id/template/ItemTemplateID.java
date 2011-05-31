@@ -44,7 +44,7 @@ public class ItemTemplateID extends TemplateID<ItemTemplate, Integer> {
 	}
 
 	@Override
-	public ItemTemplate getTemplate() {
+	public ItemTemplate loadTemplate() {
 		return templateService.getTemplate(this);
 	}
 }

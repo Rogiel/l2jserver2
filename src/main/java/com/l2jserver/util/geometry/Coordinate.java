@@ -72,6 +72,19 @@ public class Coordinate {
 	}
 
 	/**
+	 * Calculates the squared distance between <tt>this</tt> coordinate and
+	 * <tt>other</tt>. This method is slighter faster then
+	 * {@link #getDistance(Coordinate)}.
+	 * 
+	 * @param other
+	 *            the other coordinate
+	 * @return the calculated distance
+	 */
+	public double getDistanceSquared(Coordinate other) {
+		return Vector3D.distanceSq(vector, other.vector);
+	}
+
+	/**
 	 * Creates a new instance from the 3 points
 	 * 
 	 * @param x

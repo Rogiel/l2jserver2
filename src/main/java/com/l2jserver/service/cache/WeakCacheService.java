@@ -18,7 +18,6 @@ package com.l2jserver.service.cache;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
-import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -31,7 +30,7 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
 /**
- * This {@link Cache} service implementation uses a {@link SoftReference} to
+ * This {@link Cache} service implementation uses a {@link WeakReference} to
  * store values.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>

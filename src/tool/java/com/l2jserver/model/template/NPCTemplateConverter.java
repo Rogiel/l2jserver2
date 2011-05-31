@@ -64,6 +64,7 @@ import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
 import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.npc.controller.BaseNPCController;
+import com.l2jserver.model.world.npc.controller.MonsterController;
 import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.model.world.npc.controller.NotImplementedNPCController;
 import com.l2jserver.model.world.npc.controller.TeleporterController;
@@ -92,6 +93,8 @@ public class NPCTemplateConverter {
 		controllers.put("L2Teleporter", TeleporterController.class);
 		controllers.put("L2CastleTeleporter", TeleporterController.class);
 		controllers.put("L2Npc", BaseNPCController.class);
+		controllers.put("L2Monster", MonsterController.class);
+		controllers.put("L2FlyMonster", MonsterController.class);
 		Class.forName("com.mysql.jdbc.Driver");
 
 		final File target = new File("data/templates");

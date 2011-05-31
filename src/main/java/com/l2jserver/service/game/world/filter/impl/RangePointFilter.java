@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.game.world.filter.impl;
 
+import org.apache.commons.math.util.FastMath;
+
 import com.google.common.base.Preconditions;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
@@ -34,7 +36,11 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 	/**
 	 * The desired maximum distance of the object
 	 */
-	private final int range;
+	private final double range;
+	/**
+	 * The <tt>range</tt> multiplied by two
+	 */
+	private final double doubleRange;
 
 	/**
 	 * Creates a new instance
@@ -48,13 +54,25 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 		Preconditions.checkNotNull(point, "point");
 		Preconditions.checkState(range >= 0, "range < 0");
 		this.point = point;
-		this.range = range;
+		this.range = Math.pow(range, 2);
+		this.doubleRange = range * 2;
 	}
 
 	@Override
 	public boolean accept(PositionableObject other) {
 		if (other == null)
 			return false;
-		return other.getPosition().getDistance(point.getCoordinate()) <= range;
+		final double dx = FastMath.abs(point.getX() - other.getPoint().getX());
+		final double dy = FastMath.abs(point.getY() - other.getPoint().getY());
+		final double dz = FastMath.abs(point.getZ() - other.getPoint().getZ());
+
+		if (dx > doubleRange)
+			return false;
+		if (dy > doubleRange)
+			return false;
+		if (dz > doubleRange)
+			return false;
+
+		return ((dx * dx) + (dy * dy) + (dz * dz)) <= range;
 	}
 }

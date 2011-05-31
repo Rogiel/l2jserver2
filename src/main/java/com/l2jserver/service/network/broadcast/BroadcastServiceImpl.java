@@ -76,7 +76,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 		final CharacterID id = character.getID();
 
 		// broadcast everything nearby
-		broadcast(conn);
+		//broadcast(conn);
 
 		// event broadcast listener
 		// this listener will be filtered so that only interesting events are

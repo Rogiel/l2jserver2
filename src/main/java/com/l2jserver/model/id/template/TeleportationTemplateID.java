@@ -47,7 +47,7 @@ public class TeleportationTemplateID extends
 	}
 
 	@Override
-	public TeleportationTemplate getTemplate() {
+	public TeleportationTemplate loadTemplate() {
 		return templateService.getTemplate(this);
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc
-    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
     id="18343" xsi:schemaLocation="npc ../../npc.xsd"
     xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="true" targetable="true" attackable="true">

@@ -16,6 +16,9 @@
  */
 package com.l2jserver.model.id;
 
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
+
 import com.l2jserver.model.template.Template;
 
 /**
@@ -25,6 +28,8 @@ import com.l2jserver.model.template.Template;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class TemplateID<T extends Template<?>, I> extends ID<I> {
+	private Reference<T> cached;
+
 	/**
 	 * Creates a new instance
 	 * 
@@ -40,5 +45,16 @@ public abstract class TemplateID<T extends Template<?>, I> extends ID<I> {
 	 * 
 	 * @return the {@link Template} if existent, <tt>null</tt> otherwise
 	 */
-	public abstract T getTemplate();
+	public T getTemplate() {
+		if (cached == null || cached.get() == null)
+			cached = new SoftReference<T>(loadTemplate());
+		return cached.get();
+	}
+
+	/**
+	 * Returns the {@link Template} associated with this {@link ID}
+	 * 
+	 * @return the {@link Template} if existent, <tt>null</tt> otherwise
+	 */
+	protected abstract T loadTemplate();
 }

@@ -81,7 +81,6 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 		try {
 			characterService.enterWorld(id.getObject());
 		} catch (SpawnPointNotFoundServiceException e) {
-
 		} catch (AlreadySpawnedServiceException e) {
 
 		}

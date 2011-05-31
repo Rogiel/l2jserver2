@@ -20,7 +20,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.service.cache.CacheService;
-import com.l2jserver.service.cache.EhCacheService;
+import com.l2jserver.service.cache.SoftCacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService;
 import com.l2jserver.service.core.Log4JLoggingService;
@@ -78,7 +78,8 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
 				.in(Scopes.SINGLETON);
-		bind(CacheService.class).to(EhCacheService.class).in(Scopes.SINGLETON);
+		bind(CacheService.class).to(SoftCacheService.class)
+				.in(Scopes.SINGLETON);
 
 		bind(DatabaseService.class).to(JDBCDatabaseService.class).in(
 				Scopes.SINGLETON);

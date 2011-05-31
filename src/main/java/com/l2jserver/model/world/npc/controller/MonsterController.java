@@ -23,6 +23,7 @@ import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE.Stat;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.util.exception.L2Exception;
 
 /**
@@ -36,13 +37,23 @@ public class MonsterController extends BaseNPCController {
 	 */
 	@Inject
 	protected CharacterService charService;
+	/**
+	 * The {@link NPCService}
+	 */
+	@Inject
+	protected NPCService npcService;
 
 	@Override
-	public void action(NPC npc, Lineage2Connection conn, L2Character character,
+	public void action(NPC mob, Lineage2Connection conn, L2Character character,
 			String... args) throws L2Exception {
 		// send hp update
-		conn.write(new SM_STATUS_UPDATE(npc).add(Stat.MAX_HP,
-				(int) npc.getTemplate().getMaximumHP()).add(Stat.HP,
-				(int) npc.getHP()));
+		if (mob.getID().equals(character.getTargetID())) {
+			charService.attack(character, mob);
+		} else {
+			charService.target(character, mob);
+			conn.write(new SM_STATUS_UPDATE(mob).add(Stat.MAX_HP,
+					(int) mob.getTemplate().getMaximumHP()).add(Stat.HP,
+					(int) mob.getHP()));
+		}
 	}
 }

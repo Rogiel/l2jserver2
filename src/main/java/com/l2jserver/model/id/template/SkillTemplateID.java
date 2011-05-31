@@ -40,7 +40,7 @@ public class SkillTemplateID extends TemplateID<SkillTemplate, Integer> {
 	}
 
 	@Override
-	public SkillTemplate getTemplate() {
+	public SkillTemplate loadTemplate() {
 		return templateService.getTemplate(this);
 	}
 }

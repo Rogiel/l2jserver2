@@ -33,7 +33,7 @@ public class RangeFilter implements WorldObjectFilter<PositionableObject> {
 	/**
 	 * The desired maximum distance of the object
 	 */
-	private final int range;
+	private final double range;
 
 	/**
 	 * Creates a new instance
@@ -47,13 +47,14 @@ public class RangeFilter implements WorldObjectFilter<PositionableObject> {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkState(range >= 0, "range < 0");
 		this.object = object;
-		this.range = range;
+		this.range = Math.pow(range, 2);
 	}
 
 	@Override
 	public boolean accept(PositionableObject other) {
 		if (other == null)
 			return false;
-		return other.getPosition().getDistance(object.getPosition()) <= range;
+		
+		return other.getPosition().getDistanceSquared(object.getPosition()) <= range;
 	}
 }

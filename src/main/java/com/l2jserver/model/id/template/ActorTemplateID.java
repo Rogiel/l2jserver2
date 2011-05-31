@@ -44,7 +44,7 @@ public class ActorTemplateID<T extends ActorTemplate<?>> extends
 
 	@Override
 	@XmlTransient
-	public T getTemplate() {
+	public T loadTemplate() {
 		return templateService.getTemplate(this);
 	}
 }
