@@ -37,15 +37,15 @@ public interface Model<T extends ID<?>> {
 	/**
 	 * @return the database object state
 	 */
-	ObjectState getObjectState();
+	ObjectDesire getObjectDesire();
 
 	/**
 	 * @param state
 	 *            the database object state to set
 	 */
-	void setObjectState(ObjectState state);
+	void setObjectDesire(ObjectDesire state);
 
-	public enum ObjectState {
-		STORED, NOT_STORED, ORPHAN;
+	public enum ObjectDesire {
+		NONE, INSERT, UPDATE, DELETE;
 	}
 }

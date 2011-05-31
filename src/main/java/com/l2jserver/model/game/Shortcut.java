@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.game;
 
+import com.l2jserver.model.AbstractModel;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.template.SkillTemplateID;
@@ -24,9 +25,10 @@ import com.l2jserver.model.world.L2Character;
 /**
  * An shortcut in Lineage II game interface
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @author <a href="http://www.rogiel.com">Rogiel</a><br />
+ *         TODO create the shortcut id
  */
-public class Shortcut {
+public class Shortcut extends AbstractModel {
 	/**
 	 * The character id
 	 */
@@ -179,6 +181,7 @@ public class Shortcut {
 	 *            the skillID to set
 	 */
 	public void setSkillID(SkillTemplateID skillID) {
+		desireUpdate();
 		this.skillID = skillID;
 	}
 
@@ -194,6 +197,7 @@ public class Shortcut {
 	 *            the itemID to set
 	 */
 	public void setItemID(ItemID itemID) {
+		desireUpdate();
 		this.itemID = itemID;
 	}
 
@@ -209,6 +213,7 @@ public class Shortcut {
 	 *            the slot to set
 	 */
 	public void setSlot(int slot) {
+		desireUpdate();
 		this.slot = slot;
 	}
 
@@ -224,6 +229,7 @@ public class Shortcut {
 	 *            the page to set
 	 */
 	public void setPage(int page) {
+		desireUpdate();
 		this.page = page;
 	}
 
@@ -239,6 +245,7 @@ public class Shortcut {
 	 *            the type to set
 	 */
 	public void setType(ShortcutType type) {
+		desireUpdate();
 		this.type = type;
 	}
 
@@ -254,6 +261,7 @@ public class Shortcut {
 	 *            the level to set
 	 */
 	public void setLevel(int level) {
+		desireUpdate();
 		this.level = level;
 	}
 
@@ -269,6 +277,7 @@ public class Shortcut {
 	 *            the characterType to set
 	 */
 	public void setCharacterType(int characterType) {
+		desireUpdate();
 		this.characterType = characterType;
 	}
 

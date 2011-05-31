@@ -268,7 +268,13 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 
 	@Override
 	protected NPC createInstance() {
-		return new NPC(this.id);
+		final NPC npc = new NPC(this.id);
+
+		// new npcs are full hp/mp
+		npc.setHP(getMaximumHP());
+		npc.setMP(getMaximumMP());
+
+		return npc;
 	}
 
 	/**

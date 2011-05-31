@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.database;
 
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 
 /**
@@ -25,5 +27,5 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface DatabaseService extends Service {
-	void install();
+	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(Class<M> model);
 }

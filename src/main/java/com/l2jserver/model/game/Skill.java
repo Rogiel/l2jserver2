@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.game;
 
+import com.l2jserver.model.AbstractModel;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.template.SkillTemplate;
@@ -26,7 +27,7 @@ import com.l2jserver.model.world.Actor;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Skill {
+public class Skill extends AbstractModel {
 	/**
 	 * The skill template ID
 	 */
@@ -90,6 +91,7 @@ public class Skill {
 	 *            the actor ID to set
 	 */
 	public void setActorID(ActorID<?> actorID) {
+		desireUpdate();
 		this.actorID = actorID;
 	}
 
@@ -105,6 +107,7 @@ public class Skill {
 	 *            the level to set
 	 */
 	public void setLevel(int level) {
+		desireUpdate();
 		this.level = level;
 	}
 

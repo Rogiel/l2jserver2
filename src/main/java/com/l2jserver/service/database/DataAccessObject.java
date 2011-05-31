@@ -60,14 +60,28 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 
 	/**
 	 * Save the instance to the database. If a new database entry was created
-	 * returns true.
+	 * returns true. This method will only save if the object has changed.
 	 * 
 	 * @param object
 	 *            the object
 	 * @return true if the row was inserted or updated
+	 * @see DataAccessObject#save(Model, boolean)
 	 */
 	@IgnoreCaching
 	boolean save(O object);
+
+	/**
+	 * Save the instance to the database. If a new database entry was created
+	 * returns true.
+	 * 
+	 * @param object
+	 *            the object
+	 * @param force
+	 *            will force an save, even if the object has not changed
+	 * @return true if the row was inserted or updated
+	 */
+	@IgnoreCaching
+	boolean save(O object, boolean force);
 
 	/**
 	 * Inserts the instance in the database.

@@ -344,7 +344,7 @@ public abstract class JDBCCharacterDAO extends
 		return database.query(new InsertUpdateQuery<L2Character>(character) {
 			@Override
 			protected String query() {
-				return "UPDATE `" + TABLE + "` SET " + ACCOUNT_ID + "` = ?,`"
+				return "UPDATE `" + TABLE + "` SET `" + ACCOUNT_ID + "` = ?,`"
 						+ CLAN_ID + "` = ?,`" + NAME + "` = ?,`" + RACE
 						+ "` = ?,`" + CLASS + "` = ?,`" + SEX + "` = ?,`"
 						+ LEVEL + "` = ?,`" + EXPERIENCE + "` = ?,`" + SP

@@ -89,6 +89,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the castleID to set
 	 */
 	public void setCastleID(CastleID castleID) {
+		desireUpdate();
 		this.castleID = castleID;
 	}
 
@@ -104,6 +105,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the ownerID to set
 	 */
 	public void setOwnerID(CharacterID ownerID) {
+		desireUpdate();
 		this.ownerID = ownerID;
 	}
 
@@ -119,6 +121,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the name to set
 	 */
 	public void setName(String name) {
+		desireUpdate();
 		this.name = name;
 	}
 
@@ -134,6 +137,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the siegeDate to set
 	 */
 	public void setSiegeDate(Date siegeDate) {
+		desireUpdate();
 		this.siegeDate = siegeDate;
 	}
 
@@ -149,6 +153,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the lastOwnedTime to set
 	 */
 	public void setLastOwnedTime(Date lastOwnedTime) {
+		desireUpdate();
 		this.lastOwnedTime = lastOwnedTime;
 	}
 
@@ -164,6 +169,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the fortType to set
 	 */
 	public void setFortType(FortType fortType) {
+		desireUpdate();
 		this.fortType = fortType;
 	}
 
@@ -179,6 +185,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the state to set
 	 */
 	public void setState(boolean state) {
+		desireUpdate();
 		this.state = state;
 	}
 
@@ -194,6 +201,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the blood to set
 	 */
 	public void setBlood(boolean blood) {
+		desireUpdate();
 		this.blood = blood;
 	}
 
@@ -209,6 +217,7 @@ public class Fort extends AbstractModel<FortID> {
 	 *            the supplyLvL to set
 	 */
 	public void setSupplyLvL(int supplyLvL) {
+		desireUpdate();
 		this.supplyLvL = supplyLvL;
 	}
 }

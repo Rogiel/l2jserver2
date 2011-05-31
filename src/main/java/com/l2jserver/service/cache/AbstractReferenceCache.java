@@ -18,6 +18,7 @@ package com.l2jserver.service.cache;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -106,6 +107,30 @@ abstract class AbstractReferenceCache<K, V> implements Cache<K, V> {
 	public void clear() {
 		cacheMap.clear();
 		log.debug("{}: cleared", cacheName);
+	}
+
+	@Override
+	public Iterator<V> iterator() {
+		cleanQueue();
+		return new Iterator<V>() {
+			private final Iterator<Reference<V>> iterator = cacheMap.values()
+					.iterator();
+
+			@Override
+			public boolean hasNext() {
+				return iterator.hasNext();
+			}
+
+			@Override
+			public V next() {
+				return iterator.next().get();
+			}
+
+			@Override
+			public void remove() {
+				iterator.remove();
+			}
+		};
 	}
 
 	protected abstract Reference<V> newReference(K key, V value,

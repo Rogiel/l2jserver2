@@ -16,15 +16,13 @@
  */
 package com.l2jserver.service.database;
 
-import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.sql.DataSource;
 
@@ -32,17 +30,27 @@ import org.apache.commons.dbcp.ConnectionFactory;
 import org.apache.commons.dbcp.DriverManagerConnectionFactory;
 import org.apache.commons.dbcp.PoolableConnectionFactory;
 import org.apache.commons.dbcp.PoolingDataSource;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.l2jserver.db.dao.CharacterDAO;
+import com.l2jserver.db.dao.ClanDAO;
+import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.db.dao.NPCDAO;
+import com.l2jserver.db.dao.PetDAO;
 import com.l2jserver.model.Model;
-import com.l2jserver.model.Model.ObjectState;
+import com.l2jserver.model.Model.ObjectDesire;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
+import com.l2jserver.model.world.Clan;
+import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.Pet;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -51,8 +59,11 @@ import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
+import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.ArrayIterator;
+import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -61,7 +72,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ LoggingService.class, CacheService.class,
-		ConfigurationService.class, TemplateService.class })
+		ConfigurationService.class, TemplateService.class, ThreadService.class })
 public class JDBCDatabaseService extends AbstractService implements
 		DatabaseService {
 	/**
@@ -71,13 +82,22 @@ public class JDBCDatabaseService extends AbstractService implements
 	/**
 	 * The logger
 	 */
-	private final Logger logger = LoggerFactory
+	private final Logger log = LoggerFactory
 			.getLogger(JDBCDatabaseService.class);
+
+	/**
+	 * The Google Guice {@link Injector}. It is used to get DAO instances.
+	 */
+	private final Injector injector;
 
 	/**
 	 * The cache service
 	 */
 	private final CacheService cacheService;
+	/**
+	 * The thread service
+	 */
+	private final ThreadService threadService;
 
 	/**
 	 * The database connection pool
@@ -100,13 +120,21 @@ public class JDBCDatabaseService extends AbstractService implements
 	/**
 	 * An cache object
 	 */
-	private Cache<Object, Object> objectCache;
+	private Cache<Object, Model<?>> objectCache;
+	/**
+	 * Future for the auto-save task. Each object that has changed is auto saved
+	 * every 1 minute.
+	 */
+	private ScheduledAsyncFuture autoSaveFuture;
 
 	@Inject
 	public JDBCDatabaseService(ConfigurationService configService,
-			CacheService cacheService) {
+			Injector injector, CacheService cacheService,
+			ThreadService threadService) {
 		config = configService.get(JDBCDatabaseConfiguration.class);
+		this.injector = injector;
 		this.cacheService = cacheService;
+		this.threadService = threadService;
 	}
 
 	@Override
@@ -130,29 +158,45 @@ public class JDBCDatabaseService extends AbstractService implements
 		// duplication... this would endanger non-persistent states
 		objectCache = cacheService.createEternalCache("database-service",
 				IDAllocator.ALLOCABLE_IDS);
+
+		// start the auto save task
+		autoSaveFuture = threadService.async(60, TimeUnit.SECONDS, 60,
+				new Runnable() {
+					@Override
+					public void run() {
+						log.debug("Auto save task started");
+						int objects = 0;
+						for (final Model<?> object : objectCache) {
+							@SuppressWarnings("unchecked")
+							final DataAccessObject<Model<?>, ?> dao = getDAO(object
+									.getClass());
+							if (dao.save(object)) {
+								objects++;
+							}
+						}
+						log.info(
+								"{} objects have been saved by the auto save task",
+								objects);
+					}
+				});
 	}
 
 	@Override
-	public void install() {
-		Collection<File> files = FileUtils.listFiles(new File("dist/sql/h2"),
-				new String[] { "sql" }, false);
-		try {
-			final Connection conn = dataSource.getConnection();
-			try {
-				for (final File file : files) {
-					conn.createStatement().execute(
-							FileUtils.readFileToString(file));
-				}
-			} finally {
-				conn.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public <M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
+			Class<M> model) {
+		if (ClassUtils.isSubclass(model, L2Character.class)) {
+			return (DataAccessObject) injector.getInstance(CharacterDAO.class);
+		} else if (ClassUtils.isSubclass(model, Clan.class)) {
+			return (DataAccessObject) injector.getInstance(ClanDAO.class);
+		} else if (ClassUtils.isSubclass(model, Item.class)) {
+			return (DataAccessObject) injector.getInstance(ItemDAO.class);
+		} else if (ClassUtils.isSubclass(model, NPC.class)) {
+			return (DataAccessObject) injector.getInstance(NPCDAO.class);
+		} else if (ClassUtils.isSubclass(model, Pet.class)) {
+			return (DataAccessObject) injector.getInstance(PetDAO.class);
 		}
+		return null;
 	}
 
 	/**
@@ -171,13 +215,13 @@ public class JDBCDatabaseService extends AbstractService implements
 			try {
 				return query.query(conn);
 			} catch (SQLException e) {
-				logger.error("Error executing query", e);
+				log.error("Error executing query", e);
 				return null;
 			} finally {
 				conn.close();
 			}
 		} catch (SQLException e) {
-			logger.error("Could not open database connection", e);
+			log.error("Could not open database connection", e);
 			return null;
 		}
 	}
@@ -192,7 +236,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		return objectCache.contains(id);
 	}
 
-	public void updateCache(Object key, Object value) {
+	public void updateCache(ID<?> key, Model<?> value) {
 		Preconditions.checkNotNull(key, "key");
 		Preconditions.checkNotNull(value, "value");
 		objectCache.put(key, value);
@@ -205,6 +249,8 @@ public class JDBCDatabaseService extends AbstractService implements
 
 	@Override
 	protected void doStop() throws ServiceStopException {
+		autoSaveFuture.cancel(true);
+		autoSaveFuture = null;
 		cacheService.dispose(objectCache);
 		objectCache = null;
 
@@ -212,7 +258,7 @@ public class JDBCDatabaseService extends AbstractService implements
 			if (connectionPool != null)
 				connectionPool.close();
 		} catch (Exception e) {
-			logger.error("Error stopping database service", e);
+			log.error("Error stopping database service", e);
 			throw new ServiceStopException(e);
 		} finally {
 			connectionPool = null;
@@ -289,9 +335,9 @@ public class JDBCDatabaseService extends AbstractService implements
 				this.parametize(st, object);
 				rows += st.executeUpdate();
 
-				// update object state
+				// update object desire --it has been realized
 				if (object instanceof Model)
-					((Model<?>) object).setObjectState(ObjectState.STORED);
+					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 
 				final Mapper<T> mapper = keyMapper(object);
 				if (mapper == null)
@@ -358,7 +404,7 @@ public class JDBCDatabaseService extends AbstractService implements
 				if (obj == null)
 					continue;
 				if (obj instanceof Model)
-					((Model<?>) obj).setObjectState(ObjectState.STORED);
+					((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
 				list.add(obj);
 			}
 			return list;
@@ -415,7 +461,7 @@ public class JDBCDatabaseService extends AbstractService implements
 			while (rs.next()) {
 				final T object = mapper().map(rs);
 				if (object instanceof Model)
-					((Model<?>) object).setObjectState(ObjectState.STORED);
+					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 				return object;
 			}
 			return null;

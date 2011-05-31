@@ -43,6 +43,7 @@ public abstract class PositionableObject extends AbstractObject {
 	 *            the coordinate point to set
 	 */
 	public void setPoint(Point3D point) {
+		desireUpdate();
 		this.point = point;
 	}
 
@@ -51,6 +52,7 @@ public abstract class PositionableObject extends AbstractObject {
 	}
 
 	public void setPosition(Coordinate coord) {
+		desireUpdate();
 		this.point = new Point3D(coord, (point != null ? point.getAngle() : 0));
 	}
 }

@@ -58,6 +58,7 @@ public class Clan extends AbstractObject implements Iterable<L2Character> {
 	 *            the leaderID to set
 	 */
 	public void setLeaderID(CharacterID leaderID) {
+		desireUpdate();
 		this.leaderID = leaderID;
 	}
 

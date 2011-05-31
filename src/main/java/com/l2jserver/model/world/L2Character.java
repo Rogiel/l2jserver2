@@ -203,6 +203,7 @@ public class L2Character extends Player {
 	 *            the account ID to set
 	 */
 	public void setAccountID(AccountID accountID) {
+		desireUpdate();
 		this.accountID = accountID;
 	}
 
@@ -227,6 +228,7 @@ public class L2Character extends Player {
 	 *            the clanID to set
 	 */
 	public void setClanID(ClanID clanID) {
+		desireUpdate();
 		this.clanID = clanID;
 	}
 
@@ -251,6 +253,7 @@ public class L2Character extends Player {
 	 *            the petID to set
 	 */
 	public void setPetID(PetID petID) {
+		desireUpdate();
 		this.petID = petID;
 	}
 
@@ -266,6 +269,7 @@ public class L2Character extends Player {
 	 *            the name to set
 	 */
 	public void setName(String name) {
+		desireUpdate();
 		this.name = name;
 	}
 
@@ -281,6 +285,7 @@ public class L2Character extends Player {
 	 *            the title to set
 	 */
 	public void setTitle(String title) {
+		desireUpdate();
 		this.title = title;
 	}
 
@@ -296,6 +301,7 @@ public class L2Character extends Player {
 	 *            the characterClass to set
 	 */
 	public void setCharacterClass(CharacterClass characterClass) {
+		desireUpdate();
 		this.characterClass = characterClass;
 	}
 
@@ -311,6 +317,7 @@ public class L2Character extends Player {
 	 *            the character CP to set
 	 */
 	public void setCP(double CP) {
+		desireUpdate();
 		this.CP = CP;
 	}
 
@@ -326,6 +333,7 @@ public class L2Character extends Player {
 	 *            the online to set
 	 */
 	public void setOnline(boolean online) {
+		desireUpdate();
 		this.online = online;
 	}
 
@@ -341,6 +349,7 @@ public class L2Character extends Player {
 	 *            the lastAccess to set
 	 */
 	public void setLastAccess(Date lastAccess) {
+		desireUpdate();
 		this.lastAccess = lastAccess;
 	}
 
@@ -363,6 +372,7 @@ public class L2Character extends Player {
 	 *            the character karma points to set
 	 */
 	public void setKarma(int karma) {
+		desireUpdate();
 		this.karma = karma;
 	}
 
@@ -378,6 +388,7 @@ public class L2Character extends Player {
 	 *            the character PK kills to set
 	 */
 	public void setPkKills(int pkKills) {
+		desireUpdate();
 		this.pkKills = pkKills;
 	}
 
@@ -393,6 +404,7 @@ public class L2Character extends Player {
 	 *            the character PVP kills to set
 	 */
 	public void setPvpKills(int pvpKills) {
+		desireUpdate();
 		this.pvpKills = pvpKills;
 	}
 

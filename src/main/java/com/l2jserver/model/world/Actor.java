@@ -148,6 +148,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the race to set
 	 */
 	public void setRace(ActorRace race) {
+		desireUpdate();
 		this.race = race;
 	}
 
@@ -163,6 +164,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the sex to set
 	 */
 	public void setSex(ActorSex sex) {
+		desireUpdate();
 		this.sex = sex;
 	}
 
@@ -178,6 +180,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the level to set
 	 */
 	public void setLevel(int level) {
+		desireUpdate();
 		this.level = level;
 	}
 
@@ -193,6 +196,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the hP to set
 	 */
 	public void setHP(double hP) {
+		desireUpdate();
 		HP = hP;
 	}
 
@@ -208,6 +212,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the mP to set
 	 */
 	public void setMP(double mP) {
+		desireUpdate();
 		MP = mP;
 	}
 
@@ -223,6 +228,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the experience to set
 	 */
 	public void setExperience(long experience) {
+		desireUpdate();
 		this.experience = experience;
 	}
 
@@ -238,6 +244,7 @@ public abstract class Actor extends PositionableObject {
 	 *            the sp to set
 	 */
 	public void setSP(int sp) {
+		desireUpdate();
 		this.sp = sp;
 	}
 

@@ -42,6 +42,8 @@ import static com.l2jserver.model.world.character.CharacterInventory.InventoryPa
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.RIGHT_FINGER;
 import static com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll.RIGHT_HAND;
 
+import java.util.Collection;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
@@ -77,8 +79,8 @@ public class SM_CHAR_LIST extends AbstractServerPacket {
 	 */
 	private final L2Character[] characters;
 
-	public SM_CHAR_LIST(String loginName, int sessionId,
-			int lastCharacterId, L2Character... characters) {
+	public SM_CHAR_LIST(String loginName, int sessionId, int lastCharacterId,
+			L2Character... characters) {
 		super(OPCODE);
 		this.loginName = loginName;
 		this.sessionId = sessionId;
@@ -86,10 +88,16 @@ public class SM_CHAR_LIST extends AbstractServerPacket {
 		this.characters = characters;
 	}
 
-	public static SM_CHAR_LIST fromL2Session(
-			Lineage2Session session, L2Character... characters) {
+	public static SM_CHAR_LIST fromL2Session(Lineage2Session session,
+			L2Character... characters) {
 		return new SM_CHAR_LIST(session.getAccountID().getID(),
 				session.getPlayKey2(), -1, characters);
+	}
+
+	public static SM_CHAR_LIST fromL2Session(Lineage2Session session,
+			Collection<L2Character> characters) {
+		return fromL2Session(session,
+				characters.toArray(new L2Character[characters.size()]));
 	}
 
 	@Override

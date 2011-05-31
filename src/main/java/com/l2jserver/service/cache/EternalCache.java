@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.cache;
 
+import java.util.Iterator;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -83,5 +84,10 @@ class EternalCache<K, V> implements Cache<K, V> {
 	public void clear() {
 		cacheMap.clear();
 		log.debug("{}: cleared", cacheName);
+	}
+
+	@Override
+	public Iterator<V> iterator() {
+		return cacheMap.values().iterator();
 	}
 }

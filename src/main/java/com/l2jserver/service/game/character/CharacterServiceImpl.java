@@ -25,6 +25,7 @@ import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
 import com.l2jserver.game.net.packet.server.SM_CHAT;
+import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
@@ -204,6 +205,8 @@ public class CharacterServiceImpl extends AbstractService implements
 
 		// start broadcasting -- will broadcast all nearby objects
 		broadcastService.broadcast(conn);
+		
+		conn.write(new SM_ITEM_GROUND());
 
 		// characters start in run mode
 		try {

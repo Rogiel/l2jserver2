@@ -32,7 +32,7 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	/**
 	 * The database object state
 	 */
-	protected transient ObjectState state = ObjectState.NOT_STORED;
+	protected transient ObjectDesire desire = ObjectDesire.INSERT;
 
 	@Override
 	public T getID() {
@@ -46,13 +46,26 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	}
 
 	@Override
-	public ObjectState getObjectState() {
-		return state;
+	public ObjectDesire getObjectDesire() {
+		return desire;
 	}
 
 	@Override
-	public void setObjectState(ObjectState state) {
-		this.state = state;
+	public void setObjectDesire(ObjectDesire desire) {
+		if (desire == null)
+			desire = ObjectDesire.NONE;
+		this.desire = desire;
+	}
+
+	/**
+	 * Set this object desire to {@link ObjectDesire#UPDATE}. If the desire is
+	 * {@link ObjectDesire#INSERT} or {@link ObjectDesire#DELETE} the desire
+	 * will not be changed.
+	 */
+	protected void desireUpdate() {
+		if (this.desire != ObjectDesire.INSERT
+				&& this.desire != ObjectDesire.DELETE)
+			this.desire = ObjectDesire.UPDATE;
 	}
 
 	@Override

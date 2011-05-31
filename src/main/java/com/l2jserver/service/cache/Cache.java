@@ -21,7 +21,7 @@ package com.l2jserver.service.cache;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Cache<K, V> {
+public interface Cache<K, V> extends Iterable<V> {
 	/**
 	 * Adds a pair <key,value> to cache.<br>
 	 * <br>

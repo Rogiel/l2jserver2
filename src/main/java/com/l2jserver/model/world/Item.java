@@ -85,6 +85,7 @@ public class Item extends PositionableObject {
 	 *            the count to set
 	 */
 	public void setCount(long count) {
+		desireUpdate();
 		this.count = count;
 	}
 
@@ -100,6 +101,7 @@ public class Item extends PositionableObject {
 	 *            the location to set
 	 */
 	public void setLocation(InventoryLocation location) {
+		desireUpdate();
 		this.location = location;
 		if (location != InventoryLocation.PAPERDOLL)
 			this.paperdoll = null;
@@ -117,6 +119,7 @@ public class Item extends PositionableObject {
 	 *            the paperdoll to set
 	 */
 	public void setPaperdoll(InventoryPaperdoll paperdoll) {
+		desireUpdate();
 		this.paperdoll = paperdoll;
 	}
 
@@ -146,6 +149,7 @@ public class Item extends PositionableObject {
 	 *            the ownerID to set
 	 */
 	public void setOwnerID(CharacterID ownerID) {
+		desireUpdate();
 		this.ownerID = ownerID;
 	}
 }

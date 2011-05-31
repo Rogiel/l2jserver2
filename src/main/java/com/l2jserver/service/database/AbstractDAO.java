@@ -48,15 +48,23 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 
 	@Override
 	public boolean save(T object) {
-		switch (object.getObjectState()) {
-		case NOT_STORED:
+		return save(object, false);
+	}
+
+	@Override
+	public boolean save(T object, boolean force) {
+		switch (object.getObjectDesire()) {
+		case INSERT:
 			return insert(object);
-		case STORED:
+		case UPDATE:
 			return update(object);
-		case ORPHAN:
+		case DELETE:
 			return delete(object);
+		case NONE:
+			return (force ? update(object) : false);
+		default:
+			return false;
 		}
-		return false;
 	}
 
 	@Override

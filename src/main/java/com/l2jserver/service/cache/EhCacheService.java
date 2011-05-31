@@ -20,6 +20,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Iterator;
 
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
@@ -216,6 +217,11 @@ public class EhCacheService extends AbstractService implements CacheService {
 		@Override
 		public void clear() {
 			cache.removeAll();
+		}
+
+		@Override
+		public Iterator<V> iterator() {
+			return null;
 		}
 	}
 }

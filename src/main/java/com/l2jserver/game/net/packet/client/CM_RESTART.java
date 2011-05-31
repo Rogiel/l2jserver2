@@ -18,9 +18,14 @@ package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.google.inject.Inject;
+import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.game.net.packet.server.SM_CHAR_LIST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_RESTART;
+import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 
 /**
  * Requests the list of characters to be displayed in the lobby. The list of
@@ -34,13 +39,36 @@ public class CM_RESTART extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x57;
 
+	/**
+	 * The {@link CharacterService}
+	 */
+	private final CharacterService charService;
+	/**
+	 * The {@link CharacterDAO}
+	 */
+	private final CharacterDAO charDao;
+
+	@Inject
+	public CM_RESTART(CharacterService charService, CharacterDAO charDao) {
+		this.charService = charService;
+		this.charDao = charDao;
+	}
+
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 	}
 
 	@Override
 	public void process(final Lineage2Connection conn) {
+		try {
+			charService.leaveWorld(conn.getCharacter());
+		} catch (NotSpawnedServiceException e) {
+			conn.sendActionFailed();
+			return;
+		}
 		conn.setCharacterID(null);
 		conn.write(SM_CHAR_RESTART.ok());
+		conn.write(SM_CHAR_LIST.fromL2Session(conn.getSession(),
+				charDao.selectByAccount(conn.getSession().getAccountID())));
 	}
 }
