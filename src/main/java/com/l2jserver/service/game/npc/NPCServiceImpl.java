@@ -36,6 +36,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.character.CharacterService;
@@ -53,7 +54,7 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ SpawnService.class, NetworkService.class, CharacterService.class,
-		ThreadService.class, AttackService.class })
+		ThreadService.class, AttackService.class, DatabaseService.class })
 public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The {@link SpawnService} used to spawn the {@link NPC} instances

@@ -55,6 +55,8 @@ import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.broadcast.BroadcastService;
+import com.l2jserver.service.network.broadcast.BroadcastServiceImpl;
 import com.l2jserver.service.network.gameguard.GameGuardService;
 import com.l2jserver.service.network.gameguard.GameGuardServiceImpl;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
@@ -101,6 +103,8 @@ public class ServiceModule extends AbstractModule {
 				.in(Scopes.SINGLETON);
 		bind(SpawnService.class).to(SpawnServiceImpl.class)
 				.in(Scopes.SINGLETON);
+		bind(BroadcastService.class).to(BroadcastServiceImpl.class).in(
+				Scopes.SINGLETON);
 		bind(CharacterService.class).to(CharacterServiceImpl.class).in(
 				Scopes.SINGLETON);
 		bind(AttackService.class).to(AttackServiceImpl.class).in(

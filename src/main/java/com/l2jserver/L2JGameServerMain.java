@@ -57,8 +57,14 @@ public class L2JGameServerMain {
 			serviceManager.start(BlowfishKeygenService.class);
 			serviceManager.start(NetworkService.class);
 
-			// spawn
+			// spawn everything
 			serviceManager.get(NPCService.class).spawnAll();
+
+			// final long free = Runtime.getRuntime().freeMemory();
+			// final long allocated = Runtime.getRuntime().totalMemory();
+			// final long maximum = Runtime.getRuntime().maxMemory();
+			// final long processors =
+			// Runtime.getRuntime().availableProcessors();
 		} catch (Exception e) {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();

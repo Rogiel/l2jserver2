@@ -74,18 +74,18 @@ public class ServiceManager {
 		knownServices.add(service);
 		try {
 			startDependencies(service.getDependencies());
-			logger.info("{}: Starting service...",
-					serviceClass.getCanonicalName());
+			logger.debug("{}: Starting service...",
+					serviceClass.getSimpleName());
 			service.start();
-			logger.info("{}: Service started!", serviceClass.getCanonicalName());
+			logger.info("{} started", serviceClass.getSimpleName());
 			return service;
 		} catch (ServiceStartException e) {
 			logger.error("{}: Error starting service: {}",
-					serviceClass.getCanonicalName(), e);
+					serviceClass.getSimpleName(), e);
 			throw e;
 		} catch (Exception e) {
 			logger.error("{}: Error starting service: {}",
-					serviceClass.getCanonicalName(), e);
+					serviceClass.getSimpleName(), e);
 			throw new ServiceStartException(e);
 		}
 	}
@@ -110,15 +110,15 @@ public class ServiceManager {
 			return;
 		knownServices.add(service);
 		try {
-			logger.info("{0}: Stopping service...",
-					serviceClass.getCanonicalName());
+			logger.debug("{0}: Stopping service...",
+					serviceClass.getSimpleName());
 			stopDependencies(service);
 			service.stop();
 			logger.info("{0}: Service stopped!",
-					serviceClass.getCanonicalName());
+					serviceClass.getSimpleName());
 		} catch (ServiceStopException e) {
 			logger.error("{0}: Error stopping service: {1}",
-					serviceClass.getCanonicalName(), e.getCause());
+					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		}
 	}
@@ -160,23 +160,23 @@ public class ServiceManager {
 			throw new ServiceStopException("Service is already stopped");
 		knownServices.add(service);
 		try {
-			logger.info("{0}: Restaring service...",
-					serviceClass.getCanonicalName());
+			logger.debug("{0}: Restaring service...",
+					serviceClass.getSimpleName());
 			service.restart();
 			logger.info("{0}: Service restarted!",
-					serviceClass.getCanonicalName());
+					serviceClass.getSimpleName());
 			return service;
 		} catch (ServiceStartException e) {
 			logger.error("{0}: Error starting service: {1}",
-					serviceClass.getCanonicalName(), e.getCause());
+					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		} catch (ServiceStopException e) {
 			logger.error("{0}: Error stopping service: {1}",
-					serviceClass.getCanonicalName(), e.getCause());
+					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		} catch (ServiceException e) {
 			logger.error("{0}: Error restarting service: {1}",
-					serviceClass.getCanonicalName(), e.getCause());
+					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		}
 	}

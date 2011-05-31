@@ -81,13 +81,13 @@ public class ProxyConfigurationService extends AbstractService implements
 
 		if (cache.containsKey(config))
 			return (C) cache.get(config);
-		logger.info("Trying to create {} proxy", config);
+		logger.debug("Trying to create {} proxy", config);
 		Properties properties;
 		try {
 			properties = findProperties(config);
 		} catch (IOException e) {
 			properties = new Properties();
-			logger.info(
+			logger.warn(
 					"Configuration file for {} not found, falling back to default values",
 					config);
 		}
