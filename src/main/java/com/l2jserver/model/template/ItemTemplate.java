@@ -22,14 +22,16 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.template.calculator.ItemPhysicalDamageActorCalculator;
+import com.l2jserver.model.template.calculator.ItemSetActorCalculator;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 
 /**
@@ -74,6 +76,10 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 		protected StatAttribute physicalDamage;
 		@XmlElement(name = "magicalDamage")
 		protected StatAttribute magicalDamage;
+		@XmlElement(name = "criticalChance")
+		protected StatAttribute criticalChance;
+		@XmlElement(name = "physicalAttackSpeed")
+		protected StatAttribute physicalAttackSpeed;
 	}
 
 	@XmlElement(name = "stats")
@@ -95,7 +101,9 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 		protected StatSet set;
 
 		public static class StatSet {
+			@XmlAttribute(name = "order")
 			protected int order;
+			@XmlValue
 			protected double value;
 
 			/**
@@ -172,33 +180,41 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	/**
 	 * @return the physical damage
 	 */
-	public ItemPhysicalDamageActorCalculator getPhysicalDamage() {
+	public ItemSetActorCalculator getPhysicalDamage() {
 		if (stats == null)
 			return null;
-		return new ItemPhysicalDamageActorCalculator(stats.physicalDamage.set);
+		if (stats.physicalDamage == null)
+			return null;
+		return new ItemSetActorCalculator(stats.physicalDamage.set,
+				StatType.POWER_ATTACK);
 	}
 
 	/**
 	 * @return the magical damage
 	 */
-	public StatAttribute getMagicalDamage() {
+	public ItemSetActorCalculator getMagicalDamage() {
 		if (stats == null)
 			return null;
-		return stats.magicalDamage;
+		if (stats.magicalDamage == null)
+			return null;
+		return new ItemSetActorCalculator(stats.magicalDamage.set,
+				StatType.MAGIC_ATTACK);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.l2jserver.model.template.AbstractTemplate#getID()
+	/**
+	 * @return the magical damage
 	 */
+	public ItemSetActorCalculator getCriticalChance() {
+		if (stats == null)
+			return null;
+		if (stats.criticalChance == null)
+			return null;
+		return new ItemSetActorCalculator(stats.criticalChance.set,
+				StatType.CRITICAL_RATE);
+	}
+
 	@Override
 	public ItemTemplateID getID() {
 		return id;
 	}
-
-	// @Override
-	// public ItemTemplateID getID() {
-	// return (ItemTemplateID) super.getID();
-	// }
 }

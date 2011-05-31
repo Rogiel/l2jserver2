@@ -18,8 +18,8 @@ package com.l2jserver.model.world.npc.calculator.base;
 
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.npc.calculator.NPCCalculator;
-import com.l2jserver.model.world.npc.calculator.NPCCalculatorFunction;
+import com.l2jserver.model.world.actor.stat.StatType;
+import com.l2jserver.model.world.npc.calculator.NPCFormula;
 
 /**
  * Calculates the character base walk speed
@@ -31,14 +31,13 @@ import com.l2jserver.model.world.npc.calculator.NPCCalculatorFunction;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NPCBaseWalkSpeedCalculator extends NPCCalculator {
+public class NPCBaseWalkSpeedCalculator extends NPCFormula {
 	public NPCBaseWalkSpeedCalculator() {
-		super(new NPCCalculatorFunction(0x000) {
-			@Override
-			protected double calculate(NPC c, NPCTemplate t,
-					double value) {
-				return t.getWalkSpeed();
-			}
-		});
+		super(0x000, StatType.WALK_SPEED);
+	}
+
+	@Override
+	protected double calculate(NPC c, NPCTemplate t, double value) {
+		return t.getWalkSpeed();
 	}
 }

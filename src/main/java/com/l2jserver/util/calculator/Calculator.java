@@ -17,18 +17,12 @@
 package com.l2jserver.util.calculator;
 
 /**
- * This function performs an modulus: <blockquote><code>|chain value|</code>
- * </blockquote>
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public class ModulusFunction extends AbstractDoubleFunction<CalculatorContext> {
-	public ModulusFunction(int order) {
-		super(order);
-	}
+public interface Calculator<T extends CalculatorContext, V extends Enum<V>>
+		extends Function<T, V> {
+	double calculate(V v, T ctx, double value);
 
-	@Override
-	public double calculate(CalculatorContext ctx, double value) {
-		return Math.abs(value);
-	}
+	double calculate(V v, T ctx);
 }

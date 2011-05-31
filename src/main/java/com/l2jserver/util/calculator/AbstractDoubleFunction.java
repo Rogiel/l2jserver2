@@ -18,14 +18,15 @@ package com.l2jserver.util.calculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
-public abstract class AbstractDoubleFunction<T extends CalculatorContext> implements
-		Function<T> {
+public abstract class AbstractDoubleFunction<T extends CalculatorContext, V extends Enum<V>>
+		implements Function<T, V> {
 	private final int order;
+	private final V type;
 
-	public AbstractDoubleFunction(int order) {
+	public AbstractDoubleFunction(int order, V type) {
 		this.order = order;
+		this.type = type;
 	}
 
 	@Override
@@ -33,4 +34,8 @@ public abstract class AbstractDoubleFunction<T extends CalculatorContext> implem
 		return order;
 	}
 
+	@Override
+	public V type() {
+		return type;
+	}
 }

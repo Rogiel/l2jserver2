@@ -17,13 +17,14 @@
 package com.l2jserver.model.world.npc.calculator;
 
 import com.l2jserver.model.world.actor.calculator.ActorCalculator;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
 public class NPCCalculator extends ActorCalculator {
-	public NPCCalculator(NPCCalculatorFunction... functions) {
-		super(functions);
+	public NPCCalculator(Class<StatType> type, NPCCalculator... calculators) {
+		super(type, calculators);
 	}
 }

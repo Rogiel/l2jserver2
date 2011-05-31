@@ -35,9 +35,9 @@ import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll
  * <li><b>Equipped by the {@link L2Character character}</b>: <tt>location</tt>
  * is {@link InventoryLocation#PAPERDOLL}, <tt>paperdoll</tt> is not null and
  * <tt>coordinate</tt> is null.</li>
- * <li><b>Dropped on the ground</b>: <tt>location</tt></li> and <tt>paperdoll</tt>
- * are null, <tt>coordinate</tt> is not null and represents the dropping
- * location.
+ * <li><b>Dropped on the ground</b>: <tt>location</tt></li> and
+ * <tt>paperdoll</tt> are null, <tt>coordinate</tt> is not null and represents
+ * the dropping location.
  * </ul>
  * <p>
  * Please note that {@link PositionableObject} values are only set if the object
@@ -125,6 +125,13 @@ public class Item extends PositionableObject {
 	 */
 	public ItemTemplateID getTemplateID() {
 		return templateID;
+	}
+
+	/**
+	 * @return the templateID
+	 */
+	public ItemTemplate getTemplate() {
+		return templateID.getTemplate();
 	}
 
 	/**

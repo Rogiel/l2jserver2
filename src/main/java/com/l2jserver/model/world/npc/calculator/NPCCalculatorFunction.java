@@ -21,6 +21,7 @@ import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * An function for {@link NPC} formulas.
@@ -28,8 +29,8 @@ import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class NPCCalculatorFunction extends ActorCalculatorFunction {
-	public NPCCalculatorFunction(int order) {
-		super(order);
+	public NPCCalculatorFunction(int order, StatType type) {
+		super(order, type);
 	}
 
 	@Override

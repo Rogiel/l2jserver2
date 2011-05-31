@@ -18,6 +18,7 @@ package com.l2jserver.model.world.character.calculator;
 
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base MP
@@ -32,19 +33,18 @@ import com.l2jserver.model.world.L2Character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MaximumMPAddCalculator extends CharacterCalculator {
+public class MaximumMPAddCalculator extends CharacterFormula {
 	public MaximumMPAddCalculator() {
-		super(new CharacterCalculatorFunction(0x100) {
-			@Override
-			protected double calculate(L2Character c, CharacterTemplate t,
-					double value) {
-				int lvl = c.getLevel() - t.getMinimumLevel();
-				double mod = t.getBaseMPModifier() * lvl;
-				double max = (t.getBaseMPAdd() + mod) * lvl;
-				double min = (t.getBaseMPAdd() * lvl) + mod;
+		super(0x100, StatType.MAX_MP);
+	}
 
-				return value + (max + min) / 2;
-			}
-		});
+	@Override
+	protected double calculate(L2Character c, CharacterTemplate t, double value) {
+		int lvl = c.getLevel() - t.getMinimumLevel();
+		double mod = t.getBaseMPModifier() * lvl;
+		double max = (t.getBaseMPAdd() + mod) * lvl;
+		double min = (t.getBaseMPAdd() * lvl) + mod;
+
+		return value + (max + min) / 2;
 	}
 }

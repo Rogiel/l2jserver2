@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base run speed
@@ -29,15 +30,14 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RunSpeedBonusCalculator extends ActorCalculator {
+public class RunSpeedBonusCalculator extends ActorFormula {
 	public RunSpeedBonusCalculator() {
-		super(new ActorCalculatorFunction(0x300) {
-			@Override
-			protected double calculate(Actor c, ActorTemplate<?> t, double value) {
-				return value
-						* BaseStats.DEX.calculateBonus(c.getStats()
-								.getDexterity());
-			}
-		});
+		super(0x300, StatType.RUN_SPEED);
+	}
+
+	@Override
+	protected double calculate(Actor c, ActorTemplate<?> t, double value) {
+		return value
+				* BaseStats.DEX.calculateBonus(c.getStats().getDexterity());
 	}
 }

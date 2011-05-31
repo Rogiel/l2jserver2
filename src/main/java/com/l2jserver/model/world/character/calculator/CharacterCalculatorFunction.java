@@ -21,6 +21,7 @@ import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * An calculator for character formulas.
@@ -29,8 +30,8 @@ import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
  */
 public abstract class CharacterCalculatorFunction extends
 		ActorCalculatorFunction {
-	public CharacterCalculatorFunction(int order) {
-		super(order);
+	public CharacterCalculatorFunction(int order, StatType type) {
+		super(order, type);
 	}
 
 	@Override

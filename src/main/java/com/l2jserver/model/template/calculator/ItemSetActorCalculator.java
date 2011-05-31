@@ -14,27 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.model.template.calculator;
+
+import com.l2jserver.model.template.ActorTemplate;
+import com.l2jserver.model.template.ItemTemplate.StatAttribute.StatSet;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.actor.calculator.ActorFormula;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
- * This function performs a sum: <blockquote><code>chain value +
- * value</code></blockquote>
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public class SumFunction extends AbstractDoubleFunction<CalculatorContext> {
-	/**
-	 * The value
-	 */
-	private final double value;
+public class ItemSetActorCalculator extends ActorFormula {
+	private final StatSet set;
 
-	public SumFunction(int order, double value) {
-		super(order);
-		this.value = value;
+	public ItemSetActorCalculator(StatSet set, StatType type) {
+		super(set.getOrder(), type);
+		this.set = set;
 	}
 
 	@Override
-	public double calculate(CalculatorContext ctx, double value) {
-		return value + this.value;
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		return set.getValue();
 	}
 }

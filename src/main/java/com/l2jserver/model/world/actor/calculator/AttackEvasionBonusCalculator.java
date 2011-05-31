@@ -20,6 +20,7 @@ import org.apache.commons.math.util.FastMath;
 
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character evasion
@@ -36,21 +37,21 @@ import com.l2jserver.model.world.Actor;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class AttackEvasionBonusCalculator extends ActorCalculator {
+public class AttackEvasionBonusCalculator extends ActorFormula {
 	public AttackEvasionBonusCalculator() {
-		super(new ActorCalculatorFunction(0x200) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				final int level = a.getLevel();
+		super(0x200, StatType.EVASION_RATE);
+	}
 
-				value += FastMath.sqrt(a.getStats().getDexterity()) * 6;
-				value += level;
-				if (level > 77)
-					value += (level - 77) + 1;
-				if (level > 69)
-					value += (level - 69);
-				return value;
-			}
-		});
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		final int level = a.getLevel();
+
+		value += FastMath.sqrt(a.getStats().getDexterity()) * 6;
+		value += level;
+		if (level > 77)
+			value += (level - 77) + 1;
+		if (level > 69)
+			value += (level - 69);
+		return value;
 	}
 }

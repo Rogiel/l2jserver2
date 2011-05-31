@@ -16,13 +16,17 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.util.calculator.SimpleCalculator;
+import com.l2jserver.model.world.actor.stat.StatType;
+import com.l2jserver.util.calculator.Calculator;
+import com.l2jserver.util.calculator.ComplexCalculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ActorCalculator extends SimpleCalculator<ActorCalculatorContext> {
-	public ActorCalculator(ActorCalculatorFunction... functions) {
-		super(functions);
+public class ActorCalculator extends
+		ComplexCalculator<ActorCalculatorContext, StatType> {
+	public ActorCalculator(Class<StatType> type,
+			Calculator<ActorCalculatorContext, StatType>... calculators) {
+		super(type, calculators);
 	}
 }

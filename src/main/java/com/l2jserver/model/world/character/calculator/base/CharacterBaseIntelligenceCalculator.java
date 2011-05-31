@@ -18,8 +18,8 @@ package com.l2jserver.model.world.character.calculator.base;
 
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.character.calculator.CharacterCalculator;
-import com.l2jserver.model.world.character.calculator.CharacterCalculatorFunction;
+import com.l2jserver.model.world.actor.stat.StatType;
+import com.l2jserver.model.world.character.calculator.CharacterFormula;
 
 /**
  * Calculates the character base intelligence
@@ -30,14 +30,13 @@ import com.l2jserver.model.world.character.calculator.CharacterCalculatorFunctio
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterBaseIntelligenceCalculator extends CharacterCalculator {
+public class CharacterBaseIntelligenceCalculator extends CharacterFormula {
 	public CharacterBaseIntelligenceCalculator() {
-		super(new CharacterCalculatorFunction(0x000) {
-			@Override
-			protected double calculate(L2Character c, CharacterTemplate t,
-					double value) {
-				return t.getBaseIntelligence();
-			}
-		});
+		super(0x000, StatType.STAT_INT);
+	}
+
+	@Override
+	protected double calculate(L2Character c, CharacterTemplate t, double value) {
+		return t.getBaseIntelligence();
 	}
 }

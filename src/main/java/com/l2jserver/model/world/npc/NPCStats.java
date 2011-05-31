@@ -17,10 +17,12 @@
 package com.l2jserver.model.world.npc;
 
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.actor.calculator.ActorCalculator;
 import com.l2jserver.model.world.actor.stat.ActorStats;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.npc.calculator.NPCCalculator;
 import com.l2jserver.model.world.npc.calculator.NPCCalculatorContext;
+import com.l2jserver.model.world.npc.calculator.NPCFormula;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseAttackEvasionCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseConcentrationCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseDexterityCalculator;
@@ -46,11 +48,11 @@ import com.l2jserver.util.calculator.SimpleCalculator;
  * This class is responsible for calculating the real NPC stats. The real stats
  * vary from the values from the templates, also, skills and items equipped can
  * change those values. Once an buff is applied, a new calculator is
- * {@link SimpleCalculator#importFunctions(SimpleCalculator) imported} and their functions
- * are added to this class calculator. Once the skill effect has past away, all
- * the functions that were imported are now
- * {@link SimpleCalculator#removeFunctions(SimpleCalculator) removed} and the calculator
- * return to its original state.
+ * {@link SimpleCalculator#importFunctions(SimpleCalculator) imported} and their
+ * functions are added to this class calculator. Once the skill effect has past
+ * away, all the functions that were imported are now
+ * {@link SimpleCalculator#removeFunctions(SimpleCalculator) removed} and the
+ * calculator return to its original state.
  * <p>
  * Another important note is that calculators should perform calculations as
  * fast as possible.
@@ -66,14 +68,14 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_HP_CALCULATOR = new NPCBaseHPCalculator();
+	private static final NPCFormula BASE_HP_FORMULA = new NPCBaseHPCalculator();
 	/**
 	 * The calculator for base maximum MP
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_MP_CALCULATOR = new NPCBaseMPCalculator();
+	private static final NPCFormula BASE_MP_FORMULA = new NPCBaseMPCalculator();
 
 	/**
 	 * The calculator for base intelligence
@@ -81,42 +83,42 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_INT_CALCULATOR = new NPCBaseIntelligenceCalculator();
+	private static final NPCFormula BASE_INT_FORMULA = new NPCBaseIntelligenceCalculator();
 	/**
 	 * The calculator for base strength
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_STR_CALCULATOR = new NPCBaseStrengthCalculator();
+	private static final NPCFormula BASE_STR_FORMULA = new NPCBaseStrengthCalculator();
 	/**
 	 * The calculator for base concentration
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_CON_CALCULATOR = new NPCBaseConcentrationCalculator();
+	private static final NPCFormula BASE_CON_FORMULA = new NPCBaseConcentrationCalculator();
 	/**
 	 * The calculator for base mentality
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_MEN_CALCULATOR = new NPCBaseMentalityCalculator();
+	private static final NPCFormula BASE_MEN_FORMULA = new NPCBaseMentalityCalculator();
 	/**
 	 * The calculator for base dexterity
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_DEX_CALCULATOR = new NPCBaseDexterityCalculator();
+	private static final NPCFormula BASE_DEX_FORMULA = new NPCBaseDexterityCalculator();
 	/**
 	 * The calculator for base witness
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_WIT_CALCULATOR = new NPCBaseWitnessCalculator();
+	private static final NPCFormula BASE_WIT_FORMULA = new NPCBaseWitnessCalculator();
 
 	/**
 	 * The calculator for base run speed
@@ -124,14 +126,14 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_RUN_SPEED_CALCULATOR = new NPCBaseRunSpeedCalculator();
+	private static final NPCFormula BASE_RUN_SPEED_FORMULA = new NPCBaseRunSpeedCalculator();
 	/**
 	 * The calculator for base walk speed
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_WALK_SPEED_CALCULATOR = new NPCBaseWalkSpeedCalculator();
+	private static final NPCFormula BASE_WALK_SPEED_FORMULA = new NPCBaseWalkSpeedCalculator();
 
 	/**
 	 * The calculator base physical attack
@@ -139,28 +141,28 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_PHYSICAL_ATTACK_CALCULATOR = new NPCBasePhysicalAttackCalculator();
+	private static final NPCFormula BASE_PHYSICAL_ATTACK_FORMULA = new NPCBasePhysicalAttackCalculator();
 	/**
 	 * The calculator base physical attack speed
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_PHYSICAL_ATTACK_SPEED_CALCULATOR = new NPCBasePhysicalAttackSpeedCalculator();
+	private static final NPCFormula BASE_PHYSICAL_ATTACK_SPEED_FORMULA = new NPCBasePhysicalAttackSpeedCalculator();
 	/**
 	 * The calculator base physical attack critical rate
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_PHYSICAL_CRITICAL_RATE_CALCULATOR = new NPCBasePhysicalCriticalRateCalculator();
+	private static final NPCFormula BASE_PHYSICAL_CRITICAL_RATE_FORMULA = new NPCBasePhysicalCriticalRateCalculator();
 	/**
 	 * The calculator base physical defense
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_PHYSICAL_DEFENSE_CALCULATOR = new NPCBasePhysicalDefenseCalculator();
+	private static final NPCFormula BASE_PHYSICAL_DEFENSE_FORMULA = new NPCBasePhysicalDefenseCalculator();
 
 	/**
 	 * The calculator base magical attack
@@ -168,28 +170,28 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_MAGICAL_ATTACK_CALCULATOR = new NPCBaseMagicalAttackCalculator();
+	private static final NPCFormula BASE_MAGICAL_ATTACK_FORMULA = new NPCBaseMagicalAttackCalculator();
 	/**
 	 * The calculator base magical attack speed
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_MAGICAL_ATTACK_SPEED_CALCULATOR = new NPCBaseMagicalAttackSpeedCalculator();
+	private static final NPCFormula BASE_MAGICAL_ATTACK_SPEED_FORMULA = new NPCBaseMagicalAttackSpeedCalculator();
 	/**
 	 * The calculator base magical attack critical rate
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_MAGICAL_CRITICAL_RATE_CALCULATOR = new NPCBaseMagicalCriticalRateCalculator();
+	private static final NPCFormula BASE_MAGICAL_CRITICAL_RATE_FORMULA = new NPCBaseMagicalCriticalRateCalculator();
 	/**
 	 * The calculator base magical defense
 	 * <p>
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_MAGICAL_DEFENSE_CALCULATOR = new NPCBaseMagicalDefenseCalculator();
+	private static final NPCFormula BASE_MAGICAL_DEFENSE_FORMULA = new NPCBaseMagicalDefenseCalculator();
 
 	/**
 	 * The calculator base evasion
@@ -197,12 +199,15 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * <u>This calculator does not store any state and thus is safe to be
 	 * shared.</u>
 	 */
-	private static final NPCCalculator BASE_ATTACK_EVASION_CALCULATOR = new NPCBaseAttackEvasionCalculator();
+	private static final NPCFormula BASE_ATTACK_EVASION_FORMULA = new NPCBaseAttackEvasionCalculator();
 
 	/**
 	 * The NPC
 	 */
 	private final NPC npc;
+
+	private static final NPCCalculator calculator = new NPCCalculator(
+			StatType.class);
 
 	/**
 	 * Creates a new {@link NPCStats} and adds default calculators
@@ -210,38 +215,40 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * @param npc
 	 *            the npc
 	 */
+	@SuppressWarnings("unchecked")
 	public NPCStats(NPC npc) {
 		super();
 		this.npc = npc;
 
-		add(StatType.MAX_HP, BASE_HP_CALCULATOR);
-		add(StatType.MAX_MP, BASE_MP_CALCULATOR);
+		calculator.addNoSort(BASE_HP_FORMULA, BASE_MP_FORMULA);
 
-		add(StatType.STAT_INT, BASE_INT_CALCULATOR);
-		add(StatType.STAT_STR, BASE_STR_CALCULATOR);
-		add(StatType.STAT_CON, BASE_CON_CALCULATOR);
-		add(StatType.STAT_MEN, BASE_MEN_CALCULATOR);
-		add(StatType.STAT_DEX, BASE_DEX_CALCULATOR);
-		add(StatType.STAT_WIT, BASE_WIT_CALCULATOR);
+		calculator.addNoSort(BASE_INT_FORMULA, BASE_STR_FORMULA,
+				BASE_CON_FORMULA, BASE_MEN_FORMULA, BASE_DEX_FORMULA,
+				BASE_WIT_FORMULA);
 
-		add(StatType.RUN_SPEED, BASE_RUN_SPEED_CALCULATOR);
-		add(StatType.WALK_SPEED, BASE_WALK_SPEED_CALCULATOR);
+		calculator.addNoSort(BASE_RUN_SPEED_FORMULA,
+				BASE_WALK_SPEED_FORMULA);
 
-		add(StatType.POWER_ATTACK, BASE_PHYSICAL_ATTACK_CALCULATOR);
-		add(StatType.POWER_ATTACK_SPEED, BASE_PHYSICAL_ATTACK_SPEED_CALCULATOR);
-		add(StatType.CRITICAL_RATE, BASE_PHYSICAL_CRITICAL_RATE_CALCULATOR);
-		add(StatType.POWER_DEFENSE, BASE_PHYSICAL_DEFENSE_CALCULATOR);
+		calculator.addNoSort(BASE_PHYSICAL_ATTACK_FORMULA,
+				BASE_PHYSICAL_ATTACK_SPEED_FORMULA,
+				BASE_PHYSICAL_CRITICAL_RATE_FORMULA,
+				BASE_PHYSICAL_DEFENSE_FORMULA);
 
-		add(StatType.MAGIC_ATTACK, BASE_MAGICAL_ATTACK_CALCULATOR);
-		add(StatType.MAGIC_ATTACK_SPEED, BASE_MAGICAL_ATTACK_SPEED_CALCULATOR);
-		add(StatType.MCRITICAL_RATE, BASE_MAGICAL_CRITICAL_RATE_CALCULATOR);
-		add(StatType.MAGIC_DEFENSE, BASE_MAGICAL_DEFENSE_CALCULATOR);
+		calculator.addNoSort(BASE_MAGICAL_ATTACK_FORMULA,
+				BASE_MAGICAL_ATTACK_SPEED_FORMULA,
+				BASE_MAGICAL_CRITICAL_RATE_FORMULA,
+				BASE_MAGICAL_DEFENSE_FORMULA);
 
-		add(StatType.EVASION_RATE, BASE_ATTACK_EVASION_CALCULATOR);
+		calculator.addNoSort(BASE_ATTACK_EVASION_FORMULA);
 	}
 
 	@Override
 	protected NPCCalculatorContext createContext() {
 		return new NPCCalculatorContext(npc);
+	}
+
+	@Override
+	protected ActorCalculator getCalculator() {
+		return calculator;
 	}
 }

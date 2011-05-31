@@ -19,6 +19,7 @@ package com.l2jserver.model.world.character.calculator;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base CP
@@ -33,16 +34,13 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MaximumCPBonusCalculator extends CharacterCalculator {
+public class MaximumCPBonusCalculator extends CharacterFormula {
 	public MaximumCPBonusCalculator() {
-		super(new CharacterCalculatorFunction(0x100) {
-			@Override
-			protected double calculate(L2Character c, CharacterTemplate t,
-					double value) {
-				return value
-						* BaseStats.CON.calculateBonus(c.getStats()
-								.getConcentration());
-			}
-		});
+		super(0x100, StatType.MAX_CP);
+	}
+
+	protected double calculate(L2Character c, CharacterTemplate t, double value) {
+		return value
+				* BaseStats.CON.calculateBonus(c.getStats().getConcentration());
 	}
 }

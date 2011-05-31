@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base critical rate
@@ -31,16 +32,16 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PhysicalCriticalRateBonusCalculator extends ActorCalculator {
+public class PhysicalCriticalRateBonusCalculator extends ActorFormula {
 	public PhysicalCriticalRateBonusCalculator() {
-		super(new ActorCalculatorFunction(0x090) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				return value
-						* BaseStats.DEX.calculateBonus(a.getStats()
-								.getDexterity()) * 10;
-				// TODO l2j uses another variable here, must check why
-			}
-		});
+		super(0x090, StatType.CRITICAL_RATE);
+	}
+
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		return value
+				* BaseStats.DEX.calculateBonus(a.getStats().getDexterity())
+				* 10;
+		// TODO l2j uses another variable here, must check why
 	}
 }

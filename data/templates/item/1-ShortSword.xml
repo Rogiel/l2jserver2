@@ -6,16 +6,16 @@
 	<price>1</price>
 	<stats>
 		<physicalDamage>
-			<set order="0x80">8</set>
+			<set order="128">8</set>
 		</physicalDamage>
 		<magicalDamage>
-			<set order="0x80">6</set>
+			<set order="128">6</set>
 		</magicalDamage>
 		<criticalChance>
-			<set order="0x80">8</set>
+			<set order="128">8</set>
 		</criticalChance>
 		<physicalAttackSpeed>
-			<set order="0x80">379</set>
+			<set order="128">379</set>
 		</physicalAttackSpeed>
 	</stats>
 </item>

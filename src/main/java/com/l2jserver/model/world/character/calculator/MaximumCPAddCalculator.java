@@ -18,6 +18,7 @@ package com.l2jserver.model.world.character.calculator;
 
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base CP
@@ -32,19 +33,17 @@ import com.l2jserver.model.world.L2Character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MaximumCPAddCalculator extends CharacterCalculator {
+public class MaximumCPAddCalculator extends CharacterFormula {
 	public MaximumCPAddCalculator() {
-		super(new CharacterCalculatorFunction(0x100) {
-			@Override
-			protected double calculate(L2Character c, CharacterTemplate t,
-					double value) {
-				int lvl = c.getLevel() - t.getMinimumLevel();
-				double mod = t.getBaseCPModifier() * lvl;
-				double max = (t.getBaseCPAdd() + mod) * lvl;
-				double min = (t.getBaseCPAdd() * lvl) + mod;
+		super(0x100, StatType.MAX_CP);
+	}
 
-				return value + (max + min) / 2;
-			}
-		});
+	protected double calculate(L2Character c, CharacterTemplate t, double value) {
+		int lvl = c.getLevel() - t.getMinimumLevel();
+		double mod = t.getBaseCPModifier() * lvl;
+		double max = (t.getBaseCPAdd() + mod) * lvl;
+		double min = (t.getBaseCPAdd() * lvl) + mod;
+
+		return value + (max + min) / 2;
 	}
 }

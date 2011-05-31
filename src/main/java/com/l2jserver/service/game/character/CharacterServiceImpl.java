@@ -92,7 +92,7 @@ public class CharacterServiceImpl extends AbstractService implements
 	 * The {@link WorldService}
 	 */
 	private final WorldService worldService;
-	/**
+	/*
 	 * The {@link WorldService} event dispatcher
 	 */
 	private final WorldEventDispatcher eventDispatcher;
@@ -156,7 +156,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		character.setOnline(true);
 		
 		// inventory interfere on calculators
-		character.getStats().updateCalculators();
+		character.getStats().updateCalculator();
 
 		// chat listener
 		final ChatChannelListener globalChatListener = new ChatChannelListener() {

@@ -14,26 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.model.world.npc.calculator;
+
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
- * This function performs an set. It ignores the input value and return its own.
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public class SetFunction extends AbstractDoubleFunction<CalculatorContext> {
-	/**
-	 * The value
-	 */
-	private final double value;
-
-	public SetFunction(int order, double value) {
-		super(order);
-		this.value = value;
-	}
-
-	@Override
-	public double calculate(CalculatorContext ctx, double value) {
-		return this.value;
+public abstract class NPCFormula extends NPCCalculatorFunction {
+	public NPCFormula(int order, StatType type) {
+		super(order, type);
 	}
 }

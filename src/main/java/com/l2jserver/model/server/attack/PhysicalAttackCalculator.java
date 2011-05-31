@@ -25,7 +25,7 @@ import com.l2jserver.model.world.Actor;
  */
 public class PhysicalAttackCalculator extends AttackCalculator {
 	public PhysicalAttackCalculator() {
-		super(new AttackCalculatorFunction(0x000) {
+		super(new AttackCalculatorFunction(0x000, AttackCalculatorType.DAMAGE) {
 			@Override
 			public double calculate(Actor attacker, Actor target, double value) {
 				// TODO this is certainly not right!!!
@@ -33,7 +33,8 @@ public class PhysicalAttackCalculator extends AttackCalculator {
 				return attacker.getStats().getPhysicalAttack()
 						- target.getStats().getPhysicalDefense();
 			}
-		}, new AttackCalculatorFunction(Integer.MAX_VALUE) {
+		}, new AttackCalculatorFunction(Integer.MAX_VALUE,
+				AttackCalculatorType.DAMAGE) {
 			@Override
 			public double calculate(Actor attacker, Actor target, double value) {
 				if (value <= 0)

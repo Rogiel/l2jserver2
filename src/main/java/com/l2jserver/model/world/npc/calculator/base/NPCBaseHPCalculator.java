@@ -18,8 +18,8 @@ package com.l2jserver.model.world.npc.calculator.base;
 
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.npc.calculator.NPCCalculator;
-import com.l2jserver.model.world.npc.calculator.NPCCalculatorFunction;
+import com.l2jserver.model.world.actor.stat.StatType;
+import com.l2jserver.model.world.npc.calculator.NPCFormula;
 
 /**
  * Calculates the character maximum HP
@@ -30,14 +30,13 @@ import com.l2jserver.model.world.npc.calculator.NPCCalculatorFunction;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NPCBaseHPCalculator extends NPCCalculator {
+public class NPCBaseHPCalculator extends NPCFormula {
 	public NPCBaseHPCalculator() {
-		super(new NPCCalculatorFunction(0x000) {
-			@Override
-			public double calculate(NPC c, NPCTemplate t,
-					double value) {
-				return t.getMaximumHP();
-			}
-		});
+		super(0x000, StatType.MAX_HP);
+	}
+
+	@Override
+	public double calculate(NPC c, NPCTemplate t, double value) {
+		return t.getMaximumHP();
 	}
 }

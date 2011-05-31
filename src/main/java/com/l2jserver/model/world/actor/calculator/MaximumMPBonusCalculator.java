@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the actor maximum HP bonus
@@ -29,15 +30,14 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MaximumMPBonusCalculator extends ActorCalculator {
+public class MaximumMPBonusCalculator extends ActorFormula {
 	public MaximumMPBonusCalculator() {
-		super(new ActorCalculatorFunction(0x200) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				return value
-						* BaseStats.MEN.calculateBonus(a.getStats()
-								.getMentality());
-			}
-		});
+		super(0x200, StatType.MAX_MP);
+	}
+
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		return value
+				* BaseStats.MEN.calculateBonus(a.getStats().getMentality());
 	}
 }

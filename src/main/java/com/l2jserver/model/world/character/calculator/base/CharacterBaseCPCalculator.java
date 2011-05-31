@@ -18,8 +18,8 @@ package com.l2jserver.model.world.character.calculator.base;
 
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.character.calculator.CharacterCalculator;
-import com.l2jserver.model.world.character.calculator.CharacterCalculatorFunction;
+import com.l2jserver.model.world.actor.stat.StatType;
+import com.l2jserver.model.world.character.calculator.CharacterFormula;
 
 /**
  * Calculates the character maximum CP
@@ -30,14 +30,13 @@ import com.l2jserver.model.world.character.calculator.CharacterCalculatorFunctio
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterBaseCPCalculator extends CharacterCalculator {
+public class CharacterBaseCPCalculator extends CharacterFormula {
 	public CharacterBaseCPCalculator() {
-		super(new CharacterCalculatorFunction(0x000) {
-			@Override
-			public double calculate(L2Character c, CharacterTemplate t,
-					double value) {
-				return t.getBaseCP();
-			}
-		});
+		super(0x000, StatType.MAX_CP);
+	}
+
+	@Override
+	public double calculate(L2Character c, CharacterTemplate t, double value) {
+		return t.getBaseCP();
 	}
 }

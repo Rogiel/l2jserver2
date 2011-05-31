@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base magical defense.
@@ -40,29 +41,28 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MagicalDefenseBonusCalculator extends ActorCalculator {
+public class MagicalDefenseBonusCalculator extends ActorFormula {
 	public MagicalDefenseBonusCalculator() {
-		super(new ActorCalculatorFunction(0x200) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				// final CharacterInventory inv = c.getInventory();
+		super(0x200, StatType.MAGIC_DEFENSE);
+	}
 
-				// if (inv.has(LEFT_FINGER))
-				// ctx.result -= 5;
-				// if (inv.has(RIGHT_FINGER))
-				// ctx.result -= 5;
-				// if (inv.has(LEFT_EAR))
-				// ctx.result -= 9;
-				// if (inv.has(RIGHT_EAR))
-				// ctx.result -= 9;
-				// if (inv.has(NECK))
-				// ctx.result -= 13;
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		// final CharacterInventory inv = c.getInventory();
 
-				return value
-						* BaseStats.MEN.calculateBonus(a.getStats()
-								.getMentality())
-						* ((100.0 - 11 + a.getLevel()) / 100.0);
-			}
-		});
+		// if (inv.has(LEFT_FINGER))
+		// ctx.result -= 5;
+		// if (inv.has(RIGHT_FINGER))
+		// ctx.result -= 5;
+		// if (inv.has(LEFT_EAR))
+		// ctx.result -= 9;
+		// if (inv.has(RIGHT_EAR))
+		// ctx.result -= 9;
+		// if (inv.has(NECK))
+		// ctx.result -= 13;
+
+		return value
+				* BaseStats.MEN.calculateBonus(a.getStats().getMentality())
+				* ((100.0 - 11 + a.getLevel()) / 100.0);
 	}
 }

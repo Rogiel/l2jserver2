@@ -14,21 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.model.world.character.calculator;
+
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
- * This function performs an negate: <blockquote><code>-chain value</code>
- * </blockquote>
+ * An calculator for character formulas.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class NegateFunction extends AbstractDoubleFunction<CalculatorContext> {
-	public NegateFunction(int order) {
-		super(order);
-	}
-
-	@Override
-	public double calculate(CalculatorContext ctx, double value) {
-		return -value;
+public abstract class CharacterFormula extends CharacterCalculatorFunction {
+	public CharacterFormula(int order, StatType type) {
+		super(order, type);
 	}
 }

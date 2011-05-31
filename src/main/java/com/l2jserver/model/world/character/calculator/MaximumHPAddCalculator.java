@@ -18,6 +18,7 @@ package com.l2jserver.model.world.character.calculator;
 
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character maximum HP
@@ -32,19 +33,17 @@ import com.l2jserver.model.world.L2Character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MaximumHPAddCalculator extends CharacterCalculator {
+public class MaximumHPAddCalculator extends CharacterFormula {
 	public MaximumHPAddCalculator() {
-		super(new CharacterCalculatorFunction(0x100) {
-			@Override
-			public double calculate(L2Character c, CharacterTemplate t,
-					double value) {
-				int lvl = c.getLevel() - t.getMinimumLevel();
-				double mod = t.getBaseHPModifier() * lvl;
-				double max = (t.getBaseHPAdd() + mod) * lvl;
-				double min = (t.getBaseHPAdd() * lvl) + mod;
+		super(0x100, StatType.MAX_HP);
+	}
 
-				return value + (max + min) / 2;
-			}
-		});
+	public double calculate(L2Character c, CharacterTemplate t, double value) {
+		int lvl = c.getLevel() - t.getMinimumLevel();
+		double mod = t.getBaseHPModifier() * lvl;
+		double max = (t.getBaseHPAdd() + mod) * lvl;
+		double min = (t.getBaseHPAdd() * lvl) + mod;
+
+		return value + (max + min) / 2;
 	}
 }

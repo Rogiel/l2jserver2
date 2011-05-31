@@ -36,7 +36,6 @@ public class Log4JLoggingService extends AbstractService implements
 		LoggingService {
 	private Logger rootLogger;
 	private Logger l2jLogger;
-	private Logger scriptLogger;
 	private Logger nettyLogger;
 
 	@Override
@@ -47,7 +46,6 @@ public class Log4JLoggingService extends AbstractService implements
 		BasicConfigurator.configure();
 		rootLogger = Logger.getRootLogger();
 		l2jLogger = Logger.getLogger("com.l2jserver");
-		scriptLogger = Logger.getLogger("script");
 		nettyLogger = Logger.getLogger("org.jboss.netty");
 
 		rootLogger.removeAllAppenders();
@@ -55,7 +53,6 @@ public class Log4JLoggingService extends AbstractService implements
 		rootLogger.addAppender(new ConsoleAppender(layout, "System.err"));
 
 		l2jLogger.setLevel(Level.INFO);
-		scriptLogger.setLevel(Level.INFO);
 		nettyLogger.setLevel(Level.DEBUG);
 		Logger.getLogger("com.l2jserver.model.id.object.allocator").setLevel(Level.WARN);
 	}

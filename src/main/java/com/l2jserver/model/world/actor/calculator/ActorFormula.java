@@ -14,27 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.calculator;
+package com.l2jserver.model.world.actor.calculator;
+
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
- * This function performs an subtraction: <blockquote><code>chain value -
- * value</code></blockquote>
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SubtractFunction extends AbstractDoubleFunction<CalculatorContext> {
-	/**
-	 * The value
-	 */
-	private final double value;
-
-	public SubtractFunction(int order, double value) {
-		super(order);
-		this.value = value;
-	}
-
-	@Override
-	public double calculate(CalculatorContext ctx, double value) {
-		return value - this.value;
+public abstract class ActorFormula extends ActorCalculatorFunction {
+	public ActorFormula(int order, StatType type) {
+		super(order, type);
 	}
 }

@@ -18,6 +18,7 @@ package com.l2jserver.model.world.actor.calculator;
 
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base physical defense
@@ -41,32 +42,32 @@ import com.l2jserver.model.world.Actor;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PhysicalDefenseBonusCalculator extends ActorCalculator {
+public class PhysicalDefenseBonusCalculator extends ActorFormula {
 	public PhysicalDefenseBonusCalculator() {
-		super(new ActorCalculatorFunction(0x200) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				// final CharacterInventory inv = c.getInventory();
-				//
-				// // orc mystics are a special case
-				// boolean hasMagePDef = (c.getCharacterClass().type ==
-				// ClassType.MYSTIC || c
-				// .getCharacterClass() == CharacterClass.ORC_MYSTIC);
-				//
-				// if (inv.has(HEAD))
-				// ctx.result -= 12;
-				// final Item chest = inv.getItem(CHEST);
-				// if (chest != null)
-				// ctx.result -= hasMagePDef ? 15 : 31;
-				// if (inv.has(LEGS))
-				// // FIXME full armor also applies here
-				// ctx.result -= hasMagePDef ? 8 : 18;
-				// if (inv.has(GLOVES))
-				// ctx.result -= 8;
-				// if (inv.has(FEET))
-				// ctx.result -= 7;
-				return value * ((100.0 - 11 + a.getLevel()) / 100.0);
-			}
-		});
+		super(0x200, StatType.POWER_DEFENSE);
+	}
+
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		// final CharacterInventory inv = c.getInventory();
+		//
+		// // orc mystics are a special case
+		// boolean hasMagePDef = (c.getCharacterClass().type ==
+		// ClassType.MYSTIC || c
+		// .getCharacterClass() == CharacterClass.ORC_MYSTIC);
+		//
+		// if (inv.has(HEAD))
+		// ctx.result -= 12;
+		// final Item chest = inv.getItem(CHEST);
+		// if (chest != null)
+		// ctx.result -= hasMagePDef ? 15 : 31;
+		// if (inv.has(LEGS))
+		// // FIXME full armor also applies here
+		// ctx.result -= hasMagePDef ? 8 : 18;
+		// if (inv.has(GLOVES))
+		// ctx.result -= 8;
+		// if (inv.has(FEET))
+		// ctx.result -= 7;
+		return value * ((100.0 - 11 + a.getLevel()) / 100.0);
 	}
 }

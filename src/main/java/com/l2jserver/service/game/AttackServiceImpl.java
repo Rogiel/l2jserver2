@@ -22,6 +22,7 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.server.AttackHit;
 import com.l2jserver.model.server.attack.AttackCalculator;
+import com.l2jserver.model.server.attack.AttackCalculator.AttackCalculatorType;
 import com.l2jserver.model.server.attack.AttackCalculatorContext;
 import com.l2jserver.model.server.attack.PhysicalAttackCalculator;
 import com.l2jserver.model.world.Actor;
@@ -90,8 +91,9 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 
 		@Override
 		public AttackHit call() throws Exception {
-			final double damage = PHYSICAL_ATTACK_CALCULATOR
-					.calculate(new AttackCalculatorContext(attacker, target));
+			final double damage = PHYSICAL_ATTACK_CALCULATOR.calculate(
+					AttackCalculatorType.DAMAGE, new AttackCalculatorContext(
+							attacker, target));
 			// TODO calculate miss
 			// TODO calculate critical
 			// TODO calculate soulshot

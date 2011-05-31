@@ -25,22 +25,13 @@ import java.util.Comparator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SimpleCalculator<T extends CalculatorContext> extends
-		AbstractDoubleFunction<T> {
+public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
+		extends AbstractDoubleFunction<T, V> implements Calculator<T, V> {
+	protected final V value;
 	/**
 	 * List of operations in this calculator
 	 */
-	private Function<? super T>[] functions;
-
-	/**
-	 * Creates a new empty calculator. Functions can be add using
-	 * {@link #add(int, Function)}.
-	 */
-	@SuppressWarnings("unchecked")
-	public SimpleCalculator() {
-		super(0x00);
-		functions = new Function[0];
-	}
+	protected final Function<T, V>[] functions;
 
 	/**
 	 * Creates a new calculator with <tt>functions</tt> in the declaration
@@ -49,85 +40,37 @@ public class SimpleCalculator<T extends CalculatorContext> extends
 	 * @param functions
 	 *            the calculator functions
 	 */
-	public SimpleCalculator(Function<? super T>... functions) {
-		super(0x00);
+	public SimpleCalculator(V value, Function<T, V>... functions) {
+		super(0x00, value);
+		this.value = value;
 		this.functions = functions;
+		Arrays.sort(this.functions, FunctionOrderComparator.SHARED_INSTANCE);
 	}
 
-	/**
-	 * Adds a new function to this calculator. Executing order for functions
-	 * with the same order is undefined.
-	 * <p>
-	 * Once a new function is added, sorting will be performed automatically.
-	 * 
-	 * @param order
-	 *            the operation order, starting at 0.
-	 * @param function
-	 *            the operation
-	 */
-	public void add(Function<? super T> function) {
-		functions = Arrays.copyOf(functions, functions.length + 1);
-		functions[functions.length - 1] = function;
-		Arrays.sort(functions, FunctionOrderComparator.SHARED_INSTANCE);
-	}
-
-	/**
-	 * Imports all functions from the given <tt>calculator</tt>. This is useful
-	 * to preserve right calculation ordering but changes to original
-	 * <tt>calculator</tt> will no reflect in this one.
-	 * <p>
-	 * This method will heuristically search for nested calculators.
-	 * 
-	 * @param calculator
-	 *            the calculator
-	 */
-	public void importFunctions(SimpleCalculator<? super T> calculator) {
-		for (final Function<? super T> function : calculator.functions) {
-			if (function instanceof SimpleCalculator) {
-				importFunctions((SimpleCalculator<? super T>) function);
-			} else {
-				add(function);
-			}
-		}
-	}
-
-	/**
-	 * Removes all imported functions from the given <tt>calculator</tt>.
-	 * <p>
-	 * This method will heuristically search for nested calculators.
-	 * 
-	 * @param calculator
-	 *            the calculator
-	 */
-	public void removeFunctions(SimpleCalculator<? super T> calculator) {
-		for (final Function<? super T> function : calculator.functions) {
-			if (function instanceof SimpleCalculator) {
-				removeFunctions((SimpleCalculator<? super T>) function);
-			} else {
-				// TODO
-				// remove(function);
-			}
-		}
-	}
-
-	@Override
-	public double calculate(T ctx, double value) {
-		for (final Function<? super T> function : functions) {
+	public double calculate(V v, T ctx, double value) {
+		if (v != this.value)
+			return value;
+		for (final Function<T, V> function : functions) {
 			value = function.calculate(ctx, value);
 		}
 		return value;
 	}
 
-	public double calculate(T ctx) {
+	public double calculate(V v, T ctx) {
 		return calculate(ctx, 0);
 	}
 
+	@Override
+	public double calculate(T ctx, double value) {
+		return 0;
+	}
+
 	public static class FunctionOrderComparator implements
-			Comparator<Function<?>> {
+			Comparator<Function<?, ?>> {
 		public static final FunctionOrderComparator SHARED_INSTANCE = new FunctionOrderComparator();
 
 		@Override
-		public int compare(Function<?> func1, Function<?> func2) {
+		public int compare(Function<?, ?> func1, Function<?, ?> func2) {
 			return (func1.order() - func2.order());
 		}
 	}

@@ -18,6 +18,7 @@ package com.l2jserver.model.world.actor.calculator;
 
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.util.calculator.AbstractDoubleFunction;
 
 /**
@@ -26,9 +27,9 @@ import com.l2jserver.util.calculator.AbstractDoubleFunction;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ActorCalculatorFunction extends
-		AbstractDoubleFunction<ActorCalculatorContext> {
-	public ActorCalculatorFunction(int order) {
-		super(order);
+		AbstractDoubleFunction<ActorCalculatorContext, StatType> {
+	public ActorCalculatorFunction(int order, StatType type) {
+		super(order, type);
 	}
 
 	@Override
@@ -36,6 +37,6 @@ public abstract class ActorCalculatorFunction extends
 		return calculate(ctx.actor, ctx.actor.getTemplate(), value);
 	}
 
-	protected abstract double calculate(Actor a,
-			ActorTemplate<?> t, double value);
+	protected abstract double calculate(Actor a, ActorTemplate<?> t,
+			double value);
 }

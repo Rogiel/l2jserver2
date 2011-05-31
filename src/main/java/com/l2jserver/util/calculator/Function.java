@@ -21,7 +21,7 @@ package com.l2jserver.util.calculator;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface Function<C extends CalculatorContext> {
+public interface Function<C extends CalculatorContext, V extends Enum<V>> {
 	/**
 	 * Performs the operation in the calculation process.
 	 * <p>
@@ -39,4 +39,6 @@ public interface Function<C extends CalculatorContext> {
 	 * @return the order this function will be executed
 	 */
 	int order();
+	
+	V type();
 }

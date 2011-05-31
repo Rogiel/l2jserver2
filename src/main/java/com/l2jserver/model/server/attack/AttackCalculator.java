@@ -16,13 +16,19 @@
  */
 package com.l2jserver.model.server.attack;
 
-import com.l2jserver.util.calculator.SimpleCalculator;
+import com.l2jserver.model.server.attack.AttackCalculator.AttackCalculatorType;
+import com.l2jserver.util.calculator.ComplexCalculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class AttackCalculator extends SimpleCalculator<AttackCalculatorContext> {
+public class AttackCalculator extends
+		ComplexCalculator<AttackCalculatorContext, AttackCalculatorType> {
 	public AttackCalculator(AttackCalculatorFunction... functions) {
-		super(functions);
+		super(AttackCalculatorType.class, functions);
+	}
+
+	public enum AttackCalculatorType {
+		DAMAGE;
 	}
 }

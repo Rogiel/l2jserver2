@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base magical attack
@@ -30,16 +31,16 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MagicalAttackBonusCalculator extends ActorCalculator {
+public class MagicalAttackBonusCalculator extends ActorFormula {
 	public MagicalAttackBonusCalculator() {
-		super(new ActorCalculatorFunction(0x200) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				return value
-						* Math.pow(((100.0 - 11 + a.getLevel()) / 100.0), 2)
-						* Math.pow(BaseStats.INT.calculateBonus(a.getStats()
-								.getIntelligence()), 2);
-			}
-		});
+		super(0x200, StatType.MAGIC_ATTACK);
+	}
+
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		return value
+				* Math.pow(((100.0 - 11 + a.getLevel()) / 100.0), 2)
+				* Math.pow(BaseStats.INT.calculateBonus(a.getStats()
+						.getIntelligence()), 2);
 	}
 }

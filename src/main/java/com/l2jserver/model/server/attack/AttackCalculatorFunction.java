@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.server.attack;
 
+import com.l2jserver.model.server.attack.AttackCalculator.AttackCalculatorType;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.calculator.AbstractDoubleFunction;
 
@@ -23,9 +24,9 @@ import com.l2jserver.util.calculator.AbstractDoubleFunction;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AttackCalculatorFunction extends
-		AbstractDoubleFunction<AttackCalculatorContext> {
-	public AttackCalculatorFunction(int order) {
-		super(order);
+		AbstractDoubleFunction<AttackCalculatorContext, AttackCalculatorType> {
+	public AttackCalculatorFunction(int order, AttackCalculatorType type) {
+		super(order, type);
 	}
 
 	@Override

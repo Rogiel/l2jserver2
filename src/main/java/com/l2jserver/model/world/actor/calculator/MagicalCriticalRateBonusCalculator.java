@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the base magical attack critical rate
@@ -30,16 +31,14 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MagicalCriticalRateBonusCalculator extends ActorCalculator {
+public class MagicalCriticalRateBonusCalculator extends ActorFormula {
 	public MagicalCriticalRateBonusCalculator() {
-		super(new ActorCalculatorFunction(0x300) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				// TODO only apply if using a weapon
-				return value
-						* BaseStats.WIT.calculateBonus(a.getStats()
-								.getWitness());
-			}
-		});
+		super(0x300, StatType.MCRITICAL_RATE);
+	}
+
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		// TODO only apply if using a weapon
+		return value * BaseStats.WIT.calculateBonus(a.getStats().getWitness());
 	}
 }

@@ -19,6 +19,7 @@ package com.l2jserver.model.world.actor.calculator;
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
+import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
  * Calculates the character base physical attack
@@ -31,16 +32,14 @@ import com.l2jserver.model.world.actor.stat.BaseStats;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class PhysicalAttackBonusCalculator extends ActorCalculator {
+public class PhysicalAttackBonusCalculator extends ActorFormula {
 	public PhysicalAttackBonusCalculator() {
-		super(new ActorCalculatorFunction(0x100) {
-			@Override
-			protected double calculate(Actor a, ActorTemplate<?> t, double value) {
-				return value
-						* BaseStats.STR.calculateBonus(a.getStats()
-								.getStrength())
-						* ((100.0 - 11 + a.getLevel()) / 100.0);
-			}
-		});
+		super(0x100, StatType.POWER_ATTACK);
+	}
+
+	@Override
+	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+		return value * BaseStats.STR.calculateBonus(a.getStats().getStrength())
+				* ((100.0 - 11 + a.getLevel()) / 100.0);
 	}
 }
