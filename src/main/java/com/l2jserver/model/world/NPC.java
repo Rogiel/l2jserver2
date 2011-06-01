@@ -31,18 +31,14 @@ import com.l2jserver.service.game.ai.AIScript;
  */
 public class NPC extends Actor {
 	/**
+	 * The {@link NPC} respawn interval
+	 */
+	private long respawnInterval;
+
+	/**
 	 * This NPC stats
 	 */
 	private final NPCStats stats = new NPCStats(this);
-
-	/**
-	 * The npc state
-	 */
-	private NPCState state;
-
-	public enum NPCState {
-		MOVING, ATTACKING;
-	}
 
 	/**
 	 * Creates a new instance
@@ -54,47 +50,27 @@ public class NPC extends Actor {
 		super(templateID);
 	}
 
+	/**
+	 * @return the respawnInterval
+	 */
+	public long getRespawnInterval() {
+		return respawnInterval;
+	}
+
+	/**
+	 * @param respawnInterval
+	 *            the respawnInterval to set
+	 */
+	public void setRespawnInterval(long respawnInterval) {
+		desireUpdate();
+		this.respawnInterval = respawnInterval;
+	}
+
 	@Override
 	public NPCStats getStats() {
 		return stats;
 	}
 
-	/**
-	 * @return the state
-	 */
-	public NPCState getState() {
-		return state;
-	}
-
-	/**
-	 * @return true if NPC is idle
-	 */
-	public boolean isIdle() {
-		return state == null;
-	}
-
-	/**
-	 * @return true if NPC is idle
-	 */
-	public boolean isMoving() {
-		return state == NPCState.MOVING;
-	}
-
-	/**
-	 * @return true if NPC is idle
-	 */
-	public boolean isAttacking() {
-		return state == NPCState.ATTACKING;
-	}
-
-	/**
-	 * @param state
-	 *            the state to set
-	 */
-	public void setState(NPCState state) {
-		this.state = state;
-	}
-	
 	// TEMPLATE WRAPPERS
 	@Override
 	public ActorSex getSex() {

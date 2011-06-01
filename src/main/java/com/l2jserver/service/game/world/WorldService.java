@@ -37,6 +37,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 * 
 	 * @param object
 	 *            the object
+	 * @return true if object was not present in the world
 	 */
 	boolean add(WorldObject object);
 
@@ -45,6 +46,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 	 * 
 	 * @param object
 	 *            the object
+	 * @return true if object was present in the world
 	 */
 	boolean remove(WorldObject object);
 

@@ -80,7 +80,7 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeByte(1); // name above char 1=true ... ??
 		buffer.writeByte(0x00); // is running
 		buffer.writeByte((npc.isAttacking() ? 0x01 : 0x00)); // is in combat
-		buffer.writeByte(0x00); // is like dead (faking)
+		buffer.writeByte((npc.isDead() ? 0x01 : 0x00)); // is like dead (faking)
 		buffer.writeByte(0x00); // 0=teleported 1=default 2=summoned
 		BufferUtils.writeString(buffer, template.getName());
 		BufferUtils.writeString(buffer, template.getTitle());

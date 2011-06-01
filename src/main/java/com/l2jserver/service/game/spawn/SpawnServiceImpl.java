@@ -16,24 +16,32 @@
  */
 package com.l2jserver.service.game.spawn;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
-import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_TELEPORT;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
+import com.l2jserver.model.world.event.UnspawnEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
+import com.l2jserver.model.world.npc.event.NPCUnspawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.core.threading.AsyncFuture;
+import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.NetworkService;
@@ -45,7 +53,7 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ WorldService.class })
+@Depends({ WorldService.class, NetworkService.class, ThreadService.class })
 public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	/**
 	 * The {@link WorldService}
@@ -59,18 +67,25 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	 * The {@link NetworkService}
 	 */
 	private final NetworkService networkService;
+	/**
+	 * The {@link ThreadService}
+	 */
+	private final ThreadService threadService;
 
 	@Inject
 	public SpawnServiceImpl(WorldService worldService,
-			WorldEventDispatcher eventDispatcher, NetworkService networkService) {
+			WorldEventDispatcher eventDispatcher,
+			NetworkService networkService, ThreadService threadService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.networkService = networkService;
+		this.threadService = threadService;
 	}
 
 	@Override
 	public void spawn(PositionableObject object, Point3D point)
-			throws SpawnPointNotFoundServiceException {
+			throws SpawnPointNotFoundServiceException,
+			AlreadySpawnedServiceException {
 		Preconditions.checkNotNull(object, "object");
 		// sanitize
 		if (point == null)
@@ -83,11 +98,13 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 		// set the spawning point
 		object.setPoint(point);
+		// reset actor state
+		if (object instanceof Actor) {
+			((Actor) object).setState(null);
+		}
 		// register object in the world
 		if (!worldService.add(object))
-			// TODO this should throw an exception
-			// object was already in world
-			return;
+			throw new AlreadySpawnedServiceException();
 
 		// create the SpawnEvent
 		SpawnEvent event = null;
@@ -95,6 +112,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			final NPC npc = (NPC) object;
 			event = new NPCSpawnEvent(npc, point);
 		} else if (object instanceof L2Character) {
+			// TODO character spawn event
 			event = null;
 		}
 
@@ -103,6 +121,68 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			// dispatch spawn event
 			eventDispatcher.dispatch(event);
 		// remember: broadcasting is done through events!
+	}
+
+	@Override
+	public AsyncFuture<?> spawn(final PositionableObject object,
+			final Point3D point, long time, TimeUnit unit) {
+		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkArgument(time > 0, "time < 0");
+		Preconditions.checkNotNull(unit, "unit");
+		return threadService.async(time, unit,
+				new Callable<PositionableObject>() {
+					@Override
+					public PositionableObject call() throws Exception {
+						spawn(object, point);
+						return object;
+					}
+				});
+	}
+
+	@Override
+	public void unspawn(PositionableObject object)
+			throws NotSpawnedServiceException {
+		Preconditions.checkNotNull(object, "object");
+
+		if (object.getPoint() == null)
+			throw new NotSpawnedServiceException();
+
+		// unregister object in the world
+		if (!worldService.remove(object))
+			throw new NotSpawnedServiceException();
+
+		final Point3D point = object.getPoint();
+
+		// create the SpawnEvent
+		UnspawnEvent event = null;
+		if (object instanceof NPC) {
+			final NPC npc = (NPC) object;
+			event = new NPCUnspawnEvent(npc, point);
+		} else if (object instanceof L2Character) {
+			// TODO character unspawn event
+			event = null;
+		}
+
+		// TODO throw an exception if event is null
+		if (event != null)
+			// dispatch unspawn event
+			eventDispatcher.dispatch(event);
+	}
+
+	@Override
+	public AsyncFuture<?> unspawn(final PositionableObject object, long time,
+			TimeUnit unit) {
+		Preconditions.checkNotNull(object, "object");
+		Preconditions.checkArgument(time > 0, "time <= 0");
+		Preconditions.checkNotNull(unit, "unit");
+		return threadService.async(time, unit,
+				new Callable<PositionableObject>() {
+					@Override
+					public PositionableObject call() throws Exception {
+						unspawn(object);
+						return object;
+					}
+				});
 	}
 
 	@Override
@@ -119,9 +199,9 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			if (conn == null)
 				// TODO throw an exception here
 				return;
-			conn.write(new SM_TELEPORT(conn.getCharacter(),
-					coordinate.toPoint()));
-			((L2Character) player).setState(CharacterState.TELEPORTING);
+			conn.write(new SM_TELEPORT(conn.getCharacter(), coordinate
+					.toPoint()));
+			((L2Character) player).setState(ActorState.TELEPORTING);
 			((L2Character) player).setTargetLocation(coordinate.toPoint());
 		} else {
 			player.setPosition(coordinate);
@@ -152,19 +232,5 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 		conn.write(new SM_CHAR_INFO(character));
 		conn.write(new SM_CHAR_INFO_EXTRA(character));
-	}
-
-	@Override
-	public void scheduleRespawn(PositionableObject object) {
-		Preconditions.checkNotNull(object, "object");
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void unspawn(PositionableObject object) {
-		Preconditions.checkNotNull(object, "object");
-		// TODO Auto-generated method stub
-
 	}
 }

@@ -26,11 +26,13 @@ import com.l2jserver.model.server.attack.AttackCalculator.AttackCalculatorType;
 import com.l2jserver.model.server.attack.AttackCalculatorContext;
 import com.l2jserver.model.server.attack.PhysicalAttackCalculator;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 
 /**
@@ -48,6 +50,11 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 */
 	private final ThreadService threadService;
 	/**
+	 * The {@link NPCService}
+	 */
+	private final NPCService npcService;
+
+	/**
 	 * The {@link WorldEventDispatcher} is used to dispatch attack events to the
 	 * world
 	 */
@@ -55,8 +62,9 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 
 	@Inject
 	public AttackServiceImpl(ThreadService threadService,
-			WorldEventDispatcher eventDispatcher) {
+			NPCService npcService, WorldEventDispatcher eventDispatcher) {
 		this.threadService = threadService;
+		this.npcService = npcService;
 		this.eventDispatcher = eventDispatcher;
 	}
 
@@ -91,15 +99,25 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 
 		@Override
 		public AttackHit call() throws Exception {
+			final double hp = target.getHP();
 			final double damage = PHYSICAL_ATTACK_CALCULATOR.calculate(
 					AttackCalculatorType.DAMAGE, new AttackCalculatorContext(
 							attacker, target));
+			final double dealDamage = (hp < damage ? hp : damage);
 			// TODO calculate miss
 			// TODO calculate critical
 			// TODO calculate soulshot
 
+			// reduce target life
+			target.setHP(target.getHP() - dealDamage);
+
 			final AttackHit hit = new AttackHit(attacker, target, damage);
 			eventDispatcher.dispatch(new ActorAttackHitEvent(hit));
+
+			if (target.getHP() <= 0) {
+				if (target instanceof NPC)
+					npcService.die((NPC) target, attacker);
+			}
 			return hit;
 		}
 	}

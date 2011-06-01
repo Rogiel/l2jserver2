@@ -54,7 +54,8 @@ public class Log4JLoggingService extends AbstractService implements
 
 		l2jLogger.setLevel(Level.INFO);
 		nettyLogger.setLevel(Level.DEBUG);
-		Logger.getLogger("com.l2jserver.model.id.object.allocator").setLevel(Level.WARN);
+		Logger.getLogger("com.l2jserver.model.id.object.allocator").setLevel(
+				Level.WARN);
 	}
 
 	@Override

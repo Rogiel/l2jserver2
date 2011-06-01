@@ -143,38 +143,6 @@ public class L2Character extends Player {
 	 * The character target, if any.
 	 */
 	private transient ActorID<?> targetID;
-	/**
-	 * State of the character. Will be null if it is idle
-	 */
-	private transient CharacterState state;
-
-	/**
-	 * The valid states for an character
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public enum CharacterState {
-		/**
-		 * This state indicates the character is being teleported
-		 */
-		TELEPORTING,
-		/**
-		 * This state indicates the character is casting a skill
-		 */
-		CASTING,
-		/**
-		 * This state indicates the character is attacking
-		 */
-		ATTACKING,
-		/**
-		 * This state indicates the character is moving
-		 */
-		MOVING,
-		/**
-		 * This state indicates the character is dead
-		 */
-		DEAD;
-	}
 
 	/**
 	 * The point the player is moving, teleporting etc...
@@ -445,63 +413,6 @@ public class L2Character extends Player {
 	 */
 	public void setTargetID(ActorID<?> target) {
 		this.targetID = target;
-	}
-
-	/**
-	 * @return the state
-	 */
-	public CharacterState getState() {
-		return state;
-	}
-
-	/**
-	 * @param state
-	 *            the state to set
-	 */
-	public void setState(CharacterState state) {
-		this.state = state;
-	}
-
-	/**
-	 * @return true if character is doing nothing
-	 */
-	public boolean isIdle() {
-		return state == null;
-	}
-
-	/**
-	 * @return true if character is being teleported
-	 */
-	public boolean isTeleporting() {
-		return state == CharacterState.TELEPORTING;
-	}
-
-	/**
-	 * @return true if character is moving
-	 */
-	public boolean isMoving() {
-		return state == CharacterState.MOVING;
-	}
-
-	/**
-	 * @return true if character is dead
-	 */
-	public boolean isDead() {
-		return state == CharacterState.DEAD;
-	}
-
-	/**
-	 * @return true if character is casting
-	 */
-	public boolean isCasting() {
-		return state == CharacterState.CASTING;
-	}
-
-	/**
-	 * @return true if character is attacking
-	 */
-	public boolean isAttacking() {
-		return state == CharacterState.ATTACKING;
 	}
 
 	/**

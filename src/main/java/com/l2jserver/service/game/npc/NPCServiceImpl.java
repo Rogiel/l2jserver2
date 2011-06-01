@@ -28,10 +28,12 @@ import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.NPC.NPCState;
 import com.l2jserver.model.world.npc.controller.NPCController;
+import com.l2jserver.model.world.npc.event.NPCDieEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.AsyncFuture;
@@ -43,6 +45,8 @@ import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
+import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -78,6 +82,10 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	private final AttackService attackService;
 
 	/**
+	 * The {@link WorldService} event dispatcher
+	 */
+	private final WorldEventDispatcher eventDispatcher;
+	/**
 	 * The {@link NPCDAO}
 	 */
 	private final NPCDAO npcDao;
@@ -98,12 +106,14 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	public NPCServiceImpl(SpawnService spawnService,
 			NetworkService networkService, CharacterService characterService,
 			ThreadService threadService, AttackService attackService,
-			NPCDAO npcDao, Injector injector) {
+			WorldEventDispatcher eventDispatcher, NPCDAO npcDao,
+			Injector injector) {
 		this.spawnService = spawnService;
 		this.networkService = networkService;
 		this.characterService = characterService;
 		this.threadService = threadService;
 		this.attackService = attackService;
+		this.eventDispatcher = eventDispatcher;
 		this.npcDao = npcDao;
 		this.injector = injector;
 	}
@@ -144,11 +154,33 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	}
 
 	@Override
+	public void die(NPC npc, Actor killer) {
+		Preconditions.checkNotNull(npc, "npc");
+		Preconditions.checkNotNull(killer, "killer");
+
+		// set npc as dead
+		npc.setState(ActorState.DEAD);
+
+		// dispatch die event
+		eventDispatcher.dispatch(new NPCDieEvent(npc, killer));
+
+		// schedule corpse removal -- npc will be kept in the world until then
+		spawnService.unspawn(npc, 5, TimeUnit.SECONDS);
+		// schedule an respawn
+		spawnService.spawn(npc, null, npc.getRespawnInterval(),
+				TimeUnit.MILLISECONDS);
+
+		// reset hp and cp
+		npc.setHP(npc.getStats().getMaxHP());
+		npc.setMP(npc.getStats().getMaxMP());
+	}
+
+	@Override
 	public AsyncFuture<Boolean> move(final NPC npc, final Point3D point) {
 		if (!npc.isIdle())
 			// TODO throw an exception
 			return null;
-		npc.setState(NPCState.MOVING);
+		npc.setState(ActorState.MOVING);
 		// calculate walking time
 		final Point3D start = npc.getPoint();
 		final double distance = start.getDistance(point);

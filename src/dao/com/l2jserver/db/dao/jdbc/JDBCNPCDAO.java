@@ -67,13 +67,15 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 	public static final String NPC_ID = "npc_id";
 	public static final String NPC_TEMPLATE_ID = "npc_template_id";
 
-	public static final String NPC_HP = "hp";
-	public static final String NPC_MP = "mp";
+	public static final String HP = "hp";
+	public static final String MP = "mp";
 
 	public static final String POINT_X = "point_x";
 	public static final String POINT_Y = "point_y";
 	public static final String POINT_Z = "point_z";
 	public static final String POINT_ANGLE = "point_angle";
+
+	public static final String RESPAWN_TIME = "respawn_time";
 
 	@Inject
 	public JDBCNPCDAO(DatabaseService database, final NPCIDProvider idProvider,
@@ -116,14 +118,16 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 
 			npc.setID(id);
 
-			if (rs.getString(NPC_HP) != null)
-				npc.setHP(rs.getDouble(NPC_HP));
-			if (rs.getString(NPC_MP) != null)
-				npc.setMP(rs.getDouble(NPC_MP));
+			if (rs.getString(HP) != null)
+				npc.setHP(rs.getDouble(HP));
+			if (rs.getString(MP) != null)
+				npc.setMP(rs.getDouble(MP));
 
 			npc.setPoint(Point3D.fromXYZA(rs.getInt(POINT_X),
 					rs.getInt(POINT_Y), rs.getInt(POINT_Z),
 					rs.getDouble(POINT_ANGLE)));
+
+			npc.setRespawnInterval(rs.getLong(RESPAWN_TIME));
 
 			return npc;
 		}
@@ -207,9 +211,10 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + NPC_ID + "`,`"
-						+ NPC_TEMPLATE_ID + "`,`" + NPC_HP + "`, `" + NPC_MP
-						+ "`,`" + POINT_X + "`,`" + POINT_Y + "`,`" + POINT_Z
-						+ "`,`" + POINT_ANGLE + "`) VALUES(?,?,?,?,?,?,?,?)";
+						+ NPC_TEMPLATE_ID + "`,`" + HP + "`, `" + MP + "`,`"
+						+ POINT_X + "`,`" + POINT_Y + "`,`" + POINT_Z + "`,`"
+						+ POINT_ANGLE + "`,`" + RESPAWN_TIME
+						+ "`) VALUES(?,?,?,?,?,?,?,?,?)";
 			}
 
 			@Override
@@ -227,6 +232,8 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 				st.setInt(i++, npc.getPoint().getY());
 				st.setInt(i++, npc.getPoint().getZ());
 				st.setDouble(i++, npc.getPoint().getAngle());
+				
+				st.setLong(i++, npc.getRespawnInterval());
 			}
 		}) > 0;
 	}
@@ -237,10 +244,10 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 			@Override
 			protected String query() {
 				return "UPDATE `" + TABLE + "` SET `" + NPC_TEMPLATE_ID
-						+ "` = ?,`" + NPC_HP + "` = ?, `" + NPC_MP + "` = ?,`"
+						+ "` = ?,`" + HP + "` = ?, `" + MP + "` = ?,`"
 						+ POINT_X + "` = ?,`" + POINT_Y + "` = ?,`" + POINT_Z
-						+ "` = ?,`" + POINT_ANGLE + "` = ? WHERE `" + NPC_ID
-						+ "` = ?";
+						+ "` = ?,`" + POINT_ANGLE + "` = ?, `" + RESPAWN_TIME
+						+ "` = ? WHERE `" + NPC_ID + "` = ?";
 			}
 
 			@Override
@@ -258,6 +265,8 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 				st.setInt(i++, npc.getPoint().getY());
 				st.setInt(i++, npc.getPoint().getZ());
 				st.setDouble(i++, npc.getPoint().getAngle());
+				
+				st.setLong(i++, npc.getRespawnInterval());
 
 				// WHERE
 				st.setInt(i++, npc.getID().getID());

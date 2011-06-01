@@ -149,10 +149,10 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		}
 
 		@Override
-		public void await() throws InterruptedException {
+		public void await() throws ExecutionException {
 			try {
 				this.get();
-			} catch (ExecutionException e) {
+			} catch (InterruptedException e) {
 			}
 		}
 

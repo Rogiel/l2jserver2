@@ -22,6 +22,7 @@ import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
+import com.l2jserver.game.net.packet.server.SM_DIE;
 import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
@@ -32,6 +33,8 @@ import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
+import com.l2jserver.model.world.actor.event.ActorDieEvent;
+import com.l2jserver.model.world.actor.event.ActorUnspawnEvent;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
@@ -76,7 +79,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 		final CharacterID id = character.getID();
 
 		// broadcast everything nearby
-		//broadcast(conn);
+		// broadcast(conn);
 
 		// event broadcast listener
 		// this listener will be filtered so that only interesting events are
@@ -96,7 +99,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 						|| e instanceof CharacterEnterWorldEvent) {
 					broadcast(conn, e.getObject());
 				} else if (e instanceof PlayerTeleportingEvent
-						|| e instanceof CharacterLeaveWorldEvent) {
+						|| e instanceof CharacterLeaveWorldEvent
+						|| e instanceof ActorUnspawnEvent) {
 					// object is now out of sight
 					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof CharacterWalkingEvent) {
@@ -105,6 +109,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 				} else if (e instanceof CharacterRunningEvent) {
 					conn.write(new SM_MOVE_TYPE(((CharacterRunningEvent) e)
 							.getCharacter()));
+				} else if (e instanceof ActorDieEvent) {
+					conn.write(new SM_DIE(((ActorDieEvent) e).getActor()));
 				}
 				// keep listener alive
 				return true;

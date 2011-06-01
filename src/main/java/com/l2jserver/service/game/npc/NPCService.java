@@ -21,6 +21,7 @@ import java.util.Collection;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
@@ -67,6 +68,17 @@ public interface NPCService extends Service {
 	 */
 	void action(NPC npc, L2Character character, String... args)
 			throws ActionServiceException, CannotSetTargetServiceException;
+
+	/**
+	 * Kills the given <tt>npc</tt>. If "nobody" killed the NPC (i.e. died by
+	 * admin command), <tt>killer</tt> can be null.
+	 * 
+	 * @param npc
+	 *            the npc being killed
+	 * @param killer
+	 *            the killer actor
+	 */
+	void die(NPC npc, Actor killer);
 
 	/**
 	 * Moves an given <tt>npc</tt> to an <tt>point</tt>

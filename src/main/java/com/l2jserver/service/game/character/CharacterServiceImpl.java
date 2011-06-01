@@ -31,9 +31,9 @@ import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
-import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
@@ -325,7 +325,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		// we don't set the character coordinate here, this will be done by
 		// validation packets, sent by client
 
-		character.setState(CharacterState.MOVING);
+		character.setState(ActorState.MOVING);
 		character.setTargetLocation(coordinate.toPoint());
 
 		// for now, let's just write the packet, we don't have much validation

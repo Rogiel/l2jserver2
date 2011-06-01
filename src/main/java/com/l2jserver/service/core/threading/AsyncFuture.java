@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.core.threading;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -30,10 +31,10 @@ public interface AsyncFuture<T> extends Future<T> {
 	/**
 	 * Waits until the task is executed
 	 * 
-	 * @throws InterruptedException
+	 * @throws ExecutionException
 	 *             if the thread has been interrupted while waiting
 	 */
-	void await() throws InterruptedException;
+	void await() throws ExecutionException;
 
 	/**
 	 * Waits until the task is executed

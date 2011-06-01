@@ -122,6 +122,39 @@ public abstract class Actor extends PositionableObject {
 	protected int sp;
 
 	/**
+	 * State of the actor. Will be null if it is idle
+	 */
+	private transient ActorState state;
+
+	/**
+	 * The valid states for an actor
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public enum ActorState {
+		/**
+		 * This state indicates the actor is being teleported
+		 */
+		TELEPORTING,
+		/**
+		 * This state indicates the actor is casting a skill
+		 */
+		CASTING,
+		/**
+		 * This state indicates the actor is attacking
+		 */
+		ATTACKING,
+		/**
+		 * This state indicates the actor is moving
+		 */
+		MOVING,
+		/**
+		 * This state indicates the actor is dead
+		 */
+		DEAD;
+	}
+
+	/**
 	 * The currently effects active on the actor
 	 */
 	protected final ActorEffects effects = new ActorEffects(this);
@@ -133,7 +166,7 @@ public abstract class Actor extends PositionableObject {
 	protected Actor(ActorTemplateID<?> templateID) {
 		this.templateID = templateID;
 	}
-	
+
 	public abstract ActorStats<?> getStats();
 
 	/**
@@ -246,6 +279,63 @@ public abstract class Actor extends PositionableObject {
 	public void setSP(int sp) {
 		desireUpdate();
 		this.sp = sp;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public ActorState getState() {
+		return state;
+	}
+
+	/**
+	 * @param state
+	 *            the state to set
+	 */
+	public void setState(ActorState state) {
+		this.state = state;
+	}
+
+	/**
+	 * @return true if character is doing nothing
+	 */
+	public boolean isIdle() {
+		return state == null;
+	}
+
+	/**
+	 * @return true if character is being teleported
+	 */
+	public boolean isTeleporting() {
+		return state == ActorState.TELEPORTING;
+	}
+
+	/**
+	 * @return true if character is moving
+	 */
+	public boolean isMoving() {
+		return state == ActorState.MOVING;
+	}
+
+	/**
+	 * @return true if character is dead
+	 */
+	public boolean isDead() {
+		return state == ActorState.DEAD;
+	}
+
+	/**
+	 * @return true if character is casting
+	 */
+	public boolean isCasting() {
+		return state == ActorState.CASTING;
+	}
+
+	/**
+	 * @return true if character is attacking
+	 */
+	public boolean isAttacking() {
+		return state == ActorState.ATTACKING;
 	}
 
 	/**

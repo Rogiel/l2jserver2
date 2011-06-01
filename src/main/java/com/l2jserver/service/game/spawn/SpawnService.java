@@ -16,14 +16,17 @@
  */
 package com.l2jserver.service.game.spawn;
 
+import java.util.concurrent.TimeUnit;
+
+import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.L2Character.CharacterState;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -40,19 +43,61 @@ public interface SpawnService extends Service {
 	 * registered in the world (if it isn't already)
 	 * 
 	 * @param object
-	 *            the spawnable object
+	 *            the PositionableObject object
 	 * @param point
 	 *            the spawning point. If null, will try to use
-	 *            {@link Spawnable#getPoint()}.
+	 *            {@link PositionableObject#getPoint()}.
 	 * @throws SpawnPointNotFoundServiceException
 	 *             if could not find an spawn point (i.e <tt>point</tt> and
-	 *             {@link Spawnable#getPoint()} are null)
+	 *             {@link PositionableObject#getPoint()} are null)
 	 * @throws AlreadySpawnedServiceException
 	 *             if the object is already spawned in the world
 	 */
 	void spawn(PositionableObject object, Point3D point)
 			throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException;
+
+	/**
+	 * Schedules an {@link PositionableObject} object to be spawned in a certain
+	 * time.
+	 * 
+	 * @param object
+	 *            the PositionableObject object
+	 * @param point
+	 *            the spawning point. If null, will try to use
+	 *            {@link PositionableObject#getPoint()}.
+	 * @param time
+	 *            the amount of time to wait before spawn
+	 * @param unit
+	 *            the unit of <tt>time</tt>
+	 * @return an future that can be used to obtain spawn exceptions
+	 */
+	AsyncFuture<?> spawn(PositionableObject object, Point3D point, long time,
+			TimeUnit unit);
+
+	/**
+	 * Unspawns an {@link PositionableObject} object from the world
+	 * 
+	 * @param object
+	 *            the PositionableObject object
+	 * @throws NotSpawnedServiceException
+	 *             if the object is not spawned
+	 */
+	void unspawn(PositionableObject object) throws NotSpawnedServiceException;
+
+	/**
+	 * Schedules an {@link PositionableObject} object to be spawned in a certain
+	 * time.
+	 * 
+	 * @param object
+	 *            the PositionableObject object
+	 * @param time
+	 *            the amount of time to wait before respawn
+	 * @param unit
+	 *            the unit of <tt>time</tt>
+	 * @return an future that can be used to obtain spawn exceptions
+	 */
+	AsyncFuture<?> unspawn(PositionableObject object, long time, TimeUnit unit);
 
 	/**
 	 * Teleports the object to the given <tt>point</tt>.
@@ -85,29 +130,8 @@ public interface SpawnService extends Service {
 	 *            the character object
 	 * @throws CharacterNotTeleportingServiceException
 	 *             if the character state is not
-	 *             {@link CharacterState#TELEPORTING}
+	 *             {@link ActorState#TELEPORTING}
 	 */
 	void finishTeleport(L2Character character)
 			throws CharacterNotTeleportingServiceException;
-
-	/**
-	 * Schedules an {@link Spawnable} object to be respawn in a certain time.
-	 * <p>
-	 * TODO this is not complete
-	 * 
-	 * @param spawnable
-	 *            the spawnable object
-	 */
-	void scheduleRespawn(PositionableObject spawnable);
-
-	/**
-	 * Unspawns an object from the world
-	 * 
-	 * @param spawnable
-	 *            the spawnable object
-	 * @throws NotSpawnedServiceException
-	 *             if the object is not spawned
-	 */
-	void unspawn(PositionableObject spawnable)
-			throws NotSpawnedServiceException;
 }
