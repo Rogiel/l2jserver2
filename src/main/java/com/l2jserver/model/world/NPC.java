@@ -20,6 +20,7 @@ import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.world.npc.NPCStats;
 import com.l2jserver.service.game.ai.AIScript;
 

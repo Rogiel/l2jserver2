@@ -50,15 +50,13 @@ public class L2JGameServerMain {
 			serviceManager.start(TemplateService.class);
 
 			serviceManager.start(ChatService.class);
+			serviceManager.start(NPCService.class);
 
 			serviceManager.start(CharacterService.class);
 			serviceManager.start(PathingService.class);
 
 			serviceManager.start(BlowfishKeygenService.class);
 			serviceManager.start(NetworkService.class);
-
-			// spawn everything
-			serviceManager.get(NPCService.class).spawnAll();
 
 			// final long free = Runtime.getRuntime().freeMemory();
 			// final long allocated = Runtime.getRuntime().totalMemory();

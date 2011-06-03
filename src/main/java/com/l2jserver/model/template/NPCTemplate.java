@@ -33,8 +33,8 @@ import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
+import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.npc.NPCRace;
-import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -302,9 +302,8 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 			if (template == null)
 				// FIXME this should thrown an exception!
 				continue;
-			final Skill skill = template.create();
+			final Skill skill = template.create(npc.getID());
 			skill.setLevel(metadata.level);
-			skill.setActorID(npc.getID());
 			skills.add(skill);
 		}
 		npc.getSkills().load(skills);

@@ -199,7 +199,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	}
 
 	public final SM_SYSTEM_MESSAGE addSkill(final Skill skill) {
-		return addSkill(skill.getSkillTemplate(), skill.getLevel());
+		return addSkill(skill.getTemplate(), skill.getLevel());
 	}
 
 	/**

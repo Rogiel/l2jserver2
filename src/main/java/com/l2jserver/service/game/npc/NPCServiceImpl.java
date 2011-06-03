@@ -36,6 +36,7 @@ import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.model.world.npc.event.NPCDieEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.database.DatabaseService;
@@ -101,6 +102,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 */
 	private Map<Class<? extends NPCController>, NPCController> controllers = CollectionFactory
 			.newMap();
+	private Collection<NPC> npcs;
 
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
@@ -116,6 +118,20 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		this.eventDispatcher = eventDispatcher;
 		this.npcDao = npcDao;
 		this.injector = injector;
+	}
+
+	@Override
+	protected void doStart() throws ServiceStartException {
+		npcs = npcDao.loadAll();
+		try {
+			for (final NPC npc : npcs) {
+				spawnService.spawn(npc, null);
+			}
+		} catch (SpawnPointNotFoundServiceException e) {
+			throw new ServiceStartException(e);
+		} catch (AlreadySpawnedServiceException e) {
+			throw new ServiceStartException(e);
+		}
 	}
 
 	@Override
@@ -195,17 +211,6 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 						return false;
 					}
 				});
-	}
-
-	@Override
-	public Collection<NPC> spawnAll()
-			throws SpawnPointNotFoundServiceException,
-			AlreadySpawnedServiceException {
-		final Collection<NPC> npcs = npcDao.loadAll();
-		for (final NPC npc : npcs) {
-			spawnService.spawn(npc, null);
-		}
-		return npcs;
 	}
 
 	@Override

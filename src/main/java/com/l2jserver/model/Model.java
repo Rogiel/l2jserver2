@@ -29,10 +29,16 @@ public interface Model<T extends ID<?>> {
 	T getID();
 
 	/**
+	 * Please note that the ID can only be set one time. Once it has been set,
+	 * it cannot be changed and a {@link IllegalStateException} will be thrown
+	 * if trying to change the ID.
+	 * 
 	 * @param ID
 	 *            the object ID to set
+	 * @throws IllegalStateException
+	 *             if the ID was already set
 	 */
-	void setID(T ID);
+	void setID(T ID) throws IllegalStateException;
 
 	/**
 	 * @return the database object desire

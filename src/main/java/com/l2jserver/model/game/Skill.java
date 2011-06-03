@@ -17,6 +17,7 @@
 package com.l2jserver.model.game;
 
 import com.l2jserver.model.AbstractModel;
+import com.l2jserver.model.id.SkillID;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.template.SkillTemplate;
@@ -27,72 +28,62 @@ import com.l2jserver.model.world.Actor;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Skill extends AbstractModel {
-	/**
-	 * The skill template ID
-	 */
-	private final SkillTemplateID skillTemplateID;
-	/**
-	 * The actor id that has learned this skill
-	 */
-	private ActorID<?> actorID;
-
+public class Skill extends AbstractModel<SkillID> {
+	private final SkillTemplateID templateID;
 	/**
 	 * The skill level learned
 	 */
 	private int level;
 
 	/**
-	 * Creates a new instance
+	 * Creates a new instance in level one
 	 * 
-	 * @param skillTemplateID
-	 *            the skill template id
 	 * @param level
-	 *            the skill level
+	 *            the level of this skill
 	 */
-	public Skill(SkillTemplateID skillTemplateID, int level) {
-		this.skillTemplateID = skillTemplateID;
+	public Skill(SkillTemplateID templateID, int level) {
+		this.templateID = templateID;
 		this.level = level;
 	}
 
 	/**
 	 * Creates a new instance in level one
-	 * 
-	 * @param skillTemplateID
-	 *            the skill template id
 	 */
-	public Skill(SkillTemplateID skillTemplateID) {
-		this(skillTemplateID, 1);
+	public Skill(SkillTemplateID templateID) {
+		this(templateID, 1);
 	}
 
 	/**
 	 * @return true if this skill is learned in the maximum level
 	 */
 	public boolean isMaximumLevel() {
-		return level >= skillTemplateID.getTemplate().getMaximumLevel();
+		return level >= getTemplate().getMaximumLevel();
 	}
 
 	/**
 	 * @return the actorID
 	 */
 	public ActorID<?> getActorID() {
-		return actorID;
+		return id.getID1();
 	}
 
 	/**
 	 * @return the actor
 	 */
 	public Actor getActor() {
-		return actorID.getObject();
+		return getActorID().getObject();
 	}
 
 	/**
+	 * Sets the actor ID. Note that this will change the skill ID and because of
+	 * this, the ID can only be set once.
+	 * 
 	 * @param actorID
-	 *            the actor ID to set
+	 *            set the actor ID
+	 * @see Skill#setID(SkillID)
 	 */
 	public void setActorID(ActorID<?> actorID) {
-		desireUpdate();
-		this.actorID = actorID;
+		setID(new SkillID(actorID, templateID));
 	}
 
 	/**
@@ -114,51 +105,14 @@ public class Skill extends AbstractModel {
 	/**
 	 * @return the skillTemplateID
 	 */
-	public SkillTemplateID getSkillTemplateID() {
-		return skillTemplateID;
+	public SkillTemplateID getTemplateID() {
+		return id.getID2();
 	}
 
 	/**
 	 * @return the skillTemplate
 	 */
-	public SkillTemplate getSkillTemplate() {
-		return skillTemplateID.getTemplate();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((actorID == null) ? 0 : actorID.hashCode());
-		result = prime * result
-				+ ((skillTemplateID == null) ? 0 : skillTemplateID.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Skill other = (Skill) obj;
-		if (actorID == null) {
-			if (other.actorID != null)
-				return false;
-		} else if (!actorID.equals(other.actorID))
-			return false;
-		if (skillTemplateID == null) {
-			if (other.skillTemplateID != null)
-				return false;
-		} else if (!skillTemplateID.equals(other.skillTemplateID))
-			return false;
-		return true;
+	public SkillTemplate getTemplate() {
+		return getTemplateID().getTemplate();
 	}
 }

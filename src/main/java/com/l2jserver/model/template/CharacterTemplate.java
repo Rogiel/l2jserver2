@@ -25,9 +25,9 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.id.template.CharacterTemplateID;
+import com.l2jserver.model.template.character.CharacterClass;
+import com.l2jserver.model.template.character.CharacterRace;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.L2Character.CharacterRace;
-import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 
 /**

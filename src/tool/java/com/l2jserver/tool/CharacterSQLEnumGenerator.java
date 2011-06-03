@@ -16,7 +16,7 @@
  */
 package com.l2jserver.tool;
 
-import com.l2jserver.model.world.character.CharacterClass;
+import com.l2jserver.model.template.character.CharacterClass;
 
 public class CharacterSQLEnumGenerator {
 	public static void main(String[] args) {

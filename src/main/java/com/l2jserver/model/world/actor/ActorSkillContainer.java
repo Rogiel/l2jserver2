@@ -124,7 +124,7 @@ public class ActorSkillContainer implements Iterable<Skill> {
 	 */
 	public Skill hasSkill(SkillTemplateID skillTemplate) {
 		for (final Skill skill : this.skills) {
-			if (skill.getSkillTemplateID().equals(skillTemplate))
+			if (skill.getTemplateID().equals(skillTemplate))
 				return skill;
 		}
 		return null;

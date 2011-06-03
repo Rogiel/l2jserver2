@@ -65,8 +65,8 @@ import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleM
 import com.l2jserver.model.template.NPCTemplate.SkillMetadata;
 import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
 import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
+import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.npc.NPCRace;
-import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.npc.controller.BaseNPCController;
 import com.l2jserver.model.world.npc.controller.MonsterController;
 import com.l2jserver.model.world.npc.controller.NPCController;

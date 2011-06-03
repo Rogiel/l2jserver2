@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
-import com.l2jserver.model.world.character.CharacterClass;
+import com.l2jserver.model.template.character.CharacterClass;
 
 /**
  * This class is an JAXB Adapter for {@link CharacterTemplateIDProvider}

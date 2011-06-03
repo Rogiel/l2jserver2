@@ -42,6 +42,7 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	@Override
 	public void setID(T ID) {
 		Preconditions.checkState(id == null, "ID is already set");
+		desireInsert();
 		this.id = ID;
 	}
 
@@ -66,6 +67,15 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 		if (this.desire != ObjectDesire.INSERT
 				&& this.desire != ObjectDesire.DELETE)
 			this.desire = ObjectDesire.UPDATE;
+	}
+
+	/**
+	 * Set this object desire to {@link ObjectDesire#INSERT}. If the desire is
+	 * {@link ObjectDesire#DELETE} the desire will not be changed.
+	 */
+	protected void desireInsert() {
+		if (this.desire != ObjectDesire.DELETE)
+			this.desire = ObjectDesire.INSERT;
 	}
 
 	@Override

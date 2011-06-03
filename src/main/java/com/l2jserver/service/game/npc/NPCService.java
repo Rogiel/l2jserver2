@@ -16,8 +16,6 @@
  */
 package com.l2jserver.service.game.npc;
 
-import java.util.Collection;
-
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
@@ -27,8 +25,6 @@ import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
-import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
-import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
@@ -90,17 +86,6 @@ public interface NPCService extends Service {
 	 * @return the future informing once the NPC has been moved to that location
 	 */
 	AsyncFuture<Boolean> move(NPC npc, Point3D point);
-
-	/**
-	 * Load from database and spawn all {@link NPC NPCs} instances
-	 * 
-	 * @throws AlreadySpawnedServiceException
-	 *             if one of the NPCs is already spawned
-	 * @throws SpawnPointNotFoundServiceException
-	 *             if one of the NPCs does not have an spawn point defined
-	 */
-	Collection<NPC> spawnAll() throws SpawnPointNotFoundServiceException,
-			AlreadySpawnedServiceException;
 
 	/**
 	 * Attacks an given NPC, if possible.

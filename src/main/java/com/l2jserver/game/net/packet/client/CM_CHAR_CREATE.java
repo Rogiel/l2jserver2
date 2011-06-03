@@ -31,13 +31,13 @@ import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.world.Actor.ActorSex;
+import com.l2jserver.model.template.actor.ActorSex;
+import com.l2jserver.model.template.character.CharacterClass;
+import com.l2jserver.model.template.character.CharacterRace;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.L2Character.CharacterRace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
-import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.BufferUtils;
 
 /**

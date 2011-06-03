@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.game.Skill;
+import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 
@@ -50,10 +51,16 @@ public class SkillTemplate extends AbstractTemplate<Skill> {
 	 * The maximum level supported by this skill
 	 */
 	protected int maximumLevel = 1;
-	
+
 	@Override
 	public Skill create() {
+		return create(null);
+	}
+
+	public Skill create(ActorID<?> actorID) {
 		final Skill skill = new Skill(id);
+		if (actorID != null)
+			skill.setActorID(actorID);
 		skill.setLevel(1);
 		return skill;
 	}
