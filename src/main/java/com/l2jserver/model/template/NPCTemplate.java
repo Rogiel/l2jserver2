@@ -304,6 +304,7 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 				continue;
 			final Skill skill = template.create();
 			skill.setLevel(metadata.level);
+			skill.setActorID(npc.getID());
 			skills.add(skill);
 		}
 		npc.getSkills().load(skills);

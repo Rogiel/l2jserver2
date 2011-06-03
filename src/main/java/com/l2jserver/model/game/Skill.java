@@ -124,4 +124,41 @@ public class Skill extends AbstractModel {
 	public SkillTemplate getSkillTemplate() {
 		return skillTemplateID.getTemplate();
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((actorID == null) ? 0 : actorID.hashCode());
+		result = prime * result
+				+ ((skillTemplateID == null) ? 0 : skillTemplateID.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Skill other = (Skill) obj;
+		if (actorID == null) {
+			if (other.actorID != null)
+				return false;
+		} else if (!actorID.equals(other.actorID))
+			return false;
+		if (skillTemplateID == null) {
+			if (other.skillTemplateID != null)
+				return false;
+		} else if (!skillTemplateID.equals(other.skillTemplateID))
+			return false;
+		return true;
+	}
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skill cooldown="0" delay="0"
+    name="NPC(party) - Physical Range Close Range Attack - Holy"
+    id="5295" xsi:schemaLocation="skill ../skill.xsd"
+    xsi:noNamespaceSchemaLocation="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <maximumLevel>1</maximumLevel>
+</skill>

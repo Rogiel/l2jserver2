@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skill cooldown="0" delay="0"
+    name="Gran Kain's Echo Crystal - Theme of the Feast" id="2601"
+    xsi:schemaLocation="skill ../skill.xsd"
+    xsi:noNamespaceSchemaLocation="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <maximumLevel>1</maximumLevel>
+</skill>

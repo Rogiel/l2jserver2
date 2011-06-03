@@ -16,19 +16,47 @@
  */
 package com.l2jserver.model.template;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.SkillTemplateID;
+import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 
 /**
  * Template for {@link Skill} object
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlRootElement(name = "skill")
+@XmlType(namespace = "skill", name = "skill")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SkillTemplate extends AbstractTemplate<Skill> {
+	@XmlAttribute(name = "id")
+	@XmlJavaTypeAdapter(value = SkillTemplateIDAdapter.class)
+	protected SkillTemplateID id;
+	@XmlAttribute(name = "name")
+	protected String name;
+	@XmlAttribute(name = "delay")
+	protected int delay;
+	@XmlAttribute(name = "cooldown")
+	protected int cooldown;
+
 	/**
 	 * The maximum level supported by this skill
 	 */
 	protected int maximumLevel = 1;
+	
+	@Override
+	public Skill create() {
+		final Skill skill = new Skill(id);
+		skill.setLevel(1);
+		return skill;
+	}
 
 	/**
 	 * @return the maximumLevel
@@ -37,15 +65,36 @@ public class SkillTemplate extends AbstractTemplate<Skill> {
 		return maximumLevel;
 	}
 
-	@Override
-	public Skill create() {
-		final Skill skill = new Skill(null);
-		return skill;
+	/**
+	 * @return the id
+	 */
+	public SkillTemplateID getId() {
+		return id;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the delay
+	 */
+	public int getDelay() {
+		return delay;
+	}
+
+	/**
+	 * @return the cooldown
+	 */
+	public int getCooldown() {
+		return cooldown;
 	}
 
 	@Override
 	public SkillTemplateID getID() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 }

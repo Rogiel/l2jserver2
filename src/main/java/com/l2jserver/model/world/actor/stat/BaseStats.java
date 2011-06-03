@@ -16,6 +16,8 @@
  */
 package com.l2jserver.model.world.actor.stat;
 
+import com.l2jserver.model.world.Actor;
+
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -81,7 +83,11 @@ public enum BaseStats {
 			2.17, 2.2, 2.22, 2.24, 2.26, 2.29, 2.31, 2.33, 2.35, 2.38, 2.4,
 			2.43, 2.45, 2.47, 2.5, 2.52, 2.55, 2.58, 2.6, 2.63, 2.65, 2.68);
 
-	public double[] bonus;
+	/**
+	 * Bonus array for the base stat. The key represents the value of the
+	 * attribute.
+	 */
+	public final double[] bonus;
 
 	BaseStats(double... bonus) {
 		this.bonus = bonus;
@@ -89,5 +95,27 @@ public enum BaseStats {
 
 	public double calculateBonus(int n) {
 		return bonus[n];
+	}
+
+	public double calculateBonus(Actor actor) {
+		return calculateBonus(actor.getStats());
+	}
+
+	public double calculateBonus(ActorStats<?> stats) {
+		switch (this) {
+		case CON:
+			return calculateBonus(stats.getConcentration());
+		case DEX:
+			return calculateBonus(stats.getDexterity());
+		case INT:
+			return calculateBonus(stats.getIntelligence());
+		case MEN:
+			return calculateBonus(stats.getMentality());
+		case STR:
+			return calculateBonus(stats.getStrength());
+		case WIT:
+			return calculateBonus(stats.getWitness());
+		}
+		return 0;
 	}
 }

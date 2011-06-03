@@ -39,6 +39,7 @@ import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.TeleportationTemplate;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.AbstractService;
@@ -103,7 +104,7 @@ public class XMLTemplateService extends AbstractService implements
 		try {
 			log.debug("Creating JAXBContext instance");
 			context = JAXBContext.newInstance(CharacterTemplate.class,
-					NPCTemplate.class, ItemTemplate.class,
+					NPCTemplate.class, ItemTemplate.class, SkillTemplate.class,
 					TeleportationTemplateContainer.class);
 
 			log.debug("Creating Unmarshaller instance");

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:ns2="teleports" xmlns:ns1="npc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="npc" schemaLocation="npc.xsd"/>
+
+  <xs:import namespace="teleports" schemaLocation="teleport.xsd"/>
+
+  <xs:element name="npc" type="ns1:npc"/>
+
+  <xs:element name="teleport" type="ns2:teleportationTemplate"/>
+
+  <xs:element name="teleports" type="ns2:teleportationTemplateContainer"/>
+
+
+  <xs:complexType name="actorTemplate" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="abstractTemplate">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="abstractTemplate" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="coordinateElement">
+    <xs:sequence/>
+    <xs:attribute name="x" type="xs:int" use="required"/>
+    <xs:attribute name="y" type="xs:int" use="required"/>
+    <xs:attribute name="z" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="npcRace">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HUMAN"/>
+      <xs:enumeration value="ELVEN"/>
+      <xs:enumeration value="DARKELVEN"/>
+      <xs:enumeration value="ORC"/>
+      <xs:enumeration value="DWARVEN"/>
+      <xs:enumeration value="KAMAEL"/>
+      <xs:enumeration value="UNDEAD"/>
+      <xs:enumeration value="MAGIC_CREATURE"/>
+      <xs:enumeration value="BEAST"/>
+      <xs:enumeration value="ANIMAL"/>
+      <xs:enumeration value="PLANT"/>
+      <xs:enumeration value="HUMANOID"/>
+      <xs:enumeration value="SPIRIT"/>
+      <xs:enumeration value="ANGEL"/>
+      <xs:enumeration value="DEMON"/>
+      <xs:enumeration value="DRAGON"/>
+      <xs:enumeration value="GIANT"/>
+      <xs:enumeration value="BUG"/>
+      <xs:enumeration value="FAIRIE"/>
+      <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="NON_LIVING"/>
+      <xs:enumeration value="SIEGE_WEAPON"/>
+      <xs:enumeration value="DEFENDING_ARMY"/>
+      <xs:enumeration value="MERCENARIE"/>
+      <xs:enumeration value="UNKNOWN"/>
+      <xs:enumeration value="NONE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actorSex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MALE"/>
+      <xs:enumeration value="FEMALE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dropCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DROP"/>
+      <xs:enumeration value="SPOIL"/>
+      <xs:enumeration value="UNK_1"/>
+      <xs:enumeration value="UNK_2"/>
+      <xs:enumeration value="UNK_3"/>
+      <xs:enumeration value="UNK_4"/>
+      <xs:enumeration value="UNK_5"/>
+      <xs:enumeration value="UNK_6"/>
+      <xs:enumeration value="UNK_7"/>
+      <xs:enumeration value="UNK_8"/>
+      <xs:enumeration value="UNK_9"/>
+      <xs:enumeration value="UNK_10"/>
+      <xs:enumeration value="UNK_11"/>
+      <xs:enumeration value="UNK_12"/>
+      <xs:enumeration value="UNK_13"/>
+      <xs:enumeration value="UNK_14"/>
+      <xs:enumeration value="UNK_15"/>
+      <xs:enumeration value="UNK_16"/>
+      <xs:enumeration value="UNK_17"/>
+      <xs:enumeration value="UNK_18"/>
+      <xs:enumeration value="UNK_19"/>
+      <xs:enumeration value="UNK_20"/>
+      <xs:enumeration value="UNK_21"/>
+      <xs:enumeration value="UNK_22"/>
+      <xs:enumeration value="UNK_23"/>
+      <xs:enumeration value="UNK_24"/>
+      <xs:enumeration value="UNK_25"/>
+      <xs:enumeration value="UNK_26"/>
+      <xs:enumeration value="UNK_27"/>
+      <xs:enumeration value="UNK_28"/>
+      <xs:enumeration value="UNK_29"/>
+      <xs:enumeration value="UNK_30"/>
+      <xs:enumeration value="UNK_31"/>
+      <xs:enumeration value="UNK_32"/>
+      <xs:enumeration value="UNK_33"/>
+      <xs:enumeration value="UNK_34"/>
+      <xs:enumeration value="UNK_35"/>
+      <xs:enumeration value="UNK_36"/>
+      <xs:enumeration value="UNK_100"/>
+      <xs:enumeration value="UNK_101"/>
+      <xs:enumeration value="UNK_102"/>
+      <xs:enumeration value="UNK_200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="teleportRestriction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOBLE"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
