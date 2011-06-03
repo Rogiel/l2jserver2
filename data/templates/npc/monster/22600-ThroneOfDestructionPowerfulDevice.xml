@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Throne of Destruction Powerful Device</name>
         <level>82</level>
+        <race>NONE</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="8.5" max="3643.38976668326"/>

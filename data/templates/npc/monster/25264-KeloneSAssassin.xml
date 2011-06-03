@@ -7,6 +7,7 @@
         <name display="true" send="false">Kelone's Assassin</name>
         <title send="false">Raid Fighter</title>
         <level>66</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="112.374447843527" max="37575.4556702889"/>
@@ -28,6 +29,22 @@
         <collision heigth="28.5" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="932000" max="60" min="20" id="1343"/>
+        <item chance="932000" category="UNK_2" max="60" min="20" id="1343"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4191"/>
+        <skill level="6" id="4204"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

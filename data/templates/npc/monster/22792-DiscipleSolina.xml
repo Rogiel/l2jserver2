@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Disciple Solina</name>
         <level>83</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3835.59060587002"/>
@@ -25,4 +26,22 @@
         <sp>2785</sp>
         <collision heigth="30.0" radius="15.0"/>
     </info>
+    <skills>
+        <skill level="5" id="4276"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="14" id="4416"/>
+        <skill level="3" id="4445"/>
+        <skill level="1" id="5466"/>
+        <skill level="4" id="5620"/>
+        <skill level="1" id="6309"/>
+        <skill level="1" id="6677"/>
+        <skill level="1" id="6678"/>
+    </skills>
 </npc>

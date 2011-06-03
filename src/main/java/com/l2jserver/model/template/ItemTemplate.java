@@ -30,6 +30,10 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.calculator.ItemSetActorCalculator;
+import com.l2jserver.model.template.item.ArmorType;
+import com.l2jserver.model.template.item.ItemMaterial;
+import com.l2jserver.model.template.item.ItemType;
+import com.l2jserver.model.template.item.WeaponType;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
@@ -87,13 +91,13 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 
 	protected ItemMaterial material;
 
-	public enum ItemMaterial {
-		COTTON, WOOD, PAPER, FISH, ORIHARUKON, HORN, ADAMANTAITE, CHRYSOLITE, MITHRIL, COBWEB, RUNE_XP, CLOTH, SCALE_OF_DRAGON, BONE, GOLD, LEATHER, FINE_STEEL, SILVER, DYESTUFF, CRYSTAL, RUNE_REMOVE_PENALTY, STEEL, BRONZE, RUNE_SP, LIQUID, BLOOD_STEEL, DAMASCUS;
-	}
-
 	public enum EffectType {
 		IMMEDIATE;
 	}
+
+	protected ItemType itemType = ItemType.NONE;
+	protected WeaponType weaponType = WeaponType.NONE;
+	protected ArmorType armorType = ArmorType.NONE;
 
 	@XmlType(namespace = "item")
 	public static class StatAttribute {

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lost Assistant Guard</name>
         <level>78</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="17.5806785661229" max="15710.0762676364"/>
@@ -26,4 +27,22 @@
         <item lefthand="0" righthand="6718"/>
         <collision heigth="38.5" radius="11.0"/>
     </info>
+    <skills>
+        <skill level="7" id="4214"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="4" id="4438"/>
+        <skill level="4" id="4439"/>
+        <skill level="4" id="4440"/>
+        <skill level="4" id="4441"/>
+        <skill level="7" id="4780"/>
+        <skill level="1" id="5465"/>
+    </skills>
 </npc>

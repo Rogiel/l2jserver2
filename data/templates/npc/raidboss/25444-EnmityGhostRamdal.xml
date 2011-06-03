@@ -7,6 +7,7 @@
         <name display="true" send="false">Enmity Ghost Ramdal</name>
         <title send="false">Raid Boss</title>
         <level>65</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="79.6115910136094" max="247116.172387501"/>
@@ -27,18 +28,35 @@
         <collision heigth="70.0" radius="40.0"/>
     </info>
     <droplist>
-        <item chance="17488" max="1" min="1" id="288"/>
-        <item chance="59184" max="1" min="1" id="729"/>
-        <item chance="443880" max="1" min="1" id="730"/>
-        <item chance="15381" max="1" min="1" id="5287"/>
-        <item chance="24612" max="1" min="1" id="5288"/>
-        <item chance="9466" max="1" min="1" id="5293"/>
-        <item chance="98138" max="27" min="9" id="5520"/>
-        <item chance="249300" max="7" min="3" id="5521"/>
-        <item chance="337493" max="12" min="4" id="5524"/>
-        <item chance="71021" max="9" min="3" id="5535"/>
-        <item chance="7102" max="1" min="1" id="6569"/>
-        <item chance="760000" max="2" min="1" id="8176"/>
-        <item chance="890000" max="4" min="1" id="9814"/>
+        <item chance="17488" category="UNK_1" max="1" min="1" id="288"/>
+        <item chance="59184" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="443880" category="UNK_2" max="1" min="1" id="730"/>
+        <item chance="15381" category="DROP" max="1" min="1" id="5287"/>
+        <item chance="24612" category="DROP" max="1" min="1" id="5288"/>
+        <item chance="9466" category="DROP" max="1" min="1" id="5293"/>
+        <item chance="98138" category="DROP" max="27" min="9" id="5520"/>
+        <item chance="249300" category="DROP" max="7" min="3" id="5521"/>
+        <item chance="337493" category="DROP" max="12" min="4" id="5524"/>
+        <item chance="71021" category="UNK_1" max="9" min="3" id="5535"/>
+        <item chance="7102" category="UNK_2" max="1" min="1" id="6569"/>
+        <item chance="760000" category="UNK_101" max="2" min="1" id="8176"/>
+        <item chance="890000" category="UNK_100" max="4" min="1" id="9814"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="6" id="4743"/>
+        <skill level="1" id="4959"/>
+    </skills>
 </npc>

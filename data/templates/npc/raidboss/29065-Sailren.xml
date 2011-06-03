@@ -7,6 +7,7 @@
         <name display="true" send="false">Sailren</name>
         <title send="false">Sealed Evil Power</title>
         <level>80</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="264.824069962994" max="689061.278161977"/>
@@ -27,12 +28,30 @@
         <collision heigth="82.1" radius="100.0"/>
     </info>
     <droplist>
-        <item chance="18273" max="1" min="1" id="959"/>
-        <item chance="182734" max="1" min="1" id="960"/>
-        <item chance="4497" max="1" min="1" id="6367"/>
-        <item chance="3046" max="1" min="1" id="6577"/>
-        <item chance="7303" max="1" min="1" id="6680"/>
-        <item chance="395312" max="9" min="3" id="6691"/>
-        <item chance="524645" max="9" min="3" id="6707"/>
+        <item chance="18273" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="182734" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="4497" category="UNK_1" max="1" min="1" id="6367"/>
+        <item chance="3046" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="7303" category="DROP" max="1" min="1" id="6680"/>
+        <item chance="395312" category="UNK_1" max="9" min="3" id="6691"/>
+        <item chance="524645" category="DROP" max="9" min="3" id="6707"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="15" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5117"/>
+        <skill level="1" id="5118"/>
+        <skill level="1" id="5122"/>
+        <skill level="1" id="5143"/>
+        <skill level="1" id="5180"/>
+    </skills>
 </npc>

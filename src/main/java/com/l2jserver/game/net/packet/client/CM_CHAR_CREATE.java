@@ -31,9 +31,9 @@ import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.world.Actor.ActorRace;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.L2Character.CharacterRace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
@@ -80,7 +80,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	/**
 	 * The race of the new character
 	 */
-	private ActorRace race;
+	private CharacterRace race;
 	/**
 	 * The sex of the new character
 	 */
@@ -146,7 +146,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	@Override
 	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
 		name = BufferUtils.readString(buffer);
-		race = ActorRace.fromOption(buffer.readInt());
+		race = CharacterRace.fromOption(buffer.readInt());
 		sex = ActorSex.fromOption(buffer.readInt());
 		characterClass = CharacterClass.fromID(buffer.readInt());
 
@@ -252,7 +252,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	/**
 	 * @return the race
 	 */
-	public ActorRace getRace() {
+	public CharacterRace getRace() {
 		return race;
 	}
 
@@ -260,7 +260,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	 * @param race
 	 *            the race to set
 	 */
-	public void setRace(ActorRace race) {
+	public void setRace(CharacterRace race) {
 		this.race = race;
 	}
 

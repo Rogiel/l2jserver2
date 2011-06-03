@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Heart Protection Device</name>
         <level>73</level>
+        <race>NONE</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="8.5" max="2586.66898"/>

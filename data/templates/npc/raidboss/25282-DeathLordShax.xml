@@ -7,6 +7,7 @@
         <name display="true" send="false">Death Lord Shax</name>
         <title send="false">Raid Boss</title>
         <level>75</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="308.04072385958" max="794874.502880181"/>
@@ -28,28 +29,48 @@
         <collision heigth="61.5" radius="31.0"/>
     </info>
     <droplist>
-        <item chance="15739" max="1" min="1" id="6676"/>
-        <item chance="15739" max="1" min="1" id="6677"/>
-        <item chance="15739" max="1" min="1" id="6681"/>
-        <item chance="15739" max="1" min="1" id="6682"/>
-        <item chance="15739" max="1" min="1" id="6685"/>
-        <item chance="15739" max="1" min="1" id="6686"/>
-        <item chance="223739" max="24" min="8" id="6703"/>
-        <item chance="132586" max="40" min="14" id="6704"/>
-        <item chance="89496" max="60" min="20" id="6708"/>
-        <item chance="65807" max="82" min="28" id="6709"/>
-        <item chance="49720" max="108" min="36" id="6712"/>
-        <item chance="39340" max="136" min="46" id="6713"/>
-        <item chance="2646" max="1" min="1" id="6365"/>
-        <item chance="2646" max="1" min="1" id="6366"/>
-        <item chance="2646" max="1" min="1" id="6369"/>
-        <item chance="2646" max="1" min="1" id="6579"/>
-        <item chance="299966" max="6" min="2" id="6689"/>
-        <item chance="58345" max="31" min="11" id="6690"/>
-        <item chance="103756" max="18" min="6" id="6693"/>
-        <item chance="239975" max="7" min="3" id="6697"/>
-        <item chance="39110" max="1" min="1" id="959"/>
-        <item chance="391104" max="1" min="1" id="960"/>
-        <item chance="6519" max="1" min="1" id="6577"/>
+        <item chance="15739" category="DROP" max="1" min="1" id="6676"/>
+        <item chance="15739" category="DROP" max="1" min="1" id="6677"/>
+        <item chance="15739" category="DROP" max="1" min="1" id="6681"/>
+        <item chance="15739" category="DROP" max="1" min="1" id="6682"/>
+        <item chance="15739" category="DROP" max="1" min="1" id="6685"/>
+        <item chance="15739" category="DROP" max="1" min="1" id="6686"/>
+        <item chance="223739" category="DROP" max="24" min="8" id="6703"/>
+        <item chance="132586" category="DROP" max="40" min="14" id="6704"/>
+        <item chance="89496" category="DROP" max="60" min="20" id="6708"/>
+        <item chance="65807" category="DROP" max="82" min="28" id="6709"/>
+        <item chance="49720" category="DROP" max="108" min="36" id="6712"/>
+        <item chance="39340" category="DROP" max="136" min="46" id="6713"/>
+        <item chance="2646" category="UNK_1" max="1" min="1" id="6365"/>
+        <item chance="2646" category="UNK_1" max="1" min="1" id="6366"/>
+        <item chance="2646" category="UNK_1" max="1" min="1" id="6369"/>
+        <item chance="2646" category="UNK_1" max="1" min="1" id="6579"/>
+        <item chance="299966" category="UNK_1" max="6" min="2" id="6689"/>
+        <item chance="58345" category="UNK_1" max="31" min="11" id="6690"/>
+        <item chance="103756" category="UNK_1" max="18" min="6" id="6693"/>
+        <item chance="239975" category="UNK_1" max="7" min="3" id="6697"/>
+        <item chance="39110" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="391104" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="6519" category="UNK_2" max="1" min="1" id="6577"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4170"/>
+        <skill level="8" id="4172"/>
+        <skill level="8" id="4174"/>
+        <skill level="8" id="4177"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4896"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Tomb Inquisitor</name>
         <level>57</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="6.5" max="1776.58018"/>
@@ -26,28 +27,40 @@
         <collision heigth="46.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="3833" min="1877" id="57"/>
-        <item chance="88" max="1" min="1" id="554"/>
-        <item chance="88" max="1" min="1" id="600"/>
-        <item chance="88" max="1" min="1" id="612"/>
-        <item chance="170382" max="1" min="1" id="1867"/>
-        <item chance="170382" max="1" min="1" id="1872"/>
-        <item chance="8519" max="1" min="1" id="1875"/>
-        <item chance="17038" max="1" min="1" id="1881"/>
-        <item chance="88" max="1" min="1" id="2464"/>
-        <item chance="1111" max="1" min="1" id="4041"/>
-        <item chance="249606" max="1" min="1" id="4049"/>
-        <item chance="9145" max="1" min="1" id="4073"/>
-        <item chance="9145" max="1" min="1" id="4097"/>
-        <item chance="9145" max="1" min="1" id="4098"/>
-        <item chance="9145" max="1" min="1" id="4100"/>
-        <item chance="51501" max="1" min="1" id="4129"/>
-        <item chance="1039" max="1" min="1" id="4131"/>
-        <item chance="1589" max="1" min="1" id="4173"/>
-        <item chance="6564" max="1" min="1" id="4613"/>
-        <item chance="2556" max="1" min="1" id="8727"/>
-        <item chance="639" max="1" min="1" id="8737"/>
-        <item chance="64" max="1" min="1" id="8747"/>
-        <item chance="13" max="1" min="1" id="8757"/>
+        <item chance="700000" category="DROP" max="3833" min="1877" id="57"/>
+        <item chance="88" category="UNK_1" max="1" min="1" id="554"/>
+        <item chance="88" category="UNK_1" max="1" min="1" id="600"/>
+        <item chance="88" category="UNK_1" max="1" min="1" id="612"/>
+        <item chance="170382" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="170382" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="8519" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="17038" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="88" category="UNK_1" max="1" min="1" id="2464"/>
+        <item chance="1111" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="249606" category="SPOIL" max="1" min="1" id="4049"/>
+        <item chance="9145" category="UNK_1" max="1" min="1" id="4073"/>
+        <item chance="9145" category="UNK_1" max="1" min="1" id="4097"/>
+        <item chance="9145" category="UNK_1" max="1" min="1" id="4098"/>
+        <item chance="9145" category="UNK_1" max="1" min="1" id="4100"/>
+        <item chance="51501" category="SPOIL" max="1" min="1" id="4129"/>
+        <item chance="1039" category="UNK_2" max="1" min="1" id="4131"/>
+        <item chance="1589" category="UNK_2" max="1" min="1" id="4173"/>
+        <item chance="6564" category="SPOIL" max="1" min="1" id="4613"/>
+        <item chance="2556" category="UNK_200" max="1" min="1" id="8727"/>
+        <item chance="639" category="UNK_200" max="1" min="1" id="8737"/>
+        <item chance="64" category="UNK_200" max="1" min="1" id="8747"/>
+        <item chance="13" category="UNK_200" max="1" min="1" id="8757"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4002"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

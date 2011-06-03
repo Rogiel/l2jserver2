@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Carrion Scarab</name>
         <level>78</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2802.89989"/>
@@ -26,26 +27,43 @@
         <collision heigth="22.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="2696" max="1" min="1" id="3036"/>
-        <item chance="121321" max="1" min="1" id="4040"/>
-        <item chance="137412" max="1" min="1" id="6342"/>
-        <item chance="700000" max="6106" min="2992" id="57"/>
-        <item chance="77" max="1" min="1" id="11946"/>
-        <item chance="77" max="1" min="1" id="11949"/>
-        <item chance="943" max="1" min="1" id="8341"/>
-        <item chance="77" max="1" min="1" id="11958"/>
-        <item chance="77" max="1" min="1" id="11953"/>
-        <item chance="944" max="1" min="1" id="5532"/>
-        <item chance="953" max="1" min="1" id="5543"/>
-        <item chance="944" max="1" min="1" id="8346"/>
-        <item chance="165909" max="1" min="1" id="1866"/>
-        <item chance="248863" max="1" min="1" id="1871"/>
-        <item chance="9955" max="1" min="1" id="1877"/>
-        <item chance="4977" max="1" min="1" id="4040"/>
-        <item chance="2164" max="1" min="1" id="4041"/>
-        <item chance="110" max="1" min="1" id="5157"/>
-        <item chance="2074" max="1" min="1" id="8732"/>
-        <item chance="519" max="1" min="1" id="8742"/>
-        <item chance="52" max="1" min="1" id="8752"/>
+        <item chance="2696" category="SPOIL" max="1" min="1" id="3036"/>
+        <item chance="121321" category="SPOIL" max="1" min="1" id="4040"/>
+        <item chance="137412" category="SPOIL" max="1" min="1" id="6342"/>
+        <item chance="700000" category="DROP" max="6106" min="2992" id="57"/>
+        <item chance="77" category="UNK_1" max="1" min="1" id="11946"/>
+        <item chance="77" category="UNK_1" max="1" min="1" id="11949"/>
+        <item chance="943" category="UNK_1" max="1" min="1" id="8341"/>
+        <item chance="77" category="UNK_1" max="1" min="1" id="11958"/>
+        <item chance="77" category="UNK_1" max="1" min="1" id="11953"/>
+        <item chance="944" category="UNK_1" max="1" min="1" id="5532"/>
+        <item chance="953" category="UNK_1" max="1" min="1" id="5543"/>
+        <item chance="944" category="UNK_1" max="1" min="1" id="8346"/>
+        <item chance="165909" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="248863" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="9955" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="4977" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="2164" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="110" category="UNK_2" max="1" min="1" id="5157"/>
+        <item chance="2074" category="UNK_200" max="1" min="1" id="8732"/>
+        <item chance="519" category="UNK_200" max="1" min="1" id="8742"/>
+        <item chance="52" category="UNK_200" max="1" min="1" id="8752"/>
     </droplist>
+    <skills>
+        <skill level="8" id="4032"/>
+        <skill level="5" id="4071"/>
+        <skill level="1" id="4274"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+        <skill level="4" id="4437"/>
+        <skill level="2" id="4438"/>
+        <skill level="5" id="4789"/>
+    </skills>
 </npc>

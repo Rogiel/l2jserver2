@@ -7,6 +7,7 @@
         <name display="true" send="false">Guard</name>
         <title send="false">Dragonspine Fortress</title>
         <level>72</level>
+        <race>DEFENDING_ARMY</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2540.15331"/>
@@ -28,6 +29,19 @@
         <collision heigth="23.5" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="672110" max="6" min="2" id="9912"/>
+        <item chance="672110" category="UNK_1" max="6" min="2" id="9912"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="15" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="22" id="4416"/>
+        <skill level="1" id="5432"/>
+    </skills>
 </npc>

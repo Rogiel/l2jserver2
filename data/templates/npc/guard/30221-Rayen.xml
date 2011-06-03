@@ -7,6 +7,7 @@
         <name display="true" send="false">Rayen</name>
         <title send="false">Sentinel</title>
         <level>80</level>
+        <race>ELVEN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -42,4 +43,16 @@ The Elven Forest is no doubt our home. However, we have lived in the seclusion o
 <a action="bypass -h npc_%objectId%_Quest">Quest</a>
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
 </npc>

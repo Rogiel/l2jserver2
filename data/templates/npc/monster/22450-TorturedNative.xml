@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Tortured Native</name>
         <level>86</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="4439.74358540587"/>
@@ -27,18 +28,32 @@
         <collision heigth="24.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1976" min="987" id="57"/>
-        <item chance="86400" max="1" min="1" id="9599"/>
-        <item chance="276536" max="1" min="1" id="1868"/>
-        <item chance="55307" max="1" min="1" id="1873"/>
-        <item chance="39505" max="1" min="1" id="1895"/>
-        <item chance="1139" max="1" min="1" id="5534"/>
-        <item chance="74" max="1" min="1" id="11975"/>
-        <item chance="6" max="1" min="1" id="959"/>
-        <item chance="27654" max="1" min="1" id="1876"/>
-        <item chance="2304" max="1" min="1" id="4042"/>
-        <item chance="481173" max="1" min="1" id="1895"/>
-        <item chance="28068" max="1" min="1" id="4042"/>
-        <item chance="674" max="1" min="1" id="960"/>
+        <item chance="700000" category="DROP" max="1976" min="987" id="57"/>
+        <item chance="6" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="674" category="SPOIL" max="1" min="1" id="960"/>
+        <item chance="276536" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="55307" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="27654" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="481173" category="SPOIL" max="1" min="1" id="1895"/>
+        <item chance="39505" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="28068" category="SPOIL" max="1" min="1" id="4042"/>
+        <item chance="2304" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="1139" category="UNK_1" max="1" min="1" id="5534"/>
+        <item chance="86400" category="UNK_100" max="1" min="1" id="9599"/>
+        <item chance="74" category="UNK_1" max="1" min="1" id="11975"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4285"/>
+        <skill level="5" id="4287"/>
+        <skill level="5" id="4388"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

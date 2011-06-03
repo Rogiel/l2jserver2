@@ -7,6 +7,7 @@
         <name display="true" send="false">Captain of the Ice Queen's Royal Guard</name>
         <title send="false">Raid Boss</title>
         <level>59</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="124.2191592" max="66183.96803"/>
@@ -26,4 +27,22 @@
         <sp>397080</sp>
         <collision heigth="61.0" radius="19.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4173"/>
+        <skill level="5" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="5" id="4727"/>
+        <skill level="5" id="4737"/>
+        <skill level="1" id="5030"/>
+    </skills>
 </npc>

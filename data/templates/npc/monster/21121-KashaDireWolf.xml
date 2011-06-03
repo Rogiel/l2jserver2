@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Kasha Dire Wolf</name>
         <level>23</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="410.70422"/>
@@ -26,14 +27,25 @@
         <collision heigth="11.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="312" min="177" id="57"/>
-        <item chance="242" max="1" min="1" id="257"/>
-        <item chance="75955" max="1" min="1" id="1867"/>
-        <item chance="75955" max="1" min="1" id="1872"/>
-        <item chance="25714" max="1" min="1" id="1875"/>
-        <item chance="51428" max="1" min="1" id="1881"/>
-        <item chance="7596" max="1" min="1" id="1881"/>
-        <item chance="30770" max="1" min="1" id="1927"/>
-        <item chance="1393" max="1" min="1" id="2258"/>
+        <item chance="700000" category="DROP" max="312" min="177" id="57"/>
+        <item chance="242" category="UNK_1" max="1" min="1" id="257"/>
+        <item chance="75955" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="75955" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="25714" category="SPOIL" max="1" min="1" id="1875"/>
+        <item chance="51428" category="SPOIL" max="1" min="1" id="1881"/>
+        <item chance="7596" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="30770" category="SPOIL" max="1" min="1" id="1927"/>
+        <item chance="1393" category="UNK_2" max="1" min="1" id="2258"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Yehan Klodekus</name>
         <title send="false">Soul Destroyer</title>
         <level>81</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="53.2190190842186" max="148936.33253589"/>
@@ -28,16 +29,35 @@
         <collision heigth="62.4" radius="34.32"/>
     </info>
     <droplist>
-        <item chance="48980" max="1" min="1" id="959"/>
-        <item chance="489799" max="1" min="1" id="960"/>
-        <item chance="13255" max="1" min="1" id="6371"/>
-        <item chance="8164" max="1" min="1" id="6577"/>
-        <item chance="250412" max="36" min="12" id="6695"/>
-        <item chance="76356" max="243" min="81" id="6698"/>
-        <item chance="171573" max="120" min="40" id="6699"/>
-        <item chance="269254" max="42" min="14" id="6700"/>
-        <item chance="38516" max="1" min="1" id="6724"/>
-        <item chance="57775" max="1" min="1" id="6725"/>
-        <item chance="28881" max="1" min="1" id="6726"/>
+        <item chance="48980" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="489799" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="13255" category="UNK_1" max="1" min="1" id="6371"/>
+        <item chance="8164" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="250412" category="UNK_1" max="36" min="12" id="6695"/>
+        <item chance="76356" category="DROP" max="243" min="81" id="6698"/>
+        <item chance="171573" category="DROP" max="120" min="40" id="6699"/>
+        <item chance="269254" category="DROP" max="42" min="14" id="6700"/>
+        <item chance="38516" category="DROP" max="1" min="1" id="6724"/>
+        <item chance="57775" category="DROP" max="1" min="1" id="6725"/>
+        <item chance="28881" category="DROP" max="1" min="1" id="6726"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="11" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5465"/>
+        <skill level="1" id="5931"/>
+        <skill level="1" id="5933"/>
+        <skill level="1" id="5934"/>
+        <skill level="1" id="5936"/>
+        <skill level="1" id="6062"/>
+    </skills>
 </npc>

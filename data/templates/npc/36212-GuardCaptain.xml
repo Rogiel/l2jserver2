@@ -7,6 +7,7 @@
         <name display="true" send="false">Guard Captain</name>
         <title send="false">Western Fortress</title>
         <level>75</level>
+        <race>HUMAN</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="8.5" max="2676.65854"/>
@@ -27,4 +28,16 @@
         <item lefthand="641" righthand="80"/>
         <collision heigth="23.75" radius="10.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

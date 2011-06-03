@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Defeated Troops Magic Soldier</name>
         <level>80</level>
+        <race>NONE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>

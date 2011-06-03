@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Resurrected Knight</name>
         <level>63</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2089.92274"/>
@@ -27,24 +28,37 @@
         <collision heigth="25.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2127" min="1050" id="57"/>
-        <item chance="85970" max="30" min="10" id="1343"/>
-        <item chance="120358" max="1" min="1" id="1868"/>
-        <item chance="24072" max="1" min="1" id="1873"/>
-        <item chance="4012" max="1" min="1" id="1889"/>
-        <item chance="88283" max="1" min="1" id="4044"/>
-        <item chance="2006" max="1" min="1" id="4044"/>
-        <item chance="62149" max="1" min="1" id="4086"/>
-        <item chance="1709" max="1" min="1" id="4120"/>
-        <item chance="80" max="1" min="1" id="5281"/>
-        <item chance="1731" max="1" min="1" id="5346"/>
-        <item chance="264849" max="1" min="1" id="5549"/>
-        <item chance="6018" max="1" min="1" id="5549"/>
-        <item chance="10030" max="1" min="1" id="6670"/>
-        <item chance="902" max="1" min="1" id="8729"/>
-        <item chance="201" max="1" min="1" id="8739"/>
-        <item chance="20" max="1" min="1" id="8749"/>
-        <item chance="4" max="1" min="1" id="8759"/>
-        <item chance="128" max="1" min="1" id="11933"/>
+        <item chance="700000" category="DROP" max="2127" min="1050" id="57"/>
+        <item chance="85970" category="UNK_2" max="30" min="10" id="1343"/>
+        <item chance="120358" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="24072" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="4012" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="88283" category="SPOIL" max="1" min="1" id="4044"/>
+        <item chance="2006" category="UNK_2" max="1" min="1" id="4044"/>
+        <item chance="62149" category="SPOIL" max="1" min="1" id="4086"/>
+        <item chance="1709" category="UNK_1" max="1" min="1" id="4120"/>
+        <item chance="80" category="UNK_2" max="1" min="1" id="5281"/>
+        <item chance="1731" category="UNK_2" max="1" min="1" id="5346"/>
+        <item chance="264849" category="SPOIL" max="1" min="1" id="5549"/>
+        <item chance="6018" category="UNK_2" max="1" min="1" id="5549"/>
+        <item chance="10030" category="UNK_2" max="1" min="1" id="6670"/>
+        <item chance="902" category="UNK_200" max="1" min="1" id="8729"/>
+        <item chance="201" category="UNK_200" max="1" min="1" id="8739"/>
+        <item chance="20" category="UNK_200" max="1" min="1" id="8749"/>
+        <item chance="4" category="UNK_200" max="1" min="1" id="8759"/>
+        <item chance="128" category="UNK_1" max="1" min="1" id="11933"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="15" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="6" id="4649"/>
+    </skills>
 </npc>

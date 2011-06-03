@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Beleth's Devotee</name>
         <level>83</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="111.355378460862" max="196707.771248701"/>
@@ -25,4 +26,21 @@
         <sp>30461</sp>
         <collision heigth="40.0" radius="23.0"/>
     </info>
+    <skills>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5218"/>
+        <skill level="2" id="5389"/>
+        <skill level="5" id="5390"/>
+        <skill level="5" id="5391"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5597"/>
+    </skills>
 </npc>

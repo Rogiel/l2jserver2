@@ -7,6 +7,7 @@
         <name display="true" send="false">Zombie Lord Crowl</name>
         <title send="false">Raid Boss</title>
         <level>25</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="18.4385313667577" max="43316.3085364372"/>
@@ -27,14 +28,29 @@
         <collision heigth="21.25" radius="30.0"/>
     </info>
     <droplist>
-        <item chance="167392" max="4" min="2" id="436"/>
-        <item chance="401327" max="3" min="1" id="469"/>
-        <item chance="53336" max="1" min="1" id="83"/>
-        <item chance="39512" max="1" min="1" id="124"/>
-        <item chance="39512" max="1" min="1" id="127"/>
-        <item chance="39512" max="1" min="1" id="130"/>
-        <item chance="53336" max="1" min="1" id="144"/>
-        <item chance="294651" max="9" min="3" id="2026"/>
-        <item chance="571224" max="3" min="1" id="6576"/>
+        <item chance="167392" category="DROP" max="4" min="2" id="436"/>
+        <item chance="401327" category="DROP" max="3" min="1" id="469"/>
+        <item chance="53336" category="UNK_1" max="1" min="1" id="83"/>
+        <item chance="39512" category="UNK_1" max="1" min="1" id="124"/>
+        <item chance="39512" category="UNK_1" max="1" min="1" id="127"/>
+        <item chance="39512" category="UNK_1" max="1" min="1" id="130"/>
+        <item chance="53336" category="UNK_1" max="1" min="1" id="144"/>
+        <item chance="294651" category="UNK_1" max="9" min="3" id="2026"/>
+        <item chance="571224" category="UNK_2" max="3" min="1" id="6576"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="2" id="4741"/>
+        <skill level="1" id="4846"/>
+    </skills>
 </npc>

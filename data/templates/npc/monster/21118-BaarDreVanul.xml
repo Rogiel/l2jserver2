@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Baar Dre Vanul</name>
         <level>20</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.5" max="342.5127"/>
@@ -26,18 +27,29 @@
         <collision heigth="36.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="1041" max="1" min="1" id="44"/>
-        <item chance="700000" max="221" min="127" id="57"/>
-        <item chance="1488" max="1" min="1" id="102"/>
-        <item chance="3084" max="1" min="1" id="945"/>
-        <item chance="138851" max="1" min="1" id="1801"/>
-        <item chance="65132" max="1" min="1" id="1864"/>
-        <item chance="32566" max="1" min="1" id="1869"/>
-        <item chance="3257" max="1" min="1" id="1880"/>
-        <item chance="88910" max="1" min="1" id="1924"/>
-        <item chance="13132" max="1" min="1" id="1924"/>
-        <item chance="180734" max="1" min="1" id="1925"/>
-        <item chance="6514" max="1" min="1" id="2142"/>
-        <item chance="2714" max="1" min="1" id="6035"/>
+        <item chance="1041" category="UNK_1" max="1" min="1" id="44"/>
+        <item chance="700000" category="DROP" max="221" min="127" id="57"/>
+        <item chance="1488" category="UNK_1" max="1" min="1" id="102"/>
+        <item chance="3084" category="UNK_1" max="1" min="1" id="945"/>
+        <item chance="138851" category="SPOIL" max="1" min="1" id="1801"/>
+        <item chance="65132" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="32566" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="3257" category="UNK_2" max="1" min="1" id="1880"/>
+        <item chance="88910" category="SPOIL" max="1" min="1" id="1924"/>
+        <item chance="13132" category="UNK_1" max="1" min="1" id="1924"/>
+        <item chance="180734" category="SPOIL" max="1" min="1" id="1925"/>
+        <item chance="6514" category="UNK_2" max="1" min="1" id="2142"/>
+        <item chance="2714" category="UNK_2" max="1" min="1" id="6035"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

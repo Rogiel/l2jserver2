@@ -32,45 +32,6 @@ public abstract class Actor extends PositionableObject {
 	protected ActorTemplateID<?> templateID;
 
 	/**
-	 * The actor race
-	 */
-	protected ActorRace race;
-
-	/**
-	 * Represents the actor race.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public enum ActorRace {
-		HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(
-				0x05);
-
-		/**
-		 * The numeric ID representing this race
-		 */
-		public final int id;
-
-		ActorRace(int id) {
-			this.id = id;
-		}
-
-		/**
-		 * Finds the race based on the <tt>id</tt>
-		 * 
-		 * @param id
-		 *            the id
-		 * @return the race constant
-		 */
-		public static ActorRace fromOption(int id) {
-			for (final ActorRace race : values()) {
-				if (race.id == id)
-					return race;
-			}
-			return null;
-		}
-	}
-
-	/**
 	 * The actor sex
 	 */
 	protected ActorSex sex;
@@ -168,22 +129,6 @@ public abstract class Actor extends PositionableObject {
 	}
 
 	public abstract ActorStats<?> getStats();
-
-	/**
-	 * @return the race
-	 */
-	public ActorRace getRace() {
-		return race;
-	}
-
-	/**
-	 * @param race
-	 *            the race to set
-	 */
-	public void setRace(ActorRace race) {
-		desireUpdate();
-		this.race = race;
-	}
 
 	/**
 	 * @return the sex

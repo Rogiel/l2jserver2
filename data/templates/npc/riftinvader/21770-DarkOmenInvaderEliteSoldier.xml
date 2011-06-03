@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Dark Omen Invader Elite Soldier</name>
         <level>73</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2586.66898"/>
@@ -27,13 +28,26 @@
         <collision heigth="45.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="11699" min="5746" id="57"/>
-        <item chance="408264" max="2" min="1" id="1894"/>
-        <item chance="646418" max="3" min="1" id="6671"/>
-        <item chance="238677" max="3" min="1" id="6671"/>
-        <item chance="39780" max="1" min="1" id="8731"/>
-        <item chance="9945" max="1" min="1" id="8741"/>
-        <item chance="994" max="1" min="1" id="8751"/>
-        <item chance="199" max="1" min="1" id="8761"/>
+        <item chance="408264" category="SPOIL" max="2" min="1" id="1894"/>
+        <item chance="646418" category="SPOIL" max="3" min="1" id="6671"/>
+        <item chance="700000" category="DROP" max="11699" min="5746" id="57"/>
+        <item chance="238677" category="UNK_2" max="3" min="1" id="6671"/>
+        <item chance="39780" category="UNK_200" max="1" min="1" id="8731"/>
+        <item chance="9945" category="UNK_200" max="1" min="1" id="8741"/>
+        <item chance="994" category="UNK_200" max="1" min="1" id="8751"/>
+        <item chance="199" category="UNK_200" max="1" min="1" id="8761"/>
     </droplist>
+    <skills>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="7" id="4572"/>
+        <skill level="3" id="4789"/>
+    </skills>
 </npc>

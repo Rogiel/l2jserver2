@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Nephilim Centurion</name>
         <level>63</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2089.92274"/>
@@ -26,25 +27,41 @@
         <collision heigth="39.0" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="129462" max="1" min="1" id="1830"/>
-        <item chance="71923" max="3" min="1" id="1866"/>
-        <item chance="161828" max="3" min="1" id="1871"/>
-        <item chance="12946" max="1" min="1" id="1877"/>
-        <item chance="31" max="1" min="1" id="2398"/>
-        <item chance="31" max="1" min="1" id="2399"/>
-        <item chance="49" max="1" min="1" id="2403"/>
-        <item chance="49" max="1" min="1" id="2404"/>
-        <item chance="6473" max="1" min="1" id="4040"/>
-        <item chance="2814" max="1" min="1" id="4041"/>
-        <item chance="271551" max="1" min="1" id="4052"/>
-        <item chance="328759" max="1" min="1" id="4053"/>
-        <item chance="4923" max="1" min="1" id="4084"/>
-        <item chance="4923" max="1" min="1" id="4085"/>
-        <item chance="6648" max="1" min="1" id="4086"/>
-        <item chance="6648" max="1" min="1" id="4087"/>
-        <item chance="10227" max="1" min="1" id="5230"/>
-        <item chance="10788" max="1" min="1" id="6036"/>
-        <item chance="700000" max="1144" min="574" id="6361"/>
-        <item chance="700000" max="28" min="14" id="6362"/>
+        <item chance="129462" category="UNK_2" max="1" min="1" id="1830"/>
+        <item chance="71923" category="UNK_2" max="3" min="1" id="1866"/>
+        <item chance="161828" category="UNK_2" max="3" min="1" id="1871"/>
+        <item chance="12946" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="31" category="UNK_1" max="1" min="1" id="2398"/>
+        <item chance="31" category="UNK_1" max="1" min="1" id="2399"/>
+        <item chance="49" category="UNK_1" max="1" min="1" id="2403"/>
+        <item chance="49" category="UNK_1" max="1" min="1" id="2404"/>
+        <item chance="6473" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="2814" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="271551" category="SPOIL" max="1" min="1" id="4052"/>
+        <item chance="328759" category="SPOIL" max="1" min="1" id="4053"/>
+        <item chance="4923" category="UNK_1" max="1" min="1" id="4084"/>
+        <item chance="4923" category="UNK_1" max="1" min="1" id="4085"/>
+        <item chance="6648" category="UNK_1" max="1" min="1" id="4086"/>
+        <item chance="6648" category="UNK_1" max="1" min="1" id="4087"/>
+        <item chance="10227" category="SPOIL" max="1" min="1" id="5230"/>
+        <item chance="10788" category="UNK_2" max="1" min="1" id="6036"/>
+        <item chance="700000" category="UNK_3" max="1144" min="574" id="6361"/>
+        <item chance="700000" category="UNK_4" max="28" min="14" id="6362"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4032"/>
+        <skill level="6" id="4072"/>
+        <skill level="1" id="4091"/>
+        <skill level="3" id="4285"/>
+        <skill level="3" id="4287"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+    </skills>
 </npc>

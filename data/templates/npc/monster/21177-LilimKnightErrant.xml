@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lilim Knight Errant</name>
         <level>54</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1621.75618"/>
@@ -27,25 +28,41 @@
         <collision heigth="45.0" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="10550" max="1" min="1" id="1806"/>
-        <item chance="180500" max="1" min="1" id="1920"/>
-        <item chance="17584" max="1" min="1" id="4594"/>
-        <item chance="700000" max="301" min="148" id="6360"/>
-        <item chance="14" max="1" min="1" id="299"/>
-        <item chance="18" max="1" min="1" id="301"/>
-        <item chance="18" max="1" min="1" id="303"/>
-        <item chance="1572" max="1" min="1" id="2113"/>
-        <item chance="1572" max="1" min="1" id="2114"/>
-        <item chance="1482" max="1" min="1" id="2122"/>
-        <item chance="243467" max="3" min="1" id="1868"/>
-        <item chance="97387" max="1" min="1" id="1873"/>
-        <item chance="48693" max="1" min="1" id="1876"/>
-        <item chance="69562" max="1" min="1" id="1895"/>
-        <item chance="487" max="1" min="1" id="3034"/>
-        <item chance="4058" max="1" min="1" id="4042"/>
-        <item chance="1171" max="1" min="1" id="4944"/>
-        <item chance="280" max="1" min="1" id="4968"/>
-        <item chance="700000" max="633" min="314" id="6361"/>
-        <item chance="700000" max="27" min="13" id="6362"/>
+        <item chance="10550" category="SPOIL" max="1" min="1" id="1806"/>
+        <item chance="180500" category="SPOIL" max="1" min="1" id="1920"/>
+        <item chance="17584" category="SPOIL" max="1" min="1" id="4594"/>
+        <item chance="700000" category="DROP" max="301" min="148" id="6360"/>
+        <item chance="14" category="UNK_1" max="1" min="1" id="299"/>
+        <item chance="18" category="UNK_1" max="1" min="1" id="301"/>
+        <item chance="18" category="UNK_1" max="1" min="1" id="303"/>
+        <item chance="1572" category="UNK_1" max="1" min="1" id="2113"/>
+        <item chance="1572" category="UNK_1" max="1" min="1" id="2114"/>
+        <item chance="1482" category="UNK_1" max="1" min="1" id="2122"/>
+        <item chance="243467" category="UNK_2" max="3" min="1" id="1868"/>
+        <item chance="97387" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="48693" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="69562" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="487" category="UNK_2" max="1" min="1" id="3034"/>
+        <item chance="4058" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="1171" category="UNK_2" max="1" min="1" id="4944"/>
+        <item chance="280" category="UNK_2" max="1" min="1" id="4968"/>
+        <item chance="700000" category="UNK_3" max="633" min="314" id="6361"/>
+        <item chance="700000" category="UNK_4" max="27" min="13" id="6362"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4032"/>
+        <skill level="5" id="4072"/>
+        <skill level="1" id="4092"/>
+        <skill level="3" id="4285"/>
+        <skill level="3" id="4287"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

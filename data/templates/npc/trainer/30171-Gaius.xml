@@ -7,6 +7,7 @@
         <name display="true" send="false">Gaius</name>
         <title send="false">Magister</title>
         <level>70</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -43,4 +44,16 @@ Magic is both a tool and a weapon, capable of great good or horrific evil. Even 
 My master's name was Metheus. He was an indomitable Human, unafraid of making mistakes in his quest for knowledge. His thousands of magical experiments have borne bountiful fruit, transforming how many of us now see magic. Perhaps his most useful research concerned the "magic boost." It has often been misused, but working with his original discoveries we have begun to  develop some more stable refinements. Perhaps you've heard of the <font color="LEVEL">spiritshot</font>?
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

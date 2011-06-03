@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Ragna Orc Warrior</name>
         <level>44</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1138.62924"/>
@@ -27,24 +28,38 @@
         <collision heigth="20.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1175" min="573" id="57"/>
-        <item chance="152909" max="1" min="1" id="1868"/>
-        <item chance="7645" max="1" min="1" id="5549"/>
-        <item chance="30582" max="1" min="1" id="1873"/>
-        <item chance="5097" max="1" min="1" id="1889"/>
-        <item chance="3901" max="1" min="1" id="2163"/>
-        <item chance="13" max="1" min="1" id="71"/>
-        <item chance="13" max="1" min="1" id="72"/>
-        <item chance="13" max="1" min="1" id="7887"/>
-        <item chance="911" max="1" min="1" id="8334"/>
-        <item chance="892" max="1" min="1" id="2059"/>
-        <item chance="911" max="1" min="1" id="2060"/>
-        <item chance="74282" max="1" min="1" id="2163"/>
-        <item chance="137871" max="1" min="1" id="1908"/>
-        <item chance="5824" max="1" min="1" id="4553"/>
-        <item chance="3058" max="1" min="1" id="8723"/>
-        <item chance="765" max="1" min="1" id="8733"/>
-        <item chance="77" max="1" min="1" id="8743"/>
-        <item chance="15" max="1" min="1" id="8753"/>
+        <item chance="700000" category="DROP" max="1175" min="573" id="57"/>
+        <item chance="152909" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="7645" category="UNK_2" max="1" min="1" id="5549"/>
+        <item chance="30582" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="5097" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="3901" category="UNK_1" max="1" min="1" id="2163"/>
+        <item chance="13" category="UNK_1" max="1" min="1" id="71"/>
+        <item chance="13" category="UNK_1" max="1" min="1" id="72"/>
+        <item chance="13" category="UNK_1" max="1" min="1" id="7887"/>
+        <item chance="911" category="UNK_1" max="1" min="1" id="8334"/>
+        <item chance="892" category="UNK_1" max="1" min="1" id="2059"/>
+        <item chance="911" category="UNK_1" max="1" min="1" id="2060"/>
+        <item chance="74282" category="SPOIL" max="1" min="1" id="2163"/>
+        <item chance="137871" category="SPOIL" max="1" min="1" id="1908"/>
+        <item chance="5824" category="SPOIL" max="1" min="1" id="4553"/>
+        <item chance="3058" category="UNK_200" max="1" min="1" id="8723"/>
+        <item chance="765" category="UNK_200" max="1" min="1" id="8733"/>
+        <item chance="77" category="UNK_200" max="1" min="1" id="8743"/>
+        <item chance="15" category="UNK_200" max="1" min="1" id="8753"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4028"/>
+        <skill level="4" id="4073"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="27" id="4417"/>
+    </skills>
 </npc>

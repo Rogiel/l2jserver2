@@ -53,6 +53,7 @@ import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
+import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 import com.l2jserver.util.vfs.ExtensionFileSelector;
 
@@ -68,6 +69,7 @@ public class XMLTemplateService extends AbstractService implements
 	private final XMLTemplateServiceConfiguration config;
 	private final NPCTemplateIDAdapter npcTemplateIdAdapter;
 	private final ItemTemplateIDAdapter itemTemplateIdAdapter;
+	private final SkillTemplateIDAdapter skillTemplateIdAdapter;
 	private final CharacterTemplateIDAdapter charIdTemplateAdapter;
 	private final TeleportationTemplateIDAdapter teleportationIdTemplateAdapter;
 
@@ -82,6 +84,7 @@ public class XMLTemplateService extends AbstractService implements
 			CacheService cacheService, ConfigurationService configService,
 			NPCTemplateIDAdapter npcTemplateIdAdapter,
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
+			SkillTemplateIDAdapter skillTemplateIdAdapter,
 			CharacterTemplateIDAdapter charIdTemplateAdapter,
 			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
 		this.vfsService = vfsService;
@@ -89,6 +92,7 @@ public class XMLTemplateService extends AbstractService implements
 		this.config = configService.get(XMLTemplateServiceConfiguration.class);
 		this.npcTemplateIdAdapter = npcTemplateIdAdapter;
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
+		this.skillTemplateIdAdapter = skillTemplateIdAdapter;
 		this.charIdTemplateAdapter = charIdTemplateAdapter;
 		this.teleportationIdTemplateAdapter = teleportationIdTemplateAdapter;
 	}
@@ -109,6 +113,8 @@ public class XMLTemplateService extends AbstractService implements
 					npcTemplateIdAdapter);
 			unmarshaller.setAdapter(ItemTemplateIDAdapter.class,
 					itemTemplateIdAdapter);
+			unmarshaller.setAdapter(SkillTemplateIDAdapter.class,
+					skillTemplateIdAdapter);
 			unmarshaller.setAdapter(CharacterTemplateIDAdapter.class,
 					charIdTemplateAdapter);
 			unmarshaller.setAdapter(TeleportationTemplateIDAdapter.class,

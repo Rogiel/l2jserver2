@@ -7,6 +7,7 @@
         <name display="true" send="false">Ghost of the Well Lidia</name>
         <title send="false">Raid Boss</title>
         <level>60</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="72.9643823396131" max="221100.02497493"/>
@@ -27,21 +28,36 @@
         <collision heigth="85.0" radius="28.0"/>
     </info>
     <droplist>
-        <item chance="48676" max="1" min="1" id="5290"/>
-        <item chance="48676" max="1" min="1" id="5291"/>
-        <item chance="48676" max="1" min="1" id="5295"/>
-        <item chance="48676" max="1" min="1" id="5296"/>
-        <item chance="241845" max="31" min="11" id="5496"/>
-        <item chance="112862" max="67" min="23" id="5497"/>
-        <item chance="42323" max="180" min="60" id="5508"/>
-        <item chance="158711" max="48" min="16" id="5509"/>
-        <item chance="9219" max="1" min="1" id="212"/>
-        <item chance="9219" max="1" min="1" id="2504"/>
-        <item chance="146088" max="22" min="8" id="5532"/>
-        <item chance="276498" max="12" min="4" id="5543"/>
-        <item chance="93596" max="1" min="1" id="6570"/>
-        <item chance="24068" max="1" min="1" id="6571"/>
-        <item chance="840000" max="4" min="1" id="9814"/>
-        <item chance="720000" max="2" min="1" id="8176"/>
+        <item chance="9219" category="UNK_1" max="1" min="1" id="212"/>
+        <item chance="9219" category="UNK_1" max="1" min="1" id="2504"/>
+        <item chance="48676" category="DROP" max="1" min="1" id="5290"/>
+        <item chance="48676" category="DROP" max="1" min="1" id="5291"/>
+        <item chance="48676" category="DROP" max="1" min="1" id="5295"/>
+        <item chance="48676" category="DROP" max="1" min="1" id="5296"/>
+        <item chance="241845" category="DROP" max="31" min="11" id="5496"/>
+        <item chance="112862" category="DROP" max="67" min="23" id="5497"/>
+        <item chance="42323" category="DROP" max="180" min="60" id="5508"/>
+        <item chance="158711" category="DROP" max="48" min="16" id="5509"/>
+        <item chance="146088" category="UNK_1" max="22" min="8" id="5532"/>
+        <item chance="276498" category="UNK_1" max="12" min="4" id="5543"/>
+        <item chance="93596" category="UNK_2" max="1" min="1" id="6570"/>
+        <item chance="24068" category="UNK_2" max="1" min="1" id="6571"/>
+        <item chance="720000" category="UNK_101" max="2" min="1" id="8176"/>
+        <item chance="840000" category="UNK_100" max="4" min="1" id="9814"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="6" id="4741"/>
+        <skill level="1" id="4829"/>
+    </skills>
 </npc>

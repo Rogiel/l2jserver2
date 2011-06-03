@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="false" attackable="true">
         <name display="true" send="false">Anakim's Guardian</name>
         <level>85</level>
+        <race>NONE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="4234.06312688557"/>

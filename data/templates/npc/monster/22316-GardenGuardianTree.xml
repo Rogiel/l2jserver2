@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Garden Guardian Tree</name>
         <level>83</level>
+        <race>PLANT</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="111.50705124295" max="32829.2831947712"/>
@@ -26,17 +27,31 @@
         <collision heigth="47.0" radius="60.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="17721" min="8835" id="57"/>
-        <item chance="354164" max="1" min="1" id="1895"/>
-        <item chance="41319" max="1" min="1" id="4043"/>
-        <item chance="24792" max="1" min="1" id="4040"/>
-        <item chance="20659" max="1" min="1" id="4042"/>
-        <item chance="10202" max="1" min="1" id="5537"/>
-        <item chance="9917" max="1" min="1" id="9546"/>
-        <item chance="661" max="1" min="1" id="11973"/>
-        <item chance="496" max="1" min="1" id="960"/>
-        <item chance="251633" max="1" min="1" id="4042"/>
-        <item chance="32019" max="1" min="1" id="6695"/>
-        <item chance="15098" max="1" min="1" id="6901"/>
+        <item chance="700000" category="DROP" max="17721" min="8835" id="57"/>
+        <item chance="354164" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="41319" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="24792" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="20659" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="10202" category="UNK_1" max="1" min="1" id="5537"/>
+        <item chance="9917" category="UNK_200" max="1" min="1" id="9546"/>
+        <item chance="661" category="UNK_1" max="1" min="1" id="11973"/>
+        <item chance="496" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="251633" category="SPOIL" max="1" min="1" id="4042"/>
+        <item chance="32019" category="SPOIL" max="1" min="1" id="6695"/>
+        <item chance="15098" category="SPOIL" max="1" min="1" id="6901"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="5" id="4416"/>
+        <skill level="3" id="4463"/>
+        <skill level="4" id="5273"/>
+        <skill level="1" id="5463"/>
+    </skills>
 </npc>

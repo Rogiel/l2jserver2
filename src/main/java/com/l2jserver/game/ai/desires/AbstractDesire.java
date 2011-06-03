@@ -26,7 +26,6 @@ package com.l2jserver.game.ai.desires;
  * @see com.l2jserver.game.ai.AI#handleDesire(Desire)
  */
 public abstract class AbstractDesire implements Desire {
-
 	/**
 	 * Desire power. It's used to calculate what npc whants to do most of all.
 	 */

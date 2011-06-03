@@ -7,6 +7,7 @@
         <name display="true" send="false">Celtus</name>
         <title send="false">Chimera</title>
         <level>81</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="194.030406814438" max="338766.60216791"/>
@@ -27,20 +28,36 @@
         <collision heigth="36.0" radius="35.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="242584" min="121177" id="57"/>
-        <item chance="884200" max="18" min="6" id="9599"/>
-        <item chance="1000000" max="1" min="1" id="9682"/>
-        <item chance="139828" max="1" min="1" id="5534"/>
-        <item chance="116413" max="1" min="1" id="9551"/>
-        <item chance="14552" max="1" min="1" id="6901"/>
-        <item chance="20211" max="18" min="6" id="4042"/>
-        <item chance="31497" max="924" min="308" id="1867"/>
-        <item chance="161686" max="180" min="60" id="1872"/>
-        <item chance="51059" max="15" min="5" id="1894"/>
-        <item chance="59884" max="81" min="27" id="1882"/>
-        <item chance="491" max="1" min="1" id="289"/>
-        <item chance="906932" max="15" min="1" id="1894"/>
-        <item chance="861586" max="7" min="1" id="4042"/>
-        <item chance="82712" max="1" min="1" id="960"/>
+        <item chance="700000" category="DROP" max="242584" min="121177" id="57"/>
+        <item chance="884200" category="UNK_100" max="18" min="6" id="9599"/>
+        <item chance="1000000" category="UNK_101" max="1" min="1" id="9682"/>
+        <item chance="139828" category="UNK_1" max="1" min="1" id="5534"/>
+        <item chance="116413" category="UNK_200" max="1" min="1" id="9551"/>
+        <item chance="14552" category="UNK_2" max="1" min="1" id="6901"/>
+        <item chance="20211" category="UNK_2" max="18" min="6" id="4042"/>
+        <item chance="31497" category="UNK_2" max="924" min="308" id="1867"/>
+        <item chance="161686" category="UNK_2" max="180" min="60" id="1872"/>
+        <item chance="51059" category="UNK_2" max="15" min="5" id="1894"/>
+        <item chance="59884" category="UNK_2" max="81" min="27" id="1882"/>
+        <item chance="491" category="UNK_1" max="1" min="1" id="289"/>
+        <item chance="906932" category="SPOIL" max="15" min="1" id="1894"/>
+        <item chance="861586" category="SPOIL" max="7" min="1" id="4042"/>
+        <item chance="82712" category="SPOIL" max="1" min="1" id="960"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4093"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="3" id="4466"/>
+        <skill level="4" id="5332"/>
+        <skill level="4" id="5367"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

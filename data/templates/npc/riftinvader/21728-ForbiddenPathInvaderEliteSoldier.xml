@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Forbidden Path Invader Elite Soldier</name>
         <level>60</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1933.24044"/>
@@ -27,27 +28,39 @@
         <collision heigth="12.0" radius="6.0"/>
     </info>
     <droplist>
-        <item chance="851364" max="15" min="1" id="1867"/>
-        <item chance="681091" max="1" min="1" id="1881"/>
-        <item chance="7046" max="1" min="1" id="4614"/>
-        <item chance="700000" max="4107" min="2020" id="57"/>
-        <item chance="24" max="1" min="1" id="357"/>
-        <item chance="38" max="1" min="1" id="383"/>
-        <item chance="24" max="1" min="1" id="2376"/>
-        <item chance="38" max="1" min="1" id="2379"/>
-        <item chance="3415" max="1" min="1" id="4056"/>
-        <item chance="5278" max="1" min="1" id="4057"/>
-        <item chance="3415" max="1" min="1" id="4064"/>
-        <item chance="5278" max="1" min="1" id="4065"/>
-        <item chance="201184" max="1" min="1" id="1867"/>
-        <item chance="201184" max="1" min="1" id="1872"/>
-        <item chance="10059" max="1" min="1" id="1875"/>
-        <item chance="20118" max="1" min="1" id="1881"/>
-        <item chance="1312" max="1" min="1" id="4041"/>
-        <item chance="1633" max="1" min="1" id="4129"/>
-        <item chance="2515" max="1" min="1" id="8728"/>
-        <item chance="629" max="1" min="1" id="8738"/>
-        <item chance="63" max="1" min="1" id="8748"/>
-        <item chance="13" max="1" min="1" id="8758"/>
+        <item chance="851364" category="SPOIL" max="15" min="1" id="1867"/>
+        <item chance="681091" category="SPOIL" max="1" min="1" id="1881"/>
+        <item chance="7046" category="SPOIL" max="1" min="1" id="4614"/>
+        <item chance="700000" category="DROP" max="4107" min="2020" id="57"/>
+        <item chance="24" category="UNK_1" max="1" min="1" id="357"/>
+        <item chance="38" category="UNK_1" max="1" min="1" id="383"/>
+        <item chance="24" category="UNK_1" max="1" min="1" id="2376"/>
+        <item chance="38" category="UNK_1" max="1" min="1" id="2379"/>
+        <item chance="3415" category="UNK_1" max="1" min="1" id="4056"/>
+        <item chance="5278" category="UNK_1" max="1" min="1" id="4057"/>
+        <item chance="3415" category="UNK_1" max="1" min="1" id="4064"/>
+        <item chance="5278" category="UNK_1" max="1" min="1" id="4065"/>
+        <item chance="201184" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="201184" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="10059" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="20118" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="1312" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="1633" category="UNK_2" max="1" min="1" id="4129"/>
+        <item chance="2515" category="UNK_200" max="1" min="1" id="8728"/>
+        <item chance="629" category="UNK_200" max="1" min="1" id="8738"/>
+        <item chance="63" category="UNK_200" max="1" min="1" id="8748"/>
+        <item chance="13" category="UNK_200" max="1" min="1" id="8758"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4067"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="18" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

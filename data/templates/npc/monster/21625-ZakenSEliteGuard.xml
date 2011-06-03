@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Zaken's Elite Guard</name>
         <level>50</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1421.00103"/>
@@ -26,4 +27,19 @@
         <item lefthand="945" righthand="225"/>
         <collision heigth="34.5" radius="13.0"/>
     </info>
+    <skills>
+        <skill level="5" id="4067"/>
+        <skill level="5" id="4071"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

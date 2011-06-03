@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Prophet's Guard</name>
         <level>78</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.976" max="3136.2900942"/>
@@ -27,20 +28,33 @@
         <collision heigth="38.5" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="105402" max="1" min="1" id="6704"/>
-        <item chance="103241" max="1" min="1" id="6705"/>
-        <item chance="120089" max="1" min="1" id="6706"/>
-        <item chance="700000" max="7457" min="3643" id="57"/>
-        <item chance="243" max="1" min="1" id="11973"/>
-        <item chance="3749" max="1" min="1" id="5537"/>
-        <item chance="121" max="1" min="1" id="960"/>
-        <item chance="303709" max="3" min="1" id="1868"/>
-        <item chance="121484" max="1" min="1" id="1873"/>
-        <item chance="20248" max="1" min="1" id="1889"/>
-        <item chance="10124" max="1" min="1" id="4044"/>
-        <item chance="30371" max="1" min="1" id="5549"/>
-        <item chance="2531" max="1" min="1" id="8732"/>
-        <item chance="633" max="1" min="1" id="8742"/>
-        <item chance="63" max="1" min="1" id="8752"/>
+        <item chance="105402" category="SPOIL" max="1" min="1" id="6704"/>
+        <item chance="103241" category="SPOIL" max="1" min="1" id="6705"/>
+        <item chance="120089" category="SPOIL" max="1" min="1" id="6706"/>
+        <item chance="700000" category="DROP" max="7457" min="3643" id="57"/>
+        <item chance="243" category="UNK_1" max="1" min="1" id="11973"/>
+        <item chance="3749" category="UNK_1" max="1" min="1" id="5537"/>
+        <item chance="121" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="303709" category="UNK_2" max="3" min="1" id="1868"/>
+        <item chance="121484" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="20248" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="10124" category="UNK_2" max="1" min="1" id="4044"/>
+        <item chance="30371" category="UNK_2" max="1" min="1" id="5549"/>
+        <item chance="2531" category="UNK_200" max="1" min="1" id="8732"/>
+        <item chance="633" category="UNK_200" max="1" min="1" id="8742"/>
+        <item chance="63" category="UNK_200" max="1" min="1" id="8752"/>
     </droplist>
+    <skills>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="6" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="9" id="4573"/>
+        <skill level="9" id="4789"/>
+    </skills>
 </npc>

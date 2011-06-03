@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.template;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -28,13 +29,18 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.id.template.SkillTemplateID;
+import com.l2jserver.model.template.npc.NPCRace;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.npc.controller.NPCController;
+import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
+import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -80,6 +86,8 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 
 		@XmlElement(name = "level")
 		protected int level = 0;
+		@XmlElement(name = "race")
+		protected NPCRace race = NPCRace.NONE;
 		@XmlElement(name = "sex")
 		protected ActorSex sex = null;
 
@@ -259,11 +267,24 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		protected DropCategory category = null;
 
 		public enum DropCategory {
-			KILL;
+			DROP, SPOIL, UNK_1, UNK_2, UNK_3, UNK_4, UNK_5, UNK_6, UNK_7, UNK_8, UNK_9, UNK_10, UNK_11, UNK_12, UNK_13, UNK_14, UNK_15, UNK_16, UNK_17, UNK_18, UNK_19, UNK_20, UNK_21, UNK_22, UNK_23, UNK_24, UNK_25, UNK_26, UNK_27, UNK_28, UNK_29, UNK_30, UNK_31, UNK_32, UNK_33, UNK_34, UNK_35, UNK_36, UNK_100, UNK_101, UNK_102, UNK_200;
 		}
 
 		@XmlAttribute(name = "chance")
 		protected int chance = 0;
+	}
+
+	@XmlElementWrapper(name = "skills")
+	@XmlElement(name = "skill")
+	protected List<SkillMetadata> skills = null;
+
+	@XmlType(namespace = "npc")
+	protected static class SkillMetadata {
+		@XmlAttribute(name = "id")
+		@XmlJavaTypeAdapter(value = SkillTemplateIDAdapter.class)
+		protected SkillTemplateID skill = null;
+		@XmlAttribute(name = "level")
+		protected int level = 0;
 	}
 
 	@Override
@@ -273,6 +294,19 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		// new npcs are full hp/mp
 		npc.setHP(getMaximumHP());
 		npc.setMP(getMaximumMP());
+
+		// load skills
+		final Collection<Skill> skills = CollectionFactory.newSet();
+		for (final SkillMetadata metadata : this.skills) {
+			final SkillTemplate template = metadata.skill.getTemplate();
+			if (template == null)
+				// FIXME this should thrown an exception!
+				continue;
+			final Skill skill = template.create();
+			skill.setLevel(metadata.level);
+			skills.add(skill);
+		}
+		npc.getSkills().load(skills);
 
 		return npc;
 	}
@@ -331,6 +365,15 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		if (info == null)
 			return -1;
 		return info.level;
+	}
+
+	/**
+	 * @return the race
+	 */
+	public NPCRace getRace() {
+		if (info == null)
+			return NPCRace.NONE;
+		return info.race;
 	}
 
 	/**

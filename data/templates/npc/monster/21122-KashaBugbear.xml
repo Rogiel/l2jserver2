@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Kasha Bugbear</name>
         <level>24</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="435.34437"/>
@@ -27,14 +28,25 @@
         <collision heigth="35.0" radius="17.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="334" min="181" id="57"/>
-        <item chance="128" max="1" min="1" id="273"/>
-        <item chance="160444" max="1" min="1" id="1868"/>
-        <item chance="32089" max="1" min="1" id="1873"/>
-        <item chance="59341" max="1" min="1" id="1928"/>
-        <item chance="52565" max="1" min="1" id="1929"/>
-        <item chance="1410" max="1" min="1" id="2016"/>
-        <item chance="194917" max="1" min="1" id="2176"/>
-        <item chance="3209" max="1" min="1" id="5268"/>
+        <item chance="700000" category="DROP" max="334" min="181" id="57"/>
+        <item chance="128" category="UNK_1" max="1" min="1" id="273"/>
+        <item chance="160444" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="32089" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="59341" category="SPOIL" max="1" min="1" id="1928"/>
+        <item chance="52565" category="SPOIL" max="1" min="1" id="1929"/>
+        <item chance="1410" category="UNK_1" max="1" min="1" id="2016"/>
+        <item chance="194917" category="SPOIL" max="1" min="1" id="2176"/>
+        <item chance="3209" category="UNK_2" max="1" min="1" id="5268"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="11" id="4416"/>
+    </skills>
 </npc>

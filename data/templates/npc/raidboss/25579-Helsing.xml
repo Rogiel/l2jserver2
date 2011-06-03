@@ -7,6 +7,7 @@
         <name display="true" send="false">Helsing</name>
         <title send="false">Forsaken Inmate</title>
         <level>74</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="84.9099171635164" max="196619.812148594"/>
@@ -27,17 +28,32 @@
         <collision heigth="31.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="30370" max="1" min="1" id="729"/>
-        <item chance="78971" max="1" min="1" id="5290"/>
-        <item chance="78971" max="1" min="1" id="5291"/>
-        <item chance="78971" max="1" min="1" id="5295"/>
-        <item chance="78971" max="1" min="1" id="5296"/>
-        <item chance="35669" max="346" min="116" id="5496"/>
-        <item chance="183103" max="67" min="23" id="5497"/>
-        <item chance="68664" max="180" min="60" id="5508"/>
-        <item chance="21457" max="576" min="192" id="5509"/>
-        <item chance="3644" max="1" min="1" id="6569"/>
-        <item chance="30370" max="1" min="1" id="6570"/>
-        <item chance="54666" max="1" min="1" id="9625"/>
+        <item chance="30370" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="78971" category="DROP" max="1" min="1" id="5290"/>
+        <item chance="78971" category="DROP" max="1" min="1" id="5291"/>
+        <item chance="78971" category="DROP" max="1" min="1" id="5295"/>
+        <item chance="78971" category="DROP" max="1" min="1" id="5296"/>
+        <item chance="35669" category="DROP" max="346" min="116" id="5496"/>
+        <item chance="183103" category="DROP" max="67" min="23" id="5497"/>
+        <item chance="68664" category="DROP" max="180" min="60" id="5508"/>
+        <item chance="21457" category="DROP" max="576" min="192" id="5509"/>
+        <item chance="3644" category="UNK_2" max="1" min="1" id="6569"/>
+        <item chance="30370" category="UNK_2" max="1" min="1" id="6570"/>
+        <item chance="54666" category="UNK_3" max="1" min="1" id="9625"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4185"/>
+        <skill level="6" id="4190"/>
+        <skill level="6" id="4196"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

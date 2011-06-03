@@ -7,6 +7,7 @@
         <name display="true" send="false">Kbaldir</name>
         <title send="false">Commander</title>
         <level>80</level>
+        <race>ORC</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -37,4 +38,17 @@ Unfortunately that's all a null point anyway because right now, our priority is 
 </body>
 </html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="17" id="4416"/>
+    </skills>
 </npc>

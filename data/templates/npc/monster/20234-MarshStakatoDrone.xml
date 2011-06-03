@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Marsh Stakato Drone</name>
         <level>35</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="772.73802"/>
@@ -27,16 +28,28 @@
         <collision heigth="24.0" radius="9.0"/>
     </info>
     <droplist>
-        <item chance="124798" max="1" min="1" id="1879"/>
-        <item chance="50339" max="1" min="1" id="1938"/>
-        <item chance="40042" max="1" min="1" id="2971"/>
-        <item chance="700000" max="631" min="316" id="57"/>
-        <item chance="53" max="1" min="1" id="293"/>
-        <item chance="53" max="1" min="1" id="296"/>
-        <item chance="159250" max="1" min="1" id="1868"/>
-        <item chance="31850" max="1" min="1" id="1873"/>
-        <item chance="15925" max="1" min="1" id="1876"/>
-        <item chance="5687" max="1" min="1" id="2188"/>
-        <item chance="10659" max="1" min="1" id="2979"/>
+        <item chance="124798" category="SPOIL" max="1" min="1" id="1879"/>
+        <item chance="50339" category="SPOIL" max="1" min="1" id="1938"/>
+        <item chance="40042" category="SPOIL" max="1" min="1" id="2971"/>
+        <item chance="700000" category="DROP" max="631" min="316" id="57"/>
+        <item chance="53" category="UNK_1" max="1" min="1" id="293"/>
+        <item chance="53" category="UNK_1" max="1" min="1" id="296"/>
+        <item chance="159250" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="31850" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="15925" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="5687" category="UNK_2" max="1" min="1" id="2188"/>
+        <item chance="10659" category="UNK_2" max="1" min="1" id="2979"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4028"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="6" id="4416"/>
+    </skills>
 </npc>

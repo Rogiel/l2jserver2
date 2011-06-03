@@ -7,6 +7,7 @@
         <name display="true" send="false">Monstrous Beast of Abyss Brukunt</name>
         <title send="false">Raid Fighter</title>
         <level>58</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="69.6906910362243" max="33456.1241342261"/>
@@ -27,6 +28,20 @@
         <collision heigth="65.0" radius="25.0"/>
     </info>
     <droplist>
-        <item chance="932000" max="60" min="20" id="1343"/>
+        <item chance="932000" category="UNK_2" max="60" min="20" id="1343"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4212"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="5" id="4786"/>
+    </skills>
 </npc>

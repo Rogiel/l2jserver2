@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Crypt Preacher</name>
         <level>72</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2540.15331"/>
@@ -27,19 +28,31 @@
         <collision heigth="52.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="6350" min="3110" id="57"/>
-        <item chance="8408" max="1" min="1" id="1807"/>
-        <item chance="8408" max="1" min="1" id="3035"/>
-        <item chance="29" max="1" min="1" id="5304"/>
-        <item chance="46" max="1" min="1" id="5305"/>
-        <item chance="18" max="1" min="1" id="5308"/>
-        <item chance="37315" max="1" min="1" id="5479"/>
-        <item chance="3263" max="1" min="1" id="5485"/>
-        <item chance="2296" max="1" min="1" id="5486"/>
-        <item chance="5122" max="1" min="1" id="5489"/>
-        <item chance="11642" max="1" min="1" id="10580"/>
-        <item chance="11642" max="1" min="1" id="10582"/>
-        <item chance="11642" max="1" min="1" id="10610"/>
-        <item chance="12065" max="1" min="1" id="14215"/>
+        <item chance="700000" category="DROP" max="6350" min="3110" id="57"/>
+        <item chance="8408" category="SPOIL" max="1" min="1" id="1807"/>
+        <item chance="8408" category="SPOIL" max="1" min="1" id="3035"/>
+        <item chance="29" category="UNK_1" max="1" min="1" id="5304"/>
+        <item chance="46" category="UNK_1" max="1" min="1" id="5305"/>
+        <item chance="18" category="UNK_1" max="1" min="1" id="5308"/>
+        <item chance="37315" category="SPOIL" max="1" min="1" id="5479"/>
+        <item chance="3263" category="UNK_1" max="1" min="1" id="5485"/>
+        <item chance="2296" category="UNK_1" max="1" min="1" id="5486"/>
+        <item chance="5122" category="UNK_1" max="1" min="1" id="5489"/>
+        <item chance="11642" category="UNK_3" max="1" min="1" id="10580"/>
+        <item chance="11642" category="UNK_3" max="1" min="1" id="10582"/>
+        <item chance="11642" category="UNK_3" max="1" min="1" id="10610"/>
+        <item chance="12065" category="UNK_3" max="1" min="1" id="14215"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4099"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

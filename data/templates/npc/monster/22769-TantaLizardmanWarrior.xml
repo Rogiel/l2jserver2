@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Tanta Lizardman Warrior</name>
         <level>83</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3835.59060587002"/>
@@ -27,27 +28,47 @@
         <collision heigth="40.0" radius="20.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1756" min="952" id="57"/>
-        <item chance="1000" max="1" min="1" id="10397"/>
-        <item chance="1000" max="1" min="1" id="10399"/>
-        <item chance="1000" max="1" min="1" id="10400"/>
-        <item chance="2" max="1" min="1" id="10215"/>
-        <item chance="2" max="1" min="1" id="10217"/>
-        <item chance="2" max="1" min="1" id="10218"/>
-        <item chance="81200" max="1" min="1" id="1895"/>
-        <item chance="5200" max="1" min="1" id="4040"/>
-        <item chance="3400" max="1" min="1" id="9628"/>
-        <item chance="1500" max="1" min="1" id="9630"/>
-        <item chance="200" max="1" min="1" id="960"/>
-        <item chance="4500" max="1" min="1" id="10483"/>
-        <item chance="1100" max="1" min="1" id="10484"/>
-        <item chance="110" max="1" min="1" id="10485"/>
-        <item chance="70000" max="1" min="1" id="9628"/>
-        <item chance="4000" max="1" min="1" id="10397"/>
-        <item chance="4000" max="1" min="1" id="10399"/>
-        <item chance="4000" max="1" min="1" id="10400"/>
-        <item chance="400" max="1" min="1" id="10373"/>
-        <item chance="400" max="1" min="1" id="10375"/>
-        <item chance="400" max="1" min="1" id="10376"/>
+        <item chance="700000" category="DROP" max="1756" min="952" id="57"/>
+        <item chance="200" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="81200" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="5200" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="70000" category="SPOIL" max="1" min="1" id="9628"/>
+        <item chance="3400" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="1500" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="2" category="UNK_1" max="1" min="1" id="10215"/>
+        <item chance="2" category="UNK_1" max="1" min="1" id="10217"/>
+        <item chance="2" category="UNK_1" max="1" min="1" id="10218"/>
+        <item chance="400" category="SPOIL" max="1" min="1" id="10373"/>
+        <item chance="400" category="SPOIL" max="1" min="1" id="10375"/>
+        <item chance="400" category="SPOIL" max="1" min="1" id="10376"/>
+        <item chance="4000" category="SPOIL" max="1" min="1" id="10397"/>
+        <item chance="1000" category="UNK_1" max="1" min="1" id="10397"/>
+        <item chance="4000" category="SPOIL" max="1" min="1" id="10399"/>
+        <item chance="1000" category="UNK_1" max="1" min="1" id="10399"/>
+        <item chance="4000" category="SPOIL" max="1" min="1" id="10400"/>
+        <item chance="1000" category="UNK_1" max="1" min="1" id="10400"/>
+        <item chance="4500" category="UNK_200" max="1" min="1" id="10483"/>
+        <item chance="1100" category="UNK_200" max="1" min="1" id="10484"/>
+        <item chance="110" category="UNK_200" max="1" min="1" id="10485"/>
     </droplist>
+    <skills>
+        <skill level="9" id="4116"/>
+        <skill level="4" id="4273"/>
+        <skill level="4" id="4276"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="17" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="4" id="4424"/>
+        <skill level="4" id="4427"/>
+        <skill level="4" id="4449"/>
+        <skill level="1" id="5465"/>
+        <skill level="9" id="5601"/>
+        <skill level="1" id="6420"/>
+    </skills>
 </npc>

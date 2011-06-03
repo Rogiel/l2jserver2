@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Adult Grendel</name>
         <level>84</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="4039.04270539801"/>
@@ -26,24 +27,42 @@
         <collision heigth="39.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="9139" min="4473" id="57"/>
-        <item chance="200" max="1" min="1" id="959"/>
-        <item chance="110000" max="1" min="1" id="1879"/>
-        <item chance="60000" max="1" min="1" id="1885"/>
-        <item chance="9000" max="1" min="1" id="5550"/>
-        <item chance="200" max="1" min="1" id="9556"/>
-        <item chance="10000" max="1" min="1" id="9628"/>
-        <item chance="5000" max="1" min="1" id="9628"/>
-        <item chance="3000" max="1" min="1" id="9629"/>
-        <item chance="10000" max="1" min="1" id="9630"/>
-        <item chance="3000" max="1" min="1" id="9630"/>
-        <item chance="200" max="1" min="1" id="10374"/>
-        <item chance="50" max="1" min="1" id="10374"/>
-        <item chance="1100" max="1" min="1" id="10398"/>
-        <item chance="2000" max="1" min="1" id="10398"/>
-        <item chance="5000" max="1" min="1" id="10483"/>
-        <item chance="1000" max="1" min="1" id="10484"/>
-        <item chance="50" max="1" min="1" id="10485"/>
-        <item chance="1000" max="1" min="1" id="17030"/>
+        <item chance="700000" category="DROP" max="9139" min="4473" id="57"/>
+        <item chance="200" category="SPOIL" max="1" min="1" id="959"/>
+        <item chance="110000" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="60000" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="9000" category="UNK_2" max="1" min="1" id="5550"/>
+        <item chance="200" category="UNK_2" max="1" min="1" id="9556"/>
+        <item chance="10000" category="SPOIL" max="1" min="1" id="9628"/>
+        <item chance="5000" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="3000" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="10000" category="SPOIL" max="1" min="1" id="9630"/>
+        <item chance="3000" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="200" category="SPOIL" max="1" min="1" id="10374"/>
+        <item chance="50" category="UNK_2" max="1" min="1" id="10374"/>
+        <item chance="1100" category="SPOIL" max="1" min="1" id="10398"/>
+        <item chance="2000" category="UNK_1" max="1" min="1" id="10398"/>
+        <item chance="5000" category="UNK_200" max="1" min="1" id="10483"/>
+        <item chance="1000" category="UNK_200" max="1" min="1" id="10484"/>
+        <item chance="50" category="UNK_200" max="1" min="1" id="10485"/>
+        <item chance="1000" category="UNK_2" max="1" min="1" id="17030"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4028"/>
+        <skill level="3" id="4071"/>
+        <skill level="5" id="4116"/>
+        <skill level="5" id="4379"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="15" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="18" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="4" id="4416"/>
+        <skill level="1" id="5463"/>
+        <skill level="7" id="5620"/>
+        <skill level="17" id="6556"/>
+    </skills>
 </npc>

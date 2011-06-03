@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Gigant Acolyte</name>
         <level>24</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="435.34437"/>
@@ -27,16 +28,29 @@
         <collision heigth="32.0" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="12101" max="1" min="1" id="735"/>
-        <item chance="2045" max="1" min="1" id="1102"/>
-        <item chance="3282" max="1" min="1" id="1105"/>
-        <item chance="39326" max="1" min="1" id="1804"/>
-        <item chance="193605" max="1" min="1" id="1867"/>
-        <item chance="193605" max="1" min="1" id="1872"/>
-        <item chance="32267" max="1" min="1" id="1882"/>
-        <item chance="99308" max="1" min="1" id="1926"/>
-        <item chance="273857" max="1" min="1" id="2151"/>
-        <item chance="700000" max="143" min="72" id="6360"/>
-        <item chance="700000" max="39" min="21" id="6362"/>
+        <item chance="12101" category="UNK_2" max="1" min="1" id="735"/>
+        <item chance="2045" category="UNK_1" max="1" min="1" id="1102"/>
+        <item chance="3282" category="UNK_1" max="1" min="1" id="1105"/>
+        <item chance="39326" category="SPOIL" max="1" min="1" id="1804"/>
+        <item chance="193605" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="193605" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="32267" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="99308" category="SPOIL" max="1" min="1" id="1926"/>
+        <item chance="273857" category="SPOIL" max="1" min="1" id="2151"/>
+        <item chance="700000" category="DROP" max="143" min="72" id="6360"/>
+        <item chance="700000" category="UNK_4" max="39" min="21" id="6362"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4078"/>
+        <skill level="5" id="4285"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="8" id="4416"/>
+    </skills>
 </npc>

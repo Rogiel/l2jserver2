@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Soul of Ruins</name>
         <level>54</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1621.75618"/>
@@ -26,28 +27,40 @@
         <collision heigth="22.0" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1402" min="688" id="57"/>
-        <item chance="5" max="1" min="1" id="299"/>
-        <item chance="6" max="1" min="1" id="301"/>
-        <item chance="6" max="1" min="1" id="303"/>
-        <item chance="871346" max="3" min="1" id="1865"/>
-        <item chance="49497" max="1" min="1" id="1865"/>
-        <item chance="49497" max="1" min="1" id="1870"/>
-        <item chance="3300" max="1" min="1" id="1875"/>
-        <item chance="8249" max="1" min="1" id="1879"/>
-        <item chance="75474" max="1" min="1" id="1918"/>
-        <item chance="18415" max="1" min="1" id="1986"/>
-        <item chance="520" max="1" min="1" id="2113"/>
-        <item chance="520" max="1" min="1" id="2114"/>
-        <item chance="490" max="1" min="1" id="2122"/>
-        <item chance="990" max="1" min="1" id="4040"/>
-        <item chance="317" max="1" min="1" id="4146"/>
-        <item chance="57" max="1" min="1" id="4182"/>
-        <item chance="99" max="1" min="1" id="5160"/>
-        <item chance="81" max="1" min="1" id="5436"/>
-        <item chance="1146" max="1" min="1" id="8726"/>
-        <item chance="286" max="1" min="1" id="8736"/>
-        <item chance="29" max="1" min="1" id="8746"/>
-        <item chance="6" max="1" min="1" id="8756"/>
+        <item chance="700000" category="DROP" max="1402" min="688" id="57"/>
+        <item chance="5" category="UNK_1" max="1" min="1" id="299"/>
+        <item chance="6" category="UNK_1" max="1" min="1" id="301"/>
+        <item chance="6" category="UNK_1" max="1" min="1" id="303"/>
+        <item chance="871346" category="SPOIL" max="3" min="1" id="1865"/>
+        <item chance="49497" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="49497" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="3300" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="8249" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="75474" category="SPOIL" max="1" min="1" id="1918"/>
+        <item chance="18415" category="SPOIL" max="1" min="1" id="1986"/>
+        <item chance="520" category="UNK_1" max="1" min="1" id="2113"/>
+        <item chance="520" category="UNK_1" max="1" min="1" id="2114"/>
+        <item chance="490" category="UNK_1" max="1" min="1" id="2122"/>
+        <item chance="990" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="317" category="UNK_2" max="1" min="1" id="4146"/>
+        <item chance="57" category="UNK_2" max="1" min="1" id="4182"/>
+        <item chance="99" category="UNK_2" max="1" min="1" id="5160"/>
+        <item chance="81" category="UNK_2" max="1" min="1" id="5436"/>
+        <item chance="1146" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="286" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="29" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="6" category="UNK_200" max="1" min="1" id="8756"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4002"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="12" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Utenus's Wizard</name>
         <title send="false">Raid Fighter</title>
         <level>82</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="94.1947722699655" max="32842.1808669766"/>
@@ -26,4 +27,22 @@
         <sp>0</sp>
         <collision heigth="91.0" radius="50.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4195"/>
+        <skill level="8" id="4205"/>
+        <skill level="4" id="4273"/>
+        <skill level="4" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="3" id="4444"/>
+        <skill level="1" id="5463"/>
+    </skills>
 </npc>

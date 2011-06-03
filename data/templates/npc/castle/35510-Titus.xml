@@ -7,6 +7,7 @@
         <name display="true" send="false">Titus</name>
         <title send="false">Wyvern Manager</title>
         <level>75</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2676.65854"/>
@@ -26,4 +27,16 @@
         <sp>0</sp>
         <collision heigth="23.0" radius="8.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Longtail Keltir</name>
         <level>2</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.0" max="48.09168"/>
@@ -26,13 +27,24 @@
         <collision heigth="10.0" radius="9.5"/>
     </info>
     <droplist>
-        <item chance="6279" max="1" min="1" id="13"/>
-        <item chance="700000" max="13" min="8" id="57"/>
-        <item chance="10291" max="1" min="1" id="1060"/>
-        <item chance="3705" max="1" min="1" id="1787"/>
-        <item chance="9262" max="1" min="1" id="1868"/>
-        <item chance="23887" max="1" min="1" id="1872"/>
-        <item chance="1853" max="1" min="1" id="1873"/>
-        <item chance="1792" max="1" min="1" id="5549"/>
+        <item chance="6279" category="UNK_1" max="1" min="1" id="13"/>
+        <item chance="700000" category="DROP" max="13" min="8" id="57"/>
+        <item chance="10291" category="UNK_2" max="1" min="1" id="1060"/>
+        <item chance="3705" category="UNK_2" max="1" min="1" id="1787"/>
+        <item chance="9262" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="23887" category="SPOIL" max="1" min="1" id="1872"/>
+        <item chance="1853" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="1792" category="SPOIL" max="1" min="1" id="5549"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
 </npc>

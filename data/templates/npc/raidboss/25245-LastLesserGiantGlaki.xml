@@ -7,6 +7,7 @@
         <name display="true" send="false">Last Lesser Giant Glaki</name>
         <title send="false">Raid Boss</title>
         <level>78</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="126.536105676163" max="410600.548543185"/>
@@ -28,12 +29,29 @@
         <collision heigth="66.0" radius="30.0"/>
     </info>
     <droplist>
-        <item chance="25961" max="1" min="1" id="6680"/>
-        <item chance="417437" max="36" min="12" id="6707"/>
-        <item chance="14186" max="1" min="1" id="7575"/>
-        <item chance="276311" max="36" min="12" id="7579"/>
-        <item chance="52421" max="1" min="1" id="959"/>
-        <item chance="524215" max="1" min="1" id="960"/>
-        <item chance="8737" max="1" min="1" id="6577"/>
+        <item chance="25961" category="DROP" max="1" min="1" id="6680"/>
+        <item chance="417437" category="DROP" max="36" min="12" id="6707"/>
+        <item chance="14186" category="UNK_1" max="1" min="1" id="7575"/>
+        <item chance="276311" category="UNK_1" max="36" min="12" id="7579"/>
+        <item chance="52421" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="524215" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="8737" category="UNK_2" max="1" min="1" id="6577"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4182"/>
+        <skill level="8" id="4188"/>
+        <skill level="8" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4879"/>
+    </skills>
 </npc>

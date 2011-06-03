@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Defeated Troops Healer</name>
         <level>79</level>
+        <race>NONE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3127.82459333517"/>

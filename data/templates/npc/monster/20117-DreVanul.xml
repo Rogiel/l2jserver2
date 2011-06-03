@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Dre Vanul</name>
         <level>20</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.5" max="342.5127"/>
@@ -26,16 +27,30 @@
         <collision heigth="36.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="203" min="117" id="57"/>
-        <item chance="142" max="1" min="1" id="176"/>
-        <item chance="42109" max="1" min="1" id="734"/>
-        <item chance="2488" max="1" min="1" id="735"/>
-        <item chance="39803" max="1" min="1" id="1867"/>
-        <item chance="505303" max="1" min="1" id="1868"/>
-        <item chance="39803" max="1" min="1" id="1872"/>
-        <item chance="6634" max="1" min="1" id="1882"/>
-        <item chance="165673" max="1" min="1" id="1925"/>
-        <item chance="8090" max="1" min="1" id="2173"/>
-        <item chance="142" max="1" min="1" id="2501"/>
+        <item chance="700000" category="DROP" max="203" min="117" id="57"/>
+        <item chance="142" category="UNK_1" max="1" min="1" id="176"/>
+        <item chance="42109" category="SPOIL" max="1" min="1" id="734"/>
+        <item chance="2488" category="UNK_2" max="1" min="1" id="735"/>
+        <item chance="39803" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="505303" category="SPOIL" max="1" min="1" id="1868"/>
+        <item chance="39803" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="6634" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="165673" category="SPOIL" max="1" min="1" id="1925"/>
+        <item chance="8090" category="UNK_2" max="1" min="1" id="2173"/>
+        <item chance="142" category="UNK_1" max="1" min="1" id="2501"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4001"/>
+        <skill level="2" id="4100"/>
+        <skill level="2" id="4104"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

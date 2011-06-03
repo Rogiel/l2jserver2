@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Nephilim Mercenary</name>
         <level>85</level>
+        <race>MERCENARIE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="981.0" max="596964.367482148"/>
@@ -26,4 +27,19 @@
         <item lefthand="6377" righthand="2500"/>
         <collision heigth="24.5" radius="12.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="4" id="4071"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="15" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="23" id="4416"/>
+        <skill level="7" id="5112"/>
+        <skill level="7" id="5113"/>
+    </skills>
 </npc>

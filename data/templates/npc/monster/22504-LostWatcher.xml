@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lost Watcher</name>
         <level>81</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="194.184225975005" max="56505.8603512852"/>
@@ -26,4 +27,18 @@
         <item lefthand="10278" righthand="10278"/>
         <collision heigth="37.5" radius="25.0"/>
     </info>
+    <skills>
+        <skill level="9" id="4032"/>
+        <skill level="9" id="4047"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="7" id="4410"/>
+        <skill level="7" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="19" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

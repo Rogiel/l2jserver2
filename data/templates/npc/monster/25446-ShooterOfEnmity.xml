@@ -7,6 +7,7 @@
         <name display="true" send="false">Shooter of Enmity</name>
         <title send="false">Raid Fighter</title>
         <level>64</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="78.4516811865918" max="25982.5596109412"/>
@@ -28,6 +29,20 @@
         <collision heigth="27.0" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="871429" max="60" min="20" id="1343"/>
+        <item chance="871429" category="UNK_2" max="60" min="20" id="1343"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

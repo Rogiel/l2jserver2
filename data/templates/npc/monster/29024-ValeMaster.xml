@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Vale master</name>
         <level>59</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1880.0"/>
@@ -26,6 +27,21 @@
         <collision heigth="40.0" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="200000" max="8" min="4" id="1061"/>
+        <item chance="200000" category="UNK_2" max="8" min="4" id="1061"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4071"/>
+        <skill level="1" id="4085"/>
+        <skill level="1" id="4086"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

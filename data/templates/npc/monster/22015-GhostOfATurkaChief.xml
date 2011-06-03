@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Ghost of a Turka Chief</name>
         <level>33</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="702.20463"/>
@@ -27,16 +28,31 @@
         <collision heigth="23.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="658" min="329" id="57"/>
-        <item chance="42463" max="1" min="1" id="1884"/>
-        <item chance="2760" max="1" min="1" id="5220"/>
-        <item chance="27601" max="1" min="1" id="1878"/>
-        <item chance="4600" max="1" min="1" id="1889"/>
-        <item chance="4600" max="1" min="1" id="1874"/>
-        <item chance="3080" max="1" min="1" id="2187"/>
-        <item chance="111" max="1" min="1" id="260"/>
-        <item chance="479184" max="1" min="1" id="1884"/>
-        <item chance="26043" max="1" min="1" id="2186"/>
-        <item chance="10201" max="1" min="1" id="2027"/>
+        <item chance="700000" category="DROP" max="658" min="329" id="57"/>
+        <item chance="42463" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="2760" category="UNK_2" max="1" min="1" id="5220"/>
+        <item chance="27601" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="4600" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="4600" category="UNK_2" max="1" min="1" id="1874"/>
+        <item chance="3080" category="UNK_2" max="1" min="1" id="2187"/>
+        <item chance="111" category="UNK_1" max="1" min="1" id="260"/>
+        <item chance="479184" category="SPOIL" max="1" min="1" id="1884"/>
+        <item chance="26043" category="SPOIL" max="1" min="1" id="2186"/>
+        <item chance="10201" category="SPOIL" max="1" min="1" id="2027"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4032"/>
+        <skill level="3" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="27" id="4417"/>
+        <skill level="3" id="4458"/>
+    </skills>
 </npc>

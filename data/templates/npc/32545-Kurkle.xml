@@ -7,6 +7,7 @@
         <name display="true" send="false">Kurkle</name>
         <title send="false">Gracia Special Product Middleman</title>
         <level>70</level>
+        <race>NONE</race>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
             <mp regen="2.7" max="1345.8"/>

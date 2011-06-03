@@ -7,6 +7,7 @@
         <name display="true" send="false">Anakazel</name>
         <title send="false">Invaders' Leader</title>
         <level>28</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="46.8125016943997" max="81413.3464621354"/>
@@ -27,9 +28,27 @@
         <collision heigth="54.0" radius="21.0"/>
     </info>
     <droplist>
-        <item chance="256450" max="4" min="2" id="47"/>
-        <item chance="181912" max="1" min="1" id="260"/>
-        <item chance="137451" max="12" min="4" id="628"/>
-        <item chance="97404" max="1" min="1" id="6575"/>
+        <item chance="256450" category="DROP" max="4" min="2" id="47"/>
+        <item chance="181912" category="UNK_1" max="1" min="1" id="260"/>
+        <item chance="137451" category="DROP" max="12" min="4" id="628"/>
+        <item chance="97404" category="UNK_2" max="1" min="1" id="6575"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="2" id="4172"/>
+        <skill level="2" id="4175"/>
+        <skill level="2" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="2" id="4723"/>
+        <skill level="1" id="4915"/>
+    </skills>
 </npc>

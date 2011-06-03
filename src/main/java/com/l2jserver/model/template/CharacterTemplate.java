@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.world.Actor.ActorRace;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.L2Character.CharacterRace;
 import com.l2jserver.model.world.character.CharacterClass;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 
@@ -185,7 +185,7 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 	/**
 	 * @return the character race
 	 */
-	public ActorRace getRace() {
+	public CharacterRace getRace() {
 		return getCharacterClass().race;
 	}
 

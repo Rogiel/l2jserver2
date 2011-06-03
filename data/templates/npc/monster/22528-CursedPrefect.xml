@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Cursed Prefect</name>
         <level>81</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3835.59060587002"/>
@@ -26,4 +27,22 @@
         <item lefthand="0" righthand="13982"/>
         <collision heigth="41.6" radius="22.88"/>
     </info>
+    <skills>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="14" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="11" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="5465"/>
+        <skill level="1" id="5884"/>
+        <skill level="1" id="5887"/>
+        <skill level="1" id="5891"/>
+        <skill level="1" id="5895"/>
+        <skill level="1" id="5909"/>
+        <skill level="1" id="5915"/>
+    </skills>
 </npc>

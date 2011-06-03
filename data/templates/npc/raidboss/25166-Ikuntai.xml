@@ -7,6 +7,7 @@
         <name display="true" send="false">Ikuntai</name>
         <title send="false">Raid Boss</title>
         <level>25</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="24.0862326352072" max="56644.1399290069"/>
@@ -28,13 +29,28 @@
         <collision heigth="39.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="123685" max="1" min="1" id="157"/>
-        <item chance="123685" max="1" min="1" id="186"/>
-        <item chance="132967" max="10" min="4" id="849"/>
-        <item chance="278665" max="7" min="3" id="880"/>
-        <item chance="87215" max="12" min="4" id="912"/>
-        <item chance="220513" max="216" min="72" id="1901"/>
-        <item chance="250976" max="36" min="12" id="2027"/>
-        <item chance="298017" max="180" min="60" id="6387"/>
+        <item chance="123685" category="UNK_1" max="1" min="1" id="157"/>
+        <item chance="123685" category="UNK_1" max="1" min="1" id="186"/>
+        <item chance="132967" category="DROP" max="10" min="4" id="849"/>
+        <item chance="278665" category="DROP" max="7" min="3" id="880"/>
+        <item chance="87215" category="DROP" max="12" min="4" id="912"/>
+        <item chance="220513" category="DROP" max="216" min="72" id="1901"/>
+        <item chance="250976" category="UNK_1" max="36" min="12" id="2027"/>
+        <item chance="298017" category="UNK_2" max="180" min="60" id="6387"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="2" id="4178"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4853"/>
+    </skills>
 </npc>

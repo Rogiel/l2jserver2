@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Magma Drake</name>
         <level>78</level>
+        <race>DRAGON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.925" max="3107.6436594"/>
@@ -26,20 +27,35 @@
         <collision heigth="42.0" radius="29.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="15195" min="7443" id="57"/>
-        <item chance="604" max="1" min="1" id="959"/>
-        <item chance="25" max="1" min="1" id="959"/>
-        <item chance="137654" max="3" min="1" id="1866"/>
-        <item chance="309722" max="3" min="1" id="1871"/>
-        <item chance="603958" max="1" min="1" id="1877"/>
-        <item chance="24778" max="1" min="1" id="1877"/>
-        <item chance="12389" max="1" min="1" id="4040"/>
-        <item chance="131295" max="1" min="1" id="4041"/>
-        <item chance="5386" max="1" min="1" id="4041"/>
-        <item chance="7644" max="1" min="1" id="5541"/>
-        <item chance="5162" max="1" min="1" id="8732"/>
-        <item chance="1290" max="1" min="1" id="8742"/>
-        <item chance="129" max="1" min="1" id="8752"/>
-        <item chance="496" max="1" min="1" id="11976"/>
+        <item chance="700000" category="DROP" max="15195" min="7443" id="57"/>
+        <item chance="604" category="SPOIL" max="1" min="1" id="959"/>
+        <item chance="25" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="137654" category="UNK_2" max="3" min="1" id="1866"/>
+        <item chance="309722" category="UNK_2" max="3" min="1" id="1871"/>
+        <item chance="603958" category="SPOIL" max="1" min="1" id="1877"/>
+        <item chance="24778" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="12389" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="131295" category="SPOIL" max="1" min="1" id="4041"/>
+        <item chance="5386" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="7644" category="UNK_1" max="1" min="1" id="5541"/>
+        <item chance="5162" category="UNK_200" max="1" min="1" id="8732"/>
+        <item chance="1290" category="UNK_200" max="1" min="1" id="8742"/>
+        <item chance="129" category="UNK_200" max="1" min="1" id="8752"/>
+        <item chance="496" category="UNK_1" max="1" min="1" id="11976"/>
     </droplist>
+    <skills>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="10" id="4416"/>
+        <skill level="9" id="4590"/>
+        <skill level="9" id="4605"/>
+        <skill level="10" id="4614"/>
+        <skill level="9" id="4789"/>
+    </skills>
 </npc>

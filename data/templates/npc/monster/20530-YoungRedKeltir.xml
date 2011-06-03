@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Young Red Keltir</name>
         <level>1</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.0" max="39.74519"/>
@@ -26,15 +27,26 @@
         <collision heigth="10.0" radius="9.5"/>
     </info>
     <droplist>
-        <item chance="700000" max="12" min="8" id="57"/>
-        <item chance="14565" max="1" min="1" id="426"/>
-        <item chance="23181" max="1" min="1" id="462"/>
-        <item chance="9144" max="1" min="1" id="1060"/>
-        <item chance="3292" max="1" min="1" id="1786"/>
-        <item chance="12736" max="1" min="1" id="1787"/>
-        <item chance="21226" max="1" min="1" id="1867"/>
-        <item chance="31839" max="1" min="1" id="1868"/>
-        <item chance="8230" max="1" min="1" id="1868"/>
-        <item chance="1646" max="1" min="1" id="1873"/>
+        <item chance="700000" category="DROP" max="12" min="8" id="57"/>
+        <item chance="14565" category="UNK_1" max="1" min="1" id="426"/>
+        <item chance="23181" category="UNK_1" max="1" min="1" id="462"/>
+        <item chance="9144" category="UNK_2" max="1" min="1" id="1060"/>
+        <item chance="3292" category="UNK_2" max="1" min="1" id="1786"/>
+        <item chance="12736" category="SPOIL" max="1" min="1" id="1787"/>
+        <item chance="21226" category="SPOIL" max="1" min="1" id="1867"/>
+        <item chance="31839" category="SPOIL" max="1" min="1" id="1868"/>
+        <item chance="8230" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="1646" category="UNK_2" max="1" min="1" id="1873"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
 </npc>

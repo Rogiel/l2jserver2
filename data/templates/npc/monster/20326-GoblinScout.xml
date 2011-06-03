@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Goblin Scout</name>
         <level>8</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.0" max="124.92828"/>
@@ -27,17 +28,28 @@
         <collision heigth="16.5" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="3937" max="1" min="1" id="22"/>
-        <item chance="6293" max="1" min="1" id="29"/>
-        <item chance="700000" max="91" min="67" id="57"/>
-        <item chance="24542" max="1" min="1" id="1864"/>
-        <item chance="12271" max="1" min="1" id="1865"/>
-        <item chance="8181" max="1" min="1" id="1866"/>
-        <item chance="24542" max="1" min="1" id="1868"/>
-        <item chance="4909" max="1" min="1" id="1873"/>
-        <item chance="8902" max="1" min="1" id="2006"/>
-        <item chance="8902" max="1" min="1" id="2007"/>
-        <item chance="36653" max="1" min="1" id="2135"/>
-        <item chance="3609" max="1" min="1" id="2138"/>
+        <item chance="3937" category="UNK_1" max="1" min="1" id="22"/>
+        <item chance="6293" category="UNK_1" max="1" min="1" id="29"/>
+        <item chance="700000" category="DROP" max="91" min="67" id="57"/>
+        <item chance="24542" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="12271" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="8181" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="24542" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="4909" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="8902" category="SPOIL" max="1" min="1" id="2006"/>
+        <item chance="8902" category="SPOIL" max="1" min="1" id="2007"/>
+        <item chance="36653" category="SPOIL" max="1" min="1" id="2135"/>
+        <item chance="3609" category="UNK_2" max="1" min="1" id="2138"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="6" id="4416"/>
+    </skills>
 </npc>

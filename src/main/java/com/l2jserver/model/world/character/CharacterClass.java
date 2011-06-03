@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.character;
 
-import com.l2jserver.model.world.Actor.ActorRace;
+import com.l2jserver.model.world.L2Character.CharacterRace;
 
 /**
  * Defines all the possible classes for an character
@@ -27,7 +27,7 @@ public enum CharacterClass {
 	/**
 	 * Human fighter
 	 */
-	HUMAN_FIGHTER(0x00, ClassType.FIGHTER, ActorRace.HUMAN), WARRIOR(0x01,
+	HUMAN_FIGHTER(0x00, ClassType.FIGHTER, CharacterRace.HUMAN), WARRIOR(0x01,
 			HUMAN_FIGHTER), GLADIATOR(0x02, WARRIOR), WARLORD(0x03, WARRIOR), KNIGHT(
 			0x04, HUMAN_FIGHTER), PALADIN(0x05, KNIGHT), DARK_AVENGER(0x06,
 			KNIGHT), ROGUE(0x07, HUMAN_FIGHTER), TREASURE_HUNTER(0x08, ROGUE), HAWKEYE(
@@ -38,7 +38,7 @@ public enum CharacterClass {
 	/**
 	 * Human mystic
 	 */
-	HUMAN_MYSTIC(0x0a, ClassType.MYSTIC, ActorRace.HUMAN), WIZARD(0x0b,
+	HUMAN_MYSTIC(0x0a, ClassType.MYSTIC, CharacterRace.HUMAN), WIZARD(0x0b,
 			HUMAN_MYSTIC), SORCEROR(0x0c, WIZARD), NECROMANCER(0x0d, WIZARD), WARLOCK(
 			0x0e, true, WIZARD), CLERIC(0x0f, ClassType.PRIEST, HUMAN_MYSTIC), BISHOP(
 			0x10, CLERIC), PROPHET(0x11, CLERIC), ARCHMAGE(0x5e, SORCEROR), SOULTAKER(
@@ -48,7 +48,7 @@ public enum CharacterClass {
 	/**
 	 * Elven fighter
 	 */
-	ELVEN_FIGHTER(0x12, ClassType.FIGHTER, ActorRace.ELF), ELVEN_KNIGHT(0x13,
+	ELVEN_FIGHTER(0x12, ClassType.FIGHTER, CharacterRace.ELF), ELVEN_KNIGHT(0x13,
 			ELVEN_FIGHTER), TEMPLE_KNIGHT(0x14, ELVEN_KNIGHT), SWORD_SINGER(
 			0x15, ELVEN_KNIGHT), ELVEN_SCOUT(0x16, ELVEN_FIGHTER), PLAINS_WALKER(
 			0x17, ELVEN_SCOUT), SILVER_RANGER(0x18, ELVEN_SCOUT), EVA_TEMPLAR(
@@ -57,7 +57,7 @@ public enum CharacterClass {
 	/**
 	 * Elven mystic
 	 */
-	ELVEN_MYSTIC(0x19, ClassType.MYSTIC, ActorRace.ELF), ELVEN_WIZARD(0x1a,
+	ELVEN_MYSTIC(0x19, ClassType.MYSTIC, CharacterRace.ELF), ELVEN_WIZARD(0x1a,
 			ELVEN_MYSTIC), SPELLSINGER(0x1b, ELVEN_WIZARD), ELEMENTAL_SUMMONER(
 			0x1c, true, ELVEN_WIZARD), ORACLE(0x1d, ClassType.PRIEST,
 			ELVEN_MYSTIC), ELDER(0x1e, ORACLE), MYSTIC_MUSE(0x67, SPELLSINGER), ELEMENTAL_MASTER(
@@ -66,7 +66,7 @@ public enum CharacterClass {
 	/**
 	 * Dark elf fighter
 	 */
-	DARK_FIGHTER(0x1f, ClassType.FIGHTER, ActorRace.DARK_ELF), PALUS_KNIGHT(
+	DARK_FIGHTER(0x1f, ClassType.FIGHTER, CharacterRace.DARK_ELF), PALUS_KNIGHT(
 			0x20, DARK_FIGHTER), SHILLIEN_KNIGHT(0x21, PALUS_KNIGHT), BLADEDANCER(
 			0x22, PALUS_KNIGHT), ASSASSIN(0x23, DARK_FIGHTER), ABYSS_WALKER(
 			0x24, ASSASSIN), PHANTOM_RANGER(0x25, ASSASSIN), SHILLIEN_TEMPLAR(
@@ -76,7 +76,7 @@ public enum CharacterClass {
 	/**
 	 * Dark elf mystic
 	 */
-	DARK_MYSTIC(0x26, ClassType.MYSTIC, ActorRace.DARK_ELF), DARK_WIZARD(0x27,
+	DARK_MYSTIC(0x26, ClassType.MYSTIC, CharacterRace.DARK_ELF), DARK_WIZARD(0x27,
 			DARK_MYSTIC), SPELLHOWLER(0x28, DARK_WIZARD), PHANTOM_SUMMONER(
 			0x29, true, DARK_WIZARD), SHILLIEN_ORACLE(0x2a, ClassType.PRIEST,
 			DARK_MYSTIC), SHILLIEN_ELDER(0x2b, SHILLIEN_ORACLE), STORM_SCREAMER(
@@ -86,7 +86,7 @@ public enum CharacterClass {
 	/**
 	 * Orc fighter
 	 */
-	ORC_FIGHTER(0x2c, ClassType.FIGHTER, ActorRace.ORC), ORC_RAIDER(0x2d,
+	ORC_FIGHTER(0x2c, ClassType.FIGHTER, CharacterRace.ORC), ORC_RAIDER(0x2d,
 			ORC_FIGHTER), DESTROYER(0x2e, ORC_RAIDER), ORC_MONK(0x2f,
 			ORC_FIGHTER), TYRANT(0x30, ORC_RAIDER), TITAN(0x71, DESTROYER), GRAND_KHAUATARI(
 			0x72, TYRANT),
@@ -94,7 +94,7 @@ public enum CharacterClass {
 	/**
 	 * Orc mystic
 	 */
-	ORC_MYSTIC(0x31, ClassType.FIGHTER, ActorRace.ORC), ORC_SHAMAN(0x32,
+	ORC_MYSTIC(0x31, ClassType.FIGHTER, CharacterRace.ORC), ORC_SHAMAN(0x32,
 			ClassType.MYSTIC, ORC_MYSTIC), OVERLORD(0x33, ORC_SHAMAN), WARCRYER(
 			0x34, ORC_SHAMAN), DOMINATOR(0x73, OVERLORD), DOOMCRYER(0x74,
 			WARCRYER),
@@ -102,7 +102,7 @@ public enum CharacterClass {
 	/**
 	 * Dwarf fighter
 	 */
-	DWARVEN_FIGHTER(0x35, ClassType.FIGHTER, ActorRace.DWARF), SCAVENGER(0x36,
+	DWARVEN_FIGHTER(0x35, ClassType.FIGHTER, CharacterRace.DWARF), SCAVENGER(0x36,
 			DWARVEN_FIGHTER), BOUNTY_HUNTER(0x37, SCAVENGER), ARTISAN(0x38,
 			DWARVEN_FIGHTER), WARSMITH(0x39, ARTISAN), FORTUNE_SEEKER(0x75,
 			BOUNTY_HUNTER), MAESTRO(0x76, WARSMITH),
@@ -110,7 +110,7 @@ public enum CharacterClass {
 	/**
 	 * Kamael male soldier
 	 */
-	MALE_SOLDIER(0x7b, ClassType.FIGHTER, ActorRace.KAMAEL), TROOPER(0x7D,
+	MALE_SOLDIER(0x7b, ClassType.FIGHTER, CharacterRace.KAMAEL), TROOPER(0x7D,
 			MALE_SOLDIER), BERSEKER(0x7F, TROOPER), MALE_SOULBREAKER(0x80,
 			TROOPER), DOOMBRINGER(0x83, BERSEKER), MALE_SOULDHOUND(0x84,
 			MALE_SOULBREAKER),
@@ -118,7 +118,7 @@ public enum CharacterClass {
 	/**
 	 * Kamael female soldier
 	 */
-	FEMALE_SOLDIER(0x7C, ClassType.FIGHTER, ActorRace.KAMAEL), WARDER(0x7E,
+	FEMALE_SOLDIER(0x7C, ClassType.FIGHTER, CharacterRace.KAMAEL), WARDER(0x7E,
 			FEMALE_SOLDIER), FEMALE_SOULBREAKER(0x81, WARDER), ARBALESTER(0x82,
 			WARDER), FEMALE_SOULDHOUND(0x85, FEMALE_SOULBREAKER), TRICKSTER(
 			0x86, ARBALESTER), INSPECTOR(0x87, WARDER), JUDICATOR(0x88,
@@ -164,7 +164,7 @@ public enum CharacterClass {
 	/**
 	 * The class race
 	 */
-	public final ActorRace race;
+	public final CharacterRace race;
 	/**
 	 * The parent class
 	 */
@@ -185,7 +185,7 @@ public enum CharacterClass {
 	 *            the parent
 	 */
 	private CharacterClass(int id, ClassType type, boolean summoner,
-			ActorRace race, CharacterClass parent) {
+			CharacterRace race, CharacterClass parent) {
 		this.id = id;
 		this.type = type;
 		this.summoner = summoner;
@@ -232,7 +232,7 @@ public enum CharacterClass {
 	 * @param parent
 	 *            the parent class
 	 */
-	private CharacterClass(int id, ActorRace race, CharacterClass parent) {
+	private CharacterClass(int id, CharacterRace race, CharacterClass parent) {
 		this(id, parent.type, parent.summoner, race, parent);
 	}
 
@@ -247,7 +247,7 @@ public enum CharacterClass {
 	 * @param race
 	 *            the class race
 	 */
-	private CharacterClass(int id, ClassType type, ActorRace race) {
+	private CharacterClass(int id, ClassType type, CharacterRace race) {
 		this(id, type, false, race, null);
 	}
 

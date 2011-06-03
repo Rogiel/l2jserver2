@@ -7,6 +7,7 @@
         <name display="true" send="false">Leo's Steward</name>
         <title send="false">Raid Fighter</title>
         <level>55</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="64.1713408913048" max="15172.8103488362"/>
@@ -28,6 +29,18 @@
         <collision heigth="44.0" radius="21.0"/>
     </info>
     <droplist>
-        <item chance="883200" max="60" min="20" id="1342"/>
+        <item chance="883200" category="UNK_2" max="60" min="20" id="1342"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="11" id="4416"/>
+    </skills>
 </npc>

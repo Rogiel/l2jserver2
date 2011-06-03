@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Spiteful Soul Wizard</name>
         <level>63</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2089.92274"/>
@@ -26,26 +27,39 @@
         <collision heigth="32.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="3460" min="1709" id="57"/>
-        <item chance="65" max="1" min="1" id="110"/>
-        <item chance="46281" max="1" min="1" id="1830"/>
-        <item chance="77135" max="1" min="1" id="1866"/>
-        <item chance="115702" max="1" min="1" id="1871"/>
-        <item chance="9642" max="1" min="1" id="1885"/>
-        <item chance="46" max="1" min="1" id="2416"/>
-        <item chance="46" max="1" min="1" id="2417"/>
-        <item chance="1006" max="1" min="1" id="4041"/>
-        <item chance="184685" max="1" min="1" id="4053"/>
-        <item chance="9543" max="1" min="1" id="4077"/>
-        <item chance="62938" max="1" min="1" id="4078"/>
-        <item chance="8017" max="1" min="1" id="4088"/>
-        <item chance="8017" max="1" min="1" id="4089"/>
-        <item chance="4628" max="1" min="1" id="5220"/>
-        <item chance="5745" max="1" min="1" id="5230"/>
-        <item chance="154" max="1" min="1" id="5276"/>
-        <item chance="1543" max="1" min="1" id="8729"/>
-        <item chance="386" max="1" min="1" id="8739"/>
-        <item chance="38" max="1" min="1" id="8749"/>
-        <item chance="8" max="1" min="1" id="8759"/>
+        <item chance="700000" category="DROP" max="3460" min="1709" id="57"/>
+        <item chance="65" category="UNK_1" max="1" min="1" id="110"/>
+        <item chance="46281" category="UNK_2" max="1" min="1" id="1830"/>
+        <item chance="77135" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="115702" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="9642" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="46" category="UNK_1" max="1" min="1" id="2416"/>
+        <item chance="46" category="UNK_1" max="1" min="1" id="2417"/>
+        <item chance="1006" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="184685" category="SPOIL" max="1" min="1" id="4053"/>
+        <item chance="9543" category="UNK_1" max="1" min="1" id="4077"/>
+        <item chance="62938" category="SPOIL" max="1" min="1" id="4078"/>
+        <item chance="8017" category="UNK_1" max="1" min="1" id="4088"/>
+        <item chance="8017" category="UNK_1" max="1" min="1" id="4089"/>
+        <item chance="4628" category="UNK_2" max="1" min="1" id="5220"/>
+        <item chance="5745" category="SPOIL" max="1" min="1" id="5230"/>
+        <item chance="154" category="UNK_2" max="1" min="1" id="5276"/>
+        <item chance="1543" category="UNK_200" max="1" min="1" id="8729"/>
+        <item chance="386" category="UNK_200" max="1" min="1" id="8739"/>
+        <item chance="38" category="UNK_200" max="1" min="1" id="8749"/>
+        <item chance="8" category="UNK_200" max="1" min="1" id="8759"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4065"/>
+        <skill level="6" id="4087"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

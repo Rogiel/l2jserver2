@@ -7,6 +7,7 @@
         <name display="true" send="false">Darnels</name>
         <title send="false">Square</title>
         <level>84</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="159.893968662935" max="1395831.13184129"/>
@@ -26,4 +27,22 @@
         <sp>1050642</sp>
         <collision heigth="40.6" radius="20.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4182"/>
+        <skill level="9" id="4189"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5479"/>
+        <skill level="1" id="6658"/>
+    </skills>
 </npc>

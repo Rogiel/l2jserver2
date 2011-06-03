@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Dimension Invader Shaman</name>
         <level>43</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1094.28943"/>
@@ -26,16 +27,30 @@
         <collision heigth="38.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2040" min="1004" id="57"/>
-        <item chance="92" max="1" min="1" id="280"/>
-        <item chance="846642" max="11" min="1" id="1864"/>
-        <item chance="85029" max="9" min="3" id="1864"/>
-        <item chance="846642" max="5" min="1" id="1869"/>
-        <item chance="63772" max="6" min="2" id="1869"/>
-        <item chance="102035" max="1" min="1" id="1878"/>
-        <item chance="156977" max="1" min="1" id="1884"/>
-        <item chance="5427" max="1" min="1" id="2054"/>
-        <item chance="24766" max="1" min="1" id="2161"/>
-        <item chance="14514" max="1" min="1" id="4470"/>
+        <item chance="846642" category="SPOIL" max="11" min="1" id="1864"/>
+        <item chance="846642" category="SPOIL" max="5" min="1" id="1869"/>
+        <item chance="14514" category="SPOIL" max="1" min="1" id="4470"/>
+        <item chance="700000" category="DROP" max="2040" min="1004" id="57"/>
+        <item chance="92" category="UNK_1" max="1" min="1" id="280"/>
+        <item chance="5427" category="UNK_1" max="1" min="1" id="2054"/>
+        <item chance="85029" category="UNK_2" max="9" min="3" id="1864"/>
+        <item chance="63772" category="UNK_2" max="6" min="2" id="1869"/>
+        <item chance="102035" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="156977" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="24766" category="UNK_2" max="1" min="1" id="2161"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4157"/>
+        <skill level="4" id="4160"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="18" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4675"/>
+    </skills>
 </npc>

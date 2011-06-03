@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Medusa</name>
         <level>34</level>
+        <race>BEAST</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="4.5" max="736.96177"/>
@@ -26,17 +27,29 @@
         <collision heigth="25.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="574" min="288" id="57"/>
-        <item chance="310" max="1" min="1" id="436"/>
-        <item chance="495" max="1" min="1" id="469"/>
-        <item chance="120767" max="1" min="1" id="1864"/>
-        <item chance="60384" max="1" min="1" id="1869"/>
-        <item chance="136283" max="1" min="1" id="1876"/>
-        <item chance="6038" max="1" min="1" id="1880"/>
-        <item chance="94118" max="1" min="1" id="1901"/>
-        <item chance="59852" max="1" min="1" id="1939"/>
-        <item chance="431" max="1" min="1" id="2271"/>
-        <item chance="3229" max="1" min="1" id="2972"/>
-        <item chance="805" max="1" min="1" id="5550"/>
+        <item chance="700000" category="DROP" max="574" min="288" id="57"/>
+        <item chance="310" category="UNK_1" max="1" min="1" id="436"/>
+        <item chance="495" category="UNK_1" max="1" min="1" id="469"/>
+        <item chance="120767" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="60384" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="136283" category="SPOIL" max="1" min="1" id="1876"/>
+        <item chance="6038" category="UNK_2" max="1" min="1" id="1880"/>
+        <item chance="94118" category="SPOIL" max="1" min="1" id="1901"/>
+        <item chance="59852" category="SPOIL" max="1" min="1" id="1939"/>
+        <item chance="431" category="UNK_2" max="1" min="1" id="2271"/>
+        <item chance="3229" category="UNK_2" max="1" min="1" id="2972"/>
+        <item chance="805" category="UNK_2" max="1" min="1" id="5550"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4320"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+    </skills>
 </npc>

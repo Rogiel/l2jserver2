@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Cave Ant Soldier</name>
         <level>38</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="886.09975"/>
@@ -26,16 +27,28 @@
         <collision heigth="17.0" radius="35.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1355" min="679" id="57"/>
-        <item chance="77" max="1" min="1" id="129"/>
-        <item chance="802957" max="7" min="1" id="1864"/>
-        <item chance="55342" max="9" min="3" id="1864"/>
-        <item chance="802957" max="3" min="1" id="1869"/>
-        <item chance="166027" max="1" min="1" id="1869"/>
-        <item chance="66411" max="1" min="1" id="1878"/>
-        <item chance="102170" max="1" min="1" id="1884"/>
-        <item chance="221811" max="1" min="1" id="1901"/>
-        <item chance="4386" max="1" min="1" id="2034"/>
-        <item chance="17776" max="1" min="1" id="2154"/>
+        <item chance="700000" category="DROP" max="1355" min="679" id="57"/>
+        <item chance="77" category="UNK_1" max="1" min="1" id="129"/>
+        <item chance="802957" category="SPOIL" max="7" min="1" id="1864"/>
+        <item chance="55342" category="UNK_2" max="9" min="3" id="1864"/>
+        <item chance="802957" category="SPOIL" max="3" min="1" id="1869"/>
+        <item chance="166027" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="66411" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="102170" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="221811" category="SPOIL" max="1" min="1" id="1901"/>
+        <item chance="4386" category="UNK_1" max="1" min="1" id="2034"/>
+        <item chance="17776" category="UNK_2" max="1" min="1" id="2154"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4032"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

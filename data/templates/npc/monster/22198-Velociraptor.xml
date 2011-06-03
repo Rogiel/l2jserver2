@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Velociraptor</name>
         <level>80</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -26,21 +27,43 @@
         <collision heigth="47.2" radius="20.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="7213" min="3530" id="57"/>
-        <item chance="1622" max="1" min="1" id="959"/>
-        <item chance="184884" max="1" min="1" id="1879"/>
-        <item chance="92442" max="1" min="1" id="1885"/>
-        <item chance="4" max="1" min="1" id="6364"/>
-        <item chance="4" max="1" min="1" id="6372"/>
-        <item chance="4000" max="1" min="1" id="6688"/>
-        <item chance="4000" max="1" min="1" id="6696"/>
-        <item chance="7704" max="1" min="1" id="9573"/>
-        <item chance="1926" max="1" min="1" id="9574"/>
-        <item chance="193" max="1" min="1" id="9575"/>
-        <item chance="39" max="1" min="1" id="9576"/>
-        <item chance="8700" max="1" min="1" id="9628"/>
-        <item chance="4823" max="1" min="1" id="9629"/>
-        <item chance="5839" max="1" min="1" id="9630"/>
-        <item chance="565534" max="1" min="1" id="13099"/>
+        <item chance="700000" category="DROP" max="7213" min="3530" id="57"/>
+        <item chance="184884" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="92442" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="8700" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="5839" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="4823" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="7704" category="UNK_200" max="1" min="1" id="9573"/>
+        <item chance="1926" category="UNK_200" max="1" min="1" id="9574"/>
+        <item chance="193" category="UNK_200" max="1" min="1" id="9575"/>
+        <item chance="39" category="UNK_200" max="1" min="1" id="9576"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="6364"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="6372"/>
+        <item chance="4000" category="UNK_1" max="1" min="1" id="6688"/>
+        <item chance="4000" category="UNK_1" max="1" min="1" id="6696"/>
+        <item chance="565534" category="SPOIL" max="1" min="1" id="13099"/>
+        <item chance="1622" category="SPOIL" max="1" min="1" id="959"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4071"/>
+        <skill level="9" id="4084"/>
+        <skill level="5" id="4285"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="4" id="4417"/>
+        <skill level="2" id="4439"/>
+        <skill level="2" id="4445"/>
+        <skill level="1" id="5079"/>
+        <skill level="2" id="5081"/>
+        <skill level="2" id="5082"/>
+        <skill level="1" id="5465"/>
+        <skill level="9" id="5601"/>
+    </skills>
 </npc>

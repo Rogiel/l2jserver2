@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Valley Treant Elder</name>
         <level>53</level>
+        <race>SPIRIT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1570.8463"/>
@@ -26,25 +27,40 @@
         <collision heigth="90.0" radius="23.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="4008" min="1973" id="57"/>
-        <item chance="112" max="1" min="1" id="442"/>
-        <item chance="178" max="1" min="1" id="473"/>
-        <item chance="153391" max="1" min="1" id="1865"/>
-        <item chance="153391" max="1" min="1" id="1870"/>
-        <item chance="10226" max="1" min="1" id="1874"/>
-        <item chance="215903" max="1" min="1" id="1918"/>
-        <item chance="8842" max="1" min="1" id="1988"/>
-        <item chance="13869" max="1" min="1" id="1989"/>
-        <item chance="24141" max="1" min="1" id="2113"/>
-        <item chance="9970" max="1" min="1" id="3034"/>
-        <item chance="5113" max="1" min="1" id="4039"/>
-        <item chance="5113" max="1" min="1" id="4043"/>
-        <item chance="738" max="1" min="1" id="4133"/>
-        <item chance="1180" max="1" min="1" id="4941"/>
-        <item chance="2955" max="1" min="1" id="4959"/>
-        <item chance="3551" max="1" min="1" id="8726"/>
-        <item chance="888" max="1" min="1" id="8736"/>
-        <item chance="89" max="1" min="1" id="8746"/>
-        <item chance="17" max="1" min="1" id="8756"/>
+        <item chance="700000" category="DROP" max="4008" min="1973" id="57"/>
+        <item chance="112" category="UNK_1" max="1" min="1" id="442"/>
+        <item chance="178" category="UNK_1" max="1" min="1" id="473"/>
+        <item chance="153391" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="153391" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="10226" category="UNK_2" max="1" min="1" id="1874"/>
+        <item chance="215903" category="SPOIL" max="1" min="1" id="1918"/>
+        <item chance="8842" category="UNK_1" max="1" min="1" id="1988"/>
+        <item chance="13869" category="UNK_1" max="1" min="1" id="1989"/>
+        <item chance="24141" category="SPOIL" max="1" min="1" id="2113"/>
+        <item chance="9970" category="SPOIL" max="1" min="1" id="3034"/>
+        <item chance="5113" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="5113" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="738" category="UNK_2" max="1" min="1" id="4133"/>
+        <item chance="1180" category="UNK_2" max="1" min="1" id="4941"/>
+        <item chance="2955" category="UNK_2" max="1" min="1" id="4959"/>
+        <item chance="3551" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="888" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="89" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="17" category="UNK_200" max="1" min="1" id="8756"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4071"/>
+        <skill level="5" id="4250"/>
+        <skill level="5" id="4277"/>
+        <skill level="5" id="4284"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="18" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="7" id="4416"/>
+    </skills>
 </npc>

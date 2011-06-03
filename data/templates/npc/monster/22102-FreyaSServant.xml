@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Freya's Servant</name>
         <level>58</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1828.68266"/>
@@ -26,23 +27,36 @@
         <collision heigth="50.0" radius="16.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="8700" min="4271" id="57"/>
-        <item chance="24" max="1" min="1" id="229"/>
-        <item chance="24" max="1" min="1" id="243"/>
-        <item chance="106480" max="9" min="3" id="1868"/>
-        <item chance="127776" max="1" min="1" id="1873"/>
-        <item chance="63888" max="1" min="1" id="1876"/>
-        <item chance="772457" max="7" min="1" id="1895"/>
-        <item chance="91269" max="1" min="1" id="1895"/>
-        <item chance="5324" max="1" min="1" id="4042"/>
-        <item chance="195736" max="1" min="1" id="4056"/>
-        <item chance="4499" max="1" min="1" id="4109"/>
-        <item chance="4499" max="1" min="1" id="4110"/>
-        <item chance="14916" max="1" min="1" id="4617"/>
-        <item chance="244" max="1" min="1" id="8324"/>
-        <item chance="6389" max="1" min="1" id="8727"/>
-        <item chance="1597" max="1" min="1" id="8737"/>
-        <item chance="160" max="1" min="1" id="8747"/>
-        <item chance="31" max="1" min="1" id="8757"/>
+        <item chance="700000" category="DROP" max="8700" min="4271" id="57"/>
+        <item chance="106480" category="UNK_2" max="9" min="3" id="1868"/>
+        <item chance="91269" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="127776" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="63888" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="5324" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="244" category="UNK_1" max="1" min="1" id="8324"/>
+        <item chance="24" category="UNK_1" max="1" min="1" id="229"/>
+        <item chance="24" category="UNK_1" max="1" min="1" id="243"/>
+        <item chance="4499" category="UNK_1" max="1" min="1" id="4109"/>
+        <item chance="4499" category="UNK_1" max="1" min="1" id="4110"/>
+        <item chance="6389" category="UNK_200" max="1" min="1" id="8727"/>
+        <item chance="1597" category="UNK_200" max="1" min="1" id="8737"/>
+        <item chance="160" category="UNK_200" max="1" min="1" id="8747"/>
+        <item chance="31" category="UNK_200" max="1" min="1" id="8757"/>
+        <item chance="772457" category="SPOIL" max="7" min="1" id="1895"/>
+        <item chance="195736" category="SPOIL" max="1" min="1" id="4056"/>
+        <item chance="14916" category="SPOIL" max="1" min="1" id="4617"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4379"/>
+        <skill level="16" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="19" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="20" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="5" id="4417"/>
+    </skills>
 </npc>

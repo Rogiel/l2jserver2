@@ -7,6 +7,7 @@
         <name display="true" send="false">Carnamakos</name>
         <title send="false">Raid Boss</title>
         <level>50</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="73.9338965895966" max="213145.164737758"/>
@@ -27,7 +28,24 @@
         <collision heigth="46.38" radius="35.0"/>
     </info>
     <droplist>
-        <item chance="680000" max="3" min="1" id="8176"/>
-        <item chance="770000" max="5" min="2" id="9817"/>
+        <item chance="680000" category="UNK_101" max="3" min="1" id="8176"/>
+        <item chance="770000" category="UNK_100" max="5" min="2" id="9817"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4197"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4891"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Massive Kanabion</name>
         <title send="false">Void</title>
         <level>62</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1933.24044"/>
@@ -28,6 +29,20 @@
         <collision heigth="32.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="4600" max="1" min="1" id="948"/>
+        <item chance="4600" category="UNK_1" max="1" min="1" id="948"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4032"/>
+        <skill level="1" id="4340"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="1" id="5719"/>
+    </skills>
 </npc>

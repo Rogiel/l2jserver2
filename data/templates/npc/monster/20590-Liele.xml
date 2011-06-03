@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Liele</name>
         <level>46</level>
+        <race>SPIRIT</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="5.5" max="1229.78678"/>
@@ -26,24 +27,36 @@
         <collision heigth="27.0" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1842" min="901" id="57"/>
-        <item chance="139" max="1" min="1" id="354"/>
-        <item chance="222" max="1" min="1" id="381"/>
-        <item chance="131014" max="1" min="1" id="1867"/>
-        <item chance="131014" max="1" min="1" id="1872"/>
-        <item chance="21836" max="1" min="1" id="1882"/>
-        <item chance="3448" max="1" min="1" id="1894"/>
-        <item chance="7278" max="1" min="1" id="1959"/>
-        <item chance="14805" max="1" min="1" id="1960"/>
-        <item chance="16483" max="1" min="1" id="2068"/>
-        <item chance="116683" max="1" min="1" id="2163"/>
-        <item chance="1904" max="1" min="1" id="2230"/>
-        <item chance="342" max="1" min="1" id="2320"/>
-        <item chance="121583" max="1" min="1" id="2935"/>
-        <item chance="1638" max="1" min="1" id="4042"/>
-        <item chance="3930" max="1" min="1" id="8723"/>
-        <item chance="983" max="1" min="1" id="8733"/>
-        <item chance="98" max="1" min="1" id="8743"/>
-        <item chance="20" max="1" min="1" id="8753"/>
+        <item chance="700000" category="DROP" max="1842" min="901" id="57"/>
+        <item chance="139" category="UNK_1" max="1" min="1" id="354"/>
+        <item chance="222" category="UNK_1" max="1" min="1" id="381"/>
+        <item chance="131014" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="131014" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="21836" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="3448" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="7278" category="UNK_1" max="1" min="1" id="1959"/>
+        <item chance="14805" category="UNK_1" max="1" min="1" id="1960"/>
+        <item chance="16483" category="SPOIL" max="1" min="1" id="2068"/>
+        <item chance="116683" category="SPOIL" max="1" min="1" id="2163"/>
+        <item chance="1904" category="UNK_2" max="1" min="1" id="2230"/>
+        <item chance="342" category="UNK_2" max="1" min="1" id="2320"/>
+        <item chance="121583" category="SPOIL" max="1" min="1" id="2935"/>
+        <item chance="1638" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="3930" category="UNK_200" max="1" min="1" id="8723"/>
+        <item chance="983" category="UNK_200" max="1" min="1" id="8733"/>
+        <item chance="98" category="UNK_200" max="1" min="1" id="8743"/>
+        <item chance="20" category="UNK_200" max="1" min="1" id="8753"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4001"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="12" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="7" id="4416"/>
+    </skills>
 </npc>

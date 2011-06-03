@@ -7,6 +7,7 @@
         <name display="true" send="false">Awakened Ancient Prophet</name>
         <title send="false">Raid Boss</title>
         <level>81</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="188.168628266824" max="440657.534754126"/>
@@ -26,4 +27,23 @@
         <sp>410692</sp>
         <collision heigth="60.72" radius="31.68"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5465"/>
+        <skill level="2" id="5896"/>
+        <skill level="2" id="5901"/>
+        <skill level="2" id="5908"/>
+        <skill level="1" id="5917"/>
+        <skill level="1" id="6083"/>
+    </skills>
 </npc>

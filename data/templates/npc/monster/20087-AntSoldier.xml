@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Ant Soldier</name>
         <level>35</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="772.73802"/>
@@ -26,23 +27,35 @@
         <collision heigth="17.0" radius="35.0"/>
     </info>
     <droplist>
-        <item chance="940782" max="1" min="1" id="1866"/>
-        <item chance="210623" max="1" min="1" id="1940"/>
-        <item chance="188912" max="1" min="1" id="2191"/>
-        <item chance="700000" max="1189" min="596" id="57"/>
-        <item chance="214" max="1" min="1" id="393"/>
-        <item chance="214" max="1" min="1" id="394"/>
-        <item chance="342" max="1" min="1" id="415"/>
-        <item chance="342" max="1" min="1" id="416"/>
-        <item chance="8407" max="1" min="1" id="1938"/>
-        <item chance="10984" max="1" min="1" id="1939"/>
-        <item chance="104210" max="1" min="1" id="1832"/>
-        <item chance="62526" max="1" min="1" id="1866"/>
-        <item chance="93789" max="1" min="1" id="1871"/>
-        <item chance="3752" max="1" min="1" id="1877"/>
-        <item chance="8374" max="1" min="1" id="2975"/>
-        <item chance="12555" max="1" min="1" id="2980"/>
-        <item chance="9590" max="1" min="1" id="2984"/>
-        <item chance="521" max="1" min="1" id="3020"/>
+        <item chance="700000" category="DROP" max="1189" min="596" id="57"/>
+        <item chance="214" category="UNK_1" max="1" min="1" id="393"/>
+        <item chance="214" category="UNK_1" max="1" min="1" id="394"/>
+        <item chance="342" category="UNK_1" max="1" min="1" id="415"/>
+        <item chance="342" category="UNK_1" max="1" min="1" id="416"/>
+        <item chance="104210" category="UNK_2" max="1" min="1" id="1832"/>
+        <item chance="940782" category="SPOIL" max="1" min="1" id="1866"/>
+        <item chance="62526" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="93789" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="3752" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="8407" category="UNK_1" max="1" min="1" id="1938"/>
+        <item chance="10984" category="UNK_1" max="1" min="1" id="1939"/>
+        <item chance="210623" category="SPOIL" max="1" min="1" id="1940"/>
+        <item chance="188912" category="SPOIL" max="1" min="1" id="2191"/>
+        <item chance="8374" category="UNK_2" max="1" min="1" id="2975"/>
+        <item chance="12555" category="UNK_2" max="1" min="1" id="2980"/>
+        <item chance="9590" category="UNK_2" max="1" min="1" id="2984"/>
+        <item chance="521" category="UNK_2" max="1" min="1" id="3020"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4035"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

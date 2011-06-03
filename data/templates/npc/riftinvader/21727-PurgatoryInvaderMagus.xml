@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Purgatory Invader Magus</name>
         <level>53</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="6.5" max="1570.8463"/>
@@ -27,21 +28,35 @@
         <collision heigth="23.0" radius="9.0"/>
     </info>
     <droplist>
-        <item chance="12666" max="1" min="1" id="951"/>
-        <item chance="92886" max="1" min="1" id="952"/>
-        <item chance="149334" max="1" min="1" id="1984"/>
-        <item chance="700000" max="5602" min="2758" id="57"/>
-        <item chance="197" max="1" min="1" id="119"/>
-        <item chance="263" max="1" min="1" id="855"/>
-        <item chance="395" max="1" min="1" id="886"/>
-        <item chance="18567" max="1" min="1" id="1918"/>
-        <item chance="14670" max="1" min="1" id="1920"/>
-        <item chance="24625" max="1" min="1" id="2917"/>
-        <item chance="779" max="1" min="1" id="951"/>
-        <item chance="5716" max="1" min="1" id="952"/>
-        <item chance="9924" max="1" min="1" id="8726"/>
-        <item chance="2481" max="1" min="1" id="8736"/>
-        <item chance="248" max="1" min="1" id="8746"/>
-        <item chance="50" max="1" min="1" id="8756"/>
+        <item chance="12666" category="SPOIL" max="1" min="1" id="951"/>
+        <item chance="92886" category="SPOIL" max="1" min="1" id="952"/>
+        <item chance="149334" category="SPOIL" max="1" min="1" id="1984"/>
+        <item chance="700000" category="DROP" max="5602" min="2758" id="57"/>
+        <item chance="197" category="UNK_1" max="1" min="1" id="119"/>
+        <item chance="263" category="UNK_1" max="1" min="1" id="855"/>
+        <item chance="395" category="UNK_1" max="1" min="1" id="886"/>
+        <item chance="18567" category="UNK_1" max="1" min="1" id="1918"/>
+        <item chance="14670" category="UNK_1" max="1" min="1" id="1920"/>
+        <item chance="24625" category="UNK_1" max="1" min="1" id="2917"/>
+        <item chance="779" category="UNK_2" max="1" min="1" id="951"/>
+        <item chance="5716" category="UNK_2" max="1" min="1" id="952"/>
+        <item chance="9924" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="2481" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="248" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="50" category="UNK_200" max="1" min="1" id="8756"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4285"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="5" id="4561"/>
+        <skill level="5" id="4563"/>
+    </skills>
 </npc>

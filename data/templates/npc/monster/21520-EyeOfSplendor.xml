@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Eye of Splendor</name>
         <level>60</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1933.24044"/>
@@ -27,25 +28,40 @@
         <collision heigth="26.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2445" min="1203" id="57"/>
-        <item chance="36" max="1" min="1" id="947"/>
-        <item chance="99819" max="1" min="1" id="1832"/>
-        <item chance="25668" max="1" min="1" id="1895"/>
-        <item chance="1797" max="1" min="1" id="4040"/>
-        <item chance="1497" max="1" min="1" id="4042"/>
-        <item chance="2995" max="1" min="1" id="4043"/>
-        <item chance="159526" max="1" min="1" id="4049"/>
-        <item chance="7853" max="1" min="1" id="4049"/>
-        <item chance="188436" max="1" min="1" id="4050"/>
-        <item chance="9277" max="1" min="1" id="4050"/>
-        <item chance="5807" max="1" min="1" id="4051"/>
-        <item chance="32915" max="1" min="1" id="4129"/>
-        <item chance="1497" max="1" min="1" id="8728"/>
-        <item chance="374" max="1" min="1" id="8738"/>
-        <item chance="37" max="1" min="1" id="8748"/>
-        <item chance="7" max="1" min="1" id="8758"/>
-        <item chance="1227" max="1" min="1" id="12338"/>
-        <item chance="921" max="1" min="1" id="12339"/>
-        <item chance="1848" max="1" min="1" id="12340"/>
+        <item chance="700000" category="DROP" max="2445" min="1203" id="57"/>
+        <item chance="36" category="UNK_2" max="1" min="1" id="947"/>
+        <item chance="99819" category="UNK_2" max="1" min="1" id="1832"/>
+        <item chance="25668" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="1797" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="1497" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="2995" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="159526" category="SPOIL" max="1" min="1" id="4049"/>
+        <item chance="7853" category="UNK_1" max="1" min="1" id="4049"/>
+        <item chance="188436" category="SPOIL" max="1" min="1" id="4050"/>
+        <item chance="9277" category="UNK_1" max="1" min="1" id="4050"/>
+        <item chance="5807" category="UNK_1" max="1" min="1" id="4051"/>
+        <item chance="32915" category="SPOIL" max="1" min="1" id="4129"/>
+        <item chance="1497" category="UNK_200" max="1" min="1" id="8728"/>
+        <item chance="374" category="UNK_200" max="1" min="1" id="8738"/>
+        <item chance="37" category="UNK_200" max="1" min="1" id="8748"/>
+        <item chance="7" category="UNK_200" max="1" min="1" id="8758"/>
+        <item chance="1227" category="UNK_1" max="1" min="1" id="12338"/>
+        <item chance="921" category="UNK_1" max="1" min="1" id="12339"/>
+        <item chance="1848" category="UNK_1" max="1" min="1" id="12340"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4035"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="6" id="4561"/>
+        <skill level="3" id="4631"/>
+        <skill level="3" id="4642"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Kietch's Subordinate</name>
         <level>84</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="196.571121475454" max="19178.9661763889"/>
@@ -25,4 +26,20 @@
         <sp>0</sp>
         <collision heigth="32.5" radius="15.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="2" id="4084"/>
+        <skill level="2" id="4099"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5462"/>
+        <skill level="1" id="5479"/>
+    </skills>
 </npc>

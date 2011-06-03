@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Divinity Worshipper</name>
         <level>84</level>
+        <race>ANGEL</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="110.577296732991" max="32744.8265190398"/>
@@ -26,24 +27,44 @@
         <collision heigth="49.0" radius="24.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="12273" min="6727" id="57"/>
-        <item chance="321200" max="1" min="1" id="1895"/>
-        <item chance="20200" max="1" min="1" id="4040"/>
-        <item chance="18000" max="1" min="1" id="9573"/>
-        <item chance="4400" max="1" min="1" id="9574"/>
-        <item chance="440" max="1" min="1" id="9575"/>
-        <item chance="250000" max="1" min="1" id="9628"/>
-        <item chance="12400" max="1" min="1" id="9628"/>
-        <item chance="6000" max="1" min="1" id="9630"/>
-        <item chance="7" max="1" min="1" id="14107"/>
-        <item chance="10" max="1" min="1" id="14115"/>
-        <item chance="16000" max="1" min="1" id="15665"/>
-        <item chance="4000" max="1" min="1" id="15665"/>
-        <item chance="22000" max="1" min="1" id="15673"/>
-        <item chance="5500" max="1" min="1" id="15673"/>
-        <item chance="1600" max="1" min="1" id="15797"/>
-        <item chance="60" max="1" min="1" id="15797"/>
-        <item chance="2000" max="1" min="1" id="15800"/>
-        <item chance="70" max="1" min="1" id="15800"/>
+        <item chance="700000" category="DROP" max="12331" min="6033" id="57"/>
+        <item chance="388793" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="27215" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="49000" category="UNK_3" max="1" min="1" id="8056"/>
+        <item chance="116995" category="SPOIL" max="1" min="1" id="9628"/>
+        <item chance="10672" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="7161" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="17" category="UNK_1" max="1" min="1" id="14107"/>
+        <item chance="27" category="UNK_1" max="1" min="1" id="14115"/>
+        <item chance="6573" category="UNK_2" max="1" min="1" id="14166"/>
+        <item chance="1641" category="UNK_2" max="1" min="1" id="14167"/>
+        <item chance="163" category="UNK_2" max="1" min="1" id="14168"/>
+        <item chance="10500" category="UNK_3" max="1" min="1" id="15540"/>
+        <item chance="35390" category="SPOIL" max="1" min="1" id="15665"/>
+        <item chance="7259" category="UNK_1" max="1" min="1" id="15665"/>
+        <item chance="54541" category="SPOIL" max="1" min="1" id="15673"/>
+        <item chance="11188" category="UNK_1" max="1" min="1" id="15673"/>
+        <item chance="10500" category="UNK_3" max="1" min="1" id="15690"/>
+        <item chance="4262" category="SPOIL" max="1" min="1" id="15797"/>
+        <item chance="388" category="UNK_2" max="1" min="1" id="15797"/>
+        <item chance="6819" category="SPOIL" max="1" min="1" id="15800"/>
+        <item chance="623" category="UNK_2" max="1" min="1" id="15800"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4276"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="5" id="4441"/>
+        <skill level="2" id="4458"/>
+        <skill level="1" id="5466"/>
+        <skill level="9" id="5620"/>
+        <skill level="1" id="6327"/>
+    </skills>
 </npc>

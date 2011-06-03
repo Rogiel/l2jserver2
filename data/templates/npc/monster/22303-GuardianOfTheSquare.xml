@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Guardian of the Square</name>
         <level>82</level>
+        <race>SPIRIT</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="192.697893809876" max="56403.1943232691"/>
@@ -26,17 +27,31 @@
         <collision heigth="35.6" radius="16.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="38159" min="18630" id="57"/>
-        <item chance="152311" max="21" min="7" id="1869"/>
-        <item chance="95194" max="72" min="24" id="1864"/>
-        <item chance="76155" max="1" min="1" id="4043"/>
-        <item chance="32638" max="9" min="3" id="1880"/>
-        <item chance="30462" max="1" min="1" id="5550"/>
-        <item chance="18801" max="1" min="1" id="5538"/>
-        <item chance="1218" max="1" min="1" id="11967"/>
-        <item chance="91" max="1" min="1" id="959"/>
-        <item chance="927572" max="1" min="1" id="4043"/>
-        <item chance="371029" max="1" min="1" id="5550"/>
-        <item chance="76313" max="1" min="1" id="5541"/>
+        <item chance="700000" category="DROP" max="38159" min="18630" id="57"/>
+        <item chance="152311" category="UNK_2" max="21" min="7" id="1869"/>
+        <item chance="95194" category="UNK_2" max="72" min="24" id="1864"/>
+        <item chance="76155" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="32638" category="UNK_2" max="9" min="3" id="1880"/>
+        <item chance="30462" category="UNK_2" max="1" min="1" id="5550"/>
+        <item chance="18801" category="UNK_1" max="1" min="1" id="5538"/>
+        <item chance="1218" category="UNK_1" max="1" min="1" id="11967"/>
+        <item chance="91" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="927572" category="SPOIL" max="1" min="1" id="4043"/>
+        <item chance="371029" category="SPOIL" max="1" min="1" id="5550"/>
+        <item chance="76313" category="SPOIL" max="1" min="1" id="5541"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="7" id="4416"/>
+        <skill level="4" id="5359"/>
+        <skill level="4" id="5365"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

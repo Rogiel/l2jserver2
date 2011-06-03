@@ -7,6 +7,7 @@
         <name display="true" send="false">Veltress</name>
         <title send="false">Sentinel</title>
         <level>80</level>
+        <race>ELVEN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -40,4 +41,16 @@ In the age of great disaster, our goddess was filled with sadness at seeing so m
 A long time ago, just once, I saw the lake nymphs dancing on the ripples as if they were gliding. Now all the lake nymphs have left, but sometimes if you take a walk around Lake Iris you can hear the echoes of their singing.
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
 </npc>

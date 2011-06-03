@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Zaken's High Grade Watchman</name>
         <level>45</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1183.80594"/>
@@ -26,23 +27,39 @@
         <collision heigth="33.6" radius="18.0"/>
     </info>
     <droplist>
-        <item chance="868979" max="7" min="1" id="1869"/>
-        <item chance="177343" max="1" min="1" id="2163"/>
-        <item chance="115864" max="1" min="1" id="4043"/>
-        <item chance="700000" max="2793" min="1375" id="57"/>
-        <item chance="282" max="1" min="1" id="397"/>
-        <item chance="13143" max="1" min="1" id="1961"/>
-        <item chance="452" max="1" min="1" id="2387"/>
-        <item chance="21835" max="1" min="1" id="2935"/>
-        <item chance="164277" max="3" min="1" id="1864"/>
-        <item chance="164277" max="1" min="1" id="1869"/>
-        <item chance="16428" max="1" min="1" id="1880"/>
-        <item chance="12637" max="1" min="1" id="2164"/>
-        <item chance="5476" max="1" min="1" id="4043"/>
-        <item chance="2190" max="1" min="1" id="5550"/>
-        <item chance="6571" max="1" min="1" id="8723"/>
-        <item chance="1643" max="1" min="1" id="8733"/>
-        <item chance="164" max="1" min="1" id="8743"/>
-        <item chance="33" max="1" min="1" id="8753"/>
+        <item chance="868979" category="SPOIL" max="7" min="1" id="1869"/>
+        <item chance="177343" category="SPOIL" max="1" min="1" id="2163"/>
+        <item chance="115864" category="SPOIL" max="1" min="1" id="4043"/>
+        <item chance="700000" category="DROP" max="2793" min="1375" id="57"/>
+        <item chance="282" category="UNK_1" max="1" min="1" id="397"/>
+        <item chance="13143" category="UNK_1" max="1" min="1" id="1961"/>
+        <item chance="452" category="UNK_1" max="1" min="1" id="2387"/>
+        <item chance="21835" category="UNK_1" max="1" min="1" id="2935"/>
+        <item chance="164277" category="UNK_2" max="3" min="1" id="1864"/>
+        <item chance="164277" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="16428" category="UNK_2" max="1" min="1" id="1880"/>
+        <item chance="12637" category="UNK_2" max="1" min="1" id="2164"/>
+        <item chance="5476" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="2190" category="UNK_2" max="1" min="1" id="5550"/>
+        <item chance="6571" category="UNK_200" max="1" min="1" id="8723"/>
+        <item chance="1643" category="UNK_200" max="1" min="1" id="8733"/>
+        <item chance="164" category="UNK_200" max="1" min="1" id="8743"/>
+        <item chance="33" category="UNK_200" max="1" min="1" id="8753"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4151"/>
+        <skill level="4" id="4160"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="2" id="4444"/>
+    </skills>
 </npc>

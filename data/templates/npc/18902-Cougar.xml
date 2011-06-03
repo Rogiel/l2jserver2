@@ -7,6 +7,7 @@
         <name display="true" send="false">Cougar</name>
         <title send="false">Golden</title>
         <level>83</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3835.59060587002"/>
@@ -27,6 +28,21 @@
         <collision heigth="21.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="1000000" max="149664" min="50141" id="57"/>
+        <item chance="1000000" category="DROP" max="149664" min="50141" id="57"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4074"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="18" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="5463"/>
+        <skill level="1" id="6234"/>
+        <skill level="16" id="6556"/>
+    </skills>
 </npc>

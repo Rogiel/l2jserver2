@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Nemo</name>
         <level>80</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -49,4 +50,17 @@ Are you pulling my leg? You're NOT an adventurer? Or you ARE? You have one? You 
 Take a look at the top of the Maguen�s head. Observe the aura of the Plasma that the Maguen is producing. Use the Maguen Plasma Collector when the Maguen summons the Plasma you wish to collect.
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

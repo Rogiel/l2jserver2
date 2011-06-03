@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Rodo Knight</name>
         <level>82</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3643.38976668326"/>
@@ -26,27 +27,40 @@
         <collision heigth="47.0" radius="34.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="4321" min="2109" id="57"/>
-        <item chance="5446" max="1" min="1" id="1894"/>
-        <item chance="5174" max="1" min="1" id="4039"/>
-        <item chance="5174" max="1" min="1" id="4044"/>
-        <item chance="3277" max="1" min="1" id="5515"/>
-        <item chance="3277" max="1" min="1" id="5503"/>
-        <item chance="3277" max="1" min="1" id="5514"/>
-        <item chance="3277" max="1" min="1" id="5502"/>
-        <item chance="1350" max="1" min="1" id="4041"/>
-        <item chance="1242" max="1" min="1" id="9546"/>
-        <item chance="1078" max="1" min="1" id="9573"/>
-        <item chance="528" max="1" min="1" id="12260"/>
-        <item chance="528" max="1" min="1" id="12257"/>
-        <item chance="528" max="1" min="1" id="12267"/>
-        <item chance="528" max="1" min="1" id="12264"/>
-        <item chance="269" max="1" min="1" id="9574"/>
-        <item chance="62" max="1" min="1" id="960"/>
-        <item chance="27" max="1" min="1" id="9575"/>
-        <item chance="5" max="1" min="1" id="9576"/>
-        <item chance="105027" max="1" min="1" id="4044"/>
-        <item chance="27398" max="1" min="1" id="4041"/>
-        <item chance="8644" max="1" min="1" id="5537"/>
+        <item chance="700000" category="DROP" max="4321" min="2109" id="57"/>
+        <item chance="5446" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="5174" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="5174" category="UNK_2" max="1" min="1" id="4044"/>
+        <item chance="3277" category="UNK_1" max="1" min="1" id="5515"/>
+        <item chance="3277" category="UNK_1" max="1" min="1" id="5503"/>
+        <item chance="3277" category="UNK_1" max="1" min="1" id="5514"/>
+        <item chance="3277" category="UNK_1" max="1" min="1" id="5502"/>
+        <item chance="1350" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="1242" category="UNK_200" max="1" min="1" id="9546"/>
+        <item chance="1078" category="UNK_200" max="1" min="1" id="9573"/>
+        <item chance="528" category="UNK_1" max="1" min="1" id="12260"/>
+        <item chance="528" category="UNK_1" max="1" min="1" id="12257"/>
+        <item chance="528" category="UNK_1" max="1" min="1" id="12267"/>
+        <item chance="528" category="UNK_1" max="1" min="1" id="12264"/>
+        <item chance="269" category="UNK_200" max="1" min="1" id="9574"/>
+        <item chance="62" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="27" category="UNK_200" max="1" min="1" id="9575"/>
+        <item chance="5" category="UNK_200" max="1" min="1" id="9576"/>
+        <item chance="105027" category="SPOIL" max="1" min="1" id="4044"/>
+        <item chance="27398" category="SPOIL" max="1" min="1" id="4041"/>
+        <item chance="8644" category="SPOIL" max="1" min="1" id="5537"/>
     </droplist>
+    <skills>
+        <skill level="10" id="4032"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="10" id="4472"/>
+    </skills>
 </npc>

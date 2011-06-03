@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Giant Crimson Ant</name>
         <level>28</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="543.79576"/>
@@ -26,19 +27,31 @@
         <collision heigth="17.0" radius="35.0"/>
     </info>
     <droplist>
-        <item chance="328429" max="1" min="1" id="1884"/>
-        <item chance="69764" max="1" min="1" id="1931"/>
-        <item chance="40128" max="1" min="1" id="2180"/>
-        <item chance="700000" max="448" min="229" id="57"/>
-        <item chance="724" max="1" min="1" id="847"/>
-        <item chance="1085" max="1" min="1" id="890"/>
-        <item chance="543" max="1" min="1" id="910"/>
-        <item chance="11701" max="1" min="1" id="1899"/>
-        <item chance="133123" max="1" min="1" id="1831"/>
-        <item chance="99843" max="1" min="1" id="1868"/>
-        <item chance="19969" max="1" min="1" id="1873"/>
-        <item chance="3328" max="1" min="1" id="1889"/>
-        <item chance="3754" max="1" min="1" id="2180"/>
-        <item chance="4992" max="1" min="1" id="5549"/>
+        <item chance="328429" category="SPOIL" max="1" min="1" id="1884"/>
+        <item chance="69764" category="SPOIL" max="1" min="1" id="1931"/>
+        <item chance="40128" category="SPOIL" max="1" min="1" id="2180"/>
+        <item chance="700000" category="DROP" max="448" min="229" id="57"/>
+        <item chance="724" category="UNK_1" max="1" min="1" id="847"/>
+        <item chance="1085" category="UNK_1" max="1" min="1" id="890"/>
+        <item chance="543" category="UNK_1" max="1" min="1" id="910"/>
+        <item chance="11701" category="UNK_1" max="1" min="1" id="1899"/>
+        <item chance="133123" category="UNK_2" max="1" min="1" id="1831"/>
+        <item chance="99843" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="19969" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="3328" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="3754" category="UNK_2" max="1" min="1" id="2180"/>
+        <item chance="4992" category="UNK_2" max="1" min="1" id="5549"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4035"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

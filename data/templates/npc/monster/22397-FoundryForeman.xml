@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Foundry Foreman</name>
         <level>83</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="111.50705124295" max="32829.2831947712"/>
@@ -25,4 +26,17 @@
         <sp>15182</sp>
         <collision heigth="49.0" radius="33.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="9" id="5360"/>
+        <skill level="1" id="5462"/>
+    </skills>
 </npc>

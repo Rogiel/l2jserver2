@@ -7,6 +7,7 @@
         <name display="true" send="false">Seal Device</name>
         <title send="false">Emperor Shunaiman's</title>
         <level>79</level>
+        <race>MAGIC_CREATURE</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="8.5" max="3127.82459333517"/>
@@ -26,4 +27,15 @@
         <sp>0</sp>
         <collision heigth="24.0" radius="21.0"/>
     </info>
+    <skills>
+        <skill level="16" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="5" id="4410"/>
+        <skill level="4" id="4411"/>
+        <skill level="18" id="4412"/>
+        <skill level="19" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

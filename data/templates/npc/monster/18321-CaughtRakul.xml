@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Caught Rakul</name>
         <level>30</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="604.08419"/>
@@ -27,10 +28,24 @@
         <collision heigth="39.0" radius="30.0"/>
     </info>
     <droplist>
-        <item chance="33251" max="6" min="2" id="6520"/>
-        <item chance="110836" max="1" min="1" id="6523"/>
-        <item chance="133003" max="1" min="1" id="6526"/>
-        <item chance="200" max="1" min="1" id="6531"/>
-        <item chance="118753" max="36" min="12" id="6537"/>
+        <item chance="33251" category="UNK_2" max="6" min="2" id="6520"/>
+        <item chance="110836" category="UNK_2" max="1" min="1" id="6523"/>
+        <item chance="133003" category="UNK_2" max="1" min="1" id="6526"/>
+        <item chance="200" category="UNK_1" max="1" min="1" id="6531"/>
+        <item chance="118753" category="UNK_2" max="36" min="12" id="6537"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4382"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="15" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="2" id="4438"/>
+        <skill level="2" id="4439"/>
+    </skills>
 </npc>

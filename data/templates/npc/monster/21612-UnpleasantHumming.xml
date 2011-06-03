@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Unpleasant Humming</name>
         <level>46</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1229.78678"/>
@@ -26,27 +27,40 @@
         <collision heigth="26.0" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="209352" max="1" min="1" id="1908"/>
-        <item chance="17339" max="1" min="1" id="2066"/>
-        <item chance="7703" max="1" min="1" id="2320"/>
-        <item chance="700000" max="1781" min="871" id="57"/>
-        <item chance="341" max="1" min="1" id="631"/>
-        <item chance="14071" max="1" min="1" id="1964"/>
-        <item chance="239" max="1" min="1" id="2413"/>
-        <item chance="341" max="1" min="1" id="2495"/>
-        <item chance="12780" max="1" min="1" id="2936"/>
-        <item chance="14071" max="1" min="1" id="2945"/>
-        <item chance="116093" max="1" min="1" id="1867"/>
-        <item chance="116093" max="1" min="1" id="1872"/>
-        <item chance="19349" max="1" min="1" id="1882"/>
-        <item chance="3055" max="1" min="1" id="1894"/>
-        <item chance="1688" max="1" min="1" id="2230"/>
-        <item chance="303" max="1" min="1" id="2326"/>
-        <item chance="1451" max="1" min="1" id="4042"/>
-        <item chance="31096" max="1" min="1" id="6668"/>
-        <item chance="3483" max="1" min="1" id="8723"/>
-        <item chance="871" max="1" min="1" id="8733"/>
-        <item chance="87" max="1" min="1" id="8743"/>
-        <item chance="17" max="1" min="1" id="8753"/>
+        <item chance="209352" category="SPOIL" max="1" min="1" id="1908"/>
+        <item chance="17339" category="SPOIL" max="1" min="1" id="2066"/>
+        <item chance="7703" category="SPOIL" max="1" min="1" id="2320"/>
+        <item chance="700000" category="DROP" max="1781" min="871" id="57"/>
+        <item chance="341" category="UNK_1" max="1" min="1" id="631"/>
+        <item chance="14071" category="UNK_1" max="1" min="1" id="1964"/>
+        <item chance="239" category="UNK_1" max="1" min="1" id="2413"/>
+        <item chance="341" category="UNK_1" max="1" min="1" id="2495"/>
+        <item chance="12780" category="UNK_1" max="1" min="1" id="2936"/>
+        <item chance="14071" category="UNK_1" max="1" min="1" id="2945"/>
+        <item chance="116093" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="116093" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="19349" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="3055" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="1688" category="UNK_2" max="1" min="1" id="2230"/>
+        <item chance="303" category="UNK_2" max="1" min="1" id="2326"/>
+        <item chance="1451" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="31096" category="UNK_2" max="1" min="1" id="6668"/>
+        <item chance="3483" category="UNK_200" max="1" min="1" id="8723"/>
+        <item chance="871" category="UNK_200" max="1" min="1" id="8733"/>
+        <item chance="87" category="UNK_200" max="1" min="1" id="8743"/>
+        <item chance="17" category="UNK_200" max="1" min="1" id="8753"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4088"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="2" id="4438"/>
+    </skills>
 </npc>

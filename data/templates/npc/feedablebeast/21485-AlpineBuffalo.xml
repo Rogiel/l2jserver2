@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Alpine Buffalo</name>
         <level>67</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2295.48154"/>
@@ -26,25 +27,40 @@
         <collision heigth="25.2" radius="16.0"/>
     </info>
     <droplist>
-        <item chance="129510" max="60" min="20" id="1343"/>
-        <item chance="60438" max="3" min="1" id="1865"/>
-        <item chance="181313" max="1" min="1" id="1870"/>
-        <item chance="12087" max="1" min="1" id="1875"/>
-        <item chance="30219" max="1" min="1" id="1879"/>
-        <item chance="135041" max="1" min="1" id="4040"/>
-        <item chance="3626" max="1" min="1" id="4040"/>
-        <item chance="11769" max="1" min="1" id="4052"/>
-        <item chance="14248" max="1" min="1" id="4053"/>
-        <item chance="6547" max="1" min="1" id="4054"/>
-        <item chance="158443" max="1" min="1" id="4086"/>
-        <item chance="58207" max="1" min="1" id="5368"/>
-        <item chance="1395" max="1" min="1" id="6339"/>
-        <item chance="2014" max="1" min="1" id="8730"/>
-        <item chance="504" max="1" min="1" id="8740"/>
-        <item chance="51" max="1" min="1" id="8750"/>
-        <item chance="10" max="1" min="1" id="8760"/>
-        <item chance="1542" max="1" min="1" id="12341"/>
-        <item chance="1156" max="1" min="1" id="12342"/>
-        <item chance="2308" max="1" min="1" id="12343"/>
+        <item chance="129510" category="UNK_2" max="60" min="20" id="1343"/>
+        <item chance="60438" category="UNK_2" max="3" min="1" id="1865"/>
+        <item chance="181313" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="12087" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="30219" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="135041" category="SPOIL" max="1" min="1" id="4040"/>
+        <item chance="3626" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="11769" category="UNK_1" max="1" min="1" id="4052"/>
+        <item chance="14248" category="UNK_1" max="1" min="1" id="4053"/>
+        <item chance="6547" category="UNK_1" max="1" min="1" id="4054"/>
+        <item chance="158443" category="SPOIL" max="1" min="1" id="4086"/>
+        <item chance="58207" category="SPOIL" max="1" min="1" id="5368"/>
+        <item chance="1395" category="UNK_2" max="1" min="1" id="6339"/>
+        <item chance="2014" category="UNK_200" max="1" min="1" id="8730"/>
+        <item chance="504" category="UNK_200" max="1" min="1" id="8740"/>
+        <item chance="51" category="UNK_200" max="1" min="1" id="8750"/>
+        <item chance="10" category="UNK_200" max="1" min="1" id="8760"/>
+        <item chance="1542" category="UNK_1" max="1" min="1" id="12341"/>
+        <item chance="1156" category="UNK_1" max="1" min="1" id="12342"/>
+        <item chance="2308" category="UNK_1" max="1" min="1" id="12343"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4067"/>
+        <skill level="6" id="4072"/>
+        <skill level="2" id="4074"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="6" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="2" id="4438"/>
+    </skills>
 </npc>

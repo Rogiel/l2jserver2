@@ -7,6 +7,7 @@
         <name display="true" send="false">Guard Captain</name>
         <title send="false">Guard</title>
         <level>78</level>
+        <race>DEFENDING_ARMY</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="397.49728048556" max="681761.551881449"/>
@@ -28,6 +29,25 @@
         <collision heigth="23.75" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="841571" max="150" min="70" id="9912"/>
+        <item chance="841571" category="UNK_1" max="150" min="70" id="9912"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4172"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="8" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="22" id="4416"/>
+        <skill level="5" id="4435"/>
+        <skill level="5" id="4439"/>
+        <skill level="5" id="4440"/>
+        <skill level="1" id="4608"/>
+        <skill level="1" id="5432"/>
+        <skill level="1" id="5457"/>
+    </skills>
 </npc>

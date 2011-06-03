@@ -7,6 +7,7 @@
         <name display="true" send="false">Hannibal</name>
         <title send="false">Raid Boss</title>
         <level>81</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="132.781870390792" max="431893.62160741"/>
@@ -26,4 +27,22 @@
         <sp>1265702</sp>
         <collision heigth="40.6" radius="20.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4183"/>
+        <skill level="9" id="4185"/>
+        <skill level="9" id="4191"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5473"/>
+    </skills>
 </npc>

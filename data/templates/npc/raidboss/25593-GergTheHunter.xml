@@ -7,6 +7,7 @@
         <name display="true" send="false">Gerg the Hunter</name>
         <title send="false">Forsaken Inmate</title>
         <level>80</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="89.5179966399562" max="209635.262151965"/>
@@ -27,11 +28,24 @@
         <collision heigth="71.5" radius="46.0"/>
     </info>
     <droplist>
-        <item chance="15335" max="1" min="1" id="289"/>
-        <item chance="727676" max="9" min="3" id="5534"/>
-        <item chance="13744" max="1" min="1" id="6578"/>
-        <item chance="70279" max="1" min="1" id="9587"/>
-        <item chance="54061" max="1" min="1" id="9591"/>
-        <item chance="41230" max="1" min="1" id="9626"/>
+        <item chance="15335" category="UNK_1" max="1" min="1" id="289"/>
+        <item chance="727676" category="UNK_1" max="9" min="3" id="5534"/>
+        <item chance="13744" category="UNK_2" max="1" min="1" id="6578"/>
+        <item chance="70279" category="UNK_4" max="1" min="1" id="9587"/>
+        <item chance="54061" category="UNK_4" max="1" min="1" id="9591"/>
+        <item chance="41230" category="UNK_3" max="1" min="1" id="9626"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="7" id="4745"/>
+    </skills>
 </npc>

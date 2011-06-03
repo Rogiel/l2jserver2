@@ -7,6 +7,7 @@
         <name display="true" send="false">Zaken's Chief Mate Tillion</name>
         <title send="false">Raid Boss</title>
         <level>50</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="53.8546339421093" max="155046.064475059"/>
@@ -28,23 +29,40 @@
         <collision heigth="39.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="13814" max="1" min="1" id="229"/>
-        <item chance="13814" max="1" min="1" id="243"/>
-        <item chance="51388" max="1" min="1" id="503"/>
-        <item chance="73415" max="1" min="1" id="633"/>
-        <item chance="73415" max="1" min="1" id="673"/>
-        <item chance="51388" max="1" min="1" id="2415"/>
-        <item chance="153509" max="67" min="23" id="4072"/>
-        <item chance="38598" max="346" min="116" id="4101"/>
-        <item chance="215872" max="48" min="16" id="4102"/>
-        <item chance="324945" max="12" min="4" id="4109"/>
-        <item chance="173304" max="22" min="8" id="4110"/>
-        <item chance="88393" max="180" min="60" id="4439"/>
-        <item chance="332294" max="3" min="1" id="4607"/>
-        <item chance="221529" max="4" min="2" id="4608"/>
-        <item chance="166147" max="6" min="2" id="4609"/>
-        <item chance="19938" max="1" min="1" id="6573"/>
-        <item chance="850000" max="1" min="1" id="8176"/>
-        <item chance="850000" max="3" min="1" id="9814"/>
+        <item chance="13814" category="UNK_1" max="1" min="1" id="229"/>
+        <item chance="13814" category="UNK_1" max="1" min="1" id="243"/>
+        <item chance="51388" category="DROP" max="1" min="1" id="503"/>
+        <item chance="73415" category="DROP" max="1" min="1" id="633"/>
+        <item chance="73415" category="DROP" max="1" min="1" id="673"/>
+        <item chance="51388" category="DROP" max="1" min="1" id="2415"/>
+        <item chance="153509" category="DROP" max="67" min="23" id="4072"/>
+        <item chance="38598" category="DROP" max="346" min="116" id="4101"/>
+        <item chance="215872" category="DROP" max="48" min="16" id="4102"/>
+        <item chance="324945" category="UNK_1" max="12" min="4" id="4109"/>
+        <item chance="173304" category="UNK_1" max="22" min="8" id="4110"/>
+        <item chance="88393" category="DROP" max="180" min="60" id="4439"/>
+        <item chance="332294" category="UNK_2" max="3" min="1" id="4607"/>
+        <item chance="221529" category="UNK_2" max="4" min="2" id="4608"/>
+        <item chance="166147" category="UNK_2" max="6" min="2" id="4609"/>
+        <item chance="19938" category="UNK_2" max="1" min="1" id="6573"/>
+        <item chance="850000" category="UNK_101" max="1" min="1" id="8176"/>
+        <item chance="850000" category="UNK_100" max="3" min="1" id="9814"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4197"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4972"/>
+    </skills>
 </npc>

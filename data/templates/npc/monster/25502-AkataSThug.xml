@@ -7,6 +7,7 @@
         <name display="true" send="false">Akata's Thug</name>
         <title send="false">Raid Fighter</title>
         <level>30</level>
+        <race>UNDEAD</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="21.714038575401" max="5755.57161140834"/>
@@ -27,4 +28,17 @@
         <item lefthand="0" righthand="8527"/>
         <collision heigth="22.0" radius="8.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="3" id="4757"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lost Assistant Guard</name>
         <level>83</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="17.7763833411484" max="16110.4741695923"/>
@@ -25,4 +26,22 @@
         <sp>0</sp>
         <collision heigth="44.0" radius="19.0"/>
     </info>
+    <skills>
+        <skill level="8" id="4214"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="4" id="4438"/>
+        <skill level="4" id="4439"/>
+        <skill level="4" id="4440"/>
+        <skill level="4" id="4441"/>
+        <skill level="8" id="4780"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

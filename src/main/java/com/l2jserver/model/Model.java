@@ -35,15 +35,15 @@ public interface Model<T extends ID<?>> {
 	void setID(T ID);
 
 	/**
-	 * @return the database object state
+	 * @return the database object desire
 	 */
 	ObjectDesire getObjectDesire();
 
 	/**
-	 * @param state
-	 *            the database object state to set
+	 * @param desire
+	 *            the database object desire to set
 	 */
-	void setObjectDesire(ObjectDesire state);
+	void setObjectDesire(ObjectDesire desire);
 
 	public enum ObjectDesire {
 		NONE, INSERT, UPDATE, DELETE;

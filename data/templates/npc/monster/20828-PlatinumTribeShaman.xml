@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Platinum Tribe Shaman</name>
         <level>70</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -27,25 +28,41 @@
         <collision heigth="25.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="9172" min="4508" id="57"/>
-        <item chance="112232" max="9" min="3" id="1864"/>
-        <item chance="84174" max="6" min="2" id="1869"/>
-        <item chance="134679" max="1" min="1" id="1878"/>
-        <item chance="41440" max="6" min="2" id="1884"/>
-        <item chance="11223" max="1" min="1" id="4039"/>
-        <item chance="49809" max="1" min="1" id="4120"/>
-        <item chance="49642" max="1" min="1" id="4121"/>
-        <item chance="6487" max="1" min="1" id="4177"/>
-        <item chance="42" max="1" min="1" id="5304"/>
-        <item chance="67" max="1" min="1" id="5305"/>
-        <item chance="26" max="1" min="1" id="5308"/>
-        <item chance="67447" max="1" min="1" id="5479"/>
-        <item chance="4719" max="1" min="1" id="5485"/>
-        <item chance="3320" max="1" min="1" id="5486"/>
-        <item chance="7406" max="1" min="1" id="5489"/>
-        <item chance="3741" max="1" min="1" id="8730"/>
-        <item chance="935" max="1" min="1" id="8740"/>
-        <item chance="94" max="1" min="1" id="8750"/>
-        <item chance="18" max="1" min="1" id="8760"/>
+        <item chance="700000" category="DROP" max="9172" min="4508" id="57"/>
+        <item chance="112232" category="UNK_2" max="9" min="3" id="1864"/>
+        <item chance="84174" category="UNK_2" max="6" min="2" id="1869"/>
+        <item chance="134679" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="41440" category="UNK_2" max="6" min="2" id="1884"/>
+        <item chance="11223" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="49809" category="SPOIL" max="1" min="1" id="4120"/>
+        <item chance="49642" category="SPOIL" max="1" min="1" id="4121"/>
+        <item chance="6487" category="UNK_2" max="1" min="1" id="4177"/>
+        <item chance="42" category="UNK_1" max="1" min="1" id="5304"/>
+        <item chance="67" category="UNK_1" max="1" min="1" id="5305"/>
+        <item chance="26" category="UNK_1" max="1" min="1" id="5308"/>
+        <item chance="67447" category="SPOIL" max="1" min="1" id="5479"/>
+        <item chance="4719" category="UNK_1" max="1" min="1" id="5485"/>
+        <item chance="3320" category="UNK_1" max="1" min="1" id="5486"/>
+        <item chance="7406" category="UNK_1" max="1" min="1" id="5489"/>
+        <item chance="3741" category="UNK_200" max="1" min="1" id="8730"/>
+        <item chance="935" category="UNK_200" max="1" min="1" id="8740"/>
+        <item chance="94" category="UNK_200" max="1" min="1" id="8750"/>
+        <item chance="18" category="UNK_200" max="1" min="1" id="8760"/>
     </droplist>
+    <skills>
+        <skill level="7" id="4046"/>
+        <skill level="7" id="4066"/>
+        <skill level="7" id="4073"/>
+        <skill level="7" id="4094"/>
+        <skill level="13" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="2" id="4438"/>
+    </skills>
 </npc>

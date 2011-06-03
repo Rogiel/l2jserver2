@@ -7,6 +7,7 @@
         <name display="true" send="false">Mammon Collector Talos</name>
         <title send="false">Raid Boss</title>
         <level>25</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="18.4385313667577" max="43316.3085364372"/>
@@ -27,17 +28,35 @@
         <collision heigth="37.5" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="19756" max="1" min="1" id="223"/>
-        <item chance="19756" max="1" min="1" id="238"/>
-        <item chance="19756" max="1" min="1" id="239"/>
-        <item chance="19756" max="1" min="1" id="241"/>
-        <item chance="125544" max="1" min="1" id="393"/>
-        <item chance="125544" max="1" min="1" id="394"/>
-        <item chance="200664" max="1" min="1" id="415"/>
-        <item chance="200664" max="1" min="1" id="416"/>
-        <item chance="164579" max="180" min="60" id="1938"/>
-        <item chance="460777" max="84" min="28" id="1939"/>
-        <item chance="64638" max="81" min="27" id="2028"/>
-        <item chance="126939" max="1" min="1" id="6575"/>
+        <item chance="19756" category="UNK_1" max="1" min="1" id="223"/>
+        <item chance="19756" category="UNK_1" max="1" min="1" id="238"/>
+        <item chance="19756" category="UNK_1" max="1" min="1" id="239"/>
+        <item chance="19756" category="UNK_1" max="1" min="1" id="241"/>
+        <item chance="125544" category="DROP" max="1" min="1" id="393"/>
+        <item chance="125544" category="DROP" max="1" min="1" id="394"/>
+        <item chance="200664" category="DROP" max="1" min="1" id="415"/>
+        <item chance="200664" category="DROP" max="1" min="1" id="416"/>
+        <item chance="164579" category="DROP" max="180" min="60" id="1938"/>
+        <item chance="460777" category="DROP" max="84" min="28" id="1939"/>
+        <item chance="64638" category="UNK_1" max="81" min="27" id="2028"/>
+        <item chance="126939" category="UNK_2" max="1" min="1" id="6575"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="2" id="4197"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="2" id="4444"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4983"/>
+    </skills>
 </npc>

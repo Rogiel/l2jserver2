@@ -7,6 +7,7 @@
         <name display="true" send="false">Princess' Guard</name>
         <title send="false">Raid Fighter</title>
         <level>24</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="17.9607701717791" max="3340.0796552445"/>
@@ -27,6 +28,18 @@
         <collision heigth="40.0" radius="21.0"/>
     </info>
     <droplist>
-        <item chance="506967" max="60" min="20" id="17"/>
+        <item chance="506967" category="UNK_2" max="60" min="20" id="17"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
 </npc>

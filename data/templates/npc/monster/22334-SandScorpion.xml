@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Sand Scorpion</name>
         <level>81</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="113.419259781018" max="33003.982801143"/>
@@ -26,27 +27,41 @@
         <collision heigth="66.0" radius="28.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="25615" min="12796" id="57"/>
-        <item chance="560200" max="3" min="1" id="9599"/>
-        <item chance="165478" max="1" min="1" id="10012"/>
-        <item chance="43093" max="720" min="240" id="1344"/>
-        <item chance="9158" max="1" min="1" id="5522"/>
-        <item chance="9158" max="1" min="1" id="5523"/>
-        <item chance="61" max="1" min="1" id="5311"/>
-        <item chance="61" max="1" min="1" id="5316"/>
-        <item chance="137898" max="1" min="1" id="1879"/>
-        <item chance="68949" max="1" min="1" id="1885"/>
-        <item chance="6489" max="1" min="1" id="9628"/>
-        <item chance="4355" max="1" min="1" id="9630"/>
-        <item chance="3597" max="1" min="1" id="9629"/>
-        <item chance="828" max="1" min="1" id="6901"/>
-        <item chance="6619" max="1" min="1" id="9549"/>
-        <item chance="5746" max="1" min="1" id="10483"/>
-        <item chance="1436" max="1" min="1" id="10484"/>
-        <item chance="144" max="1" min="1" id="10485"/>
-        <item chance="29" max="1" min="1" id="10486"/>
-        <item chance="909782" max="3" min="1" id="1885"/>
-        <item chance="310882" max="1" min="1" id="6713"/>
-        <item chance="21835" max="1" min="1" id="6901"/>
+        <item chance="700000" category="DROP" max="25615" min="12796" id="57"/>
+        <item chance="560200" category="UNK_100" max="3" min="1" id="9599"/>
+        <item chance="165478" category="UNK_101" max="1" min="1" id="10012"/>
+        <item chance="43093" category="UNK_2" max="720" min="240" id="1344"/>
+        <item chance="9158" category="UNK_1" max="1" min="1" id="5522"/>
+        <item chance="9158" category="UNK_1" max="1" min="1" id="5523"/>
+        <item chance="61" category="UNK_1" max="1" min="1" id="5311"/>
+        <item chance="61" category="UNK_1" max="1" min="1" id="5316"/>
+        <item chance="137898" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="68949" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="6489" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="4355" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="3597" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="828" category="UNK_2" max="1" min="1" id="6901"/>
+        <item chance="6619" category="UNK_200" max="1" min="1" id="9549"/>
+        <item chance="5746" category="UNK_200" max="1" min="1" id="10483"/>
+        <item chance="1436" category="UNK_200" max="1" min="1" id="10484"/>
+        <item chance="144" category="UNK_200" max="1" min="1" id="10485"/>
+        <item chance="29" category="UNK_200" max="1" min="1" id="10486"/>
+        <item chance="909782" category="SPOIL" max="3" min="1" id="1885"/>
+        <item chance="310882" category="SPOIL" max="1" min="1" id="6713"/>
+        <item chance="21835" category="SPOIL" max="1" min="1" id="6901"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+        <skill level="10" id="5251"/>
+        <skill level="9" id="5273"/>
+        <skill level="1" id="5465"/>
+    </skills>
 </npc>

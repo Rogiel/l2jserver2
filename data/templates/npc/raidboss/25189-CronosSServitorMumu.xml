@@ -7,6 +7,7 @@
         <name display="true" send="false">Cronos's Servitor Mumu</name>
         <title send="false">Raid Boss</title>
         <level>34</level>
+        <race>SPIRIT</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="25.6128307622386" max="65791.6741786232"/>
@@ -27,10 +28,25 @@
         <collision heigth="15.0" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="83474" max="1" min="1" id="280"/>
-        <item chance="210544" max="1" min="1" id="438"/>
-        <item chance="416897" max="36" min="12" id="952"/>
-        <item chance="515065" max="36" min="12" id="1953"/>
-        <item chance="205280" max="36" min="12" id="2054"/>
+        <item chance="83474" category="UNK_1" max="1" min="1" id="280"/>
+        <item chance="210544" category="DROP" max="1" min="1" id="438"/>
+        <item chance="416897" category="UNK_2" max="36" min="12" id="952"/>
+        <item chance="515065" category="DROP" max="36" min="12" id="1953"/>
+        <item chance="205280" category="UNK_1" max="36" min="12" id="2054"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4197"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="7" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4862"/>
+    </skills>
 </npc>

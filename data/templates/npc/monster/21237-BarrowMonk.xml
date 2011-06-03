@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Barrow Monk</name>
         <level>32</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="668.47132"/>
@@ -26,25 +27,37 @@
         <collision heigth="25.3" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1255" min="626" id="57"/>
-        <item chance="33" max="1" min="1" id="86"/>
-        <item chance="33" max="1" min="1" id="179"/>
-        <item chance="33" max="1" min="1" id="180"/>
-        <item chance="33" max="1" min="1" id="181"/>
-        <item chance="33" max="1" min="1" id="182"/>
-        <item chance="33" max="1" min="1" id="183"/>
-        <item chance="33" max="1" min="1" id="184"/>
-        <item chance="33" max="1" min="1" id="185"/>
-        <item chance="135219" max="3" min="1" id="1868"/>
-        <item chance="54088" max="1" min="1" id="1873"/>
-        <item chance="9015" max="1" min="1" id="1889"/>
-        <item chance="174667" max="1" min="1" id="1933"/>
-        <item chance="82942" max="1" min="1" id="1935"/>
-        <item chance="1264" max="1" min="1" id="2022"/>
-        <item chance="1005" max="1" min="1" id="2023"/>
-        <item chance="97676" max="1" min="1" id="2183"/>
-        <item chance="1398" max="1" min="1" id="2265"/>
-        <item chance="13522" max="1" min="1" id="5549"/>
-        <item chance="270439" max="1" min="1" id="6037"/>
+        <item chance="700000" category="DROP" max="1255" min="626" id="57"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="86"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="179"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="180"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="181"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="182"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="183"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="184"/>
+        <item chance="33" category="UNK_1" max="1" min="1" id="185"/>
+        <item chance="135219" category="UNK_2" max="3" min="1" id="1868"/>
+        <item chance="54088" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="9015" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="174667" category="SPOIL" max="1" min="1" id="1933"/>
+        <item chance="82942" category="SPOIL" max="1" min="1" id="1935"/>
+        <item chance="1264" category="UNK_1" max="1" min="1" id="2022"/>
+        <item chance="1005" category="UNK_1" max="1" min="1" id="2023"/>
+        <item chance="97676" category="SPOIL" max="1" min="1" id="2183"/>
+        <item chance="1398" category="UNK_2" max="1" min="1" id="2265"/>
+        <item chance="13522" category="UNK_2" max="1" min="1" id="5549"/>
+        <item chance="270439" category="UNK_2" max="1" min="1" id="6037"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4099"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

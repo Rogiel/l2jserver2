@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lesser Giant Scout</name>
         <level>82</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="112.558039826218" max="32946.0424680524"/>
@@ -27,26 +28,43 @@
         <collision heigth="66.0" radius="30.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="24057" min="12109" id="57"/>
-        <item chance="3400" max="1" min="1" id="9623"/>
-        <item chance="2800" max="1" min="1" id="9622"/>
-        <item chance="2300" max="1" min="1" id="10547"/>
-        <item chance="3600" max="1" min="1" id="10546"/>
-        <item chance="15" max="1" min="1" id="10253"/>
-        <item chance="15" max="1" min="1" id="10252"/>
-        <item chance="15" max="1" min="1" id="9449"/>
-        <item chance="15" max="1" min="1" id="9448"/>
-        <item chance="442300" max="1" min="1" id="1885"/>
-        <item chance="144000" max="9" min="3" id="1879"/>
-        <item chance="40000" max="1" min="1" id="9628"/>
-        <item chance="28700" max="1" min="1" id="9630"/>
-        <item chance="21000" max="1" min="1" id="9629"/>
-        <item chance="1800" max="1" min="1" id="5277"/>
-        <item chance="35500" max="1" min="1" id="9573"/>
-        <item chance="8500" max="1" min="1" id="9574"/>
-        <item chance="1100" max="1" min="1" id="9575"/>
-        <item chance="80000" max="1" min="1" id="9624"/>
-        <item chance="350000" max="1" min="1" id="9992"/>
-        <item chance="150000" max="1" min="1" id="9530"/>
+        <item chance="700000" category="DROP" max="24057" min="12109" id="57"/>
+        <item chance="3400" category="UNK_1" max="1" min="1" id="9623"/>
+        <item chance="2800" category="UNK_1" max="1" min="1" id="9622"/>
+        <item chance="2300" category="UNK_1" max="1" min="1" id="10547"/>
+        <item chance="3600" category="UNK_1" max="1" min="1" id="10546"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="10253"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="10252"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="9449"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="9448"/>
+        <item chance="442300" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="144000" category="UNK_2" max="9" min="3" id="1879"/>
+        <item chance="40000" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="28700" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="21000" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="1800" category="UNK_2" max="1" min="1" id="5277"/>
+        <item chance="35500" category="UNK_200" max="1" min="1" id="9573"/>
+        <item chance="8500" category="UNK_200" max="1" min="1" id="9574"/>
+        <item chance="1100" category="UNK_200" max="1" min="1" id="9575"/>
+        <item chance="80000" category="SPOIL" max="1" min="1" id="9624"/>
+        <item chance="350000" category="SPOIL" max="1" min="1" id="9992"/>
+        <item chance="150000" category="SPOIL" max="1" min="1" id="9530"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4086"/>
+        <skill level="9" id="4116"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="4" id="4438"/>
+        <skill level="2" id="4444"/>
+        <skill level="1" id="5463"/>
+        <skill level="1" id="6143"/>
+    </skills>
 </npc>

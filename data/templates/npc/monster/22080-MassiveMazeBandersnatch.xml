@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Massive Maze Bandersnatch</name>
         <level>54</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1621.75618"/>
@@ -26,25 +27,38 @@
         <collision heigth="25.0" radius="18.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1249" min="613" id="57"/>
-        <item chance="44" max="1" min="1" id="119"/>
-        <item chance="59" max="1" min="1" id="855"/>
-        <item chance="88" max="1" min="1" id="886"/>
-        <item chance="38228" max="1" min="1" id="1866"/>
-        <item chance="690227" max="5" min="1" id="1867"/>
-        <item chance="57342" max="1" min="1" id="1871"/>
-        <item chance="690227" max="5" min="1" id="1872"/>
-        <item chance="2294" max="1" min="1" id="1877"/>
-        <item chance="4139" max="1" min="1" id="1918"/>
-        <item chance="3270" max="1" min="1" id="1920"/>
-        <item chance="89202" max="1" min="1" id="2917"/>
-        <item chance="5489" max="1" min="1" id="2917"/>
-        <item chance="1147" max="1" min="1" id="4040"/>
-        <item chance="499" max="1" min="1" id="4041"/>
-        <item chance="946" max="1" min="1" id="4126"/>
-        <item chance="1327" max="1" min="1" id="8726"/>
-        <item chance="332" max="1" min="1" id="8736"/>
-        <item chance="33" max="1" min="1" id="8746"/>
-        <item chance="7" max="1" min="1" id="8756"/>
+        <item chance="700000" category="DROP" max="1249" min="613" id="57"/>
+        <item chance="57342" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="38228" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="2294" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="1147" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="499" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="946" category="UNK_2" max="1" min="1" id="4126"/>
+        <item chance="5489" category="UNK_1" max="1" min="1" id="2917"/>
+        <item chance="4139" category="UNK_1" max="1" min="1" id="1918"/>
+        <item chance="3270" category="UNK_1" max="1" min="1" id="1920"/>
+        <item chance="88" category="UNK_1" max="1" min="1" id="886"/>
+        <item chance="59" category="UNK_1" max="1" min="1" id="855"/>
+        <item chance="44" category="UNK_1" max="1" min="1" id="119"/>
+        <item chance="1327" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="332" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="33" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="7" category="UNK_200" max="1" min="1" id="8756"/>
+        <item chance="690227" category="SPOIL" max="5" min="1" id="1867"/>
+        <item chance="690227" category="SPOIL" max="5" min="1" id="1872"/>
+        <item chance="89202" category="SPOIL" max="1" min="1" id="2917"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4032"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="4417"/>
+    </skills>
 </npc>

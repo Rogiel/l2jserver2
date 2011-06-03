@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Canyon Bandersnatch</name>
         <level>70</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -26,17 +27,29 @@
         <collision heigth="25.0" radius="18.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="7319" min="3597" id="57"/>
-        <item chance="199022" max="3" min="1" id="1867"/>
-        <item chance="74633" max="12" min="4" id="1872"/>
-        <item chance="29853" max="1" min="1" id="1875"/>
-        <item chance="59707" max="1" min="1" id="1881"/>
-        <item chance="3849" max="1" min="1" id="4041"/>
-        <item chance="3369" max="1" min="1" id="5440"/>
-        <item chance="120055" max="1" min="1" id="5482"/>
-        <item chance="76488" max="1" min="1" id="5485"/>
-        <item chance="4584" max="1" min="1" id="5535"/>
-        <item chance="1791" max="1" min="1" id="10304"/>
-        <item chance="370" max="1" min="1" id="11955"/>
+        <item chance="700000" category="DROP" max="7319" min="3597" id="57"/>
+        <item chance="199022" category="UNK_2" max="3" min="1" id="1867"/>
+        <item chance="74633" category="UNK_2" max="12" min="4" id="1872"/>
+        <item chance="29853" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="59707" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="3849" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="3369" category="SPOIL" max="1" min="1" id="5440"/>
+        <item chance="120055" category="SPOIL" max="1" min="1" id="5482"/>
+        <item chance="76488" category="SPOIL" max="1" min="1" id="5485"/>
+        <item chance="4584" category="UNK_1" max="1" min="1" id="5535"/>
+        <item chance="1791" category="UNK_1" max="1" min="1" id="10304"/>
+        <item chance="370" category="UNK_1" max="1" min="1" id="11955"/>
     </droplist>
+    <skills>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="7" id="4579"/>
+    </skills>
 </npc>

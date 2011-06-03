@@ -7,6 +7,7 @@
         <name display="true" send="false">Lilith's Escort</name>
         <title send="false">Raid Fighter</title>
         <level>79</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="209.832715101535" max="109050.6323206"/>
@@ -28,6 +29,20 @@
         <collision heigth="50.0" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="403000" max="180" min="60" id="1344"/>
+        <item chance="403000" category="UNK_2" max="180" min="60" id="1344"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4179"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

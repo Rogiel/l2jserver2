@@ -7,6 +7,7 @@
         <name display="true" send="false">Messenger of Ember</name>
         <title send="false">Raid Fighter</title>
         <level>80</level>
+        <race>SPIRIT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="139.474076658488" max="72585.7696218277"/>
@@ -27,6 +28,20 @@
         <collision heigth="42.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="458833" max="180" min="60" id="1344"/>
+        <item chance="458833" category="UNK_2" max="180" min="60" id="1344"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4209"/>
+        <skill level="9" id="4213"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="7" id="4416"/>
+    </skills>
 </npc>

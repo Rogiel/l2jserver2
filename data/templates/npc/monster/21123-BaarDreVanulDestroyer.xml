@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Baar Dre Vanul Destroyer</name>
         <level>25</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="460.96247"/>
@@ -26,14 +27,26 @@
         <collision heigth="36.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="442" min="236" id="57"/>
-        <item chance="191" max="1" min="1" id="220"/>
-        <item chance="35730" max="1" min="1" id="1874"/>
-        <item chance="5013" max="1" min="1" id="1874"/>
-        <item chance="30080" max="1" min="1" id="1878"/>
-        <item chance="83743" max="1" min="1" id="1899"/>
-        <item chance="94359" max="1" min="1" id="2152"/>
-        <item chance="12032" max="1" min="1" id="2178"/>
-        <item chance="3008" max="1" min="1" id="5220"/>
+        <item chance="700000" category="DROP" max="442" min="236" id="57"/>
+        <item chance="191" category="UNK_1" max="1" min="1" id="220"/>
+        <item chance="35730" category="SPOIL" max="1" min="1" id="1874"/>
+        <item chance="5013" category="UNK_2" max="1" min="1" id="1874"/>
+        <item chance="30080" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="83743" category="SPOIL" max="1" min="1" id="1899"/>
+        <item chance="94359" category="SPOIL" max="1" min="1" id="2152"/>
+        <item chance="12032" category="UNK_2" max="1" min="1" id="2178"/>
+        <item chance="3008" category="UNK_2" max="1" min="1" id="5220"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4229"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

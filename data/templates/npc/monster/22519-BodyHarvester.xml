@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Body Harvester</name>
         <level>81</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3835.59060587002"/>
@@ -26,16 +27,33 @@
         <collision heigth="34.0" radius="34.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="12974" min="6468" id="57"/>
-        <item chance="26" max="1" min="1" id="270"/>
-        <item chance="442" max="1" min="1" id="959"/>
-        <item chance="311146" max="1" min="1" id="1895"/>
-        <item chance="21780" max="1" min="1" id="4040"/>
-        <item chance="7468" max="1" min="1" id="5538"/>
-        <item chance="23892" max="1" min="1" id="6688"/>
-        <item chance="507" max="1" min="1" id="6853"/>
-        <item chance="11053" max="1" min="1" id="6901"/>
-        <item chance="8541" max="1" min="1" id="9628"/>
-        <item chance="5732" max="1" min="1" id="9630"/>
+        <item chance="700000" category="DROP" max="12974" min="6468" id="57"/>
+        <item chance="7468" category="UNK_1" max="1" min="1" id="5538"/>
+        <item chance="26" category="UNK_1" max="1" min="1" id="270"/>
+        <item chance="311146" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="21780" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="8541" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="5732" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="507" category="UNK_2" max="1" min="1" id="6853"/>
+        <item chance="23892" category="SPOIL" max="1" min="1" id="6688"/>
+        <item chance="11053" category="SPOIL" max="1" min="1" id="6901"/>
+        <item chance="442" category="SPOIL" max="1" min="1" id="959"/>
     </droplist>
+    <skills>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="5465"/>
+        <skill level="1" id="5882"/>
+        <skill level="1" id="5883"/>
+        <skill level="1" id="5889"/>
+        <skill level="1" id="5909"/>
+        <skill level="1" id="5911"/>
+    </skills>
 </npc>

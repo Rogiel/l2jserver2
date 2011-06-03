@@ -7,6 +7,7 @@
         <name display="true" send="false">Harit Guardian Garangky</name>
         <title send="false">Raid Boss</title>
         <level>56</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="66.0848830657008" max="196306.513055728"/>
@@ -27,16 +28,31 @@
         <collision heigth="28.0" radius="34.0"/>
     </info>
     <droplist>
-        <item chance="20716" max="1" min="1" id="234"/>
-        <item chance="180661" max="1" min="1" id="947"/>
-        <item chance="564564" max="3" min="1" id="948"/>
-        <item chance="23097" max="1" min="1" id="2391"/>
-        <item chance="23097" max="1" min="1" id="2392"/>
-        <item chance="82019" max="72" min="24" id="4082"/>
-        <item chance="262459" max="22" min="8" id="4083"/>
-        <item chance="762545" max="9" min="3" id="4119"/>
-        <item chance="12904" max="1" min="1" id="6571"/>
-        <item chance="650000" max="2" min="1" id="8176"/>
-        <item chance="770000" max="4" min="1" id="9816"/>
+        <item chance="20716" category="UNK_1" max="1" min="1" id="234"/>
+        <item chance="180661" category="UNK_2" max="1" min="1" id="947"/>
+        <item chance="564564" category="UNK_2" max="3" min="1" id="948"/>
+        <item chance="23097" category="DROP" max="1" min="1" id="2391"/>
+        <item chance="23097" category="DROP" max="1" min="1" id="2392"/>
+        <item chance="82019" category="DROP" max="72" min="24" id="4082"/>
+        <item chance="262459" category="DROP" max="22" min="8" id="4083"/>
+        <item chance="762545" category="UNK_1" max="9" min="3" id="4119"/>
+        <item chance="12904" category="UNK_2" max="1" min="1" id="6571"/>
+        <item chance="650000" category="UNK_101" max="2" min="1" id="8176"/>
+        <item chance="770000" category="UNK_100" max="4" min="1" id="9816"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4178"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4965"/>
+    </skills>
 </npc>

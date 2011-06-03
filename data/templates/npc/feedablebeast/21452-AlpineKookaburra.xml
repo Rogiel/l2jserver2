@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Alpine Kookaburra</name>
         <level>65</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2193.43142"/>
@@ -26,9 +27,23 @@
         <collision heigth="15.0" radius="7.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1985" min="981" id="57"/>
-        <item chance="164372" max="1" min="1" id="1875"/>
-        <item chance="3287" max="1" min="1" id="3035"/>
-        <item chance="24301" max="1" min="1" id="4081"/>
+        <item chance="700000" category="DROP" max="1985" min="981" id="57"/>
+        <item chance="164372" category="SPOIL" max="1" min="1" id="1875"/>
+        <item chance="3287" category="SPOIL" max="1" min="1" id="3035"/>
+        <item chance="24301" category="SPOIL" max="1" min="1" id="4081"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4032"/>
+        <skill level="1" id="4092"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="9" id="4410"/>
+        <skill level="9" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="2" id="4438"/>
+    </skills>
 </npc>

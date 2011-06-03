@@ -7,6 +7,7 @@
         <name display="true" send="false">White Allosce</name>
         <title send="false">Kaneus</title>
         <level>73</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="67.8461312332064" max="475289.654476948"/>
@@ -27,19 +28,34 @@
         <collision heigth="55.0" radius="21.0"/>
     </info>
     <droplist>
-        <item chance="39024" max="1" min="1" id="729"/>
-        <item chance="292676" max="1" min="1" id="730"/>
-        <item chance="26959" max="1" min="1" id="6323"/>
-        <item chance="17972" max="1" min="1" id="6323"/>
-        <item chance="35945" max="1" min="1" id="6324"/>
-        <item chance="23963" max="1" min="1" id="6324"/>
-        <item chance="53917" max="1" min="1" id="6325"/>
-        <item chance="35944" max="1" min="1" id="6325"/>
-        <item chance="277542" max="27" min="9" id="6341"/>
-        <item chance="185028" max="27" min="9" id="6341"/>
-        <item chance="137925" max="42" min="14" id="6343"/>
-        <item chance="91950" max="42" min="14" id="6343"/>
-        <item chance="86372" max="120" min="40" id="6345"/>
-        <item chance="57581" max="120" min="40" id="6345"/>
+        <item chance="39024" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="292676" category="UNK_2" max="1" min="1" id="730"/>
+        <item chance="26959" category="UNK_1" max="1" min="1" id="6323"/>
+        <item chance="17972" category="UNK_3" max="1" min="1" id="6323"/>
+        <item chance="35945" category="UNK_1" max="1" min="1" id="6324"/>
+        <item chance="23963" category="UNK_3" max="1" min="1" id="6324"/>
+        <item chance="53917" category="UNK_1" max="1" min="1" id="6325"/>
+        <item chance="35944" category="UNK_3" max="1" min="1" id="6325"/>
+        <item chance="277542" category="UNK_1" max="27" min="9" id="6341"/>
+        <item chance="185028" category="UNK_3" max="27" min="9" id="6341"/>
+        <item chance="137925" category="UNK_1" max="42" min="14" id="6343"/>
+        <item chance="91950" category="UNK_3" max="42" min="14" id="6343"/>
+        <item chance="86372" category="UNK_1" max="120" min="40" id="6345"/>
+        <item chance="57581" category="UNK_3" max="120" min="40" id="6345"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4196"/>
+        <skill level="7" id="4200"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="14" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="1" id="5597"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Darnel</name>
         <title send="false">Torture Maiden</title>
         <level>81</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="155.191510697296" max="1354779.94473585"/>
@@ -27,19 +28,37 @@
         <collision heigth="40.6" radius="20.0"/>
     </info>
     <droplist>
-        <item chance="23074" max="1" min="1" id="6578"/>
-        <item chance="15917" max="1" min="1" id="6678"/>
-        <item chance="11141" max="1" min="1" id="6679"/>
-        <item chance="11141" max="1" min="1" id="6683"/>
-        <item chance="11141" max="1" min="1" id="6687"/>
-        <item chance="82748" max="67" min="23" id="6705"/>
-        <item chance="36094" max="180" min="60" id="6706"/>
-        <item chance="206253" max="31" min="11" id="6710"/>
-        <item chance="135354" max="48" min="16" id="6714"/>
-        <item chance="7493" max="1" min="1" id="7575"/>
-        <item chance="583776" max="9" min="3" id="7579"/>
-        <item chance="6671" max="1" min="1" id="9468"/>
-        <item chance="6671" max="1" min="1" id="9474"/>
-        <item chance="6671" max="1" min="1" id="9477"/>
+        <item chance="23074" category="UNK_3" max="1" min="1" id="6578"/>
+        <item chance="15917" category="UNK_2" max="1" min="1" id="6678"/>
+        <item chance="11141" category="UNK_2" max="1" min="1" id="6679"/>
+        <item chance="11141" category="UNK_2" max="1" min="1" id="6683"/>
+        <item chance="11141" category="UNK_2" max="1" min="1" id="6687"/>
+        <item chance="82748" category="UNK_2" max="67" min="23" id="6705"/>
+        <item chance="36094" category="UNK_2" max="180" min="60" id="6706"/>
+        <item chance="206253" category="UNK_2" max="31" min="11" id="6710"/>
+        <item chance="135354" category="UNK_2" max="48" min="16" id="6714"/>
+        <item chance="7493" category="UNK_1" max="1" min="1" id="7575"/>
+        <item chance="583776" category="UNK_1" max="9" min="3" id="7579"/>
+        <item chance="6671" category="UNK_3" max="1" min="1" id="9468"/>
+        <item chance="6671" category="UNK_3" max="1" min="1" id="9474"/>
+        <item chance="6671" category="UNK_3" max="1" min="1" id="9477"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4182"/>
+        <skill level="9" id="4189"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5470"/>
+        <skill level="1" id="5479"/>
+    </skills>
 </npc>

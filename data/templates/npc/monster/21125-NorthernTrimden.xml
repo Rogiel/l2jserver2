@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Northern Trimden</name>
         <level>19</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.5" max="321.63954"/>
@@ -26,15 +27,26 @@
         <collision heigth="25.5" radius="27.0"/>
     </info>
     <droplist>
-        <item chance="148" max="1" min="1" id="15"/>
-        <item chance="700000" max="211" min="124" id="57"/>
-        <item chance="6493" max="1" min="1" id="734"/>
-        <item chance="82944" max="1" min="1" id="1800"/>
-        <item chance="132878" max="1" min="1" id="1801"/>
-        <item chance="25971" max="1" min="1" id="1866"/>
-        <item chance="38956" max="1" min="1" id="1871"/>
-        <item chance="85085" max="1" min="1" id="1924"/>
-        <item chance="1778" max="1" min="1" id="2011"/>
-        <item chance="7792" max="1" min="1" id="2140"/>
+        <item chance="148" category="UNK_1" max="1" min="1" id="15"/>
+        <item chance="700000" category="DROP" max="211" min="124" id="57"/>
+        <item chance="6493" category="UNK_2" max="1" min="1" id="734"/>
+        <item chance="82944" category="SPOIL" max="1" min="1" id="1800"/>
+        <item chance="132878" category="SPOIL" max="1" min="1" id="1801"/>
+        <item chance="25971" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="38956" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="85085" category="SPOIL" max="1" min="1" id="1924"/>
+        <item chance="1778" category="UNK_1" max="1" min="1" id="2011"/>
+        <item chance="7792" category="UNK_2" max="1" min="1" id="2140"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Bloody Bee</name>
         <level>23</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="410.70422"/>
@@ -26,18 +27,30 @@
         <collision heigth="24.5" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="333" min="188" id="57"/>
-        <item chance="989" max="1" min="1" id="846"/>
-        <item chance="1484" max="1" min="1" id="878"/>
-        <item chance="742" max="1" min="1" id="909"/>
-        <item chance="129762" max="1" min="1" id="1831"/>
-        <item chance="549120" max="1" min="1" id="1867"/>
-        <item chance="64881" max="1" min="1" id="1867"/>
-        <item chance="823680" max="1" min="1" id="1868"/>
-        <item chance="64881" max="1" min="1" id="1872"/>
-        <item chance="10813" max="1" min="1" id="1882"/>
-        <item chance="6248" max="1" min="1" id="1898"/>
-        <item chance="4734" max="1" min="1" id="2014"/>
-        <item chance="1947" max="1" min="1" id="3953"/>
+        <item chance="700000" category="DROP" max="333" min="188" id="57"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="846"/>
+        <item chance="1484" category="UNK_1" max="1" min="1" id="878"/>
+        <item chance="742" category="UNK_1" max="1" min="1" id="909"/>
+        <item chance="129762" category="UNK_2" max="1" min="1" id="1831"/>
+        <item chance="549120" category="SPOIL" max="1" min="1" id="1867"/>
+        <item chance="64881" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="823680" category="SPOIL" max="1" min="1" id="1868"/>
+        <item chance="64881" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="10813" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="6248" category="UNK_1" max="1" min="1" id="1898"/>
+        <item chance="4734" category="SPOIL" max="1" min="1" id="2014"/>
+        <item chance="1947" category="UNK_2" max="1" min="1" id="3953"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4035"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

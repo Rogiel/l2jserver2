@@ -7,6 +7,7 @@
         <name display="true" send="false">Pagan Watcher Cerberon</name>
         <title send="false">Raid Boss</title>
         <level>55</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="221.738396239018" max="524759.695853166"/>
@@ -28,18 +29,36 @@
         <collision heigth="48.0" radius="19.0"/>
     </info>
     <droplist>
-        <item chance="52171" max="1" min="1" id="300"/>
-        <item chance="166240" max="1" min="1" id="856"/>
-        <item chance="249359" max="1" min="1" id="887"/>
-        <item chance="124680" max="1" min="1" id="918"/>
-        <item chance="301198" max="1" min="1" id="947"/>
-        <item chance="313749" max="9" min="3" id="948"/>
-        <item chance="125385" max="243" min="81" id="4049"/>
-        <item chance="27265" max="1320" min="440" id="4050"/>
-        <item chance="53638" max="420" min="140" id="4051"/>
-        <item chance="373636" max="36" min="12" id="4113"/>
-        <item chance="21514" max="1" min="1" id="6571"/>
-        <item chance="800000" max="3" min="1" id="8176"/>
-        <item chance="800000" max="6" min="2" id="9818"/>
+        <item chance="166240" category="DROP" max="1" min="1" id="856"/>
+        <item chance="249359" category="DROP" max="1" min="1" id="887"/>
+        <item chance="124680" category="DROP" max="1" min="1" id="918"/>
+        <item chance="125385" category="DROP" max="243" min="81" id="4049"/>
+        <item chance="27265" category="DROP" max="1320" min="440" id="4050"/>
+        <item chance="53638" category="DROP" max="420" min="140" id="4051"/>
+        <item chance="52171" category="UNK_1" max="1" min="1" id="300"/>
+        <item chance="373636" category="UNK_1" max="36" min="12" id="4113"/>
+        <item chance="301198" category="UNK_2" max="1" min="1" id="947"/>
+        <item chance="313749" category="UNK_2" max="9" min="3" id="948"/>
+        <item chance="21514" category="UNK_2" max="1" min="1" id="6571"/>
+        <item chance="800000" category="UNK_100" max="6" min="2" id="9818"/>
+        <item chance="800000" category="UNK_101" max="3" min="1" id="8176"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4175"/>
+        <skill level="5" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="5" id="4719"/>
+        <skill level="5" id="4734"/>
+        <skill level="1" id="4894"/>
+    </skills>
 </npc>

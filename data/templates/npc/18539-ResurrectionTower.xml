@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Resurrection Tower</name>
         <level>45</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="52.5939791441829" max="24126.895657854"/>
@@ -25,4 +26,16 @@
         <sp>0</sp>
         <collision heigth="50.0" radius="28.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

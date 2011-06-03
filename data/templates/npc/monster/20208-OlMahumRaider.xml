@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Ol Mahum Raider</name>
         <level>27</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="515.17856"/>
@@ -27,18 +28,29 @@
         <collision heigth="25.0" radius="13.5"/>
     </info>
     <droplist>
-        <item chance="858524" max="1" min="1" id="1869"/>
-        <item chance="572349" max="3" min="1" id="1872"/>
-        <item chance="112225" max="1" min="1" id="1931"/>
-        <item chance="700000" max="714" min="371" id="57"/>
-        <item chance="1333" max="1" min="1" id="45"/>
-        <item chance="1901" max="1" min="1" id="626"/>
-        <item chance="25493" max="1" min="1" id="1932"/>
-        <item chance="53537" max="1" min="1" id="1866"/>
-        <item chance="80305" max="1" min="1" id="1871"/>
-        <item chance="6692" max="1" min="1" id="1885"/>
-        <item chance="6038" max="1" min="1" id="2180"/>
-        <item chance="3212" max="1" min="1" id="5220"/>
-        <item chance="80305" max="1" min="1" id="6666"/>
+        <item chance="858524" category="SPOIL" max="1" min="1" id="1869"/>
+        <item chance="572349" category="SPOIL" max="3" min="1" id="1872"/>
+        <item chance="112225" category="SPOIL" max="1" min="1" id="1931"/>
+        <item chance="700000" category="DROP" max="714" min="371" id="57"/>
+        <item chance="1333" category="UNK_1" max="1" min="1" id="45"/>
+        <item chance="1901" category="UNK_1" max="1" min="1" id="626"/>
+        <item chance="25493" category="UNK_1" max="1" min="1" id="1932"/>
+        <item chance="53537" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="80305" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="6692" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="6038" category="UNK_2" max="1" min="1" id="2180"/>
+        <item chance="3212" category="UNK_2" max="1" min="1" id="5220"/>
+        <item chance="80305" category="UNK_2" max="1" min="1" id="6666"/>
     </droplist>
+    <skills>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="12" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="6" id="4416"/>
+    </skills>
 </npc>

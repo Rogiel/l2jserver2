@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Freya's White Bear</name>
         <level>57</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1776.58018"/>
@@ -26,28 +27,44 @@
         <collision heigth="40.0" radius="21.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="8781" min="4299" id="57"/>
-        <item chance="146375" max="3" min="1" id="1871"/>
-        <item chance="195168" max="1" min="1" id="1866"/>
-        <item chance="24396" max="1" min="1" id="1885"/>
-        <item chance="11710" max="1" min="1" id="5220"/>
-        <item chance="2546" max="1" min="1" id="4041"/>
-        <item chance="224" max="1" min="1" id="8323"/>
-        <item chance="224" max="1" min="1" id="8305"/>
-        <item chance="50" max="1" min="1" id="357"/>
-        <item chance="81" max="1" min="1" id="383"/>
-        <item chance="50" max="1" min="1" id="2376"/>
-        <item chance="81" max="1" min="1" id="2379"/>
-        <item chance="7288" max="1" min="1" id="4056"/>
-        <item chance="11263" max="1" min="1" id="4057"/>
-        <item chance="7288" max="1" min="1" id="4064"/>
-        <item chance="11263" max="1" min="1" id="4065"/>
-        <item chance="5855" max="1" min="1" id="8727"/>
-        <item chance="1464" max="1" min="1" id="8737"/>
-        <item chance="146" max="1" min="1" id="8747"/>
-        <item chance="29" max="1" min="1" id="8757"/>
-        <item chance="304949" max="1" min="1" id="4057"/>
-        <item chance="129017" max="1" min="1" id="4154"/>
-        <item chance="88634" max="1" min="1" id="4131"/>
+        <item chance="700000" category="DROP" max="8781" min="4299" id="57"/>
+        <item chance="146375" category="UNK_2" max="3" min="1" id="1871"/>
+        <item chance="195168" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="24396" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="11710" category="UNK_2" max="1" min="1" id="5220"/>
+        <item chance="2546" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="224" category="UNK_1" max="1" min="1" id="8323"/>
+        <item chance="224" category="UNK_2" max="1" min="1" id="8305"/>
+        <item chance="50" category="UNK_1" max="1" min="1" id="357"/>
+        <item chance="81" category="UNK_1" max="1" min="1" id="383"/>
+        <item chance="50" category="UNK_1" max="1" min="1" id="2376"/>
+        <item chance="81" category="UNK_1" max="1" min="1" id="2379"/>
+        <item chance="7288" category="UNK_1" max="1" min="1" id="4056"/>
+        <item chance="11263" category="UNK_1" max="1" min="1" id="4057"/>
+        <item chance="7288" category="UNK_1" max="1" min="1" id="4064"/>
+        <item chance="11263" category="UNK_1" max="1" min="1" id="4065"/>
+        <item chance="5855" category="UNK_200" max="1" min="1" id="8727"/>
+        <item chance="1464" category="UNK_200" max="1" min="1" id="8737"/>
+        <item chance="146" category="UNK_200" max="1" min="1" id="8747"/>
+        <item chance="29" category="UNK_200" max="1" min="1" id="8757"/>
+        <item chance="304949" category="SPOIL" max="1" min="1" id="4057"/>
+        <item chance="129017" category="SPOIL" max="1" min="1" id="4154"/>
+        <item chance="88634" category="SPOIL" max="1" min="1" id="4131"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4065"/>
+        <skill level="5" id="4379"/>
+        <skill level="16" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="19" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="18" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+        <skill level="1" id="4417"/>
+        <skill level="5" id="4438"/>
+        <skill level="5" id="4439"/>
+    </skills>
 </npc>

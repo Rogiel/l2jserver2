@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Talakin Archer</name>
         <level>28</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="543.79576"/>
@@ -27,15 +28,27 @@
         <collision heigth="25.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="651" min="333" id="57"/>
-        <item chance="276" max="1" min="1" id="274"/>
-        <item chance="174168" max="1" min="1" id="1868"/>
-        <item chance="34834" max="1" min="1" id="1873"/>
-        <item chance="17417" max="1" min="1" id="1876"/>
-        <item chance="121223" max="1" min="1" id="1899"/>
-        <item chance="123147" max="1" min="1" id="1932"/>
-        <item chance="15332" max="1" min="1" id="2152"/>
-        <item chance="12047" max="1" min="1" id="2262"/>
-        <item chance="7257" max="1" min="1" id="6035"/>
+        <item chance="700000" category="DROP" max="651" min="333" id="57"/>
+        <item chance="276" category="UNK_1" max="1" min="1" id="274"/>
+        <item chance="174168" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="34834" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="17417" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="121223" category="SPOIL" max="1" min="1" id="1899"/>
+        <item chance="123147" category="SPOIL" max="1" min="1" id="1932"/>
+        <item chance="15332" category="UNK_2" max="1" min="1" id="2152"/>
+        <item chance="12047" category="SPOIL" max="1" min="1" id="2262"/>
+        <item chance="7257" category="UNK_2" max="1" min="1" id="6035"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4120"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="12" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="6" id="4416"/>
+    </skills>
 </npc>

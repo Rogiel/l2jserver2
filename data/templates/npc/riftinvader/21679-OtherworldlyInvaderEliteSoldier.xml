@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Otherworldly Invader Elite Soldier</name>
         <level>30</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="604.08419"/>
@@ -27,13 +28,26 @@
         <collision heigth="28.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="9315" max="1" min="1" id="955"/>
-        <item chance="77629" max="1" min="1" id="956"/>
-        <item chance="93155" max="1" min="1" id="6387"/>
-        <item chance="700000" max="1965" min="982" id="57"/>
-        <item chance="4971" max="1" min="1" id="605"/>
-        <item chance="4971" max="1" min="1" id="1123"/>
-        <item chance="2545" max="1" min="1" id="955"/>
-        <item chance="21211" max="1" min="1" id="956"/>
+        <item chance="9315" category="SPOIL" max="1" min="1" id="955"/>
+        <item chance="77629" category="SPOIL" max="1" min="1" id="956"/>
+        <item chance="93155" category="SPOIL" max="1" min="1" id="6387"/>
+        <item chance="700000" category="DROP" max="1965" min="982" id="57"/>
+        <item chance="4971" category="UNK_1" max="1" min="1" id="605"/>
+        <item chance="4971" category="UNK_1" max="1" min="1" id="1123"/>
+        <item chance="2545" category="UNK_2" max="1" min="1" id="955"/>
+        <item chance="21211" category="UNK_2" max="1" min="1" id="956"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4274"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="9" id="4410"/>
+        <skill level="9" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="3" id="4573"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Gigantic Chaos Golem</name>
         <title send="false">Raid Boss</title>
         <level>52</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="145.221991187936" max="338083.307894979"/>
@@ -27,23 +28,43 @@
         <collision heigth="51.8" radius="31.0"/>
     </info>
     <droplist>
-        <item chance="9181" max="1" min="1" id="78"/>
-        <item chance="9181" max="1" min="1" id="142"/>
-        <item chance="9181" max="1" min="1" id="148"/>
-        <item chance="19215" max="1" min="1" id="357"/>
-        <item chance="30738" max="1" min="1" id="383"/>
-        <item chance="94650" max="63" min="21" id="952"/>
-        <item chance="19215" max="1" min="1" id="2376"/>
-        <item chance="30738" max="1" min="1" id="2379"/>
-        <item chance="86728" max="48" min="16" id="4056"/>
-        <item chance="35742" max="180" min="60" id="4057"/>
-        <item chance="61673" max="67" min="23" id="4064"/>
-        <item chance="204242" max="31" min="11" id="4065"/>
-        <item chance="175496" max="15" min="5" id="4104"/>
-        <item chance="95987" max="27" min="9" id="4107"/>
-        <item chance="431942" max="6" min="2" id="4108"/>
-        <item chance="165638" max="6" min="2" id="4604"/>
-        <item chance="132510" max="7" min="3" id="4605"/>
-        <item chance="110425" max="9" min="3" id="4606"/>
+        <item chance="9181" category="UNK_1" max="1" min="1" id="78"/>
+        <item chance="9181" category="UNK_1" max="1" min="1" id="142"/>
+        <item chance="9181" category="UNK_1" max="1" min="1" id="148"/>
+        <item chance="19215" category="UNK_2" max="1" min="1" id="357"/>
+        <item chance="30738" category="UNK_2" max="1" min="1" id="383"/>
+        <item chance="94650" category="UNK_4" max="63" min="21" id="952"/>
+        <item chance="19215" category="UNK_2" max="1" min="1" id="2376"/>
+        <item chance="30738" category="UNK_2" max="1" min="1" id="2379"/>
+        <item chance="86728" category="UNK_2" max="48" min="16" id="4056"/>
+        <item chance="35742" category="UNK_2" max="180" min="60" id="4057"/>
+        <item chance="61673" category="UNK_2" max="67" min="23" id="4064"/>
+        <item chance="204242" category="UNK_2" max="31" min="11" id="4065"/>
+        <item chance="175496" category="UNK_1" max="15" min="5" id="4104"/>
+        <item chance="95987" category="UNK_1" max="27" min="9" id="4107"/>
+        <item chance="431942" category="UNK_1" max="6" min="2" id="4108"/>
+        <item chance="165638" category="UNK_3" max="6" min="2" id="4604"/>
+        <item chance="132510" category="UNK_3" max="7" min="3" id="4605"/>
+        <item chance="110425" category="UNK_3" max="9" min="3" id="4606"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4171"/>
+        <skill level="5" id="4173"/>
+        <skill level="5" id="4177"/>
+        <skill level="5" id="4273"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="5" id="4437"/>
+        <skill level="1" id="4494"/>
+        <skill level="5" id="4726"/>
+        <skill level="1" id="5029"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Hikoro</name>
         <title send="false">Panuka</title>
         <level>61</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="15.0" max="22092.8243635408"/>
@@ -27,4 +28,19 @@
         <item lefthand="0" righthand="3"/>
         <collision heigth="39.0" radius="30.0"/>
     </info>
+    <skills>
+        <skill level="7" id="4032"/>
+        <skill level="3" id="4287"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="7" id="4579"/>
+        <skill level="7" id="4664"/>
+    </skills>
 </npc>

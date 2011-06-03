@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Core</name>
         <level>50</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="441.65" max="261551.926"/>
@@ -26,34 +27,51 @@
         <collision heigth="75.0" radius="140.0"/>
     </info>
     <droplist>
-        <item chance="48000" max="1" min="1" id="75"/>
-        <item chance="40000" max="1" min="1" id="84"/>
-        <item chance="48000" max="1" min="1" id="162"/>
-        <item chance="40000" max="1" min="1" id="174"/>
-        <item chance="40000" max="1" min="1" id="200"/>
-        <item chance="48000" max="1" min="1" id="233"/>
-        <item chance="40000" max="1" min="1" id="265"/>
-        <item chance="48000" max="1" min="1" id="283"/>
-        <item chance="48000" max="1" min="1" id="301"/>
-        <item chance="120000" max="1" min="1" id="60"/>
-        <item chance="120000" max="1" min="1" id="400"/>
-        <item chance="120000" max="1" min="1" id="420"/>
-        <item chance="120000" max="1" min="1" id="441"/>
-        <item chance="120000" max="1" min="1" id="472"/>
-        <item chance="140000" max="1" min="1" id="107"/>
-        <item chance="140000" max="1" min="1" id="517"/>
-        <item chance="140000" max="1" min="1" id="951"/>
-        <item chance="140000" max="1" min="1" id="2435"/>
-        <item chance="140000" max="1" min="1" id="2459"/>
-        <item chance="1000000" max="150000" min="100000" id="57"/>
-        <item chance="1000000" max="150000" min="100000" id="57"/>
-        <item chance="1000000" max="150000" min="100000" id="57"/>
-        <item chance="1000000" max="150000" min="100000" id="57"/>
-        <item chance="1000000" max="150000" min="100000" id="57"/>
-        <item chance="300000" max="1" min="1" id="6662"/>
-        <item chance="100000" max="2" min="1" id="8754"/>
-        <item chance="450000" max="4" min="2" id="8744"/>
-        <item chance="400000" max="4" min="2" id="8745"/>
-        <item chance="50000" max="2" min="1" id="8755"/>
+        <item chance="48000" category="DROP" max="1" min="1" id="75"/>
+        <item chance="40000" category="DROP" max="1" min="1" id="84"/>
+        <item chance="48000" category="DROP" max="1" min="1" id="162"/>
+        <item chance="40000" category="DROP" max="1" min="1" id="174"/>
+        <item chance="40000" category="DROP" max="1" min="1" id="200"/>
+        <item chance="48000" category="DROP" max="1" min="1" id="233"/>
+        <item chance="40000" category="DROP" max="1" min="1" id="265"/>
+        <item chance="48000" category="DROP" max="1" min="1" id="283"/>
+        <item chance="48000" category="DROP" max="1" min="1" id="301"/>
+        <item chance="120000" category="UNK_1" max="1" min="1" id="60"/>
+        <item chance="120000" category="UNK_1" max="1" min="1" id="400"/>
+        <item chance="120000" category="UNK_1" max="1" min="1" id="420"/>
+        <item chance="120000" category="UNK_1" max="1" min="1" id="441"/>
+        <item chance="120000" category="UNK_1" max="1" min="1" id="472"/>
+        <item chance="140000" category="UNK_2" max="1" min="1" id="107"/>
+        <item chance="140000" category="UNK_2" max="1" min="1" id="517"/>
+        <item chance="140000" category="UNK_2" max="1" min="1" id="951"/>
+        <item chance="140000" category="UNK_2" max="1" min="1" id="2435"/>
+        <item chance="140000" category="UNK_2" max="1" min="1" id="2459"/>
+        <item chance="1000000" category="UNK_3" max="150000"
+            min="100000" id="57"/>
+        <item chance="1000000" category="UNK_4" max="150000"
+            min="100000" id="57"/>
+        <item chance="1000000" category="UNK_5" max="150000"
+            min="100000" id="57"/>
+        <item chance="1000000" category="UNK_6" max="150000"
+            min="100000" id="57"/>
+        <item chance="1000000" category="UNK_7" max="150000"
+            min="100000" id="57"/>
+        <item chance="300000" category="UNK_8" max="1" min="1" id="6662"/>
+        <item chance="100000" category="UNK_200" max="2" min="1" id="8754"/>
+        <item chance="450000" category="UNK_200" max="4" min="2" id="8744"/>
+        <item chance="400000" category="UNK_200" max="4" min="2" id="8745"/>
+        <item chance="50000" category="UNK_200" max="2" min="1" id="8755"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

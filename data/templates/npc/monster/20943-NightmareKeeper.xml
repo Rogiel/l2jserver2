@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Nightmare Keeper</name>
         <level>45</level>
+        <race>BEAST</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="5.5" max="1183.80594"/>
@@ -26,21 +27,34 @@
         <collision heigth="42.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="758" min="373" id="57"/>
-        <item chance="25" max="1" min="1" id="263"/>
-        <item chance="59443" max="1" min="1" id="1867"/>
-        <item chance="59443" max="1" min="1" id="1872"/>
-        <item chance="62887" max="1" min="1" id="1874"/>
-        <item chance="62887" max="1" min="1" id="1875"/>
-        <item chance="2972" max="1" min="1" id="1875"/>
-        <item chance="5944" max="1" min="1" id="1881"/>
-        <item chance="1723" max="1" min="1" id="2073"/>
-        <item chance="48128" max="1" min="1" id="2163"/>
-        <item chance="969" max="1" min="1" id="2225"/>
-        <item chance="388" max="1" min="1" id="4041"/>
-        <item chance="1783" max="1" min="1" id="8723"/>
-        <item chance="446" max="1" min="1" id="8733"/>
-        <item chance="45" max="1" min="1" id="8743"/>
-        <item chance="9" max="1" min="1" id="8753"/>
+        <item chance="700000" category="DROP" max="758" min="373" id="57"/>
+        <item chance="25" category="UNK_1" max="1" min="1" id="263"/>
+        <item chance="59443" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="59443" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="62887" category="SPOIL" max="1" min="1" id="1874"/>
+        <item chance="62887" category="SPOIL" max="1" min="1" id="1875"/>
+        <item chance="2972" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="5944" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="1723" category="UNK_1" max="1" min="1" id="2073"/>
+        <item chance="48128" category="SPOIL" max="1" min="1" id="2163"/>
+        <item chance="969" category="UNK_2" max="1" min="1" id="2225"/>
+        <item chance="388" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="1783" category="UNK_200" max="1" min="1" id="8723"/>
+        <item chance="446" category="UNK_200" max="1" min="1" id="8733"/>
+        <item chance="45" category="UNK_200" max="1" min="1" id="8743"/>
+        <item chance="9" category="UNK_200" max="1" min="1" id="8753"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4097"/>
+        <skill level="4" id="4100"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="3" id="4416"/>
+    </skills>
 </npc>

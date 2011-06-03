@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Kookaburra</name>
         <level>67</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2295.48154"/>
@@ -26,26 +27,39 @@
         <collision heigth="26.4" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2515" min="1230" id="57"/>
-        <item chance="119734" max="30" min="10" id="1343"/>
-        <item chance="167628" max="1" min="1" id="1864"/>
-        <item chance="83814" max="1" min="1" id="1869"/>
-        <item chance="33526" max="1" min="1" id="1878"/>
-        <item chance="51578" max="1" min="1" id="1884"/>
-        <item chance="2794" max="1" min="1" id="4039"/>
-        <item chance="5440" max="1" min="1" id="4052"/>
-        <item chance="6586" max="1" min="1" id="4053"/>
-        <item chance="3037" max="1" min="1" id="4054"/>
-        <item chance="73242" max="1" min="1" id="4087"/>
-        <item chance="117959" max="1" min="1" id="4088"/>
-        <item chance="31" max="1" min="1" id="5456"/>
-        <item chance="35835" max="1" min="1" id="6333"/>
-        <item chance="931" max="1" min="1" id="8730"/>
-        <item chance="232" max="1" min="1" id="8740"/>
-        <item chance="23" max="1" min="1" id="8750"/>
-        <item chance="5" max="1" min="1" id="8760"/>
-        <item chance="713" max="1" min="1" id="12341"/>
-        <item chance="534" max="1" min="1" id="12342"/>
-        <item chance="1067" max="1" min="1" id="12343"/>
+        <item chance="700000" category="DROP" max="2515" min="1230" id="57"/>
+        <item chance="119734" category="UNK_2" max="30" min="10" id="1343"/>
+        <item chance="167628" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="83814" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="33526" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="51578" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="2794" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="5440" category="UNK_1" max="1" min="1" id="4052"/>
+        <item chance="6586" category="UNK_1" max="1" min="1" id="4053"/>
+        <item chance="3037" category="UNK_1" max="1" min="1" id="4054"/>
+        <item chance="73242" category="SPOIL" max="1" min="1" id="4087"/>
+        <item chance="117959" category="SPOIL" max="1" min="1" id="4088"/>
+        <item chance="31" category="UNK_2" max="1" min="1" id="5456"/>
+        <item chance="35835" category="SPOIL" max="1" min="1" id="6333"/>
+        <item chance="931" category="UNK_200" max="1" min="1" id="8730"/>
+        <item chance="232" category="UNK_200" max="1" min="1" id="8740"/>
+        <item chance="23" category="UNK_200" max="1" min="1" id="8750"/>
+        <item chance="5" category="UNK_200" max="1" min="1" id="8760"/>
+        <item chance="713" category="UNK_1" max="1" min="1" id="12341"/>
+        <item chance="534" category="UNK_1" max="1" min="1" id="12342"/>
+        <item chance="1067" category="UNK_1" max="1" min="1" id="12343"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4032"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="6" id="5620"/>
+    </skills>
 </npc>

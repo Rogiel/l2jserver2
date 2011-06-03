@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lith Guard</name>
         <level>30</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="604.08419"/>
@@ -27,17 +28,30 @@
         <collision heigth="42.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="3106" max="1" min="1" id="605"/>
-        <item chance="881783" max="1" min="1" id="1061"/>
-        <item chance="3106" max="1" min="1" id="1123"/>
-        <item chance="159014" max="3" min="1" id="1864"/>
-        <item chance="159014" max="1" min="1" id="1869"/>
-        <item chance="15901" max="1" min="1" id="1880"/>
-        <item chance="159184" max="1" min="1" id="1900"/>
-        <item chance="226274" max="1" min="1" id="2153"/>
-        <item chance="24730" max="1" min="1" id="2153"/>
-        <item chance="2120" max="1" min="1" id="5550"/>
-        <item chance="700000" max="259" min="128" id="6360"/>
-        <item chance="700000" max="44" min="24" id="6362"/>
+        <item chance="3106" category="UNK_1" max="1" min="1" id="605"/>
+        <item chance="881783" category="SPOIL" max="1" min="1" id="1061"/>
+        <item chance="3106" category="UNK_1" max="1" min="1" id="1123"/>
+        <item chance="159014" category="UNK_2" max="3" min="1" id="1864"/>
+        <item chance="159014" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="15901" category="UNK_2" max="1" min="1" id="1880"/>
+        <item chance="159184" category="SPOIL" max="1" min="1" id="1900"/>
+        <item chance="226274" category="SPOIL" max="1" min="1" id="2153"/>
+        <item chance="24730" category="UNK_2" max="1" min="1" id="2153"/>
+        <item chance="2120" category="UNK_2" max="1" min="1" id="5550"/>
+        <item chance="700000" category="DROP" max="259" min="128" id="6360"/>
+        <item chance="700000" category="UNK_4" max="44" min="24" id="6362"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4067"/>
+        <skill level="5" id="4287"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

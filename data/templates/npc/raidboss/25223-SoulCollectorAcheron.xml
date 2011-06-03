@@ -7,6 +7,7 @@
         <name display="true" send="false">Soul Collector Acheron</name>
         <title send="false">Raid Boss</title>
         <level>35</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="26.794392073316" max="69449.5684546156"/>
@@ -28,21 +29,36 @@
         <collision heigth="63.0" radius="18.0"/>
     </info>
     <droplist>
-        <item chance="10511" max="25" min="9" id="61"/>
-        <item chance="87193" max="1" min="1" id="225"/>
-        <item chance="9927" max="27" min="9" id="607"/>
-        <item chance="174188" max="45" min="15" id="952"/>
-        <item chance="9405" max="28" min="10" id="1125"/>
-        <item chance="33477" max="336" min="112" id="1949"/>
-        <item chance="11717" max="960" min="320" id="1957"/>
-        <item chance="18516" max="607" min="203" id="1963"/>
-        <item chance="218498" max="36" min="12" id="2052"/>
-        <item chance="8935" max="30" min="10" id="2427"/>
-        <item chance="178695" max="1" min="1" id="2428"/>
-        <item chance="178695" max="1" min="1" id="2451"/>
-        <item chance="136342" max="82" min="28" id="2931"/>
-        <item chance="104150" max="108" min="36" id="2932"/>
-        <item chance="82406" max="136" min="46" id="2933"/>
-        <item chance="326602" max="6" min="2" id="4600"/>
+        <item chance="10511" category="DROP" max="25" min="9" id="61"/>
+        <item chance="9927" category="DROP" max="27" min="9" id="607"/>
+        <item chance="9405" category="DROP" max="28" min="10" id="1125"/>
+        <item chance="33477" category="DROP" max="336" min="112" id="1949"/>
+        <item chance="11717" category="DROP" max="960" min="320" id="1957"/>
+        <item chance="18516" category="DROP" max="607" min="203" id="1963"/>
+        <item chance="8935" category="DROP" max="30" min="10" id="2427"/>
+        <item chance="178695" category="DROP" max="1" min="1" id="2428"/>
+        <item chance="178695" category="DROP" max="1" min="1" id="2451"/>
+        <item chance="136342" category="DROP" max="82" min="28" id="2931"/>
+        <item chance="104150" category="DROP" max="108" min="36" id="2932"/>
+        <item chance="82406" category="DROP" max="136" min="46" id="2933"/>
+        <item chance="87193" category="UNK_1" max="1" min="1" id="225"/>
+        <item chance="218498" category="UNK_1" max="36" min="12" id="2052"/>
+        <item chance="174188" category="UNK_2" max="45" min="15" id="952"/>
+        <item chance="326602" category="UNK_2" max="6" min="2" id="4600"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4197"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4869"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Emery Compressor</name>
         <title send="false">Aerial Cleft</title>
         <level>80</level>
+        <race>MAGIC_CREATURE</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -32,4 +33,15 @@ You see a machine humming with strange energy. Something is written below the 2 
 <a action="bypass -h npc_%objectId%_goto 12122">Press the "Teleport" button.</a>
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

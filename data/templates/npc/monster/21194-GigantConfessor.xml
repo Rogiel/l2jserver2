@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Gigant Confessor</name>
         <level>42</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1050.81652"/>
@@ -27,20 +28,33 @@
         <collision heigth="40.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="94" max="1" min="1" id="262"/>
-        <item chance="621" max="1" min="1" id="1805"/>
-        <item chance="62077" max="6" min="2" id="1867"/>
-        <item chance="82769" max="3" min="1" id="1872"/>
-        <item chance="173070" max="1" min="1" id="1875"/>
-        <item chance="12415" max="1" min="1" id="1875"/>
-        <item chance="346140" max="1" min="1" id="1881"/>
-        <item chance="24831" max="1" min="1" id="1881"/>
-        <item chance="252534" max="1" min="1" id="1905"/>
-        <item chance="5390" max="1" min="1" id="2053"/>
-        <item chance="14780" max="1" min="1" id="2994"/>
-        <item chance="186231" max="3" min="1" id="6037"/>
-        <item chance="700000" max="111" min="56" id="6360"/>
-        <item chance="700000" max="274" min="137" id="6361"/>
-        <item chance="700000" max="41" min="22" id="6362"/>
+        <item chance="94" category="UNK_1" max="1" min="1" id="262"/>
+        <item chance="621" category="UNK_2" max="1" min="1" id="1805"/>
+        <item chance="62077" category="UNK_2" max="6" min="2" id="1867"/>
+        <item chance="82769" category="UNK_2" max="3" min="1" id="1872"/>
+        <item chance="173070" category="SPOIL" max="1" min="1" id="1875"/>
+        <item chance="12415" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="346140" category="SPOIL" max="1" min="1" id="1881"/>
+        <item chance="24831" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="252534" category="SPOIL" max="1" min="1" id="1905"/>
+        <item chance="5390" category="UNK_1" max="1" min="1" id="2053"/>
+        <item chance="14780" category="UNK_2" max="1" min="1" id="2994"/>
+        <item chance="186231" category="UNK_2" max="3" min="1" id="6037"/>
+        <item chance="700000" category="DROP" max="111" min="56" id="6360"/>
+        <item chance="700000" category="UNK_3" max="274" min="137" id="6361"/>
+        <item chance="700000" category="UNK_4" max="41" min="22" id="6362"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4078"/>
+        <skill level="5" id="4285"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="8" id="4416"/>
+    </skills>
 </npc>

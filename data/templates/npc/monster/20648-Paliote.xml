@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Paliote</name>
         <level>57</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1776.58018"/>
@@ -26,29 +27,41 @@
         <collision heigth="22.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2531" min="1239" id="57"/>
-        <item chance="58" max="1" min="1" id="554"/>
-        <item chance="58" max="1" min="1" id="600"/>
-        <item chance="58" max="1" min="1" id="612"/>
-        <item chance="897647" max="13" min="1" id="1868"/>
-        <item chance="154671" max="1" min="1" id="1868"/>
-        <item chance="30934" max="1" min="1" id="1873"/>
-        <item chance="15467" max="1" min="1" id="1876"/>
-        <item chance="22096" max="1" min="1" id="1895"/>
-        <item chance="58" max="1" min="1" id="2464"/>
-        <item chance="171074" max="1" min="1" id="2963"/>
-        <item chance="1289" max="1" min="1" id="4042"/>
-        <item chance="6038" max="1" min="1" id="4073"/>
-        <item chance="6038" max="1" min="1" id="4097"/>
-        <item chance="6038" max="1" min="1" id="4098"/>
-        <item chance="6038" max="1" min="1" id="4100"/>
-        <item chance="3620" max="1" min="1" id="4191"/>
-        <item chance="1419" max="1" min="1" id="4961"/>
-        <item chance="962" max="1" min="1" id="4999"/>
-        <item chance="17985" max="1" min="1" id="6669"/>
-        <item chance="1547" max="1" min="1" id="8727"/>
-        <item chance="387" max="1" min="1" id="8737"/>
-        <item chance="39" max="1" min="1" id="8747"/>
-        <item chance="8" max="1" min="1" id="8757"/>
+        <item chance="700000" category="DROP" max="2531" min="1239" id="57"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="554"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="600"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="612"/>
+        <item chance="897647" category="SPOIL" max="13" min="1" id="1868"/>
+        <item chance="154671" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="30934" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="15467" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="22096" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="2464"/>
+        <item chance="171074" category="SPOIL" max="1" min="1" id="2963"/>
+        <item chance="1289" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="6038" category="UNK_1" max="1" min="1" id="4073"/>
+        <item chance="6038" category="UNK_1" max="1" min="1" id="4097"/>
+        <item chance="6038" category="UNK_1" max="1" min="1" id="4098"/>
+        <item chance="6038" category="UNK_1" max="1" min="1" id="4100"/>
+        <item chance="3620" category="SPOIL" max="1" min="1" id="4191"/>
+        <item chance="1419" category="UNK_2" max="1" min="1" id="4961"/>
+        <item chance="962" category="UNK_2" max="1" min="1" id="4999"/>
+        <item chance="17985" category="UNK_2" max="1" min="1" id="6669"/>
+        <item chance="1547" category="UNK_200" max="1" min="1" id="8727"/>
+        <item chance="387" category="UNK_200" max="1" min="1" id="8737"/>
+        <item chance="39" category="UNK_200" max="1" min="1" id="8747"/>
+        <item chance="8" category="UNK_200" max="1" min="1" id="8757"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4034"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

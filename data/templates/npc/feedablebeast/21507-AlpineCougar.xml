@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Alpine Cougar</name>
         <level>69</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2395.45533"/>
@@ -26,9 +27,26 @@
         <collision heigth="28.0" radius="34.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="7615" min="3762" id="57"/>
-        <item chance="82270" max="1" min="1" id="4041"/>
-        <item chance="1946" max="1" min="1" id="5430"/>
-        <item chance="32189" max="1" min="1" id="5536"/>
+        <item chance="700000" category="DROP" max="7615" min="3762" id="57"/>
+        <item chance="82270" category="SPOIL" max="1" min="1" id="4041"/>
+        <item chance="1946" category="SPOIL" max="1" min="1" id="5430"/>
+        <item chance="32189" category="SPOIL" max="1" min="1" id="5536"/>
     </droplist>
+    <skills>
+        <skill level="6" id="4160"/>
+        <skill level="1" id="4318"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="2" id="4438"/>
+        <skill level="6" id="4566"/>
+        <skill level="6" id="4571"/>
+        <skill level="6" id="4657"/>
+    </skills>
 </npc>

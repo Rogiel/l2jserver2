@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Quarry Bowman</name>
         <level>81</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="113.419259781018" max="11001.327600381"/>
@@ -27,21 +28,35 @@
         <collision heigth="28.0" radius="5.5"/>
     </info>
     <droplist>
-        <item chance="700000" max="3732" min="1864" id="57"/>
-        <item chance="163300" max="1" min="1" id="9599"/>
-        <item chance="1759" max="1" min="1" id="5480"/>
-        <item chance="1759" max="1" min="1" id="5481"/>
-        <item chance="12" max="1" min="1" id="5320"/>
-        <item chance="12" max="1" min="1" id="5323"/>
-        <item chance="99510" max="3" min="1" id="1867"/>
-        <item chance="55974" max="6" min="2" id="1869"/>
-        <item chance="44780" max="6" min="2" id="1870"/>
-        <item chance="37316" max="9" min="3" id="1871"/>
-        <item chance="149265" max="3" min="1" id="1872"/>
-        <item chance="1792" max="1" min="1" id="9551"/>
-        <item chance="89" max="1" min="1" id="960"/>
-        <item chance="7722" max="1" min="1" id="8721"/>
-        <item chance="7722" max="1" min="1" id="8722"/>
-        <item chance="3182" max="1" min="1" id="6901"/>
+        <item chance="700000" category="DROP" max="3732" min="1864" id="57"/>
+        <item chance="163300" category="UNK_100" max="1" min="1" id="9599"/>
+        <item chance="1759" category="UNK_1" max="1" min="1" id="5480"/>
+        <item chance="1759" category="UNK_1" max="1" min="1" id="5481"/>
+        <item chance="12" category="UNK_1" max="1" min="1" id="5320"/>
+        <item chance="12" category="UNK_1" max="1" min="1" id="5323"/>
+        <item chance="99510" category="UNK_2" max="3" min="1" id="1867"/>
+        <item chance="55974" category="UNK_2" max="6" min="2" id="1869"/>
+        <item chance="44780" category="UNK_2" max="6" min="2" id="1870"/>
+        <item chance="37316" category="UNK_2" max="9" min="3" id="1871"/>
+        <item chance="149265" category="UNK_2" max="3" min="1" id="1872"/>
+        <item chance="1792" category="UNK_200" max="1" min="1" id="9551"/>
+        <item chance="89" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="7722" category="SPOIL" max="1" min="1" id="8721"/>
+        <item chance="7722" category="SPOIL" max="1" min="1" id="8722"/>
+        <item chance="3182" category="SPOIL" max="1" min="1" id="6901"/>
     </droplist>
+    <skills>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="4" id="5328"/>
+        <skill level="4" id="5330"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

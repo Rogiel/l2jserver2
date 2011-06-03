@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Bandit Hound</name>
         <level>31</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="635.76437"/>
@@ -26,15 +27,27 @@
         <collision heigth="11.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="426" min="213" id="57"/>
-        <item chance="91942" max="1" min="1" id="1872"/>
-        <item chance="91942" max="1" min="1" id="1867"/>
-        <item chance="15324" max="1" min="1" id="1882"/>
-        <item chance="359" max="1" min="1" id="392"/>
-        <item chance="574" max="1" min="1" id="414"/>
-        <item chance="276" max="1" min="1" id="955"/>
-        <item chance="16825" max="1" min="1" id="956"/>
-        <item chance="672999" max="1" min="1" id="1872"/>
-        <item chance="112167" max="1" min="1" id="1882"/>
+        <item chance="700000" category="DROP" max="426" min="213" id="57"/>
+        <item chance="91942" category="UNK_3" max="1" min="1" id="1872"/>
+        <item chance="91942" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="15324" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="359" category="UNK_1" max="1" min="1" id="392"/>
+        <item chance="574" category="UNK_1" max="1" min="1" id="414"/>
+        <item chance="276" category="UNK_2" max="1" min="1" id="955"/>
+        <item chance="16825" category="SPOIL" max="1" min="1" id="956"/>
+        <item chance="672999" category="SPOIL" max="1" min="1" id="1872"/>
+        <item chance="112167" category="SPOIL" max="1" min="1" id="1882"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+        <skill level="1" id="4417"/>
+    </skills>
 </npc>

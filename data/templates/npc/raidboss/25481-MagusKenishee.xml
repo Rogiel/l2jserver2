@@ -7,6 +7,7 @@
         <name display="true" send="false">Magus Kenishee</name>
         <title send="false">Raid Boss</title>
         <level>53</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="60.1633937196702" max="175997.603312156"/>
@@ -28,21 +29,36 @@
         <collision heigth="38.0" radius="13.5"/>
     </info>
     <droplist>
-        <item chance="14226" max="1" min="1" id="229"/>
-        <item chance="14226" max="1" min="1" id="243"/>
-        <item chance="384995" max="3" min="1" id="948"/>
-        <item chance="35288" max="1" min="1" id="2384"/>
-        <item chance="56446" max="1" min="1" id="2388"/>
-        <item chance="21705" max="1" min="1" id="2390"/>
-        <item chance="276625" max="27" min="9" id="4066"/>
-        <item chance="94503" max="120" min="40" id="4067"/>
-        <item chance="136618" max="42" min="14" id="4068"/>
-        <item chance="334649" max="12" min="4" id="4109"/>
-        <item chance="178480" max="22" min="8" id="4110"/>
-        <item chance="141607" max="4" min="2" id="4616"/>
-        <item chance="106205" max="6" min="2" id="4617"/>
-        <item chance="84694" max="7" min="3" id="4618"/>
-        <item chance="880000" max="1" min="1" id="8176"/>
-        <item chance="880000" max="3" min="1" id="9814"/>
+        <item chance="14226" category="UNK_1" max="1" min="1" id="229"/>
+        <item chance="14226" category="UNK_1" max="1" min="1" id="243"/>
+        <item chance="384995" category="UNK_2" max="3" min="1" id="948"/>
+        <item chance="35288" category="DROP" max="1" min="1" id="2384"/>
+        <item chance="56446" category="DROP" max="1" min="1" id="2388"/>
+        <item chance="21705" category="DROP" max="1" min="1" id="2390"/>
+        <item chance="276625" category="DROP" max="27" min="9" id="4066"/>
+        <item chance="94503" category="DROP" max="120" min="40" id="4067"/>
+        <item chance="136618" category="DROP" max="42" min="14" id="4068"/>
+        <item chance="334649" category="UNK_1" max="12" min="4" id="4109"/>
+        <item chance="178480" category="UNK_1" max="22" min="8" id="4110"/>
+        <item chance="141607" category="UNK_2" max="4" min="2" id="4616"/>
+        <item chance="106205" category="UNK_2" max="6" min="2" id="4617"/>
+        <item chance="84694" category="UNK_2" max="7" min="3" id="4618"/>
+        <item chance="880000" category="UNK_101" max="1" min="1" id="8176"/>
+        <item chance="880000" category="UNK_100" max="3" min="1" id="9814"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4178"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4971"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Kadif Werewolf</name>
         <level>25</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="460.96247"/>
@@ -26,16 +27,27 @@
         <collision heigth="26.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="343" min="183" id="57"/>
-        <item chance="2072" max="1" min="1" id="376"/>
-        <item chance="484" max="1" min="1" id="391"/>
-        <item chance="775" max="1" min="1" id="413"/>
-        <item chance="93284" max="1" min="1" id="1864"/>
-        <item chance="46642" max="1" min="1" id="1869"/>
-        <item chance="4664" max="1" min="1" id="1880"/>
-        <item chance="64927" max="1" min="1" id="1899"/>
-        <item chance="49884" max="1" min="1" id="2182"/>
-        <item chance="5599" max="1" min="1" id="2182"/>
-        <item chance="46642" max="1" min="1" id="6666"/>
+        <item chance="700000" category="DROP" max="343" min="183" id="57"/>
+        <item chance="2072" category="SPOIL" max="1" min="1" id="376"/>
+        <item chance="484" category="UNK_1" max="1" min="1" id="391"/>
+        <item chance="775" category="UNK_1" max="1" min="1" id="413"/>
+        <item chance="93284" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="46642" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="4664" category="UNK_2" max="1" min="1" id="1880"/>
+        <item chance="64927" category="SPOIL" max="1" min="1" id="1899"/>
+        <item chance="49884" category="SPOIL" max="1" min="1" id="2182"/>
+        <item chance="5599" category="UNK_2" max="1" min="1" id="2182"/>
+        <item chance="46642" category="UNK_2" max="1" min="1" id="6666"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="6" id="4416"/>
+    </skills>
 </npc>

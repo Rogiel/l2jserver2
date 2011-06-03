@@ -7,6 +7,7 @@
         <name display="true" send="false">Ark Guardian Shadowfang</name>
         <title send="false">Quest Monster</title>
         <level>60</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1933.24044"/>
@@ -27,4 +28,18 @@
         <item lefthand="0" righthand="288"/>
         <collision heigth="27.0" radius="13.0"/>
     </info>
+    <skills>
+        <skill level="5" id="4071"/>
+        <skill level="1" id="4085"/>
+        <skill level="1" id="4086"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="8" id="4416"/>
+    </skills>
 </npc>

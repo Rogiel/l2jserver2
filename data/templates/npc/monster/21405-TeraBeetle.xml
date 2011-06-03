@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Tera Beetle</name>
         <level>78</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.67" max="2937.9838056"/>
@@ -26,22 +27,39 @@
         <collision heigth="54.5" radius="25.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="8230" min="4031" id="57"/>
-        <item chance="13" max="1" min="1" id="959"/>
-        <item chance="149107" max="3" min="1" id="1867"/>
-        <item chance="83873" max="6" min="2" id="1869"/>
-        <item chance="67098" max="6" min="2" id="1870"/>
-        <item chance="55915" max="9" min="3" id="1871"/>
-        <item chance="31951" max="21" min="7" id="1872"/>
-        <item chance="3634" max="1" min="1" id="5167"/>
-        <item chance="3399" max="1" min="1" id="5487"/>
-        <item chance="3399" max="1" min="1" id="5488"/>
-        <item chance="138112" max="1" min="1" id="5515"/>
-        <item chance="8178" max="1" min="1" id="6901"/>
-        <item chance="2796" max="1" min="1" id="8732"/>
-        <item chance="699" max="1" min="1" id="8742"/>
-        <item chance="70" max="1" min="1" id="8752"/>
-        <item chance="422" max="1" min="1" id="12259"/>
-        <item chance="422" max="1" min="1" id="12266"/>
+        <item chance="700000" category="DROP" max="8230" min="4031" id="57"/>
+        <item chance="13" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="149107" category="UNK_2" max="3" min="1" id="1867"/>
+        <item chance="83873" category="UNK_2" max="6" min="2" id="1869"/>
+        <item chance="67098" category="UNK_2" max="6" min="2" id="1870"/>
+        <item chance="55915" category="UNK_2" max="9" min="3" id="1871"/>
+        <item chance="31951" category="UNK_2" max="21" min="7" id="1872"/>
+        <item chance="3634" category="SPOIL" max="1" min="1" id="5167"/>
+        <item chance="3399" category="UNK_1" max="1" min="1" id="5487"/>
+        <item chance="3399" category="UNK_1" max="1" min="1" id="5488"/>
+        <item chance="138112" category="SPOIL" max="1" min="1" id="5515"/>
+        <item chance="8178" category="SPOIL" max="1" min="1" id="6901"/>
+        <item chance="2796" category="UNK_200" max="1" min="1" id="8732"/>
+        <item chance="699" category="UNK_200" max="1" min="1" id="8742"/>
+        <item chance="70" category="UNK_200" max="1" min="1" id="8752"/>
+        <item chance="422" category="UNK_1" max="1" min="1" id="12259"/>
+        <item chance="422" category="UNK_1" max="1" min="1" id="12266"/>
     </droplist>
+    <skills>
+        <skill level="9" id="4001"/>
+        <skill level="3" id="4029"/>
+        <skill level="5" id="4071"/>
+        <skill level="1" id="4274"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+        <skill level="4" id="4437"/>
+        <skill level="6" id="4789"/>
+    </skills>
 </npc>

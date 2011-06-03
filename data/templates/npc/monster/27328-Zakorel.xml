@@ -7,6 +7,7 @@
         <name display="true" send="false">Zakorel</name>
         <title send="false">Quest Monster</title>
         <level>81</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2916.89894"/>
@@ -27,4 +28,15 @@
         <item lefthand="0" righthand="6717"/>
         <collision heigth="47.0" radius="13.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+    </skills>
 </npc>

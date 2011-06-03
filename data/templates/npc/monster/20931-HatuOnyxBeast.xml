@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Hatu Onyx Beast</name>
         <level>36</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="809.52639"/>
@@ -26,18 +27,30 @@
         <collision heigth="14.5" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="409" min="204" id="57"/>
-        <item chance="35" max="1" min="1" id="293"/>
-        <item chance="35" max="1" min="1" id="296"/>
-        <item chance="36794" max="1" min="1" id="1865"/>
-        <item chance="36794" max="1" min="1" id="1870"/>
-        <item chance="2453" max="1" min="1" id="1875"/>
-        <item chance="6132" max="1" min="1" id="1879"/>
-        <item chance="66909" max="1" min="1" id="1901"/>
-        <item chance="72301" max="1" min="1" id="1940"/>
-        <item chance="771" max="1" min="1" id="2197"/>
-        <item chance="3460" max="1" min="1" id="2271"/>
-        <item chance="263" max="1" min="1" id="2276"/>
-        <item chance="204" max="1" min="1" id="2286"/>
+        <item chance="700000" category="DROP" max="409" min="204" id="57"/>
+        <item chance="35" category="UNK_1" max="1" min="1" id="293"/>
+        <item chance="35" category="UNK_1" max="1" min="1" id="296"/>
+        <item chance="36794" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="36794" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="2453" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="6132" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="66909" category="SPOIL" max="1" min="1" id="1901"/>
+        <item chance="72301" category="SPOIL" max="1" min="1" id="1940"/>
+        <item chance="771" category="UNK_2" max="1" min="1" id="2197"/>
+        <item chance="3460" category="SPOIL" max="1" min="1" id="2271"/>
+        <item chance="263" category="UNK_2" max="1" min="1" id="2276"/>
+        <item chance="204" category="UNK_2" max="1" min="1" id="2286"/>
     </droplist>
+    <skills>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="3" id="4576"/>
+    </skills>
 </npc>

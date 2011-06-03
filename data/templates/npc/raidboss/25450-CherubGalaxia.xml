@@ -7,6 +7,7 @@
         <name display="true" send="false">Cherub Galaxia</name>
         <title send="false">Raid Boss</title>
         <level>79</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="127.691727959173" max="414903.39163531"/>
@@ -28,24 +29,41 @@
         <collision heigth="120.0" radius="22.0"/>
     </info>
     <droplist>
-        <item chance="50985" max="1" min="1" id="959"/>
-        <item chance="509847" max="1" min="1" id="960"/>
-        <item chance="6899" max="1" min="1" id="6364"/>
-        <item chance="6899" max="1" min="1" id="6372"/>
-        <item chance="8498" max="1" min="1" id="6577"/>
-        <item chance="20517" max="1" min="1" id="6676"/>
-        <item chance="20517" max="1" min="1" id="6677"/>
-        <item chance="20517" max="1" min="1" id="6681"/>
-        <item chance="20517" max="1" min="1" id="6682"/>
-        <item chance="20517" max="1" min="1" id="6685"/>
-        <item chance="20517" max="1" min="1" id="6686"/>
-        <item chance="212535" max="22" min="8" id="6688"/>
-        <item chance="404834" max="12" min="4" id="6696"/>
-        <item chance="20833" max="336" min="112" id="6703"/>
-        <item chance="172836" max="40" min="14" id="6704"/>
-        <item chance="116664" max="60" min="20" id="6708"/>
-        <item chance="84846" max="82" min="28" id="6709"/>
-        <item chance="64813" max="108" min="36" id="6712"/>
-        <item chance="51280" max="136" min="46" id="6713"/>
+        <item chance="50985" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="509847" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="6899" category="UNK_1" max="1" min="1" id="6364"/>
+        <item chance="6899" category="UNK_1" max="1" min="1" id="6372"/>
+        <item chance="8498" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="20517" category="DROP" max="1" min="1" id="6676"/>
+        <item chance="20517" category="DROP" max="1" min="1" id="6677"/>
+        <item chance="20517" category="DROP" max="1" min="1" id="6681"/>
+        <item chance="20517" category="DROP" max="1" min="1" id="6682"/>
+        <item chance="20517" category="DROP" max="1" min="1" id="6685"/>
+        <item chance="20517" category="DROP" max="1" min="1" id="6686"/>
+        <item chance="212535" category="UNK_1" max="22" min="8" id="6688"/>
+        <item chance="404834" category="UNK_1" max="12" min="4" id="6696"/>
+        <item chance="20833" category="DROP" max="336" min="112" id="6703"/>
+        <item chance="172836" category="DROP" max="40" min="14" id="6704"/>
+        <item chance="116664" category="DROP" max="60" min="20" id="6708"/>
+        <item chance="84846" category="DROP" max="82" min="28" id="6709"/>
+        <item chance="64813" category="DROP" max="108" min="36" id="6712"/>
+        <item chance="51280" category="DROP" max="136" min="46" id="6713"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4183"/>
+        <skill level="8" id="4190"/>
+        <skill level="8" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4961"/>
+    </skills>
 </npc>

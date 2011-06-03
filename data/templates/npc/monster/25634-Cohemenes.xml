@@ -7,6 +7,7 @@
         <name display="true" send="false">Cohemenes</name>
         <title send="false">Soul Collector</title>
         <level>81</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="186.30557254141" max="436294.588865472"/>
@@ -26,4 +27,22 @@
         <sp>406483</sp>
         <collision heigth="60.72" radius="31.68"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="5467"/>
+        <skill level="2" id="5898"/>
+        <skill level="2" id="5904"/>
+        <skill level="2" id="5907"/>
+        <skill level="2" id="5908"/>
+        <skill level="1" id="5917"/>
+    </skills>
 </npc>

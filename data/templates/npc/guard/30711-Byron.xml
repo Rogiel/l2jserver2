@@ -7,6 +7,7 @@
         <name display="true" send="false">Byron</name>
         <title send="false">Guard</title>
         <level>80</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -37,4 +38,16 @@ The famous Enchanted Valley is located inside that high hill that blocks the roa
 Have you ever seen a unicorn? It is a very dignified and exquisite creature. Unicorns and many other beautiful creatures live in the Enchanted Valley. The scenery of the valley is quite bewitching and mysterious. There are certain plants that only grow there. Mage legends say that fairies live in the deepest part of the valley, hidden there to avoid being hunted by Men... I pray they are never found...
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

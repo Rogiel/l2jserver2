@@ -7,6 +7,7 @@
         <name display="true" send="false">Torumba</name>
         <title send="false">Reptilikon</title>
         <level>85</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="242.622420161294" max="6312935.03534084"/>
@@ -26,4 +27,22 @@
         <sp>0</sp>
         <collision heigth="64.0" radius="40.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="13" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5465"/>
+        <skill level="1" id="6403"/>
+        <skill level="1" id="6404"/>
+        <skill level="1" id="6405"/>
+        <skill level="1" id="6653"/>
+    </skills>
 </npc>

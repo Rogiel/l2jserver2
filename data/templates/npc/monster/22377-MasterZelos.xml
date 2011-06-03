@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Master Zelos</name>
         <level>83</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="190.745373183435" max="336949.124088359"/>
@@ -26,19 +27,33 @@
         <collision heigth="49.0" radius="33.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="349814" min="174669" id="57"/>
-        <item chance="899700" max="25" min="9" id="9599"/>
-        <item chance="201324" max="1" min="1" id="5541"/>
-        <item chance="708" max="1" min="1" id="305"/>
-        <item chance="31214" max="288" min="96" id="1895"/>
-        <item chance="69919" max="9" min="3" id="4040"/>
-        <item chance="139839" max="6" min="2" id="4043"/>
-        <item chance="49943" max="9" min="3" id="4042"/>
-        <item chance="2149" max="1" min="1" id="6889"/>
-        <item chance="8390" max="1" min="1" id="960"/>
-        <item chance="167807" max="1" min="1" id="9551"/>
-        <item chance="723457" max="1" min="1" id="8717"/>
-        <item chance="723457" max="1" min="1" id="8718"/>
-        <item chance="298064" max="1" min="1" id="6901"/>
+        <item chance="700000" category="DROP" max="349814" min="174669" id="57"/>
+        <item chance="708" category="UNK_1" max="1" min="1" id="305"/>
+        <item chance="8390" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="31214" category="UNK_2" max="288" min="96" id="1895"/>
+        <item chance="69919" category="UNK_2" max="9" min="3" id="4040"/>
+        <item chance="49943" category="UNK_2" max="9" min="3" id="4042"/>
+        <item chance="139839" category="UNK_2" max="6" min="2" id="4043"/>
+        <item chance="201324" category="UNK_1" max="1" min="1" id="5541"/>
+        <item chance="2149" category="UNK_2" max="1" min="1" id="6889"/>
+        <item chance="298064" category="SPOIL" max="1" min="1" id="6901"/>
+        <item chance="723457" category="SPOIL" max="1" min="1" id="8717"/>
+        <item chance="723457" category="SPOIL" max="1" min="1" id="8718"/>
+        <item chance="167807" category="UNK_200" max="1" min="1" id="9551"/>
+        <item chance="899700" category="UNK_100" max="25" min="9" id="9599"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="3" id="5358"/>
+        <skill level="3" id="5362"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

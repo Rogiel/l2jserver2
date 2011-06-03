@@ -7,6 +7,7 @@
         <name display="true" send="false">Vengeance</name>
         <title send="false">Raid Fighter</title>
         <level>81</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="132.781870390792" max="69102.9794571856"/>
@@ -26,4 +27,19 @@
         <sp>0</sp>
         <collision heigth="43.5" radius="36.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4199"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="8" id="4780"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

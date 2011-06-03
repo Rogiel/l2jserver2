@@ -7,6 +7,7 @@
         <name display="true" send="false">Bloody Empress Decarbia</name>
         <title send="false">Raid Boss</title>
         <level>75</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="123.216289543832" max="397437.25144009"/>
@@ -27,12 +28,29 @@
         <collision heigth="31.0" radius="14.0"/>
     </info>
     <droplist>
-        <item chance="39110" max="1" min="1" id="959"/>
-        <item chance="391104" max="1" min="1" id="960"/>
-        <item chance="10584" max="1" min="1" id="6370"/>
-        <item chance="6519" max="1" min="1" id="6577"/>
-        <item chance="19369" max="1" min="1" id="6684"/>
-        <item chance="207484" max="36" min="12" id="6694"/>
-        <item chance="311439" max="36" min="12" id="6711"/>
+        <item chance="19369" category="DROP" max="1" min="1" id="6684"/>
+        <item chance="311439" category="DROP" max="36" min="12" id="6711"/>
+        <item chance="10584" category="UNK_1" max="1" min="1" id="6370"/>
+        <item chance="207484" category="UNK_1" max="36" min="12" id="6694"/>
+        <item chance="39110" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="391104" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="6519" category="UNK_2" max="1" min="1" id="6577"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4185"/>
+        <skill level="8" id="4188"/>
+        <skill level="8" id="4192"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4888"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Anger of Forest</name>
         <title send="false">Raid Fighter</title>
         <level>44</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="41.3470424277186" max="18378.2066200427"/>
@@ -27,6 +28,19 @@
         <collision heigth="27.0" radius="35.0"/>
     </info>
     <droplist>
-        <item chance="124267" max="1" min="1" id="1539"/>
+        <item chance="124267" category="UNK_2" max="1" min="1" id="1539"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="4" id="4416"/>
+        <skill level="4" id="4743"/>
+    </skills>
 </npc>

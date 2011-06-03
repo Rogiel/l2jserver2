@@ -7,6 +7,7 @@
         <name display="true" send="false">Hellinark</name>
         <title send="false">Naia's Guardian</title>
         <level>81</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="194.030406814438" max="338766.60216791"/>
@@ -27,22 +28,36 @@
         <collision heigth="90.0" radius="25.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="576519" min="287985" id="57"/>
-        <item chance="869600" max="44" min="14" id="9599"/>
-        <item chance="121534" max="1" min="1" id="5546"/>
-        <item chance="110646" max="1" min="1" id="5529"/>
-        <item chance="110646" max="1" min="1" id="5545"/>
-        <item chance="389" max="1" min="1" id="81"/>
-        <item chance="389" max="1" min="1" id="151"/>
-        <item chance="389" max="1" min="1" id="2500"/>
-        <item chance="141569" max="15" min="5" id="1894"/>
-        <item chance="42028" max="48" min="16" id="4044"/>
-        <item chance="74717" max="27" min="9" id="4039"/>
-        <item chance="50121" max="9" min="3" id="4041"/>
-        <item chance="1614" max="1" min="1" id="959"/>
-        <item chance="35864" max="12" min="4" id="9551"/>
-        <item chance="910052" max="35" min="1" id="4039"/>
-        <item chance="874614" max="15" min="1" id="6704"/>
-        <item chance="491428" max="1" min="1" id="6901"/>
+        <item chance="700000" category="DROP" max="576519" min="287985" id="57"/>
+        <item chance="869600" category="UNK_100" max="44" min="14" id="9599"/>
+        <item chance="121534" category="UNK_1" max="1" min="1" id="5546"/>
+        <item chance="110646" category="UNK_1" max="1" min="1" id="5529"/>
+        <item chance="110646" category="UNK_1" max="1" min="1" id="5545"/>
+        <item chance="389" category="UNK_1" max="1" min="1" id="81"/>
+        <item chance="389" category="UNK_1" max="1" min="1" id="151"/>
+        <item chance="389" category="UNK_1" max="1" min="1" id="2500"/>
+        <item chance="141569" category="UNK_2" max="15" min="5" id="1894"/>
+        <item chance="42028" category="UNK_2" max="48" min="16" id="4044"/>
+        <item chance="74717" category="UNK_2" max="27" min="9" id="4039"/>
+        <item chance="50121" category="UNK_2" max="9" min="3" id="4041"/>
+        <item chance="1614" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="35864" category="UNK_200" max="12" min="4" id="9551"/>
+        <item chance="910052" category="SPOIL" max="35" min="1" id="4039"/>
+        <item chance="874614" category="SPOIL" max="15" min="1" id="6704"/>
+        <item chance="491428" category="SPOIL" max="1" min="1" id="6901"/>
     </droplist>
+    <skills>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="4" id="5335"/>
+        <skill level="4" id="5362"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

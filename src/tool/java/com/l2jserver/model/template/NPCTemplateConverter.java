@@ -44,9 +44,11 @@ import org.apache.commons.io.FileUtils;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
 import com.l2jserver.model.template.NPCTemplate.Chat;
 import com.l2jserver.model.template.NPCTemplate.DropItemMetadata;
+import com.l2jserver.model.template.NPCTemplate.DropItemMetadata.DropCategory;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.CollisionMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.ItemMetadata;
@@ -60,8 +62,10 @@ import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsM
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.MoveMetadata;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.Stat;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
+import com.l2jserver.model.template.NPCTemplate.SkillMetadata;
 import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
 import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
+import com.l2jserver.model.template.npc.NPCRace;
 import com.l2jserver.model.world.Actor.ActorSex;
 import com.l2jserver.model.world.npc.controller.BaseNPCController;
 import com.l2jserver.model.world.npc.controller.MonsterController;
@@ -75,7 +79,7 @@ import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 public class NPCTemplateConverter {
-	private static final String JDBC_URL = "jdbc:mysql://localhost/l2j-old";
+	private static final String JDBC_URL = "jdbc:mysql://localhost/l2jlegacy";
 	private static final String JDBC_USERNAME = "l2j";
 	private static final String JDBC_PASSWORD = "changeme";
 	private static final File L2J_HTML_FOLDER = new File(
@@ -161,7 +165,11 @@ public class NPCTemplateConverter {
 			m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "npc");
 
 			final PreparedStatement st = conn
-					.prepareStatement("SELECT *  FROM npc");
+					.prepareStatement("SELECT npc.*, npcskills.level AS race "
+							+ "FROM npc "
+							+ "LEFT JOIN npcskills "
+							+ "ON(npc.idTemplate = npcskills.npcid AND npcskills.skillid = ?)");
+			st.setInt(1, 4416);
 			st.execute();
 			final ResultSet rs = st.getResultSet();
 			while (rs.next()) {
@@ -245,6 +253,7 @@ public class NPCTemplateConverter {
 			template.info.nameMetadata = null;
 
 		template.info.level = rs.getInt("level");
+		template.info.race = getRace(rs.getInt("race"));
 		if (!rs.getString("sex").equals("etc"))
 			template.info.sex = ActorSex.valueOf(rs.getString("sex")
 					.toUpperCase());
@@ -310,6 +319,7 @@ public class NPCTemplateConverter {
 		template.info.collision.height = rs.getDouble("collision_height");
 
 		template.droplist = fillDropList(rs, template.id.getID());
+		template.skills = fillSkillList(rs, template.id.getID());
 		template.talk = fillHtmlChat(template.id.getID());
 
 		return new Object[] { template, createParentType(rs.getString("type")) };
@@ -331,8 +341,8 @@ public class NPCTemplateConverter {
 			m.min = rs.getInt("min");
 			m.max = rs.getInt("max");
 			m.chance = rs.getInt("chance");
+			m.category = getCategory(rs.getInt("category"));
 			drops.add(m);
-			// TODO category
 		}
 		if (drops.size() == 0)
 			return null;
@@ -364,6 +374,27 @@ public class NPCTemplateConverter {
 		if (talk.chats.size() == 0)
 			return null;
 		return talk;
+	}
+
+	private static List<SkillMetadata> fillSkillList(ResultSet npcRs, int npcId)
+			throws SQLException {
+		final Connection conn = npcRs.getStatement().getConnection();
+		final List<SkillMetadata> skills = CollectionFactory.newList();
+
+		final PreparedStatement st = conn
+				.prepareStatement("SELECT * FROM npcskills WHERE npcid = ?");
+		st.setInt(1, npcId);
+		st.execute();
+		final ResultSet rs = st.getResultSet();
+		while (rs.next()) {
+			SkillMetadata m = new SkillMetadata();
+			m.skill = new SkillTemplateID(rs.getInt("skillid"), null);
+			m.level = rs.getInt("level");
+			skills.add(m);
+		}
+		if (skills.size() == 0)
+			return null;
+		return skills;
 	}
 
 	private static String camelCase(String c) {
@@ -427,5 +458,73 @@ public class NPCTemplateConverter {
 		serializer.setOutputByteStream(w);
 
 		return serializer;
+	}
+
+	public static NPCRace getRace(int id) {
+		switch (id) {
+		case 1:
+			return NPCRace.UNDEAD;
+		case 2:
+			return NPCRace.MAGIC_CREATURE;
+		case 3:
+			return NPCRace.BEAST;
+		case 4:
+			return NPCRace.ANIMAL;
+		case 5:
+			return NPCRace.PLANT;
+		case 6:
+			return NPCRace.HUMANOID;
+		case 7:
+			return NPCRace.SPIRIT;
+		case 8:
+			return NPCRace.ANGEL;
+		case 9:
+			return NPCRace.DEMON;
+		case 10:
+			return NPCRace.DRAGON;
+		case 11:
+			return NPCRace.GIANT;
+		case 12:
+			return NPCRace.BUG;
+		case 13:
+			return NPCRace.FAIRIE;
+		case 14:
+			return NPCRace.HUMAN;
+		case 15:
+			return NPCRace.ELVEN;
+		case 16:
+			return NPCRace.DARKELVEN;
+		case 17:
+			return NPCRace.ORC;
+		case 18:
+			return NPCRace.DWARVEN;
+		case 19:
+			return NPCRace.OTHER;
+		case 20:
+			return NPCRace.NON_LIVING;
+		case 21:
+			return NPCRace.SIEGE_WEAPON;
+		case 22:
+			return NPCRace.DEFENDING_ARMY;
+		case 23:
+			return NPCRace.MERCENARIE;
+		case 24:
+			return NPCRace.UNKNOWN;
+		case 25:
+			return NPCRace.KAMAEL;
+		default:
+			return NPCRace.NONE;
+		}
+	}
+
+	public static DropCategory getCategory(int id) {
+		switch (id) {
+		case -1:
+			return DropCategory.SPOIL;
+		case 0:
+			return DropCategory.DROP;
+		default:
+			return DropCategory.valueOf("UNK_" + id);
+		}
 	}
 }

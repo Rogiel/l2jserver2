@@ -7,6 +7,7 @@
         <name display="true" send="false">Anakazel</name>
         <title send="false">Invaders' Leader</title>
         <level>78</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="175.808199429551" max="410724.290197009"/>
@@ -27,15 +28,33 @@
         <collision heigth="90.0" radius="25.0"/>
     </info>
     <droplist>
-        <item chance="344793" max="1" min="1" id="3936"/>
-        <item chance="4976" max="1" min="1" id="6370"/>
-        <item chance="30648" max="1" min="1" id="6578"/>
-        <item chance="390226" max="9" min="3" id="6694"/>
-        <item chance="258007" max="27" min="9" id="6698"/>
-        <item chance="64416" max="120" min="40" id="6699"/>
-        <item chance="101090" max="42" min="14" id="6700"/>
-        <item chance="14461" max="1" min="1" id="6724"/>
-        <item chance="21691" max="1" min="1" id="6725"/>
-        <item chance="10843" max="1" min="1" id="6726"/>
+        <item chance="344793" category="UNK_2" max="1" min="1" id="3936"/>
+        <item chance="4976" category="UNK_1" max="1" min="1" id="6370"/>
+        <item chance="30648" category="UNK_2" max="1" min="1" id="6578"/>
+        <item chance="390226" category="UNK_1" max="9" min="3" id="6694"/>
+        <item chance="258007" category="DROP" max="27" min="9" id="6698"/>
+        <item chance="64416" category="DROP" max="120" min="40" id="6699"/>
+        <item chance="101090" category="DROP" max="42" min="14" id="6700"/>
+        <item chance="14461" category="DROP" max="1" min="1" id="6724"/>
+        <item chance="21691" category="DROP" max="1" min="1" id="6725"/>
+        <item chance="10843" category="DROP" max="1" min="1" id="6726"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4172"/>
+        <skill level="8" id="4175"/>
+        <skill level="8" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="8" id="4723"/>
+        <skill level="1" id="4920"/>
+    </skills>
 </npc>

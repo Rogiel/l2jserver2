@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Sepulcher Sage</name>
         <level>62</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2037.81082"/>
@@ -27,19 +28,31 @@
         <collision heigth="44.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="4571" min="2256" id="57"/>
-        <item chance="112040" max="1" min="1" id="1830"/>
-        <item chance="186733" max="1" min="1" id="1866"/>
-        <item chance="140050" max="3" min="1" id="1871"/>
-        <item chance="11204" max="1" min="1" id="1877"/>
-        <item chance="28" max="1" min="1" id="2391"/>
-        <item chance="28" max="1" min="1" id="2392"/>
-        <item chance="5602" max="1" min="1" id="4040"/>
-        <item chance="2436" max="1" min="1" id="4041"/>
-        <item chance="201435" max="1" min="1" id="4052"/>
-        <item chance="243872" max="1" min="1" id="4053"/>
-        <item chance="4748" max="1" min="1" id="4082"/>
-        <item chance="4748" max="1" min="1" id="4083"/>
-        <item chance="7586" max="1" min="1" id="5230"/>
+        <item chance="700000" category="DROP" max="4571" min="2256" id="57"/>
+        <item chance="112040" category="UNK_2" max="1" min="1" id="1830"/>
+        <item chance="186733" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="140050" category="UNK_2" max="3" min="1" id="1871"/>
+        <item chance="11204" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="28" category="UNK_1" max="1" min="1" id="2391"/>
+        <item chance="28" category="UNK_1" max="1" min="1" id="2392"/>
+        <item chance="5602" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="2436" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="201435" category="SPOIL" max="1" min="1" id="4052"/>
+        <item chance="243872" category="SPOIL" max="1" min="1" id="4053"/>
+        <item chance="4748" category="UNK_1" max="1" min="1" id="4082"/>
+        <item chance="4748" category="UNK_1" max="1" min="1" id="4083"/>
+        <item chance="7586" category="SPOIL" max="1" min="1" id="5230"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4099"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

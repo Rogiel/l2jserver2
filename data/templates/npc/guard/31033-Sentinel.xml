@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Sentinel</name>
         <level>80</level>
+        <race>ELVEN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -32,4 +33,16 @@ You must use extreme caution, sir! There have been reports of roaming thugs in t
 May the divine protection of Eva be with you always.
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
 </npc>

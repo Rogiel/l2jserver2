@@ -7,6 +7,7 @@
         <name display="true" send="false">Revenant of Sir Calibus</name>
         <title send="false">Raid Boss</title>
         <level>34</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="25.6128307622386" max="65791.6741786232"/>
@@ -28,14 +29,31 @@
         <collision heigth="29.0" radius="24.0"/>
     </info>
     <droplist>
-        <item chance="83474" max="1" min="1" id="225"/>
-        <item chance="22980" max="18" min="6" id="851"/>
-        <item chance="41364" max="15" min="5" id="882"/>
-        <item chance="206821" max="1" min="1" id="914"/>
-        <item chance="77246" max="243" min="81" id="1905"/>
-        <item chance="221035" max="120" min="40" id="1906"/>
-        <item chance="29055" max="462" min="154" id="1907"/>
-        <item chance="209179" max="36" min="12" id="2052"/>
-        <item chance="50028" max="1" min="1" id="6573"/>
+        <item chance="83474" category="UNK_1" max="1" min="1" id="225"/>
+        <item chance="22980" category="DROP" max="18" min="6" id="851"/>
+        <item chance="41364" category="DROP" max="15" min="5" id="882"/>
+        <item chance="206821" category="DROP" max="1" min="1" id="914"/>
+        <item chance="77246" category="DROP" max="243" min="81" id="1905"/>
+        <item chance="221035" category="DROP" max="120" min="40" id="1906"/>
+        <item chance="29055" category="DROP" max="462" min="154" id="1907"/>
+        <item chance="209179" category="UNK_1" max="36" min="12" id="2052"/>
+        <item chance="50028" category="UNK_2" max="1" min="1" id="6573"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4197"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4937"/>
+    </skills>
 </npc>

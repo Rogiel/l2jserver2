@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Dimension Invader Archer</name>
         <level>43</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1094.28943"/>
@@ -27,18 +28,30 @@
         <collision heigth="27.0" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1865" min="919" id="57"/>
-        <item chance="194" max="1" min="1" id="353"/>
-        <item chance="310" max="1" min="1" id="380"/>
-        <item chance="103683" max="3" min="1" id="1867"/>
-        <item chance="155525" max="3" min="1" id="1872"/>
-        <item chance="15553" max="1" min="1" id="1875"/>
-        <item chance="31105" max="1" min="1" id="1881"/>
-        <item chance="319295" max="1" min="1" id="1906"/>
-        <item chance="161591" max="1" min="1" id="1907"/>
-        <item chance="9465" max="1" min="1" id="1950"/>
-        <item chance="14721" max="1" min="1" id="1951"/>
-        <item chance="149862" max="1" min="1" id="2160"/>
-        <item chance="15051" max="1" min="1" id="2160"/>
+        <item chance="319295" category="SPOIL" max="1" min="1" id="1906"/>
+        <item chance="161591" category="SPOIL" max="1" min="1" id="1907"/>
+        <item chance="149862" category="SPOIL" max="1" min="1" id="2160"/>
+        <item chance="700000" category="DROP" max="1865" min="919" id="57"/>
+        <item chance="194" category="UNK_1" max="1" min="1" id="353"/>
+        <item chance="310" category="UNK_1" max="1" min="1" id="380"/>
+        <item chance="9465" category="UNK_1" max="1" min="1" id="1950"/>
+        <item chance="14721" category="UNK_1" max="1" min="1" id="1951"/>
+        <item chance="103683" category="UNK_2" max="3" min="1" id="1867"/>
+        <item chance="155525" category="UNK_2" max="3" min="1" id="1872"/>
+        <item chance="15553" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="31105" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="15051" category="UNK_2" max="1" min="1" id="2160"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4274"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

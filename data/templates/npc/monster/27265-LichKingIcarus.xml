@@ -7,6 +7,7 @@
         <name display="true" send="false">Lich King Icarus</name>
         <title send="false">Quest Monster</title>
         <level>78</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.721" max="2975.2369188"/>
@@ -27,4 +28,15 @@
         <item lefthand="0" righthand="205"/>
         <collision heigth="40.0" radius="12.0"/>
     </info>
+    <skills>
+        <skill level="17" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

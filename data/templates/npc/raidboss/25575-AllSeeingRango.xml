@@ -7,6 +7,7 @@
         <name display="true" send="false">All-Seeing Rango</name>
         <title send="false">Forsaken Inmate</title>
         <level>73</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="84.1856152463255" max="194342.366232331"/>
@@ -27,15 +28,30 @@
         <collision heigth="45.0" radius="42.0"/>
     </info>
     <droplist>
-        <item chance="28970" max="1" min="1" id="729"/>
-        <item chance="33468" max="1" min="1" id="5297"/>
-        <item chance="53529" max="1" min="1" id="5298"/>
-        <item chance="20593" max="1" min="1" id="5301"/>
-        <item chance="208809" max="27" min="9" id="5478"/>
-        <item chance="66120" max="60" min="20" id="5479"/>
-        <item chance="105347" max="84" min="28" id="5482"/>
-        <item chance="3476" max="1" min="1" id="6569"/>
-        <item chance="28979" max="1" min="1" id="6570"/>
-        <item chance="52146" max="1" min="1" id="9625"/>
+        <item chance="28970" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="33468" category="DROP" max="1" min="1" id="5297"/>
+        <item chance="53529" category="DROP" max="1" min="1" id="5298"/>
+        <item chance="20593" category="DROP" max="1" min="1" id="5301"/>
+        <item chance="208809" category="DROP" max="27" min="9" id="5478"/>
+        <item chance="66120" category="DROP" max="60" min="20" id="5479"/>
+        <item chance="105347" category="DROP" max="84" min="28" id="5482"/>
+        <item chance="3476" category="UNK_2" max="1" min="1" id="6569"/>
+        <item chance="28979" category="UNK_2" max="1" min="1" id="6570"/>
+        <item chance="52146" category="UNK_3" max="1" min="1" id="9625"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4187"/>
+        <skill level="6" id="4190"/>
+        <skill level="6" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Tears</name>
         <title send="false">Ice</title>
         <level>84</level>
+        <race>SPIRIT</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="154.089581103435" max="1360985.8136379"/>
@@ -27,4 +28,23 @@
         <item lefthand="9638" righthand="9638"/>
         <collision heigth="27.5" radius="20.0"/>
     </info>
+    <skills>
+        <skill level="1" id="2369"/>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="7" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5238"/>
+        <skill level="1" id="5420"/>
+        <skill level="1" id="5463"/>
+        <skill level="1" id="5479"/>
+        <skill level="1" id="6660"/>
+    </skills>
 </npc>

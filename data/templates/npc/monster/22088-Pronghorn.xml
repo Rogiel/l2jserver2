@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Pronghorn</name>
         <level>57</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1776.58018"/>
@@ -26,26 +27,38 @@
         <collision heigth="37.8" radius="19.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1278" min="626" id="57"/>
-        <item chance="106" max="1" min="1" id="948"/>
-        <item chance="85200" max="1" min="1" id="1864"/>
-        <item chance="42600" max="1" min="1" id="1865"/>
-        <item chance="28400" max="1" min="1" id="1866"/>
-        <item chance="705071" max="5" min="1" id="1867"/>
-        <item chance="85200" max="1" min="1" id="1868"/>
-        <item chance="17040" max="1" min="1" id="1873"/>
-        <item chance="61524" max="1" min="1" id="4051"/>
-        <item chance="447" max="1" min="1" id="4104"/>
-        <item chance="440" max="1" min="1" id="4107"/>
-        <item chance="440" max="1" min="1" id="4108"/>
-        <item chance="2188" max="1" min="1" id="4613"/>
-        <item chance="32" max="1" min="1" id="8298"/>
-        <item chance="852" max="1" min="1" id="8727"/>
-        <item chance="213" max="1" min="1" id="8737"/>
-        <item chance="21" max="1" min="1" id="8747"/>
-        <item chance="4" max="1" min="1" id="8757"/>
-        <item chance="45" max="1" min="1" id="11889"/>
-        <item chance="45" max="1" min="1" id="11900"/>
-        <item chance="45" max="1" min="1" id="11916"/>
+        <item chance="700000" category="DROP" max="1278" min="626" id="57"/>
+        <item chance="85200" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="85200" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="42600" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="28400" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="17040" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="106" category="UNK_2" max="1" min="1" id="948"/>
+        <item chance="32" category="UNK_2" max="1" min="1" id="8298"/>
+        <item chance="447" category="UNK_1" max="1" min="1" id="4104"/>
+        <item chance="440" category="UNK_1" max="1" min="1" id="4107"/>
+        <item chance="440" category="UNK_1" max="1" min="1" id="4108"/>
+        <item chance="45" category="UNK_1" max="1" min="1" id="11889"/>
+        <item chance="45" category="UNK_1" max="1" min="1" id="11916"/>
+        <item chance="45" category="UNK_1" max="1" min="1" id="11900"/>
+        <item chance="852" category="UNK_200" max="1" min="1" id="8727"/>
+        <item chance="213" category="UNK_200" max="1" min="1" id="8737"/>
+        <item chance="21" category="UNK_200" max="1" min="1" id="8747"/>
+        <item chance="4" category="UNK_200" max="1" min="1" id="8757"/>
+        <item chance="705071" category="SPOIL" max="5" min="1" id="1867"/>
+        <item chance="2188" category="SPOIL" max="1" min="1" id="4613"/>
+        <item chance="61524" category="SPOIL" max="1" min="1" id="4051"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+        <skill level="1" id="4417"/>
+    </skills>
 </npc>

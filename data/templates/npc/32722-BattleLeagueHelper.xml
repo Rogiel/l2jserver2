@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Battle League Helper</name>
         <level>80</level>
+        <race>NONE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -25,4 +26,10 @@
         <sp>0</sp>
         <collision heigth="12.5" radius="5.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+    </skills>
 </npc>

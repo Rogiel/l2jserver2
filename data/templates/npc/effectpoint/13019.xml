@@ -5,6 +5,7 @@
     xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <info aggressive="false" targetable="true" attackable="true">
         <level>70</level>
+        <race>OTHER</race>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
             <mp regen="2.7" max="1345.8"/>
@@ -23,4 +24,18 @@
         <sp>0</sp>
         <collision heigth="10.0" radius="5.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="19" id="4416"/>
+        <skill level="1" id="5124"/>
+    </skills>
 </npc>

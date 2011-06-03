@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Spelunking Spider</name>
         <level>47</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1276.53628"/>
@@ -26,30 +27,43 @@
         <collision heigth="25.5" radius="26.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="984" min="482" id="57"/>
-        <item chance="3794" max="1" min="1" id="2951"/>
-        <item chance="3794" max="1" min="1" id="1974"/>
-        <item chance="3794" max="1" min="1" id="2948"/>
-        <item chance="3794" max="1" min="1" id="2949"/>
-        <item chance="3794" max="1" min="1" id="2950"/>
-        <item chance="2521" max="1" min="1" id="2946"/>
-        <item chance="2110" max="1" min="1" id="1894"/>
-        <item chance="2005" max="1" min="1" id="4039"/>
-        <item chance="2005" max="1" min="1" id="4044"/>
-        <item chance="2005" max="1" min="1" id="8724"/>
-        <item chance="501" max="1" min="1" id="8734"/>
-        <item chance="50" max="1" min="1" id="8744"/>
-        <item chance="10" max="1" min="1" id="8754"/>
-        <item chance="523" max="1" min="1" id="4041"/>
-        <item chance="73" max="1" min="1" id="1126"/>
-        <item chance="73" max="1" min="1" id="2434"/>
-        <item chance="79" max="1" min="1" id="2455"/>
-        <item chance="73" max="1" min="1" id="2456"/>
-        <item chance="73" max="1" min="1" id="2457"/>
-        <item chance="73" max="1" min="1" id="2458"/>
-        <item chance="109" max="1" min="1" id="951"/>
-        <item chance="42869" max="1" min="1" id="1894"/>
-        <item chance="4073" max="1" min="1" id="4589"/>
-        <item chance="90871" max="1" min="1" id="1911"/>
+        <item chance="700000" category="DROP" max="984" min="482" id="57"/>
+        <item chance="3794" category="UNK_1" max="1" min="1" id="2951"/>
+        <item chance="3794" category="UNK_1" max="1" min="1" id="1974"/>
+        <item chance="3794" category="UNK_1" max="1" min="1" id="2948"/>
+        <item chance="3794" category="UNK_1" max="1" min="1" id="2949"/>
+        <item chance="3794" category="UNK_1" max="1" min="1" id="2950"/>
+        <item chance="2521" category="UNK_1" max="1" min="1" id="2946"/>
+        <item chance="2110" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="2005" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="2005" category="UNK_2" max="1" min="1" id="4044"/>
+        <item chance="2005" category="UNK_200" max="1" min="1" id="8724"/>
+        <item chance="501" category="UNK_200" max="1" min="1" id="8734"/>
+        <item chance="50" category="UNK_200" max="1" min="1" id="8744"/>
+        <item chance="10" category="UNK_200" max="1" min="1" id="8754"/>
+        <item chance="523" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="73" category="UNK_1" max="1" min="1" id="1126"/>
+        <item chance="73" category="UNK_2" max="1" min="1" id="2434"/>
+        <item chance="79" category="UNK_2" max="1" min="1" id="2455"/>
+        <item chance="73" category="UNK_2" max="1" min="1" id="2456"/>
+        <item chance="73" category="UNK_2" max="1" min="1" id="2457"/>
+        <item chance="73" category="UNK_2" max="1" min="1" id="2458"/>
+        <item chance="109" category="UNK_1" max="1" min="1" id="951"/>
+        <item chance="42869" category="SPOIL" max="1" min="1" id="1894"/>
+        <item chance="4073" category="SPOIL" max="1" min="1" id="4589"/>
+        <item chance="90871" category="SPOIL" max="1" min="1" id="1911"/>
     </droplist>
+    <skills>
+        <skill level="4" id="4035"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="12" id="4416"/>
+        <skill level="7" id="4417"/>
+    </skills>
 </npc>

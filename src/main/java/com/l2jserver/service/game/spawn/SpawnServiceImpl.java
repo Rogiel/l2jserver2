@@ -87,17 +87,23 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException {
 		Preconditions.checkNotNull(object, "object");
+		// only set the new position if needed, this could cause a lot of
+		// database updates if update is done unnecessarily
+		boolean updatePoint = true;
 		// sanitize
-		if (point == null)
+		if (point == null) {
 			// retrieving stored point
 			point = object.getPoint();
+			updatePoint = false;
+		}
 		if (point == null) {
-			// not point send and no point stored, aborting
+			// not point in argument and no point stored, aborting
 			throw new SpawnPointNotFoundServiceException();
 		}
 
 		// set the spawning point
-		object.setPoint(point);
+		if (updatePoint)
+			object.setPoint(point);
 		// reset actor state
 		if (object instanceof Actor) {
 			((Actor) object).setState(null);

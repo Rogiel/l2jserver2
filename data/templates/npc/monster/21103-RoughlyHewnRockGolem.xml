@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Roughly Hewn Rock Golem</name>
         <level>31</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="635.76437"/>
@@ -26,20 +27,35 @@
         <collision heigth="40.3" radius="20.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="476" min="239" id="57"/>
-        <item chance="150" max="1" min="1" id="348"/>
-        <item chance="240" max="1" min="1" id="377"/>
-        <item chance="2256" max="1" min="1" id="955"/>
-        <item chance="26687" max="1" min="1" id="1061"/>
-        <item chance="2936" max="1" min="1" id="1875"/>
-        <item chance="94011" max="1" min="1" id="1879"/>
-        <item chance="7339" max="1" min="1" id="1879"/>
-        <item chance="3670" max="1" min="1" id="1885"/>
-        <item chance="66361" max="1" min="1" id="1933"/>
-        <item chance="4305" max="1" min="1" id="1935"/>
-        <item chance="6620" max="1" min="1" id="1937"/>
-        <item chance="8668" max="1" min="1" id="2185"/>
-        <item chance="4403" max="1" min="1" id="5549"/>
-        <item chance="587" max="1" min="1" id="5550"/>
+        <item chance="700000" category="DROP" max="476" min="239" id="57"/>
+        <item chance="150" category="UNK_1" max="1" min="1" id="348"/>
+        <item chance="240" category="UNK_1" max="1" min="1" id="377"/>
+        <item chance="2256" category="SPOIL" max="1" min="1" id="955"/>
+        <item chance="26687" category="UNK_2" max="1" min="1" id="1061"/>
+        <item chance="2936" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="94011" category="SPOIL" max="1" min="1" id="1879"/>
+        <item chance="7339" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="3670" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="66361" category="SPOIL" max="1" min="1" id="1933"/>
+        <item chance="4305" category="UNK_1" max="1" min="1" id="1935"/>
+        <item chance="6620" category="UNK_1" max="1" min="1" id="1937"/>
+        <item chance="8668" category="UNK_2" max="1" min="1" id="2185"/>
+        <item chance="4403" category="UNK_2" max="1" min="1" id="5549"/>
+        <item chance="587" category="UNK_2" max="1" min="1" id="5550"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4254"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="2" id="4444"/>
+    </skills>
 </npc>

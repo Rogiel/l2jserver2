@@ -7,6 +7,7 @@
         <name display="true" send="false">Death Lord Hallate</name>
         <title send="false">Raid Boss</title>
         <level>73</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="121.063992487928" max="388244.931683888"/>
@@ -28,17 +29,32 @@
         <collision heigth="40.0" radius="21.0"/>
     </info>
     <droplist>
-        <item chance="22627" max="1" min="1" id="5320"/>
-        <item chance="22627" max="1" min="1" id="5323"/>
-        <item chance="419012" max="12" min="4" id="5480"/>
-        <item chance="223473" max="22" min="8" id="5481"/>
-        <item chance="21611" max="1" min="1" id="289"/>
-        <item chance="256363" max="36" min="12" id="5534"/>
-        <item chance="38735" max="1" min="1" id="959"/>
-        <item chance="387355" max="1" min="1" id="960"/>
-        <item chance="6456" max="1" min="1" id="6577"/>
-        <item chance="820000" max="7" min="3" id="9814"/>
-        <item chance="820000" max="4" min="1" id="8176"/>
-        <item chance="560000" max="1" min="1" id="8619"/>
+        <item chance="21611" category="UNK_1" max="1" min="1" id="289"/>
+        <item chance="38735" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="387355" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="22627" category="DROP" max="1" min="1" id="5320"/>
+        <item chance="22627" category="DROP" max="1" min="1" id="5323"/>
+        <item chance="419012" category="DROP" max="12" min="4" id="5480"/>
+        <item chance="223473" category="DROP" max="22" min="8" id="5481"/>
+        <item chance="256363" category="UNK_1" max="36" min="12" id="5534"/>
+        <item chance="6456" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="820000" category="UNK_101" max="4" min="1" id="8176"/>
+        <item chance="560000" category="UNK_102" max="1" min="1" id="8619"/>
+        <item chance="820000" category="UNK_100" max="7" min="3" id="9814"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4197"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4868"/>
+    </skills>
 </npc>

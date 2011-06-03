@@ -7,6 +7,7 @@
         <name display="true" send="false">Varan</name>
         <title send="false">Accessory Merchant</title>
         <level>70</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -39,4 +40,16 @@ Welcome to our shop, run by my sister and me. Come inside and you won't be disap
 Our shop must be famous, seeing how wanted criminals brave the danger of town to visit us. Well, it's true that there aren't that many shops with such wonderful items or such a dashing owner. Nonetheless ... Recently, someone broke the law and sold an item to a wanted criminal. He was put through great pain. I'm sorry, but please come back when you're free. I promise I will give you the royal treatment.
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

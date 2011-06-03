@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Otherworldly Invader Elite Soldier</name>
         <level>35</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="4.5" max="772.73802"/>
@@ -27,14 +28,27 @@
         <collision heigth="28.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="427616" max="1" min="1" id="1901"/>
-        <item chance="208130" max="1" min="1" id="1938"/>
-        <item chance="331471" max="1" min="1" id="2154"/>
-        <item chance="700000" max="2609" min="1308" id="57"/>
-        <item chance="148" max="1" min="1" id="316"/>
-        <item chance="148" max="1" min="1" id="317"/>
-        <item chance="6418" max="1" min="1" id="2030"/>
-        <item chance="3293" max="1" min="1" id="955"/>
-        <item chance="27435" max="1" min="1" id="956"/>
+        <item chance="427616" category="SPOIL" max="1" min="1" id="1901"/>
+        <item chance="208130" category="SPOIL" max="1" min="1" id="1938"/>
+        <item chance="331471" category="SPOIL" max="1" min="1" id="2154"/>
+        <item chance="700000" category="DROP" max="2609" min="1308" id="57"/>
+        <item chance="148" category="UNK_1" max="1" min="1" id="316"/>
+        <item chance="148" category="UNK_1" max="1" min="1" id="317"/>
+        <item chance="6418" category="UNK_1" max="1" min="1" id="2030"/>
+        <item chance="3293" category="UNK_2" max="1" min="1" id="955"/>
+        <item chance="27435" category="UNK_2" max="1" min="1" id="956"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4274"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="3" id="4573"/>
+    </skills>
 </npc>

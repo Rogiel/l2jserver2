@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Oel Mahum Witch Doctor</name>
         <level>55</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1673.05473"/>
@@ -27,28 +28,43 @@
         <collision heigth="34.0" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2284" min="1121" id="57"/>
-        <item chance="80" max="1" min="1" id="119"/>
-        <item chance="107" max="1" min="1" id="855"/>
-        <item chance="161" max="1" min="1" id="886"/>
-        <item chance="80580" max="1" min="1" id="1865"/>
-        <item chance="80580" max="1" min="1" id="1870"/>
-        <item chance="5372" max="1" min="1" id="1875"/>
-        <item chance="13430" max="1" min="1" id="1879"/>
-        <item chance="7562" max="1" min="1" id="1918"/>
-        <item chance="5974" max="1" min="1" id="1920"/>
-        <item chance="12928" max="1" min="1" id="2119"/>
-        <item chance="10029" max="1" min="1" id="2917"/>
-        <item chance="1612" max="1" min="1" id="4040"/>
-        <item chance="12443" max="1" min="1" id="4145"/>
-        <item chance="1478" max="1" min="1" id="4178"/>
-        <item chance="93" max="1" min="1" id="4187"/>
-        <item chance="9457" max="1" min="1" id="4591"/>
-        <item chance="161" max="1" min="1" id="5155"/>
-        <item chance="161" max="1" min="1" id="5275"/>
-        <item chance="1865" max="1" min="1" id="8726"/>
-        <item chance="466" max="1" min="1" id="8736"/>
-        <item chance="47" max="1" min="1" id="8746"/>
-        <item chance="10" max="1" min="1" id="8756"/>
+        <item chance="700000" category="DROP" max="2284" min="1121" id="57"/>
+        <item chance="80" category="UNK_1" max="1" min="1" id="119"/>
+        <item chance="107" category="UNK_1" max="1" min="1" id="855"/>
+        <item chance="161" category="UNK_1" max="1" min="1" id="886"/>
+        <item chance="80580" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="80580" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="5372" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="13430" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="7562" category="UNK_1" max="1" min="1" id="1918"/>
+        <item chance="5974" category="UNK_1" max="1" min="1" id="1920"/>
+        <item chance="12928" category="SPOIL" max="1" min="1" id="2119"/>
+        <item chance="10029" category="UNK_1" max="1" min="1" id="2917"/>
+        <item chance="1612" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="12443" category="SPOIL" max="1" min="1" id="4145"/>
+        <item chance="1478" category="UNK_2" max="1" min="1" id="4178"/>
+        <item chance="93" category="UNK_2" max="1" min="1" id="4187"/>
+        <item chance="9457" category="SPOIL" max="1" min="1" id="4591"/>
+        <item chance="161" category="UNK_2" max="1" min="1" id="5155"/>
+        <item chance="161" category="UNK_2" max="1" min="1" id="5275"/>
+        <item chance="1865" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="466" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="47" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="10" category="UNK_200" max="1" min="1" id="8756"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4065"/>
+        <skill level="5" id="4151"/>
+        <skill level="5" id="4160"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="12" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="6" id="5620"/>
+    </skills>
 </npc>

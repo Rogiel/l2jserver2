@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Deadman's Grudge</name>
         <level>58</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1828.68266"/>
@@ -25,4 +26,18 @@
         <sp>151</sp>
         <collision heigth="26.0" radius="12.0"/>
     </info>
+    <skills>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="6" id="4664"/>
+        <skill level="1" id="5706"/>
+        <skill level="1" id="5707"/>
+    </skills>
 </npc>

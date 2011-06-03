@@ -7,6 +7,7 @@
         <name display="true" send="false">Fallen Knight Adhil</name>
         <title send="false">Quest Monster</title>
         <level>76</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2719.97952"/>
@@ -27,4 +28,20 @@
         <item lefthand="107" righthand="79"/>
         <collision heigth="24.0" radius="8.0"/>
     </info>
+    <skills>
+        <skill level="8" id="4032"/>
+        <skill level="8" id="4073"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="18" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+        <skill level="1" id="4517"/>
+        <skill level="1" id="4518"/>
+        <skill level="8" id="4572"/>
+    </skills>
 </npc>

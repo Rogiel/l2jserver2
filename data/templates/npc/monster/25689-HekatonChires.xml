@@ -7,6 +7,7 @@
         <name display="true" send="false">Hekaton Chires</name>
         <title send="false">Raid Fighter</title>
         <level>83</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="132.781870390792" max="69102.9794571856"/>
@@ -27,4 +28,17 @@
         <item lefthand="0" righthand="3937"/>
         <collision heigth="69.0" radius="31.5"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="1" id="5463"/>
+    </skills>
 </npc>

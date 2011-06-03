@@ -7,6 +7,7 @@
         <name display="true" send="false">Rok</name>
         <title send="false">King of Birds</title>
         <level>80</level>
+        <race>BEAST</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="34.2550295355049" max="319298.066079636"/>
@@ -26,4 +27,22 @@
         <sp>1026322</sp>
         <collision heigth="130.5" radius="197.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5462"/>
+        <skill level="1" id="5794"/>
+        <skill level="1" id="5795"/>
+        <skill level="1" id="5796"/>
+        <skill level="1" id="6085"/>
+    </skills>
 </npc>

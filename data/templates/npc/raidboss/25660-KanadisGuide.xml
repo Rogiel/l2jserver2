@@ -7,6 +7,7 @@
         <name display="true" send="false">Kanadis Guide</name>
         <title send="false">Invading Forces</title>
         <level>80</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="179.035993279912" max="419270.52430393"/>
@@ -27,13 +28,30 @@
         <collision heigth="33.0" radius="30.0"/>
     </info>
     <droplist>
-        <item chance="71144" max="1" min="1" id="729"/>
-        <item chance="9974" max="1" min="1" id="5320"/>
-        <item chance="9974" max="1" min="1" id="5323"/>
-        <item chance="184705" max="12" min="4" id="5480"/>
-        <item chance="492546" max="4" min="2" id="5481"/>
-        <item chance="71144" max="1" min="1" id="6570"/>
-        <item chance="336016" max="1" min="1" id="9581"/>
-        <item chance="172708" max="1" min="1" id="9591"/>
+        <item chance="71144" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="9974" category="UNK_1" max="1" min="1" id="5320"/>
+        <item chance="9974" category="UNK_1" max="1" min="1" id="5323"/>
+        <item chance="184705" category="UNK_1" max="12" min="4" id="5480"/>
+        <item chance="492546" category="UNK_1" max="4" min="2" id="5481"/>
+        <item chance="71144" category="UNK_2" max="1" min="1" id="6570"/>
+        <item chance="336016" category="UNK_4" max="1" min="1" id="9581"/>
+        <item chance="172708" category="UNK_4" max="1" min="1" id="9591"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4031"/>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="2" id="4461"/>
+        <skill level="7" id="4766"/>
+        <skill level="7" id="4771"/>
+        <skill level="1" id="5466"/>
+    </skills>
 </npc>

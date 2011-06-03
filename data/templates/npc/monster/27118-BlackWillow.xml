@@ -7,6 +7,7 @@
         <name display="true" send="false">Black Willow</name>
         <title send="false">Quest Monster</title>
         <level>30</level>
+        <race>PLANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="604.08419"/>
@@ -26,4 +27,16 @@
         <sp>0</sp>
         <collision heigth="80.0" radius="35.0"/>
     </info>
+    <skills>
+        <skill level="3" id="4047"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="5" id="4416"/>
+    </skills>
 </npc>

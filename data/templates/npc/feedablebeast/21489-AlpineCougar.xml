@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Alpine Cougar</name>
         <level>69</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2395.45533"/>
@@ -26,21 +27,35 @@
         <collision heigth="15.7" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="51987" max="1" min="1" id="1877"/>
-        <item chance="25994" max="1" min="1" id="4040"/>
-        <item chance="27789" max="1" min="1" id="6343"/>
-        <item chance="700000" max="1045" min="514" id="57"/>
-        <item chance="53" max="1" min="1" id="11950"/>
-        <item chance="647" max="1" min="1" id="5539"/>
-        <item chance="25594" max="1" min="1" id="1866"/>
-        <item chance="38391" max="1" min="1" id="1871"/>
-        <item chance="1536" max="1" min="1" id="1877"/>
-        <item chance="768" max="1" min="1" id="4040"/>
-        <item chance="334" max="1" min="1" id="4041"/>
-        <item chance="14" max="1" min="1" id="5456"/>
-        <item chance="427" max="1" min="1" id="8730"/>
-        <item chance="107" max="1" min="1" id="8740"/>
-        <item chance="11" max="1" min="1" id="8750"/>
-        <item chance="2" max="1" min="1" id="8760"/>
+        <item chance="700000" category="DROP" max="1045" min="514" id="57"/>
+        <item chance="25594" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="38391" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="51987" category="SPOIL" max="1" min="1" id="1877"/>
+        <item chance="1536" category="UNK_2" max="1" min="1" id="1877"/>
+        <item chance="25994" category="SPOIL" max="1" min="1" id="4040"/>
+        <item chance="768" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="334" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="14" category="UNK_2" max="1" min="1" id="5456"/>
+        <item chance="647" category="UNK_1" max="1" min="1" id="5539"/>
+        <item chance="27789" category="SPOIL" max="1" min="1" id="6343"/>
+        <item chance="427" category="UNK_200" max="1" min="1" id="8730"/>
+        <item chance="107" category="UNK_200" max="1" min="1" id="8740"/>
+        <item chance="11" category="UNK_200" max="1" min="1" id="8750"/>
+        <item chance="2" category="UNK_200" max="1" min="1" id="8760"/>
+        <item chance="53" category="UNK_1" max="1" min="1" id="11950"/>
     </droplist>
+    <skills>
+        <skill level="1" id="2188"/>
+        <skill level="1" id="2189"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="2" id="4438"/>
+    </skills>
 </npc>

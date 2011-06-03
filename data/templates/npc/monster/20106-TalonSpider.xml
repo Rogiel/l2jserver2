@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Talon Spider</name>
         <level>16</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.5" max="264.34345"/>
@@ -26,16 +27,27 @@
         <collision heigth="25.5" radius="26.0"/>
     </info>
     <droplist>
-        <item chance="1796" max="1" min="1" id="38"/>
-        <item chance="1796" max="1" min="1" id="50"/>
-        <item chance="700000" max="183" min="118" id="57"/>
-        <item chance="39594" max="1" min="1" id="734"/>
-        <item chance="46783" max="1" min="1" id="1867"/>
-        <item chance="46783" max="1" min="1" id="1872"/>
-        <item chance="56563" max="1" min="1" id="1897"/>
-        <item chance="30677" max="1" min="1" id="1925"/>
-        <item chance="7018" max="1" min="1" id="2141"/>
-        <item chance="111533" max="1" min="1" id="2150"/>
-        <item chance="1404" max="1" min="1" id="5273"/>
+        <item chance="1796" category="UNK_1" max="1" min="1" id="38"/>
+        <item chance="1796" category="UNK_1" max="1" min="1" id="50"/>
+        <item chance="700000" category="DROP" max="183" min="118" id="57"/>
+        <item chance="39594" category="SPOIL" max="1" min="1" id="734"/>
+        <item chance="46783" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="46783" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="56563" category="SPOIL" max="1" min="1" id="1897"/>
+        <item chance="30677" category="UNK_1" max="1" min="1" id="1925"/>
+        <item chance="7018" category="UNK_2" max="1" min="1" id="2141"/>
+        <item chance="111533" category="SPOIL" max="1" min="1" id="2150"/>
+        <item chance="1404" category="UNK_2" max="1" min="1" id="5273"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

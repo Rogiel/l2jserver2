@@ -7,6 +7,7 @@
         <name display="true" send="false">Ekimus</name>
         <title send="false">Lord of Immortality</title>
         <level>82</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="1754.50097962536" max="1178416.99142083"/>
@@ -26,4 +27,19 @@
         <sp>0</sp>
         <collision heigth="70.0" radius="25.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="13" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="5" id="4438"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5916"/>
+    </skills>
 </npc>

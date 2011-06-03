@@ -7,6 +7,7 @@
         <name display="true" send="false">Kanadis Herald</name>
         <title send="false">Invading Forces</title>
         <level>83</level>
+        <race>ANGEL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="184.460962912287" max="431974.840460863"/>
@@ -27,18 +28,35 @@
         <collision heigth="33.0" radius="30.0"/>
     </info>
     <droplist>
-        <item chance="19645" max="1" min="1" id="959"/>
-        <item chance="196446" max="1" min="1" id="960"/>
-        <item chance="3274" max="1" min="1" id="6577"/>
-        <item chance="11292" max="1" min="1" id="6678"/>
-        <item chance="7905" max="1" min="1" id="6679"/>
-        <item chance="7905" max="1" min="1" id="6683"/>
-        <item chance="7905" max="1" min="1" id="6687"/>
-        <item chance="58707" max="67" min="23" id="6705"/>
-        <item chance="256079" max="18" min="6" id="6706"/>
-        <item chance="146331" max="31" min="11" id="6710"/>
-        <item chance="96030" max="48" min="16" id="6714"/>
-        <item chance="126286" max="1" min="1" id="9582"/>
-        <item chance="63925" max="1" min="1" id="9592"/>
+        <item chance="19645" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="196446" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="3274" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="11292" category="UNK_1" max="1" min="1" id="6678"/>
+        <item chance="7905" category="UNK_1" max="1" min="1" id="6679"/>
+        <item chance="7905" category="UNK_1" max="1" min="1" id="6683"/>
+        <item chance="7905" category="UNK_1" max="1" min="1" id="6687"/>
+        <item chance="58707" category="UNK_1" max="67" min="23" id="6705"/>
+        <item chance="256079" category="UNK_1" max="18" min="6" id="6706"/>
+        <item chance="146331" category="UNK_1" max="31" min="11" id="6710"/>
+        <item chance="96030" category="UNK_1" max="48" min="16" id="6714"/>
+        <item chance="126286" category="UNK_4" max="1" min="1" id="9582"/>
+        <item chance="63925" category="UNK_4" max="1" min="1" id="9592"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4031"/>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="8" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="2" id="4461"/>
+        <skill level="8" id="4766"/>
+        <skill level="8" id="4771"/>
+        <skill level="1" id="5466"/>
+    </skills>
 </npc>

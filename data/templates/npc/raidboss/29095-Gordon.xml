@@ -7,6 +7,7 @@
         <name display="true" send="false">Gordon</name>
         <title send="false">Knight of Destruction</title>
         <level>80</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="369.61370264709" max="961780.70191152"/>
@@ -27,13 +28,31 @@
         <collision heigth="46.6" radius="43.0"/>
     </info>
     <droplist>
-        <item chance="32993" max="1" min="1" id="959"/>
-        <item chance="329928" max="1" min="1" id="960"/>
-        <item chance="8120" max="1" min="1" id="6371"/>
-        <item chance="5499" max="1" min="1" id="6577"/>
-        <item chance="13185" max="1" min="1" id="6684"/>
-        <item chance="700327" max="9" min="3" id="6695"/>
-        <item chance="236814" max="36" min="12" id="6711"/>
-        <item chance="50000" max="1" min="1" id="10298"/>
+        <item chance="32993" category="UNK_4" max="1" min="1" id="959"/>
+        <item chance="329928" category="UNK_4" max="1" min="1" id="960"/>
+        <item chance="8120" category="UNK_3" max="1" min="1" id="6371"/>
+        <item chance="5499" category="UNK_4" max="1" min="1" id="6577"/>
+        <item chance="13185" category="UNK_2" max="1" min="1" id="6684"/>
+        <item chance="700327" category="UNK_3" max="9" min="3" id="6695"/>
+        <item chance="236814" category="UNK_2" max="36" min="12" id="6711"/>
+        <item chance="50000" category="UNK_5" max="1" min="1" id="10298"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="10" id="4174"/>
+        <skill level="10" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="10" id="4726"/>
+        <skill level="1" id="5119"/>
+        <skill level="1" id="5181"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Skeleton Infantryman</name>
         <level>16</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.5" max="264.34345"/>
@@ -27,15 +28,27 @@
         <collision heigth="25.0" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="134" max="1" min="1" id="15"/>
-        <item chance="700000" max="183" min="118" id="57"/>
-        <item chance="19797" max="1" min="1" id="735"/>
-        <item chance="17676" max="1" min="1" id="1801"/>
-        <item chance="237565" max="1" min="1" id="1865"/>
-        <item chance="35087" max="1" min="1" id="1865"/>
-        <item chance="35087" max="1" min="1" id="1870"/>
-        <item chance="1601" max="1" min="1" id="2011"/>
-        <item chance="5127" max="1" min="1" id="2013"/>
-        <item chance="1404" max="1" min="1" id="5158"/>
+        <item chance="134" category="UNK_1" max="1" min="1" id="15"/>
+        <item chance="700000" category="DROP" max="183" min="118" id="57"/>
+        <item chance="19797" category="SPOIL" max="1" min="1" id="735"/>
+        <item chance="17676" category="UNK_2" max="1" min="1" id="1801"/>
+        <item chance="237565" category="SPOIL" max="1" min="1" id="1865"/>
+        <item chance="35087" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="35087" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="1601" category="UNK_1" max="1" min="1" id="2011"/>
+        <item chance="5127" category="SPOIL" max="1" min="1" id="2013"/>
+        <item chance="1404" category="UNK_2" max="1" min="1" id="5158"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

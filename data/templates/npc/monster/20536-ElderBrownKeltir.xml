@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Elder Brown Keltir</name>
         <level>3</level>
+        <race>ANIMAL</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.0" max="57.54874"/>
@@ -26,13 +27,24 @@
         <collision heigth="10.0" radius="9.5"/>
     </info>
     <droplist>
-        <item chance="9500" max="1" min="1" id="13"/>
-        <item chance="180709" max="1" min="1" id="18"/>
-        <item chance="700000" max="20" min="13" id="57"/>
-        <item chance="7474" max="1" min="1" id="1787"/>
-        <item chance="21685" max="1" min="1" id="1788"/>
-        <item chance="18683" max="1" min="1" id="1864"/>
-        <item chance="9342" max="1" min="1" id="1869"/>
-        <item chance="27106" max="1" min="1" id="1871"/>
+        <item chance="9500" category="UNK_1" max="1" min="1" id="13"/>
+        <item chance="180709" category="SPOIL" max="1" min="1" id="18"/>
+        <item chance="700000" category="DROP" max="20" min="13" id="57"/>
+        <item chance="7474" category="UNK_2" max="1" min="1" id="1787"/>
+        <item chance="21685" category="SPOIL" max="1" min="1" id="1788"/>
+        <item chance="18683" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="9342" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="27106" category="SPOIL" max="1" min="1" id="1871"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
 </npc>

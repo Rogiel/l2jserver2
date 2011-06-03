@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Slave of Gluttony</name>
         <level>83</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3835.59060587002"/>
@@ -26,24 +27,37 @@
         <collision heigth="32.5" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="12737" min="6360" id="57"/>
-        <item chance="556900" max="1" min="1" id="9599"/>
-        <item chance="29007" max="1" min="1" id="6346"/>
-        <item chance="20182" max="1" min="1" id="6342"/>
-        <item chance="13061" max="1" min="1" id="6344"/>
-        <item chance="178" max="1" min="1" id="6328"/>
-        <item chance="119" max="1" min="1" id="6327"/>
-        <item chance="89" max="1" min="1" id="6326"/>
-        <item chance="127292" max="1" min="1" id="1879"/>
-        <item chance="63646" max="1" min="1" id="1885"/>
-        <item chance="5990" max="1" min="1" id="9628"/>
-        <item chance="4020" max="1" min="1" id="9630"/>
-        <item chance="3321" max="1" min="1" id="9629"/>
-        <item chance="4469" max="1" min="1" id="9551"/>
-        <item chance="764" max="1" min="1" id="6901"/>
-        <item chance="1422" max="1" min="1" id="6869"/>
-        <item chance="236550" max="1" min="1" id="6699"/>
-        <item chance="213178" max="1" min="1" id="6698"/>
-        <item chance="10853" max="1" min="1" id="6901"/>
+        <item chance="700000" category="DROP" max="12737" min="6360" id="57"/>
+        <item chance="556900" category="UNK_100" max="1" min="1" id="9599"/>
+        <item chance="29007" category="UNK_1" max="1" min="1" id="6346"/>
+        <item chance="20182" category="UNK_1" max="1" min="1" id="6342"/>
+        <item chance="13061" category="UNK_1" max="1" min="1" id="6344"/>
+        <item chance="178" category="UNK_1" max="1" min="1" id="6328"/>
+        <item chance="119" category="UNK_1" max="1" min="1" id="6327"/>
+        <item chance="89" category="UNK_1" max="1" min="1" id="6326"/>
+        <item chance="127292" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="63646" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="5990" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="4020" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="3321" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="4469" category="UNK_200" max="1" min="1" id="9551"/>
+        <item chance="764" category="UNK_2" max="1" min="1" id="6901"/>
+        <item chance="1422" category="UNK_2" max="1" min="1" id="6869"/>
+        <item chance="236550" category="SPOIL" max="1" min="1" id="6699"/>
+        <item chance="213178" category="SPOIL" max="1" min="1" id="6698"/>
+        <item chance="10853" category="SPOIL" max="1" min="1" id="6901"/>
     </droplist>
+    <skills>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="17" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5525"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Bernarde</name>
         <level>70</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -34,4 +35,16 @@ I will no reveal our secrets to the natives. But if it concerns Hellbound Isle, 
 Demons have been very active in the Magical Field lately. There must be something going on for them to only increase security in that area. Would you investigate? Perhaps you will find something that will help us reduce Beleth's power.
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

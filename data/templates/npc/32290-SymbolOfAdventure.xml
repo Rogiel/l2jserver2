@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Symbol of Adventure</name>
         <level>70</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -32,4 +33,17 @@ Now comes the final test.<br>
 It is rumored that when Parme was captured by the Demon Beleth, one of her maids hid some valuable items in the <font color="LEVEL">boxes on the bed of the Crystal Lake</font>. She hoped that adventurers like you would find them and use them to help rescue Parme.
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

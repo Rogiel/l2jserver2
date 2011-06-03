@@ -7,6 +7,7 @@
         <name display="true" send="false">Giant Marpanak</name>
         <title send="false">Raid Boss</title>
         <level>60</level>
+        <race>GIANT</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="253.244358973511" max="614249.151468482"/>
@@ -28,19 +29,37 @@
         <collision heigth="91.0" radius="42.0"/>
     </info>
     <droplist>
-        <item chance="12285" max="1" min="1" id="110"/>
-        <item chance="35597" max="1" min="1" id="287"/>
-        <item chance="121265" max="18" min="6" id="948"/>
-        <item chance="85994" max="1" min="1" id="2416"/>
-        <item chance="85994" max="1" min="1" id="2417"/>
-        <item chance="224438" max="120" min="40" id="4077"/>
-        <item chance="93115" max="243" min="81" id="4088"/>
-        <item chance="53873" max="420" min="140" id="4089"/>
-        <item chance="325231" max="36" min="12" id="4121"/>
-        <item chance="267622" max="4" min="2" id="4622"/>
-        <item chance="200717" max="6" min="2" id="4623"/>
-        <item chance="160573" max="7" min="3" id="4624"/>
-        <item chance="830000" max="3" min="1" id="8176"/>
-        <item chance="830000" max="6" min="2" id="9817"/>
+        <item chance="12285" category="DROP" max="1" min="1" id="110"/>
+        <item chance="35597" category="UNK_1" max="1" min="1" id="287"/>
+        <item chance="121265" category="UNK_2" max="18" min="6" id="948"/>
+        <item chance="85994" category="DROP" max="1" min="1" id="2416"/>
+        <item chance="85994" category="DROP" max="1" min="1" id="2417"/>
+        <item chance="224438" category="DROP" max="120" min="40" id="4077"/>
+        <item chance="93115" category="DROP" max="243" min="81" id="4088"/>
+        <item chance="53873" category="DROP" max="420" min="140" id="4089"/>
+        <item chance="325231" category="UNK_1" max="36" min="12" id="4121"/>
+        <item chance="267622" category="UNK_2" max="4" min="2" id="4622"/>
+        <item chance="200717" category="UNK_2" max="6" min="2" id="4623"/>
+        <item chance="160573" category="UNK_2" max="7" min="3" id="4624"/>
+        <item chance="830000" category="UNK_101" max="3" min="1" id="8176"/>
+        <item chance="830000" category="UNK_100" max="6" min="2" id="9817"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4173"/>
+        <skill level="6" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="6" id="4730"/>
+        <skill level="6" id="4735"/>
+        <skill level="1" id="4851"/>
+    </skills>
 </npc>

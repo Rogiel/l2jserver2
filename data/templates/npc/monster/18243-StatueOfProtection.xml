@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Statue of Protection</name>
         <level>78</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="52.326" max="2975.2369188"/>
@@ -26,4 +27,24 @@
         <item lefthand="0" righthand="5795"/>
         <collision heigth="42.0" radius="15.0"/>
     </info>
+    <skills>
+        <skill level="5" id="4071"/>
+        <skill level="9" id="4072"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4383"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="17" id="4412"/>
+        <skill level="17" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="5" id="4436"/>
+        <skill level="5" id="4437"/>
+        <skill level="9" id="4605"/>
+        <skill level="1" id="4616"/>
+        <skill level="9" id="4620"/>
+    </skills>
 </npc>

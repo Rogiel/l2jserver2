@@ -7,6 +7,7 @@
         <name display="true" send="false">Trisalim Escort</name>
         <title send="false">Raid Fighter</title>
         <level>47</level>
+        <race>BUG</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="47.4740881903858" max="14404.0570682703"/>
@@ -27,6 +28,20 @@
         <collision heigth="38.0" radius="40.0"/>
     </info>
     <droplist>
-        <item chance="638400" max="60" min="20" id="1342"/>
+        <item chance="638400" category="UNK_2" max="60" min="20" id="1342"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="4" id="4196"/>
+        <skill level="4" id="4204"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
 </npc>

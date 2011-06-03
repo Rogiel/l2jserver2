@@ -7,6 +7,7 @@
         <name display="true" send="false">Seduced Mage</name>
         <title send="false">Investigator</title>
         <level>77</level>
+        <race>HUMAN</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="7.5" max="43728.0079916851"/>
@@ -26,4 +27,19 @@
         <sp>0</sp>
         <collision heigth="23.5" radius="9.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4192"/>
+        <skill level="7" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="11" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="14" id="4416"/>
+        <skill level="1" id="5972"/>
+    </skills>
 </npc>

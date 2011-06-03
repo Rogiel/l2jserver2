@@ -7,6 +7,7 @@
         <name display="true" send="false">Venomous Storace</name>
         <title send="false">Kaneus</title>
         <level>63</level>
+        <race>BEAST</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="63.9742550992053" max="420501.049733155"/>
@@ -28,23 +29,37 @@
         <collision heigth="72.0" radius="25.0"/>
     </info>
     <droplist>
-        <item chance="38277" max="1" min="1" id="729"/>
-        <item chance="287074" max="1" min="1" id="730"/>
-        <item chance="14311" max="1" min="1" id="2398"/>
-        <item chance="9540" max="1" min="1" id="2398"/>
-        <item chance="14311" max="1" min="1" id="2399"/>
-        <item chance="9540" max="1" min="1" id="2399"/>
-        <item chance="22904" max="1" min="1" id="2403"/>
-        <item chance="15269" max="1" min="1" id="2403"/>
-        <item chance="22904" max="1" min="1" id="2404"/>
-        <item chance="15269" max="1" min="1" id="2404"/>
-        <item chance="72165" max="48" min="16" id="4084"/>
-        <item chance="48109" max="48" min="16" id="4084"/>
-        <item chance="307897" max="7" min="3" id="4085"/>
-        <item chance="51317" max="67" min="23" id="4085"/>
-        <item chance="259838" max="18" min="6" id="4086"/>
-        <item chance="173221" max="18" min="6" id="4086"/>
-        <item chance="148479" max="31" min="11" id="4087"/>
-        <item chance="98983" max="31" min="11" id="4087"/>
+        <item chance="38277" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="287074" category="UNK_2" max="1" min="1" id="730"/>
+        <item chance="14311" category="UNK_1" max="1" min="1" id="2398"/>
+        <item chance="9540" category="UNK_3" max="1" min="1" id="2398"/>
+        <item chance="14311" category="UNK_1" max="1" min="1" id="2399"/>
+        <item chance="9540" category="UNK_3" max="1" min="1" id="2399"/>
+        <item chance="22904" category="UNK_1" max="1" min="1" id="2403"/>
+        <item chance="15269" category="UNK_3" max="1" min="1" id="2403"/>
+        <item chance="22904" category="UNK_1" max="1" min="1" id="2404"/>
+        <item chance="15269" category="UNK_3" max="1" min="1" id="2404"/>
+        <item chance="72165" category="UNK_1" max="48" min="16" id="4084"/>
+        <item chance="48109" category="UNK_3" max="48" min="16" id="4084"/>
+        <item chance="307897" category="UNK_1" max="7" min="3" id="4085"/>
+        <item chance="51317" category="UNK_3" max="67" min="23" id="4085"/>
+        <item chance="259838" category="UNK_1" max="18" min="6" id="4086"/>
+        <item chance="173221" category="UNK_3" max="18" min="6" id="4086"/>
+        <item chance="148479" category="UNK_1" max="31" min="11" id="4087"/>
+        <item chance="98983" category="UNK_3" max="31" min="11" id="4087"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4171"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="5597"/>
+    </skills>
 </npc>

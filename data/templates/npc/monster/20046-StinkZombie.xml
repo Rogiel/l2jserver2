@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Stink Zombie</name>
         <level>19</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.5" max="321.63954"/>
@@ -26,17 +27,31 @@
         <collision heigth="21.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="195" min="115" id="57"/>
-        <item chance="20390" max="1" min="1" id="735"/>
-        <item chance="1057" max="1" min="1" id="845"/>
-        <item chance="1585" max="1" min="1" id="877"/>
-        <item chance="792" max="1" min="1" id="908"/>
-        <item chance="48184" max="1" min="1" id="1867"/>
-        <item chance="48184" max="1" min="1" id="1872"/>
-        <item chance="8031" max="1" min="1" id="1882"/>
-        <item chance="58257" max="1" min="1" id="1897"/>
-        <item chance="8604" max="1" min="1" id="1897"/>
-        <item chance="48936" max="1" min="1" id="2139"/>
-        <item chance="9794" max="1" min="1" id="2173"/>
+        <item chance="700000" category="DROP" max="195" min="115" id="57"/>
+        <item chance="20390" category="SPOIL" max="1" min="1" id="735"/>
+        <item chance="1057" category="UNK_1" max="1" min="1" id="845"/>
+        <item chance="1585" category="UNK_1" max="1" min="1" id="877"/>
+        <item chance="792" category="UNK_1" max="1" min="1" id="908"/>
+        <item chance="48184" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="48184" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="8031" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="58257" category="SPOIL" max="1" min="1" id="1897"/>
+        <item chance="8604" category="UNK_1" max="1" min="1" id="1897"/>
+        <item chance="48936" category="SPOIL" max="1" min="1" id="2139"/>
+        <item chance="9794" category="UNK_2" max="1" min="1" id="2173"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4071"/>
+        <skill level="1" id="4248"/>
+        <skill level="5" id="4284"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="19" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

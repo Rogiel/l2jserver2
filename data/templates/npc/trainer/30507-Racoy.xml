@@ -7,6 +7,7 @@
         <name display="true" send="false">Racoy</name>
         <title send="false">Seer</title>
         <level>70</level>
+        <race>ORC</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2444.46819"/>
@@ -39,4 +40,16 @@ The only eternal is the everlasting flame of the abyss!<br>
 I, Seer Racoy, teach holy magic! I do not have any business with those who do not know the meaning of the flame! Don't bother me!
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="17" id="4416"/>
+    </skills>
 </npc>

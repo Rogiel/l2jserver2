@@ -7,6 +7,7 @@
         <name display="true" send="false">Soul Hunter Chakundel</name>
         <title send="false">Forsaken Prisoner</title>
         <level>76</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="172.748301603872" max="402092.518544389"/>
@@ -27,15 +28,32 @@
         <collision heigth="32.5" radius="15.0"/>
     </info>
     <droplist>
-        <item chance="5385" max="1" min="1" id="81"/>
-        <item chance="5385" max="1" min="1" id="151"/>
-        <item chance="13031" max="1" min="1" id="959"/>
-        <item chance="130313" max="1" min="1" id="960"/>
-        <item chance="5385" max="1" min="1" id="2500"/>
-        <item chance="85120" max="27" min="9" id="5529"/>
-        <item chance="383040" max="6" min="2" id="5545"/>
-        <item chance="168294" max="15" min="5" id="5546"/>
-        <item chance="2172" max="1" min="1" id="6577"/>
-        <item chance="43438" max="1" min="1" id="9626"/>
+        <item chance="5385" category="UNK_1" max="1" min="1" id="81"/>
+        <item chance="5385" category="UNK_1" max="1" min="1" id="151"/>
+        <item chance="13031" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="130313" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="5385" category="UNK_1" max="1" min="1" id="2500"/>
+        <item chance="85120" category="UNK_1" max="27" min="9" id="5529"/>
+        <item chance="383040" category="UNK_1" max="6" min="2" id="5545"/>
+        <item chance="168294" category="UNK_1" max="15" min="5" id="5546"/>
+        <item chance="2172" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="43438" category="UNK_3" max="1" min="1" id="9626"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4172"/>
+        <skill level="7" id="4173"/>
+        <skill level="7" id="4177"/>
+        <skill level="4" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="7" id="4730"/>
+        <skill level="1" id="5465"/>
+    </skills>
 </npc>

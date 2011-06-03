@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Outpost Captain</name>
         <level>81</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="187.260794107867" max="111546.700057767"/>
@@ -26,4 +27,18 @@
         <item lefthand="8203" righthand="8203"/>
         <collision heigth="56.0" radius="20.0"/>
     </info>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="3" id="4466"/>
+        <skill level="4" id="5306"/>
+        <skill level="1" id="5467"/>
+    </skills>
 </npc>

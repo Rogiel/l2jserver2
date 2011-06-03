@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Pavel Safety Device</name>
         <level>72</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2540.15331"/>
@@ -26,11 +27,22 @@
         <collision heigth="22.5" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="300" max="1" min="1" id="9546"/>
-        <item chance="300" max="1" min="1" id="9547"/>
-        <item chance="300" max="1" min="1" id="9548"/>
-        <item chance="300" max="1" min="1" id="9549"/>
-        <item chance="300" max="1" min="1" id="9550"/>
-        <item chance="300" max="1" min="1" id="9551"/>
+        <item chance="300" category="UNK_200" max="1" min="1" id="9546"/>
+        <item chance="300" category="UNK_200" max="1" min="1" id="9547"/>
+        <item chance="300" category="UNK_200" max="1" min="1" id="9548"/>
+        <item chance="300" category="UNK_200" max="1" min="1" id="9549"/>
+        <item chance="300" category="UNK_200" max="1" min="1" id="9550"/>
+        <item chance="300" category="UNK_200" max="1" min="1" id="9551"/>
     </droplist>
+    <skills>
+        <skill level="8" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

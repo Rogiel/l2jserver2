@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Vale Master</name>
         <level>54</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1621.75618"/>
@@ -26,35 +27,52 @@
         <collision heigth="40.0" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1651" min="810" id="57"/>
-        <item chance="4104" max="1" min="1" id="1806"/>
-        <item chance="126266" max="1" min="1" id="1864"/>
-        <item chance="63133" max="1" min="1" id="1869"/>
-        <item chance="25253" max="1" min="1" id="1878"/>
-        <item chance="38851" max="1" min="1" id="1884"/>
-        <item chance="70752" max="1" min="1" id="1985"/>
-        <item chance="51" max="1" min="1" id="2436"/>
-        <item chance="39" max="1" min="1" id="2437"/>
-        <item chance="39" max="1" min="1" id="2438"/>
-        <item chance="51" max="1" min="1" id="2460"/>
-        <item chance="39" max="1" min="1" id="2461"/>
-        <item chance="39" max="1" min="1" id="2462"/>
-        <item chance="39" max="1" min="1" id="2463"/>
-        <item chance="3426" max="1" min="1" id="2954"/>
-        <item chance="3426" max="1" min="1" id="2955"/>
-        <item chance="2947" max="1" min="1" id="2960"/>
-        <item chance="2947" max="1" min="1" id="2961"/>
-        <item chance="2947" max="1" min="1" id="2962"/>
-        <item chance="2947" max="1" min="1" id="2963"/>
-        <item chance="2947" max="1" min="1" id="2964"/>
-        <item chance="2104" max="1" min="1" id="4039"/>
-        <item chance="1158" max="1" min="1" id="4178"/>
-        <item chance="73" max="1" min="1" id="4184"/>
-        <item chance="33858" max="1" min="1" id="4937"/>
-        <item chance="1265" max="1" min="1" id="5160"/>
-        <item chance="1461" max="1" min="1" id="8726"/>
-        <item chance="3652" max="1" min="1" id="8736"/>
-        <item chance="36" max="1" min="1" id="8746"/>
-        <item chance="8" max="1" min="1" id="8756"/>
+        <item chance="700000" category="DROP" max="1651" min="810" id="57"/>
+        <item chance="4104" category="SPOIL" max="1" min="1" id="1806"/>
+        <item chance="126266" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="63133" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="25253" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="38851" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="70752" category="SPOIL" max="1" min="1" id="1985"/>
+        <item chance="51" category="UNK_1" max="1" min="1" id="2436"/>
+        <item chance="39" category="UNK_1" max="1" min="1" id="2437"/>
+        <item chance="39" category="UNK_1" max="1" min="1" id="2438"/>
+        <item chance="51" category="UNK_1" max="1" min="1" id="2460"/>
+        <item chance="39" category="UNK_1" max="1" min="1" id="2461"/>
+        <item chance="39" category="UNK_1" max="1" min="1" id="2462"/>
+        <item chance="39" category="UNK_1" max="1" min="1" id="2463"/>
+        <item chance="3426" category="UNK_1" max="1" min="1" id="2954"/>
+        <item chance="3426" category="UNK_1" max="1" min="1" id="2955"/>
+        <item chance="2947" category="UNK_1" max="1" min="1" id="2960"/>
+        <item chance="2947" category="UNK_1" max="1" min="1" id="2961"/>
+        <item chance="2947" category="UNK_1" max="1" min="1" id="2962"/>
+        <item chance="2947" category="UNK_1" max="1" min="1" id="2963"/>
+        <item chance="2947" category="UNK_1" max="1" min="1" id="2964"/>
+        <item chance="2104" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="1158" category="UNK_2" max="1" min="1" id="4178"/>
+        <item chance="73" category="UNK_2" max="1" min="1" id="4184"/>
+        <item chance="33858" category="SPOIL" max="1" min="1" id="4937"/>
+        <item chance="1265" category="UNK_2" max="1" min="1" id="5160"/>
+        <item chance="1461" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="3652" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="36" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="8" category="UNK_200" max="1" min="1" id="8756"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4046"/>
+        <skill level="3" id="4076"/>
+        <skill level="1" id="4085"/>
+        <skill level="1" id="4086"/>
+        <skill level="5" id="4087"/>
+        <skill level="5" id="4094"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

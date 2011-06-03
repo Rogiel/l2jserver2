@@ -7,6 +7,7 @@
         <name display="true" send="false">Rebel Private</name>
         <title send="false">Swamp Fortress</title>
         <level>75</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2676.65854"/>
@@ -28,6 +29,18 @@
         <collision heigth="23.5" radius="8.0"/>
     </info>
     <droplist>
-        <item chance="719570" max="6" min="2" id="9912"/>
+        <item chance="719570" category="UNK_1" max="6" min="2" id="9912"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="11" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

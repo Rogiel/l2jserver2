@@ -7,6 +7,7 @@
         <name display="true" send="false">Atanas</name>
         <title send="false">Guard</title>
         <level>80</level>
+        <race>HUMAN</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="3290.11306877694"/>
@@ -38,4 +39,16 @@ I sometimes talk with my friend Reikin about what the <font color="LEVEL">water 
 The blue dragon Fafurion is almost as strong as the green dragon Antharas, which is supposed to be horrible. Usually, it stays in the water -- I suppose that means it's somewhere on the bottom of Lake Innadril. When I think that two dragons are so near our village ... well, it makes it hard to live a worry-free life, don't you think?
 </body></html>]]></chat>
     </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
 </npc>

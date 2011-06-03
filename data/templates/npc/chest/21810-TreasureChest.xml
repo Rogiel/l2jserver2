@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Treasure Chest</name>
         <level>48</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="5.5" max="1324.01623"/>
@@ -26,25 +27,37 @@
         <collision heigth="8.5" radius="8.5"/>
     </info>
     <droplist>
-        <item chance="700000" max="740" min="364" id="57"/>
-        <item chance="73" max="1" min="1" id="500"/>
-        <item chance="105" max="1" min="1" id="632"/>
-        <item chance="81580" max="1" min="1" id="1868"/>
-        <item chance="16316" max="1" min="1" id="1873"/>
-        <item chance="8158" max="1" min="1" id="1876"/>
-        <item chance="11654" max="1" min="1" id="1895"/>
-        <item chance="33611" max="1" min="1" id="1966"/>
-        <item chance="50211" max="1" min="1" id="1967"/>
-        <item chance="4162" max="1" min="1" id="1971"/>
-        <item chance="5439" max="1" min="1" id="1972"/>
-        <item chance="31207" max="1" min="1" id="2166"/>
-        <item chance="1383" max="1" min="1" id="2166"/>
-        <item chance="113" max="1" min="1" id="2496"/>
-        <item chance="4856" max="1" min="1" id="2947"/>
-        <item chance="680" max="1" min="1" id="4042"/>
-        <item chance="1360" max="1" min="1" id="8724"/>
-        <item chance="340" max="1" min="1" id="8734"/>
-        <item chance="34" max="1" min="1" id="8744"/>
-        <item chance="7" max="1" min="1" id="8754"/>
+        <item chance="33611" category="SPOIL" max="1" min="1" id="1966"/>
+        <item chance="50211" category="SPOIL" max="1" min="1" id="1967"/>
+        <item chance="31207" category="SPOIL" max="1" min="1" id="2166"/>
+        <item chance="700000" category="DROP" max="740" min="364" id="57"/>
+        <item chance="73" category="UNK_1" max="1" min="1" id="500"/>
+        <item chance="105" category="UNK_1" max="1" min="1" id="632"/>
+        <item chance="4162" category="UNK_1" max="1" min="1" id="1971"/>
+        <item chance="5439" category="UNK_1" max="1" min="1" id="1972"/>
+        <item chance="113" category="UNK_1" max="1" min="1" id="2496"/>
+        <item chance="4856" category="UNK_1" max="1" min="1" id="2947"/>
+        <item chance="81580" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="16316" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="8158" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="11654" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="1383" category="UNK_2" max="1" min="1" id="2166"/>
+        <item chance="680" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="1360" category="UNK_200" max="1" min="1" id="8724"/>
+        <item chance="340" category="UNK_200" max="1" min="1" id="8734"/>
+        <item chance="34" category="UNK_200" max="1" min="1" id="8744"/>
+        <item chance="7" category="UNK_200" max="1" min="1" id="8754"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
 </npc>

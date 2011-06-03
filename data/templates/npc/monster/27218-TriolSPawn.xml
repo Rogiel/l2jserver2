@@ -7,6 +7,7 @@
         <name display="true" send="false">Triol's Pawn</name>
         <title send="false">Quest Monster</title>
         <level>65</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="7.5" max="2193.43142"/>
@@ -26,4 +27,16 @@
         <sp>0</sp>
         <collision heigth="36.0" radius="14.0"/>
     </info>
+    <skills>
+        <skill level="6" id="4073"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

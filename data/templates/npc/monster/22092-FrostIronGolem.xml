@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Frost Iron Golem</name>
         <level>59</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1880.92519"/>
@@ -26,25 +27,42 @@
         <collision heigth="46.4" radius="24.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1662" min="816" id="57"/>
-        <item chance="81378" max="1" min="1" id="1867"/>
-        <item chance="61033" max="1" min="1" id="1869"/>
-        <item chance="61033" max="1" min="1" id="1870"/>
-        <item chance="61033" max="1" min="1" id="1871"/>
-        <item chance="81378" max="1" min="1" id="1872"/>
-        <item chance="57797" max="1" min="1" id="4065"/>
-        <item chance="582" max="1" min="1" id="4104"/>
-        <item chance="573" max="1" min="1" id="4107"/>
-        <item chance="573" max="1" min="1" id="4108"/>
-        <item chance="722" max="1" min="1" id="4154"/>
-        <item chance="10280" max="1" min="1" id="4157"/>
-        <item chance="1129" max="1" min="1" id="8314"/>
-        <item chance="1221" max="1" min="1" id="8727"/>
-        <item chance="305" max="1" min="1" id="8737"/>
-        <item chance="31" max="1" min="1" id="8747"/>
-        <item chance="6" max="1" min="1" id="8757"/>
-        <item chance="58" max="1" min="1" id="11889"/>
-        <item chance="58" max="1" min="1" id="11900"/>
-        <item chance="58" max="1" min="1" id="11916"/>
+        <item chance="700000" category="DROP" max="1662" min="816" id="57"/>
+        <item chance="81378" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="61033" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="61033" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="61033" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="81378" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="57797" category="SPOIL" max="1" min="1" id="4065"/>
+        <item chance="582" category="UNK_1" max="1" min="1" id="4104"/>
+        <item chance="573" category="UNK_1" max="1" min="1" id="4107"/>
+        <item chance="573" category="UNK_1" max="1" min="1" id="4108"/>
+        <item chance="722" category="UNK_2" max="1" min="1" id="4154"/>
+        <item chance="10280" category="SPOIL" max="1" min="1" id="4157"/>
+        <item chance="1129" category="SPOIL" max="1" min="1" id="8314"/>
+        <item chance="1221" category="UNK_200" max="1" min="1" id="8727"/>
+        <item chance="305" category="UNK_200" max="1" min="1" id="8737"/>
+        <item chance="31" category="UNK_200" max="1" min="1" id="8747"/>
+        <item chance="6" category="UNK_200" max="1" min="1" id="8757"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="11889"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="11900"/>
+        <item chance="58" category="UNK_1" max="1" min="1" id="11916"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4247"/>
+        <skill level="3" id="4273"/>
+        <skill level="2" id="4274"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="19" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="10" id="4417"/>
+        <skill level="4" id="4437"/>
+        <skill level="2" id="4444"/>
+    </skills>
 </npc>

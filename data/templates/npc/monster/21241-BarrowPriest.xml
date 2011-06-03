@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Barrow Priest</name>
         <level>42</level>
+        <race>DEMON</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="5.5" max="1050.81652"/>
@@ -26,18 +27,30 @@
         <collision heigth="27.5" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="2061" min="1020" id="57"/>
-        <item chance="347" max="1" min="1" id="396"/>
-        <item chance="8441" max="1" min="1" id="1805"/>
-        <item chance="242216" max="1" min="1" id="1867"/>
-        <item chance="121108" max="3" min="1" id="1872"/>
-        <item chance="12111" max="1" min="1" id="1875"/>
-        <item chance="24222" max="1" min="1" id="1881"/>
-        <item chance="246339" max="1" min="1" id="1905"/>
-        <item chance="20366" max="1" min="1" id="1952"/>
-        <item chance="8776" max="1" min="1" id="2162"/>
-        <item chance="4793" max="1" min="1" id="2206"/>
-        <item chance="14418" max="1" min="1" id="2990"/>
-        <item chance="14471" max="1" min="1" id="4469"/>
+        <item chance="700000" category="DROP" max="2061" min="1020" id="57"/>
+        <item chance="347" category="UNK_1" max="1" min="1" id="396"/>
+        <item chance="8441" category="SPOIL" max="1" min="1" id="1805"/>
+        <item chance="242216" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="121108" category="UNK_2" max="3" min="1" id="1872"/>
+        <item chance="12111" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="24222" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="246339" category="SPOIL" max="1" min="1" id="1905"/>
+        <item chance="20366" category="UNK_1" max="1" min="1" id="1952"/>
+        <item chance="8776" category="UNK_2" max="1" min="1" id="2162"/>
+        <item chance="4793" category="UNK_2" max="1" min="1" id="2206"/>
+        <item chance="14418" category="UNK_2" max="1" min="1" id="2990"/>
+        <item chance="14471" category="SPOIL" max="1" min="1" id="4469"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4099"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

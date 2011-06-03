@@ -7,6 +7,7 @@
         <name display="true" send="false">Sirra's Page</name>
         <title send="false">Raid Fighter</title>
         <level>59</level>
+        <race>SPIRIT</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="57.96894" max="7721.463"/>
@@ -27,6 +28,20 @@
         <collision heigth="39.7" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="928000" max="60" min="20" id="1344"/>
+        <item chance="928000" category="UNK_2" max="60" min="20" id="1344"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="5" id="4213"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="7" id="4416"/>
+        <skill level="5" id="4780"/>
+    </skills>
 </npc>

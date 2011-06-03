@@ -7,6 +7,7 @@
         <name display="true" send="false">Flamestone Giant</name>
         <title send="false">Raid Boss</title>
         <level>76</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="124.302529182249" max="401886.766608773"/>
@@ -27,18 +28,33 @@
         <collision heigth="45.0" radius="22.0"/>
     </info>
     <droplist>
-        <item chance="9754" max="1" min="1" id="81"/>
-        <item chance="9754" max="1" min="1" id="151"/>
-        <item chance="52448" max="1" min="1" id="959"/>
-        <item chance="524479" max="1" min="1" id="960"/>
-        <item chance="9754" max="1" min="1" id="2500"/>
-        <item chance="22978" max="1" min="1" id="5311"/>
-        <item chance="22978" max="1" min="1" id="5316"/>
-        <item chance="430587" max="12" min="4" id="5522"/>
-        <item chance="229647" max="22" min="8" id="5523"/>
-        <item chance="154169" max="27" min="9" id="5529"/>
-        <item chance="99109" max="42" min="14" id="5545"/>
-        <item chance="304812" max="15" min="5" id="5546"/>
-        <item chance="8742" max="1" min="1" id="6577"/>
+        <item chance="9754" category="UNK_1" max="1" min="1" id="81"/>
+        <item chance="9754" category="UNK_1" max="1" min="1" id="151"/>
+        <item chance="52448" category="UNK_3" max="1" min="1" id="959"/>
+        <item chance="524479" category="UNK_3" max="1" min="1" id="960"/>
+        <item chance="9754" category="UNK_1" max="1" min="1" id="2500"/>
+        <item chance="22978" category="UNK_2" max="1" min="1" id="5311"/>
+        <item chance="22978" category="UNK_2" max="1" min="1" id="5316"/>
+        <item chance="430587" category="UNK_2" max="12" min="4" id="5522"/>
+        <item chance="229647" category="UNK_2" max="22" min="8" id="5523"/>
+        <item chance="154169" category="UNK_1" max="27" min="9" id="5529"/>
+        <item chance="99109" category="UNK_1" max="42" min="14" id="5545"/>
+        <item chance="304812" category="UNK_1" max="15" min="5" id="5546"/>
+        <item chance="8742" category="UNK_3" max="1" min="1" id="6577"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="8" id="4178"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5035"/>
+    </skills>
 </npc>

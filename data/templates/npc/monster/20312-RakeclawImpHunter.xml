@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Rakeclaw Imp Hunter</name>
         <level>7</level>
+        <race>FAIRIE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="2.0" max="108.42254"/>
@@ -26,15 +27,27 @@
         <collision heigth="24.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="11733" max="1" min="1" id="19"/>
-        <item chance="8213" max="1" min="1" id="42"/>
-        <item chance="700000" max="72" min="51" id="57"/>
-        <item chance="2396" max="1" min="1" id="734"/>
-        <item chance="32439" max="1" min="1" id="1666"/>
-        <item chance="30910" max="1" min="1" id="1802"/>
-        <item chance="28746" max="1" min="1" id="1864"/>
-        <item chance="64878" max="1" min="1" id="1866"/>
-        <item chance="14373" max="1" min="1" id="1869"/>
-        <item chance="28622" max="1" min="1" id="2136"/>
+        <item chance="11733" category="UNK_1" max="1" min="1" id="19"/>
+        <item chance="8213" category="UNK_1" max="1" min="1" id="42"/>
+        <item chance="700000" category="DROP" max="72" min="51" id="57"/>
+        <item chance="2396" category="UNK_2" max="1" min="1" id="734"/>
+        <item chance="32439" category="SPOIL" max="1" min="1" id="1666"/>
+        <item chance="30910" category="UNK_2" max="1" min="1" id="1802"/>
+        <item chance="28746" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="64878" category="SPOIL" max="1" min="1" id="1866"/>
+        <item chance="14373" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="28622" category="SPOIL" max="1" min="1" id="2136"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4276"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="13" id="4416"/>
+    </skills>
 </npc>

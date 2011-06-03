@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Vampire Warlord</name>
         <level>73</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="8.5" max="2586.66898"/>
@@ -27,21 +28,39 @@
         <collision heigth="31.5" radius="9.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="3947" min="1939" id="57"/>
-        <item chance="436" max="1" min="1" id="729"/>
-        <item chance="289897" max="1" min="1" id="1868"/>
-        <item chance="57979" max="1" min="1" id="1873"/>
-        <item chance="28990" max="1" min="1" id="1876"/>
-        <item chance="41414" max="1" min="1" id="1895"/>
-        <item chance="2416" max="1" min="1" id="4042"/>
-        <item chance="64" max="1" min="1" id="5162"/>
-        <item chance="1454" max="1" min="1" id="5448"/>
-        <item chance="82446" max="1" min="1" id="5494"/>
-        <item chance="2444" max="1" min="1" id="5539"/>
-        <item chance="1342" max="1" min="1" id="8731"/>
-        <item chance="335" max="1" min="1" id="8741"/>
-        <item chance="33" max="1" min="1" id="8751"/>
-        <item chance="8" max="1" min="1" id="8761"/>
-        <item chance="199" max="1" min="1" id="11950"/>
+        <item chance="700000" category="DROP" max="3947" min="1939" id="57"/>
+        <item chance="436" category="SPOIL" max="1" min="1" id="729"/>
+        <item chance="289897" category="UNK_2" max="1" min="1" id="1868"/>
+        <item chance="57979" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="28990" category="UNK_2" max="1" min="1" id="1876"/>
+        <item chance="41414" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="2416" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="64" category="UNK_2" max="1" min="1" id="5162"/>
+        <item chance="1454" category="SPOIL" max="1" min="1" id="5448"/>
+        <item chance="82446" category="SPOIL" max="1" min="1" id="5494"/>
+        <item chance="2444" category="UNK_1" max="1" min="1" id="5539"/>
+        <item chance="1342" category="UNK_200" max="1" min="1" id="8731"/>
+        <item chance="335" category="UNK_200" max="1" min="1" id="8741"/>
+        <item chance="33" category="UNK_200" max="1" min="1" id="8751"/>
+        <item chance="8" category="UNK_200" max="1" min="1" id="8761"/>
+        <item chance="199" category="UNK_1" max="1" min="1" id="11950"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4028"/>
+        <skill level="3" id="4285"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="7" id="4582"/>
+        <skill level="7" id="4596"/>
+        <skill level="1" id="4663"/>
+        <skill level="7" id="4664"/>
+        <skill level="3" id="4789"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Water Spirit Lian</name>
         <title send="false">Raid Boss</title>
         <level>84</level>
+        <race>FAIRIE</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="96.0880871925918" max="312521.536403012"/>
@@ -27,18 +28,34 @@
         <collision heigth="54.0" radius="10.0"/>
     </info>
     <droplist>
-        <item chance="719" max="1" min="1" id="10220"/>
-        <item chance="719" max="1" min="1" id="10222"/>
-        <item chance="238403" max="1" min="1" id="10402"/>
-        <item chance="238403" max="1" min="1" id="10404"/>
-        <item chance="8132" max="1" min="1" id="9516"/>
-        <item chance="11617" max="1" min="1" id="9529"/>
-        <item chance="22175" max="1" min="1" id="13885"/>
-        <item chance="111466" max="27" min="9" id="9532"/>
-        <item chance="239157" max="15" min="5" id="9545"/>
-        <item chance="345871" max="6" min="2" id="10114"/>
-        <item chance="28933" max="1" min="1" id="959"/>
-        <item chance="289340" max="1" min="1" id="960"/>
-        <item chance="4822" max="1" min="1" id="6577"/>
+        <item chance="28933" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="289340" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="4822" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="8132" category="DROP" max="1" min="1" id="9516"/>
+        <item chance="11617" category="DROP" max="1" min="1" id="9529"/>
+        <item chance="111466" category="DROP" max="27" min="9" id="9532"/>
+        <item chance="239157" category="DROP" max="15" min="5" id="9545"/>
+        <item chance="345871" category="DROP" max="6" min="2" id="10114"/>
+        <item chance="719" category="UNK_1" max="1" min="1" id="10220"/>
+        <item chance="719" category="UNK_1" max="1" min="1" id="10222"/>
+        <item chance="238403" category="UNK_1" max="1" min="1" id="10402"/>
+        <item chance="238403" category="UNK_1" max="1" min="1" id="10404"/>
+        <item chance="22175" category="DROP" max="1" min="1" id="13885"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4197"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="13" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5463"/>
+        <skill level="1" id="6229"/>
+    </skills>
 </npc>

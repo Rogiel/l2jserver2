@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Lith Warrior</name>
         <level>27</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="515.17856"/>
@@ -27,20 +28,36 @@
         <collision heigth="33.6" radius="12.0"/>
     </info>
     <droplist>
-        <item chance="1602" max="1" min="1" id="847"/>
-        <item chance="2403" max="1" min="1" id="890"/>
-        <item chance="1201" max="1" min="1" id="910"/>
-        <item chance="110531" max="3" min="1" id="1868"/>
-        <item chance="44213" max="1" min="1" id="1873"/>
-        <item chance="78778" max="1" min="1" id="1889"/>
-        <item chance="7369" max="1" min="1" id="1889"/>
-        <item chance="184636" max="1" min="1" id="1899"/>
-        <item chance="25906" max="1" min="1" id="1899"/>
-        <item chance="1716" max="1" min="1" id="2262"/>
-        <item chance="118167" max="1" min="1" id="5549"/>
-        <item chance="11053" max="1" min="1" id="5549"/>
-        <item chance="221063" max="1" min="1" id="6037"/>
-        <item chance="700000" max="190" min="97" id="6360"/>
-        <item chance="700000" max="41" min="22" id="6362"/>
+        <item chance="1602" category="UNK_1" max="1" min="1" id="847"/>
+        <item chance="2403" category="UNK_1" max="1" min="1" id="890"/>
+        <item chance="1201" category="UNK_1" max="1" min="1" id="910"/>
+        <item chance="110531" category="UNK_2" max="3" min="1" id="1868"/>
+        <item chance="44213" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="78778" category="SPOIL" max="1" min="1" id="1889"/>
+        <item chance="7369" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="184636" category="SPOIL" max="1" min="1" id="1899"/>
+        <item chance="25906" category="UNK_1" max="1" min="1" id="1899"/>
+        <item chance="1716" category="UNK_2" max="1" min="1" id="2262"/>
+        <item chance="118167" category="SPOIL" max="1" min="1" id="5549"/>
+        <item chance="11053" category="UNK_2" max="1" min="1" id="5549"/>
+        <item chance="221063" category="UNK_2" max="1" min="1" id="6037"/>
+        <item chance="700000" category="DROP" max="190" min="97" id="6360"/>
+        <item chance="700000" category="UNK_4" max="41" min="22" id="6362"/>
     </droplist>
+    <skills>
+        <skill level="2" id="4029"/>
+        <skill level="3" id="4071"/>
+        <skill level="3" id="4273"/>
+        <skill level="3" id="4285"/>
+        <skill level="3" id="4287"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+    </skills>
 </npc>

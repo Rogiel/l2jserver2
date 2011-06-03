@@ -7,6 +7,7 @@
         <name display="true" send="false">Awakened Ancient Fighter</name>
         <title send="false">Raid Boss</title>
         <level>81</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="188.168628266824" max="440657.534754126"/>
@@ -27,4 +28,24 @@
         <item lefthand="0" righthand="13982"/>
         <collision heigth="62.4" radius="34.32"/>
     </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="11" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5465"/>
+        <skill level="2" id="5884"/>
+        <skill level="1" id="5887"/>
+        <skill level="1" id="5891"/>
+        <skill level="1" id="5895"/>
+        <skill level="1" id="5915"/>
+        <skill level="1" id="6078"/>
+    </skills>
 </npc>

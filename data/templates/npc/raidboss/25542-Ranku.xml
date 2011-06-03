@@ -7,6 +7,7 @@
         <name display="true" send="false">Ranku</name>
         <title send="false">Raid Boss</title>
         <level>83</level>
+        <race>DEMON</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="187.223482496798" max="2230489.48877267"/>
@@ -27,12 +28,30 @@
         <collision heigth="29.0" radius="13.0"/>
     </info>
     <droplist>
-        <item chance="4697" max="1" min="1" id="6364"/>
-        <item chance="4697" max="1" min="1" id="6372"/>
-        <item chance="144699" max="22" min="8" id="6688"/>
-        <item chance="275620" max="12" min="4" id="6696"/>
-        <item chance="14090" max="1" min="1" id="7575"/>
-        <item chance="274444" max="36" min="12" id="7579"/>
-        <item chance="50000" max="1" min="1" id="10299"/>
+        <item chance="4697" category="UNK_1" max="1" min="1" id="6364"/>
+        <item chance="4697" category="UNK_1" max="1" min="1" id="6372"/>
+        <item chance="144699" category="UNK_1" max="22" min="8" id="6688"/>
+        <item chance="275620" category="UNK_1" max="12" min="4" id="6696"/>
+        <item chance="14090" category="UNK_1" max="1" min="1" id="7575"/>
+        <item chance="274444" category="UNK_1" max="36" min="12" id="7579"/>
+        <item chance="50000" category="DROP" max="1" min="1" id="10299"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="9" id="5246"/>
+        <skill level="1" id="5250"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5476"/>
+        <skill level="1" id="5479"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Ragraman</name>
         <title send="false">Raid Boss</title>
         <level>30</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="71.4116064656513" max="141484.138003554"/>
@@ -28,27 +29,45 @@
         <collision heigth="52.0" radius="24.0"/>
     </info>
     <droplist>
-        <item chance="10795" max="30" min="10" id="606"/>
-        <item chance="10281" max="31" min="11" id="1124"/>
-        <item chance="23260" max="540" min="180" id="1946"/>
-        <item chance="13355" max="940" min="314" id="1948"/>
-        <item chance="9814" max="33" min="11" id="2424"/>
-        <item chance="9387" max="34" min="12" id="2425"/>
-        <item chance="8996" max="36" min="12" id="2426"/>
-        <item chance="8636" max="37" min="13" id="2448"/>
-        <item chance="8303" max="39" min="13" id="2449"/>
-        <item chance="7997" max="40" min="14" id="2450"/>
-        <item chance="174446" max="72" min="24" id="2923"/>
-        <item chance="128821" max="97" min="33" id="2924"/>
-        <item chance="99683" max="126" min="42" id="2925"/>
-        <item chance="79746" max="157" min="53" id="2926"/>
-        <item chance="65417" max="192" min="64" id="2927"/>
-        <item chance="54727" max="229" min="77" id="2928"/>
-        <item chance="138464" max="1" min="1" id="129"/>
-        <item chance="327341" max="36" min="12" id="2034"/>
-        <item chance="96386" max="15" min="5" id="4553"/>
-        <item chance="321288" max="4" min="2" id="4554"/>
-        <item chance="240966" max="6" min="2" id="4555"/>
-        <item chance="53548" max="1" min="1" id="6575"/>
+        <item chance="138464" category="UNK_1" max="1" min="1" id="129"/>
+        <item chance="10795" category="DROP" max="30" min="10" id="606"/>
+        <item chance="10281" category="DROP" max="31" min="11" id="1124"/>
+        <item chance="23260" category="DROP" max="540" min="180" id="1946"/>
+        <item chance="13355" category="DROP" max="940" min="314" id="1948"/>
+        <item chance="327341" category="UNK_1" max="36" min="12" id="2034"/>
+        <item chance="9814" category="DROP" max="33" min="11" id="2424"/>
+        <item chance="9387" category="DROP" max="34" min="12" id="2425"/>
+        <item chance="8996" category="DROP" max="36" min="12" id="2426"/>
+        <item chance="8636" category="DROP" max="37" min="13" id="2448"/>
+        <item chance="8303" category="DROP" max="39" min="13" id="2449"/>
+        <item chance="7997" category="DROP" max="40" min="14" id="2450"/>
+        <item chance="174446" category="DROP" max="72" min="24" id="2923"/>
+        <item chance="128821" category="DROP" max="97" min="33" id="2924"/>
+        <item chance="99683" category="DROP" max="126" min="42" id="2925"/>
+        <item chance="79746" category="DROP" max="157" min="53" id="2926"/>
+        <item chance="65417" category="DROP" max="192" min="64" id="2927"/>
+        <item chance="54727" category="DROP" max="229" min="77" id="2928"/>
+        <item chance="96386" category="UNK_2" max="15" min="5" id="4553"/>
+        <item chance="321288" category="UNK_2" max="4" min="2" id="4554"/>
+        <item chance="240966" category="UNK_2" max="6" min="2" id="4555"/>
+        <item chance="53548" category="UNK_2" max="1" min="1" id="6575"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4172"/>
+        <skill level="3" id="4173"/>
+        <skill level="3" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="3" id="4720"/>
+        <skill level="1" id="4854"/>
+    </skills>
 </npc>

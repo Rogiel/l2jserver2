@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Dead Pit Horror</name>
         <level>28</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="3.5" max="543.79576"/>
@@ -26,15 +27,26 @@
         <collision heigth="35.0" radius="20.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="339" min="173" id="57"/>
-        <item chance="144" max="1" min="1" id="220"/>
-        <item chance="50426" max="1" min="1" id="1834"/>
-        <item chance="60511" max="1" min="1" id="1867"/>
-        <item chance="60511" max="1" min="1" id="1872"/>
-        <item chance="89848" max="1" min="1" id="1882"/>
-        <item chance="10085" max="1" min="1" id="1882"/>
-        <item chance="5373" max="1" min="1" id="2017"/>
-        <item chance="7990" max="1" min="1" id="2152"/>
-        <item chance="30400" max="1" min="1" id="2180"/>
+        <item chance="89848" category="SPOIL" max="1" min="1" id="1882"/>
+        <item chance="5373" category="SPOIL" max="1" min="1" id="2017"/>
+        <item chance="30400" category="SPOIL" max="1" min="1" id="2180"/>
+        <item chance="700000" category="DROP" max="339" min="173" id="57"/>
+        <item chance="144" category="UNK_1" max="1" min="1" id="220"/>
+        <item chance="50426" category="UNK_2" max="1" min="1" id="1834"/>
+        <item chance="60511" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="60511" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="10085" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="7990" category="UNK_2" max="1" min="1" id="2152"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
 </npc>

@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Grave Robber Scout</name>
         <level>27</level>
+        <race>UNDEAD</race>
         <sex>FEMALE</sex>
         <stats>
             <hp regen="3.5" max="515.17856"/>
@@ -27,16 +28,30 @@
         <collision heigth="18.0" radius="7.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="401" min="208" id="57"/>
-        <item chance="27753" max="1" min="1" id="1884"/>
-        <item chance="18039" max="1" min="1" id="1878"/>
-        <item chance="3007" max="1" min="1" id="1889"/>
-        <item chance="3007" max="1" min="1" id="1874"/>
-        <item chance="1804" max="1" min="1" id="5220"/>
-        <item chance="172" max="1" min="1" id="274"/>
-        <item chance="3391" max="1" min="1" id="2180"/>
-        <item chance="32142" max="1" min="1" id="1874"/>
-        <item chance="192855" max="1" min="1" id="1878"/>
-        <item chance="63024" max="1" min="1" id="1934"/>
+        <item chance="700000" category="DROP" max="401" min="208" id="57"/>
+        <item chance="27753" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="18039" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="3007" category="UNK_2" max="1" min="1" id="1889"/>
+        <item chance="3007" category="UNK_2" max="1" min="1" id="1874"/>
+        <item chance="1804" category="UNK_2" max="1" min="1" id="5220"/>
+        <item chance="172" category="UNK_1" max="1" min="1" id="274"/>
+        <item chance="3391" category="UNK_2" max="1" min="1" id="2180"/>
+        <item chance="32142" category="SPOIL" max="1" min="1" id="1874"/>
+        <item chance="192855" category="SPOIL" max="1" min="1" id="1878"/>
+        <item chance="63024" category="SPOIL" max="1" min="1" id="1934"/>
     </droplist>
+    <skills>
+        <skill level="3" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="26" id="4417"/>
+        <skill level="3" id="4458"/>
+    </skills>
 </npc>

@@ -7,6 +7,7 @@
         <name display="true" send="false">Shadow of Oblivion</name>
         <title send="false">Raid Fighter</title>
         <level>48</level>
+        <race>UNDEAD</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="49.5883641293912" max="22587.4245278026"/>
@@ -27,6 +28,22 @@
         <collision heigth="21.0" radius="7.0"/>
     </info>
     <droplist>
-        <item chance="148089" max="1" min="1" id="1539"/>
+        <item chance="148089" category="UNK_2" max="1" min="1" id="1539"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="4" id="4213"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="4" id="4783"/>
+    </skills>
 </npc>

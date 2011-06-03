@@ -6,6 +6,7 @@
     <info aggressive="true" targetable="true" attackable="true">
         <name display="true" send="false">Ginzu Golem Prodigy X</name>
         <level>52</level>
+        <race>MAGIC_CREATURE</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1520.38155"/>
@@ -26,33 +27,51 @@
         <collision heigth="37.2" radius="16.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="4930" min="2440" id="57"/>
-        <item chance="112881" max="1" min="1" id="1873"/>
-        <item chance="188134" max="1" min="1" id="1866"/>
-        <item chance="94067" max="9" min="3" id="1864"/>
-        <item chance="70551" max="6" min="2" id="1865"/>
-        <item chance="7839" max="1" min="1" id="8725"/>
-        <item chance="1960" max="1" min="1" id="8735"/>
-        <item chance="196" max="1" min="1" id="8745"/>
-        <item chance="39" max="1" min="1" id="8755"/>
-        <item chance="460" max="1" min="1" id="2353"/>
-        <item chance="945" max="1" min="1" id="8329"/>
-        <item chance="989" max="1" min="1" id="2091"/>
-        <item chance="989" max="1" min="1" id="2089"/>
-        <item chance="989" max="1" min="1" id="2090"/>
-        <item chance="989" max="1" min="1" id="2095"/>
-        <item chance="989" max="1" min="1" id="2096"/>
-        <item chance="989" max="1" min="1" id="2092"/>
-        <item chance="11" max="1" min="1" id="75"/>
-        <item chance="11" max="1" min="1" id="76"/>
-        <item chance="11" max="1" min="1" id="77"/>
-        <item chance="11" max="1" min="1" id="84"/>
-        <item chance="11" max="1" min="1" id="134"/>
-        <item chance="11" max="1" min="1" id="145"/>
-        <item chance="11" max="1" min="1" id="7882"/>
-        <item chance="944873" max="25" min="1" id="1864"/>
-        <item chance="682408" max="3" min="1" id="1539"/>
-        <item chance="13648" max="1" min="1" id="4603"/>
-        <item chance="354" max="1" min="1" id="8308"/>
+        <item chance="700000" category="DROP" max="4930" min="2440" id="57"/>
+        <item chance="112881" category="UNK_2" max="1" min="1" id="1873"/>
+        <item chance="188134" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="94067" category="UNK_2" max="9" min="3" id="1864"/>
+        <item chance="70551" category="UNK_2" max="6" min="2" id="1865"/>
+        <item chance="7839" category="UNK_200" max="1" min="1" id="8725"/>
+        <item chance="1960" category="UNK_200" max="1" min="1" id="8735"/>
+        <item chance="196" category="UNK_200" max="1" min="1" id="8745"/>
+        <item chance="39" category="UNK_200" max="1" min="1" id="8755"/>
+        <item chance="460" category="UNK_2" max="1" min="1" id="2353"/>
+        <item chance="945" category="UNK_1" max="1" min="1" id="8329"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="2091"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="2089"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="2090"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="2095"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="2096"/>
+        <item chance="989" category="UNK_1" max="1" min="1" id="2092"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="75"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="76"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="77"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="84"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="134"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="145"/>
+        <item chance="11" category="UNK_1" max="1" min="1" id="7882"/>
+        <item chance="944873" category="SPOIL" max="25" min="1" id="1864"/>
+        <item chance="682408" category="SPOIL" max="3" min="1" id="1539"/>
+        <item chance="13648" category="SPOIL" max="1" min="1" id="4603"/>
+        <item chance="354" category="UNK_2" max="1" min="1" id="8308"/>
     </droplist>
+    <skills>
+        <skill level="1" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="10" id="4417"/>
+        <skill level="4" id="4437"/>
+        <skill level="2" id="4457"/>
+        <skill level="1" id="4471"/>
+        <skill level="5" id="4641"/>
+    </skills>
 </npc>

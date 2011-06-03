@@ -6,6 +6,7 @@
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Harit Lizardman Grunt</name>
         <level>51</level>
+        <race>HUMANOID</race>
         <sex>MALE</sex>
         <stats>
             <hp regen="6.5" max="1470.41596"/>
@@ -27,27 +28,39 @@
         <collision heigth="32.0" radius="11.0"/>
     </info>
     <droplist>
-        <item chance="700000" max="1452" min="715" id="57"/>
-        <item chance="110" max="1" min="1" id="854"/>
-        <item chance="165" max="1" min="1" id="885"/>
-        <item chance="82" max="1" min="1" id="917"/>
-        <item chance="82934" max="1" min="1" id="1867"/>
-        <item chance="82934" max="1" min="1" id="1872"/>
-        <item chance="13822" max="1" min="1" id="1882"/>
-        <item chance="2182" max="1" min="1" id="1894"/>
-        <item chance="6988" max="1" min="1" id="1914"/>
-        <item chance="10959" max="1" min="1" id="1915"/>
-        <item chance="5293" max="1" min="1" id="1916"/>
-        <item chance="9668" max="1" min="1" id="2097"/>
-        <item chance="101" max="1" min="1" id="2353"/>
-        <item chance="2944" max="1" min="1" id="2355"/>
-        <item chance="30082" max="1" min="1" id="4042"/>
-        <item chance="1037" max="1" min="1" id="4042"/>
-        <item chance="2765" max="1" min="1" id="4124"/>
-        <item chance="138" max="1" min="1" id="4609"/>
-        <item chance="1728" max="1" min="1" id="8725"/>
-        <item chance="432" max="1" min="1" id="8735"/>
-        <item chance="43" max="1" min="1" id="8745"/>
-        <item chance="8" max="1" min="1" id="8755"/>
+        <item chance="9668" category="SPOIL" max="1" min="1" id="2097"/>
+        <item chance="2944" category="SPOIL" max="1" min="1" id="2355"/>
+        <item chance="30082" category="SPOIL" max="1" min="1" id="4042"/>
+        <item chance="700000" category="DROP" max="1452" min="715" id="57"/>
+        <item chance="110" category="UNK_1" max="1" min="1" id="854"/>
+        <item chance="165" category="UNK_1" max="1" min="1" id="885"/>
+        <item chance="82" category="UNK_1" max="1" min="1" id="917"/>
+        <item chance="6988" category="UNK_1" max="1" min="1" id="1914"/>
+        <item chance="10959" category="UNK_1" max="1" min="1" id="1915"/>
+        <item chance="5293" category="UNK_1" max="1" min="1" id="1916"/>
+        <item chance="82934" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="82934" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="13822" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="2182" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="101" category="UNK_2" max="1" min="1" id="2353"/>
+        <item chance="1037" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="2765" category="UNK_2" max="1" min="1" id="4124"/>
+        <item chance="138" category="UNK_2" max="1" min="1" id="4609"/>
+        <item chance="1728" category="UNK_200" max="1" min="1" id="8725"/>
+        <item chance="432" category="UNK_200" max="1" min="1" id="8735"/>
+        <item chance="43" category="UNK_200" max="1" min="1" id="8745"/>
+        <item chance="8" category="UNK_200" max="1" min="1" id="8755"/>
     </droplist>
+    <skills>
+        <skill level="5" id="4032"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="6" id="4416"/>
+    </skills>
 </npc>
