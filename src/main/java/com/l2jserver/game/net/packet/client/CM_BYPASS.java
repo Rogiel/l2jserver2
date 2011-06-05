@@ -19,6 +19,8 @@ package com.l2jserver.game.net.packet.client;
 import java.util.StringTokenizer;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
@@ -38,6 +40,8 @@ import com.l2jserver.util.BufferUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CM_BYPASS extends AbstractClientPacket {
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * The packet OPCODE
 	 */
@@ -90,6 +94,8 @@ public class CM_BYPASS extends AbstractClientPacket {
 			} catch (CannotSetTargetServiceException e) {
 				conn.sendActionFailed();
 			}
+		} else {
+			log.warn("Client requested an bypass not supported by server");
 		}
 	}
 

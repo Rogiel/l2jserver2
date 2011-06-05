@@ -23,7 +23,6 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -32,7 +31,6 @@ import com.l2jserver.util.factory.CollectionFactory;
  * successfully selected.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see Reason
  */
 public class SM_STATUS_UPDATE extends AbstractServerPacket {
 	/**

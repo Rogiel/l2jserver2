@@ -20,7 +20,6 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -29,7 +28,6 @@ import com.l2jserver.util.geometry.Point3D;
  * successfully selected.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see Reason
  */
 public class SM_TELEPORT extends AbstractServerPacket {
 	/**

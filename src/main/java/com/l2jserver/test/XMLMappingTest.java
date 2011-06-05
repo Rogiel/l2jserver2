@@ -29,6 +29,7 @@ import com.l2jserver.GameServerModule;
 import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.template.TeleportationTemplate;
+import com.l2jserver.service.game.admin.panel.AdminHomeTemplate;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
@@ -47,6 +48,9 @@ public class XMLMappingTest {
 	public static void main(String[] args) throws JAXBException, IOException {
 		// final List<NPCTemplate> templates = CollectionFactory.newList();
 
+		System.out.println(new AdminHomeTemplate().toHtmlString());
+		System.exit(0);
+		
 		final JAXBContext c = JAXBContext.newInstance(CharacterTemplate.class,
 				NPCTemplate.class, TeleportationTemplate.class);
 		final Unmarshaller u = c.createUnmarshaller();

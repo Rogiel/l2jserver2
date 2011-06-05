@@ -14,20 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.admin;
+package com.l2jserver.service.game.admin;
 
+import java.util.List;
+
+import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.Service;
+import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.game.admin.panel.AdminHomeTemplate;
 
 /**
- * This service handles GM in the server
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface GMService extends Service {
-	void command(L2Character character, String command, String... args);
+public class AdministratorServiceImpl extends AbstractService implements
+		AdministratorService {
+	@SuppressWarnings("unused")
+	private List<CharacterID> online;
 
-	public interface GMCommand {
-		void gm(L2Character character, String... args);
+	@Override
+	public void command(Lineage2Connection conn, L2Character character,
+			String command, String... args) {
+		conn.sendCommunityHTML(new AdminHomeTemplate());
 	}
 }

@@ -28,7 +28,6 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import com.google.common.base.Throwables;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.ClientPacket;
-import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.util.html.markup.HtmlTemplate;
@@ -108,7 +107,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 			if (!connection.isConnected())
 				// no point sending error messages if the client is disconnected
 				return;
-	
+
 			// TODO only send exception stack trace in development mode!
 			final String exception = Throwables.getStackTraceAsString(e)
 					.replaceAll("\n", "<br>").replace("	", "");
@@ -118,11 +117,13 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 					body.text(exception);
 				}
 			};
-			connection.write(new SM_HTML(null, template));
-			connection.sendActionFailed(); // order client not to wait any packet
-	
-			final String[] lines = Throwables.getStackTraceAsString(e).split("\n");
-			for(final String line : lines) {
+			connection.sendCommunityHTML(template);
+			// order client not to wait any packet
+			connection.sendActionFailed();
+
+			final String[] lines = Throwables.getStackTraceAsString(e).split(
+					"\n");
+			for (final String line : lines) {
 				connection.sendMessage(line);
 			}
 		} finally {

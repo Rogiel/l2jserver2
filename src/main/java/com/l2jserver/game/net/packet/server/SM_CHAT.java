@@ -20,7 +20,6 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.game.chat.ChatMessageDestination;
@@ -31,7 +30,6 @@ import com.l2jserver.util.BufferUtils;
  * successfully selected.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see Reason
  */
 public class SM_CHAT extends AbstractServerPacket {
 	/**
@@ -56,16 +54,16 @@ public class SM_CHAT extends AbstractServerPacket {
 	 */
 	private int messageID = 0;
 
-	public SM_CHAT(Actor character,
-			ChatMessageDestination destination, String message) {
+	public SM_CHAT(Actor character, ChatMessageDestination destination,
+			String message) {
 		super(OPCODE);
 		this.actor = character;
 		this.destination = destination;
 		this.message = message;
 	}
 
-	public SM_CHAT(Actor actor,
-			ChatMessageDestination destination, int messageID) {
+	public SM_CHAT(Actor actor, ChatMessageDestination destination,
+			int messageID) {
 		super(OPCODE);
 		this.actor = actor;
 		this.destination = destination;

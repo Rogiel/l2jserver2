@@ -33,6 +33,8 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.JDBCDatabaseService;
 import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.AttackServiceImpl;
+import com.l2jserver.service.game.admin.AdministratorService;
+import com.l2jserver.service.game.admin.AdministratorServiceImpl;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.character.CharacterServiceImpl;
 import com.l2jserver.service.game.chat.ChatService;
@@ -102,6 +104,8 @@ public class ServiceModule extends AbstractModule {
 
 		bind(ChatService.class).to(SimpleChatService.class)
 				.in(Scopes.SINGLETON);
+		bind(AdministratorService.class).to(AdministratorServiceImpl.class).in(
+				Scopes.SINGLETON);
 		bind(SpawnService.class).to(SpawnServiceImpl.class)
 				.in(Scopes.SINGLETON);
 		bind(BroadcastService.class).to(BroadcastServiceImpl.class).in(

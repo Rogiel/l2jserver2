@@ -31,10 +31,6 @@ import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 
 public class L2JGameServerMain {
-	/**
-	 * @param args
-	 * @throws InterruptedException
-	 */
 	public static void main(String[] args) throws InterruptedException {
 		final L2JGameServer server = new L2JGameServer();
 		try {

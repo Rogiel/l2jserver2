@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model.server.attack;
 
-import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Actor;
 
 /**

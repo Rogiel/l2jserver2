@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.admin;
+package com.l2jserver.service.game.admin;
 
+import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
@@ -28,6 +29,8 @@ public interface AdministratorService extends Service {
 	/**
 	 * Executes an command
 	 * 
+	 * @param conn
+	 *            the lineage 2 connection
 	 * @param character
 	 *            the admin character
 	 * @param command
@@ -35,7 +38,8 @@ public interface AdministratorService extends Service {
 	 * @param args
 	 *            the arguments
 	 */
-	void command(L2Character character, String command, String... args);
+	void command(Lineage2Connection conn, L2Character character,
+			String command, String... args);
 
 	/**
 	 * The base interface for Administrator commands

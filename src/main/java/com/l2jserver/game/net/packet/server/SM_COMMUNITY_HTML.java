@@ -16,37 +16,49 @@
  */
 package com.l2jserver.game.net.packet.server;
 
+import org.htmlparser.tags.Html;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.util.BufferUtils;
+import com.l2jserver.util.html.markup.HtmlTemplate;
 
 /**
- * This packet updates the movement type
+ * This packet sends an HTML message to be displayed in the client. As opposed
+ * to {@link SM_HTML}, this one displays it in the community board window.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_MOVE_TYPE extends AbstractServerPacket {
+public class SM_COMMUNITY_HTML extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x28;
+	public static final int OPCODE = 0x7b;
 
 	/**
-	 * The character
+	 * The HTML contents
 	 */
-	private final L2Character character;
+	private final String html;
 
-	public SM_MOVE_TYPE(L2Character character) {
+	public SM_COMMUNITY_HTML(String html) {
 		super(OPCODE);
-		this.character = character;
+		this.html = html;
+	}
+
+	public SM_COMMUNITY_HTML(Html html) {
+		super(OPCODE);
+		this.html = html.toHtml();
+	}
+
+	public SM_COMMUNITY_HTML(HtmlTemplate template) {
+		super(OPCODE);
+		this.html = template.toHtmlString();
 	}
 
 	@Override
 	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		buffer.writeInt(character.getID().getID());
-		buffer.writeInt(character.getMoveType().id);
-		buffer.writeInt(0x00); // unk
+		buffer.writeByte(0x01); // display or hide
+		BufferUtils.writeString(buffer, html);
 	}
 }

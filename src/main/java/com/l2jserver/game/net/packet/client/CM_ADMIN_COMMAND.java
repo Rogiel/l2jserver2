@@ -16,18 +16,13 @@
  */
 package com.l2jserver.game.net.packet.client;
 
-import java.util.StringTokenizer;
-
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Connection;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceException;
-import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
-import com.l2jserver.service.game.spawn.SpawnService;
+import com.l2jserver.service.game.admin.AdministratorService;
 import com.l2jserver.util.BufferUtils;
-import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * Executes an administrator action
@@ -43,8 +38,7 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 	/**
 	 * The admin service
 	 */
-	// private final AdministratorService adminService;
-	private final SpawnService spawnService;
+	private final AdministratorService adminService;
 
 	/**
 	 * The command
@@ -52,10 +46,8 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 	private String command;
 
 	@Inject
-	public CM_ADMIN_COMMAND(/* AdministratorService adminService, */
-	SpawnService spawnService) {
-		// this.adminService = adminService;
-		this.spawnService = spawnService;
+	public CM_ADMIN_COMMAND(AdministratorService adminService) {
+		this.adminService = adminService;
 	}
 
 	@Override
@@ -65,21 +57,23 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Connection conn) {
-		final StringTokenizer tokenizer = new StringTokenizer(command, " ");
-		final String cmd = tokenizer.nextToken();
-		if (cmd.equals("tele")) {
-			Coordinate coord = Coordinate.fromXYZ(
-					Integer.parseInt(tokenizer.nextToken()),
-					Integer.parseInt(tokenizer.nextToken()),
-					Integer.parseInt(tokenizer.nextToken()));
-			try {
-				spawnService.teleport(conn.getCharacter(), coord);
-			} catch (NotSpawnedServiceException e) {
-				conn.sendActionFailed();
-			} catch (CharacterAlreadyTeleportingServiceException e) {
-				conn.sendActionFailed();
-			}
-		}
+		// final StringTokenizer tokenizer = new StringTokenizer(command, " ");
+		// final String cmd = tokenizer.nextToken();
+		// if (cmd.equals("tele")) {
+		// Coordinate coord = Coordinate.fromXYZ(
+		// Integer.parseInt(tokenizer.nextToken()),
+		// Integer.parseInt(tokenizer.nextToken()),
+		// Integer.parseInt(tokenizer.nextToken()));
+		// try {
+		// spawnService.teleport(conn.getCharacter(), coord);
+		// } catch (NotSpawnedServiceException e) {
+		// conn.sendActionFailed();
+		// } catch (CharacterAlreadyTeleportingServiceException e) {
+		// conn.sendActionFailed();
+		// }
+		// }
+		adminService.command(conn, conn.getCharacter(), "", new String[] {});
+
 		// TODO implement admin commands
 	}
 }

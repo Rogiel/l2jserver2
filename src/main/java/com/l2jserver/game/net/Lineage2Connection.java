@@ -27,6 +27,8 @@ import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.game.net.packet.server.SM_ACTION_FAILED;
+import com.l2jserver.game.net.packet.server.SM_COMMUNITY_HTML;
+import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_SYSTEM_MESSAGE;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.ItemTemplate;
@@ -36,6 +38,7 @@ import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.filter.impl.CharacterBroadcastFilter;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.factory.CollectionFactory;
+import com.l2jserver.util.html.markup.HtmlTemplate;
 
 /**
  * This object connects the model (structure objects normally stored in the
@@ -309,6 +312,39 @@ public class Lineage2Connection {
 	 */
 	public ChannelFuture sendActionFailed() {
 		return write(SM_ACTION_FAILED.SHARED_INSTANCE);
+	}
+
+	/**
+	 * Sends a {@link SM_HTML} packet to the client. In the packet, the NPC will
+	 * be null. If you wish to send the HTML with an NPC, you should send the
+	 * packet directly.
+	 * <p>
+	 * This is an convenience method for <blockquote><code>
+	 * conn.write(new SM_HTML(null, template));</code></blockquote>
+	 * 
+	 * @param template
+	 *            the HTML template to be sent
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture sendHTML(HtmlTemplate template) {
+		return write(new SM_HTML(null, template));
+	}
+
+	/**
+	 * Sends a {@link SM_COMMUNITY_HTML} packet to the client. HTML code is not
+	 * displayed in the regular chat window, they will appear in a large one.
+	 * <p>
+	 * This is an convenience method for <blockquote><code>
+	 * conn.write(new SM_COMMUNITY_HTML(template));</code></blockquote>
+	 * 
+	 * @param template
+	 *            the HTML template to be sent
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture sendCommunityHTML(HtmlTemplate template) {
+		return write(new SM_COMMUNITY_HTML(template));
 	}
 
 	/**
