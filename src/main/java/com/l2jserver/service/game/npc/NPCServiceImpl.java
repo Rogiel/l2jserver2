@@ -72,6 +72,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The {@link CharacterService}
 	 */
+	@SuppressWarnings("unused")
 	private final CharacterService characterService;
 	/**
 	 * The {@link ThreadService}

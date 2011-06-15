@@ -43,6 +43,7 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 	/**
 	 * The command
 	 */
+	@SuppressWarnings("unused")
 	private String command;
 
 	@Inject

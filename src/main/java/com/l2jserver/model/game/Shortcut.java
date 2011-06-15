@@ -17,6 +17,7 @@
 package com.l2jserver.model.game;
 
 import com.l2jserver.model.AbstractModel;
+import com.l2jserver.model.id.ShortcutID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.template.SkillTemplateID;
@@ -25,10 +26,9 @@ import com.l2jserver.model.world.L2Character;
 /**
  * An shortcut in Lineage II game interface
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a><br />
- *         TODO create the shortcut id
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Shortcut extends AbstractModel {
+public class Shortcut extends AbstractModel<ShortcutID> {
 	/**
 	 * The character id
 	 */

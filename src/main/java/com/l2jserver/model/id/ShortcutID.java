@@ -18,16 +18,18 @@ package com.l2jserver.model.id;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.l2jserver.model.game.CharacterFriend;
+import com.l2jserver.model.game.Shortcut;
 import com.l2jserver.model.id.compound.AbstractCompoundID;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.id.template.SkillTemplateID;
 
 /**
- * Each {@link CharacterFriend} is identified by an {@link ID}.
+ * Each {@link Shortcut} is identified by an {@link ID}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class FriendID extends AbstractCompoundID<CharacterID, CharacterID> {
+public class ShortcutID extends AbstractCompoundID<CharacterID, ID<?>> {
 	/**
 	 * Creates a new instance
 	 * 
@@ -37,8 +39,8 @@ public class FriendID extends AbstractCompoundID<CharacterID, CharacterID> {
 	 *            the second id
 	 */
 	@Inject
-	public FriendID(@Assisted("id1") CharacterID id1,
-			@Assisted("id2") CharacterID id2) {
+	public ShortcutID(@Assisted("id1") CharacterID id1,
+			@Assisted("id2") ID<?> id2) {
 		super(id1, id2);
 	}
 
@@ -50,9 +52,43 @@ public class FriendID extends AbstractCompoundID<CharacterID, CharacterID> {
 	}
 
 	/**
-	 * @return the friend ID
+	 * @return the shortcut target ID
 	 */
-	public CharacterID getFriendID() {
+	public ID<?> getTargetID() {
 		return getID2();
+	}
+
+	/**
+	 * @return true if the {@link #getTargetID()} returns an
+	 *         {@link SkillTemplateID}
+	 */
+	public boolean isSkill() {
+		return getID2() instanceof SkillTemplateID;
+	}
+
+	/**
+	 * @return return the {@link #getTargetID()} casted to
+	 *         {@link SkillTemplateID}
+	 * @throws ClassCastException
+	 *             if {@link #isSkill()} returns null.
+	 */
+	public SkillTemplateID getSkillID() {
+		return (SkillTemplateID) getTargetID();
+	}
+
+	/**
+	 * @return true if the {@link #getTargetID()} returns an {@link ItemID}
+	 */
+	public boolean isItem() {
+		return getID2() instanceof ItemID;
+	}
+
+	/**
+	 * @return return the {@link #getTargetID()} casted to {@link ItemID}
+	 * @throws ClassCastException
+	 *             if {@link #isItem()} returns null.
+	 */
+	public ItemID getItemID() {
+		return (ItemID) getTargetID();
 	}
 }

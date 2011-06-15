@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<skill id="3" name="Power Strike" delay="3000" cooldown="720">
+<skill id="3" name="Power Strike" delay="3000" cooldown="720" hitTime="3000">
 	<stats overhit="true" type="PHYSICAL_DAMAGE" range="40">
-		<levels max="9">
-			<level level="1" mpConsume="9" runSpeed="spd" abnormal="1" power="30" magic="3" />
+		<levels max="9" depend="1">
+			<level level="1" mpConsume="9" runSpeed="spd" abnormal="1" power="30" magic="3">
+				<enchant magicLevel="1" power="2" />
+			</level>
 			<level level="2" mpConsume="9" power="32" magic="4" />
 			<level level="3" mpConsume="10" power="35" magic="5" />
 			<level level="4" mpConsume="11" power="46" magic="8" />

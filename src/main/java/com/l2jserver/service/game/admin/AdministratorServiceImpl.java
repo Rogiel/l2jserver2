@@ -19,6 +19,7 @@ package com.l2jserver.service.game.admin;
 import java.util.List;
 
 import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
@@ -36,6 +37,6 @@ public class AdministratorServiceImpl extends AbstractService implements
 	@Override
 	public void command(Lineage2Connection conn, L2Character character,
 			String command, String... args) {
-		conn.sendCommunityHTML(new AdminHomeTemplate());
+		conn.write(new SM_HTML(null, new AdminHomeTemplate()));
 	}
 }
