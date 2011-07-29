@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.game.character.CharacterService;
@@ -53,7 +53,7 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.readBytes(new byte[32]); // Unknown Byte Array
 		buffer.readInt(); // Unknown Value
 		buffer.readInt(); // Unknown Value
@@ -68,7 +68,7 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		final CharacterID id = conn.getCharacterID();
 		if (id == null) {
 			log.warn(

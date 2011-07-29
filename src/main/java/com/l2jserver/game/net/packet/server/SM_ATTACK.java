@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.server.AttackHit;
 import com.l2jserver.model.world.Actor;
@@ -59,7 +59,7 @@ public class SM_ATTACK extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt(attacker.getID().getID());
 
 		final AttackHit first = hits.get(0);

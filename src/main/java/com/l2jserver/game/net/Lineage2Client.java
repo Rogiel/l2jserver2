@@ -49,7 +49,7 @@ import com.l2jserver.util.html.markup.HtmlTemplate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Lineage2Connection {
+public class Lineage2Client {
 	/**
 	 * The connection channel
 	 */
@@ -85,7 +85,7 @@ public class Lineage2Connection {
 	// services
 	/**
 	 * The {@link NetworkService} instance. This service is used to retrieve the
-	 * {@link Lineage2Connection} based on an {@link CharacterID}.
+	 * {@link Lineage2Client} based on an {@link CharacterID}.
 	 */
 	private final NetworkService networkService;
 	/**
@@ -102,7 +102,7 @@ public class Lineage2Connection {
 	 * @param channel
 	 *            the channel
 	 */
-	public Lineage2Connection(WorldService worldService,
+	public Lineage2Client(WorldService worldService,
 			NetworkService networkService, Channel channel) {
 		this.worldService = worldService;
 		this.networkService = networkService;
@@ -364,7 +364,7 @@ public class Lineage2Connection {
 		final Set<ChannelFuture> futures = CollectionFactory.newSet();
 		for (final L2Character character : worldService
 				.iterable(new CharacterBroadcastFilter(characterID.getObject()))) {
-			final Lineage2Connection conn = networkService.discover(character
+			final Lineage2Client conn = networkService.discover(character
 					.getID());
 			if (conn == null)
 				continue;

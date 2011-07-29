@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.game.spawn.CharacterNotTeleportingServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
@@ -47,11 +47,11 @@ public class CM_CHAR_APPEARING extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		try {
 			spawnService.finishTeleport(conn.getCharacter());
 		} catch (CharacterNotTeleportingServiceException e) {

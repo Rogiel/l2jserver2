@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_ACTION_FAILED;
 import com.l2jserver.model.id.ObjectID;
@@ -108,7 +108,7 @@ public class CM_ATTACK extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.objectId = buffer.readInt();
 		this.origin = Coordinate.fromXYZ(buffer.readInt(), buffer.readInt(),
 				buffer.readInt());
@@ -116,7 +116,7 @@ public class CM_ATTACK extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		final L2Character character = conn.getCharacter();
 		// since this is an erasure type, this is safe.
 		final ObjectID<Actor> id = idResolver.resolve(objectId);

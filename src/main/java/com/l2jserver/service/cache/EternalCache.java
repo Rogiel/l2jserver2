@@ -25,7 +25,8 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * Cache class for an eternal cache
+ * Cache class for an eternal cache. Entries in this cache instance won't ever
+ * be automatically removed, even if the JVM is running out of memory.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
@@ -34,7 +35,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @param <V>
  *            the value type
  */
-class EternalCache<K, V> implements Cache<K, V> {
+public class EternalCache<K, V> implements Cache<K, V> {
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**

@@ -24,7 +24,7 @@ import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.ServerPacket;
 
 /**
@@ -43,7 +43,7 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 	/**
 	 * The active Lineage 2 connection
 	 */
-	private Lineage2Connection connection;
+	private Lineage2Client connection;
 
 	@Override
 	protected Object encode(ChannelHandlerContext ctx, Channel channel,
@@ -63,7 +63,7 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 	/**
 	 * @return the connection
 	 */
-	public Lineage2Connection getConnection() {
+	public Lineage2Client getConnection() {
 		return connection;
 	}
 
@@ -71,7 +71,7 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 	 * @param connection
 	 *            the connection to set
 	 */
-	public void setConnection(Lineage2Connection connection) {
+	public void setConnection(Lineage2Client connection) {
 		this.connection = connection;
 	}
 }

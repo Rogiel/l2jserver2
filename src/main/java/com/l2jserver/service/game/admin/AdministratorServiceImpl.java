@@ -18,7 +18,7 @@ package com.l2jserver.service.game.admin;
 
 import java.util.List;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
@@ -35,7 +35,7 @@ public class AdministratorServiceImpl extends AbstractService implements
 	private List<CharacterID> online;
 
 	@Override
-	public void command(Lineage2Connection conn, L2Character character,
+	public void command(Lineage2Client conn, L2Character character,
 			String command, String... args) {
 		conn.write(new SM_HTML(null, new AdminHomeTemplate()));
 	}

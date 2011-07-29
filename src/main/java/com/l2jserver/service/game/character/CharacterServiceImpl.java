@@ -19,7 +19,7 @@ package com.l2jserver.service.game.character;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.ItemDAO;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
@@ -134,7 +134,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			AlreadySpawnedServiceException {
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 		if (conn == null)
 			return;
 
@@ -240,7 +240,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 
 		if (target == null && character.getTargetID() != null) {
 			// if is trying to select null (remove target) and the character has
@@ -281,7 +281,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 		// check if this Actor can be attacked
 		if (target instanceof NPC) {
 			final NPC npc = (NPC) target;
@@ -321,7 +321,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(coordinate, "coordinate");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 		// we don't set the character coordinate here, this will be done by
 		// validation packets, sent by client
 
@@ -368,7 +368,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			throws CharacterAlreadyWalkingServiceException {
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 		// test if character is running
 		if (character.getMoveType() == CharacterMoveType.WALK)
 			throw new CharacterAlreadyWalkingServiceException();
@@ -384,7 +384,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			throws CharacterAlreadyRunningServiceException {
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 		// test if character is walking
 		if (character.getMoveType() == CharacterMoveType.RUN)
 			throw new CharacterAlreadyRunningServiceException();

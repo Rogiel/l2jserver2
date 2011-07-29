@@ -21,7 +21,7 @@ import java.util.Arrays;
 import org.htmlparser.Parser;
 import org.htmlparser.util.ParserException;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
@@ -39,7 +39,7 @@ import com.l2jserver.util.html.markup.MarkupTag;
  */
 public class BaseNPCController implements NPCController {
 	@Override
-	public void action(NPC npc, Lineage2Connection conn, L2Character character,
+	public void action(NPC npc, Lineage2Client conn, L2Character character,
 			final String... args) throws L2Exception {
 		if (args.length == 2) {
 			if (args[0].equals("Chat")) {
@@ -80,7 +80,7 @@ public class BaseNPCController implements NPCController {
 	 * @return true if chat message was sent
 	 * @throws L2Exception
 	 */
-	protected boolean talk(NPC npc, Lineage2Connection conn,
+	protected boolean talk(NPC npc, Lineage2Client conn,
 			L2Character character, String... args) throws L2Exception {
 		String id = null;
 		if (args.length >= 1) {

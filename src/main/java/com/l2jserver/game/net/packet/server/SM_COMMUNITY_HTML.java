@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.server;
 import org.htmlparser.tags.Html;
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.util.BufferUtils;
 import com.l2jserver.util.html.markup.HtmlTemplate;
@@ -57,7 +57,7 @@ public class SM_COMMUNITY_HTML extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeByte(0x01); // display or hide
 		BufferUtils.writeString(buffer, html);
 	}

@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_FORT_INFO;
 
@@ -38,11 +38,11 @@ public class CM_EXT_REQ_ALL_FORTRESS_INFO extends AbstractClientPacket {
 	public static final int OPCODE2 = 0x3d;
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		conn.write(new SM_FORT_INFO());
 	}
 }

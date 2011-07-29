@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.NPCID;
@@ -78,7 +78,7 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.objectId = buffer.readInt();
 		this.origin = Coordinate.fromXYZ(buffer.readInt(), buffer.readInt(),
 				buffer.readInt());
@@ -86,7 +86,7 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		// since this is an erasure type, this is safe.
 		final ObjectID<NPC> id = idResolver.resolve(objectId);
 		if (!(id instanceof NPCID)) {

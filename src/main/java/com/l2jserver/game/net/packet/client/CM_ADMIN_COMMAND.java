@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.game.admin.AdministratorService;
 import com.l2jserver.util.BufferUtils;
@@ -52,12 +52,12 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		command = BufferUtils.readString(buffer).trim();
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		// final StringTokenizer tokenizer = new StringTokenizer(command, " ");
 		// final String cmd = tokenizer.nextToken();
 		// if (cmd.equals("tele")) {

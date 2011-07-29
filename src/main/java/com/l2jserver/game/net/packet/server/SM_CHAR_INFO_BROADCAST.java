@@ -39,7 +39,7 @@ import static com.l2jserver.model.world.character.CharacterInventory.InventoryPa
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.world.Item;
@@ -67,7 +67,7 @@ public class SM_CHAR_INFO_BROADCAST extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt(character.getPoint().getX());
 		buffer.writeInt(character.getPoint().getY());
 		buffer.writeInt(character.getPoint().getZ());

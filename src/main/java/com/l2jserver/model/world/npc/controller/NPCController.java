@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.npc.controller;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.exception.L2Exception;
@@ -42,6 +42,6 @@ public interface NPCController {
 	 * @throws L2Exception
 	 *             any {@link L2Exception}
 	 */
-	void action(NPC npc, Lineage2Connection conn, L2Character character,
+	void action(NPC npc, Lineage2Client conn, L2Character character,
 			String... args) throws L2Exception;
 }

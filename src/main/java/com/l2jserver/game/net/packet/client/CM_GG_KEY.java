@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.network.gameguard.GameGuardService;
 
@@ -58,7 +58,7 @@ public class CM_GG_KEY extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		byte[] part1 = buffer.readBytes(4).array();
 		buffer.readInt();
 		byte[] part2 = buffer.readBytes(4).array();
@@ -69,7 +69,7 @@ public class CM_GG_KEY extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		log.debug("Received GG key");
 		switch (ggService.key(conn, key)) {
 		case INVALID:

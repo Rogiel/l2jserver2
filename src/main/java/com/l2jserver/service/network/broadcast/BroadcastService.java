@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.network.broadcast;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.Service;
 
@@ -27,5 +27,11 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface BroadcastService extends Service {
-	void broadcast(Lineage2Connection conn);
+	/**
+	 * Broadcast all nearby objects to the given <tt>client</tt>
+	 * 
+	 * @param conn
+	 *            the Lineage 2 client
+	 */
+	void broadcast(Lineage2Client conn);
 }

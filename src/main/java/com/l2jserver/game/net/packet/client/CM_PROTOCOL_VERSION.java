@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.L2JConstant;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.ProtocolVersion;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
@@ -70,13 +70,13 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.version = ProtocolVersion.fromVersion((int) buffer
 				.readUnsignedInt());
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		// generate a new key
 		final Lineage2CryptographyKey inKey = new Lineage2CryptographyKey(
 				keygen.generate());

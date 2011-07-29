@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Actor;
 
@@ -45,7 +45,7 @@ public class SM_ACTOR_POSITION extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt(actor.getID().getID());
 		buffer.writeInt(actor.getPoint().getX());
 		buffer.writeInt(actor.getPoint().getY());

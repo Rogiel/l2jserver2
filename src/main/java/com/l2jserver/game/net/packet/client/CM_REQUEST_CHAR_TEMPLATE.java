@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_TEMPLATE;
 import com.l2jserver.model.id.template.CharacterTemplateID;
@@ -70,11 +70,11 @@ public class CM_REQUEST_CHAR_TEMPLATE extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		log.debug("Requested character templates");
 
 		final CharacterTemplate[] templates = new CharacterTemplate[TEMPLATE_CLASSES.length];

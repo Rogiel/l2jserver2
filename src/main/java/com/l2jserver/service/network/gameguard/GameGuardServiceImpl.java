@@ -25,7 +25,7 @@ import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
 
 import com.google.common.util.concurrent.AbstractFuture;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_GG_QUERY;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -54,7 +54,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 	/**
 	 * The map containing all pending futures
 	 */
-	private Map<Lineage2Connection, GGFuture> futures;
+	private Map<Lineage2Client, GGFuture> futures;
 	/**
 	 * The {@link MessageDigest} for SHA-1.
 	 * <p>
@@ -74,7 +74,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public Future<GameGuardResponse> query(final Lineage2Connection conn) {
+	public Future<GameGuardResponse> query(final Lineage2Client conn) {
 		conn.write(new SM_GG_QUERY()).addListener(new ChannelFutureListener() {
 			@Override
 			public void operationComplete(ChannelFuture future)
@@ -90,7 +90,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public GameGuardResponse key(Lineage2Connection conn, byte[] key) {
+	public GameGuardResponse key(Lineage2Client conn, byte[] key) {
 		final GGFuture future = futures.remove(conn);
 		final boolean validated = validate(conn, key);
 		final GameGuardResponse response = (validated ? GameGuardResponse.VALID
@@ -109,7 +109,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 	 *            the key
 	 * @return true if key is valid
 	 */
-	private boolean validate(Lineage2Connection conn, byte[] key) {
+	private boolean validate(Lineage2Client conn, byte[] key) {
 		// synchronized (digester) {
 		// return Arrays.equals(VALID_KEY_SHA1, digester.digest(key));
 		// }

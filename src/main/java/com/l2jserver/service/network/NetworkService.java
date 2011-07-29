@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.network;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.Service;
@@ -34,7 +34,7 @@ public interface NetworkService extends Service {
 	 * @param client
 	 *            the client
 	 */
-	void register(Lineage2Connection client);
+	void register(Lineage2Client client);
 
 	/**
 	 * Unregisters a client
@@ -42,7 +42,7 @@ public interface NetworkService extends Service {
 	 * @param client
 	 *            the client
 	 */
-	void unregister(Lineage2Connection client);
+	void unregister(Lineage2Client client);
 
 	/**
 	 * Discover the client using <tt>character</tt>
@@ -51,7 +51,7 @@ public interface NetworkService extends Service {
 	 *            the character
 	 * @return the found connection
 	 */
-	Lineage2Connection discover(CharacterID character);
+	Lineage2Client discover(CharacterID character);
 
 	/**
 	 * Broadcast an given <tt>packet</tt> to all clients connected

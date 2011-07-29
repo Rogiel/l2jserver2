@@ -30,7 +30,7 @@ import org.jboss.netty.logging.Slf4JLoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
@@ -76,7 +76,7 @@ public class NettyNetworkService extends AbstractService implements
 	/**
 	 * The client list. This list all active clients in the server
 	 */
-	private Set<Lineage2Connection> clients = CollectionFactory.newSet();
+	private Set<Lineage2Client> clients = CollectionFactory.newSet();
 
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,
@@ -98,7 +98,7 @@ public class NettyNetworkService extends AbstractService implements
 	}
 
 	@Override
-	public void register(final Lineage2Connection client) {
+	public void register(final Lineage2Client client) {
 		Preconditions.checkNotNull(client, "client");
 		clients.add(client);
 		client.getChannel().getCloseFuture()
@@ -112,15 +112,15 @@ public class NettyNetworkService extends AbstractService implements
 	}
 
 	@Override
-	public void unregister(Lineage2Connection client) {
+	public void unregister(Lineage2Client client) {
 		Preconditions.checkNotNull(client, "client");
 		clients.remove(client);
 	}
 
 	@Override
-	public Lineage2Connection discover(CharacterID character) {
+	public Lineage2Client discover(CharacterID character) {
 		Preconditions.checkNotNull(character, "character");
-		for (final Lineage2Connection client : clients) {
+		for (final Lineage2Client client : clients) {
 			if (character.equals(client.getCharacterID()))
 				return client;
 		}

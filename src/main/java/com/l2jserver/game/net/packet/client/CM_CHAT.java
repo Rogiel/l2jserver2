@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_ACTION_FAILED;
@@ -60,7 +60,7 @@ public class CM_CHAT extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.message = BufferUtils.readString(buffer);
 		this.destination = ChatMessageDestination.fromID(buffer.readInt());
 		if (this.destination == ChatMessageDestination.TELL) { // private
@@ -70,7 +70,7 @@ public class CM_CHAT extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		if (message.length() == 0 || destination == null) {
 			conn.write(SM_ACTION_FAILED.SHARED_INSTANCE);
 			conn.close();

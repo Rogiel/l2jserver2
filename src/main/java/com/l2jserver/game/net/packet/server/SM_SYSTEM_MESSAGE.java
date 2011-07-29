@@ -20,7 +20,7 @@ import java.util.List;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.game.Fort;
@@ -70,7 +70,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		public static final byte TYPE_NUMBER = 1;
 		public static final byte TYPE_TEXT = 0;
 
-		void write(Lineage2Connection conn, ChannelBuffer buffer);
+		void write(Lineage2Client conn, ChannelBuffer buffer);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt(id);
 		buffer.writeInt(params.size());
 		for (final SystemMessagePacketParameter param : params) {
@@ -93,7 +93,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addString(final String text) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_TEXT);
 				BufferUtils.writeString(buffer, text);
 			}
@@ -114,7 +114,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addFort(final Fort fort) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_CASTLE_NAME);
 				buffer.writeInt(fort.getID().getID());
 			}
@@ -125,7 +125,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addNumber(final int number) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_NUMBER);
 				buffer.writeInt(number);
 			}
@@ -136,7 +136,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addItemCount(final long number) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_ITEM_NUMBER);
 				buffer.writeLong(number);
 			}
@@ -159,7 +159,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addItem(final ItemTemplate item) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_ITEM_NAME);
 				buffer.writeInt(item.getID().getID());
 			}
@@ -175,7 +175,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 			final int z) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_ZONE_NAME);
 				buffer.writeInt(x);
 				buffer.writeInt(y);
@@ -189,7 +189,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 			final int level) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_SKILL_NAME);
 				buffer.writeInt(skill.getID().getID());
 				buffer.writeInt(level);
@@ -211,7 +211,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addElemntal(final int type) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_ELEMENT_NAME);
 				buffer.writeInt(type);
 			}
@@ -228,7 +228,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addSystemString(final int type) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_SYSTEM_STRING);
 				buffer.writeInt(type);
 			}
@@ -246,7 +246,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	public final SM_SYSTEM_MESSAGE addInstanceName(final int type) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
-			public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+			public void write(Lineage2Client conn, ChannelBuffer buffer) {
 				buffer.writeInt(TYPE_INSTANCE_NAME);
 				buffer.writeInt(type);
 			}

@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.CM_ACTION_USE;
 import com.l2jserver.game.net.packet.client.CM_ADMIN_COMMAND;
@@ -81,7 +81,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 	/**
 	 * The active Lineage 2 connection
 	 */
-	private Lineage2Connection connection;
+	private Lineage2Client connection;
 
 	/**
 	 * Creates a new instance
@@ -197,7 +197,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 	/**
 	 * @return the connection
 	 */
-	public Lineage2Connection getConnection() {
+	public Lineage2Client getConnection() {
 		return connection;
 	}
 
@@ -205,7 +205,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 	 * @param connection
 	 *            the connection to set
 	 */
-	public void setConnection(Lineage2Connection connection) {
+	public void setConnection(Lineage2Client connection) {
 		this.connection = connection;
 	}
 }

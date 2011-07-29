@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.admin;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
@@ -38,7 +38,7 @@ public interface AdministratorService extends Service {
 	 * @param args
 	 *            the arguments
 	 */
-	void command(Lineage2Connection conn, L2Character character,
+	void command(Lineage2Client conn, L2Character character,
 			String command, String... args);
 
 	/**

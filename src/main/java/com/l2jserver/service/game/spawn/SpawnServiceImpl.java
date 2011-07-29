@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_TELEPORT;
@@ -130,15 +130,15 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public AsyncFuture<?> spawn(final PositionableObject object,
+	public <T extends PositionableObject> AsyncFuture<T> spawn(final T object,
 			final Point3D point, long time, TimeUnit unit) {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkArgument(time > 0, "time < 0");
 		Preconditions.checkNotNull(unit, "unit");
 		return threadService.async(time, unit,
-				new Callable<PositionableObject>() {
+				new Callable<T>() {
 					@Override
-					public PositionableObject call() throws Exception {
+					public T call() throws Exception {
 						spawn(object, point);
 						return object;
 					}
@@ -176,15 +176,15 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public AsyncFuture<?> unspawn(final PositionableObject object, long time,
+	public <T extends PositionableObject> AsyncFuture<T> unspawn(final T object, long time,
 			TimeUnit unit) {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkArgument(time > 0, "time <= 0");
 		Preconditions.checkNotNull(unit, "unit");
 		return threadService.async(time, unit,
-				new Callable<PositionableObject>() {
+				new Callable<T>() {
 					@Override
-					public PositionableObject call() throws Exception {
+					public T call() throws Exception {
 						unspawn(object);
 						return object;
 					}
@@ -200,7 +200,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			if (((L2Character) player).isTeleporting())
 				throw new CharacterAlreadyTeleportingServiceException();
 
-			final Lineage2Connection conn = networkService
+			final Lineage2Client conn = networkService
 					.discover((CharacterID) player.getID());
 			if (conn == null)
 				// TODO throw an exception here
@@ -223,7 +223,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			throws CharacterNotTeleportingServiceException {
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
-		final Lineage2Connection conn = networkService.discover(id);
+		final Lineage2Client conn = networkService.discover(id);
 
 		if (!character.isTeleporting())
 			throw new CharacterNotTeleportingServiceException();

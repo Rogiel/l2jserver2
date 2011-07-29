@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2CryptographyKey;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 
@@ -78,7 +78,7 @@ public class SM_KEY extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeByte((status ? 0x01 : 0x00));
 		for (int i = 0; i < 8; i++) {
 			buffer.writeByte(key[i]);

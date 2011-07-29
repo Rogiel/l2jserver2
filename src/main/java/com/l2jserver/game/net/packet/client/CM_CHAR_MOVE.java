@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_STOP;
 import com.l2jserver.model.world.L2Character;
@@ -76,7 +76,7 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.target = Coordinate.fromXYZ(buffer.readInt(), buffer.readInt(),
 				buffer.readInt());
 		this.origin = Coordinate.fromXYZ(buffer.readInt(), buffer.readInt(),
@@ -89,7 +89,7 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		if (target.equals(origin)) {
 			log.debug("Target is same as origin. Stopping character.");
 			conn.write(new SM_STOP(conn.getCharacter()));

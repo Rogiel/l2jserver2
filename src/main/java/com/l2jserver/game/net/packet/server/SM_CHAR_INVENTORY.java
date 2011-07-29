@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory;
@@ -50,7 +50,7 @@ public class SM_CHAR_INVENTORY extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeShort((showWindow ? 0x01 : 0x00));
 		// TODO warehouse items will have an issue here!
 		buffer.writeShort(inventory.getItemCount()); // item count

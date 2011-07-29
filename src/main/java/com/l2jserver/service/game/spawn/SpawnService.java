@@ -72,7 +72,7 @@ public interface SpawnService extends Service {
 	 *            the unit of <tt>time</tt>
 	 * @return an future that can be used to obtain spawn exceptions
 	 */
-	AsyncFuture<?> spawn(PositionableObject object, Point3D point, long time,
+	<T extends PositionableObject> AsyncFuture<T> spawn(T object, Point3D point, long time,
 			TimeUnit unit);
 
 	/**
@@ -97,7 +97,7 @@ public interface SpawnService extends Service {
 	 *            the unit of <tt>time</tt>
 	 * @return an future that can be used to obtain spawn exceptions
 	 */
-	AsyncFuture<?> unspawn(PositionableObject object, long time, TimeUnit unit);
+	<T extends PositionableObject> AsyncFuture<T> unspawn(T object, long time, TimeUnit unit);
 
 	/**
 	 * Teleports the object to the given <tt>point</tt>.

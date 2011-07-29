@@ -45,6 +45,9 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The public shared thread pool
+	 */
 	private ThreadPool pool;
 
 	@Override

@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 
 /**
  * Each implementation is an packet sent by the game client.
@@ -30,14 +30,14 @@ public interface ClientPacket extends Packet {
 	 * Read binary data in the {@link ChannelBuffer}.
 	 * <p>
 	 * Please do not write packets from this method. If you need to close the
-	 * connection or write packets do it in {@link #process(Lineage2Connection)}.
+	 * connection or write packets do it in {@link #process(Lineage2Client)}.
 	 * 
-	 * @param conn
+	 * @param client
 	 *            the active connection
 	 * @param buffer
 	 *            the buffer
 	 */
-	void read(Lineage2Connection conn, ChannelBuffer buffer);
+	void read(Lineage2Client client, ChannelBuffer buffer);
 
 	/**
 	 * Process the packet. Executes all needed operations.
@@ -45,5 +45,5 @@ public interface ClientPacket extends Packet {
 	 * @param conn
 	 *            The active Lineage2Connection
 	 */
-	void process(Lineage2Connection conn);
+	void process(Lineage2Client conn);
 }

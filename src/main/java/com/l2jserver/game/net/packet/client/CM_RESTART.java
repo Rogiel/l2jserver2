@@ -20,7 +20,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_LIST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_RESTART;
@@ -55,11 +55,11 @@ public class CM_RESTART extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		try {
 			charService.leaveWorld(conn.getCharacter());
 		} catch (NotSpawnedServiceException e) {

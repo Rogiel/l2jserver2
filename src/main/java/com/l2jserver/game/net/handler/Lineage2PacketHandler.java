@@ -26,7 +26,7 @@ import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
 
 import com.google.common.base.Throwables;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
@@ -34,8 +34,8 @@ import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
- * This handler dispatches the {@link ClientPacket#process(Lineage2Connection)}
- * method and creates a new {@link Lineage2Connection} once a new channel is
+ * This handler dispatches the {@link ClientPacket#process(Lineage2Client)}
+ * method and creates a new {@link Lineage2Client} once a new channel is
  * open.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -52,7 +52,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	/**
 	 * The Lineage 2 connection
 	 */
-	private Lineage2Connection connection;
+	private Lineage2Client connection;
 
 	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService,
 			WorldService worldService) {
@@ -63,7 +63,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	@Override
 	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
-		connection = new Lineage2Connection(worldService, nettyNetworkService,
+		connection = new Lineage2Client(worldService, nettyNetworkService,
 				e.getChannel());
 		connection.getPacketWriter().setConnection(connection);
 

@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
 import com.l2jserver.model.world.L2Character;
@@ -36,11 +36,11 @@ public class CM_CHAR_REQ_INVENTORY extends AbstractClientPacket {
 	public static final int OPCODE = 0x14;
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		final L2Character character = conn.getCharacter();
 		conn.write(new SM_CHAR_INVENTORY(character.getInventory()));
 	}

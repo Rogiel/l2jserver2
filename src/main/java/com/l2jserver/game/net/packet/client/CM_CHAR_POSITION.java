@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.util.geometry.Point3D;
@@ -50,14 +50,14 @@ public class CM_CHAR_POSITION extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		point = Point3D.fromXYZA(buffer.readInt(), buffer.readInt(),
 				buffer.readInt(), buffer.readInt());
 		extra = buffer.readInt();
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		charService.receivedValidation(conn.getCharacter(), point);
 	}
 }

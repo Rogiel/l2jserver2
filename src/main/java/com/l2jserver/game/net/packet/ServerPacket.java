@@ -18,7 +18,7 @@ package com.l2jserver.game.net.packet;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 
 /**
  * Each implementation is an packet sent by the game server.
@@ -32,12 +32,12 @@ public interface ServerPacket extends Packet {
 	 * Please do not write packets from this method! This is only used to test
 	 * compatibility of protocols.
 	 * 
-	 * @param conn
+	 * @param client
 	 *            the connection
 	 * @param buffer
 	 *            the buffer
 	 */
-	void write(Lineage2Connection conn, ChannelBuffer buffer);
+	void write(Lineage2Client client, ChannelBuffer buffer);
 
 	/**
 	 * Get the opcode id of this packet

@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL;
 import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_OK;
@@ -144,7 +144,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		name = BufferUtils.readString(buffer);
 		race = CharacterRace.fromOption(buffer.readInt());
 		sex = ActorSex.fromOption(buffer.readInt());
@@ -163,7 +163,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		log.debug("Creating a new character, race={}, sex={}, class={}",
 				new Object[] { race, sex, characterClass });
 		if ((name.length() < 1) || (name.length() > 16)) {

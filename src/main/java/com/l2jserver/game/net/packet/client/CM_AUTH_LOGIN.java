@@ -22,7 +22,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_LIST;
@@ -71,7 +71,7 @@ public class CM_AUTH_LOGIN extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.loginName = BufferUtils.readString(buffer).toLowerCase();
 		this.playKey1 = buffer.readInt();
 		this.playKey2 = buffer.readInt();
@@ -80,7 +80,7 @@ public class CM_AUTH_LOGIN extends AbstractClientPacket {
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		final AccountID accountId = accountIdFactory.createID(loginName);
 		conn.setSession(new Lineage2Session(accountId, playKey1, playKey2,
 				loginKey1, loginKey2));

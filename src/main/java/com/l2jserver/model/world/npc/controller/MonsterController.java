@@ -17,7 +17,7 @@
 package com.l2jserver.model.world.npc.controller;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE;
 import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE.Stat;
 import com.l2jserver.model.world.L2Character;
@@ -44,7 +44,7 @@ public class MonsterController extends BaseNPCController {
 	protected NPCService npcService;
 
 	@Override
-	public void action(NPC mob, Lineage2Connection conn, L2Character character,
+	public void action(NPC mob, Lineage2Client conn, L2Character character,
 			String... args) throws L2Exception {
 		// send hp update
 		if (mob.getID().equals(character.getTargetID())) {

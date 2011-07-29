@@ -25,7 +25,7 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.db.dao.NPCDAO;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
@@ -66,7 +66,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 */
 	private final SpawnService spawnService;
 	/**
-	 * The {@link NetworkService} used to discover {@link Lineage2Connection}
+	 * The {@link NetworkService} used to discover {@link Lineage2Client}
 	 */
 	private final NetworkService networkService;
 	/**
@@ -142,7 +142,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(action, "action");
 
-		final Lineage2Connection conn = networkService.discover(character
+		final Lineage2Client conn = networkService.discover(character
 				.getID());
 		try {
 			final NPCController controller = getController(npc);
@@ -160,7 +160,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		if (args == null)
 			args = new String[0];
 
-		final Lineage2Connection conn = networkService.discover(character
+		final Lineage2Client conn = networkService.discover(character
 				.getID());
 		try {
 			final NPCController controller = getController(npc);
@@ -215,7 +215,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	}
 
 	@Override
-	public void attack(NPC npc, Lineage2Connection conn, L2Character attacker)
+	public void attack(NPC npc, Lineage2Client conn, L2Character attacker)
 			throws NotAttackableNPCServiceException {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(conn, "conn");

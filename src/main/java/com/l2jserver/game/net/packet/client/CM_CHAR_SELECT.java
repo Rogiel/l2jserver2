@@ -22,7 +22,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_SELECTED;
 import com.l2jserver.model.world.L2Character;
@@ -56,12 +56,12 @@ public class CM_CHAR_SELECT extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		slot = buffer.readInt();
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		final List<L2Character> chars = characterDao.selectByAccount(conn
 				.getSession().getAccountID());
 

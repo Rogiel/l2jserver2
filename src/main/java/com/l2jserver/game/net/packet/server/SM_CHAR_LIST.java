@@ -46,7 +46,7 @@ import java.util.Collection;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
@@ -101,7 +101,7 @@ public class SM_CHAR_LIST extends AbstractServerPacket {
 	}
 
 	@Override
-	public void write(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		// buffer.writeByte(0x09);
 		buffer.writeInt(characters.length);
 

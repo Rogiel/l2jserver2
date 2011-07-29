@@ -19,7 +19,7 @@ package com.l2jserver.game.net.packet.client;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
@@ -91,14 +91,14 @@ public class CM_ACTION_USE extends AbstractClientPacket {
 	}
 
 	@Override
-	public void read(Lineage2Connection conn, ChannelBuffer buffer) {
+	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		action = Action.fromID(buffer.readInt());
 		ctrlPressed = (buffer.readByte() == 1 ? true : false);
 		shiftPressed = (buffer.readByte() == 1 ? true : false);
 	}
 
 	@Override
-	public void process(final Lineage2Connection conn) {
+	public void process(final Lineage2Client conn) {
 		final L2Character character = conn.getCharacter();
 		switch (action) {
 		case SIT_STAND:

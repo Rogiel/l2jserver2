@@ -18,7 +18,7 @@ package com.l2jserver.model.world.npc.controller;
 
 import java.util.Arrays;
 
-import com.l2jserver.game.net.Lineage2Connection;
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
@@ -34,7 +34,7 @@ import com.l2jserver.util.html.markup.MarkupTag;
  */
 public class NotImplementedNPCController extends BaseNPCController {
 	@Override
-	public void action(NPC npc, Lineage2Connection conn, L2Character character,
+	public void action(NPC npc, Lineage2Client conn, L2Character character,
 			final String... args) throws L2Exception {
 		// action not handled
 		final HtmlTemplate template = new HtmlTemplate() {
