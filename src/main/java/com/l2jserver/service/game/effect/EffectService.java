@@ -20,7 +20,8 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
- * The effect service will handle
+ * The effect service will handle. This service will be backed by a thread that
+ * will execute the effect.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

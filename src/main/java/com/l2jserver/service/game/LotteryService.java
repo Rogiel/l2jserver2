@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game;
 
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
@@ -46,4 +47,17 @@ public interface LotteryService extends Service {
 	 *            the fifth number
 	 */
 	void bet(L2Character character, int n1, int n2, int n3, int n4, int n5);
+
+	/**
+	 * @return the winning lottery ticket prize
+	 */
+	int getPrize();
+
+	/**
+	 * Redeem a winning lottery ticket prize
+	 * 
+	 * @param ticket
+	 *            the winning ticket
+	 */
+	void redeemPrize(Item ticket);
 }

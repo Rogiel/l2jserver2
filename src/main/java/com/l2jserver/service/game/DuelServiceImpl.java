@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game;
 
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
 
 /**
@@ -24,5 +25,13 @@ import com.l2jserver.service.AbstractService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DuelServiceImpl extends AbstractService implements DuelService {
+	@Override
+	public void start(L2Character character1, L2Character character2) {
+		// TODO Auto-generated method stub
+	}
 
+	@Override
+	public void stop(L2Character character1, L2Character character2) {
+		// TODO Auto-generated method stub
+	}
 }

@@ -22,7 +22,8 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
- * This service chatting in the server
+ * This service chatting in the server. Implementations can be local or can use
+ * another service like an IRC server.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

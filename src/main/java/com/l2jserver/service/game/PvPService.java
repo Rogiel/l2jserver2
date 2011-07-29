@@ -24,5 +24,5 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface PvPService extends Service {
-
+	
 }

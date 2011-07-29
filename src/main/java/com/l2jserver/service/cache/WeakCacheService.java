@@ -51,9 +51,9 @@ public class WeakCacheService extends AbstractService implements CacheService {
 			final T instance) {
 		Preconditions.checkNotNull(interfaceType, "interfaceType");
 		Preconditions.checkNotNull(instance, "instance");
+		Preconditions.checkArgument(interfaceType.isInterface(),
+				"interfaceType is not an interface");
 
-		if (!interfaceType.isInterface())
-			return null;
 		@SuppressWarnings("unchecked")
 		final T proxy = (T) Proxy.newProxyInstance(this.getClass()
 				.getClassLoader(), new Class[] { interfaceType },

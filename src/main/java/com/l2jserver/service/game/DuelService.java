@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game;
 
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
@@ -24,5 +25,24 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface DuelService extends Service {
+	/**
+	 * Start the duel between the given two characters
+	 * 
+	 * @param character1
+	 *            the first character
+	 * @param character2
+	 *            the second character
+	 */
+	void start(L2Character character1, L2Character character2);
 
+	/**
+	 * Finishes the duel between the given two characters.<br>
+	 * <b>This must be called before the character is revived.</b>
+	 * 
+	 * @param character1
+	 *            the first character
+	 * @param character2
+	 *            the second character
+	 */
+	void stop(L2Character character1, L2Character character2);
 }

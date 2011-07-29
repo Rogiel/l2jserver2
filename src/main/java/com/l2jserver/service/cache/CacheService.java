@@ -38,7 +38,7 @@ public interface CacheService extends Service {
 	 * @param <T>
 	 *            the <tt>instance</tt> type
 	 * @param interfaceType
-	 *            the interface type
+	 *            the interface type. Remember, this must be an interface!
 	 * @param instance
 	 *            the instance implementing the interface
 	 * @return the cache-decorated object
