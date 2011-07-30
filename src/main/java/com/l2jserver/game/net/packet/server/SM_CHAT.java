@@ -22,7 +22,7 @@ import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.chat.ChatMessageDestination;
+import com.l2jserver.service.game.chat.ChatMessageType;
 import com.l2jserver.util.BufferUtils;
 
 /**
@@ -44,7 +44,7 @@ public class SM_CHAT extends AbstractServerPacket {
 	/**
 	 * The message destination
 	 */
-	private ChatMessageDestination destination;
+	private ChatMessageType destination;
 	/**
 	 * The message
 	 */
@@ -54,7 +54,7 @@ public class SM_CHAT extends AbstractServerPacket {
 	 */
 	private int messageID = 0;
 
-	public SM_CHAT(Actor character, ChatMessageDestination destination,
+	public SM_CHAT(Actor character, ChatMessageType destination,
 			String message) {
 		super(OPCODE);
 		this.actor = character;
@@ -62,7 +62,7 @@ public class SM_CHAT extends AbstractServerPacket {
 		this.message = message;
 	}
 
-	public SM_CHAT(Actor actor, ChatMessageDestination destination,
+	public SM_CHAT(Actor actor, ChatMessageType destination,
 			int messageID) {
 		super(OPCODE);
 		this.actor = actor;

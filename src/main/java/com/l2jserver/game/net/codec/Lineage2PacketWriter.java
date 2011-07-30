@@ -53,7 +53,7 @@ public class Lineage2PacketWriter extends OneToOneEncoder {
 		final ChannelBuffer buffer = ChannelBuffers.dynamicBuffer(
 				ByteOrder.LITTLE_ENDIAN, 10);
 		final ServerPacket packet = (ServerPacket) msg;
-		buffer.writeShort(0);
+		buffer.writeShort(0); // wrap 2 bytes for packet length
 		buffer.writeByte(packet.getOpcode()); // packet opcode
 		packet.write(connection, buffer);
 

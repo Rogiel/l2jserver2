@@ -25,7 +25,7 @@ import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_ACTION_FAILED;
 import com.l2jserver.service.game.chat.CannotChatToSelfChatServiceException;
 import com.l2jserver.service.game.chat.ChatBanActiveChatServiceException;
-import com.l2jserver.service.game.chat.ChatMessageDestination;
+import com.l2jserver.service.game.chat.ChatMessageType;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.ChatTargetOfflineServiceException;
 import com.l2jserver.service.game.chat.TargetNotFoundChatServiceException;
@@ -50,7 +50,7 @@ public class CM_CHAT extends AbstractClientPacket {
 	private final ChatService chatService;
 
 	private String message;
-	private ChatMessageDestination destination;
+	private ChatMessageType destination;
 
 	private String target;
 
@@ -62,8 +62,8 @@ public class CM_CHAT extends AbstractClientPacket {
 	@Override
 	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 		this.message = BufferUtils.readString(buffer);
-		this.destination = ChatMessageDestination.fromID(buffer.readInt());
-		if (this.destination == ChatMessageDestination.TELL) { // private
+		this.destination = ChatMessageType.fromID(buffer.readInt());
+		if (this.destination == ChatMessageType.TELL) { // private
 																// message
 			this.target = BufferUtils.readString(buffer);
 		}

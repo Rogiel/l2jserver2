@@ -24,6 +24,7 @@ import com.google.inject.Inject;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
+import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
@@ -40,6 +41,8 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 // @Depends(RegionService.class)
 public class SimpleChatService extends AbstractService implements ChatService {
+	private final ChatLoggingService chatLoggingService;
+
 	/**
 	 * The {@link RegionService}
 	 */
@@ -83,7 +86,9 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 *            the region service
 	 */
 	@Inject
-	public SimpleChatService(CharacterDAO charDao) {
+	public SimpleChatService(ChatLoggingService chatLogService,
+			CharacterDAO charDao) {
+		this.chatLoggingService = chatLogService;
 		// this.regionService = regionService;
 		this.regionService = null;
 		this.charDao = charDao;
@@ -100,11 +105,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	}
 
 	@Override
-	public void send(CharacterID sender, ChatMessageDestination chat,
-			String message, String extra)
-			throws TargetNotFoundChatServiceException,
+	public ChatMessage send(CharacterID sender, ChatMessageType chat, String message,
+			String extra) throws TargetNotFoundChatServiceException,
 			CannotChatToSelfChatServiceException,
-			ChatBanActiveChatServiceException, ChatTargetOfflineServiceException {
+			ChatBanActiveChatServiceException,
+			ChatTargetOfflineServiceException {
 		Preconditions.checkNotNull(sender, "sender");
 		Preconditions.checkNotNull(message, "message");
 
@@ -131,9 +136,9 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			channel = getAnnouncementChannel();
 			break;
 		default:
-			return;
+			return null;
 		}
-		channel.send(sender, message);
+		return channel.send(sender, message);
 	}
 
 	@Override
@@ -210,13 +215,20 @@ public class SimpleChatService extends AbstractService implements ChatService {
 				.newSet();
 
 		@Override
-		public void send(CharacterID sender, String message) {
+		public ChatMessage send(CharacterID sender, String textMessage) {
 			Preconditions.checkNotNull(sender, "sender");
-			Preconditions.checkNotNull(message, "message");
+			Preconditions.checkNotNull(textMessage, "message");
 			// TODO throw exception if sender is banned from chat
+
+			// log this chat message
+			ChatMessage message = chatLoggingService.log(sender, this,
+					textMessage);
+
 			for (final ChatChannelListener listener : listeners) {
-				listener.onMessage(this, sender, message);
+				listener.onMessage(this, message);
 			}
+			
+			return message;
 		}
 
 		@Override
@@ -229,6 +241,16 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public void removeChatChannelListener(ChatChannelListener listener) {
 			Preconditions.checkNotNull(listener, "listener");
 			listeners.remove(listener);
+		}
+
+		@Override
+		public String getChannelName() {
+			return getMessageType().name();
+		}
+
+		@Override
+		public int getChannelID() {
+			return getMessageType().id;
 		}
 	}
 
@@ -250,6 +272,16 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public CharacterID getDestination() {
 			return character;
 		}
+
+		@Override
+		public int getChannelID() {
+			return character.getID();
+		}
+
+		@Override
+		public ChatMessageType getMessageType() {
+			return ChatMessageType.SHOUT;
+		}
 	}
 
 	/**
@@ -259,6 +291,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 */
 	private class GlobalChatChannelImpl extends ChatChannelImpl implements
 			PublicChatChannel {
+		@Override
+		public ChatMessageType getMessageType() {
+			return ChatMessageType.ALL;
+		}
 	}
 
 	/**
@@ -268,6 +304,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 */
 	private class TradeChatChannelImpl extends ChatChannelImpl implements
 			PublicChatChannel {
+		@Override
+		public ChatMessageType getMessageType() {
+			return ChatMessageType.TRADE;
+		}
 	}
 
 	/**
@@ -277,6 +317,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 */
 	private class AnnouncementChatChannelImpl extends ChatChannelImpl implements
 			PublicChatChannel {
+		@Override
+		public ChatMessageType getMessageType() {
+			return ChatMessageType.ANNOUNCEMENT;
+		}
 	}
 
 	/**
@@ -301,6 +345,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			Preconditions.checkNotNull(clanID, "clanID");
 			this.clanID = clanID;
 		}
+
+		@Override
+		public ChatMessageType getMessageType() {
+			return ChatMessageType.CLAN;
+		}
 	}
 
 	/**
@@ -324,6 +373,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public RegionChatChannelImpl(Region region) {
 			Preconditions.checkNotNull(region, "region");
 			this.region = region;
+		}
+
+		@Override
+		public ChatMessageType getMessageType() {
+			return ChatMessageType.ALL;
 		}
 	}
 }

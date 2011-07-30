@@ -18,6 +18,7 @@ package com.l2jserver.game.net.packet.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 
@@ -33,16 +34,28 @@ public class SM_GG_QUERY extends AbstractServerPacket {
 	 */
 	public static final int OPCODE = 0x74;
 
-	public SM_GG_QUERY() {
-		super(OPCODE);
+	private final int[] key;
 
+	public SM_GG_QUERY(int[] key) {
+		super(OPCODE);
+		Preconditions.checkArgument(key.length == 4,
+				"key must by an 4-length array");
+		this.key = key;
+	}
+
+	public SM_GG_QUERY(int key1, int key2, int key3, int key4) {
+		super(OPCODE);
+		this.key = new int[4];
+		this.key[0] = key1;
+		this.key[1] = key2;
+		this.key[2] = key3;
+		this.key[3] = key4;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt(0x27533DD9);
-		buffer.writeInt(0x2E72A51D);
-		buffer.writeInt(0x2017038B);
-		buffer.writeInt(0xC35B1EA3);
+		for (final int part : key) {
+			buffer.writeInt(part);
+		}
 	}
 }

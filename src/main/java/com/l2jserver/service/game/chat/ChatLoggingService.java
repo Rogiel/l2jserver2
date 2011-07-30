@@ -16,22 +16,27 @@
  */
 package com.l2jserver.service.game.chat;
 
+import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.service.Service;
 
 /**
- * This listener is used to received notifications once a new message is sent to
- * an given {@link ChatChannel}.
+ * This service logs each message sent in the server. Implementarions may choose
+ * to store in a database, plain text, XML or any other form of logging.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ChatChannelListener {
+public interface ChatLoggingService extends Service {
 	/**
-	 * Notification of a new message received
+	 * Sends a message to a public chat channel.
 	 * 
+	 * @param sender
+	 *            the sender
 	 * @param channel
 	 *            the chat channel
 	 * @param message
 	 *            the message
+	 * @return the new ChatMessage created
 	 */
-	void onMessage(ChatChannel channel, ChatMessage message);
+	ChatMessage log(CharacterID sender, ChatChannel channel, String message);
 }

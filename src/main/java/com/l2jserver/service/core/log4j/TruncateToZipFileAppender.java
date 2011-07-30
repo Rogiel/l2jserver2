@@ -41,7 +41,6 @@ import org.apache.log4j.helpers.LogLog;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class TruncateToZipFileAppender extends FileAppender {
-
 	/**
 	 * String that points to root directory for backups
 	 */

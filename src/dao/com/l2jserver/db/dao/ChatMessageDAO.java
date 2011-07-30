@@ -14,24 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat;
+package com.l2jserver.db.dao;
 
+import com.l2jserver.model.id.ChatMessageID;
 import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.service.cache.Cacheable;
+import com.l2jserver.service.database.DataAccessObject;
 
 /**
- * This listener is used to received notifications once a new message is sent to
- * an given {@link ChatChannel}.
+ * The {@link ChatMessageDAO} is can load and save {@link ChatMessage chat
+ * messages}.
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @author Rogiel
  */
-public interface ChatChannelListener {
-	/**
-	 * Notification of a new message received
-	 * 
-	 * @param channel
-	 *            the chat channel
-	 * @param message
-	 *            the message
-	 */
-	void onMessage(ChatChannel channel, ChatMessage message);
+public interface ChatMessageDAO extends
+		DataAccessObject<ChatMessage, ChatMessageID>, Cacheable {
 }

@@ -17,11 +17,11 @@
 package com.l2jserver.service.game.chat;
 
 /**
- * Enumeration of all possible message destinations
+ * Enumeration of all possible message types
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public enum ChatMessageDestination {
+public enum ChatMessageType {
 	/**
 	 * Everyone
 	 */
@@ -63,12 +63,12 @@ public enum ChatMessageDestination {
 
 	public final int id;
 
-	ChatMessageDestination(int id) {
+	ChatMessageType(int id) {
 		this.id = id;
 	}
 
-	public static ChatMessageDestination fromID(int id) {
-		for (final ChatMessageDestination dest : values()) {
+	public static ChatMessageType fromID(int id) {
+		for (final ChatMessageType dest : values()) {
 			if (dest.id == id)
 				return dest;
 		}

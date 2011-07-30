@@ -140,7 +140,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CM_CHAR_CREATE.class;
 		case CM_REQUEST_CHAR_TEMPLATE.OPCODE:
 			return CM_REQUEST_CHAR_TEMPLATE.class;
-		case 0xd0: // CM_EXTENDED
+		case 0xd0: // CM_REQ_**************
 			final int opcode2 = buffer.readUnsignedShort();
 			switch (opcode2) {
 			case CM_GOTO_LOBBY.OPCODE2:
@@ -152,7 +152,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			case CM_EXT_REQ_ALL_FORTRESS_INFO.OPCODE2:
 				return CM_EXT_REQ_ALL_FORTRESS_INFO.class;
 			default:
-				logger.warn("Unknown opcode2 for 0xd0: 0x{}",
+				logger.warn("Unknown packet for 0xd0{}",
 						Integer.toHexString(opcode2));
 				break;
 			}
@@ -188,7 +188,7 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 		case CM_ATTACK.OPCODE:
 			return CM_ATTACK.class;
 		default:
-			logger.warn("Unknown opcode: 0x{}", Integer.toHexString(opcode));
+			logger.warn("Unknown packet for 0x{}", Integer.toHexString(opcode));
 			break;
 		}
 		return null;

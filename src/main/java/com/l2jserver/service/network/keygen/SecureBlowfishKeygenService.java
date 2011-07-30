@@ -50,7 +50,8 @@ public class SecureBlowfishKeygenService extends AbstractService implements
 			key[i] = (byte) random.nextSecureInt(0, 255);
 		}
 
-		// the last 8 bytes are static
+		// the last 8 bytes are static and are assumed by the client, they are
+		// never sent in the SM_KEY packet
 		key[8] = (byte) 0xc8;
 		key[9] = (byte) 0x27;
 		key[10] = (byte) 0x93;

@@ -67,7 +67,7 @@ import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * The database service implementation for MySQL database
+ * The database service implementation for JDBC database
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -325,6 +325,7 @@ public class JDBCDatabaseService extends AbstractService implements
 			this.iterator = iterator;
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
 		public Integer query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
@@ -336,15 +337,17 @@ public class JDBCDatabaseService extends AbstractService implements
 				rows += st.executeUpdate();
 
 				// update object desire --it has been realized
-				if (object instanceof Model)
+				if (object instanceof Model) {
 					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 
-				final Mapper<T> mapper = keyMapper(object);
-				if (mapper == null)
-					continue;
-				final ResultSet rs = st.getGeneratedKeys();
-				while (rs.next()) {
-					mapper.map(rs);
+					final Mapper<? extends ID<?>> mapper = keyMapper();
+					if (mapper == null)
+						continue;
+					final ResultSet rs = st.getGeneratedKeys();
+					while (rs.next()) {
+						((Model<ID<?>>) object).setID(mapper.map(rs));
+						mapper.map(rs);
+					}
 				}
 			}
 			return rows;
@@ -377,7 +380,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 *            the object
 		 * @return the key mapper
 		 */
-		protected Mapper<T> keyMapper(T object) {
+		protected Mapper<? extends ID<?>> keyMapper() {
 			return null;
 		}
 	}

@@ -17,6 +17,7 @@
 package com.l2jserver.service.game.chat;
 
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.server.ChatMessage;
 
 /**
  * The {@link ChatChannel} object is used to send messages to a channel.
@@ -29,7 +30,10 @@ import com.l2jserver.model.id.object.CharacterID;
  */
 public interface ChatChannel {
 	/**
-	 * Sends a message to this channel
+	 * Sends a message to this channel.
+	 * <p>
+	 * Unless otherwise stated, all messages sent will be automatically logged
+	 * using {@link ChatLoggingService}.
 	 * 
 	 * @param sender
 	 *            the character sending the message
@@ -40,8 +44,10 @@ public interface ChatChannel {
 	 * @throws ChatTargetOfflineServiceException
 	 *             if the target is offline. Will be be thrown in
 	 *             {@link PrivateChatChannel}.
+	 * @return the created {@link ChatMessage}. The object will be created by
+	 *         {@link ChatLoggingService}.
 	 */
-	void send(CharacterID sender, String message)
+	ChatMessage send(CharacterID sender, String message)
 			throws ChatBanActiveChatServiceException,
 			ChatTargetOfflineServiceException;
 
@@ -61,4 +67,19 @@ public interface ChatChannel {
 	 *            the listener
 	 */
 	void removeChatChannelListener(ChatChannelListener listener);
+
+	/**
+	 * @return the chat channel numeric ID
+	 */
+	int getChannelID();
+
+	/**
+	 * @return the chat message type accepted by this channel
+	 */
+	ChatMessageType getMessageType();
+
+	/**
+	 * @return the chat channel name
+	 */
+	String getChannelName();
 }

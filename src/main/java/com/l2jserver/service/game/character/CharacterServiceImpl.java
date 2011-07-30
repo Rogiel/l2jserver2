@@ -30,6 +30,7 @@ import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
@@ -49,7 +50,7 @@ import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.chat.ChatChannel;
 import com.l2jserver.service.game.chat.ChatChannelListener;
-import com.l2jserver.service.game.chat.ChatMessageDestination;
+import com.l2jserver.service.game.chat.ChatMessageType;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
@@ -148,18 +149,16 @@ public class CharacterServiceImpl extends AbstractService implements
 		// chat listener
 		final ChatChannelListener globalChatListener = new ChatChannelListener() {
 			@Override
-			public void onMessage(ChatChannel channel, CharacterID source,
-					String message) {
-				conn.write(new SM_CHAT(source.getObject(),
-						ChatMessageDestination.ALL, message));
+			public void onMessage(ChatChannel channel, ChatMessage message) {
+				conn.write(new SM_CHAT(message.getSender().getObject(),
+						ChatMessageType.ALL, message.getMessage()));
 			}
 		};
 		final ChatChannelListener tradeChatListener = new ChatChannelListener() {
 			@Override
-			public void onMessage(ChatChannel channel, CharacterID source,
-					String message) {
-				conn.write(new SM_CHAT(source.getObject(),
-						ChatMessageDestination.TRADE, message));
+			public void onMessage(ChatChannel channel, ChatMessage message) {
+				conn.write(new SM_CHAT(message.getSender().getObject(),
+						ChatMessageType.TRADE, message.getMessage()));
 			}
 		};
 
@@ -205,7 +204,7 @@ public class CharacterServiceImpl extends AbstractService implements
 
 		// start broadcasting -- will broadcast all nearby objects
 		broadcastService.broadcast(conn);
-		
+
 		conn.write(new SM_ITEM_GROUND());
 
 		// characters start in run mode

@@ -43,13 +43,19 @@ import com.l2jserver.util.factory.CollectionFactory;
 public class GameGuardServiceImpl extends AbstractService implements
 		GameGuardService {
 	/**
-	 * The valid GG SHA1 response
+	 * The static key used to validate game guards
+	 */
+	private static final int[] STATIC_KEY = { 0x27533DD9, 0x2E72A51D,
+			0x2017038B, 0xC35B1EA3 };
+	/**
+	 * The valid GG SHA1 response -- for a single key, the answer must be always
+	 * the same
 	 */
 	@SuppressWarnings("unused")
-	private static final byte[] VALID_KEY_SHA1 = { (byte) 0x88, 0x40, 0x1c,
-			(byte) 0xa7, (byte) 0x83, 0x42, (byte) 0xe9, 0x15, (byte) 0xde,
-			(byte) 0xc3, 0x68, (byte) 0xf6, 0x2d, 0x23, (byte) 0xf1, 0x3f,
-			(byte) 0xee, 0x68, 0x5b, (byte) 0xc5 };
+	private static final byte[] STATIC_KEY_VALIDATION = { (byte) 0x88, 0x40,
+			0x1c, (byte) 0xa7, (byte) 0x83, 0x42, (byte) 0xe9, 0x15,
+			(byte) 0xde, (byte) 0xc3, 0x68, (byte) 0xf6, 0x2d, 0x23,
+			(byte) 0xf1, 0x3f, (byte) 0xee, 0x68, 0x5b, (byte) 0xc5 };
 
 	/**
 	 * The map containing all pending futures
@@ -75,15 +81,16 @@ public class GameGuardServiceImpl extends AbstractService implements
 
 	@Override
 	public Future<GameGuardResponse> query(final Lineage2Client conn) {
-		conn.write(new SM_GG_QUERY()).addListener(new ChannelFutureListener() {
-			@Override
-			public void operationComplete(ChannelFuture future)
-					throws Exception {
-				if (future.getCause() != null) {
-					futures.remove(conn);
-				}
-			}
-		});
+		conn.write(new SM_GG_QUERY(STATIC_KEY)).addListener(
+				new ChannelFutureListener() {
+					@Override
+					public void operationComplete(ChannelFuture future)
+							throws Exception {
+						if (future.getCause() != null) {
+							futures.remove(conn);
+						}
+					}
+				});
 		final GGFuture future = new GGFuture();
 		futures.put(conn, future);
 		return future;

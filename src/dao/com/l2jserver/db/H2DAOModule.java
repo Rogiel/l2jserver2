@@ -21,11 +21,13 @@ import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.CharacterFriendDAO;
+import com.l2jserver.db.dao.ChatMessageDAO;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.db.dao.jdbc.h2.H2CharacterDAO;
 import com.l2jserver.db.dao.jdbc.h2.H2CharacterFriendDAO;
+import com.l2jserver.db.dao.jdbc.h2.H2ChatMessageDAO;
 import com.l2jserver.db.dao.jdbc.h2.H2ClanDAO;
 import com.l2jserver.db.dao.jdbc.h2.H2ItemDAO;
 import com.l2jserver.db.dao.jdbc.h2.H2NPCDAO;
@@ -46,5 +48,9 @@ public class H2DAOModule extends AbstractModule {
 
 		bind(ItemDAO.class).to(H2ItemDAO.class).in(Scopes.SINGLETON);
 		bind(ClanDAO.class).to(H2ClanDAO.class).in(Scopes.SINGLETON);
+
+		// logs
+		bind(ChatMessageDAO.class).to(H2ChatMessageDAO.class).in(
+				Scopes.SINGLETON);
 	}
 }

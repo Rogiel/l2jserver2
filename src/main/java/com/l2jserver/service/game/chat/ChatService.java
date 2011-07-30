@@ -18,18 +18,22 @@ package com.l2jserver.service.game.chat;
 
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
+import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
- * This service chatting in the server. Implementations can be local or can use
- * another service like an IRC server.
+ * This service provides chatting in the server. Implementations can be local or
+ * can use another service like an IRC server.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ChatService extends Service {
 	/**
 	 * Sends a message to a public chat channel.
+	 * <p>
+	 * Messages sent will be automatically logged using
+	 * {@link ChatLoggingService}.
 	 * 
 	 * @param sender
 	 *            the sender
@@ -47,8 +51,10 @@ public interface ChatService extends Service {
 	 *             if there is chat ban active
 	 * @throws ChatTargetOfflineServiceException
 	 *             if the chat target is offline
+	 * @return the created {@link ChatMessage}. The object will be created by
+	 *         {@link ChatLoggingService}.
 	 */
-	void send(CharacterID sender, ChatMessageDestination chat, String message,
+	ChatMessage send(CharacterID sender, ChatMessageType chat, String message,
 			String extra) throws TargetNotFoundChatServiceException,
 			CannotChatToSelfChatServiceException,
 			ChatBanActiveChatServiceException,

@@ -14,24 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat;
+package com.l2jserver.model.id.provider;
 
-import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.model.id.ChatMessageID;
 
 /**
- * This listener is used to received notifications once a new message is sent to
- * an given {@link ChatChannel}.
+ * Creates a new {@link ChatMessageID}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ChatChannelListener {
-	/**
-	 * Notification of a new message received
-	 * 
-	 * @param channel
-	 *            the chat channel
-	 * @param message
-	 *            the message
-	 */
-	void onMessage(ChatChannel channel, ChatMessage message);
+public interface ChatMessageIDProvider extends
+		IDProvider<Integer, ChatMessageID> {
 }

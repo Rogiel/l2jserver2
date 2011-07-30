@@ -14,24 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.chat;
+package com.l2jserver.db.dao.jdbc.mysql5;
 
-import com.l2jserver.model.server.ChatMessage;
+import com.google.inject.Inject;
+import com.l2jserver.db.dao.ChatMessageDAO;
+import com.l2jserver.db.dao.jdbc.JDBCChatMessageDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.ChatMessageIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * This listener is used to received notifications once a new message is sent to
- * an given {@link ChatChannel}.
+ * {@link ChatMessageDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ChatChannelListener {
-	/**
-	 * Notification of a new message received
-	 * 
-	 * @param channel
-	 *            the chat channel
-	 * @param message
-	 *            the message
-	 */
-	void onMessage(ChatChannel channel, ChatMessage message);
+public class MySQL5ChatMessageDAO extends JDBCChatMessageDAO implements
+		ChatMessageDAO {
+	@Inject
+	public MySQL5ChatMessageDAO(DatabaseService database,
+			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {
+		super(database, idFactory, charIdFactory);
+	}
 }

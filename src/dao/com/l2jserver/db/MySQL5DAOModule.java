@@ -21,11 +21,13 @@ import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.db.dao.CharacterFriendDAO;
+import com.l2jserver.db.dao.ChatMessageDAO;
 import com.l2jserver.db.dao.ClanDAO;
 import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.db.dao.NPCDAO;
 import com.l2jserver.db.dao.jdbc.mysql5.MySQL5CharacterDAO;
 import com.l2jserver.db.dao.jdbc.mysql5.MySQL5CharacterFriendDAO;
+import com.l2jserver.db.dao.jdbc.mysql5.MySQL5ChatMessageDAO;
 import com.l2jserver.db.dao.jdbc.mysql5.MySQL5ClanDAO;
 import com.l2jserver.db.dao.jdbc.mysql5.MySQL5ItemDAO;
 import com.l2jserver.db.dao.jdbc.mysql5.MySQL5NPCDAO;
@@ -47,5 +49,9 @@ public class MySQL5DAOModule extends AbstractModule {
 
 		bind(ItemDAO.class).to(MySQL5ItemDAO.class).in(Scopes.SINGLETON);
 		bind(ClanDAO.class).to(MySQL5ClanDAO.class).in(Scopes.SINGLETON);
+
+		// logs
+		bind(ChatMessageDAO.class).to(MySQL5ChatMessageDAO.class).in(
+				Scopes.SINGLETON);
 	}
 }
