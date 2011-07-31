@@ -22,10 +22,14 @@ import com.l2jserver.model.game.Shortcut;
 import com.l2jserver.model.id.compound.AbstractCompoundID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.id.template.SkillTemplateID;
 
 /**
  * Each {@link Shortcut} is identified by an {@link ID}.
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

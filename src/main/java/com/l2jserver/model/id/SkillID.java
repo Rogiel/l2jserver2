@@ -21,10 +21,14 @@ import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.id.compound.AbstractCompoundID;
 import com.l2jserver.model.id.object.ActorID;
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.id.template.SkillTemplateID;
 
 /**
  * Each {@link CharacterFriend} is identified by an {@link ID}.
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

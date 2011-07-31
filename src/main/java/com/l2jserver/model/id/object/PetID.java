@@ -19,10 +19,14 @@ package com.l2jserver.model.id.object;
 import com.google.inject.Inject;
 import com.l2jserver.db.dao.PetDAO;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.world.Pet;
 
 /**
  * An {@link ObjectID} instance representing an {@link Pet} object
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

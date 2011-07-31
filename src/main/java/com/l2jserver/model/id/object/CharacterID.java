@@ -20,10 +20,14 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.world.L2Character;
 
 /**
  * An {@link ObjectID} instance representing an {@link L2Character} object
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

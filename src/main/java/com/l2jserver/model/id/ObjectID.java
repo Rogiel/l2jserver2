@@ -25,6 +25,9 @@ import com.l2jserver.model.world.WorldObject;
  * an {@link IDProvider}. The {@link ObjectID} provides a facility
  * {@link #getObject() method} that allows easily fetch this object from
  * database without the need to directly use DAOs.
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 

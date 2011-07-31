@@ -83,7 +83,6 @@ public interface Model<T extends ID<?>> {
 		 * database exception will occur.
 		 */
 		INSERT,
-
 		/**
 		 * Updates the object in the database.
 		 * <p>

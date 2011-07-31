@@ -16,10 +16,11 @@
  */
 package com.l2jserver.service.game.clan;
 
+import com.l2jserver.model.game.Fort;
 import com.l2jserver.service.Service;
 
 /**
- * This service manages Fort instances.
+ * This service manages {@link Fort} instances.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

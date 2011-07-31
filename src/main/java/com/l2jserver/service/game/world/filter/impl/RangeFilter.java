@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.game.world.filter.impl;
 
+import org.apache.commons.math.util.FastMath;
+
 import com.google.common.base.Preconditions;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
@@ -45,16 +47,30 @@ public class RangeFilter implements WorldObjectFilter<PositionableObject> {
 	 */
 	public RangeFilter(final PositionableObject object, final int range) {
 		Preconditions.checkNotNull(object, "object");
-		Preconditions.checkState(range >= 0, "range < 0");
+		Preconditions.checkState(range >= 0, "negative range");
 		this.object = object;
-		this.range = Math.pow(range, 2);
+		this.range = range;
 	}
 
 	@Override
 	public boolean accept(PositionableObject other) {
 		if (other == null)
 			return false;
-		
-		return other.getPosition().getDistanceSquared(object.getPosition()) <= range;
+
+		final double dx = FastMath.abs(object.getPoint().getX()
+				- other.getPoint().getX());
+		final double dy = FastMath.abs(object.getPoint().getY()
+				- other.getPoint().getY());
+		final double dz = FastMath.abs(object.getPoint().getZ()
+				- other.getPoint().getZ());
+
+		if (dx > range)
+			return false;
+		if (dy > range)
+			return false;
+		if (dz > range)
+			return false;
+
+		return true;
 	}
 }

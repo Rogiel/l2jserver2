@@ -37,10 +37,6 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 	 * The desired maximum distance of the object
 	 */
 	private final double range;
-	/**
-	 * The <tt>range</tt> multiplied by two
-	 */
-	private final double doubleRange;
 
 	/**
 	 * Creates a new instance
@@ -55,7 +51,6 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 		Preconditions.checkState(range >= 0, "range < 0");
 		this.point = point;
 		this.range = Math.pow(range, 2);
-		this.doubleRange = range * 2;
 	}
 
 	@Override
@@ -66,13 +61,13 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 		final double dy = FastMath.abs(point.getY() - other.getPoint().getY());
 		final double dz = FastMath.abs(point.getZ() - other.getPoint().getZ());
 
-		if (dx > doubleRange)
+		if (dx > range)
 			return false;
-		if (dy > doubleRange)
+		if (dy > range)
 			return false;
-		if (dz > doubleRange)
+		if (dz > range)
 			return false;
 
-		return ((dx * dx) + (dy * dy) + (dz * dz)) <= range;
+		return true;
 	}
 }

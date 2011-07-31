@@ -70,6 +70,7 @@ public class IDProviderModule extends AbstractModule {
 		install(new FactoryModuleBuilder().build(AccountIDProvider.class));
 		install(new FactoryModuleBuilder().build(FortIDProvider.class));
 		install(new FactoryModuleBuilder().build(FriendIDProvider.class));
+		install(new FactoryModuleBuilder().build(ChatMessageIDProvider.class));
 
 		// TEMPLATE IDS
 		install(new FactoryModuleBuilder().build(ItemTemplateIDProvider.class));

@@ -19,8 +19,17 @@ package com.l2jserver.model.id.provider;
 import com.l2jserver.model.id.ID;
 
 /**
- * The ID factory is used to create instances of IDs. It will automatically make
- * sure the ID is free before allocating it.
+ * ID objects should never be directly instantiated and an provider
+ * implementation must be used to create and generate them.
+ * <p>
+ * 
+ * The ID provider is used to create instances of IDs. It will automatically
+ * make sure the ID is free before allocating it.
+ * <p>
+ * The provider will also make sure only a single instance for each raw ID
+ * exits, that is for any given ID instance for raw value <b>1</b> only a single
+ * object will be created and following calls will always return the same
+ * object.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

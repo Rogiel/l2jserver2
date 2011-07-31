@@ -19,11 +19,15 @@ package com.l2jserver.model.id;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.template.Template;
 
 /**
  * Templates IDs, different from {@link ObjectID}s, can be repeated and are
  * defined in the template class.
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

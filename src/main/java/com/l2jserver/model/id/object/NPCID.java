@@ -19,6 +19,7 @@ package com.l2jserver.model.id.object;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.database.DataAccessObject;
 import com.l2jserver.service.game.world.WorldService;
@@ -27,6 +28,9 @@ import com.l2jserver.service.game.world.WorldService;
  * An {@link ObjectID} instance representing an {@link NPC} object. Since NPC
  * instances are stores in run-time only, the search is performed in the
  * {@link WorldService} instead of using a {@link DataAccessObject}.
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

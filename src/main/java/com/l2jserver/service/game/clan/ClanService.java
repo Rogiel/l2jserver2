@@ -17,6 +17,7 @@
 package com.l2jserver.service.game.clan;
 
 import com.l2jserver.model.world.Clan;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
@@ -25,5 +26,7 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ClanService extends Service {
+	void join(Clan clan, L2Character character, L2Character inviter);
 
+	void leave(Clan clan, L2Character character);
 }

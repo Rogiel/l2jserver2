@@ -19,9 +19,13 @@ package com.l2jserver.model.id;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.game.Fort;
+import com.l2jserver.model.id.provider.IDProvider;
 
 /**
  * Each {@link Fort} is identified by an {@link ID}.
+ * <p>
+ * Please, do not directly instantiate this class, use an {@link IDProvider}
+ * instead.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
