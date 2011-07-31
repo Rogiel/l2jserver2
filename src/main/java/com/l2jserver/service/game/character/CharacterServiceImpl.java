@@ -170,9 +170,9 @@ public class CharacterServiceImpl extends AbstractService implements
 					return true;
 
 				// remove chat listeners
-				chatService.getGlobalChannel().removeChatChannelListener(
+				chatService.getGlobalChannel().removeMessageListener(
 						globalChatListener);
-				chatService.getTradeChannel().removeChatChannelListener(
+				chatService.getTradeChannel().removeMessageListener(
 						tradeChatListener);
 
 				// // remove broadcast listener
@@ -185,9 +185,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		});
 
 		// register global chat listener
-		chatService.getGlobalChannel().addChatChannelListener(
+		chatService.getGlobalChannel().addMessageListener(
 				globalChatListener);
-		chatService.getTradeChannel().addChatChannelListener(tradeChatListener);
+		chatService.getTradeChannel().addMessageListener(tradeChatListener);
 
 		// query client game guard -- if key is invalid, the connection will be
 		// closed as soon as possible

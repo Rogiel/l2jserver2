@@ -246,25 +246,25 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		}
 
 		@Override
-		public void addChatChannelListener(ChatChannelListener listener) {
+		public void addMessageListener(ChatChannelListener listener) {
 			Preconditions.checkNotNull(listener, "listener");
 			listeners.add(listener);
 		}
 
 		@Override
-		public void removeChatChannelListener(ChatChannelListener listener) {
+		public void removeMessageListener(ChatChannelListener listener) {
 			Preconditions.checkNotNull(listener, "listener");
 			listeners.remove(listener);
 		}
 
 		@Override
-		public void addChatChannelFilter(ChatChannelFilter filter) {
+		public void addMessageFilter(ChatChannelFilter filter) {
 			Preconditions.checkNotNull(filter, "filter");
 			filters.add(filter);
 		}
 
 		@Override
-		public void removeChatChannelFilter(ChatChannelFilter filter) {
+		public void removeMessageFilter(ChatChannelFilter filter) {
 			Preconditions.checkNotNull(filter, "filter");
 			filters.remove(filter);
 		}

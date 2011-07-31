@@ -58,7 +58,7 @@ public interface ChatChannel {
 	 * @param listener
 	 *            the listener
 	 */
-	void addChatChannelListener(ChatChannelListener listener);
+	void addMessageListener(ChatChannelListener listener);
 
 	/**
 	 * Removes a {@link ChatChannelListener}.
@@ -66,7 +66,7 @@ public interface ChatChannel {
 	 * @param listener
 	 *            the listener
 	 */
-	void removeChatChannelListener(ChatChannelListener listener);
+	void removeMessageListener(ChatChannelListener listener);
 
 	/**
 	 * Adds a {@link ChatChannelFilter} that will be used to filter each message
@@ -75,7 +75,7 @@ public interface ChatChannel {
 	 * @param filter
 	 *            the filter
 	 */
-	void addChatChannelFilter(ChatChannelFilter filter);
+	void addMessageFilter(ChatChannelFilter filter);
 
 	/**
 	 * Removes a {@link ChatChannelListener}.
@@ -83,7 +83,7 @@ public interface ChatChannel {
 	 * @param filter
 	 *            the filter
 	 */
-	void removeChatChannelFilter(ChatChannelFilter filter);
+	void removeMessageFilter(ChatChannelFilter filter);
 
 	/**
 	 * @return the chat channel numeric ID
