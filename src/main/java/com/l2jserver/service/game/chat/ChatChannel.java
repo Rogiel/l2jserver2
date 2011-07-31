@@ -69,6 +69,23 @@ public interface ChatChannel {
 	void removeChatChannelListener(ChatChannelListener listener);
 
 	/**
+	 * Adds a {@link ChatChannelFilter} that will be used to filter each message
+	 * sent in the channel.
+	 * 
+	 * @param filter
+	 *            the filter
+	 */
+	void addChatChannelFilter(ChatChannelFilter filter);
+
+	/**
+	 * Removes a {@link ChatChannelListener}.
+	 * 
+	 * @param filter
+	 *            the filter
+	 */
+	void removeChatChannelFilter(ChatChannelFilter filter);
+
+	/**
 	 * @return the chat channel numeric ID
 	 */
 	int getChannelID();

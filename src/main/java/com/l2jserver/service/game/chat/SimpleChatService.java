@@ -105,8 +105,9 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	}
 
 	@Override
-	public ChatMessage send(CharacterID sender, ChatMessageType chat, String message,
-			String extra) throws TargetNotFoundChatServiceException,
+	public ChatMessage send(CharacterID sender, ChatMessageType chat,
+			String message, String extra)
+			throws TargetNotFoundChatServiceException,
 			CannotChatToSelfChatServiceException,
 			ChatBanActiveChatServiceException,
 			ChatTargetOfflineServiceException {
@@ -213,12 +214,25 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 */
 		protected final Set<ChatChannelListener> listeners = CollectionFactory
 				.newSet();
+		/**
+		 * The list of all filters on this channel
+		 */
+		protected final Set<ChatChannelFilter> filters = CollectionFactory
+				.newSet();
 
 		@Override
 		public ChatMessage send(CharacterID sender, String textMessage) {
 			Preconditions.checkNotNull(sender, "sender");
 			Preconditions.checkNotNull(textMessage, "message");
 			// TODO throw exception if sender is banned from chat
+
+			// filter the message. if a single filter refuses it, the message
+			// will be discarded
+			for (final ChatChannelFilter filter : filters) {
+				if (!filter.filter(sender, this, textMessage))
+					// discard message
+					return null;
+			}
 
 			// log this chat message
 			ChatMessage message = chatLoggingService.log(sender, this,
@@ -227,7 +241,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			for (final ChatChannelListener listener : listeners) {
 				listener.onMessage(this, message);
 			}
-			
+
 			return message;
 		}
 
@@ -241,6 +255,18 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public void removeChatChannelListener(ChatChannelListener listener) {
 			Preconditions.checkNotNull(listener, "listener");
 			listeners.remove(listener);
+		}
+
+		@Override
+		public void addChatChannelFilter(ChatChannelFilter filter) {
+			Preconditions.checkNotNull(filter, "filter");
+			filters.add(filter);
+		}
+
+		@Override
+		public void removeChatChannelFilter(ChatChannelFilter filter) {
+			Preconditions.checkNotNull(filter, "filter");
+			filters.remove(filter);
 		}
 
 		@Override
