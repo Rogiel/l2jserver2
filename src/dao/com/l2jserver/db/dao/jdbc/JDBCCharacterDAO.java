@@ -123,7 +123,7 @@ public abstract class JDBCCharacterDAO extends
 	private final Mapper<CharacterID> idMapper = new Mapper<CharacterID>() {
 		@Override
 		public CharacterID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CHAR_ID));
+			return idFactory.resolveID(rs.getInt(CHAR_ID));
 		}
 	};
 
@@ -138,16 +138,16 @@ public abstract class JDBCCharacterDAO extends
 			final CharacterClass charClass = CharacterClass.valueOf(rs
 					.getString(CLASS));
 			final CharacterTemplateID templateId = templateIdFactory
-					.createID(charClass.id);
+					.resolveID(charClass.id);
 			final CharacterTemplate template = templateId.getTemplate();
 
 			final L2Character character = template.create();
 
 			character.setID(id);
-			character.setAccountID(accountIdFactory.createID(rs
+			character.setAccountID(accountIdFactory.resolveID(rs
 					.getString(ACCOUNT_ID)));
 			if (rs.getString(CLAN_ID) != null)
-				character.setClanID(clanIdFactory.createID(rs.getInt(CLAN_ID)));
+				character.setClanID(clanIdFactory.resolveID(rs.getInt(CLAN_ID)));
 
 			character.setName(rs.getString(NAME));
 

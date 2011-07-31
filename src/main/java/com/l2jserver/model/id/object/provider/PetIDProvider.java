@@ -59,7 +59,7 @@ public class PetIDProvider implements ObjectIDProvider<PetID> {
 	}
 
 	@Override
-	public PetID createID(Integer id) {
+	public PetID resolveID(Integer id) {
 		PetID idObject = idService.resolve(id);
 		if (idObject == null) {
 			idObject = factory.create(id);

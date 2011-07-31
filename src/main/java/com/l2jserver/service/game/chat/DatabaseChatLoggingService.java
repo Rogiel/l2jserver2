@@ -58,7 +58,7 @@ public class DatabaseChatLoggingService extends AbstractService implements
 		switch (channel.getMessageType()) {
 		case SHOUT: // if type is SHOUT the ChannelID is the CharacterID
 					// (target)
-			message.setTarget(charIdProvider.createID(channel.getChannelID()));
+			message.setTarget(charIdProvider.resolveID(channel.getChannelID()));
 			break;
 		default:
 			message.setChannelID(channel.getChannelID());

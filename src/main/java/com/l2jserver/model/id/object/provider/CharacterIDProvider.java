@@ -58,7 +58,7 @@ public class CharacterIDProvider implements ObjectIDProvider<CharacterID> {
 	}
 
 	@Override
-	public CharacterID createID(Integer id) {
+	public CharacterID resolveID(Integer id) {
 		CharacterID idObject = idService.resolve(id);
 		if (idObject == null) {
 			idObject = factory.create(id);

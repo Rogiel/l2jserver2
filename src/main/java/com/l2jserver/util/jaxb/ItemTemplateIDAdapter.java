@@ -45,7 +45,7 @@ public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
 			return null;
 		if (provider == null)
 			return new ItemTemplateID(v, null);
-		return provider.createID(v);
+		return provider.resolveID(v);
 	}
 
 	@Override

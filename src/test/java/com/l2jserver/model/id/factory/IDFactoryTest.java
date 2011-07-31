@@ -66,7 +66,7 @@ public class IDFactoryTest {
 
 	@Test
 	public void testGetObject() throws ServiceStartException {
-		final CharacterID id = charIdFactory.createID(268437456);
+		final CharacterID id = charIdFactory.resolveID(268437456);
 		final L2Character character = id.getObject();
 
 		Assert.assertNotNull(character);

@@ -47,7 +47,7 @@ public class TeleportationTemplateIDAdapter extends
 			return null;
 		if (provider == null)
 			return new TeleportationTemplateID(v, null);
-		return provider.createID(v);
+		return provider.resolveID(v);
 	}
 
 	@Override

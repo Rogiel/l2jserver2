@@ -82,7 +82,7 @@ public abstract class JDBCChatMessageDAO extends
 	private final Mapper<ChatMessageID> idMapper = new Mapper<ChatMessageID>() {
 		@Override
 		public ChatMessageID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(MESSAGE_ID));
+			return idFactory.resolveID(rs.getInt(MESSAGE_ID));
 		}
 	};
 
@@ -100,13 +100,13 @@ public abstract class JDBCChatMessageDAO extends
 			message.setType(ChatMessageType.valueOf(rs.getString(TYPE)));
 			switch (message.getType()) {
 			case SHOUT:
-				message.setTarget(charIdFactory.createID(rs.getInt(CHANNEL_ID)));
+				message.setTarget(charIdFactory.resolveID(rs.getInt(CHANNEL_ID)));
 				break;
 			default:
 				message.setChannelID(rs.getInt(CHANNEL_ID));
 				break;
 			}
-			message.setSender(charIdFactory.createID(rs.getInt(SENDER)));
+			message.setSender(charIdFactory.resolveID(rs.getInt(SENDER)));
 			message.setDate(new Date(rs.getTimestamp(DATE).getTime()));
 			message.setMessage(rs.getString(MESSAGE));
 

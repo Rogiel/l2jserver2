@@ -45,7 +45,7 @@ public class NPCTemplateIDAdapter extends XmlAdapter<Integer, NPCTemplateID> {
 			return null;
 		if (provider == null)
 			return new NPCTemplateID(v, null);
-		return provider.createID(v);
+		return provider.resolveID(v);
 	}
 
 	@Override

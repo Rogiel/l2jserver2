@@ -59,7 +59,7 @@ public class ItemIDProvider implements ObjectIDProvider<ItemID> {
 	}
 
 	@Override
-	public ItemID createID(Integer id) {
+	public ItemID resolveID(Integer id) {
 		ItemID idObject = idService.resolve(id);
 		if (idObject == null) {
 			idObject = factory.create(id);

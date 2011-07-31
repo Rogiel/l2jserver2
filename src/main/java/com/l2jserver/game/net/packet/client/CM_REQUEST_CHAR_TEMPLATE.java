@@ -80,7 +80,7 @@ public class CM_REQUEST_CHAR_TEMPLATE extends AbstractClientPacket {
 		final CharacterTemplate[] templates = new CharacterTemplate[TEMPLATE_CLASSES.length];
 		int i = 0;
 		for (final CharacterClass charClass : TEMPLATE_CLASSES) {
-			final CharacterTemplateID id = idFactory.createID(charClass.id);
+			final CharacterTemplateID id = idFactory.resolveID(charClass.id);
 			templates[i++] = id.getTemplate();
 		}
 		conn.write(new SM_CHAR_TEMPLATE(templates));

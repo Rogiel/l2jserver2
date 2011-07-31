@@ -59,7 +59,7 @@ public class ClanIDProvider implements ObjectIDProvider<ClanID> {
 	}
 
 	@Override
-	public ClanID createID(Integer id) {
+	public ClanID resolveID(Integer id) {
 		ClanID idObject = idService.resolve(id);
 		if (idObject == null) {
 			idObject = factory.create(id);

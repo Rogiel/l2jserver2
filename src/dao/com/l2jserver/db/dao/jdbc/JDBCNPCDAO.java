@@ -93,7 +93,7 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 		public NPCID map(ResultSet rs) throws SQLException {
 			if (rs.getString(NPC_ID) == null)
 				return null;
-			return idProvider.createID(rs.getInt(NPC_ID));
+			return idProvider.resolveID(rs.getInt(NPC_ID));
 		}
 	};
 
@@ -104,7 +104,7 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 			idMapper) {
 		@Override
 		protected NPC map(NPCID id, ResultSet rs) throws SQLException {
-			NPCTemplateID templateId = templateIdProvider.createID(rs
+			NPCTemplateID templateId = templateIdProvider.resolveID(rs
 					.getInt(NPC_TEMPLATE_ID));
 			NPCTemplate template = templateId.getTemplate();
 			if (template == null) {

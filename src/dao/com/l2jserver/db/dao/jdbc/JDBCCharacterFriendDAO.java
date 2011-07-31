@@ -78,9 +78,9 @@ public abstract class JDBCCharacterFriendDAO extends
 	private final Mapper<FriendID> idMapper = new Mapper<FriendID>() {
 		@Override
 		public FriendID map(ResultSet rs) throws SQLException {
-			final CharacterID characterId = charIdProvider.createID(rs
+			final CharacterID characterId = charIdProvider.resolveID(rs
 					.getInt(CHAR_ID));
-			final CharacterID friendId = charIdProvider.createID(rs
+			final CharacterID friendId = charIdProvider.resolveID(rs
 					.getInt(CHAR_ID_FRIEND));
 			return idProvider.createID(characterId, friendId);
 		}

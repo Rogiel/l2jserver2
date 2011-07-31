@@ -36,6 +36,6 @@ public class StaticTemplateServiceTest {
 	@Test
 	public void testAdena() throws ServiceStartException {
 		injector.getInstance(ServiceManager.class).start(TemplateService.class);
-		System.out.println(factory.createID(57).getTemplate());
+		System.out.println(factory.resolveID(57).getTemplate());
 	}
 }

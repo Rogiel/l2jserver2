@@ -96,7 +96,7 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID> implemen
 	private final Mapper<ItemID> idMapper = new Mapper<ItemID>() {
 		@Override
 		public ItemID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(ITEM_ID));
+			return idFactory.resolveID(rs.getInt(ITEM_ID));
 		}
 	};
 
@@ -107,14 +107,14 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID> implemen
 			database, idMapper) {
 		@Override
 		public Item map(ItemID id, ResultSet rs) throws SQLException {
-			final ItemTemplateID templateId = templateIdFactory.createID(rs
+			final ItemTemplateID templateId = templateIdFactory.resolveID(rs
 					.getInt(TEMPLATE_ID));
 			final ItemTemplate template = templateId.getTemplate();
 			final Item item = template.create();
 
 			item.setID(id);
 			if (rs.getObject(CHAR_ID) != null)
-				item.setOwnerID(charIdFactory.createID(rs.getInt(CHAR_ID)));
+				item.setOwnerID(charIdFactory.resolveID(rs.getInt(CHAR_ID)));
 			if (rs.getObject(LOCATION) != null)
 				item.setLocation(InventoryLocation.valueOf(rs
 						.getString(LOCATION)));

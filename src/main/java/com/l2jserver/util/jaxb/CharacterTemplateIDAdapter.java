@@ -41,7 +41,7 @@ public class CharacterTemplateIDAdapter extends
 	public CharacterTemplateID unmarshal(CharacterClass v) throws Exception {
 		if (v == null)
 			return null;
-		return provider.createID(v.id);
+		return provider.resolveID(v.id);
 	}
 
 	@Override

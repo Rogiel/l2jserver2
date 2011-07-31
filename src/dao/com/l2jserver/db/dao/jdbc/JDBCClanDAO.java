@@ -75,7 +75,7 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implemen
 	private final Mapper<ClanID> idMapper = new Mapper<ClanID>() {
 		@Override
 		public ClanID map(ResultSet rs) throws SQLException {
-			return idFactory.createID(rs.getInt(CLAN_ID));
+			return idFactory.resolveID(rs.getInt(CLAN_ID));
 		}
 	};
 

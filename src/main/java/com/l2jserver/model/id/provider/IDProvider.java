@@ -40,5 +40,5 @@ public interface IDProvider<I, T extends ID<I>> {
 	 * @param id
 	 * @return
 	 */
-	T createID(I id);
+	T resolveID(I id);
 }

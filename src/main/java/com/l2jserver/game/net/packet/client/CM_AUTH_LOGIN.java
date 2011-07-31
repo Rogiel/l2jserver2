@@ -81,7 +81,7 @@ public class CM_AUTH_LOGIN extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Client conn) {
-		final AccountID accountId = accountIdFactory.createID(loginName);
+		final AccountID accountId = accountIdFactory.resolveID(loginName);
 		conn.setSession(new Lineage2Session(accountId, playKey1, playKey2,
 				loginKey1, loginKey2));
 

@@ -46,7 +46,7 @@ public class SkillTemplateIDAdapter extends
 			return null;
 		if (provider == null)
 			return new SkillTemplateID(v, null);
-		return provider.createID(v);
+		return provider.resolveID(v);
 	}
 
 	@Override

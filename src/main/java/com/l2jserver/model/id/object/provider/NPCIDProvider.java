@@ -58,7 +58,7 @@ public class NPCIDProvider implements ObjectIDProvider<NPCID> {
 	}
 
 	@Override
-	public NPCID createID(Integer id) {
+	public NPCID resolveID(Integer id) {
 		NPCID idObject = idService.resolve(id);
 		if (idObject == null) {
 			idObject = factory.create(id);

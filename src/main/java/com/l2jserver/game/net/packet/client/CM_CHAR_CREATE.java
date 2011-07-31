@@ -193,7 +193,7 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 
 		// create template id and lookup for the template instance
 		final CharacterTemplateID templateId = characterTemplateIdProvider
-				.createID(characterClass.id);
+				.resolveID(characterClass.id);
 		final CharacterTemplate template = templateId.getTemplate();
 		log.debug("Creating character with template {}", template);
 

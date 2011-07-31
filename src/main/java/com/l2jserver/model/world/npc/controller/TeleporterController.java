@@ -45,7 +45,7 @@ public class TeleporterController extends BaseNPCController {
 		if (args.length >= 2) {
 			if (args[0].equals("goto")) {
 				final TeleportationTemplate tele = teleportationIdProvider
-						.createID(Integer.parseInt(args[1])).getTemplate();
+						.resolveID(Integer.parseInt(args[1])).getTemplate();
 				if (tele == null) {
 					// TODO notify user that his destination is invalid
 					conn.sendActionFailed();
