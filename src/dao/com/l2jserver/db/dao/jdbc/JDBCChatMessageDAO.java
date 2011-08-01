@@ -85,6 +85,16 @@ public abstract class JDBCChatMessageDAO extends
 			return idFactory.resolveID(rs.getInt(MESSAGE_ID));
 		}
 	};
+	
+	/**
+	 * The {@link Mapper} for {@link ChatMessageID} as a PRIMARY KEY
+	 */
+	private final Mapper<ChatMessageID> primaryKeyMapper = new Mapper<ChatMessageID>() {
+		@Override
+		public ChatMessageID map(ResultSet rs) throws SQLException {
+			return idFactory.resolveID(rs.getInt(1));
+		}
+	};
 
 	/**
 	 * The {@link Mapper} for {@link ChatMessage}
@@ -180,7 +190,7 @@ public abstract class JDBCChatMessageDAO extends
 
 			@Override
 			protected Mapper<ChatMessageID> keyMapper() {
-				return idMapper;
+				return primaryKeyMapper;
 			}
 		}) > 0;
 	}

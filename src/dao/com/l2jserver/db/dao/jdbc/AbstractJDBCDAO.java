@@ -36,7 +36,7 @@ import com.l2jserver.service.database.JDBCDatabaseService;
 public abstract class AbstractJDBCDAO<T extends Model<?>, I extends ID<?>>
 		extends AbstractDAO<T, I> {
 	/**
-	 * The MySQL Database Service
+	 * The JDBC Database Service
 	 */
 	protected final JDBCDatabaseService database;
 

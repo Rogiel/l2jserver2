@@ -20,6 +20,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -332,12 +333,12 @@ public class JDBCDatabaseService extends AbstractService implements
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
-				final PreparedStatement st = conn.prepareStatement(query());
+				final PreparedStatement st = conn.prepareStatement(query(), Statement.RETURN_GENERATED_KEYS);
 				this.parametize(st, object);
 				rows += st.executeUpdate();
 
 				// update object desire --it has been realized
-				if (object instanceof Model) {
+				if (object instanceof Model && rows > 0) {
 					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 
 					final Mapper<? extends ID<?>> mapper = keyMapper();

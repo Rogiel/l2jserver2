@@ -352,6 +352,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			return;
 		final Point3D old = character.getPoint();
 		character.setPoint(point);
+		// BroadcastService will catch this event and update the knownlist
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, old));
 
 		if (point.getCoordinate().equals(

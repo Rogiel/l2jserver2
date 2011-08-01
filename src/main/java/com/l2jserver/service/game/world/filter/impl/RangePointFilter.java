@@ -50,7 +50,7 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 		Preconditions.checkNotNull(point, "point");
 		Preconditions.checkState(range >= 0, "range < 0");
 		this.point = point;
-		this.range = Math.pow(range, 2);
+		this.range = range;
 	}
 
 	@Override
