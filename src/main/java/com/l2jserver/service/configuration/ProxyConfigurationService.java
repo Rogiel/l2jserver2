@@ -255,6 +255,7 @@ public class ProxyConfigurationService extends AbstractService implements
 				if(prop != null)
 					return prop;
 			}
+			return null;
 		}
 		prop = new Properties();
 		final File file = new File(directory, config.value() + ".properties");

@@ -57,7 +57,7 @@ public abstract class AbstractDesire implements Desire {
 	}
 
 	@Override
-	public int getDesirePower() {
+	public synchronized int getDesirePower() {
 		return desirePower;
 	}
 

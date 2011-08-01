@@ -24,12 +24,15 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
  * {@link ChatLoggingService} implementation that stores logs in the database
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@Depends(DatabaseService.class)
 public class DatabaseChatLoggingService extends AbstractService implements
 		ChatLoggingService {
 	/**

@@ -99,4 +99,10 @@ public interface ChatChannel {
 	 * @return the chat channel name
 	 */
 	String getChannelName();
+
+	/**
+	 * Disposes this channel. Channels should only be disposed by its creator if
+	 * there is no more interest in them.
+	 */
+	void dispose();
 }

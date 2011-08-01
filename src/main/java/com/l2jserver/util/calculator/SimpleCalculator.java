@@ -16,6 +16,7 @@
  */
 package com.l2jserver.util.calculator;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -66,7 +67,9 @@ public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 	}
 
 	public static class FunctionOrderComparator implements
-			Comparator<Function<?, ?>> {
+			Comparator<Function<?, ?>>, Serializable {
+		private static final long serialVersionUID = 1L;
+
 		public static final FunctionOrderComparator SHARED_INSTANCE = new FunctionOrderComparator();
 
 		@Override

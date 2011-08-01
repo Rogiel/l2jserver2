@@ -21,7 +21,7 @@ import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.service.Service;
 
 /**
- * This service logs each message sent in the server. Implementarions may choose
+ * This service logs each message sent in the server. Implementations may choose
  * to store in a database, plain text, XML or any other form of logging.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>

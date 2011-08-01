@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.world.character;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -136,7 +137,9 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 		return character;
 	}
 
-	public static class ShortcutSlotComparator implements Comparator<Shortcut> {
+	public static class ShortcutSlotComparator implements Comparator<Shortcut>, Serializable {
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public int compare(Shortcut o1, Shortcut o2) {
 			return ((o1.getPage() * o1.getSlot()) - (o2.getPage() * o2

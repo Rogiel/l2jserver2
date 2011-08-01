@@ -268,7 +268,7 @@ public class ScriptContextImpl implements ScriptContext {
 	}
 
 	@Override
-	public ScriptClassLoader getClassLoader() {
+	public synchronized ScriptClassLoader getClassLoader() {
 		return compilationResult.getClassLoader();
 	}
 

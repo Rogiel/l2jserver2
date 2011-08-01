@@ -197,7 +197,7 @@ public class ClassFileManager extends
 	 *             if something foes wrong
 	 */
 	@Override
-	public Iterable<JavaFileObject> list(Location location, String packageName,
+	public synchronized Iterable<JavaFileObject> list(Location location, String packageName,
 			Set<Kind> kinds, boolean recurse) throws IOException {
 		Iterable<JavaFileObject> objects = super.list(location, packageName,
 				kinds, recurse);

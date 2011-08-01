@@ -10,8 +10,6 @@ import com.google.inject.Inject;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.service.game.scripting.classlistener.Loader;
 import com.l2jserver.service.game.scripting.classlistener.Unloader;
-import com.l2jserver.service.game.template.ScriptTemplateService;
-import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -23,32 +21,22 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class PluginLoader implements Loader, Unloader {
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory
 			.getLogger(PluginLoader.class);
 
-	private final ScriptTemplateService templateService;
-
 	@Inject
-	public PluginLoader(TemplateService templateService) {
-		this.templateService = (ScriptTemplateService) templateService;
+	public PluginLoader() {
 	}
 
 	@Override
 	public void load(Class<?>[] classes) {
-		log.debug("Loading templates from {} classes", classes.length);
-		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
-			log.debug("Found loadable template class: {}", template);
-			templateService.addTemplate(template);
-		}
+
 	}
 
 	@Override
 	public void unload(Class<?>[] classes) {
-		log.debug("Unloading templates from {} classes", classes.length);
-		for (final Class<? extends Template<?>> template : getSuitableClasses(classes)) {
-			log.debug("Found unloadable template class: {}", template);
-			// TODO unloading
-		}
+
 	}
 
 	/**
@@ -56,7 +44,7 @@ public class PluginLoader implements Loader, Unloader {
 	 * 
 	 * @return list of Template classes to load/unload
 	 */
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "unused" })
 	private static Set<Class<? extends Template<?>>> getSuitableClasses(
 			Class<?>[] classes) {
 		final Set<Class<? extends Template<?>>> suitable = CollectionFactory

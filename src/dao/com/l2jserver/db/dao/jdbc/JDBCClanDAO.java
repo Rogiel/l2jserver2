@@ -140,8 +140,7 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implemen
 			@Override
 			protected void parametize(PreparedStatement st, Clan clan)
 					throws SQLException {
-				int i = 1;
-				st.setInt(i++, clan.getID().getID());
+				st.setInt(1, clan.getID().getID());
 			}
 		}) > 0;
 	}

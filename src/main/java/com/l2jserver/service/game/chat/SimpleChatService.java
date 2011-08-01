@@ -28,6 +28,7 @@ import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.region.Region;
@@ -39,7 +40,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-// @Depends(RegionService.class)
+@Depends(ChatLoggingService.class)
 public class SimpleChatService extends AbstractService implements ChatService {
 	private final ChatLoggingService chatLoggingService;
 
@@ -308,6 +309,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.SHOUT;
 		}
+
+		@Override
+		public void dispose() {
+			privateChannels.remove(character);
+		}
 	}
 
 	/**
@@ -320,6 +326,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		@Override
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.ALL;
+		}
+		
+		@Override
+		public void dispose() {
+			throw new UnsupportedOperationException("Cannot dispose the Global Chat Channel");
 		}
 	}
 
@@ -334,6 +345,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.TRADE;
 		}
+		
+		@Override
+		public void dispose() {
+			throw new UnsupportedOperationException("Cannot dispose the Trade Chat Channel");
+		}
 	}
 
 	/**
@@ -347,6 +363,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.ANNOUNCEMENT;
 		}
+		
+		@Override
+		public void dispose() {
+			throw new UnsupportedOperationException("Cannot dispose the Announcement Chat Channel");
+		}
 	}
 
 	/**
@@ -359,7 +380,6 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		/**
 		 * The clan ID
 		 */
-		@SuppressWarnings("unused")
 		private final ClanID clanID;
 
 		/**
@@ -375,6 +395,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		@Override
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.CLAN;
+		}
+		
+		@Override
+		public void dispose() {
+			clanChannels.remove(clanID);
 		}
 	}
 
@@ -404,6 +429,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		@Override
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.ALL;
+		}
+		
+		@Override
+		public void dispose() {
+			throw new UnsupportedOperationException();
 		}
 	}
 }

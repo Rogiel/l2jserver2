@@ -31,7 +31,8 @@ public interface ChatChannelListener {
 	 * @param channel
 	 *            the chat channel
 	 * @param message
-	 *            the message
+	 *            the message object that was created by
+	 *            {@link ChatLoggingService}
 	 */
 	void onMessage(ChatChannel channel, ChatMessage message);
 }

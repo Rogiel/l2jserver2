@@ -81,8 +81,9 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 		try {
 			characterService.enterWorld(id.getObject());
 		} catch (SpawnPointNotFoundServiceException e) {
+			conn.sendActionFailed();
 		} catch (AlreadySpawnedServiceException e) {
-
+			//TODO send an error message here
 		}
 	}
 }
