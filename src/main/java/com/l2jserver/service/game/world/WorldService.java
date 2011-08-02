@@ -19,15 +19,29 @@ package com.l2jserver.service.game.world;
 import java.util.Iterator;
 import java.util.List;
 
+import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
+import com.l2jserver.service.network.broadcast.BroadcastService;
 
 /**
- * Service responsible for managing {@link WorldObject} and dispatch events.
+ * One of the most important services in the whole server. It is responsible for
+ * keeping track of all {@link WorldObject WorldObjects} in the game virtual
+ * world: positioning, status, life and attributes.
+ * <p>
+ * As an example, once a new {@link NPC} is spawned, it is registered within
+ * this service and it can be broadcasted (using {@link BroadcastService}) to
+ * all nearby clients (see {@link Lineage2Client}).
+ * <h1>Other tasks</h1> World event dispatching is handled by
+ * {@link WorldEventDispatcher}.
+ * <p>
+ * {@link ObjectID} object management is done through {@link WorldIDService}
+ * that can be used to cache those IDs.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

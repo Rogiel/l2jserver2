@@ -68,7 +68,24 @@ import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * The database service implementation for JDBC database
+ * This is an implementation of {@link DatabaseService} that provides an layer
+ * to JDBC.
+ * 
+ * <h1>Internal specification</h1> <h2>The {@link Query} object</h2>
+ * 
+ * If you wish to implement a new {@link DataAccessObject} you should try not
+ * use {@link Query} object directly because it only provides low level access
+ * to the JDBC architecture. Instead, you could use an specialized class, like
+ * {@link InsertUpdateQuery}, {@link SelectListQuery} or
+ * {@link SelectSingleQuery}. If you do need low level access, feel free to use
+ * the {@link Query} class directly.
+ * 
+ * <h2>The {@link Mapper} object</h2>
+ * 
+ * The {@link Mapper} object maps an JDBC {@link ResultSet} into an Java
+ * {@link Object}. All {@link Model} objects support {@link CachedMapper} that
+ * will cache result based on its {@link ID} and always use the same object with
+ * the same {@link ID}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -333,7 +350,8 @@ public class JDBCDatabaseService extends AbstractService implements
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
-				final PreparedStatement st = conn.prepareStatement(query(), Statement.RETURN_GENERATED_KEYS);
+				final PreparedStatement st = conn.prepareStatement(query(),
+						Statement.RETURN_GENERATED_KEYS);
 				this.parametize(st, object);
 				rows += st.executeUpdate();
 

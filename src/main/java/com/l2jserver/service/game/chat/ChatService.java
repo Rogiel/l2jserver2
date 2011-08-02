@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.game.chat;
 
+import com.l2jserver.game.net.packet.client.CM_CHAT;
+import com.l2jserver.game.net.packet.server.SM_CHAT;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.server.ChatMessage;
@@ -23,8 +25,37 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
- * This service provides chatting in the server. Implementations can be local or
- * can use another service like an IRC server.
+ * This service provides chatting in the server. There can be several
+ * implementations for this service, however only one of them can be active at a
+ * time. For example, implementations can use an backing IRC-Server that will
+ * provide flood control, channel control, reliability and external
+ * accessibility, people can talk to others even if not logged into the game.
+ * <p>
+ * Chat are divided into {@link ChatChannel channels}, each of those are
+ * respective to an determined section of the game chatting capabilities, i.e.
+ * trade chat (+) will be provided by the TradeChat channel. This is the concept
+ * of {@link PublicChatChannel} because in this type of channels, when one
+ * player writes an message it can possibly, however not forced to, be
+ * broadcasted to several other players, including itself in certain occasions
+ * (i.e. announcement channel).
+ * <p>
+ * There is also {@link PrivateChatChannel} that provide messaging capabilities
+ * among two players only. One will be the sender and one will be the receiver.
+ * In most situations, messages sent will not be sent back to the sender. In
+ * this type of channel, the message is guarantee to be received by the other
+ * player, if he is not available {@link ChatTargetOfflineServiceException} will
+ * be thrown.
+ * <p>
+ * All messages sent in any channel must be logged by {@link ChatLoggingService}
+ * unless it is refused by an {@link ChatChannelFilter}.
+ * 
+ * <h1>Chat ban</h1>
+ * If the sender is chat banned and tries to send a message
+ * {@link ChatBanActiveChatServiceException} will be thrown.
+ * 
+ * <h1>Packets</h1>
+ * Messages are received (from the clients) with {@link CM_CHAT} and sent (to
+ * the clients) with {@link SM_CHAT}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

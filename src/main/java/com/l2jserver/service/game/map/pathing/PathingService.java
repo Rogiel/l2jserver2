@@ -18,10 +18,14 @@ package com.l2jserver.service.game.map.pathing;
 
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.game.map.MapService;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This service will try to find the best path to move to an given location.
+ * Service responsible for finding obstacles in the character moving line and
+ * tries to create a new path plan in order to avoid those obstacles. This
+ * service must work in conjunction with {@link MapService} that will map the
+ * entire game world, listing all obstacles and free locations.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

@@ -16,10 +16,24 @@
  */
 package com.l2jserver.service.game.template;
 
+import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.TemplateID;
+import com.l2jserver.model.id.template.provider.TemplateIDProvider;
 import com.l2jserver.model.template.Template;
+import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
 
+/**
+ * Service that loads {@link L2Character}, {@link NPC}, {@link Item} and
+ * {@link Skill} {@link Template templates}. The service on startup, loads from files or from the
+ * database the data and parses them into <tt>com.l2jserver.model.template</tt>
+ * classes. Once they are loaded, templates can be retrieved using any
+ * {@link TemplateID} object created from a {@link TemplateIDProvider}.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface TemplateService extends Service {
 	/**
 	 * Get the template assigned with <tt>id</tt>

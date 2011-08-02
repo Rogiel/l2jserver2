@@ -28,7 +28,8 @@ import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This service manages {@link NPC} instances
+ * This service controls {@link NPC} objects. It can execute {@link NPC}
+ * interactions, kill it, move it and make it attack someone or be attacked.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

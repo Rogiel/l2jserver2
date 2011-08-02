@@ -68,4 +68,10 @@ public interface ThreadPool {
 	ScheduledAsyncFuture async(long delay, TimeUnit unit, long repeat,
 			Runnable task);
 
+	/**
+	 * Disposes this thread pool. After disposing, it will no longer be able to
+	 * execute tasks.
+	 */
+	void dispose();
+
 }

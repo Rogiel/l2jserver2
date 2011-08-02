@@ -23,8 +23,8 @@ import org.apache.commons.vfs.FileObject;
 import com.l2jserver.service.Service;
 
 /**
- * The VFS service provides access to files. With this service is possible to
- * change the location of files.
+ * The VFS service is responsible for creating a Virtual File System that is
+ * capable of reading files inside ZIP, TAR, BZIP and GZIP.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

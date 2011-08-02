@@ -17,13 +17,45 @@
 package com.l2jserver.service.network;
 
 import com.l2jserver.game.net.Lineage2Client;
+import com.l2jserver.game.net.Lineage2Session;
+import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
- * The network service is responsible for communicating the server and the game
- * client. You can see more details in each implementation.
+ * The network service is responsible for communicating the server with the game
+ * client. The service can have several different implementations, however only
+ * a single one can be active at any given time.
+ * <p>
+ * This service is implementation of the Lineage II protocol and will do the
+ * following:
+ * 
+ * <ul>
+ * <li>Listen in the network port (default is 7777 for game server);</li>
+ * <li>Process incoming connections and filter them for blocked IPs (not yet
+ * implemented);</li>
+ * <li>Handshake with the client and enable Cryptography;</li>
+ * <li>Read incoming packets, decrypt and parse them into a ClientPacket;</li>
+ * <li>Write outgoing packets ServerPacket and encrypt them;</li>
+ * <li>(optional) Validate GameGuard responses (see GameGuardService);</li>
+ * </ul>
+ * 
+ * Each connection is represented by {@link Lineage2Client} and will be attached
+ * with {@link CharacterID} of the active character (if any),
+ * {@link Lineage2Session} with authorization keys from LoginServer and the raw
+ * connection socket (see implementations for more details).
+ * <p>
+ * It is also important to note that each {@link ClientPacket} have its own
+ * instruction set hard coded in it and they can be injected with any service
+ * using Guice framework.
+ * <p>
+ * The service can also be used to resolve {@link CharacterID} or
+ * {@link L2Character} to a {@link Lineage2Client} object in order to establish
+ * connection between the client connection and a game character.
+ * <p>
+ * Packet opcode resolver is implementation specific.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

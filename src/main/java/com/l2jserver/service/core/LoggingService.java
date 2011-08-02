@@ -16,12 +16,11 @@
  */
 package com.l2jserver.service.core;
 
-import org.slf4j.Logger;
-
 import com.l2jserver.service.Service;
 
 /**
- * The logging service is used to get instances of the {@link Logger} class.
+ * This service initializes and configures the logging provider. Currently SLF4J
+ * is used and implementations must initialize SLF4J and its respective binding.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

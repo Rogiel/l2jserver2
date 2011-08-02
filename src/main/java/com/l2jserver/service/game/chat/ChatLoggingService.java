@@ -21,8 +21,18 @@ import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.service.Service;
 
 /**
- * This service logs each message sent in the server. Implementations may choose
- * to store in a database, plain text, XML or any other form of logging.
+ * This service logs each message sent in the server. There can be several
+ * implementations that stores logs in different locations (or don't store at
+ * all!) however only a single implementation can be active at any given time.
+ * <p>
+ * This service is called by contract in {@link ChatChannel} implementations.
+ * The <b>log</b> method creates a new {@link ChatMessage} object, stores it
+ * (optional) and returns the object. The same object will be sent to all
+ * {@link ChatChannelListener} and will contain: message text, sender and date.
+ * Other optional fields might also be available.
+ * <p>
+ * <b>{@link ChatChannelFilter} will be called before logging can occur. If any
+ * filter refuses the message, it will NOT be logged.</b>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

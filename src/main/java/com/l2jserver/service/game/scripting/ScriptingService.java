@@ -20,11 +20,13 @@ import java.io.File;
 import java.util.Collection;
 import java.util.List;
 
+import com.l2jserver.game.ai.AI;
 import com.l2jserver.service.Service;
 
 /**
- * This service is capable of loading raw .java files, compile them and add to
- * runtime.
+ * The scripting service provides script capabilities to the server. Scripts can
+ * be used in events (in-game), Quests and {@link AI}. Implementations are free
+ * to use any language to implement scripts.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

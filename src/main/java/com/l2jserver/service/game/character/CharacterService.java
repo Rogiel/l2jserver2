@@ -16,7 +16,9 @@
  */
 package com.l2jserver.service.game.character;
 
+import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
@@ -27,7 +29,13 @@ import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This service manages {@link L2Character} instances
+ * This service manages all in-game {@link L2Character characters}. Every move
+ * or attack event must go through it.
+ * <p>
+ * This service is also used to create and delete characters. When deleting,
+ * implementations should make sure they remove all traces (except for logs)
+ * from the character, including {@link Item} and {@link CharacterFriend}
+ * objects.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

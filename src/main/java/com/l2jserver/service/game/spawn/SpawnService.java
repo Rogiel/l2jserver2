@@ -18,8 +18,11 @@ package com.l2jserver.service.game.spawn;
 
 import java.util.concurrent.TimeUnit;
 
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.event.SpawnEvent;
@@ -27,11 +30,29 @@ import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.core.threading.AsyncFuture;
+import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This service is responsible for spawning monsters, npcs and players.
+ * This service is responsible for spawning, unspawning and teleporting
+ * {@link Actor} and Item objects. If you spawn an {@link Item} object it will
+ * be the same as dropping it on the ground.
+ * <p>
+ * This service allows to be used synchronously or asynchronously if you wish to
+ * schedule an spawn/unspawn to happen at another time. However, teleporting
+ * must be done synchronously. Asynchronous usage is assisted by
+ * {@link ThreadService}.
+ * <p>
+ * Although the service supports teleporting Item objects, it has the same
+ * effect of an unspawn and spawn.
+ * 
+ * <h1>Usage of SpawnService with NPC/Monsters</h1> Although is possible to use
+ * this service to unspawn {@link NPC} objects, it is not recommended. If you
+ * do, the {@link NPC} will not be respawned. The only possible way to respawn
+ * it is through an forced spawn (manual) or server restart. See
+ * {@link NPCService} if you wish to correctly unspawn an {@link NPC}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -72,8 +93,8 @@ public interface SpawnService extends Service {
 	 *            the unit of <tt>time</tt>
 	 * @return an future that can be used to obtain spawn exceptions
 	 */
-	<T extends PositionableObject> AsyncFuture<T> spawn(T object, Point3D point, long time,
-			TimeUnit unit);
+	<T extends PositionableObject> AsyncFuture<T> spawn(T object,
+			Point3D point, long time, TimeUnit unit);
 
 	/**
 	 * Unspawns an {@link PositionableObject} object from the world
@@ -97,7 +118,8 @@ public interface SpawnService extends Service {
 	 *            the unit of <tt>time</tt>
 	 * @return an future that can be used to obtain spawn exceptions
 	 */
-	<T extends PositionableObject> AsyncFuture<T> unspawn(T object, long time, TimeUnit unit);
+	<T extends PositionableObject> AsyncFuture<T> unspawn(T object, long time,
+			TimeUnit unit);
 
 	/**
 	 * Teleports the object to the given <tt>point</tt>.
@@ -129,8 +151,7 @@ public interface SpawnService extends Service {
 	 * @param character
 	 *            the character object
 	 * @throws CharacterNotTeleportingServiceException
-	 *             if the character state is not
-	 *             {@link ActorState#TELEPORTING}
+	 *             if the character state is not {@link ActorState#TELEPORTING}
 	 */
 	void finishTeleport(L2Character character)
 			throws CharacterNotTeleportingServiceException;

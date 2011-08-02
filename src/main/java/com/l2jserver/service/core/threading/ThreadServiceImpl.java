@@ -281,5 +281,10 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 			return new ScheduledAsyncFutureImpl(executor.scheduleAtFixedRate(
 					task, delay, repeat, unit));
 		}
+
+		@Override
+		public void dispose() {
+			ThreadServiceImpl.this.dispose(this);
+		}
 	}
 }

@@ -21,11 +21,21 @@ import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 
 /**
- * The database service manages connection between the {@link DataAccessObject}
- * implementation and the database.
+ * This service provides access to an database implementation. Each
+ * implementation had its own {@link DataAccessObject} model, however they do
+ * need to respect {@link DataAccessObject} interfaces located in "
+ * <tt>com.l2jserver.db.dao</tt>". There can be several service implementation,
+ * but only one of them can be active at an given time.
+ * 
+ * The service does not directly provide much functionality most of its
+ * operations are done trough an {@link DataAccessObject}. Each service
+ * implementation provides an custom interface that is used to link
+ * {@link DataAccessObject}-{@link DatabaseService Service}. See implementation specific
+ * documentation for more information.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface DatabaseService extends Service {
-	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(Class<M> model);
+	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
+			Class<M> model);
 }
