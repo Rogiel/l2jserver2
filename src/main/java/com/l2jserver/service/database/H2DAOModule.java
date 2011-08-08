@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model;
+package com.l2jserver.service.database;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
@@ -25,12 +25,12 @@ import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.model.dao.jdbc.h2.H2CharacterDAO;
-import com.l2jserver.model.dao.jdbc.h2.H2CharacterFriendDAO;
-import com.l2jserver.model.dao.jdbc.h2.H2ChatMessageDAO;
-import com.l2jserver.model.dao.jdbc.h2.H2ClanDAO;
-import com.l2jserver.model.dao.jdbc.h2.H2ItemDAO;
-import com.l2jserver.model.dao.jdbc.h2.H2NPCDAO;
+import com.l2jserver.service.database.jdbc.h2.H2CharacterDAO;
+import com.l2jserver.service.database.jdbc.h2.H2CharacterFriendDAO;
+import com.l2jserver.service.database.jdbc.h2.H2ChatMessageDAO;
+import com.l2jserver.service.database.jdbc.h2.H2ClanDAO;
+import com.l2jserver.service.database.jdbc.h2.H2ItemDAO;
+import com.l2jserver.service.database.jdbc.h2.H2NPCDAO;
 
 /**
  * Google Guice {@link Module} for H2 DAOs

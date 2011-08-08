@@ -14,26 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao.jdbc.mysql5;
+package com.l2jserver.service.database.jdbc.h2;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.dao.ItemDAO;
-import com.l2jserver.model.dao.jdbc.JDBCItemDAO;
+import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.object.provider.ItemIDProvider;
-import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
+import com.l2jserver.model.id.provider.ChatMessageIDProvider;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.JDBCChatMessageDAO;
 
 /**
- * {@link ItemDAO} implementation for MySQL5
+ * {@link ChatMessageDAO} implementation for H2 database
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ItemDAO extends JDBCItemDAO implements ItemDAO {
+public class H2ChatMessageDAO extends JDBCChatMessageDAO implements
+		ChatMessageDAO {
 	@Inject
-	public MySQL5ItemDAO(DatabaseService database, ItemIDProvider idFactory,
-			ItemTemplateIDProvider templateIdFactory,
-			CharacterIDProvider charIdFactory) {
-		super(database, idFactory, templateIdFactory, charIdFactory);
+	public H2ChatMessageDAO(DatabaseService database,
+			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {
+		super(database, idFactory, charIdFactory);
 	}
 }

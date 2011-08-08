@@ -14,25 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao.jdbc.h2;
+package com.l2jserver.service.database.jdbc.h2;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.dao.CharacterDAO;
-import com.l2jserver.model.dao.ClanDAO;
-import com.l2jserver.model.dao.jdbc.JDBCClanDAO;
+import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.object.provider.ClanIDProvider;
+import com.l2jserver.model.id.object.provider.ItemIDProvider;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.JDBCItemDAO;
 
 /**
- * {@link CharacterDAO} implementation for MySQL5
+ * {@link ItemDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class H2ClanDAO extends JDBCClanDAO implements ClanDAO {
+public class H2ItemDAO extends JDBCItemDAO implements ItemDAO {
 	@Inject
-	public H2ClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
-			CharacterIDProvider idFactory) {
-		super(database, clanIdFactory, idFactory);
+	public H2ItemDAO(DatabaseService database, ItemIDProvider idFactory,
+			ItemTemplateIDProvider templateIdFactory,
+			CharacterIDProvider charIdFactory) {
+		super(database, idFactory, templateIdFactory, charIdFactory);
 	}
 }

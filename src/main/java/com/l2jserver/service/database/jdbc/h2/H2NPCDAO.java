@@ -14,25 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao.jdbc.mysql5;
+package com.l2jserver.service.database.jdbc.h2;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.dao.ChatMessageDAO;
-import com.l2jserver.model.dao.jdbc.JDBCChatMessageDAO;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.provider.ChatMessageIDProvider;
+import com.l2jserver.model.dao.CharacterDAO;
+import com.l2jserver.model.dao.NPCDAO;
+import com.l2jserver.model.id.object.provider.NPCIDProvider;
+import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.JDBCNPCDAO;
 
 /**
- * {@link ChatMessageDAO} implementation for MySQL5
+ * {@link CharacterDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ChatMessageDAO extends JDBCChatMessageDAO implements
-		ChatMessageDAO {
+public class H2NPCDAO extends JDBCNPCDAO implements NPCDAO {
 	@Inject
-	public MySQL5ChatMessageDAO(DatabaseService database,
-			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {
-		super(database, idFactory, charIdFactory);
+	public H2NPCDAO(DatabaseService database, NPCIDProvider idProvider,
+			NPCTemplateIDProvider templateIdProvider) {
+		super(database, idProvider, templateIdProvider);
 	}
 }

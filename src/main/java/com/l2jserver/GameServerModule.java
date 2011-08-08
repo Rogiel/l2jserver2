@@ -18,9 +18,9 @@ package com.l2jserver;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
-import com.l2jserver.model.MySQL5DAOModule;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.service.ServiceModule;
+import com.l2jserver.service.database.MySQL5DAOModule;
 
 /**
  * The game server Google Guice {@link Module}.

@@ -23,7 +23,6 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.l2jserver.model.H2DAOModule;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
@@ -33,6 +32,7 @@ import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.H2DAOModule;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 

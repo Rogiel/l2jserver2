@@ -14,35 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao.jdbc;
+package com.l2jserver.service.database.jdbc.h2;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.Model;
-import com.l2jserver.model.id.ID;
-import com.l2jserver.service.database.AbstractDAO;
+import com.l2jserver.model.dao.CharacterFriendDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.FriendIDProvider;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.JDBCDatabaseService;
+import com.l2jserver.service.database.jdbc.JDBCCharacterFriendDAO;
 
 /**
- * {@link AbstractDAO} for JDBC DAO implementation
+ * {@link CharacterFriendDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
- * @param <T>
- *            the object for the DAO
- * @param <I>
- *            the object ID type
  */
-public abstract class AbstractJDBCDAO<T extends Model<?>, I extends ID<?>>
-		extends AbstractDAO<T, I> {
-	/**
-	 * The JDBC Database Service
-	 */
-	protected final JDBCDatabaseService database;
-
+public class H2CharacterFriendDAO extends JDBCCharacterFriendDAO implements
+		CharacterFriendDAO {
 	@Inject
-	protected AbstractJDBCDAO(DatabaseService database) {
-		super(database);
-		this.database = (JDBCDatabaseService) database;
+	public H2CharacterFriendDAO(DatabaseService database,
+			FriendIDProvider idProvider, CharacterIDProvider charIdProvider) {
+		super(database, idProvider, charIdProvider);
 	}
 }

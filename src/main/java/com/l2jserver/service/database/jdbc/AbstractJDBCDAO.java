@@ -14,25 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao.jdbc.h2;
+package com.l2jserver.service.database.jdbc;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.dao.ChatMessageDAO;
-import com.l2jserver.model.dao.jdbc.JDBCChatMessageDAO;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.provider.ChatMessageIDProvider;
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
+import com.l2jserver.service.database.AbstractDAO;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.JDBCDatabaseService;
 
 /**
- * {@link ChatMessageDAO} implementation for H2 database
+ * {@link AbstractDAO} for JDBC DAO implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <T>
+ *            the object for the DAO
+ * @param <I>
+ *            the object ID type
  */
-public class H2ChatMessageDAO extends JDBCChatMessageDAO implements
-		ChatMessageDAO {
+public abstract class AbstractJDBCDAO<T extends Model<?>, I extends ID<?>>
+		extends AbstractDAO<T, I> {
+	/**
+	 * The JDBC Database Service
+	 */
+	protected final JDBCDatabaseService database;
+
 	@Inject
-	public H2ChatMessageDAO(DatabaseService database,
-			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {
-		super(database, idFactory, charIdFactory);
+	protected AbstractJDBCDAO(DatabaseService database) {
+		super(database);
+		this.database = (JDBCDatabaseService) database;
 	}
 }

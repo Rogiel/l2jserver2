@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model;
+package com.l2jserver.service.database;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
@@ -25,12 +25,12 @@ import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.model.dao.jdbc.mysql5.MySQL5CharacterDAO;
-import com.l2jserver.model.dao.jdbc.mysql5.MySQL5CharacterFriendDAO;
-import com.l2jserver.model.dao.jdbc.mysql5.MySQL5ChatMessageDAO;
-import com.l2jserver.model.dao.jdbc.mysql5.MySQL5ClanDAO;
-import com.l2jserver.model.dao.jdbc.mysql5.MySQL5ItemDAO;
-import com.l2jserver.model.dao.jdbc.mysql5.MySQL5NPCDAO;
+import com.l2jserver.service.database.jdbc.mysql5.MySQL5CharacterDAO;
+import com.l2jserver.service.database.jdbc.mysql5.MySQL5CharacterFriendDAO;
+import com.l2jserver.service.database.jdbc.mysql5.MySQL5ChatMessageDAO;
+import com.l2jserver.service.database.jdbc.mysql5.MySQL5ClanDAO;
+import com.l2jserver.service.database.jdbc.mysql5.MySQL5ItemDAO;
+import com.l2jserver.service.database.jdbc.mysql5.MySQL5NPCDAO;
 
 /**
  * Google Guice {@link Module} for MySQL5 DAOs

@@ -14,25 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao.jdbc.mysql5;
+package com.l2jserver.service.database.jdbc.h2;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.dao.CharacterDAO;
-import com.l2jserver.model.dao.ClanDAO;
-import com.l2jserver.model.dao.jdbc.JDBCClanDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ClanIDProvider;
+import com.l2jserver.model.id.provider.AccountIDProvider;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.JDBCCharacterDAO;
 
 /**
  * {@link CharacterDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5ClanDAO extends JDBCClanDAO implements ClanDAO {
+public class H2CharacterDAO extends JDBCCharacterDAO implements CharacterDAO {
 	@Inject
-	public MySQL5ClanDAO(DatabaseService database,
-			ClanIDProvider clanIdFactory, CharacterIDProvider idFactory) {
-		super(database, clanIdFactory, idFactory);
+	public H2CharacterDAO(DatabaseService database,
+			CharacterIDProvider idFactory,
+			CharacterTemplateIDProvider templateIdFactory,
+			AccountIDProvider accountIdFactory, ClanIDProvider clanIdFactory) {
+		super(database, idFactory, templateIdFactory, accountIdFactory,
+				clanIdFactory);
 	}
 }
