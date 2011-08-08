@@ -14,37 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.id.object;
+package com.l2jserver.model.dao.jdbc.mysql5;
 
 import com.google.inject.Inject;
-import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.dao.CharacterDAO;
-import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.id.provider.IDProvider;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.dao.jdbc.JDBCCharacterDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.object.provider.ClanIDProvider;
+import com.l2jserver.model.id.provider.AccountIDProvider;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * An {@link ObjectID} instance representing an {@link L2Character} object
- * <p>
- * Please, do not directly instantiate this class, use an {@link IDProvider}
- * instead.
+ * {@link CharacterDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public final class CharacterID extends ActorID<L2Character> {
-	/**
-	 * Data Access Object (DAO) for characters
-	 */
-	private transient final CharacterDAO characterDao;
-
+public class MySQL5CharacterDAO extends JDBCCharacterDAO implements
+		CharacterDAO {
 	@Inject
-	public CharacterID(@Assisted int id, CharacterDAO characterDao) {
-		super(id);
-		this.characterDao = characterDao;
-	}
-
-	@Override
-	public L2Character getObject() {
-		return characterDao.select(this);
+	public MySQL5CharacterDAO(DatabaseService database,
+			CharacterIDProvider idFactory,
+			CharacterTemplateIDProvider templateIdFactory,
+			AccountIDProvider accountIdFactory, ClanIDProvider clanIdFactory) {
+		super(database, idFactory, templateIdFactory, accountIdFactory,
+				clanIdFactory);
 	}
 }

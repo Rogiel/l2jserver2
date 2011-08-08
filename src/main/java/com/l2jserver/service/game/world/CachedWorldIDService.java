@@ -20,9 +20,9 @@ import java.util.Collection;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
-import com.l2jserver.db.dao.CharacterDAO;
-import com.l2jserver.db.dao.ItemDAO;
-import com.l2jserver.db.dao.NPCDAO;
+import com.l2jserver.model.dao.CharacterDAO;
+import com.l2jserver.model.dao.ItemDAO;
+import com.l2jserver.model.dao.NPCDAO;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;

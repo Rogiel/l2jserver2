@@ -14,37 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.id.object;
+package com.l2jserver.model.dao.jdbc;
 
 import com.google.inject.Inject;
-import com.google.inject.assistedinject.Assisted;
-import com.l2jserver.model.dao.CharacterDAO;
-import com.l2jserver.model.id.ObjectID;
-import com.l2jserver.model.id.provider.IDProvider;
-import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
+import com.l2jserver.service.database.AbstractDAO;
+import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.JDBCDatabaseService;
 
 /**
- * An {@link ObjectID} instance representing an {@link L2Character} object
- * <p>
- * Please, do not directly instantiate this class, use an {@link IDProvider}
- * instead.
+ * {@link AbstractDAO} for JDBC DAO implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <T>
+ *            the object for the DAO
+ * @param <I>
+ *            the object ID type
  */
-public final class CharacterID extends ActorID<L2Character> {
+public abstract class AbstractJDBCDAO<T extends Model<?>, I extends ID<?>>
+		extends AbstractDAO<T, I> {
 	/**
-	 * Data Access Object (DAO) for characters
+	 * The JDBC Database Service
 	 */
-	private transient final CharacterDAO characterDao;
+	protected final JDBCDatabaseService database;
 
 	@Inject
-	public CharacterID(@Assisted int id, CharacterDAO characterDao) {
-		super(id);
-		this.characterDao = characterDao;
-	}
-
-	@Override
-	public L2Character getObject() {
-		return characterDao.select(this);
+	protected AbstractJDBCDAO(DatabaseService database) {
+		super(database);
+		this.database = (JDBCDatabaseService) database;
 	}
 }

@@ -18,7 +18,6 @@ package com.l2jserver.service.game.character;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
-import com.l2jserver.db.dao.ItemDAO;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
@@ -29,6 +28,7 @@ import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
+import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.model.world.Actor;

@@ -14,24 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.model.dao;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.MySQL5DAOModule;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
+import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.cache.Cacheable;
+import com.l2jserver.service.database.DataAccessObject;
 
 /**
- * The game server Google Guice {@link Module}.
+ * The {@link ItemDAO} is can load and save {@link Character character
+ * instances} .
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @author Rogiel
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new MySQL5DAOModule());
-	}
+public interface ItemDAO extends DataAccessObject<Item, ItemID>, Cacheable {
+	/**
+	 * Load the inventory for an {@link L2Character character}.
+	 * 
+	 * @param character
+	 *            the character
+	 * @return amount of items loaded
+	 */
+	int loadInventory(L2Character character);
 }

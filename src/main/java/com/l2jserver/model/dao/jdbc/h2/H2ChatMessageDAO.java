@@ -14,24 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.model.dao.jdbc.h2;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.MySQL5DAOModule;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
+import com.google.inject.Inject;
+import com.l2jserver.model.dao.ChatMessageDAO;
+import com.l2jserver.model.dao.jdbc.JDBCChatMessageDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.ChatMessageIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * The game server Google Guice {@link Module}.
+ * {@link ChatMessageDAO} implementation for H2 database
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new MySQL5DAOModule());
+public class H2ChatMessageDAO extends JDBCChatMessageDAO implements
+		ChatMessageDAO {
+	@Inject
+	public H2ChatMessageDAO(DatabaseService database,
+			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {
+		super(database, idFactory, charIdFactory);
 	}
 }

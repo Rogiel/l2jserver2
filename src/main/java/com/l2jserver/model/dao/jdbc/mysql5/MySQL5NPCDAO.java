@@ -14,24 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.model.dao.jdbc.mysql5;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.MySQL5DAOModule;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
+import com.google.inject.Inject;
+import com.l2jserver.model.dao.CharacterDAO;
+import com.l2jserver.model.dao.NPCDAO;
+import com.l2jserver.model.dao.jdbc.JDBCNPCDAO;
+import com.l2jserver.model.id.object.provider.NPCIDProvider;
+import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * The game server Google Guice {@link Module}.
+ * {@link CharacterDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new MySQL5DAOModule());
+public class MySQL5NPCDAO extends JDBCNPCDAO implements NPCDAO {
+	@Inject
+	public MySQL5NPCDAO(DatabaseService database, NPCIDProvider idProvider,
+			NPCTemplateIDProvider templateIdProvider) {
+		super(database, idProvider, templateIdProvider);
 	}
 }

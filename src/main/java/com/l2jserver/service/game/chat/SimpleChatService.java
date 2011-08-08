@@ -21,7 +21,7 @@ import java.util.Set;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
-import com.l2jserver.db.dao.CharacterDAO;
+import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.server.ChatMessage;

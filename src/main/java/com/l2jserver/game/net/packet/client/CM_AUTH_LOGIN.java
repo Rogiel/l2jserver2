@@ -21,11 +21,11 @@ import java.util.List;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
-import com.l2jserver.db.dao.CharacterDAO;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2Session;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_LIST;
+import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.provider.AccountIDProvider;
 import com.l2jserver.model.world.L2Character;

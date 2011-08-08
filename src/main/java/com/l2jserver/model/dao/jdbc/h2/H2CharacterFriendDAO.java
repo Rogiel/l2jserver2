@@ -14,24 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.model.dao.jdbc.h2;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.MySQL5DAOModule;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
+import com.google.inject.Inject;
+import com.l2jserver.model.dao.CharacterFriendDAO;
+import com.l2jserver.model.dao.jdbc.JDBCCharacterFriendDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.FriendIDProvider;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
- * The game server Google Guice {@link Module}.
+ * {@link CharacterFriendDAO} implementation for MySQL5
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new MySQL5DAOModule());
+public class H2CharacterFriendDAO extends JDBCCharacterFriendDAO implements
+		CharacterFriendDAO {
+	@Inject
+	public H2CharacterFriendDAO(DatabaseService database,
+			FriendIDProvider idProvider, CharacterIDProvider charIdProvider) {
+		super(database, idProvider, charIdProvider);
 	}
 }

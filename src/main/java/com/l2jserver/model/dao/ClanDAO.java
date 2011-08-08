@@ -14,24 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.model.dao;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.MySQL5DAOModule;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
+import com.l2jserver.model.id.object.ClanID;
+import com.l2jserver.model.world.Clan;
+import com.l2jserver.service.cache.Cacheable;
+import com.l2jserver.service.database.DataAccessObject;
 
 /**
- * The game server Google Guice {@link Module}.
+ * The {@link ClanDAO} is can load and save {@link Clan clan instances}.
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @author Rogiel
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new MySQL5DAOModule());
-	}
+public interface ClanDAO extends DataAccessObject<Clan, ClanID>, Cacheable {
 }

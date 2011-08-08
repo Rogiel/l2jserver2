@@ -19,7 +19,7 @@ package com.l2jserver.service.game.chat;
 import java.util.Date;
 
 import com.google.inject.Inject;
-import com.l2jserver.db.dao.ChatMessageDAO;
+import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.server.ChatMessage;

@@ -24,7 +24,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.l2jserver.GameServerModule;
-import com.l2jserver.db.dao.CharacterDAO;
+import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.ServiceManager;

@@ -18,7 +18,7 @@ package com.l2jserver.model.id.object;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import com.l2jserver.db.dao.ItemDAO;
+import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.world.Item;
