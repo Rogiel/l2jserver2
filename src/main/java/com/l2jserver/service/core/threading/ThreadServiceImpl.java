@@ -60,6 +60,8 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	@Override
 	public <T> AsyncFuture<T> async(Callable<T> callable) {
 		Preconditions.checkNotNull(callable, "callable");
+
+		log.debug("Scheduling async task: {}", callable);
 		return pool.async(callable);
 	}
 
@@ -69,6 +71,9 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		Preconditions.checkArgument(delay >= 0, "delay < 0");
 		Preconditions.checkNotNull(unit, "unit");
 		Preconditions.checkNotNull(callable, "callable");
+
+		log.debug("Scheduling async task in {}ms: {}", unit.toMillis(delay),
+				callable);
 		return pool.async(delay, unit, callable);
 	}
 
@@ -79,17 +84,22 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		Preconditions.checkArgument(repeat >= 0, "repeat < 0");
 		Preconditions.checkNotNull(unit, "unit");
 		Preconditions.checkNotNull(task, "task");
+
+		log.debug("Scheduling repeating async task in {}ms each {}ms: {}", new Object[] {
+				unit.toMillis(delay), unit.toMillis(repeat), task });
 		return pool.async(delay, unit, repeat, task);
 	}
 
 	@Override
 	public ThreadPool createThreadPool(String name, int maxThreads) {
+		log.debug("Creating new ThreadPool {} with maximum of {} threads", name, maxThreads);
 		return new ThreadPoolImpl(name,
 				Executors.newScheduledThreadPool(maxThreads));
 	}
 
 	@Override
 	public void dispose(ThreadPool pool) {
+		log.debug("Disposing ThreadPool {}", pool);
 		if (pool instanceof ThreadPoolImpl)
 			((ThreadPoolImpl) pool).executor.shutdown();
 		throw new UnsupportedOperationException(

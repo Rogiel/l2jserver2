@@ -29,6 +29,9 @@ import net.sf.ehcache.config.Configuration;
 import net.sf.ehcache.config.DiskStoreConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
@@ -41,6 +44,11 @@ import com.l2jserver.service.ServiceStopException;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class EhCacheService extends AbstractService implements CacheService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The cache manager
 	 */
@@ -64,6 +72,8 @@ public class EhCacheService extends AbstractService implements CacheService {
 		Preconditions.checkNotNull(instance, "instance");
 		Preconditions.checkArgument(interfaceType.isInterface(),
 				"interfaceType is not an interface");
+
+		log.debug("Decorating {} with cache", interfaceType);
 
 		@SuppressWarnings("unchecked")
 		final T proxy = (T) Proxy.newProxyInstance(this.getClass()
@@ -94,42 +104,12 @@ public class EhCacheService extends AbstractService implements CacheService {
 		return proxy;
 	}
 
-	// @Override
-	// public Cache createCache(String name, int size) {
-	// Preconditions.checkNotNull(name, "name");
-	// Preconditions.checkArgument(size > 0, "size <= 0");
-	//
-	// Cache cache = new Cache(new CacheConfiguration(name, size)
-	// .memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.LRU)
-	// .overflowToDisk(true).eternal(false).timeToLiveSeconds(60)
-	// .timeToIdleSeconds(30).diskPersistent(false)
-	// .diskExpiryThreadIntervalSeconds(0));
-	// register(cache);
-	// return cache;
-	// }
-	//
-	// @Override
-	// public Cache createCache(String name) {
-	// Preconditions.checkNotNull(name, "name");
-	// return createCache(name, 200);
-	// }
-	//
-	// @Override
-	// public void register(Cache cache) {
-	// Preconditions.checkNotNull(cache, "cache");
-	// manager.addCache(cache);
-	// }
-	//
-	// @Override
-	// public void unregister(Cache cache) {
-	// Preconditions.checkNotNull(cache, "cache");
-	// manager.removeCache(cache.getName());
-	// }
-
 	@Override
 	public <K, V> Cache<K, V> createCache(String name, int size) {
 		Preconditions.checkNotNull(name, "name");
 		Preconditions.checkArgument(size > 0, "size <= 0");
+
+		log.debug("Creating cache {} with minimum size of {}", name, size);
 
 		net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(
 				new CacheConfiguration(name, size)
@@ -148,6 +128,9 @@ public class EhCacheService extends AbstractService implements CacheService {
 		Preconditions.checkNotNull(name, "name");
 		Preconditions.checkArgument(size > 0, "size <= 0");
 
+		log.debug("Creating eternal cache {} with minimum size of {}", name,
+				size);
+
 		net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(
 				new CacheConfiguration(name, size)
 						.memoryStoreEvictionPolicy(
@@ -160,20 +143,16 @@ public class EhCacheService extends AbstractService implements CacheService {
 
 	@Override
 	public <K, V> Cache<K, V> createCache(String name) {
-		net.sf.ehcache.Cache cache = new net.sf.ehcache.Cache(
-				new CacheConfiguration(name, 200)
-						.memoryStoreEvictionPolicy(
-								MemoryStoreEvictionPolicy.LRU)
-						.overflowToDisk(true).eternal(true)
-						.diskExpiryThreadIntervalSeconds(0));
-		manager.addCache(cache);
-		return new EhCacheFacade<K, V>(cache);
+		return createCache(name, 200);
 	}
 
 	@Override
 	public <K, V> void dispose(Cache<K, V> cache) {
 		if (cache instanceof EhCacheFacade) {
+			log.debug("Disposing cache {}", cache);
 			manager.removeCache(((EhCacheFacade<K, V>) cache).cache.getName());
+		} else {
+			log.warn("Trying to dispose {} cache when it is not EhCacheFacade type");
 		}
 	}
 

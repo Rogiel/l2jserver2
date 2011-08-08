@@ -16,6 +16,9 @@
  */
 package com.l2jserver.service.game;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.service.AbstractService;
 
 /**
@@ -25,6 +28,12 @@ import com.l2jserver.service.AbstractService;
  */
 public class GameTimeServiceImpl extends AbstractService implements
 		GameTimeService {
+	/**
+	 * The logger
+	 */
+	@SuppressWarnings("unused")
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Override
 	public int getGameTime() {
 		return (int) (System.currentTimeMillis() % GAME_DAY) / 1000;

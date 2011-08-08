@@ -24,6 +24,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
@@ -36,6 +39,11 @@ import com.l2jserver.service.ServiceStopException;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class WeakCacheService extends AbstractService implements CacheService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The interface cache
 	 */
@@ -53,6 +61,8 @@ public class WeakCacheService extends AbstractService implements CacheService {
 		Preconditions.checkNotNull(instance, "instance");
 		Preconditions.checkArgument(interfaceType.isInterface(),
 				"interfaceType is not an interface");
+
+		log.debug("Decorating {} with cache", interfaceType);
 
 		@SuppressWarnings("unchecked")
 		final T proxy = (T) Proxy.newProxyInstance(this.getClass()
@@ -85,21 +95,25 @@ public class WeakCacheService extends AbstractService implements CacheService {
 
 	@Override
 	public <K, V> Cache<K, V> createCache(String name, int size) {
+		log.debug("Creating cache {} with minimum size of {}", name, size);
 		return new WeakCache<K, V>(name);
 	}
 
 	@Override
 	public <K, V> Cache<K, V> createEternalCache(String name, int size) {
+		log.debug("Creating eternal cache {} with minimum size of {}", name,
+				size);
 		return new EternalCache<K, V>(name);
 	}
 
 	@Override
 	public <K, V> Cache<K, V> createCache(String name) {
-		return new WeakCache<K, V>(name);
+		return createCache(name, 200);
 	}
 
 	@Override
 	public <K, V> void dispose(Cache<K, V> cache) {
+		log.debug("Disposing {}", cache);
 		cache.clear();
 	}
 

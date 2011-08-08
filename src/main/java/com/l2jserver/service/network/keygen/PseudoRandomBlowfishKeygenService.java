@@ -18,6 +18,9 @@ package com.l2jserver.service.network.keygen;
 
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
@@ -31,6 +34,11 @@ import com.l2jserver.service.ServiceStopException;
 public class PseudoRandomBlowfishKeygenService extends AbstractService
 		implements BlowfishKeygenService {
 	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	/**
 	 * The random number generator
 	 */
 	private Random random;
@@ -42,6 +50,8 @@ public class PseudoRandomBlowfishKeygenService extends AbstractService
 
 	@Override
 	public byte[] generate() {
+		log.debug("Generating a new key");
+		
 		final byte[] key = new byte[16];
 		// randomize the 8 first bytes
 		for (int i = 0; i < key.length; i++) {

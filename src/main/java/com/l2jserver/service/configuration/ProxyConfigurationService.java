@@ -59,8 +59,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	/**
 	 * The logger
 	 */
-	private final Logger logger = LoggerFactory
-			.getLogger(ProxyConfigurationService.class);
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
 	 * The cache of configuration objects
@@ -81,13 +80,13 @@ public class ProxyConfigurationService extends AbstractService implements
 
 		if (cache.containsKey(config))
 			return (C) cache.get(config);
-		logger.debug("Trying to create {} proxy", config);
+		log.debug("Trying to create {} proxy", config);
 		Properties properties;
 		try {
 			properties = findProperties(config);
 		} catch (IOException e) {
 			properties = new Properties();
-			logger.warn(
+			log.warn(
 					"Configuration file for {} not found, falling back to default values",
 					config);
 		}
@@ -114,7 +113,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		@Override
 		public Object invoke(Object proxy, Method method, Object[] args)
 				throws Throwable {
-			logger.debug("Configuration service, method invoked: {}",
+			log.debug("Configuration service, method invoked: {}",
 					method.getName());
 			if (args == null || args.length == 0) {
 				final ConfigurationPropertyGetter getter = method

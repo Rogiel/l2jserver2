@@ -19,6 +19,9 @@ package com.l2jserver.service.game.spawn;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
@@ -55,6 +58,11 @@ import com.l2jserver.util.geometry.Point3D;
  */
 @Depends({ WorldService.class, NetworkService.class, ThreadService.class })
 public class SpawnServiceImpl extends AbstractService implements SpawnService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The {@link WorldService}
 	 */
@@ -101,6 +109,8 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			throw new SpawnPointNotFoundServiceException();
 		}
 
+		log.debug("Spawning {} at {}", object, point);
+
 		// set the spawning point
 		if (updatePoint)
 			object.setPoint(point);
@@ -135,6 +145,10 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkArgument(time > 0, "time < 0");
 		Preconditions.checkNotNull(unit, "unit");
+
+		log.debug("Scheduling spawn of {} at {} in {}ms", new Object[] {
+				object, point, unit.toMillis(time) });
+
 		return threadService.async(time, unit, new Callable<T>() {
 			@Override
 			public T call() throws Exception {
@@ -156,6 +170,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		if (!worldService.remove(object))
 			throw new NotSpawnedServiceException();
 
+		log.debug("Unspawning {}", object);
 		final Point3D point = object.getPoint();
 
 		// create the SpawnEvent
@@ -180,6 +195,10 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkArgument(time > 0, "time <= 0");
 		Preconditions.checkNotNull(unit, "unit");
+
+		log.debug("Scheduling unspawn of {} in {}ms", object,
+				unit.toMillis(time));
+
 		return threadService.async(time, unit, new Callable<T>() {
 			@Override
 			public T call() throws Exception {
@@ -194,6 +213,10 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			throws CharacterAlreadyTeleportingServiceException {
 		Preconditions.checkNotNull(player, "player");
 		Preconditions.checkNotNull(coordinate, "coordinate");
+		
+		log.debug("Teleporting {} to {}", player,
+				coordinate);
+		
 		if (player instanceof L2Character) {
 			if (((L2Character) player).isTeleporting())
 				throw new CharacterAlreadyTeleportingServiceException();
@@ -225,6 +248,8 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 		if (!character.isTeleporting())
 			throw new CharacterNotTeleportingServiceException();
+		
+		log.debug("Finishing teleport of {}", character);
 
 		character.setState(null);
 		character.setPoint(character.getTargetLocation());

@@ -16,6 +16,9 @@
  */
 package com.l2jserver.service.game.ai;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.inject.Inject;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.service.AbstractService;
@@ -37,6 +40,12 @@ import com.l2jserver.util.geometry.Coordinate;
 @Depends({ WorldService.class, TemplateService.class, ThreadService.class,
 		NetworkService.class })
 public class AIServiceImpl extends AbstractService implements AIService {
+	/**
+	 * The logger
+	 */
+	@SuppressWarnings("unused")
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * The {@link WorldService}
 	 */

@@ -18,6 +18,9 @@ package com.l2jserver.service.game.admin;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.id.object.CharacterID;
@@ -31,12 +34,18 @@ import com.l2jserver.service.game.admin.panel.AdminHomeTemplate;
  */
 public class AdministratorServiceImpl extends AbstractService implements
 		AdministratorService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@SuppressWarnings("unused")
 	private List<CharacterID> online;
 
 	@Override
 	public void command(Lineage2Client conn, L2Character character,
 			String command, String... args) {
+		log.debug("{} is opening admin control panel", character);
 		conn.write(new SM_HTML(null, new AdminHomeTemplate()));
 	}
 }

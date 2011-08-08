@@ -16,6 +16,9 @@
  */
 package com.l2jserver.service.network.broadcast;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
@@ -61,6 +64,11 @@ import com.l2jserver.util.geometry.Point3D;
 @Depends({ NetworkService.class, WorldService.class })
 public class BroadcastServiceImpl extends AbstractService implements
 		BroadcastService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	private final WorldService worldService;
 	private final WorldEventDispatcher eventDispatcher;
 
@@ -77,6 +85,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 		final L2Character character = conn.getCharacter();
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
+		
+		log.debug("Starting character broadcast");
 
 		// broadcast everything nearby
 		// broadcast(conn);
@@ -89,6 +99,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 				new KnownListFilter(character)) {
 			@Override
 			protected boolean dispatch(WorldEvent e, PositionableObject object) {
+				log.debug("Broadcast event received: {}", e);
 				if (e instanceof NPCSpawnEvent) {
 					broadcast(conn, e.getObject());
 				} else if (e instanceof CharacterMoveEvent) {
@@ -123,6 +134,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 		final WorldListener sendPacketListener = new WorldListener() {
 			@Override
 			public boolean dispatch(WorldEvent e) {
+				log.debug("Broadcast event received: {}", e);
 				if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
 					// process update known list
@@ -153,6 +165,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 	 *            the character
 	 */
 	private void broadcastAll(Lineage2Client conn, L2Character character) {
+		log.debug("Broadcasting all near objects to {}", character);
 		for (final WorldObject o : worldService.iterable(new KnownListFilter(
 				character))) {
 			broadcast(conn, o);
@@ -172,6 +185,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 	 */
 	private void broadcastUpdate(Lineage2Client conn, L2Character character,
 			Point3D point) {
+		log.debug("Broadcasting only new near objects to {}", character);
 		for (final WorldObject o : worldService
 				.iterable(new KnownListUpdateFilter(character, point))) {
 			broadcast(conn, o);
@@ -187,6 +201,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 	 *            the character
 	 */
 	private void broadcast(Lineage2Client conn, WorldObject o) {
+		log.debug("Broadcasting {}  to {}", o, conn);
 		if (o instanceof NPC) {
 			conn.write(new SM_NPC_INFO((NPC) o));
 		} else if (o instanceof L2Character) {

@@ -23,6 +23,8 @@ import java.util.concurrent.Future;
 
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.util.concurrent.AbstractFuture;
 import com.l2jserver.game.net.Lineage2Client;
@@ -42,6 +44,11 @@ import com.l2jserver.util.factory.CollectionFactory;
 @Depends({ NetworkService.class })
 public class GameGuardServiceImpl extends AbstractService implements
 		GameGuardService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * The static key used to validate game guards
 	 */
@@ -81,6 +88,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 
 	@Override
 	public Future<GameGuardResponse> query(final Lineage2Client conn) {
+		log.debug("Quering client for GameGuard authentication key");
 		conn.write(new SM_GG_QUERY(STATIC_KEY)).addListener(
 				new ChannelFutureListener() {
 					@Override
@@ -98,6 +106,8 @@ public class GameGuardServiceImpl extends AbstractService implements
 
 	@Override
 	public GameGuardResponse key(Lineage2Client conn, byte[] key) {
+		log.debug("GameGuard authentication key received for {}", conn);
+		
 		final GGFuture future = futures.remove(conn);
 		final boolean validated = validate(conn, key);
 		final GameGuardResponse response = (validated ? GameGuardResponse.VALID

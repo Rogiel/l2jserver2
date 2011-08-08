@@ -230,6 +230,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		Preconditions.checkNotNull(query, "query");
 		try {
 			final Connection conn = dataSource.getConnection();
+			log.debug("Executing query {} with {}", query, conn);
 			try {
 				return query.query(conn);
 			} catch (SQLException e) {
@@ -246,22 +247,26 @@ public class JDBCDatabaseService extends AbstractService implements
 
 	public Object getCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
+		log.debug("Fetching cached object {}", id);
 		return objectCache.get(id);
 	}
 
 	public boolean hasCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
+		log.debug("Locating cached object {}", id);
 		return objectCache.contains(id);
 	}
 
 	public void updateCache(ID<?> key, Model<?> value) {
 		Preconditions.checkNotNull(key, "key");
 		Preconditions.checkNotNull(value, "value");
+		log.debug("Updating cached object {} with {}", key, value);
 		objectCache.put(key, value);
 	}
 
 	public void removeCache(Object key) {
 		Preconditions.checkNotNull(key, "key");
+		log.debug("Removing cached object {}", key);
 		objectCache.remove(key);
 	}
 
@@ -321,6 +326,12 @@ public class JDBCDatabaseService extends AbstractService implements
 	 *            the query return type
 	 */
 	public static abstract class InsertUpdateQuery<T> implements Query<Integer> {
+		/**
+		 * The logger
+		 */
+		private final Logger log = LoggerFactory
+				.getLogger(InsertUpdateQuery.class);
+		
 		private final Iterator<T> iterator;
 
 		/**
@@ -347,24 +358,39 @@ public class JDBCDatabaseService extends AbstractService implements
 		@Override
 		public Integer query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
+			
+			log.debug("Starting INSERT/UPDATE query execution");
+			
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
-				final PreparedStatement st = conn.prepareStatement(query(),
+				final String queryString = query();
+				
+				log.debug("Preparing statement for {}: {}", object, queryString);
+				final PreparedStatement st = conn.prepareStatement(queryString,
 						Statement.RETURN_GENERATED_KEYS);
+				
+				log.debug("Parametizing statement {} with {}", st, object);
 				this.parametize(st, object);
+				
+				log.debug("Sending query to database for {}", object);
 				rows += st.executeUpdate();
+				log.debug("Query inserted or updated {} rows for {}", rows, object);
 
 				// update object desire --it has been realized
 				if (object instanceof Model && rows > 0) {
+					log.debug("Updating Model ObjectDesire to NONE");
 					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 
 					final Mapper<? extends ID<?>> mapper = keyMapper();
 					if (mapper == null)
 						continue;
 					final ResultSet rs = st.getGeneratedKeys();
+					log.debug("Mapping generated keys with {} using {}", mapper, rs);
 					while (rs.next()) {
-						((Model<ID<?>>) object).setID(mapper.map(rs));
+						final ID<?> generatedID = mapper.map(rs);
+						log.debug("Generated ID for {} is {}", object, generatedID);
+						((Model<ID<?>>) object).setID(generatedID);
 						mapper.map(rs);
 					}
 				}
@@ -413,20 +439,42 @@ public class JDBCDatabaseService extends AbstractService implements
 	 *            the query return type
 	 */
 	public static abstract class SelectListQuery<T> implements Query<List<T>> {
+		/**
+		 * The logger
+		 */
+		private final Logger log = LoggerFactory
+				.getLogger(SelectListQuery.class);
+		
 		@Override
 		public List<T> query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
+			
+			log.debug("Starting SELECT List<?> query execution");
+			
+			final String queryString = query();
+			log.debug("Preparing statement with {}", queryString);
 			final PreparedStatement st = conn.prepareStatement(query());
+			
+			log.debug("Parametizing statement {}", st);
 			parametize(st);
+			
+			log.debug("Sending query to database for {}", st);
 			st.execute();
+			
 			final List<T> list = CollectionFactory.newList();
 			final ResultSet rs = st.getResultSet();
+			final Mapper<T> mapper = mapper();
+			log.debug("Database returned {}", rs);
 			while (rs.next()) {
-				final T obj = mapper().map(rs);
-				if (obj == null)
+				log.debug("Mapping row with {}", mapper);
+				final T obj = mapper.map(rs);
+				if (obj == null) {
+					log.debug("Mapper {} returned a null row", mapper);
 					continue;
+				}
 				if (obj instanceof Model)
 					((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
+				log.debug("Mapper {} returned {}", mapper, obj);
 				list.add(obj);
 			}
 			return list;
@@ -473,17 +521,37 @@ public class JDBCDatabaseService extends AbstractService implements
 	 *            the query return type
 	 */
 	public static abstract class SelectSingleQuery<T> implements Query<T> {
+		/**
+		 * The logger
+		 */
+		private final Logger log = LoggerFactory
+				.getLogger(SelectSingleQuery.class);
+		
 		@Override
 		public T query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
+			
+			log.debug("Starting SELECT single query execution");
+			
+			final String queryString = query();
+			log.debug("Preparing statement with {}", queryString);
 			final PreparedStatement st = conn.prepareStatement(query());
+			
+			log.debug("Parametizing statement {}", st);
 			parametize(st);
+			
+			log.debug("Sending query to database for {}", st);
 			st.execute();
+			
 			final ResultSet rs = st.getResultSet();
+			final Mapper<T> mapper = mapper();
+			log.debug("Database returned {}", rs);
 			while (rs.next()) {
-				final T object = mapper().map(rs);
+				log.debug("Mapping row {} with {}", rs, mapper);
+				final T object = mapper.map(rs);
 				if (object instanceof Model)
 					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
+				log.debug("Mapper {} returned {}", mapper, object);
 				return object;
 			}
 			return null;
@@ -558,6 +626,12 @@ public class JDBCDatabaseService extends AbstractService implements
 	public abstract static class CachedMapper<T extends Model<?>, I extends ID<?>>
 			implements Mapper<T> {
 		/**
+		 * The logger
+		 */
+		private final Logger log = LoggerFactory
+				.getLogger(SelectSingleQuery.class);
+		
+		/**
 		 * The database service instance
 		 */
 		private final JDBCDatabaseService database;
@@ -578,15 +652,21 @@ public class JDBCDatabaseService extends AbstractService implements
 		@Override
 		@SuppressWarnings("unchecked")
 		public final T map(ResultSet rs) throws SQLException {
+			log.debug("Mapping row {} ID with {}", rs, idMapper);
 			final I id = idMapper.map(rs);
 			Preconditions.checkNotNull(id, "id");
+			
+			log.debug("ID={}, locating cached object", id);
 
 			if (database.hasCachedObject(id))
 				return (T) database.getCachedObject(id);
+			
+			log.debug("Cached object not found, creating...");
 
 			final T object = map(id, rs);
 			if (object != null)
 				database.updateCache(id, object);
+			log.debug("Object {} created", object);
 			return object;
 		}
 

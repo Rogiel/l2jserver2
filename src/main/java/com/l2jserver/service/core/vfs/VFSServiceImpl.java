@@ -66,6 +66,7 @@ public class VFSServiceImpl extends AbstractService implements VFSService {
 
 	@Override
 	public FileObject resolve(String uri) {
+		log.debug("Resolving file {}", uri);
 		try {
 			return manager.resolveFile(uri);
 		} catch (FileSystemException e) {

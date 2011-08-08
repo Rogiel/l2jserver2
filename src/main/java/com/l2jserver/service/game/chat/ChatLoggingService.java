@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.game.chat;
 
+import org.slf4j.Logger;
+
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.service.Service;
@@ -33,6 +35,9 @@ import com.l2jserver.service.Service;
  * <p>
  * <b>{@link ChatChannelFilter} will be called before logging can occur. If any
  * filter refuses the message, it will NOT be logged.</b>
+ * <p>
+ * This service, however, does not need to log the message using {@link Logger}
+ * object, because this is already done by {@link ChatService}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

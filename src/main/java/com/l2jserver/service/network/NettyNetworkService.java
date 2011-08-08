@@ -26,6 +26,8 @@ import org.jboss.netty.channel.ServerChannel;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.logging.InternalLoggerFactory;
 import org.jboss.netty.logging.Slf4JLoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
@@ -51,6 +53,11 @@ import com.l2jserver.util.factory.CollectionFactory;
 		WorldService.class })
 public class NettyNetworkService extends AbstractService implements
 		NetworkService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * The {@link WorldService} instance
 	 */
@@ -100,6 +107,9 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public void register(final Lineage2Client client) {
 		Preconditions.checkNotNull(client, "client");
+		
+		log.debug("Registering client: {}", client);
+		
 		clients.add(client);
 		client.getChannel().getCloseFuture()
 				.addListener(new ChannelFutureListener() {
@@ -114,12 +124,17 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public void unregister(Lineage2Client client) {
 		Preconditions.checkNotNull(client, "client");
+		
+		log.debug("Unregistering client: {}", client);
 		clients.remove(client);
 	}
 
 	@Override
 	public Lineage2Client discover(CharacterID character) {
 		Preconditions.checkNotNull(character, "character");
+		
+		log.debug("Discovering client object for {}", character);
+		
 		for (final Lineage2Client client : clients) {
 			if (character.equals(client.getCharacterID()))
 				return client;
@@ -130,6 +145,9 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public void broadcast(ServerPacket packet) {
 		Preconditions.checkNotNull(packet, "packet");
+		
+		log.debug("Broadcasting {} packet to all connected clients", packet);
+		
 		channel.write(packet);
 	}
 

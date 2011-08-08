@@ -169,6 +169,11 @@ public class CharacterServiceImpl extends AbstractService implements
 			throws CharacterInvalidNameException,
 			CharacterInvalidAppearanceException,
 			CharacterNameAlreadyExistsException {
+		log.debug(
+				"Requested creation of new character (name={}, sex={}, class={}, hairStyle={}, hairColor={}, face={})",
+				new Object[] { name, sex, characterClass, hairStyle, hairColor,
+						face });
+
 		if ((name.length() < 1) || (name.length() > 16)) {
 			throw new CharacterInvalidNameException();
 		}
@@ -180,6 +185,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			throw new CharacterInvalidAppearanceException();
 
 		// existence check
+		log.debug("Checking name existence {}", name);
 		final L2Character existenceCheck = characterDao.selectByName(name);
 		if (existenceCheck != null)
 			throw new CharacterNameAlreadyExistsException();
@@ -217,10 +223,17 @@ public class CharacterServiceImpl extends AbstractService implements
 			throws SpawnPointNotFoundServiceException,
 			AlreadySpawnedServiceException {
 		Preconditions.checkNotNull(character, "character");
+
+		log.debug("Character {} is entering world", character);
+
 		final CharacterID id = character.getID();
 		final Lineage2Client conn = networkService.discover(id);
-		if (conn == null)
+		if (conn == null) {
+			log.debug(
+					"Character {} cannot enter world, no Lineage2Client object found",
+					character);
 			return;
+		}
 
 		itemDao.loadInventory(character);
 
@@ -252,6 +265,10 @@ public class CharacterServiceImpl extends AbstractService implements
 				if (!(e instanceof CharacterLeaveWorldEvent))
 					return true;
 
+				log.debug(
+						"Character {} is leaving world, removing chat listeners",
+						character);
+
 				// remove chat listeners
 				chatService.getGlobalChannel().removeMessageListener(
 						globalChatListener);
@@ -276,10 +293,12 @@ public class CharacterServiceImpl extends AbstractService implements
 		ggService.query(conn);
 
 		// send this user information
+		log.debug("Sending character information packets");
 		conn.write(new SM_CHAR_INFO(character));
 		conn.write(new SM_CHAR_INFO_EXTRA(character));
 		conn.write(new SM_CHAR_INVENTORY(character.getInventory()));
 
+		log.debug("Sending greeting message to client");
 		conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);
 		conn.sendMessage("This an an development version for l2jserver 2.0");
 		conn.sendMessage("Please note that many of the features are not yet implemented.");
@@ -310,6 +329,9 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void leaveWorld(L2Character character)
 			throws NotSpawnedServiceException {
 		Preconditions.checkNotNull(character, "character");
+
+		log.debug("Character {} is leaving world", character);
+
 		spawnService.unspawn(character);
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
 		character.setOnline(false);
@@ -320,6 +342,9 @@ public class CharacterServiceImpl extends AbstractService implements
 			throws CannotSetTargetServiceException {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
+
+		log.debug("Setting {} target to {}", character, target);
+
 		final CharacterID id = character.getID();
 		final Lineage2Client conn = networkService.discover(id);
 
@@ -361,17 +386,24 @@ public class CharacterServiceImpl extends AbstractService implements
 			NotAttackableNPCServiceException {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(target, "target");
+
+		log.debug("Character {} is trying to attack {}", character, target);
+
 		final CharacterID id = character.getID();
 		final Lineage2Client conn = networkService.discover(id);
 		// check if this Actor can be attacked
 		if (target instanceof NPC) {
 			final NPC npc = (NPC) target;
+			log.debug("{} is an NPC instance", npc);
 
 			// first try to target this, if it is not already
-			if (!npc.getID().equals(character.getTargetID()))
+			if (!npc.getID().equals(character.getTargetID())) {
+				log.debug("{} is not targetted by {}", npc, character);
 				target(character, target);
+			}
 
 			// now attack the npc
+			log.debug("Sending {} attack request to NPCService", character);
 			npcService.attack(npc, conn, character);
 		} else {
 			// TODO throw an exception
@@ -401,6 +433,9 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void move(L2Character character, Coordinate coordinate) {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(coordinate, "coordinate");
+		
+		log.debug("{} is moving to {}", character, coordinate);
+		
 		final CharacterID id = character.getID();
 		final Lineage2Client conn = networkService.discover(id);
 		// we don't set the character coordinate here, this will be done by
@@ -432,6 +467,9 @@ public class CharacterServiceImpl extends AbstractService implements
 			// ignore while teleporting, for some reason the client sends a
 			// validation just before teleport packet
 			return;
+		
+		log.debug("{} client is validating its position to {}", character, point);
+		
 		final Point3D old = character.getPoint();
 		character.setPoint(point);
 		// BroadcastService will catch this event and update the knownlist
@@ -454,6 +492,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		// test if character is running
 		if (character.getMoveType() == CharacterMoveType.WALK)
 			throw new CharacterAlreadyWalkingServiceException();
+		
+		log.debug("{} move type is being set to WALK", character);
+		
 		// if running set mode to walk and broadcast packet
 		character.setMoveType(CharacterMoveType.WALK);
 
@@ -470,6 +511,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		// test if character is walking
 		if (character.getMoveType() == CharacterMoveType.RUN)
 			throw new CharacterAlreadyRunningServiceException();
+		
+		log.debug("{} move type is being set to RUN", character);
+		
 		// if running walking mode to run and broadcast packet
 		character.setMoveType(CharacterMoveType.RUN);
 

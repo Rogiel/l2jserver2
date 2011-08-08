@@ -16,6 +16,9 @@
  */
 package com.l2jserver.service.game.map.pathing;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -32,6 +35,12 @@ import com.l2jserver.util.geometry.Point3D;
 @Depends({ CharacterService.class, WorldService.class })
 public class AStarPathingService extends AbstractService implements
 		PathingService {
+	/**
+	 * The logger
+	 */
+	@SuppressWarnings("unused")
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Override
 	public Path findPath(PositionableObject object, Point3D point) {
 		return null;

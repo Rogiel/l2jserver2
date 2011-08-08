@@ -18,6 +18,9 @@ package com.l2jserver.service.game.world;
 
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.dao.CharacterDAO;
@@ -43,6 +46,11 @@ import com.l2jserver.service.database.DatabaseService;
 @Depends({ DatabaseService.class, CacheService.class })
 public class CachedWorldIDService extends AbstractService implements
 		WorldIDService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * The cache service
 	 */
@@ -96,14 +104,19 @@ public class CachedWorldIDService extends AbstractService implements
 
 	@Override
 	public void load() {
+		log.debug("Loading IDs from database");
+		
 		load(characterDao.selectIDs());
 		load(itemDao.selectIDs());
 		load(npcDao.selectIDs());
+		
+		log.debug("IDs loaded from database");
 		loaded = true;
 	}
 
 	@Override
 	public void unload() {
+		log.debug("Clearing load IDs");
 		cache.clear();
 	}
 
@@ -115,7 +128,9 @@ public class CachedWorldIDService extends AbstractService implements
 	 */
 	private void load(Collection<? extends ObjectID<?>> ids) {
 		Preconditions.checkNotNull(ids, "ids");
+		log.debug("Loading {} IDs", ids.size());
 		for (final ObjectID<?> id : ids) {
+			log.debug("Loading {}", id);
 			allocator.allocate(id.getID());
 			add(id);
 		}
@@ -129,6 +144,7 @@ public class CachedWorldIDService extends AbstractService implements
 			// ignore resolving before all IDs are loaded
 			return null;
 		}
+		log.debug("Resolving {}", id);
 		return (I) cache.get(id);
 	}
 

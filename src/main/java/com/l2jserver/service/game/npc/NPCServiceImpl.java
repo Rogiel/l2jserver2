@@ -16,10 +16,14 @@
  */
 package com.l2jserver.service.game.npc;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
@@ -61,6 +65,11 @@ import com.l2jserver.util.geometry.Point3D;
 @Depends({ SpawnService.class, NetworkService.class, CharacterService.class,
 		ThreadService.class, AttackService.class, DatabaseService.class })
 public class NPCServiceImpl extends AbstractService implements NPCService {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The {@link SpawnService} used to spawn the {@link NPC} instances
 	 */
@@ -142,6 +151,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(action, "action");
 
+		log.debug("{} interacting with {} (action={})", new Object[] {
+				character, npc, action });
+
 		final Lineage2Client conn = networkService.discover(character.getID());
 		try {
 			final NPCController controller = getController(npc);
@@ -159,6 +171,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		if (args == null)
 			args = new String[0];
 
+		log.debug("{} interacting with {} (action={})", new Object[] {
+				character, npc, Arrays.toString(args) });
+
 		final Lineage2Client conn = networkService.discover(character.getID());
 		try {
 			final NPCController controller = getController(npc);
@@ -172,6 +187,8 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	public void die(NPC npc, Actor killer) {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(killer, "killer");
+
+		log.debug("{} was killed by {}", npc, killer);
 
 		// set npc as dead
 		npc.setState(ActorState.DEAD);
@@ -196,6 +213,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 			// TODO throw an exception
 			return null;
 		npc.setState(ActorState.MOVING);
+		
+		log.debug("{} is moving to {}", npc, point);
+		
 		// calculate walking time
 		final Point3D start = npc.getPoint();
 		final double distance = start.getDistance(point);
@@ -218,6 +238,8 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(conn, "conn");
 		Preconditions.checkNotNull(attacker, "attacker");
+		
+		log.debug("{} is being attacked by {}", npc, attacker);
 
 		final NPCTemplate template = npc.getTemplate();
 		if (!template.isAttackable()) {

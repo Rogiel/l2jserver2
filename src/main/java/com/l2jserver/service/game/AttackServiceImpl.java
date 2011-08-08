@@ -18,6 +18,9 @@ package com.l2jserver.service.game;
 
 import java.util.concurrent.Callable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.server.AttackHit;
@@ -44,6 +47,11 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 * Calculator used to compute physical attacks
 	 */
 	private static final AttackCalculator PHYSICAL_ATTACK_CALCULATOR = new PhysicalAttackCalculator();
+
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
 	 * The {@link ThreadService} is used to schedule asynchronous attacks
@@ -74,6 +82,7 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 		Preconditions.checkNotNull(target, "target");
 		Preconditions.checkArgument(!attacker.equals(target),
 				"attacker must not be equal to target");
+		log.debug("{} starting attack to {}", attacker, target);
 		return threadService.async(new AttackCallable(attacker, target));
 	}
 
@@ -107,6 +116,8 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 			// TODO calculate miss
 			// TODO calculate critical
 			// TODO calculate soulshot
+			
+			log.debug("Attack dealt {} damage, but only {} is effective", damage, dealDamage);
 
 			// reduce target life
 			target.setHP(target.getHP() - dealDamage);
@@ -115,6 +126,7 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 			eventDispatcher.dispatch(new ActorAttackHitEvent(hit));
 
 			if (target.getHP() <= 0) {
+				log.debug("{} hitpoins reached zero, killing object", target);
 				if (target instanceof NPC)
 					npcService.die((NPC) target, attacker);
 			}

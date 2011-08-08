@@ -152,4 +152,9 @@ public class ChatMessage extends AbstractModel<ChatMessageID> implements
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	@Override
+	public String toString() {
+		return "ChatMessage [" + sender + "@" + date + ": " + message + "]";
+	}
 }

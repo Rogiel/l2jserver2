@@ -19,6 +19,9 @@ package com.l2jserver.service.game.chat;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.dao.CharacterDAO;
@@ -42,8 +45,15 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 @Depends(ChatLoggingService.class)
 public class SimpleChatService extends AbstractService implements ChatService {
-	private final ChatLoggingService chatLoggingService;
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The {@link ChatLoggingService} implementation
+	 */
+	private final ChatLoggingService chatLoggingService;
 	/**
 	 * The {@link RegionService}
 	 */
@@ -114,6 +124,9 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			ChatTargetOfflineServiceException {
 		Preconditions.checkNotNull(sender, "sender");
 		Preconditions.checkNotNull(message, "message");
+
+		log.debug("Sending message {} from {} to {}", new Object[] { message,
+				sender, chat });
 
 		final ChatChannel channel;
 		switch (chat) {
@@ -232,12 +245,15 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			for (final ChatChannelFilter filter : filters) {
 				if (!filter.filter(sender, this, textMessage))
 					// discard message
-					return null;
+					log.debug("Message {} discarded by {}", textMessage, filter);
+				return null;
 			}
 
 			// log this chat message
 			ChatMessage message = chatLoggingService.log(sender, this,
 					textMessage);
+
+			log.debug("[{}]: {}", this, message);
 
 			for (final ChatChannelListener listener : listeners) {
 				listener.onMessage(this, message);
@@ -249,24 +265,28 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		@Override
 		public void addMessageListener(ChatChannelListener listener) {
 			Preconditions.checkNotNull(listener, "listener");
+			log.debug("Added {} to {}", listener, this);
 			listeners.add(listener);
 		}
 
 		@Override
 		public void removeMessageListener(ChatChannelListener listener) {
 			Preconditions.checkNotNull(listener, "listener");
+			log.debug("Removed {} to {}", listener, this);
 			listeners.remove(listener);
 		}
 
 		@Override
 		public void addMessageFilter(ChatChannelFilter filter) {
 			Preconditions.checkNotNull(filter, "filter");
+			log.debug("Added {} to {}", filter, this);
 			filters.add(filter);
 		}
 
 		@Override
 		public void removeMessageFilter(ChatChannelFilter filter) {
 			Preconditions.checkNotNull(filter, "filter");
+			log.debug("Removed {} to {}", filter, this);
 			filters.remove(filter);
 		}
 
@@ -278,6 +298,17 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		@Override
 		public int getChannelID() {
 			return getMessageType().id;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "ChatChannelImpl [" + getChannelName() + "("
+					+ getChannelID() + ")]";
 		}
 	}
 

@@ -166,6 +166,7 @@ public class XMLTemplateService extends AbstractService implements
 		try {
 			final Template<?> template = (Template<?>) unmarshaller
 					.unmarshal(in);
+			log.debug("Template loaded: {}", template);
 			if (template.getID() != null)
 				templates.put(template.getID(), template);
 		} finally {
@@ -175,6 +176,7 @@ public class XMLTemplateService extends AbstractService implements
 
 	public void removeTemplate(Template<?> template) {
 		Preconditions.checkNotNull(template, "template");
+		log.debug("Removing template {}", template);
 		templates.remove(template.getID());
 	}
 
