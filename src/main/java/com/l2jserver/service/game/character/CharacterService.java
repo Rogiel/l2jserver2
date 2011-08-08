@@ -17,9 +17,14 @@
 package com.l2jserver.service.game.character;
 
 import com.l2jserver.model.game.CharacterFriend;
+import com.l2jserver.model.template.actor.ActorSex;
+import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
+import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
+import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.npc.NotAttackableNPCServiceException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
@@ -40,6 +45,36 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface CharacterService extends Service {
+	/**
+	 * 
+	 * @param name
+	 *            The name of the new character
+	 * @param sex
+	 *            The sex of the new character
+	 * @param characterClass
+	 *            The class of the new character
+	 * @param hairStyle
+	 *            The new character hair style
+	 * @param hairColor
+	 *            The new character hair color
+	 * @param face
+	 *            The new character face
+	 * @return the newly created {@link L2Character} object
+	 * @throws CharacterInvalidNameException
+	 *             if the character name contains invalid characters, too long
+	 *             or not long enough
+	 * @throws CharacterInvalidAppearanceException
+	 *             if the appearance sent by the client is not valid
+	 * @throws CharacterNameAlreadyExistsException
+	 *             the character name is already being used
+	 */
+	L2Character create(String name, ActorSex sex,
+			CharacterClass characterClass, CharacterHairStyle hairStyle,
+			CharacterHairColor hairColor, CharacterFace face)
+			throws CharacterInvalidNameException,
+			CharacterInvalidAppearanceException,
+			CharacterNameAlreadyExistsException;
+
 	/**
 	 * Perform all operations required to this character join the world
 	 * 

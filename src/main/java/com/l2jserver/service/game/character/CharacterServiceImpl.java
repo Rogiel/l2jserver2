@@ -16,6 +16,9 @@
  */
 package com.l2jserver.service.game.character;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
@@ -28,14 +31,24 @@ import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
+import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.template.CharacterTemplateID;
+import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.template.actor.ActorSex;
+import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.L2Character.CharacterMoveType;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
+import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
+import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
@@ -77,6 +90,12 @@ import com.l2jserver.util.geometry.Point3D;
 public class CharacterServiceImpl extends AbstractService implements
 		CharacterService {
 	/**
+	 * The logger
+	 */
+	private static final Logger log = LoggerFactory
+			.getLogger(CharacterServiceImpl.class);
+
+	/**
 	 * The {@link BroadcastService}
 	 */
 	private final BroadcastService broadcastService;
@@ -104,10 +123,18 @@ public class CharacterServiceImpl extends AbstractService implements
 	 * The {@link GameGuardService}
 	 */
 	private final GameGuardService ggService;
+
+	/**
+	 * The {@link CharacterDAO}
+	 */
+	private final CharacterDAO characterDao;
 	/**
 	 * The {@link ItemDAO}
 	 */
 	private final ItemDAO itemDao;
+
+	private final CharacterIDProvider charIdProvider;
+	private final CharacterTemplateIDProvider charTemplateIdProvider;
 
 	// /**
 	// * The {@link AIService}
@@ -118,7 +145,10 @@ public class CharacterServiceImpl extends AbstractService implements
 	public CharacterServiceImpl(BroadcastService broadcastService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
 			NetworkService networkService, SpawnService spawnService,
-			NPCService npcService, GameGuardService ggService, ItemDAO itemDao) {
+			NPCService npcService, GameGuardService ggService,
+			CharacterDAO characterDao, ItemDAO itemDao,
+			CharacterTemplateIDProvider charTemplateIdProvider,
+			CharacterIDProvider charIdProvider) {
 		this.broadcastService = broadcastService;
 		this.eventDispatcher = eventDispatcher;
 		this.chatService = chatService;
@@ -126,7 +156,60 @@ public class CharacterServiceImpl extends AbstractService implements
 		this.spawnService = spawnService;
 		this.npcService = npcService;
 		this.ggService = ggService;
+		this.characterDao = characterDao;
 		this.itemDao = itemDao;
+		this.charTemplateIdProvider = charTemplateIdProvider;
+		this.charIdProvider = charIdProvider;
+	}
+
+	@Override
+	public L2Character create(String name, ActorSex sex,
+			CharacterClass characterClass, CharacterHairStyle hairStyle,
+			CharacterHairColor hairColor, CharacterFace face)
+			throws CharacterInvalidNameException,
+			CharacterInvalidAppearanceException,
+			CharacterNameAlreadyExistsException {
+		if ((name.length() < 1) || (name.length() > 16)) {
+			throw new CharacterInvalidNameException();
+		}
+		// TODO check alphanumeric name
+		if (sex == null || hairStyle == null || hairColor == null
+				|| face == null)
+			// if some of those attributes is null, something wrong happened.
+			// Maybe we don't support the value sent!
+			throw new CharacterInvalidAppearanceException();
+
+		// existence check
+		final L2Character existenceCheck = characterDao.selectByName(name);
+		if (existenceCheck != null)
+			throw new CharacterNameAlreadyExistsException();
+
+		// create template id and lookup for the template instance
+		final CharacterTemplateID templateId = charTemplateIdProvider
+				.resolveID(characterClass.id);
+		final CharacterTemplate template = templateId.getTemplate();
+		log.debug("Creating character with template {}", template);
+
+		// everything is fine, allocate a new ID
+		final CharacterID id = charIdProvider.createID();
+		// create the instance from the template
+		final L2Character character = template.create();
+
+		log.debug("Character object created, ID: {}, Object: {}", id, character);
+
+		// set parameters
+		character.setID(id);
+		character.setName(name);
+
+		character.setSex(sex);
+
+		character.getAppearance().setHairStyle(hairStyle);
+		character.getAppearance().setHairColor(hairColor);
+		character.getAppearance().setFace(face);
+
+		if (characterDao.save(character))
+			return character;
+		return null;
 	}
 
 	@Override
