@@ -70,16 +70,16 @@ public class AIServiceImpl extends AbstractService implements AIService {
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		
+
 	}
 
 	@Override
 	public void walk(Actor actor, Coordinate coordinate) {
-		
+
 	}
 
 	@Override
 	protected void doStop() throws ServiceStopException {
-		
+
 	}
 }

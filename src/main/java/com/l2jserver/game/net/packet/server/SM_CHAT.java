@@ -54,16 +54,14 @@ public class SM_CHAT extends AbstractServerPacket {
 	 */
 	private int messageID = 0;
 
-	public SM_CHAT(Actor character, ChatMessageType destination,
-			String message) {
+	public SM_CHAT(Actor character, ChatMessageType destination, String message) {
 		super(OPCODE);
 		this.actor = character;
 		this.destination = destination;
 		this.message = message;
 	}
 
-	public SM_CHAT(Actor actor, ChatMessageType destination,
-			int messageID) {
+	public SM_CHAT(Actor actor, ChatMessageType destination, int messageID) {
 		super(OPCODE);
 		this.actor = actor;
 		this.destination = destination;

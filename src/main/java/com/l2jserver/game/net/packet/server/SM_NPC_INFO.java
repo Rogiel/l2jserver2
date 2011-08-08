@@ -48,11 +48,11 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 
 		buffer.writeInt(npc.getID().getID());
 		buffer.writeInt(template.getID().getID() + 1000000); // npctype id
-		//if (npc instanceof NPC) {
-			buffer.writeInt((template.isAttackable() ? 0x01 : 0x00));
-		//} else {
-		//	buffer.writeInt(0x01);
-		//}
+		// if (npc instanceof NPC) {
+		buffer.writeInt((template.isAttackable() ? 0x01 : 0x00));
+		// } else {
+		// buffer.writeInt(0x01);
+		// }
 		buffer.writeInt(npc.getPoint().getX());
 		buffer.writeInt(npc.getPoint().getY());
 		buffer.writeInt(npc.getPoint().getZ());

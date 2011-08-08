@@ -185,8 +185,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		});
 
 		// register global chat listener
-		chatService.getGlobalChannel().addMessageListener(
-				globalChatListener);
+		chatService.getGlobalChannel().addMessageListener(globalChatListener);
 		chatService.getTradeChannel().addMessageListener(tradeChatListener);
 
 		// query client game guard -- if key is invalid, the connection will be

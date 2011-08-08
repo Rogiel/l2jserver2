@@ -83,7 +83,7 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 		} catch (SpawnPointNotFoundServiceException e) {
 			conn.sendActionFailed();
 		} catch (AlreadySpawnedServiceException e) {
-			//TODO send an error message here
+			// TODO send an error message here
 		}
 	}
 }

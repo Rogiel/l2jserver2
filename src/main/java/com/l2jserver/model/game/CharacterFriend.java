@@ -30,7 +30,7 @@ public class CharacterFriend extends AbstractModel<FriendID> {
 	public CharacterFriend(FriendID id) {
 		this.setID(id);
 	}
-	
+
 	public CharacterID getCharacterID() {
 		return id.getID1();
 	}

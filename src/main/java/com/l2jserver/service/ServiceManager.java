@@ -114,8 +114,7 @@ public class ServiceManager {
 					serviceClass.getSimpleName());
 			stopDependencies(service);
 			service.stop();
-			logger.info("{0}: Service stopped!",
-					serviceClass.getSimpleName());
+			logger.info("{0}: Service stopped!", serviceClass.getSimpleName());
 		} catch (ServiceStopException e) {
 			logger.error("{0}: Error stopping service: {1}",
 					serviceClass.getSimpleName(), e.getCause());
@@ -163,8 +162,7 @@ public class ServiceManager {
 			logger.debug("{0}: Restaring service...",
 					serviceClass.getSimpleName());
 			service.restart();
-			logger.info("{0}: Service restarted!",
-					serviceClass.getSimpleName());
+			logger.info("{0}: Service restarted!", serviceClass.getSimpleName());
 			return service;
 		} catch (ServiceStartException e) {
 			logger.error("{0}: Error starting service: {1}",

@@ -117,7 +117,7 @@ public abstract class HtmlTemplate {
 		variables.put(name, value);
 		return this;
 	}
-	
+
 	/**
 	 * Register an variable for this template
 	 * 

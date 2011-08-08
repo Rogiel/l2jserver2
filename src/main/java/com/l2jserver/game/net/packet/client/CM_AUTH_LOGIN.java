@@ -86,8 +86,8 @@ public class CM_AUTH_LOGIN extends AbstractClientPacket {
 				loginKey1, loginKey2));
 
 		final List<L2Character> chars = characterDao.selectByAccount(accountId);
-		conn.write(SM_CHAR_LIST.fromL2Session(
-				conn.getSession(), chars.toArray(new L2Character[chars.size()])));
+		conn.write(SM_CHAR_LIST.fromL2Session(conn.getSession(),
+				chars.toArray(new L2Character[chars.size()])));
 	}
 
 	/**

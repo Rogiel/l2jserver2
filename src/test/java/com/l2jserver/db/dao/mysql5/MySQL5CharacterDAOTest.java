@@ -34,8 +34,8 @@ import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 
 public class MySQL5CharacterDAOTest {
-	private final Injector injector = Guice
-			.createInjector(Stage.PRODUCTION, new GameServerModule());
+	private final Injector injector = Guice.createInjector(Stage.PRODUCTION,
+			new GameServerModule());
 
 	@Test
 	public void testCachedLoad() throws ServiceStartException {

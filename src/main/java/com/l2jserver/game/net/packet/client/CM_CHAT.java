@@ -64,7 +64,7 @@ public class CM_CHAT extends AbstractClientPacket {
 		this.message = BufferUtils.readString(buffer);
 		this.destination = ChatMessageType.fromID(buffer.readInt());
 		if (this.destination == ChatMessageType.TELL) { // private
-																// message
+														// message
 			this.target = BufferUtils.readString(buffer);
 		}
 	}

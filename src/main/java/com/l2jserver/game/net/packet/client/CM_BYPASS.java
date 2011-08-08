@@ -41,7 +41,7 @@ import com.l2jserver.util.BufferUtils;
  */
 public class CM_BYPASS extends AbstractClientPacket {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The packet OPCODE
 	 */
@@ -62,8 +62,7 @@ public class CM_BYPASS extends AbstractClientPacket {
 	private String command;
 
 	@Inject
-	public CM_BYPASS(ObjectIDResolver idResolver,
-			NPCService npcService) {
+	public CM_BYPASS(ObjectIDResolver idResolver, NPCService npcService) {
 		this.idResolver = idResolver;
 		this.npcService = npcService;
 	}

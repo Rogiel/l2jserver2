@@ -327,10 +327,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.ALL;
 		}
-		
+
 		@Override
 		public void dispose() {
-			throw new UnsupportedOperationException("Cannot dispose the Global Chat Channel");
+			throw new UnsupportedOperationException(
+					"Cannot dispose the Global Chat Channel");
 		}
 	}
 
@@ -345,10 +346,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.TRADE;
 		}
-		
+
 		@Override
 		public void dispose() {
-			throw new UnsupportedOperationException("Cannot dispose the Trade Chat Channel");
+			throw new UnsupportedOperationException(
+					"Cannot dispose the Trade Chat Channel");
 		}
 	}
 
@@ -363,10 +365,11 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.ANNOUNCEMENT;
 		}
-		
+
 		@Override
 		public void dispose() {
-			throw new UnsupportedOperationException("Cannot dispose the Announcement Chat Channel");
+			throw new UnsupportedOperationException(
+					"Cannot dispose the Announcement Chat Channel");
 		}
 	}
 
@@ -396,7 +399,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.CLAN;
 		}
-		
+
 		@Override
 		public void dispose() {
 			clanChannels.remove(clanID);
@@ -430,7 +433,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		public ChatMessageType getMessageType() {
 			return ChatMessageType.ALL;
 		}
-		
+
 		@Override
 		public void dispose() {
 			throw new UnsupportedOperationException();

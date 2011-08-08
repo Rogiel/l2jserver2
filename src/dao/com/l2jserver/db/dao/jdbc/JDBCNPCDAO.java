@@ -232,7 +232,7 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 				st.setInt(i++, npc.getPoint().getY());
 				st.setInt(i++, npc.getPoint().getZ());
 				st.setDouble(i++, npc.getPoint().getAngle());
-				
+
 				st.setLong(i++, npc.getRespawnInterval());
 			}
 		}) > 0;
@@ -265,7 +265,7 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 				st.setInt(i++, npc.getPoint().getY());
 				st.setInt(i++, npc.getPoint().getZ());
 				st.setDouble(i++, npc.getPoint().getAngle());
-				
+
 				st.setLong(i++, npc.getRespawnInterval());
 
 				// WHERE

@@ -135,14 +135,13 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkArgument(time > 0, "time < 0");
 		Preconditions.checkNotNull(unit, "unit");
-		return threadService.async(time, unit,
-				new Callable<T>() {
-					@Override
-					public T call() throws Exception {
-						spawn(object, point);
-						return object;
-					}
-				});
+		return threadService.async(time, unit, new Callable<T>() {
+			@Override
+			public T call() throws Exception {
+				spawn(object, point);
+				return object;
+			}
+		});
 	}
 
 	@Override
@@ -176,19 +175,18 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public <T extends PositionableObject> AsyncFuture<T> unspawn(final T object, long time,
-			TimeUnit unit) {
+	public <T extends PositionableObject> AsyncFuture<T> unspawn(
+			final T object, long time, TimeUnit unit) {
 		Preconditions.checkNotNull(object, "object");
 		Preconditions.checkArgument(time > 0, "time <= 0");
 		Preconditions.checkNotNull(unit, "unit");
-		return threadService.async(time, unit,
-				new Callable<T>() {
-					@Override
-					public T call() throws Exception {
-						unspawn(object);
-						return object;
-					}
-				});
+		return threadService.async(time, unit, new Callable<T>() {
+			@Override
+			public T call() throws Exception {
+				unspawn(object);
+				return object;
+			}
+		});
 	}
 
 	@Override

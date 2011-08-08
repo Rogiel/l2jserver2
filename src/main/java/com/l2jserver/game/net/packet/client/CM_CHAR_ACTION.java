@@ -71,8 +71,7 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	}
 
 	@Inject
-	public CM_CHAR_ACTION(ObjectIDResolver idResolver,
-			NPCService npcService) {
+	public CM_CHAR_ACTION(ObjectIDResolver idResolver, NPCService npcService) {
 		this.idResolver = idResolver;
 		this.npcService = npcService;
 	}

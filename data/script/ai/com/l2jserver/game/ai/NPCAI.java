@@ -41,7 +41,7 @@ public class NPCAI extends AI<NPC> {
 	@Override
 	protected void handleDesire(Desire desire) {
 		if (desire instanceof MoveDesire) {
-			
+
 		}
 	}
 }

@@ -252,7 +252,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		if (config == null) {
 			for (final Class<?> parent : clazz.getInterfaces()) {
 				prop = findProperties(parent);
-				if(prop != null)
+				if (prop != null)
 					return prop;
 			}
 			return null;

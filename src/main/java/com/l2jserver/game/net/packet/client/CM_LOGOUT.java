@@ -38,8 +38,7 @@ public class CM_LOGOUT extends AbstractClientPacket {
 	/**
 	 * The logger
 	 */
-	private static final Logger log = LoggerFactory
-			.getLogger(CM_LOGOUT.class);
+	private static final Logger log = LoggerFactory.getLogger(CM_LOGOUT.class);
 
 	@Override
 	public void read(Lineage2Client conn, ChannelBuffer buffer) {

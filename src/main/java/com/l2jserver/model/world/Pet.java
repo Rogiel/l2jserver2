@@ -84,7 +84,9 @@ public class Pet extends Player {
 		this.itemID = itemID;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.l2jserver.model.world.Actor#getStats()
 	 */
 	@Override

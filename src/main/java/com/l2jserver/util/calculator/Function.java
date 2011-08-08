@@ -39,6 +39,6 @@ public interface Function<C extends CalculatorContext, V extends Enum<V>> {
 	 * @return the order this function will be executed
 	 */
 	int order();
-	
+
 	V type();
 }

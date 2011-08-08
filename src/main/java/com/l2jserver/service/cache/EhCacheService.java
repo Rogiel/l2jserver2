@@ -35,7 +35,8 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
 /**
- * Simple cache that stores invocation results in a EhCache {@link Cache}.
+ * Simple cache that stores invocation results in a EhCache
+ * {@link net.sf.ehcache.Cache Cache}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -62,7 +63,7 @@ public class EhCacheService extends AbstractService implements CacheService {
 		Preconditions.checkNotNull(interfaceType, "interfaceType");
 		Preconditions.checkNotNull(instance, "instance");
 		Preconditions.checkArgument(interfaceType.isInterface(),
-		"interfaceType is not an interface");
+				"interfaceType is not an interface");
 
 		@SuppressWarnings("unchecked")
 		final T proxy = (T) Proxy.newProxyInstance(this.getClass()

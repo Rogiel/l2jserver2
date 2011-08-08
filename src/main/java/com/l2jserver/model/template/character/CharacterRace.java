@@ -6,8 +6,7 @@ package com.l2jserver.model.template.character;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public enum CharacterRace {
-	HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(
-			0x05);
+	HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(0x05);
 
 	/**
 	 * The numeric ID representing this race

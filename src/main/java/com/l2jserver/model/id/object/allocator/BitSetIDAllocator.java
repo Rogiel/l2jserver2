@@ -134,7 +134,7 @@ public class BitSetIDAllocator implements IDAllocator {
 			lock.unlock();
 		}
 	}
-	
+
 	@Override
 	public void clear() {
 		ids.clear();

@@ -86,7 +86,7 @@ public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
 	 */
 	@ConfigurationPropertySetter(name = "jdbc.active.max")
 	void setMaxActiveConnections(int password);
-	
+
 	/**
 	 * @return the maximum number of idle connections
 	 */
@@ -99,7 +99,7 @@ public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
 	 */
 	@ConfigurationPropertySetter(name = "jdbc.idle.max")
 	void setMaxIdleConnections(int password);
-	
+
 	/**
 	 * @return the minimum number of idle connections
 	 */

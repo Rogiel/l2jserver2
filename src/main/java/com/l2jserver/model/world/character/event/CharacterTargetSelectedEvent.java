@@ -45,8 +45,7 @@ public class CharacterTargetSelectedEvent implements CharacterEvent {
 	 * @param target
 	 *            the character target
 	 */
-	public CharacterTargetSelectedEvent(L2Character character,
-			Actor target) {
+	public CharacterTargetSelectedEvent(L2Character character, Actor target) {
 		this.character = character;
 		this.target = target;
 	}

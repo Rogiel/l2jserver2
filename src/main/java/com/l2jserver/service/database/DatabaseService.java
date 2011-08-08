@@ -30,8 +30,8 @@ import com.l2jserver.service.Service;
  * The service does not directly provide much functionality most of its
  * operations are done trough an {@link DataAccessObject}. Each service
  * implementation provides an custom interface that is used to link
- * {@link DataAccessObject}-{@link DatabaseService Service}. See implementation specific
- * documentation for more information.
+ * {@link DataAccessObject}-{@link DatabaseService Service}. See implementation
+ * specific documentation for more information.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

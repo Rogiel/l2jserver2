@@ -30,8 +30,7 @@ import com.l2jserver.service.database.DatabaseService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class H2CharacterDAO extends JDBCCharacterDAO implements
-		CharacterDAO {
+public class H2CharacterDAO extends JDBCCharacterDAO implements CharacterDAO {
 	@Inject
 	public H2CharacterDAO(DatabaseService database,
 			CharacterIDProvider idFactory,

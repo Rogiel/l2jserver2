@@ -129,7 +129,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		}
 		sort();
 	}
-	
+
 	/**
 	 * Adds a new function to this calculator. Executing order for functions
 	 * with the same order is undefined.
@@ -228,7 +228,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 			}
 		}
 	}
-	
+
 	public void sort() {
 		for (final List<Function<T, V>> funcs : functions.values()) {
 			Collections.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
@@ -267,7 +267,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	public static class FunctionOrderComparator implements
 			Comparator<Function<?, ?>>, Serializable {
 		private static final long serialVersionUID = 1L;
-		
+
 		public static final FunctionOrderComparator SHARED_INSTANCE = new FunctionOrderComparator();
 
 		@Override

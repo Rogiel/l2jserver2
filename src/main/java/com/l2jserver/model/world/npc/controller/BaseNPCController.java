@@ -80,8 +80,8 @@ public class BaseNPCController implements NPCController {
 	 * @return true if chat message was sent
 	 * @throws L2Exception
 	 */
-	protected boolean talk(NPC npc, Lineage2Client conn,
-			L2Character character, String... args) throws L2Exception {
+	protected boolean talk(NPC npc, Lineage2Client conn, L2Character character,
+			String... args) throws L2Exception {
 		String id = null;
 		if (args.length >= 1) {
 			id = args[0];

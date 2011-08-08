@@ -230,7 +230,7 @@ public class L2Character extends Player {
 		desireUpdate();
 		this.petID = petID;
 	}
-	
+
 	/**
 	 * @return the race
 	 */

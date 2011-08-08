@@ -67,7 +67,7 @@ public class ItemIDProvider implements ObjectIDProvider<ItemID> {
 		}
 		return idObject;
 	}
-	
+
 	@Override
 	public void destroy(ItemID id) {
 		idService.remove(id);

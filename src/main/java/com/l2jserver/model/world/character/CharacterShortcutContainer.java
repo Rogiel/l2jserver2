@@ -95,7 +95,7 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 		shortcut1.setPage(shortcut2.getPage());
 		shortcut2.setSlot(slot1);
 		shortcut2.setPage(page1);
-		
+
 		Collections.sort(shortcuts, new ShortcutSlotComparator());
 	}
 
@@ -137,7 +137,8 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 		return character;
 	}
 
-	public static class ShortcutSlotComparator implements Comparator<Shortcut>, Serializable {
+	public static class ShortcutSlotComparator implements Comparator<Shortcut>,
+			Serializable {
 		private static final long serialVersionUID = 1L;
 
 		@Override

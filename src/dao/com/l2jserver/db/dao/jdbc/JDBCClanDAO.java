@@ -41,8 +41,8 @@ import com.l2jserver.service.database.JDBCDatabaseService.SelectSingleQuery;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implements
-		ClanDAO {
+public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
+		implements ClanDAO {
 	/**
 	 * The {@link ClanID} factory
 	 */
@@ -62,8 +62,8 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implemen
 	public static final String CHAR_ID_LEADER = "character_id_leader";
 
 	@Inject
-	public JDBCClanDAO(DatabaseService database,
-			ClanIDProvider clanIdFactory, final CharacterIDProvider idFactory) {
+	public JDBCClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
+			final CharacterIDProvider idFactory) {
 		super(database);
 		this.idFactory = clanIdFactory;
 		this.charIdFactory = idFactory;

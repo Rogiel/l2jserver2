@@ -43,7 +43,7 @@ public class CM_EXT_REQ_MANOR_LIST extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Client conn) {
-		conn.write(new SM_MANOR_LIST("gludio", "dion", "giran", "oren",
-				"aden", "innadril", "goddard", "rune", "schuttgart"));
+		conn.write(new SM_MANOR_LIST("gludio", "dion", "giran", "oren", "aden",
+				"innadril", "goddard", "rune", "schuttgart"));
 	}
 }

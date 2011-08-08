@@ -297,8 +297,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 
 	@SuppressWarnings("unchecked")
 	private void setup() {
-		calculator.addNoSort(BASE_HP_FORMULA, BASE_MP_FORMULA,
-				BASE_CP_FORMULA);
+		calculator.addNoSort(BASE_HP_FORMULA, BASE_MP_FORMULA, BASE_CP_FORMULA);
 
 		calculator.addNoSort(BASE_INT_FORMULA, BASE_STR_FORMULA,
 				BASE_CON_FORMULA, BASE_MEN_FORMULA, BASE_DEX_FORMULA,

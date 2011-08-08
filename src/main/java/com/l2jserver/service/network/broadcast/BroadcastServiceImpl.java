@@ -170,8 +170,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 	 * @param point
 	 *            the old point
 	 */
-	private void broadcastUpdate(Lineage2Client conn,
-			L2Character character, Point3D point) {
+	private void broadcastUpdate(Lineage2Client conn, L2Character character,
+			Point3D point) {
 		for (final WorldObject o : worldService
 				.iterable(new KnownListUpdateFilter(character, point))) {
 			broadcast(conn, o);

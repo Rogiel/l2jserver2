@@ -147,7 +147,8 @@ public abstract class JDBCCharacterDAO extends
 			character.setAccountID(accountIdFactory.resolveID(rs
 					.getString(ACCOUNT_ID)));
 			if (rs.getString(CLAN_ID) != null)
-				character.setClanID(clanIdFactory.resolveID(rs.getInt(CLAN_ID)));
+				character
+						.setClanID(clanIdFactory.resolveID(rs.getInt(CLAN_ID)));
 
 			character.setName(rs.getString(NAME));
 

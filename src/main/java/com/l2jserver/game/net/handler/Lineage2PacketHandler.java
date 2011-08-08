@@ -35,8 +35,7 @@ import com.l2jserver.util.html.markup.MarkupTag;
 
 /**
  * This handler dispatches the {@link ClientPacket#process(Lineage2Client)}
- * method and creates a new {@link Lineage2Client} once a new channel is
- * open.
+ * method and creates a new {@link Lineage2Client} once a new channel is open.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

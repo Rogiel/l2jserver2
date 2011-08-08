@@ -101,8 +101,7 @@ public class CM_ATTACK extends AbstractClientPacket {
 	}
 
 	@Inject
-	public CM_ATTACK(CharacterService charService,
-			ObjectIDResolver idResolver) {
+	public CM_ATTACK(CharacterService charService, ObjectIDResolver idResolver) {
 		this.charService = charService;
 		this.idResolver = idResolver;
 	}

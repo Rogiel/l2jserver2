@@ -31,8 +31,8 @@ import com.l2jserver.service.database.DatabaseService;
  */
 public class H2ClanDAO extends JDBCClanDAO implements ClanDAO {
 	@Inject
-	public H2ClanDAO(DatabaseService database,
-			ClanIDProvider clanIdFactory, CharacterIDProvider idFactory) {
+	public H2ClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
+			CharacterIDProvider idFactory) {
 		super(database, clanIdFactory, idFactory);
 	}
 }

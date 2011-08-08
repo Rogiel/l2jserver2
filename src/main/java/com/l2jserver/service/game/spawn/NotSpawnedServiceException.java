@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.game.spawn;
 
-
 /**
  * Exception thrown when trying to unspawn an object that is not spawned
  * 

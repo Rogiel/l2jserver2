@@ -38,8 +38,8 @@ public interface AdministratorService extends Service {
 	 * @param args
 	 *            the arguments
 	 */
-	void command(Lineage2Client conn, L2Character character,
-			String command, String... args);
+	void command(Lineage2Client conn, L2Character character, String command,
+			String... args);
 
 	/**
 	 * The base interface for Administrator commands

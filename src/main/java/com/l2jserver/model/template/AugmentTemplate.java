@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model.template;
 
-
 /**
  * Template for an Aumentation
  * 

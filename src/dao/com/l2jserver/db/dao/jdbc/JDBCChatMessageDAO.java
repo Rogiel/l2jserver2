@@ -85,7 +85,7 @@ public abstract class JDBCChatMessageDAO extends
 			return idFactory.resolveID(rs.getInt(MESSAGE_ID));
 		}
 	};
-	
+
 	/**
 	 * The {@link Mapper} for {@link ChatMessageID} as a PRIMARY KEY
 	 */

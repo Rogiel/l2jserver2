@@ -25,5 +25,5 @@ import com.l2jserver.model.template.Template;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Dropable extends TemplateCapability {
-	
+
 }

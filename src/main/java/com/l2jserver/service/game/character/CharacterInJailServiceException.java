@@ -21,7 +21,6 @@ package com.l2jserver.service.game.character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterInJailServiceException extends
-		CharacterServiceException {
+public class CharacterInJailServiceException extends CharacterServiceException {
 	private static final long serialVersionUID = 1L;
 }

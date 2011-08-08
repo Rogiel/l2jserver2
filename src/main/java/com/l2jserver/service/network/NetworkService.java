@@ -37,7 +37,8 @@ import com.l2jserver.service.Service;
  * <li>Process incoming connections and filter them for blocked IPs (not yet
  * implemented);</li>
  * <li>Handshake with the client and enable Cryptography;</li>
- * <li>Read incoming packets, decrypt and parse them into a ClientPacket;</li>
+ * <li>Read incoming packets, decrypt and parse them into a {@link ClientPacket}
+ * ;</li>
  * <li>Write outgoing packets ServerPacket and encrypt them;</li>
  * <li>(optional) Validate GameGuard responses (see GameGuardService);</li>
  * </ul>

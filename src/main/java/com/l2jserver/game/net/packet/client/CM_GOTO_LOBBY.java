@@ -61,7 +61,7 @@ public class CM_GOTO_LOBBY extends AbstractClientPacket {
 	public void process(final Lineage2Client conn) {
 		final List<L2Character> chars = characterDao.selectByAccount(conn
 				.getSession().getAccountID());
-		conn.write(SM_CHAR_LIST.fromL2Session(
-				conn.getSession(), chars.toArray(new L2Character[0])));
+		conn.write(SM_CHAR_LIST.fromL2Session(conn.getSession(),
+				chars.toArray(new L2Character[0])));
 	}
 }

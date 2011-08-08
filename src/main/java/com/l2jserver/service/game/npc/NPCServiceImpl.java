@@ -142,8 +142,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(action, "action");
 
-		final Lineage2Client conn = networkService.discover(character
-				.getID());
+		final Lineage2Client conn = networkService.discover(character.getID());
 		try {
 			final NPCController controller = getController(npc);
 			controller.action(npc, conn, character, new String[0]);
@@ -160,8 +159,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		if (args == null)
 			args = new String[0];
 
-		final Lineage2Client conn = networkService.discover(character
-				.getID());
+		final Lineage2Client conn = networkService.discover(character.getID());
 		try {
 			final NPCController controller = getController(npc);
 			controller.action(npc, conn, character, args);

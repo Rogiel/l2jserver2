@@ -32,7 +32,7 @@ public class CM_CHAR_OPEN_MAP extends AbstractClientPacket {
 	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x6c;
-	
+
 	@Override
 	public void read(Lineage2Client conn, ChannelBuffer buffer) {
 	}
