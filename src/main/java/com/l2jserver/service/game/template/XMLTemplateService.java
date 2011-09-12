@@ -18,6 +18,11 @@ package com.l2jserver.service.game.template;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -29,7 +34,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.apache.commons.vfs.FileObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,7 +60,6 @@ import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
-import com.l2jserver.util.vfs.ExtensionFileSelector;
 
 @Depends({ LoggingService.class, VFSService.class, CacheService.class,
 		ConfigurationService.class })
@@ -121,21 +124,35 @@ public class XMLTemplateService extends AbstractService implements
 			unmarshaller.setAdapter(TeleportationTemplateIDAdapter.class,
 					teleportationIdTemplateAdapter);
 
-			final FileObject root = vfsService.resolve(config
-					.getTemplateDirectory());
+			final Path templatePath = vfsService.resolve(config
+					.getTemplateDirectory().toString());
 
-			log.info("Scanning {} for XML templates", root);
+			log.info("Scanning {} for XML templates", templatePath);
 
-			FileObject[] files = root.findFiles(ExtensionFileSelector
-					.ext("xml"));
+			Files.walkFileTree(templatePath, new SimpleFileVisitor<Path>() {
+				@Override
+				public FileVisitResult preVisitDirectory(Path dir,
+						BasicFileAttributes attrs) throws IOException {
+					return FileVisitResult.CONTINUE;
+				}
 
-			log.info("Located {} XML template files", files.length);
-			for (final FileObject file : files) {
-				loadTemplate(file);
-			}
-			final FileObject teleportsXml = root.getParent().resolveFile(
+				@Override
+				public FileVisitResult visitFile(Path file,
+						BasicFileAttributes attrs) throws IOException {
+					if (!file.toString().endsWith(".xml"))
+						return FileVisitResult.CONTINUE;
+					try {
+						loadTemplate(file);
+						return FileVisitResult.CONTINUE;
+					} catch (JAXBException e) {
+						throw new IOException(e);
+					}
+				}
+			});
+
+			final Path teleportsXmlPath = templatePath.getParent().resolve(
 					"teleports.xml");
-			final InputStream in = teleportsXml.getContent().getInputStream();
+			final InputStream in = Files.newInputStream(teleportsXmlPath);
 			try {
 				TeleportationTemplateContainer container = (TeleportationTemplateContainer) unmarshaller
 						.unmarshal(in);
@@ -159,10 +176,10 @@ public class XMLTemplateService extends AbstractService implements
 		return (T) templates.get(id);
 	}
 
-	public void loadTemplate(FileObject file) throws JAXBException, IOException {
-		Preconditions.checkNotNull(file, "file");
-		log.debug("Loading template {}", file);
-		final InputStream in = file.getContent().getInputStream();
+	public void loadTemplate(Path path) throws JAXBException, IOException {
+		Preconditions.checkNotNull(path, "path");
+		log.debug("Loading template {}", path);
+		final InputStream in = Files.newInputStream(path);
 		try {
 			final Template<?> template = (Template<?>) unmarshaller
 					.unmarshal(in);

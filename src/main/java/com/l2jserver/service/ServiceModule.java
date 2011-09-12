@@ -28,7 +28,7 @@ import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.core.threading.ThreadServiceImpl;
 import com.l2jserver.service.core.vfs.VFSService;
-import com.l2jserver.service.core.vfs.VFSServiceImpl;
+import com.l2jserver.service.core.vfs.Java7VFSService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.JDBCDatabaseService;
 import com.l2jserver.service.game.AttackService;
@@ -77,7 +77,7 @@ public class ServiceModule extends AbstractModule {
 		bind(ServiceManager.class).in(Scopes.SINGLETON);
 		bind(LoggingService.class).to(Log4JLoggingService.class).in(
 				Scopes.SINGLETON);
-		bind(VFSService.class).to(VFSServiceImpl.class).in(Scopes.SINGLETON);
+		bind(VFSService.class).to(Java7VFSService.class).in(Scopes.SINGLETON);
 		bind(ThreadService.class).to(ThreadServiceImpl.class).in(
 				Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(ProxyConfigurationService.class)

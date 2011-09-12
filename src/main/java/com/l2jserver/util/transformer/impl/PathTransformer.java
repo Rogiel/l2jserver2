@@ -16,25 +16,28 @@
  */
 package com.l2jserver.util.transformer.impl;
 
-import java.net.URI;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.l2jserver.util.transformer.Transformer;
 
 /**
- * Transform an {@link URI} into an string.
+ * Transform an {@link Path} into an string.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class URITransformer implements Transformer<URI> {
-	public static final URITransformer SHARED_INSTANCE = new URITransformer();
+public class PathTransformer implements Transformer<Path> {
+	public static final PathTransformer SHARED_INSTANCE = new PathTransformer();
 
 	@Override
-	public String transform(URI value) {
+	public String transform(Path value) {
+		if(value == null)
+			return "";
 		return value.toString();
 	}
 
 	@Override
-	public URI untransform(String value) {
-		return URI.create(value);
+	public Path untransform(String value) {
+		return Paths.get(value);
 	}
 }

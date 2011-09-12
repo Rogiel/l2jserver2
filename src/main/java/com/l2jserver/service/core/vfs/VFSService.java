@@ -16,9 +16,7 @@
  */
 package com.l2jserver.service.core.vfs;
 
-import java.net.URI;
-
-import org.apache.commons.vfs.FileObject;
+import java.nio.file.Path;
 
 import com.l2jserver.service.Service;
 
@@ -36,20 +34,8 @@ public interface VFSService extends Service {
 	 * returned.
 	 * 
 	 * @param uri
-	 *            the file uri
-	 * @return the resolved file. Will return null if could not resolve.
-	 */
-	FileObject resolve(URI uri);
-
-	/**
-	 * Resolves an file. If the file cannot be resolved, null will be returned.
-	 * <p>
-	 * Please note that event if the file DOES NOT exists a valid object will be
-	 * returned.
-	 * 
-	 * @param uri
 	 *            the file uri as an string
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
-	FileObject resolve(String uri);
+	Path resolve(String name);
 }

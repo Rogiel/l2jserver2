@@ -143,13 +143,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- vfs -->
-		<dependency>
-			<groupId>commons-vfs</groupId>
-			<artifactId>commons-vfs</artifactId>
-			<version>20050307052300</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
 	</dependencies>
 
 	<issueManagement>

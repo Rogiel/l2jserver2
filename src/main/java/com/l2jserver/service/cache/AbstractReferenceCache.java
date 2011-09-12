@@ -24,12 +24,10 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.l2jserver.service.cache.SoftCacheService.SoftCache;
 import com.l2jserver.util.factory.CollectionFactory;
-import com.sun.beans.WeakCache;
 
 /**
- * Base class for {@link WeakCache} and {@link SoftCache}
+ * Base class for weak caches and soft caches
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 

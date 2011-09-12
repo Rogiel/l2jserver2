@@ -14,27 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.transformer.impl;
-
-import java.net.URI;
-
-import com.l2jserver.util.transformer.Transformer;
+package com.l2jserver.service.core.vfs;
 
 /**
- * Transform an {@link URI} into an string.
+ * Configuration interface for {@link Java7VFSService}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class URITransformer implements Transformer<URI> {
-	public static final URITransformer SHARED_INSTANCE = new URITransformer();
-
-	@Override
-	public String transform(URI value) {
-		return value.toString();
-	}
-
-	@Override
-	public URI untransform(String value) {
-		return URI.create(value);
-	}
+public interface Java7VFSConfiguration extends VFSConfiguration {
 }

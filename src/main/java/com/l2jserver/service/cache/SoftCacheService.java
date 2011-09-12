@@ -131,7 +131,7 @@ public class SoftCacheService extends AbstractService implements CacheService {
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public class SoftCache<K, V> extends AbstractReferenceCache<K, V> implements
+	private class SoftCache<K, V> extends AbstractReferenceCache<K, V> implements
 			Cache<K, V> {
 		/**
 		 * This class is a {@link SoftReference} with additional responsibility

@@ -16,73 +16,74 @@
  */
 package com.l2jserver.service.core.vfs;
 
-import java.io.File;
+import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
-import org.apache.commons.vfs.FileObject;
-import org.apache.commons.vfs.FileSystemException;
-import org.apache.commons.vfs.FileSystemManager;
-import org.apache.commons.vfs.impl.DefaultFileSystemManager;
-import org.apache.commons.vfs.impl.StandardFileSystemManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.configuration.ConfigurationService;
 
 /**
- * Default implementation for VFS system
+ * Implementation of {@link VFSService} using default Java7 APIs.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class VFSServiceImpl extends AbstractService implements VFSService {
+public class Java7VFSService extends AbstractService implements VFSService {
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	private final Java7VFSConfiguration config;
+
 	/**
-	 * The CommonsVFS {@link FileSystemManager}
+	 * The {@link FileSystem} implementation
 	 */
-	private DefaultFileSystemManager manager;
+	private FileSystem fs;
+	/**
+	 * The root {@link Path} of the server data
+	 */
+	private Path root;
+
+	@Inject
+	protected Java7VFSService(final ConfigurationService configService) {
+		this.config = configService.get(Java7VFSConfiguration.class);
+	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		manager = new StandardFileSystemManager();
 		try {
-			manager.init();
-			manager.setBaseFile(new File("./"));
-		} catch (FileSystemException e) {
-			manager = null;
+			fs = FileSystems.getFileSystem(new URI("file:///"));
+		} catch (URISyntaxException e) {
 			throw new ServiceStartException(e);
 		}
+		root = config.getRoot().toAbsolutePath();
+		log.debug("Root path is {}", root);
 	}
 
 	@Override
-	public FileObject resolve(URI uri) {
-		return resolve(uri.toString());
-	}
-
-	@Override
-	public FileObject resolve(String uri) {
-		log.debug("Resolving file {}", uri);
-		try {
-			return manager.resolveFile(uri);
-		} catch (FileSystemException e) {
-			log.error("Error resolving file", e);
-			return null;
-		}
+	public Path resolve(String path) {
+		log.debug("Resolving file {}", path);
+		return root.resolve(path);
 	}
 
 	@Override
 	protected void doStop() throws ServiceStopException {
 		try {
-			manager.getBaseFile().close();
-		} catch (FileSystemException e) {
+			fs.close();
+		} catch (IOException e) {
 			throw new ServiceStopException(e);
 		} finally {
-			manager = null;
+			fs = null;
 		}
 	}
 }

@@ -78,6 +78,7 @@ import com.l2jserver.util.geometry.Coordinate;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
+@SuppressWarnings("restriction")
 public class NPCTemplateConverter {
 	private static final String JDBC_URL = "jdbc:mysql://localhost/l2jlegacy";
 	private static final String JDBC_USERNAME = "l2j";

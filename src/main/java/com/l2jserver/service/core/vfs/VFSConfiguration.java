@@ -14,27 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.util.transformer.impl;
+package com.l2jserver.service.core.vfs;
 
 import java.net.URI;
+import java.nio.file.Path;
 
-import com.l2jserver.util.transformer.Transformer;
+import com.l2jserver.service.configuration.Configuration;
+import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
 /**
- * Transform an {@link URI} into an string.
+ * VFS service configuration
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @see Configuration
  */
-public class URITransformer implements Transformer<URI> {
-	public static final URITransformer SHARED_INSTANCE = new URITransformer();
+@ConfigurationName("vfs")
+public interface VFSConfiguration extends Configuration {
+	/**
+	 * @return the VFS root {@link URI}
+	 */
+	@ConfigurationPropertyGetter(name = "vfs.root", defaultValue = "")
+	Path getRoot();
 
-	@Override
-	public String transform(URI value) {
-		return value.toString();
-	}
-
-	@Override
-	public URI untransform(String value) {
-		return URI.create(value);
-	}
+	/**
+	 * @param root
+	 *            the new VFS root {@link URI}
+	 */
+	@ConfigurationPropertySetter(name = "vfs.root")
+	void setRoot(Path root);
 }
