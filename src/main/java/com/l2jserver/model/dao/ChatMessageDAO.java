@@ -25,7 +25,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * The {@link ChatMessageDAO} is can load and save {@link ChatMessage chat
  * messages}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ChatMessageDAO extends
 		DataAccessObject<ChatMessage, ChatMessageID>, Cacheable {

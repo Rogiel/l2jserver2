@@ -54,6 +54,14 @@ public class Java7VFSService extends AbstractService implements VFSService {
 	 */
 	private Path root;
 
+	/**
+	 * Configuration interface for {@link Java7VFSService}.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public interface Java7VFSConfiguration extends VFSConfiguration {
+	}
+
 	@Inject
 	protected Java7VFSService(final ConfigurationService configService) {
 		this.config = configService.get(Java7VFSConfiguration.class);

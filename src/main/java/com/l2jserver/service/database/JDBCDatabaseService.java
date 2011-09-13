@@ -145,6 +145,104 @@ public class JDBCDatabaseService extends AbstractService implements
 	 */
 	private ScheduledAsyncFuture autoSaveFuture;
 
+	/**
+	 * Configuration interface for {@link JDBCDatabaseService}.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
+		/**
+		 * @return the jdbc url
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.url", defaultValue = "jdbc:mysql://localhost/l2jserver2")
+		String getJdbcUrl();
+
+		/**
+		 * @param jdbcUrl
+		 *            the new jdbc url
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.url")
+		void setJdbcUrl(String jdbcUrl);
+
+		/**
+		 * @return the jdbc driver class
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.driver", defaultValue = "com.jdbc.jdbc.Driver")
+		String getDriver();
+
+		/**
+		 * @param driver
+		 *            the new jdbc driver
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.driver")
+		void setDriver(Class<?> driver);
+
+		/**
+		 * @return the jdbc database username
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.username", defaultValue = "l2j")
+		String getUsername();
+
+		/**
+		 * @param username
+		 *            the jdbc database username
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.username")
+		void setUsername(String username);
+
+		/**
+		 * @return the jdbc database password
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.password", defaultValue = "changeme")
+		String getPassword();
+
+		/**
+		 * @param password
+		 *            the jdbc database password
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.password")
+		void setPassword(String password);
+
+		/**
+		 * @return the maximum number of active connections
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.active.max", defaultValue = "20")
+		int getMaxActiveConnections();
+
+		/**
+		 * @param password
+		 *            the maximum number of active connections
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.active.max")
+		void setMaxActiveConnections(int password);
+
+		/**
+		 * @return the maximum number of idle connections
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.idle.max", defaultValue = "20")
+		int getMaxIdleConnections();
+
+		/**
+		 * @param password
+		 *            the maximum number of idle connections
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.idle.max")
+		void setMaxIdleConnections(int password);
+
+		/**
+		 * @return the minimum number of idle connections
+		 */
+		@ConfigurationPropertyGetter(name = "jdbc.idle.min", defaultValue = "5")
+		int getMinIdleConnections();
+
+		/**
+		 * @param password
+		 *            the minimum number of idle connections
+		 */
+		@ConfigurationPropertySetter(name = "jdbc.idle.min")
+		void setMinIdleConnections(int password);
+	}
+
 	@Inject
 	public JDBCDatabaseService(ConfigurationService configService,
 			Injector injector, CacheService cacheService,
@@ -331,7 +429,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 */
 		private final Logger log = LoggerFactory
 				.getLogger(InsertUpdateQuery.class);
-		
+
 		private final Iterator<T> iterator;
 
 		/**
@@ -358,24 +456,25 @@ public class JDBCDatabaseService extends AbstractService implements
 		@Override
 		public Integer query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
-			
+
 			log.debug("Starting INSERT/UPDATE query execution");
-			
+
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
 				final String queryString = query();
-				
+
 				log.debug("Preparing statement for {}: {}", object, queryString);
 				final PreparedStatement st = conn.prepareStatement(queryString,
 						Statement.RETURN_GENERATED_KEYS);
-				
+
 				log.debug("Parametizing statement {} with {}", st, object);
 				this.parametize(st, object);
-				
+
 				log.debug("Sending query to database for {}", object);
 				rows += st.executeUpdate();
-				log.debug("Query inserted or updated {} rows for {}", rows, object);
+				log.debug("Query inserted or updated {} rows for {}", rows,
+						object);
 
 				// update object desire --it has been realized
 				if (object instanceof Model && rows > 0) {
@@ -386,10 +485,12 @@ public class JDBCDatabaseService extends AbstractService implements
 					if (mapper == null)
 						continue;
 					final ResultSet rs = st.getGeneratedKeys();
-					log.debug("Mapping generated keys with {} using {}", mapper, rs);
+					log.debug("Mapping generated keys with {} using {}",
+							mapper, rs);
 					while (rs.next()) {
 						final ID<?> generatedID = mapper.map(rs);
-						log.debug("Generated ID for {} is {}", object, generatedID);
+						log.debug("Generated ID for {} is {}", object,
+								generatedID);
 						((Model<ID<?>>) object).setID(generatedID);
 						mapper.map(rs);
 					}
@@ -444,23 +545,23 @@ public class JDBCDatabaseService extends AbstractService implements
 		 */
 		private final Logger log = LoggerFactory
 				.getLogger(SelectListQuery.class);
-		
+
 		@Override
 		public List<T> query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
-			
+
 			log.debug("Starting SELECT List<?> query execution");
-			
+
 			final String queryString = query();
 			log.debug("Preparing statement with {}", queryString);
 			final PreparedStatement st = conn.prepareStatement(query());
-			
+
 			log.debug("Parametizing statement {}", st);
 			parametize(st);
-			
+
 			log.debug("Sending query to database for {}", st);
 			st.execute();
-			
+
 			final List<T> list = CollectionFactory.newList();
 			final ResultSet rs = st.getResultSet();
 			final Mapper<T> mapper = mapper();
@@ -526,23 +627,23 @@ public class JDBCDatabaseService extends AbstractService implements
 		 */
 		private final Logger log = LoggerFactory
 				.getLogger(SelectSingleQuery.class);
-		
+
 		@Override
 		public T query(Connection conn) throws SQLException {
 			Preconditions.checkNotNull(conn, "conn");
-			
+
 			log.debug("Starting SELECT single query execution");
-			
+
 			final String queryString = query();
 			log.debug("Preparing statement with {}", queryString);
 			final PreparedStatement st = conn.prepareStatement(query());
-			
+
 			log.debug("Parametizing statement {}", st);
 			parametize(st);
-			
+
 			log.debug("Sending query to database for {}", st);
 			st.execute();
-			
+
 			final ResultSet rs = st.getResultSet();
 			final Mapper<T> mapper = mapper();
 			log.debug("Database returned {}", rs);
@@ -630,7 +731,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 */
 		private final Logger log = LoggerFactory
 				.getLogger(SelectSingleQuery.class);
-		
+
 		/**
 		 * The database service instance
 		 */
@@ -655,12 +756,12 @@ public class JDBCDatabaseService extends AbstractService implements
 			log.debug("Mapping row {} ID with {}", rs, idMapper);
 			final I id = idMapper.map(rs);
 			Preconditions.checkNotNull(id, "id");
-			
+
 			log.debug("ID={}, locating cached object", id);
 
 			if (database.hasCachedObject(id))
 				return (T) database.getCachedObject(id);
-			
+
 			log.debug("Cached object not found, creating...");
 
 			final T object = map(id, rs);

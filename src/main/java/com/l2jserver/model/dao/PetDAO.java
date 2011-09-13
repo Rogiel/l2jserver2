@@ -24,7 +24,7 @@ import com.l2jserver.service.database.DataAccessObject;
 /**
  * The {@link PetDAO} is can load and save {@link Pet pet instances}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface PetDAO extends DataAccessObject<Pet, PetID>, Cacheable {
 }

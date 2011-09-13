@@ -28,7 +28,7 @@ import com.l2jserver.service.database.DataAccessObject;
 /**
  * The {@link NPCDAO} is can load and save {@link NPC NPC instances}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface NPCDAO extends DataAccessObject<NPC, NPCID>, Cacheable {
 	/**

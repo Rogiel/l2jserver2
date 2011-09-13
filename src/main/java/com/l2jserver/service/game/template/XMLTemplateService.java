@@ -18,6 +18,7 @@ package com.l2jserver.service.game.template;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,6 +53,8 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
+import com.l2jserver.service.configuration.Configuration;
+import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
@@ -82,6 +85,15 @@ public class XMLTemplateService extends AbstractService implements
 
 	@SuppressWarnings("rawtypes")
 	private Cache<TemplateID, Template> templates;
+	
+	@ConfigurationName("template")
+	public interface XMLTemplateServiceConfiguration extends Configuration {
+		@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "data/templates")
+		URI getTemplateDirectory();
+
+		@ConfigurationPropertySetter(name = "template.directory")
+		void setTemplateDirectory(URI file);
+	}
 
 	@Inject
 	public XMLTemplateService(final VFSService vfsService,

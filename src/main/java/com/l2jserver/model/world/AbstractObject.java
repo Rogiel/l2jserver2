@@ -22,7 +22,7 @@ import com.l2jserver.model.id.ObjectID;
 /**
  * This is an abstract object representing all the world objects in Lineage II.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractObject extends AbstractModel<ObjectID<?>>
 		implements WorldObject {

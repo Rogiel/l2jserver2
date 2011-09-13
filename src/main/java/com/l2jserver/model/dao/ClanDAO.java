@@ -24,7 +24,7 @@ import com.l2jserver.service.database.DataAccessObject;
 /**
  * The {@link ClanDAO} is can load and save {@link Clan clan instances}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ClanDAO extends DataAccessObject<Clan, ClanID>, Cacheable {
 }

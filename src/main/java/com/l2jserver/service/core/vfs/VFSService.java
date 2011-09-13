@@ -16,9 +16,12 @@
  */
 package com.l2jserver.service.core.vfs;
 
+import java.net.URI;
 import java.nio.file.Path;
 
 import com.l2jserver.service.Service;
+import com.l2jserver.service.configuration.Configuration;
+import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
 /**
  * The VFS service is responsible for creating a Virtual File System that is
@@ -27,6 +30,28 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface VFSService extends Service {
+	/**
+	 * VFS service configuration
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * @see Configuration
+	 */
+	@ConfigurationName("vfs")
+	public interface VFSConfiguration extends Configuration {
+		/**
+		 * @return the VFS root {@link URI}
+		 */
+		@ConfigurationPropertyGetter(name = "vfs.root", defaultValue = "")
+		Path getRoot();
+
+		/**
+		 * @param root
+		 *            the new VFS root {@link URI}
+		 */
+		@ConfigurationPropertySetter(name = "vfs.root")
+		void setRoot(Path root);
+	}
+
 	/**
 	 * Resolves an file. If the file cannot be resolved, null will be returned.
 	 * <p>

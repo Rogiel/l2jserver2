@@ -29,7 +29,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * The {@link CharacterDAO} is can load and save {@link Character character
  * instances} .
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface CharacterDAO extends
 		DataAccessObject<L2Character, CharacterID>, Cacheable {

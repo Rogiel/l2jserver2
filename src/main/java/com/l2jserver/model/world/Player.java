@@ -22,7 +22,7 @@ import com.l2jserver.model.id.template.ActorTemplateID;
  * {@link Player} is any object that can be controlled by the player. The most
  * common implementation is {@link L2Character}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class Player extends Actor {
 	public Player(ActorTemplateID<?> templateID) {

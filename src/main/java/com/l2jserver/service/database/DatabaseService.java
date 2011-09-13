@@ -19,6 +19,8 @@ package com.l2jserver.service.database;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.configuration.Configuration;
+import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
 /**
  * This service provides access to an database implementation. Each
@@ -36,6 +38,16 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface DatabaseService extends Service {
+	/**
+	 * Database service configuration
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * @see Configuration
+	 */
+	@ConfigurationName("database")
+	public interface DatabaseConfiguration extends Configuration {
+	}
+
 	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
 			Class<M> model);
 }

@@ -28,7 +28,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * The {@link CharacterFriendDAO} is can load and save
  * {@link CharacterFriendList character friend list}.
  * 
- * @author Rogiel
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface CharacterFriendDAO extends
 		DataAccessObject<CharacterFriend, FriendID>, Cacheable {
