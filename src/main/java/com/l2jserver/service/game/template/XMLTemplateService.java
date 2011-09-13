@@ -53,7 +53,6 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
-import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
@@ -85,9 +84,10 @@ public class XMLTemplateService extends AbstractService implements
 
 	@SuppressWarnings("rawtypes")
 	private Cache<TemplateID, Template> templates;
-	
+
 	@ConfigurationName("template")
-	public interface XMLTemplateServiceConfiguration extends Configuration {
+	public interface XMLTemplateServiceConfiguration extends
+			TemplateServiceConfiguration {
 		@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "data/templates")
 		URI getTemplateDirectory();
 

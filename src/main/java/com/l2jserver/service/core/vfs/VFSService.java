@@ -20,6 +20,7 @@ import java.net.URI;
 import java.nio.file.Path;
 
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
@@ -37,7 +38,7 @@ public interface VFSService extends Service {
 	 * @see Configuration
 	 */
 	@ConfigurationName("vfs")
-	public interface VFSConfiguration extends Configuration {
+	public interface VFSConfiguration extends ServiceConfiguration {
 		/**
 		 * @return the VFS root {@link URI}
 		 */

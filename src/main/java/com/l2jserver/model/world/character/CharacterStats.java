@@ -261,6 +261,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	 */
 	private final L2Character character;
 
+	@SuppressWarnings("unchecked")
 	private static final CharacterCalculator calculator = new CharacterCalculator(
 			StatType.class);
 

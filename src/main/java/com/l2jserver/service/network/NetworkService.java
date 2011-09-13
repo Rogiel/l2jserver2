@@ -25,6 +25,7 @@ import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
@@ -71,7 +72,7 @@ public interface NetworkService extends Service {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	@ConfigurationName("network")
-	public interface NetworkConfiguration extends Configuration {
+	public interface NetworkConfiguration extends ServiceConfiguration {
 		/**
 		 * Get the server listen address
 		 * 
@@ -90,7 +91,6 @@ public interface NetworkService extends Service {
 		void setListenAddress(InetSocketAddress addr);
 	}
 
-	
 	/**
 	 * Registers a new client
 	 * 

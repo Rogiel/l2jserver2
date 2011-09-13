@@ -26,8 +26,6 @@ import org.apache.commons.math.geometry.Vector3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Coordinate {
-	private static final long serialVersionUID = 1L;
-
 	/**
 	 * The backing vector of this Coordinate
 	 */

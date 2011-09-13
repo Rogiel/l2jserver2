@@ -24,6 +24,7 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceConfiguration;
 
 /**
  * Service that loads {@link L2Character}, {@link NPC}, {@link Item} and
@@ -36,6 +37,9 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface TemplateService extends Service {
+	public interface TemplateServiceConfiguration extends ServiceConfiguration {
+	}
+
 	/**
 	 * Get the template assigned with <tt>id</tt>
 	 * 

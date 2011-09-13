@@ -19,6 +19,7 @@ package com.l2jserver.service.database;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 
@@ -45,7 +46,7 @@ public interface DatabaseService extends Service {
 	 * @see Configuration
 	 */
 	@ConfigurationName("database")
-	public interface DatabaseConfiguration extends Configuration {
+	public interface DatabaseConfiguration extends ServiceConfiguration {
 	}
 
 	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
