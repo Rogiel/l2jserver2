@@ -30,6 +30,12 @@ import com.l2jserver.model.world.actor.stat.StatType;
  */
 public abstract class CharacterCalculatorFunction extends
 		ActorCalculatorFunction {
+	/**
+	 * @param order
+	 *            the calculation order
+	 * @param type
+	 *            the stat type
+	 */
 	public CharacterCalculatorFunction(int order, StatType type) {
 		super(order, type);
 	}
@@ -41,6 +47,17 @@ public abstract class CharacterCalculatorFunction extends
 				value);
 	}
 
+	/**
+	 * Computes the calculated value
+	 * 
+	 * @param c
+	 *            the character
+	 * @param t
+	 *            the template
+	 * @param value
+	 *            the input value
+	 * @return the computed value
+	 */
 	protected abstract double calculate(L2Character c, CharacterTemplate t,
 			double value);
 }

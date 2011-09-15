@@ -36,6 +36,9 @@ public class PrecompiledScriptCompiler implements ScriptCompiler {
 	 */
 	protected ScriptClassLoader parentClassLoader;
 
+	/**
+	 * Creates a new instance
+	 */
 	public PrecompiledScriptCompiler() {
 	}
 

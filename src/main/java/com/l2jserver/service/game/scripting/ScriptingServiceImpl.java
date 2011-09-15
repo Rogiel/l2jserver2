@@ -29,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.service.AbstractService;
@@ -56,6 +57,9 @@ public class ScriptingServiceImpl extends AbstractService implements
 	private static final Logger log = LoggerFactory
 			.getLogger(ScriptingServiceImpl.class);
 
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector;
 
 	/**
@@ -63,6 +67,10 @@ public class ScriptingServiceImpl extends AbstractService implements
 	 */
 	private final Set<ScriptContext> contexts = CollectionFactory.newSet();
 
+	/**
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 */
 	@Inject
 	public ScriptingServiceImpl(Injector injector) {
 		this.injector = injector;

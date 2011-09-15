@@ -25,6 +25,9 @@ import com.l2jserver.util.exception.L2Exception;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ActionServiceException extends NPCServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

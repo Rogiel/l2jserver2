@@ -30,8 +30,15 @@ import com.l2jserver.model.template.character.CharacterClass;
  */
 public class CharacterTemplateIDAdapter extends
 		XmlAdapter<CharacterClass, CharacterTemplateID> {
+	/**
+	 * The character template id provider
+	 */
 	private final CharacterTemplateIDProvider provider;
 
+	/**
+	 * @param provider
+	 *            the character template id provider
+	 */
 	@Inject
 	public CharacterTemplateIDAdapter(CharacterTemplateIDProvider provider) {
 		this.provider = provider;

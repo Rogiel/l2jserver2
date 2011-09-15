@@ -26,6 +26,7 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
+import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -63,38 +64,110 @@ import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
+/**
+ * This service loads template data from XML files using the {@link JAXB}
+ * service.
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 @Depends({ LoggingService.class, VFSService.class, CacheService.class,
 		ConfigurationService.class })
 public class XMLTemplateService extends AbstractService implements
 		TemplateService {
+	/**
+	 * The logger
+	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The vfs service
+	 */
 	private final VFSService vfsService;
+	/**
+	 * The cache service
+	 */
 	private final CacheService cacheService;
 
+	/**
+	 * The XML template service configuration
+	 */
 	private final XMLTemplateServiceConfiguration config;
+	/**
+	 * The npc template id adapter
+	 */
 	private final NPCTemplateIDAdapter npcTemplateIdAdapter;
+	/**
+	 * The item template id adapter
+	 */
 	private final ItemTemplateIDAdapter itemTemplateIdAdapter;
+	/**
+	 * The skill template id adapter
+	 */
 	private final SkillTemplateIDAdapter skillTemplateIdAdapter;
+	/**
+	 * The character template id adapter
+	 */
 	private final CharacterTemplateIDAdapter charIdTemplateAdapter;
+	/**
+	 * The teleportation template id adapater
+	 */
 	private final TeleportationTemplateIDAdapter teleportationIdTemplateAdapter;
 
+	/**
+	 * The {@link JAXB} context
+	 */
 	private JAXBContext context;
+	/**
+	 * The {@link JAXB} unmarshaller
+	 */
 	private Unmarshaller unmarshaller;
 
+	/**
+	 * An cache of all loaded templates
+	 */
 	@SuppressWarnings("rawtypes")
 	private Cache<TemplateID, Template> templates;
 
+	/**
+	 * XML {@link TemplateService} configuration interface
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@ConfigurationName("template")
 	public interface XMLTemplateServiceConfiguration extends
 			TemplateServiceConfiguration {
+		/**
+		 * @return the directory in which templates are stored
+		 */
 		@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "data/templates")
 		URI getTemplateDirectory();
 
+		/**
+		 * @param file
+		 *            the directory in which templates are stored
+		 */
 		@ConfigurationPropertySetter(name = "template.directory")
 		void setTemplateDirectory(URI file);
 	}
 
+	/**
+	 * @param vfsService
+	 *            the vfs service
+	 * @param cacheService
+	 *            the cache service
+	 * @param configService
+	 *            the configuration service
+	 * @param npcTemplateIdAdapter
+	 *            the npc template id adapter
+	 * @param itemTemplateIdAdapter
+	 *            the item template id adapter
+	 * @param skillTemplateIdAdapter
+	 *            the skill template id adapter
+	 * @param charIdTemplateAdapter
+	 *            the character id template adapter
+	 * @param teleportationIdTemplateAdapter
+	 *            the teleportation template id adapter
+	 */
 	@Inject
 	public XMLTemplateService(final VFSService vfsService,
 			CacheService cacheService, ConfigurationService configService,
@@ -188,6 +261,16 @@ public class XMLTemplateService extends AbstractService implements
 		return (T) templates.get(id);
 	}
 
+	/**
+	 * Loads the template located in <tt>path</tt>
+	 * 
+	 * @param path
+	 *            the path to the template
+	 * @throws JAXBException
+	 *             if any error occur while processing the XML
+	 * @throws IOException
+	 *             if any error occur in the I/O level
+	 */
 	public void loadTemplate(Path path) throws JAXBException, IOException {
 		Preconditions.checkNotNull(path, "path");
 		log.debug("Loading template {}", path);
@@ -203,6 +286,12 @@ public class XMLTemplateService extends AbstractService implements
 		}
 	}
 
+	/**
+	 * Removes the given <tt>template</tt> from the cache
+	 * 
+	 * @param template
+	 *            the template to be purged
+	 */
 	public void removeTemplate(Template<?> template) {
 		Preconditions.checkNotNull(template, "template");
 		log.debug("Removing template {}", template);
@@ -217,10 +306,18 @@ public class XMLTemplateService extends AbstractService implements
 		context = null;
 	}
 
+	/**
+	 * The teleportation template container
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlRootElement(name = "teleports")
 	@XmlAccessorType(XmlAccessType.FIELD)
 	@XmlType(namespace = "teleports")
 	public static class TeleportationTemplateContainer {
+		/**
+		 * The list of all teleportation templates
+		 */
 		@XmlElement(name = "teleport")
 		public List<TeleportationTemplate> templates;
 	}

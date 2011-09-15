@@ -30,6 +30,14 @@ import com.l2jserver.service.database.jdbc.JDBCChatMessageDAO;
  */
 public class MySQL5ChatMessageDAO extends JDBCChatMessageDAO implements
 		ChatMessageDAO {
+	/**
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the chat message id provider
+	 * @param charIdFactory
+	 *            the character id provider
+	 */
 	@Inject
 	public MySQL5ChatMessageDAO(DatabaseService database,
 			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {

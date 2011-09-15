@@ -41,7 +41,19 @@ public enum ChatMessageType {
 	/**
 	 * \@
 	 */
-	CLAN(4), GM(5), PETITION_PLAYER(6), PETITION_GM(7),
+	CLAN(4),
+	/**
+	 * The GM chat
+	 */
+	GM(5),
+	/**
+	 * Petition system: player messages
+	 */
+	PETITION_PLAYER(6),
+	/**
+	 * Petition system: GM messages
+	 */
+	PETITION_GM(7),
 	/**
 	 * +
 	 */
@@ -61,12 +73,26 @@ public enum ChatMessageType {
 			15), PARTYROOM_ALL(16), HERO_VOICE(17), CRITICAL_ANNOUNCE(18), SCREEN_ANNOUNCE(
 			19), BATTLEFIELD(20), MPCC_ROOM(21);
 
+	/**
+	 * The numeric id representing this message type
+	 */
 	public final int id;
 
+	/**
+	 * @param id
+	 *            the numeric id for this message type
+	 */
 	ChatMessageType(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Resolves the numeric ID to {@link ChatMessageType} java type.
+	 * 
+	 * @param id
+	 *            the numeric id
+	 * @return the {@link ChatMessageType} resolved. Can be <tt>null</tt>.
+	 */
 	public static ChatMessageType fromID(int id) {
 		for (final ChatMessageType dest : values()) {
 			if (dest.id == id)

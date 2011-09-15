@@ -34,8 +34,17 @@ import com.l2jserver.service.ServiceStopException;
  */
 public class Log4JLoggingService extends AbstractService implements
 		LoggingService {
+	/**
+	 * The root logger
+	 */
 	private Logger rootLogger;
+	/**
+	 * The l2j logger
+	 */
 	private Logger l2jLogger;
+	/**
+	 * The netty logger
+	 */
 	private Logger nettyLogger;
 
 	@Override

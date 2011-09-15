@@ -47,17 +47,38 @@ public class CoordinateAdapter extends
 
 	}
 
-	public static class CoordinateElement {
+	/**
+	 * Internal usage class: class used to read coordinate data from XML file
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	protected static class CoordinateElement {
+		/**
+		 * The x cord
+		 */
 		@XmlAttribute(name = "x")
 		public int x;
+		/**
+		 * The y cord
+		 */
 		@XmlAttribute(name = "y")
 		public int y;
+		/**
+		 * The z cord
+		 */
 		@XmlAttribute(name = "z")
 		public int z;
 
+		/**
+		 * Creates a new empty instance. Created only from JAXB
+		 */
 		protected CoordinateElement() {
 		}
 
+		/**
+		 * @param x the x cord
+		 * @param y the y cord
+		 * @param z the z cord
+		 */
 		public CoordinateElement(int x, int y, int z) {
 			super();
 			this.x = x;

@@ -204,6 +204,9 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 */
 	private final NPC npc;
 
+	/**
+	 * The NPC calculator
+	 */
 	private static final NPCCalculator calculator = new NPCCalculator();
 
 	/**

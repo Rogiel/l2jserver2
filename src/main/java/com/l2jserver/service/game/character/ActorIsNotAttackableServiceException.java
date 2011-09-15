@@ -26,5 +26,8 @@ import com.l2jserver.model.world.Actor;
  */
 public class ActorIsNotAttackableServiceException extends
 		CharacterServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

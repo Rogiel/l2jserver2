@@ -103,9 +103,19 @@ public class ProxyConfigurationService extends AbstractService implements
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	private class ConfigInvocationHandler implements InvocationHandler {
+		/**
+		 * The invocation handler properties
+		 */
 		private final Properties properties;
+		/**
+		 * The invocation cache
+		 */
 		private Map<String, Object> cache = CollectionFactory.newWeakMap();
 
+		/**
+		 * @param properties
+		 *            the properties
+		 */
 		public ConfigInvocationHandler(Properties properties) {
 			this.properties = properties;
 		}

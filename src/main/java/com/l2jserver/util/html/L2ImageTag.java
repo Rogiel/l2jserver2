@@ -26,8 +26,14 @@ import org.htmlparser.tags.ImageTag;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2ImageTag extends ImageTag {
+	/**
+	 * The Java Serialization API Serial
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instance of this tag
+	 */
 	public L2ImageTag() {
 		super.setTagName("img");
 		Tag end = new TagNode();

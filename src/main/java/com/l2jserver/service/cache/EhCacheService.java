@@ -163,9 +163,25 @@ public class EhCacheService extends AbstractService implements CacheService {
 		interfaceCache = null;
 	}
 
+	/**
+	 * {@link net.sf.ehcache.Cache EhCache} facade
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <K>
+	 *            the key type
+	 * @param <V>
+	 *            the value type
+	 */
 	private class EhCacheFacade<K, V> implements Cache<K, V> {
+		/**
+		 * The backing cache
+		 */
 		private final net.sf.ehcache.Cache cache;
 
+		/**
+		 * @param cache the backing cache
+		 */
 		public EhCacheFacade(net.sf.ehcache.Cache cache) {
 			this.cache = cache;
 		}

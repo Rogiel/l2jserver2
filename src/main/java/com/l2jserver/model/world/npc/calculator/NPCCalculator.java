@@ -23,6 +23,10 @@ import com.l2jserver.model.world.actor.calculator.ActorCalculator;
  * 
  */
 public class NPCCalculator extends ActorCalculator {
+	/**
+	 * @param calculators
+	 *            the calculators
+	 */
 	public NPCCalculator(NPCCalculator... calculators) {
 		super(calculators);
 	}

@@ -28,6 +28,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class URLTransformer implements Transformer<URL> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final URLTransformer SHARED_INSTANCE = new URLTransformer();
 
 	@Override

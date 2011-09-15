@@ -33,6 +33,9 @@ import com.l2jserver.model.world.character.calculator.CharacterFormula;
  */
 public class CharacterBasePhysicalAttackSpeedCalculator extends
 		CharacterFormula {
+	/**
+	 * Creates a new instance of this formula
+	 */
 	public CharacterBasePhysicalAttackSpeedCalculator() {
 		super(0x000, StatType.POWER_ATTACK_SPEED);
 	}

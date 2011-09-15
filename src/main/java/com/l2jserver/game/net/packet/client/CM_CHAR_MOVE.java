@@ -39,6 +39,9 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x0f;
 
+	/**
+	 * The logger
+	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**

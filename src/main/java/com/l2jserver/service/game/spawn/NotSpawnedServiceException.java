@@ -22,5 +22,8 @@ package com.l2jserver.service.game.spawn;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NotSpawnedServiceException extends SpawnServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

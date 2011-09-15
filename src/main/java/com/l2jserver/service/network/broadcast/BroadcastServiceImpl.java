@@ -69,9 +69,19 @@ public class BroadcastServiceImpl extends AbstractService implements
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The world service
+	 */
 	private final WorldService worldService;
+	/**
+	 * The world service event dispatcher
+	 */
 	private final WorldEventDispatcher eventDispatcher;
 
+	/**
+	 * @param worldService the world service
+	 * @param eventDispatcher the world service event disptacher
+	 */
 	@Inject
 	public BroadcastServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher) {

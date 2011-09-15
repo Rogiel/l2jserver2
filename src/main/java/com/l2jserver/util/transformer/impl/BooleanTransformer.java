@@ -24,6 +24,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class BooleanTransformer implements Transformer<Boolean> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final BooleanTransformer SHARED_INSTANCE = new BooleanTransformer();
 
 	@Override

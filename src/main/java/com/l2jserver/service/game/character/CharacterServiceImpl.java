@@ -133,7 +133,13 @@ public class CharacterServiceImpl extends AbstractService implements
 	 */
 	private final ItemDAO itemDao;
 
+	/**
+	 * The character ID provider
+	 */
 	private final CharacterIDProvider charIdProvider;
+	/**
+	 * The character template ID provider
+	 */
 	private final CharacterTemplateIDProvider charTemplateIdProvider;
 
 	// /**
@@ -141,6 +147,30 @@ public class CharacterServiceImpl extends AbstractService implements
 	// */
 	// private final AIService aiService;
 
+	/**
+	 * @param broadcastService
+	 *            the broadcast service
+	 * @param eventDispatcher
+	 *            the world service event dispatcher
+	 * @param chatService
+	 *            the chat service
+	 * @param networkService
+	 *            the network service
+	 * @param spawnService
+	 *            the spawn service
+	 * @param npcService
+	 *            the npc service
+	 * @param ggService
+	 *            the gm service
+	 * @param characterDao
+	 *            the character DAO
+	 * @param itemDao
+	 *            the item DAO
+	 * @param charTemplateIdProvider
+	 *            the character template id provider
+	 * @param charIdProvider
+	 *            the character id provider
+	 */
 	@Inject
 	public CharacterServiceImpl(BroadcastService broadcastService,
 			WorldEventDispatcher eventDispatcher, ChatService chatService,
@@ -433,9 +463,9 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void move(L2Character character, Coordinate coordinate) {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(coordinate, "coordinate");
-		
+
 		log.debug("{} is moving to {}", character, coordinate);
-		
+
 		final CharacterID id = character.getID();
 		final Lineage2Client conn = networkService.discover(id);
 		// we don't set the character coordinate here, this will be done by
@@ -467,9 +497,10 @@ public class CharacterServiceImpl extends AbstractService implements
 			// ignore while teleporting, for some reason the client sends a
 			// validation just before teleport packet
 			return;
-		
-		log.debug("{} client is validating its position to {}", character, point);
-		
+
+		log.debug("{} client is validating its position to {}", character,
+				point);
+
 		final Point3D old = character.getPoint();
 		character.setPoint(point);
 		// BroadcastService will catch this event and update the knownlist
@@ -492,9 +523,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		// test if character is running
 		if (character.getMoveType() == CharacterMoveType.WALK)
 			throw new CharacterAlreadyWalkingServiceException();
-		
+
 		log.debug("{} move type is being set to WALK", character);
-		
+
 		// if running set mode to walk and broadcast packet
 		character.setMoveType(CharacterMoveType.WALK);
 
@@ -511,9 +542,9 @@ public class CharacterServiceImpl extends AbstractService implements
 		// test if character is walking
 		if (character.getMoveType() == CharacterMoveType.RUN)
 			throw new CharacterAlreadyRunningServiceException();
-		
+
 		log.debug("{} move type is being set to RUN", character);
-		
+
 		// if running walking mode to run and broadcast packet
 		character.setMoveType(CharacterMoveType.RUN);
 

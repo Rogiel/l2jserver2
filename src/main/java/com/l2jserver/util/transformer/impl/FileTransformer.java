@@ -26,8 +26,14 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class FileTransformer implements Transformer<File> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final FileTransformer SHARED_INSTANCE = new FileTransformer();
 
+	/**
+	 * The root to resolve relative files
+	 */
 	private final File root = new File("./");
 
 	@Override

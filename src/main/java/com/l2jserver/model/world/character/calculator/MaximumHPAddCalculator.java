@@ -34,6 +34,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MaximumHPAddCalculator extends CharacterFormula {
+	/**
+	 * Creates a new instance of this formula
+	 */
 	public MaximumHPAddCalculator() {
 		super(0x100, StatType.MAX_HP);
 	}

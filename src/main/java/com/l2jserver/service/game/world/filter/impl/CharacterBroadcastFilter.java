@@ -24,6 +24,10 @@ import com.l2jserver.service.game.world.filter.WorldObjectFilter;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterBroadcastFilter extends AndFilter<L2Character> {
+	/**
+	 * @param character
+	 *            the character to filter
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public CharacterBroadcastFilter(L2Character character) {
 		super(new InstanceFilter<L2Character>(L2Character.class),

@@ -260,6 +260,9 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	 */
 	private final L2Character character;
 
+	/**
+	 * The character calculator
+	 */
 	@SuppressWarnings("unchecked")
 	private static final CharacterCalculator calculator = new CharacterCalculator();
 
@@ -294,6 +297,9 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 		return (int) calc(StatType.MAX_LOAD);
 	}
 
+	/**
+	 * Setups the default formulas
+	 */
 	@SuppressWarnings("unchecked")
 	private void setup() {
 		calculator.addNoSort(BASE_HP_FORMULA, BASE_MP_FORMULA, BASE_CP_FORMULA);
@@ -327,12 +333,21 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 		calculator.sort();
 	}
 
+	/**
+	 * Updates the calculator
+	 */
 	public void updateCalculator() {
 		calculator.clear();
 		setup();
 		addItem(InventoryPaperdoll.RIGHT_HAND);
 	}
 
+	/**
+	 * Adds the item formulas to this character calculator
+	 * 
+	 * @param paperdoll
+	 *            the paperdoll slot
+	 */
 	private void addItem(InventoryPaperdoll paperdoll) {
 		if (!character.getInventory().has(paperdoll))
 			return;

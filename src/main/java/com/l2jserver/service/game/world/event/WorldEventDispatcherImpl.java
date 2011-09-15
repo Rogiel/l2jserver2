@@ -48,6 +48,9 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	private static final Logger log = LoggerFactory
 			.getLogger(WorldEventDispatcherImpl.class);
 
+	/**
+	 * The thread service
+	 */
 	private final ThreadService threadService;
 
 	/**
@@ -70,11 +73,18 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	private Queue<EventContainer> events = CollectionFactory
 			.newConcurrentQueue();
 
+	/**
+	 * @param threadService
+	 *            the thread service
+	 */
 	@Inject
 	public WorldEventDispatcherImpl(ThreadService threadService) {
 		this.threadService = threadService;
 	}
 
+	/**
+	 * Stats the world event disptacher
+	 */
 	public void start() {
 		threadPool = threadService.createThreadPool("event-dispatcher", 1);
 		threadPool.async(0, TimeUnit.MILLISECONDS, 20, new TimerTask() {
@@ -229,6 +239,9 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		return set;
 	}
 
+	/**
+	 * Stops the world event dispatcher
+	 */
 	public void stop() {
 		threadService.dispose(threadPool);
 		threadPool = null;
@@ -243,7 +256,13 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	 */
 	private static class WorldEventFutureImpl<E extends WorldEvent> extends
 			AbstractFuture<E> implements WorldEventFuture<E> {
+		/**
+		 * The running state of the dispatching event
+		 */
 		private boolean running = false;
+		/**
+		 * Will be true if the event has been dispatched to all listeners
+		 */
 		private boolean complete = false;
 
 		@Override

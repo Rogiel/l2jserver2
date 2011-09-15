@@ -67,6 +67,14 @@ public abstract class JDBCChatMessageDAO extends
 	public static final String DATE = "date";
 	public static final String MESSAGE = "message";
 
+	/**
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the chat message id provider
+	 * @param charIdFactory
+	 *            the character id provider
+	 */
 	@Inject
 	public JDBCChatMessageDAO(DatabaseService database,
 			ChatMessageIDProvider idFactory,

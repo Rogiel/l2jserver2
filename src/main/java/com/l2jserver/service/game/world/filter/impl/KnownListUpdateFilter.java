@@ -23,14 +23,29 @@ import com.l2jserver.service.game.world.filter.NotFilter;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This filter will only accept {@link WorldObject} which are in vision of
- * another object.
+ * This filter will only accept {@link WorldObject} which were not in vision of
+ * <tt>object</tt> when it was positioned at <tt>old</tt> and are visible now.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
+	/**
+	 * Constant declaring the range in which knownlist will be scanned
+	 */
 	public static final int KNOWNLIST_RANGE = 2000;
 
+	/**
+	 * Creates a new instance.
+	 * <p>
+	 * This filter will only accept {@link WorldObject} which were not in vision
+	 * of <tt>object</tt> when it was positioned at <tt>old</tt> and are visible
+	 * now.
+	 * 
+	 * @param object
+	 *            the object in the center of the range
+	 * @param old
+	 *            the old position
+	 */
 	@SuppressWarnings("unchecked")
 	public KnownListUpdateFilter(PositionableObject object, Point3D old) {
 		super(new KnownListFilter(object), new NotFilter<PositionableObject>(

@@ -36,6 +36,9 @@ import com.l2jserver.util.factory.CollectionFactory;
  *            the value type
  */
 public class EternalCache<K, V> implements Cache<K, V> {
+	/**
+	 * The logger
+	 */
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**

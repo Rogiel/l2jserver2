@@ -25,5 +25,8 @@ import com.l2jserver.service.game.world.event.WorldEvent;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface NPCEvent extends WorldEvent {
+	/**
+	 * @return the NPC
+	 */
 	NPC getNPC();
 }

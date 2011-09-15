@@ -27,6 +27,9 @@ import com.l2jserver.util.transformer.Transformer;
  */
 public class InetSocketAddressTransformer implements
 		Transformer<InetSocketAddress> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final InetSocketAddressTransformer SHARED_INSTANCE = new InetSocketAddressTransformer();
 
 	@Override

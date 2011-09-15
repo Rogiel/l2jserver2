@@ -63,6 +63,11 @@ public abstract class JDBCCharacterFriendDAO extends
 	public static final String CHAR_ID_FRIEND = JDBCCharacterDAO.CHAR_ID
 			+ "_friend";
 
+	/**
+	 * @param database the database service
+	 * @param idProvider the frind id provider
+	 * @param charIdProvider the character id provider
+	 */
 	@Inject
 	public JDBCCharacterFriendDAO(DatabaseService database,
 			final FriendIDProvider idProvider,

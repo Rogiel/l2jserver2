@@ -22,20 +22,46 @@ package com.l2jserver.service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ServiceStopException extends ServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * Creates a new instance of this exception
+	 */
 	public ServiceStopException() {
 		super();
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the root cause
+	 */
 	public ServiceStopException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param message
+	 *            the message
+	 */
 	public ServiceStopException(String message) {
 		super(message);
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param cause
+	 *            the root cause
+	 */
 	public ServiceStopException(Throwable cause) {
 		super(cause);
 	}

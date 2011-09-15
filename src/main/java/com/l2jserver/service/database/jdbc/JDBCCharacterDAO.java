@@ -105,6 +105,18 @@ public abstract class JDBCCharacterDAO extends
 	public static final String APPEARANCE_HAIR_COLOR = "appearance_hair_color";
 	public static final String APPEARANCE_FACE = "apperance_face";
 
+	/**
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the character id provider
+	 * @param templateIdFactory
+	 *            the template id provider
+	 * @param accountIdFactory
+	 *            the account id provider
+	 * @param clanIdFactory
+	 *            the clan id provider
+	 */
 	@Inject
 	public JDBCCharacterDAO(DatabaseService database,
 			final CharacterIDProvider idFactory,

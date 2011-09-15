@@ -24,6 +24,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class FloatTransformer implements Transformer<Float> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final FloatTransformer SHARED_INSTANCE = new FloatTransformer();
 
 	@Override

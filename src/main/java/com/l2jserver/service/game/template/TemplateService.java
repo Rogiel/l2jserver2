@@ -37,6 +37,11 @@ import com.l2jserver.service.ServiceConfiguration;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface TemplateService extends Service {
+	/**
+	 * The template service configuration interface
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public interface TemplateServiceConfiguration extends ServiceConfiguration {
 	}
 

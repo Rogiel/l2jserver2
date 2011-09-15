@@ -36,6 +36,9 @@ public class TeleporterController extends BaseNPCController {
 	 */
 	@Inject
 	protected SpawnService spawnService;
+	/**
+	 * The teleportation template id provider
+	 */
 	@Inject
 	protected TeleportationTemplateIDProvider teleportationIdProvider;
 

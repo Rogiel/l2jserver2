@@ -30,8 +30,15 @@ import com.l2jserver.service.game.world.filter.WorldObjectFilter;
  */
 public abstract class FilteredWorldListener<T extends WorldObject> implements
 		WorldListener {
+	/**
+	 * The filter that will be used to filter incoming events
+	 */
 	private final WorldObjectFilter<T> filter;
 
+	/**
+	 * @param filter
+	 *            the filter used to filter events
+	 */
 	public FilteredWorldListener(WorldObjectFilter<T> filter) {
 		Preconditions.checkNotNull(filter, "filter");
 		this.filter = filter;

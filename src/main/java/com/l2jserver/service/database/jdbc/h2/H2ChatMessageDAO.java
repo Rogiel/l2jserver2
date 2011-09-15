@@ -30,6 +30,14 @@ import com.l2jserver.service.database.jdbc.JDBCChatMessageDAO;
  */
 public class H2ChatMessageDAO extends JDBCChatMessageDAO implements
 		ChatMessageDAO {
+	/**
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the chat message id provider
+	 * @param charIdFactory
+	 *            the character id provider
+	 */
 	@Inject
 	public H2ChatMessageDAO(DatabaseService database,
 			ChatMessageIDProvider idFactory, CharacterIDProvider charIdFactory) {

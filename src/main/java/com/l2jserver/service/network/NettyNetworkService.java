@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Client;
@@ -85,6 +86,11 @@ public class NettyNetworkService extends AbstractService implements
 	 */
 	private Set<Lineage2Client> clients = CollectionFactory.newSet();
 
+	/**
+	 * @param configService the configuration service
+	 * @param injector the {@link Guice} {@link Injector}
+	 * @param worldService the world service
+	 */
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,
 			Injector injector, WorldService worldService) {

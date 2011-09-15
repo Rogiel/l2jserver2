@@ -47,6 +47,12 @@ public interface AdministratorService extends Service {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public interface AdministratorCommand {
+		/**
+		 * @param character
+		 *            the administrator character
+		 * @param args
+		 *            the arguments
+		 */
 		void administrator(L2Character character, String... args);
 	}
 }

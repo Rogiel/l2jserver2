@@ -19,6 +19,7 @@ package com.l2jserver.service.core.threading;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
@@ -85,14 +86,16 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		Preconditions.checkNotNull(unit, "unit");
 		Preconditions.checkNotNull(task, "task");
 
-		log.debug("Scheduling repeating async task in {}ms each {}ms: {}", new Object[] {
-				unit.toMillis(delay), unit.toMillis(repeat), task });
+		log.debug("Scheduling repeating async task in {}ms each {}ms: {}",
+				new Object[] { unit.toMillis(delay), unit.toMillis(repeat),
+						task });
 		return pool.async(delay, unit, repeat, task);
 	}
 
 	@Override
 	public ThreadPool createThreadPool(String name, int maxThreads) {
-		log.debug("Creating new ThreadPool {} with maximum of {} threads", name, maxThreads);
+		log.debug("Creating new ThreadPool {} with maximum of {} threads",
+				name, maxThreads);
 		return new ThreadPoolImpl(name,
 				Executors.newScheduledThreadPool(maxThreads));
 	}
@@ -205,9 +208,21 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		}
 	}
 
+	/**
+	 * Future implementation for asynchronous tasks
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	private class ScheduledAsyncFutureImpl implements ScheduledAsyncFuture {
+		/**
+		 * The {@link ExecutorService} {@link ScheduledFuture}
+		 */
 		private final ScheduledFuture<?> future;
 
+		/**
+		 * @param future
+		 *            the {@link ExecutorService} {@link ScheduledFuture}
+		 */
 		public ScheduledAsyncFutureImpl(ScheduledFuture<?> future) {
 			this.future = future;
 		}
@@ -251,6 +266,11 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 
 	}
 
+	/**
+	 * Thread pool implementation
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	private class ThreadPoolImpl implements ThreadPool {
 		/**
 		 * This thread pool name
@@ -261,6 +281,12 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		 */
 		private final ScheduledExecutorService executor;
 
+		/**
+		 * @param name
+		 *            the pool name
+		 * @param executor
+		 *            the backing {@link ScheduledExecutorService}
+		 */
 		public ThreadPoolImpl(String name, ScheduledExecutorService executor) {
 			this.name = name;
 			this.executor = executor;

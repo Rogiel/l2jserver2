@@ -24,20 +24,46 @@ import com.l2jserver.util.exception.L2Exception;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ServiceException extends L2Exception {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * Creates a new instance of this exception
+	 */
 	public ServiceException() {
 		super();
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the root cause
+	 */
 	public ServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param message
+	 *            the message
+	 */
 	public ServiceException(String message) {
 		super(message);
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param cause
+	 *            the root cause
+	 */
 	public ServiceException(Throwable cause) {
 		super(cause);
 	}

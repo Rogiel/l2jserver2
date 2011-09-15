@@ -26,8 +26,14 @@ import org.htmlparser.tags.Span;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2CenterTag extends Span {
+	/**
+	 * The Java Serialization API Serial
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instance of this tag
+	 */
 	public L2CenterTag() {
 		super.setTagName("center");
 		Tag end = new TagNode();

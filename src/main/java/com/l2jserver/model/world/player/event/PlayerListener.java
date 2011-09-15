@@ -24,6 +24,9 @@ import com.l2jserver.service.game.world.event.TypedWorldListener;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class PlayerListener extends TypedWorldListener<PlayerEvent> {
+	/**
+	 * Creates a new instance
+	 */
 	public PlayerListener() {
 		super(PlayerEvent.class);
 	}

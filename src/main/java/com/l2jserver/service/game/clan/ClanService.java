@@ -26,7 +26,26 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ClanService extends Service {
+	/**
+	 * Joins the <tt>character</tt> on the given <tt>clan</tt>
+	 * 
+	 * @param clan
+	 *            the clan
+	 * @param character
+	 *            the character (joinee)
+	 * @param inviter
+	 *            the character inviting <tt>character</tt> to this
+	 *            <tt>clan</tt>, if any.
+	 */
 	void join(Clan clan, L2Character character, L2Character inviter);
 
+	/**
+	 * Removes the <tt>character</tt> from the given <tt>clan</tt>
+	 * 
+	 * @param clan
+	 *            the clan
+	 * @param character
+	 *            the character (leaver)
+	 */
 	void leave(Clan clan, L2Character character);
 }

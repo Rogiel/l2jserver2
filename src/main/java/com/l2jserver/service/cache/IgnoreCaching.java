@@ -22,11 +22,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Indicate to the proxy that this method should not be cached.
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-/**
- * Indicate to the proxy that this method should not be cached.
- */
 public @interface IgnoreCaching {
 }

@@ -68,6 +68,11 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 */
 	private final WorldEventDispatcher eventDispatcher;
 
+	/**
+	 * @param threadService the thread service
+	 * @param npcService the npc service
+	 * @param eventDispatcher the world service event dispatcher
+	 */
 	@Inject
 	public AttackServiceImpl(ThreadService threadService,
 			NPCService npcService, WorldEventDispatcher eventDispatcher) {
@@ -101,6 +106,10 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 		 */
 		private final Actor target;
 
+		/**
+		 * @param attacker the attacker
+		 * @param target the target
+		 */
 		public AttackCallable(Actor attacker, Actor target) {
 			this.attacker = attacker;
 			this.target = target;

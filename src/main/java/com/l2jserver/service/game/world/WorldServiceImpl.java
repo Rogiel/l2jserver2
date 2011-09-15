@@ -72,6 +72,12 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	 */
 	private final WorldIDService idService;
 
+	/**
+	 * @param dispatcher
+	 *            the world service event dispatcher
+	 * @param idService
+	 *            the world id service
+	 */
 	@Inject
 	public WorldServiceImpl(WorldEventDispatcher dispatcher,
 			WorldIDService idService) {

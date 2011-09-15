@@ -138,10 +138,28 @@ public class MapperPathingService extends AbstractService implements
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public static class CoordinateStruct extends Struct {
+		/**
+		 * The x cord
+		 */
 		public final Signed32 x = new Signed32();
+		/**
+		 * The y cord
+		 */
 		public final Signed32 y = new Signed32();
+		/**
+		 * The z cord
+		 */
 		public final Signed32 z = new Signed32();
 
+		/**
+		 * Creates a new Coordinate Struct from another {@link Coordinate}
+		 * object
+		 * 
+		 * @param coordinate
+		 *            the coordinate object
+		 * @return the {@link CoordinateStruct} object with the same coordinates
+		 *         as <tt>coordinate</tt>
+		 */
 		public static CoordinateStruct fromCoordinate(Coordinate coordinate) {
 			final CoordinateStruct struct = new CoordinateStruct();
 			struct.x.set(coordinate.getX());
@@ -157,9 +175,19 @@ public class MapperPathingService extends AbstractService implements
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	private class VoidPath implements Path {
+		/**
+		 * The source point
+		 */
 		private final Point3D source;
+		/**
+		 * The target point
+		 */
 		private final Point3D target;
 
+		/**
+		 * @param source the source point
+		 * @param target the taget point
+		 */
 		public VoidPath(Point3D source, Point3D target) {
 			this.source = source;
 			this.target = target;

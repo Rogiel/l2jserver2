@@ -48,6 +48,9 @@ import com.l2jserver.util.geometry.Point3D;
  */
 public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 		NPCDAO {
+	/**
+	 * The logger
+	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
@@ -77,6 +80,14 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 
 	public static final String RESPAWN_TIME = "respawn_time";
 
+	/**
+	 * @param database
+	 *            the database service
+	 * @param idProvider
+	 *            the npc id provider
+	 * @param templateIdProvider
+	 *            the npc template id provider
+	 */
 	@Inject
 	public JDBCNPCDAO(DatabaseService database, final NPCIDProvider idProvider,
 			NPCTemplateIDProvider templateIdProvider) {

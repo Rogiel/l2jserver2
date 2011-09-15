@@ -27,8 +27,14 @@ import org.htmlparser.util.NodeList;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2LinkTag extends LinkTag {
+	/**
+	 * The Java Serialization API Serial
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instance of this tag
+	 */
 	public L2LinkTag() {
 		super.setTagName("a");
 		Tag end = new TagNode();

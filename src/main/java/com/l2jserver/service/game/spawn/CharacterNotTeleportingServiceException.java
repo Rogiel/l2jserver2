@@ -24,5 +24,8 @@ package com.l2jserver.service.game.spawn;
  */
 public class CharacterNotTeleportingServiceException extends
 		SpawnServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

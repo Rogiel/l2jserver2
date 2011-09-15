@@ -49,6 +49,18 @@ public interface DatabaseService extends Service {
 	public interface DatabaseConfiguration extends ServiceConfiguration {
 	}
 
+	/**
+	 * Returns the {@link DataAccessObject} used to retrieve and save objects of
+	 * type <M>
+	 * 
+	 * @param <M>
+	 *            the {@link Model} type
+	 * @param <I>
+	 *            the {@link ID} type
+	 * @param model
+	 *            the model class
+	 * @return the {@link DataAccessObject} for {@link Model}
+	 */
 	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
 			Class<M> model);
 }

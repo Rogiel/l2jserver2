@@ -30,6 +30,10 @@ public class CharacterCalculatorContext extends ActorCalculatorContext {
 	 */
 	public final L2Character character;
 
+	/**
+	 * Creates a new context
+	 * @param character the character
+	 */
 	public CharacterCalculatorContext(L2Character character) {
 		super(character);
 		this.character = character;

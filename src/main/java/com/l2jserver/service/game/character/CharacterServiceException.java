@@ -22,20 +22,46 @@ import com.l2jserver.service.ServiceException;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterServiceException extends ServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * Creates a new instance of this exception
+	 */
 	public CharacterServiceException() {
 		super();
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the root cause
+	 */
 	public CharacterServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param message
+	 *            the message
+	 */
 	public CharacterServiceException(String message) {
 		super(message);
 	}
 
+	/**
+	 * Creates a new instance of this exception
+	 * 
+	 * @param cause
+	 *            the root cause
+	 */
 	public CharacterServiceException(Throwable cause) {
 		super(cause);
 	}

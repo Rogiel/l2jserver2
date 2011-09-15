@@ -16,6 +16,17 @@
  */
 package com.l2jserver.service.game.scripting.classlistener;
 
+/**
+ * Interface that implements loading capability for a script
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface Loader {
+	/**
+	 * Called once all scripts have been compiled and are available for use
+	 * 
+	 * @param classes
+	 *            the script classes
+	 */
 	void load(Class<?>[] classes);
 }

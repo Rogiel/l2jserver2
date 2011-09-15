@@ -24,5 +24,8 @@ import com.l2jserver.model.world.NPC;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NotAttackableNPCServiceException extends NPCServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

@@ -48,7 +48,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The static key used to validate game guards
 	 */
@@ -107,7 +107,7 @@ public class GameGuardServiceImpl extends AbstractService implements
 	@Override
 	public GameGuardResponse key(Lineage2Client conn, byte[] key) {
 		log.debug("GameGuard authentication key received for {}", conn);
-		
+
 		final GGFuture future = futures.remove(conn);
 		final boolean validated = validate(conn, key);
 		final GameGuardResponse response = (validated ? GameGuardResponse.VALID
@@ -139,6 +139,12 @@ public class GameGuardServiceImpl extends AbstractService implements
 		digester = null;
 	}
 
+	/**
+	 * The GGFuture awaits for the
+	 * {@link com.l2jserver.service.network.gameguard.GameGuardService.GameGuardResponse}
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	private class GGFuture extends AbstractFuture<GameGuardResponse> implements
 			Future<GameGuardResponse> {
 		@Override

@@ -137,8 +137,15 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 		return character;
 	}
 
+	/**
+	 * Compares two shortcut slots
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public static class ShortcutSlotComparator implements Comparator<Shortcut>,
 			Serializable {
+		/**
+		 * The Java Serialization API serial
+		 */
 		private static final long serialVersionUID = 1L;
 
 		@Override

@@ -19,6 +19,12 @@ package com.l2jserver.service.game.world.event;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
 
+/**
+ * Base event class. Every event must implement this interface in order to be
+ * dispatched by {@link WorldEventDispatcher}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface WorldEvent {
 	/**
 	 * @return the object that issued this event

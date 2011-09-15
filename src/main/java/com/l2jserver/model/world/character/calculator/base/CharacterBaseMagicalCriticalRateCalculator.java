@@ -33,6 +33,9 @@ import com.l2jserver.model.world.character.calculator.CharacterFormula;
  */
 public class CharacterBaseMagicalCriticalRateCalculator extends
 		CharacterFormula {
+	/**
+	 * Creates a new instance of this formula
+	 */
 	public CharacterBaseMagicalCriticalRateCalculator() {
 		super(0x000, StatType.MCRITICAL_RATE);
 	}

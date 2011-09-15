@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
+import com.l2jserver.model.world.NPC;
 
 /**
  * This class is an JAXB Adapter for {@link NPCTemplateIDProvider}
@@ -28,12 +29,21 @@ import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPCTemplateIDAdapter extends XmlAdapter<Integer, NPCTemplateID> {
+	/**
+	 * The {@link NPC} template id provider
+	 */
 	private final NPCTemplateIDProvider provider;
 
+	/**
+	 * Creates a new empty instance
+	 */
 	public NPCTemplateIDAdapter() {
 		provider = null;
 	}
 
+	/**
+	 * @param provider the {@link NPC} template id provider
+	 */
 	@Inject
 	public NPCTemplateIDAdapter(NPCTemplateIDProvider provider) {
 		this.provider = provider;

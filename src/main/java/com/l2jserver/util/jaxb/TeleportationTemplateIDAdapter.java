@@ -29,12 +29,21 @@ import com.l2jserver.model.id.template.provider.TeleportationTemplateIDProvider;
  */
 public class TeleportationTemplateIDAdapter extends
 		XmlAdapter<Integer, TeleportationTemplateID> {
+	/**
+	 * The teleportation template id provider
+	 */
 	private final TeleportationTemplateIDProvider provider;
 
+	/**
+	 * Creates a new empty instance
+	 */
 	public TeleportationTemplateIDAdapter() {
 		provider = null;
 	}
 
+	/**
+	 * @param provider the teleportation template id provider
+	 */
 	@Inject
 	public TeleportationTemplateIDAdapter(
 			TeleportationTemplateIDProvider provider) {

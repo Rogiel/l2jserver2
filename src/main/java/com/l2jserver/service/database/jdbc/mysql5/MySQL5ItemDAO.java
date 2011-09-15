@@ -30,6 +30,12 @@ import com.l2jserver.service.database.jdbc.JDBCItemDAO;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MySQL5ItemDAO extends JDBCItemDAO implements ItemDAO {
+	/**
+	 * @param database the database service
+	 * @param idFactory the item id provider
+	 * @param templateIdFactory the item template id provider
+	 * @param charIdFactory the character id provider
+	 */
 	@Inject
 	public MySQL5ItemDAO(DatabaseService database, ItemIDProvider idFactory,
 			ItemTemplateIDProvider templateIdFactory,

@@ -23,5 +23,7 @@ package com.l2jserver.service.game.character;
  */
 public class CharacterNameAlreadyExistsException extends
 		CharacterServiceException {
-	private static final long serialVersionUID = 1L;
-}
+	/**
+	 * The Java Serialization API serial
+	 */
+	private static final long serialVersionUID = 1L;}

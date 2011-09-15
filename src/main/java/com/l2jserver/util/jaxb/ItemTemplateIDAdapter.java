@@ -28,12 +28,21 @@ import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
+	/**
+	 * The item template id provider
+	 */
 	private final ItemTemplateIDProvider provider;
 
+	/**
+	 * Creates a new empty instance
+	 */
 	public ItemTemplateIDAdapter() {
 		provider = null;
 	}
 
+	/**
+	 * @param provider the item template id provider
+	 */
 	@Inject
 	public ItemTemplateIDAdapter(ItemTemplateIDProvider provider) {
 		this.provider = provider;

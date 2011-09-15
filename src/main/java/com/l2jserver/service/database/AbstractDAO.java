@@ -41,6 +41,9 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	 */
 	protected final DatabaseService database;
 
+	/**
+	 * @param database the database service
+	 */
 	@Inject
 	protected AbstractDAO(DatabaseService database) {
 		this.database = database;

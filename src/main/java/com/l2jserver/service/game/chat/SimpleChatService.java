@@ -323,8 +323,14 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 */
 	private class PrivateChatChannelImpl extends ChatChannelImpl implements
 			PrivateChatChannel {
+		/**
+		 * The target character {@link ID}
+		 */
 		private final CharacterID character;
 
+		/**
+		 * @param character the target character {@link ID}
+		 */
 		public PrivateChatChannelImpl(CharacterID character) {
 			Preconditions.checkNotNull(character, "character");
 			this.character = character;

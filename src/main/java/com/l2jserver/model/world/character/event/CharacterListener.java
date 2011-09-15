@@ -25,6 +25,9 @@ import com.l2jserver.service.game.world.event.TypedWorldListener;
  */
 public abstract class CharacterListener extends
 		TypedWorldListener<CharacterEvent> {
+	/**
+	 * Creates a new instance
+	 */
 	public CharacterListener() {
 		super(CharacterEvent.class);
 	}

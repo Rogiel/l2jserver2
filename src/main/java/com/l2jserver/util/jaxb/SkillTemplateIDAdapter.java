@@ -19,6 +19,7 @@ package com.l2jserver.util.jaxb;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
 
@@ -29,12 +30,21 @@ import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
  */
 public class SkillTemplateIDAdapter extends
 		XmlAdapter<Integer, SkillTemplateID> {
+	/**
+	 * The {@link Skill} template id provider
+	 */
 	private final SkillTemplateIDProvider provider;
 
+	/**
+	 * Creates a new empty instance
+	 */
 	public SkillTemplateIDAdapter() {
 		provider = null;
 	}
 
+	/**
+	 * @param provider the {@link Skill} template id provider
+	 */
 	@Inject
 	public SkillTemplateIDAdapter(SkillTemplateIDProvider provider) {
 		this.provider = provider;

@@ -24,9 +24,19 @@ import com.l2jserver.util.geometry.Point;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Tile {
+	/**
+	 * The tile point
+	 */
 	private final Point point;
+	/**
+	 * The tile flags
+	 */
 	private final byte flags;
 
+	/**
+	 * @param point the file point
+	 * @param flags the tile flags
+	 */
 	public Tile(Point point, byte flags) {
 		this.point = point;
 		this.flags = flags;

@@ -34,6 +34,10 @@ class MethodInvocation {
 	 */
 	private final Object[] args;
 
+	/**
+	 * @param method the method invoked
+	 * @param args the invocation arguments
+	 */
 	public MethodInvocation(Method method, Object[] args) {
 		this.method = method;
 		this.args = args;

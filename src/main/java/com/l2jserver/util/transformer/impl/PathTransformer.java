@@ -27,6 +27,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class PathTransformer implements Transformer<Path> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final PathTransformer SHARED_INSTANCE = new PathTransformer();
 
 	@Override

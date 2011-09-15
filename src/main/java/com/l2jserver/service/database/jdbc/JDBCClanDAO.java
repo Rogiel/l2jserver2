@@ -61,6 +61,14 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
 	public static final String CLAN_ID = "clan_id";
 	public static final String CHAR_ID_LEADER = "character_id_leader";
 
+	/**
+	 * @param database
+	 *            the database service
+	 * @param clanIdFactory
+	 *            the clan id provider
+	 * @param idFactory
+	 *            the character id provider
+	 */
 	@Inject
 	public JDBCClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
 			final CharacterIDProvider idFactory) {

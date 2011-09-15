@@ -44,6 +44,10 @@ public class DatabaseChatLoggingService extends AbstractService implements
 	 */
 	private final CharacterIDProvider charIdProvider;
 
+	/**
+	 * @param chatMessageDao the chat message DAO
+	 * @param charIdProvider the character id provider
+	 */
 	@Inject
 	protected DatabaseChatLoggingService(ChatMessageDAO chatMessageDao,
 			CharacterIDProvider charIdProvider) {

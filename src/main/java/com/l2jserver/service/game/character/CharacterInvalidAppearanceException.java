@@ -23,5 +23,8 @@ package com.l2jserver.service.game.character;
  */
 public class CharacterInvalidAppearanceException extends
 		CharacterServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

@@ -30,6 +30,14 @@ import com.l2jserver.service.database.jdbc.JDBCClanDAO;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MySQL5ClanDAO extends JDBCClanDAO implements ClanDAO {
+	/**
+	 * @param database
+	 *            the database service
+	 * @param clanIdFactory
+	 *            the clan id provider
+	 * @param idFactory
+	 *            the character id provider
+	 */
 	@Inject
 	public MySQL5ClanDAO(DatabaseService database,
 			ClanIDProvider clanIdFactory, CharacterIDProvider idFactory) {

@@ -18,6 +18,7 @@ package com.l2jserver.model.world.npc.calculator;
 
 import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.Template;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
@@ -29,6 +30,14 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class NPCCalculatorFunction extends ActorCalculatorFunction {
+	/**
+	 * Creates a new function
+	 * 
+	 * @param order
+	 *            the calculation order
+	 * @param type
+	 *            the stat type
+	 */
 	public NPCCalculatorFunction(int order, StatType type) {
 		super(order, type);
 	}
@@ -39,5 +48,16 @@ public abstract class NPCCalculatorFunction extends ActorCalculatorFunction {
 		return calculate((NPC) a, (NPCTemplate) actorTemplate, value);
 	}
 
-	protected abstract double calculate(NPC c, NPCTemplate t, double value);
+	/**
+	 * Calculates the value
+	 * 
+	 * @param n
+	 *            the {@link NPC}
+	 * @param t
+	 *            the {@link Template}
+	 * @param value
+	 *            the original value
+	 * @return the output value (calculated)
+	 */
+	protected abstract double calculate(NPC n, NPCTemplate t, double value);
 }

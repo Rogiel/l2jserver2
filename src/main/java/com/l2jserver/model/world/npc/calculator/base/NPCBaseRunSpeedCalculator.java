@@ -32,6 +32,9 @@ import com.l2jserver.model.world.npc.calculator.NPCFormula;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPCBaseRunSpeedCalculator extends NPCFormula {
+	/**
+	 * Creates a new instance of this formula
+	 */
 	public NPCBaseRunSpeedCalculator() {
 		super(0x000, StatType.RUN_SPEED);
 	}

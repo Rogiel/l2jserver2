@@ -38,7 +38,10 @@ public class AdministratorServiceImpl extends AbstractService implements
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
+	/**
+	 * List of online administrators
+	 */
 	@SuppressWarnings("unused")
 	private List<CharacterID> online;
 

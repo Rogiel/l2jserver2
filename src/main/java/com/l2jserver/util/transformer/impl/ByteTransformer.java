@@ -24,6 +24,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ByteTransformer implements Transformer<Byte> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final ByteTransformer SHARED_INSTANCE = new ByteTransformer();
 
 	@Override

@@ -37,6 +37,9 @@ import com.l2jserver.util.factory.CollectionFactory;
  *            the value type
  */
 abstract class AbstractReferenceCache<K, V> implements Cache<K, V> {
+	/**
+	 * The logger
+	 */
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
@@ -93,6 +96,9 @@ abstract class AbstractReferenceCache<K, V> implements Cache<K, V> {
 		return cacheMap.containsKey(key);
 	}
 
+	/**
+	 * Cleans the queue
+	 */
 	protected abstract void cleanQueue();
 
 	@Override
@@ -131,6 +137,17 @@ abstract class AbstractReferenceCache<K, V> implements Cache<K, V> {
 		};
 	}
 
+	/**
+	 * Creates a new reference
+	 * 
+	 * @param key
+	 *            the reference key
+	 * @param value
+	 *            the reference value
+	 * @param queue
+	 *            the queue
+	 * @return the new reference
+	 */
 	protected abstract Reference<V> newReference(K key, V value,
 			ReferenceQueue<V> queue);
 }

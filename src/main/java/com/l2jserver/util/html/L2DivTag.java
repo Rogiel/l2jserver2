@@ -27,8 +27,14 @@ import org.htmlparser.util.NodeList;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2DivTag extends Div {
+	/**
+	 * The Java Serialization API Serial
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instance of this tag
+	 */
 	public L2DivTag() {
 		super.setTagName("div");
 		Tag end = new TagNode();

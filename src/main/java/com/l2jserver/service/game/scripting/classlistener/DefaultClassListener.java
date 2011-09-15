@@ -18,6 +18,7 @@ package com.l2jserver.service.game.scripting.classlistener;
 
 import java.lang.reflect.Modifier;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.util.ClassUtils;
 
@@ -25,8 +26,14 @@ import com.l2jserver.util.ClassUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DefaultClassListener implements ClassListener {
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector;
 
+	/**
+	 * @param injector the {@link Guice} {@link Injector}
+	 */
 	public DefaultClassListener(Injector injector) {
 		this.injector = injector;
 	}

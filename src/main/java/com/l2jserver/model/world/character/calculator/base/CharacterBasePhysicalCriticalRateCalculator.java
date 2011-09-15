@@ -34,6 +34,9 @@ import com.l2jserver.model.world.character.calculator.CharacterFormula;
  */
 public class CharacterBasePhysicalCriticalRateCalculator extends
 		CharacterFormula {
+	/**
+	 * Creates a new instance of this formula
+	 */
 	public CharacterBasePhysicalCriticalRateCalculator() {
 		super(0x000, StatType.CRITICAL_RATE);
 	}

@@ -80,6 +80,16 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	 */
 	private final ThreadService threadService;
 
+	/**
+	 * @param worldService
+	 *            the world service
+	 * @param eventDispatcher
+	 *            the world service event dispatcher
+	 * @param networkService
+	 *            the network service
+	 * @param threadService
+	 *            the thread service
+	 */
 	@Inject
 	public SpawnServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher,
@@ -213,10 +223,9 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			throws CharacterAlreadyTeleportingServiceException {
 		Preconditions.checkNotNull(player, "player");
 		Preconditions.checkNotNull(coordinate, "coordinate");
-		
-		log.debug("Teleporting {} to {}", player,
-				coordinate);
-		
+
+		log.debug("Teleporting {} to {}", player, coordinate);
+
 		if (player instanceof L2Character) {
 			if (((L2Character) player).isTeleporting())
 				throw new CharacterAlreadyTeleportingServiceException();
@@ -248,7 +257,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 
 		if (!character.isTeleporting())
 			throw new CharacterNotTeleportingServiceException();
-		
+
 		log.debug("Finishing teleport of {}", character);
 
 		character.setState(null);

@@ -25,9 +25,30 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface GMService extends Service {
+	/**
+	 * Executes an GM command
+	 * 
+	 * @param character
+	 *            the GM character
+	 * @param command
+	 *            the command
+	 * @param args
+	 *            the command arguments
+	 */
 	void command(L2Character character, String command, String... args);
 
+	/**
+	 * The base interface for GM commands
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public interface GMCommand {
+		/**
+		 * @param character
+		 *            the GM character
+		 * @param args
+		 *            the command arguments
+		 */
 		void gm(L2Character character, String... args);
 	}
 }

@@ -24,6 +24,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ShortTransformer implements Transformer<Short> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final ShortTransformer SHARED_INSTANCE = new ShortTransformer();
 
 	@Override

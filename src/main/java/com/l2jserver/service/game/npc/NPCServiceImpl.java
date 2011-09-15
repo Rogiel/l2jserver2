@@ -26,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2Client;
@@ -112,8 +113,29 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 */
 	private Map<Class<? extends NPCController>, NPCController> controllers = CollectionFactory
 			.newMap();
+	/**
+	 * List of all loaded NPCs
+	 */
 	private Collection<NPC> npcs;
 
+	/**
+	 * @param spawnService
+	 *            the spawn service
+	 * @param networkService
+	 *            the network service
+	 * @param characterService
+	 *            the character service
+	 * @param threadService
+	 *            the thread service
+	 * @param attackService
+	 *            the attack service
+	 * @param eventDispatcher
+	 *            the world service event dispatcher
+	 * @param npcDao
+	 *            the npc DAO
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 */
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
 			NetworkService networkService, CharacterService characterService,
@@ -213,9 +235,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 			// TODO throw an exception
 			return null;
 		npc.setState(ActorState.MOVING);
-		
+
 		log.debug("{} is moving to {}", npc, point);
-		
+
 		// calculate walking time
 		final Point3D start = npc.getPoint();
 		final double distance = start.getDistance(point);
@@ -238,7 +260,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(conn, "conn");
 		Preconditions.checkNotNull(attacker, "attacker");
-		
+
 		log.debug("{} is being attacked by {}", npc, attacker);
 
 		final NPCTemplate template = npc.getTemplate();
@@ -249,6 +271,11 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		attackService.attack(attacker, npc);
 	}
 
+	/**
+	 * @param npc
+	 *            the {@link NPC}
+	 * @return the {@link NPCController} for the given {@link NPC}
+	 */
 	private NPCController getController(NPC npc) {
 		// make sure everything's synchronized-no duplicated instances
 		synchronized (controllers) {

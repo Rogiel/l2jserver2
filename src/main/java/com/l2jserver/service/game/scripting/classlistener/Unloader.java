@@ -16,6 +16,17 @@
  */
 package com.l2jserver.service.game.scripting.classlistener;
 
+/**
+ * Interface that implements unloading capability for a script
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface Unloader {
+	/**
+	 * Called once all scripts are ready to be unloaded
+	 * 
+	 * @param classes
+	 *            the script classes
+	 */
 	void unload(Class<?>[] classes);
 }

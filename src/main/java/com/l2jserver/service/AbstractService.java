@@ -45,6 +45,12 @@ public abstract class AbstractService implements Service {
 		}
 	}
 
+	/**
+	 * Starts the service. This method is invoked internally by {@link #start()}
+	 * 
+	 * @throws ServiceStartException
+	 *             if any error occur while starting the service
+	 */
 	protected void doStart() throws ServiceStartException {
 	}
 
@@ -59,6 +65,12 @@ public abstract class AbstractService implements Service {
 		}
 	}
 
+	/**
+	 * Stops the service. This method is invoked internally by {@link #stop()}
+	 * 
+	 * @throws ServiceStopException
+	 *             if any error occur while stopping the service
+	 */
 	protected void doStop() throws ServiceStopException {
 	}
 
@@ -86,9 +98,17 @@ public abstract class AbstractService implements Service {
 		return deps.value();
 	}
 
+	/**
+	 * Service dependency metadata
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.TYPE)
 	public @interface Depends {
+		/**
+		 * @return the service's dependency
+		 */
 		Class<? extends Service>[] value();
 	}
 }

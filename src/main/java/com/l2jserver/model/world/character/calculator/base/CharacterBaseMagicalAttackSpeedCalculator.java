@@ -31,6 +31,9 @@ import com.l2jserver.model.world.character.calculator.CharacterFormula;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterBaseMagicalAttackSpeedCalculator extends CharacterFormula {
+	/**
+	 * Creates a new instance of this formula
+	 */
 	public CharacterBaseMagicalAttackSpeedCalculator() {
 		super(0x000, StatType.MAGIC_ATTACK_SPEED);
 	}

@@ -30,6 +30,11 @@ import com.l2jserver.service.database.jdbc.JDBCCharacterFriendDAO;
  */
 public class H2CharacterFriendDAO extends JDBCCharacterFriendDAO implements
 		CharacterFriendDAO {
+	/**
+	 * @param database the database service
+	 * @param idProvider the frind id provider
+	 * @param charIdProvider the character id provider
+	 */
 	@Inject
 	public H2CharacterFriendDAO(DatabaseService database,
 			FriendIDProvider idProvider, CharacterIDProvider charIdProvider) {

@@ -28,8 +28,14 @@ import com.l2jserver.service.game.world.filter.ExcludeFilter;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class KnownListFilter extends AndFilter<PositionableObject> {
+	/**
+	 * Constant declaring the range in which knownlist will be scanned
+	 */
 	public static final int KNOWNLIST_RANGE = 2000;
 
+	/**
+	 * @param object the object to locate known objects
+	 */
 	@SuppressWarnings("unchecked")
 	public KnownListFilter(PositionableObject object) {
 		super(new InstanceFilter<PositionableObject>(PositionableObject.class),

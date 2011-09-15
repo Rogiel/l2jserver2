@@ -30,6 +30,10 @@ public class NPCCalculatorContext extends ActorCalculatorContext {
 	 */
 	public final NPC npc;
 
+	/**
+	 * Creates a new calculator context
+	 * @param npc the {@link NPC}
+	 */
 	public NPCCalculatorContext(NPC npc) {
 		super(npc);
 		this.npc = npc;

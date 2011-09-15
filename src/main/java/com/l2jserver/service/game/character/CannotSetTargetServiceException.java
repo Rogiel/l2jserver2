@@ -22,5 +22,8 @@ package com.l2jserver.service.game.character;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CannotSetTargetServiceException extends CharacterServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

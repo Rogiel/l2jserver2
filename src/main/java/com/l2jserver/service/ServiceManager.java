@@ -21,6 +21,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.service.core.LoggingService;
@@ -46,6 +47,10 @@ public class ServiceManager {
 	 */
 	private final Set<Service> knownServices = CollectionFactory.newSet();
 
+	/**
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 */
 	@Inject
 	public ServiceManager(Injector injector) {
 		this.injector = injector;
@@ -60,10 +65,28 @@ public class ServiceManager {
 		logger = LoggerFactory.getLogger(ServiceManager.class);
 	}
 
+	/**
+	 * @param <T>
+	 *            the service type
+	 * @param serviceClass
+	 *            the service interface <tt>Class&lt;T&gt;</tt>
+	 * @return the service implementation
+	 */
 	public <T extends Service> T get(Class<T> serviceClass) {
 		return injector.getInstance(serviceClass);
 	}
 
+	/**
+	 * Starts the given service implementation
+	 * 
+	 * @param <T>
+	 *            the service interface type
+	 * @param serviceClass
+	 *            the service interface
+	 * @return the service implementation
+	 * @throws ServiceStartException
+	 *             if any error occur while starting service
+	 */
 	public <T extends Service> T start(Class<T> serviceClass)
 			throws ServiceStartException {
 		final T service = injector.getInstance(serviceClass);
@@ -90,6 +113,14 @@ public class ServiceManager {
 		}
 	}
 
+	/**
+	 * Starts the dependencies
+	 * 
+	 * @param dependencies
+	 *            the dependencies
+	 * @throws ServiceStartException
+	 *             if any error occur while starting dependencies
+	 */
 	private void startDependencies(Class<? extends Service>[] dependencies)
 			throws ServiceStartException {
 		if (dependencies == null)
@@ -101,6 +132,14 @@ public class ServiceManager {
 		}
 	}
 
+	/**
+	 * Stops the given service implementation
+	 * 
+	 * @param serviceClass
+	 *            the service interface
+	 * @throws ServiceStopException
+	 *             if any error occur while stopping service
+	 */
 	public void stop(Class<? extends Service> serviceClass)
 			throws ServiceStopException {
 		final Service service = injector.getInstance(serviceClass);
@@ -122,6 +161,14 @@ public class ServiceManager {
 		}
 	}
 
+	/**
+	 * Stops the dependencies
+	 * 
+	 * @param service
+	 *            the service
+	 * @throws ServiceStopException
+	 *             if any error occur while stopping dependencies
+	 */
 	private void stopDependencies(Service service) throws ServiceStopException {
 		final Set<Class<? extends Service>> dependencies = createStopDependencies(
 				null, service);
@@ -130,6 +177,15 @@ public class ServiceManager {
 		}
 	}
 
+	/**
+	 * Creates a {@link Set} of all dependecies to be stopped
+	 * 
+	 * @param depends
+	 *            the service
+	 * @param serviceClass
+	 *            the service class
+	 * @return the {@link Set} of all depedendecies to be stopped
+	 */
 	private Set<Class<? extends Service>> createStopDependencies(
 			Set<Class<? extends Service>> depends, Service serviceClass) {
 		if (depends == null)
@@ -150,6 +206,17 @@ public class ServiceManager {
 		return depends;
 	}
 
+	/**
+	 * Restarts the given service
+	 * 
+	 * @param <T>
+	 *            the service type
+	 * @param serviceClass
+	 *            the service interface
+	 * @return the service implementation
+	 * @throws ServiceException
+	 *             if any error occur while starting or stopping the service
+	 */
 	public <T extends Service> T restart(Class<T> serviceClass)
 			throws ServiceException {
 		final T service = injector.getInstance(serviceClass);

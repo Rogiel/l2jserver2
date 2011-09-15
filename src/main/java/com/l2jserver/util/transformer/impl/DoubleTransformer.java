@@ -24,6 +24,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DoubleTransformer implements Transformer<Double> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final DoubleTransformer SHARED_INSTANCE = new DoubleTransformer();
 
 	@Override

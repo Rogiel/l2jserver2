@@ -36,6 +36,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.model.Model;
@@ -243,6 +244,16 @@ public class JDBCDatabaseService extends AbstractService implements
 		void setMinIdleConnections(int password);
 	}
 
+	/**
+	 * @param configService
+	 *            the configuration service
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 * @param cacheService
+	 *            the cache service
+	 * @param threadService
+	 *            the thread service
+	 */
 	@Inject
 	public JDBCDatabaseService(ConfigurationService configService,
 			Injector injector, CacheService cacheService,
@@ -343,29 +354,57 @@ public class JDBCDatabaseService extends AbstractService implements
 		}
 	}
 
+	/**
+	 * Checks for the cached version of the object
+	 * 
+	 * @param id
+	 *            the object ID
+	 * @return the cached version, if any
+	 */
 	public Object getCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
 		log.debug("Fetching cached object {}", id);
 		return objectCache.get(id);
 	}
 
+	/**
+	 * Checks for the cached version of the object
+	 * 
+	 * @param id
+	 *            the object ID
+	 * @return true if has an cached version,
+	 */
 	public boolean hasCachedObject(Object id) {
 		Preconditions.checkNotNull(id, "id");
 		log.debug("Locating cached object {}", id);
 		return objectCache.contains(id);
 	}
 
-	public void updateCache(ID<?> key, Model<?> value) {
-		Preconditions.checkNotNull(key, "key");
+	/**
+	 * Updates an cache object
+	 * 
+	 * @param id
+	 *            the cache key
+	 * @param value
+	 *            the model value
+	 */
+	public void updateCache(ID<?> id, Model<?> value) {
+		Preconditions.checkNotNull(id, "key");
 		Preconditions.checkNotNull(value, "value");
-		log.debug("Updating cached object {} with {}", key, value);
-		objectCache.put(key, value);
+		log.debug("Updating cached object {} with {}", id, value);
+		objectCache.put(id, value);
 	}
 
-	public void removeCache(Object key) {
-		Preconditions.checkNotNull(key, "key");
-		log.debug("Removing cached object {}", key);
-		objectCache.remove(key);
+	/**
+	 * Removes an cached object
+	 * 
+	 * @param id
+	 *            the object id
+	 */
+	public void removeCache(Object id) {
+		Preconditions.checkNotNull(id, "key");
+		log.debug("Removing cached object {}", id);
+		objectCache.remove(id);
 	}
 
 	@Override
@@ -431,6 +470,9 @@ public class JDBCDatabaseService extends AbstractService implements
 		private final Logger log = LoggerFactory
 				.getLogger(InsertUpdateQuery.class);
 
+		/**
+		 * The iterator
+		 */
 		private final Iterator<T> iterator;
 
 		/**
@@ -736,6 +778,9 @@ public class JDBCDatabaseService extends AbstractService implements
 		 */
 		private final JDBCDatabaseService database;
 
+		/**
+		 * The {@link ID} mapper
+		 */
 		private final Mapper<I> idMapper;
 
 		/**

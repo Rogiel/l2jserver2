@@ -23,5 +23,8 @@ package com.l2jserver.service.game.chat;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ChatTargetOfflineServiceException extends ChatServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
 	private static final long serialVersionUID = 1L;
 }

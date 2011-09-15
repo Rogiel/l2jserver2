@@ -24,6 +24,7 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.l2jserver.service.game.scripting.CompilationResult;
 import com.l2jserver.service.game.scripting.ScriptClassLoader;
@@ -45,6 +46,9 @@ public class ScriptContextImpl implements ScriptContext {
 	private static final Logger log = LoggerFactory
 			.getLogger(ScriptContextImpl.class);
 
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector;
 
 	/**

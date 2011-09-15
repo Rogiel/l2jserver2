@@ -45,7 +45,7 @@ public class AIServiceImpl extends AbstractService implements AIService {
 	 */
 	@SuppressWarnings("unused")
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The {@link WorldService}
 	 */
@@ -67,6 +67,16 @@ public class AIServiceImpl extends AbstractService implements AIService {
 	@SuppressWarnings("unused")
 	private final NetworkService networkService;
 
+	/**
+	 * @param worldService
+	 *            the world service
+	 * @param eventDispatcher
+	 *            the world service event dispatcher
+	 * @param threadService
+	 *            the thread service
+	 * @param networkService
+	 *            the network service
+	 */
 	@Inject
 	public AIServiceImpl(WorldService worldService,
 			WorldEventDispatcher eventDispatcher, ThreadService threadService,

@@ -27,8 +27,15 @@ import com.google.common.base.Preconditions;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class TypedWorldListener<T> implements WorldListener {
+	/**
+	 * The type this listener will accept
+	 */
 	private final Class<T> type;
 
+	/**
+	 * @param type
+	 *            the type of accepted events
+	 */
 	public TypedWorldListener(Class<T> type) {
 		Preconditions.checkNotNull(type, "type");
 		this.type = type;

@@ -27,8 +27,14 @@ import org.htmlparser.util.NodeList;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2HeadTag extends HeadTag {
+	/**
+	 * The Java Serialization API Serial
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instance of this tag
+	 */
 	public L2HeadTag() {
 		super.setTagName("head");
 		Tag end = new TagNode();

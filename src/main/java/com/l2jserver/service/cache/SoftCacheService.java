@@ -142,18 +142,36 @@ public class SoftCacheService extends AbstractService implements CacheService {
 		 * @author <a href="http://www.rogiel.com">Rogiel</a>
 		 */
 		private class SoftEntry extends SoftReference<V> {
+			/**
+			 * The key
+			 */
 			private K key;
 
+			/**
+			 * @param key
+			 *            the key
+			 * @param referent
+			 *            the value
+			 * @param q
+			 *            the queue
+			 */
 			SoftEntry(K key, V referent, ReferenceQueue<? super V> q) {
 				super(referent, q);
 				this.key = key;
 			}
 
+			/**
+			 * @return the key
+			 */
 			K getKey() {
 				return key;
 			}
 		}
 
+		/**
+		 * @param cacheName
+		 *            the cache name
+		 */
 		public SoftCache(String cacheName) {
 			super(cacheName);
 		}

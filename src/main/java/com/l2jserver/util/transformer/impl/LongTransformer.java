@@ -24,6 +24,9 @@ import com.l2jserver.util.transformer.Transformer;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class LongTransformer implements Transformer<Long> {
+	/**
+	 * This transformer shared instance
+	 */
 	public static final LongTransformer SHARED_INSTANCE = new LongTransformer();
 
 	@Override

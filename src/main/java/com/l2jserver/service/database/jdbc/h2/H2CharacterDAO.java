@@ -31,6 +31,18 @@ import com.l2jserver.service.database.jdbc.JDBCCharacterDAO;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class H2CharacterDAO extends JDBCCharacterDAO implements CharacterDAO {
+	/**
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the character id provider
+	 * @param templateIdFactory
+	 *            the template id provider
+	 * @param accountIdFactory
+	 *            the account id provider
+	 * @param clanIdFactory
+	 *            the clan id provider
+	 */
 	@Inject
 	public H2CharacterDAO(DatabaseService database,
 			CharacterIDProvider idFactory,

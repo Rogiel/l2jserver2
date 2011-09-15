@@ -43,6 +43,9 @@ public class Java7VFSService extends AbstractService implements VFSService {
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The Java 7 vfs configuration
+	 */
 	private final Java7VFSConfiguration config;
 
 	/**
@@ -62,6 +65,10 @@ public class Java7VFSService extends AbstractService implements VFSService {
 	public interface Java7VFSConfiguration extends VFSConfiguration {
 	}
 
+	/**
+	 * @param configService
+	 *            the configuration service
+	 */
 	@Inject
 	protected Java7VFSService(final ConfigurationService configService) {
 		this.config = configService.get(Java7VFSConfiguration.class);

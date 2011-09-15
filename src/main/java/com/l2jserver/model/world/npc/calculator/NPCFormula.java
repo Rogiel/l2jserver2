@@ -23,6 +23,14 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * 
  */
 public abstract class NPCFormula extends NPCCalculatorFunction {
+	/**
+	 * Creates a new formula
+	 * 
+	 * @param order
+	 *            the calculation order
+	 * @param type
+	 *            the stat type
+	 */
 	public NPCFormula(int order, StatType type) {
 		super(order, type);
 	}

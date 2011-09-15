@@ -29,7 +29,13 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class PlayerTeleportingEvent implements PlayerEvent {
+	/**
+	 * The player object
+	 */
 	private final Player player;
+	/**
+	 * The teleportation point
+	 */
 	private final Point3D point;
 
 	/**

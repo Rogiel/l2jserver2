@@ -65,6 +65,13 @@ public class CharacterInventory implements Iterable<Item> {
 		return null;
 	}
 
+	/**
+	 * Checks if the given paperdoll has is occupied
+	 * 
+	 * @param paperdoll
+	 *            the paperdoll slot
+	 * @return true if has an item
+	 */
 	public boolean has(InventoryPaperdoll paperdoll) {
 		return getItem(paperdoll) != null;
 	}
@@ -131,6 +138,10 @@ public class CharacterInventory implements Iterable<Item> {
 		 */
 		public final int id;
 
+		/**
+		 * @param id
+		 *            the slot id
+		 */
 		InventoryPaperdoll(int id) {
 			this.id = id;
 		}

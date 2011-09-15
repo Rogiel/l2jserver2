@@ -44,15 +44,35 @@ public class MapAdapter extends XmlAdapter<MapElements[], Map<String, String>> {
 
 	}
 
+	/**
+	 * Internal usage class: reads map data from XML file
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public static class MapElements {
+		/**
+		 * The key attribute
+		 */
 		@XmlAttribute(name = "id")
 		public String key;
+		/**
+		 * The tag value
+		 */
 		@XmlValue
 		public String value;
 
+		/**
+		 * Creates an empty instance. Invoked from JAXB.
+		 */
 		protected MapElements() {
 		}
 
+		/**
+		 * @param key
+		 *            the key attribute
+		 * @param value
+		 *            the tag value
+		 */
 		public MapElements(String key, String value) {
 			this.key = key;
 			this.value = value;

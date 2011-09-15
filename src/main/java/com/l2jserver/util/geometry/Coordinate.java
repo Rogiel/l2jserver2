@@ -45,14 +45,23 @@ public class Coordinate {
 		this.vector = new Vector3D(x, y, z);
 	}
 
+	/**
+	 * @return the x cord
+	 */
 	public int getX() {
 		return (int) vector.getX();
 	}
 
+	/**
+	 * @return the y cord
+	 */
 	public int getY() {
 		return (int) vector.getY();
 	}
 
+	/**
+	 * @return the z cord
+	 */
 	public int getZ() {
 		return (int) vector.getZ();
 	}
@@ -102,6 +111,9 @@ public class Coordinate {
 		return "Coordinate [" + vector + "]";
 	}
 
+	/**
+	 * @return the {@link Point3D} representing this {@link Coordinate}
+	 */
 	public Point3D toPoint() {
 		return new Point3D(this, 0);
 	}
