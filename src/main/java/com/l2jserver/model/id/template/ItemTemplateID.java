@@ -36,8 +36,11 @@ public class ItemTemplateID extends TemplateID<ItemTemplate, Integer> {
 	 */
 	private final TemplateService templateService;
 
+	/**
+	 * @param id the raw id
+	 * @param templateService the template service
+	 */
 	@Inject
-	// FIXME this should be protected
 	public ItemTemplateID(@Assisted int id, TemplateService templateService) {
 		super(id);
 		this.templateService = templateService;

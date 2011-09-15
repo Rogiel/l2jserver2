@@ -46,9 +46,11 @@ public class CharacterAttackEvent implements CharacterEvent {
 	 * Creates a new instance
 	 * 
 	 * @param character
-	 *            the character
-	 * @param point
-	 *            the character being attacked
+	 *            the character instance
+	 * @param target
+	 *            the target character being attacked
+	 * @param hit
+	 *            the {@link AttackHit} objects
 	 */
 	public CharacterAttackEvent(L2Character character, L2Character target,
 			AttackHit hit) {

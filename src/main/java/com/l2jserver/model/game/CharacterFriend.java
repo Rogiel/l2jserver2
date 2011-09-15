@@ -27,22 +27,38 @@ import com.l2jserver.model.world.L2Character;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterFriend extends AbstractModel<FriendID> {
+	/**
+	 * @param id
+	 *            the friend id
+	 */
 	public CharacterFriend(FriendID id) {
 		this.setID(id);
 	}
 
+	/**
+	 * @return the character id
+	 */
 	public CharacterID getCharacterID() {
 		return id.getID1();
 	}
 
+	/**
+	 * @return the character
+	 */
 	public L2Character getCharacter() {
 		return id.getID1().getObject();
 	}
 
+	/**
+	 * @return the friend id
+	 */
 	public CharacterID getFriendID() {
 		return id.getID2();
 	}
 
+	/**
+	 * @return the friend
+	 */
 	public L2Character getFriend() {
 		return id.getID2().getObject();
 	}

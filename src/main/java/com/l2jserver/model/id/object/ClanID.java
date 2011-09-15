@@ -37,6 +37,10 @@ public final class ClanID extends ObjectID<Clan> {
 	 */
 	private final ClanDAO clanDao;
 
+	/**
+	 * @param id the raw id
+	 * @param clanDao the clan DAO
+	 */
 	@Inject
 	protected ClanID(@Assisted int id, ClanDAO clanDao) {
 		super(id);

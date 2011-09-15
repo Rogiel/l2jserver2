@@ -39,7 +39,7 @@ public enum ChatMessageType {
 	 */
 	PARTY(3),
 	/**
-	 * @
+	 * \@
 	 */
 	CLAN(4), GM(5), PETITION_PLAYER(6), PETITION_GM(7),
 	/**

@@ -24,6 +24,8 @@ import com.l2jserver.service.game.world.filter.WorldObjectFilter;
  * This listener will filter to only dispatch events on which the object matches
  * an given {@link WorldObjectFilter}.
  * 
+ * @param <T>
+ *            the type of objects filtered in this filter
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class FilteredWorldListener<T extends WorldObject> implements
@@ -44,6 +46,11 @@ public abstract class FilteredWorldListener<T extends WorldObject> implements
 	}
 
 	/**
+	 * @param e
+	 *            the event
+	 * @param object
+	 *            the object represented in the event
+	 * @return true to keep listener alive
 	 * @see WorldListener#dispatch(WorldEvent)
 	 */
 	protected abstract boolean dispatch(WorldEvent e, T object);

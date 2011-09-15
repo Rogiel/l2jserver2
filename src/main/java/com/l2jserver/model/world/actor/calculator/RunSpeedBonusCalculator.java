@@ -31,6 +31,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class RunSpeedBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public RunSpeedBonusCalculator() {
 		super(0x300, StatType.RUN_SPEED);
 	}

@@ -38,6 +38,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AttackAccuracyBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public AttackAccuracyBonusCalculator() {
 		super(0x200, StatType.ACCURACY_COMBAT);
 	}

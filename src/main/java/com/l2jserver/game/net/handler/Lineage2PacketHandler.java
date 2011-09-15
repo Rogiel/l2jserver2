@@ -53,6 +53,14 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	 */
 	private Lineage2Client connection;
 
+	/**
+	 * Creates a new instance of the packet handler
+	 * 
+	 * @param nettyNetworkService
+	 *            the netty network service
+	 * @param worldService
+	 *            the world service
+	 */
 	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService,
 			WorldService worldService) {
 		this.nettyNetworkService = nettyNetworkService;

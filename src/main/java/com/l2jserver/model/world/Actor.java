@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.world;
 
+import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.ActorTemplateID;
 import com.l2jserver.model.template.ActorTemplate;
@@ -30,6 +31,9 @@ import com.l2jserver.model.world.actor.stat.ActorStats;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class Actor extends PositionableObject {
+	/**
+	 * The {@link Actor} {@link TemplateID}
+	 */
 	protected ActorTemplateID<?> templateID;
 
 	/**
@@ -101,10 +105,17 @@ public abstract class Actor extends PositionableObject {
 	 */
 	protected final ActorSkillContainer skills = new ActorSkillContainer(this);
 
+	/**
+	 * @param templateID
+	 *            the actor template id
+	 */
 	protected Actor(ActorTemplateID<?> templateID) {
 		this.templateID = templateID;
 	}
 
+	/**
+	 * @return the actor stats
+	 */
 	public abstract ActorStats<?> getStats();
 
 	/**
@@ -267,6 +278,9 @@ public abstract class Actor extends PositionableObject {
 		return effects;
 	}
 
+	/**
+	 * @return the actor skills
+	 */
 	public ActorSkillContainer getSkills() {
 		return skills;
 	}

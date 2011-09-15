@@ -28,6 +28,12 @@ import com.l2jserver.util.calculator.AbstractDoubleFunction;
  */
 public abstract class ActorCalculatorFunction extends
 		AbstractDoubleFunction<ActorCalculatorContext, StatType> {
+	/**
+	 * @param order
+	 *            the calculation order
+	 * @param type
+	 *            the stat type
+	 */
 	public ActorCalculatorFunction(int order, StatType type) {
 		super(order, type);
 	}
@@ -37,6 +43,15 @@ public abstract class ActorCalculatorFunction extends
 		return calculate(ctx.actor, ctx.actor.getTemplate(), value);
 	}
 
+	/**
+	 * @param a
+	 *            the actor
+	 * @param t
+	 *            the actor template
+	 * @param value
+	 *            the original value
+	 * @return the calculated value
+	 */
 	protected abstract double calculate(Actor a, ActorTemplate<?> t,
 			double value);
 }

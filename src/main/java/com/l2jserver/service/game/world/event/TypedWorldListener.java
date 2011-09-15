@@ -21,6 +21,9 @@ import com.google.common.base.Preconditions;
 /**
  * This listener will filter to only dispatch an certain type events.
  * 
+ * @param <T>
+ *            the type filtered by this {@link WorldListener}
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class TypedWorldListener<T> implements WorldListener {
@@ -40,6 +43,9 @@ public abstract class TypedWorldListener<T> implements WorldListener {
 	}
 
 	/**
+	 * @param e
+	 *            the event
+	 * @return true to keep listener alive
 	 * @see WorldListener#dispatch(WorldEvent)
 	 */
 	protected abstract boolean dispatch(T e);

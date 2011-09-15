@@ -24,13 +24,16 @@ import com.l2jserver.util.exception.L2Exception;
 /**
  * Defines an {@link Template} which the player can interact with
  * 
+ * @param <T>
+ *            the interable {@link WorldObject} type
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
 public interface Interactable<T extends WorldObject> extends TemplateCapability {
 	/**
 	 * Performs an interaction with this template.
 	 * 
+	 * @param object
+	 *            the object to interact with
 	 * @param character
 	 *            the interacting character
 	 * @param args

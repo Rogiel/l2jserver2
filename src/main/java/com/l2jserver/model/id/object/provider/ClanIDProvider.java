@@ -42,6 +42,14 @@ public class ClanIDProvider implements ObjectIDProvider<ClanID> {
 	 */
 	private final ClanIDGuiceFactory factory;
 
+	/**
+	 * @param allocator
+	 *            the id allocator
+	 * @param idService
+	 *            the world id service
+	 * @param factory
+	 *            the clan id factory
+	 */
 	@Inject
 	public ClanIDProvider(IDAllocator allocator, WorldIDService idService,
 			ClanIDGuiceFactory factory) {

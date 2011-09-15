@@ -406,6 +406,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 *            the connection
 		 * @return the query return value
 		 * @throws SQLException
+		 *             if any SQL error occur
 		 */
 		R query(Connection conn) throws SQLException;
 	}
@@ -514,6 +515,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 * @param object
 		 *            the object
 		 * @throws SQLException
+		 *             if any SQL error occur
 		 */
 		protected abstract void parametize(PreparedStatement st, T object)
 				throws SQLException;
@@ -522,8 +524,6 @@ public class JDBCDatabaseService extends AbstractService implements
 		 * Return the key mapper. Can be null if no generated keys are used or
 		 * are not important.
 		 * 
-		 * @param object
-		 *            the object
 		 * @return the key mapper
 		 */
 		protected Mapper<? extends ID<?>> keyMapper() {
@@ -593,9 +593,8 @@ public class JDBCDatabaseService extends AbstractService implements
 		 * 
 		 * @param st
 		 *            the prepared statement
-		 * @param object
-		 *            the object
 		 * @throws SQLException
+		 *             if any SQL error occur
 		 */
 		protected void parametize(PreparedStatement st) throws SQLException {
 		}
@@ -670,9 +669,8 @@ public class JDBCDatabaseService extends AbstractService implements
 		 * 
 		 * @param st
 		 *            the prepared statement
-		 * @param object
-		 *            the object
 		 * @throws SQLException
+		 *             if any SQL error occur
 		 */
 		protected void parametize(PreparedStatement st) throws SQLException {
 		}
@@ -706,6 +704,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 *            the result set
 		 * @return the created instance
 		 * @throws SQLException
+		 *             if any SQL error occur
 		 */
 		T map(ResultSet rs) throws SQLException;
 	}
@@ -744,6 +743,8 @@ public class JDBCDatabaseService extends AbstractService implements
 		 * 
 		 * @param database
 		 *            the database service
+		 * @param idMapper
+		 *            the {@link ID} {@link Mapper}
 		 */
 		public CachedMapper(JDBCDatabaseService database, Mapper<I> idMapper) {
 			this.database = database;
@@ -781,6 +782,7 @@ public class JDBCDatabaseService extends AbstractService implements
 		 *            the jdbc result set
 		 * @return the created object
 		 * @throws SQLException
+		 *             if any SQL error occur
 		 */
 		protected abstract T map(I id, ResultSet rs) throws SQLException;
 	}

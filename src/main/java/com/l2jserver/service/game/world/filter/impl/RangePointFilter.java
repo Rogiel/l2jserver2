@@ -41,8 +41,8 @@ public class RangePointFilter implements WorldObjectFilter<PositionableObject> {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param objcect
-	 *            the positionable object as center point for range search
+	 * @param point
+	 *            the point to start the range search
 	 * @param range
 	 *            the desired maximum distance of the object
 	 */

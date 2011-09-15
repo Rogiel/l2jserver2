@@ -114,6 +114,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 * @param file
 	 *            jar file to add
 	 * @throws IOException
+	 *             if any I/O error occur
 	 */
 	@Override
 	public void addLibrary(File file) throws IOException {

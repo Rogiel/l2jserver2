@@ -52,8 +52,6 @@ public class CollectionFactory {
 	 * 
 	 * @param <T>
 	 *            the type
-	 * @param type
-	 *            the type
 	 * @return the created set
 	 */
 	public static final <T> Set<T> newSet() {
@@ -84,6 +82,9 @@ public class CollectionFactory {
 
 	/**
 	 * Creates a new reference queue of type <tt>T</tt>
+	 * 
+	 * @param <T>
+	 *            the type of the {@link ReferenceQueue}
 	 * 
 	 * @return the created queue
 	 */

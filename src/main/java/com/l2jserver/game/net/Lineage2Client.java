@@ -62,20 +62,6 @@ public class Lineage2Client {
 	 * The Lineage 2 session
 	 */
 	private Lineage2Session session;
-	/**
-	 * The connection state
-	 */
-	private ConnectionState state = ConnectionState.CONNECTED;
-
-	/**
-	 * Each connection is represented by an state: connected, authenticated and
-	 * in-game.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public enum ConnectionState {
-		CONNECTED, AUTHENTICATED, IN_GAME;
-	}
 
 	/**
 	 * The client supported protocol version
@@ -99,6 +85,8 @@ public class Lineage2Client {
 	 * 
 	 * @param worldService
 	 *            the world service
+	 * @param networkService
+	 *            the network service
 	 * @param channel
 	 *            the channel
 	 */
@@ -156,21 +144,6 @@ public class Lineage2Client {
 	}
 
 	/**
-	 * @return the state
-	 */
-	public ConnectionState getState() {
-		return state;
-	}
-
-	/**
-	 * @param state
-	 *            the state to set
-	 */
-	public void setState(ConnectionState state) {
-		this.state = state;
-	}
-
-	/**
 	 * @return the version
 	 */
 	public ProtocolVersion getVersion() {
@@ -190,6 +163,7 @@ public class Lineage2Client {
 	 * if the protocol is not known false will always be returned.
 	 * 
 	 * @param version
+	 *            the protocol version to test for support
 	 * @return true if version is supported by the client
 	 * @see com.l2jserver.game.net.ProtocolVersion#supports(com.l2jserver.game.net.ProtocolVersion)
 	 */

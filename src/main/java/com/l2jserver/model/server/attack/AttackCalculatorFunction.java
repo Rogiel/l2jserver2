@@ -25,6 +25,12 @@ import com.l2jserver.util.calculator.AbstractDoubleFunction;
  */
 public abstract class AttackCalculatorFunction extends
 		AbstractDoubleFunction<AttackCalculatorContext, AttackCalculatorType> {
+	/**
+	 * @param order
+	 *            the calculation order
+	 * @param type
+	 *            the function attribute
+	 */
 	public AttackCalculatorFunction(int order, AttackCalculatorType type) {
 		super(order, type);
 	}
@@ -34,5 +40,14 @@ public abstract class AttackCalculatorFunction extends
 		return calculate(ctx.attacker, ctx.target, value);
 	}
 
+	/**
+	 * @param attacker
+	 *            the attacker
+	 * @param target
+	 *            the target
+	 * @param value
+	 *            the original value
+	 * @return the calculated value
+	 */
 	public abstract double calculate(Actor attacker, Actor target, double value);
 }

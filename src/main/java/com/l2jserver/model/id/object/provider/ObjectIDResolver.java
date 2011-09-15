@@ -55,6 +55,10 @@ public class ObjectIDResolver implements ObjectIDProvider<ObjectID<?>> {
 	 */
 	private final WorldIDService idService;
 
+	/**
+	 * @param idService
+	 *            the world id service
+	 */
 	@Inject
 	public ObjectIDResolver(WorldIDService idService) {
 		this.idService = idService;
@@ -64,6 +68,7 @@ public class ObjectIDResolver implements ObjectIDProvider<ObjectID<?>> {
 	 * Resolvers do not support creating new IDs
 	 * 
 	 * @throws UnsupportedOperationException
+	 *             always
 	 */
 	@Override
 	public ObjectID<?> createID() {
@@ -94,6 +99,7 @@ public class ObjectIDResolver implements ObjectIDProvider<ObjectID<?>> {
 	 * Resolvers do not support destroying IDs
 	 * 
 	 * @throws UnsupportedOperationException
+	 *             always
 	 */
 	@Override
 	public void destroy(ObjectID<?> id) {

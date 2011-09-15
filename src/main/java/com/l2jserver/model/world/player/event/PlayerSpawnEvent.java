@@ -27,7 +27,7 @@ import com.l2jserver.util.geometry.Point3D;
  */
 public class PlayerSpawnEvent extends ActorSpawnEvent implements PlayerEvent {
 	/**
-	 * @param actor
+	 * @param player
 	 *            the player
 	 * @param point
 	 *            the spawn point

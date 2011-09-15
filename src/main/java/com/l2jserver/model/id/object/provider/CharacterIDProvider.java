@@ -42,6 +42,14 @@ public class CharacterIDProvider implements ObjectIDProvider<CharacterID> {
 	 */
 	private final CharacterIDGuiceFactory factory;
 
+	/**
+	 * @param allocator
+	 *            the id allocator
+	 * @param idService
+	 *            the world id service
+	 * @param factory
+	 *            the character id factory
+	 */
 	@Inject
 	public CharacterIDProvider(IDAllocator allocator, WorldIDService idService,
 			CharacterIDGuiceFactory factory) {

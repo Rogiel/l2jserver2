@@ -22,6 +22,12 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ActorFormula extends ActorCalculatorFunction {
+	/**
+	 * @param order
+	 *            the calculation order
+	 * @param type
+	 *            the stat type
+	 */
 	public ActorFormula(int order, StatType type) {
 		super(order, type);
 	}

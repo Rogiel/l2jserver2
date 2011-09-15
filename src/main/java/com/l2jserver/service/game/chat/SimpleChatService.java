@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.dao.CharacterDAO;
+import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.server.ChatMessage;
@@ -34,6 +35,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.database.DataAccessObject;
 import com.l2jserver.service.game.region.Region;
 import com.l2jserver.service.game.region.RegionService;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -93,8 +95,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param regionService
-	 *            the region service
+	 * @param chatLogService
+	 *            the chat log service
+	 * @param charDao
+	 *            the character {@link DataAccessObject DAO}
 	 */
 	@Inject
 	public SimpleChatService(ChatLoggingService chatLogService,
@@ -420,6 +424,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 * Creates a new instance
 		 * 
 		 * @param clanID
+		 *            the clan {@link ID} used in this channel
 		 */
 		public ClanChatChannelImpl(ClanID clanID) {
 			Preconditions.checkNotNull(clanID, "clanID");
@@ -453,7 +458,8 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		/**
 		 * Creates a new instance
 		 * 
-		 * @param clanID
+		 * @param region
+		 *            the region represented in this channel
 		 */
 		public RegionChatChannelImpl(Region region) {
 			Preconditions.checkNotNull(region, "region");

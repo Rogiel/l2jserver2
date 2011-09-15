@@ -19,6 +19,11 @@ package com.l2jserver.util.calculator;
 /**
  * An function is nothing more than a mathematical operation.
  * 
+ * @param <C>
+ *            the calculator context type
+ * @param <V>
+ *            the attribute set type
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Function<C extends CalculatorContext, V extends Enum<V>> {
@@ -26,9 +31,10 @@ public interface Function<C extends CalculatorContext, V extends Enum<V>> {
 	 * Performs the operation in the calculation process.
 	 * <p>
 	 * The <tt>value</tt> in the argument is normally used for calculation, but
-	 * an {@link Function} can ignore the value if required to (i.e.
-	 * {@link SetFunction})
+	 * an {@link Function} can ignore the value if required to.
 	 * 
+	 * @param ctx
+	 *            the calculator context
 	 * @param value
 	 *            the input value
 	 * @return the output value

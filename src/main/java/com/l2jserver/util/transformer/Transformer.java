@@ -20,6 +20,9 @@ package com.l2jserver.util.transformer;
  * An transformer can transform an {@link Object} into an {@link String} and the
  * {@link String} back to an equivalent object.
  * 
+ * @param <T>
+ *            the transformed type
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Transformer<T> {

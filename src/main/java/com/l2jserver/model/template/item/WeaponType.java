@@ -78,12 +78,12 @@ public enum WeaponType {
 	DUALDAGGER(StatType.DUALDAGGER_WPN_VULN);
 
 	/**
-	 * This weapon type weaknesses
+	 * This weapon type of weaknesses
 	 */
 	public final StatType weaknessesStat;
 
 	/**
-	 * @param weaknesses
+	 * @param weaknessesStat
 	 *            the weapon weaknesses
 	 */
 	WeaponType(StatType weaknessesStat) {

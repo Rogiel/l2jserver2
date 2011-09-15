@@ -78,6 +78,11 @@ public class Lineage2CryptographyKey {
 		key[11] = (byte) (old >> 0x18 & 0xff);
 	}
 
+	/**
+	 * Creates a copy of this key
+	 * 
+	 * @return the copied key
+	 */
 	public Lineage2CryptographyKey copy() {
 		return new Lineage2CryptographyKey(Arrays.copyOf(key, key.length));
 	}

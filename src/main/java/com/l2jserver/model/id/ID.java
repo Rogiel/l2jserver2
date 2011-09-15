@@ -21,6 +21,9 @@ import com.google.inject.Inject;
 /**
  * The ID interface. Each object must be represented by an unique ID.
  * 
+ * @param <T>
+ *            the raw id type
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ID<T> {
@@ -29,6 +32,9 @@ public abstract class ID<T> {
 	 */
 	protected final T id;
 
+	/**
+	 * @param id the raw id
+	 */
 	@Inject
 	protected ID(T id) {
 		this.id = id;

@@ -42,6 +42,14 @@ public class NPCIDProvider implements ObjectIDProvider<NPCID> {
 	 */
 	private final NPCIDGuiceFactory factory;
 
+	/**
+	 * @param allocator
+	 *            the id allocator
+	 * @param idService
+	 *            the world id service
+	 * @param factory
+	 *            the npc id factory
+	 */
 	@Inject
 	public NPCIDProvider(IDAllocator allocator, WorldIDService idService,
 			NPCIDGuiceFactory factory) {

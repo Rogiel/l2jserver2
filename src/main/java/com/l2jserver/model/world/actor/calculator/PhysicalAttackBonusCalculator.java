@@ -33,6 +33,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class PhysicalAttackBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public PhysicalAttackBonusCalculator() {
 		super(0x100, StatType.POWER_ATTACK);
 	}

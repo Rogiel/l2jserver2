@@ -20,9 +20,6 @@ package com.l2jserver.service.game.world.event;
  * This is the most abstract listener for the listening engine.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
- * @param <E>
- *            the received event type
  */
 public interface WorldListener {
 	/**

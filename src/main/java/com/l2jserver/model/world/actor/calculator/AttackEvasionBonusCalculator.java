@@ -38,6 +38,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AttackEvasionBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public AttackEvasionBonusCalculator() {
 		super(0x200, StatType.EVASION_RATE);
 	}

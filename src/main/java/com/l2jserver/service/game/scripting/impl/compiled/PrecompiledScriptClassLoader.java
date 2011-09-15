@@ -44,6 +44,9 @@ public class PrecompiledScriptClassLoader extends ScriptClassLoader {
 
 	/**
 	 * Creates new ScriptClassLoader with given ClassFileManger
+	 * 
+	 * @param root
+	 *            the root file
 	 */
 	PrecompiledScriptClassLoader(final File root) {
 		super(new URL[] {});
@@ -66,6 +69,7 @@ public class PrecompiledScriptClassLoader extends ScriptClassLoader {
 	 * @param file
 	 *            jar file to add
 	 * @throws IOException
+	 *             if any I/O error occur
 	 */
 	@Override
 	public void addLibrary(File file) throws IOException {
@@ -74,14 +78,13 @@ public class PrecompiledScriptClassLoader extends ScriptClassLoader {
 	/**
 	 * Loads class from library, parent or compiled
 	 * 
-	 * @param name
-	 *            class to load
 	 * @param file
 	 *            the class file
 	 * @return loaded class
 	 * @throws ClassNotFoundException
 	 *             if class not found
 	 * @throws IOException
+	 *             if any I/O error occur
 	 */
 	public Class<?> loadClass(File file) throws ClassNotFoundException,
 			IOException {

@@ -67,6 +67,8 @@ public class BinaryClass implements JavaFileObject {
 	 * 
 	 * @param name
 	 *            class name
+	 * @param data
+	 *            the class contents
 	 */
 	public BinaryClass(String name, byte[] data) {
 		this.name = name;

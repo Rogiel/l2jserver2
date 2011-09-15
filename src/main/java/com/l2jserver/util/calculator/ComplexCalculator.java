@@ -29,6 +29,11 @@ import com.l2jserver.util.factory.CollectionFactory;
  * An calculator is used to compute data and outputs its result. Note also, that
  * an calculator is also an function, that way you can nest calculators.
  * 
+ * @param <T>
+ *            the calculator context type
+ * @param <V>
+ *            the calculator attribute set
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
@@ -40,7 +45,10 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using
-	 * {@link #add(V, Function)}.
+	 * {@link #add(Function)} or {@link #add(Function...)}
+	 * 
+	 * @param type
+	 *            the {@link Class} for attribute set
 	 */
 	public ComplexCalculator(Class<V> type) {
 		super(0x00, null);
@@ -51,8 +59,10 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * Creates a new calculator with <tt>functions</tt> in the declaration
 	 * order.
 	 * 
-	 * @param functions
-	 *            the calculator functions
+	 * @param type
+	 *            the {@link Class} for attribute set
+	 * @param calculators
+	 *            the calculators which functions will be imported
 	 */
 	@SuppressWarnings("unchecked")
 	public ComplexCalculator(Class<V> type, Calculator<T, V>... calculators) {
@@ -66,6 +76,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * Creates a new calculator with <tt>functions</tt> in the declaration
 	 * order.
 	 * 
+	 * @param value
+	 *            the attribute type
 	 * @param functions
 	 *            the calculator functions
 	 */
@@ -80,6 +92,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * Creates a new calculator with <tt>functions</tt> in the declaration
 	 * order.
 	 * 
+	 * @param type
+	 *            the {@link Class} for attribute set
 	 * @param functions
 	 *            the calculator functions
 	 */
@@ -100,8 +114,6 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * <p>
 	 * Once a new function is added, sorting will be performed automatically.
 	 * 
-	 * @param order
-	 *            the operation order, starting at 0.
 	 * @param function
 	 *            the operation
 	 */
@@ -118,10 +130,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * <p>
 	 * Once a new function is added, sorting will be performed automatically.
 	 * 
-	 * @param order
-	 *            the operation order, starting at 0.
-	 * @param function
-	 *            the operation
+	 * @param functions
+	 *            the functions to be added
 	 */
 	public void add(Function<T, V>... functions) {
 		for (final Function<T, V> func : functions) {
@@ -136,10 +146,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * <p>
 	 * Once a new function is added, sorting will be performed automatically.
 	 * 
-	 * @param order
-	 *            the operation order, starting at 0.
-	 * @param function
-	 *            the operation
+	 * @param functions
+	 *            the functions to be added
 	 */
 	public void addNoSort(Function<T, V>... functions) {
 		for (final Function<T, V> func : functions) {
@@ -150,8 +158,6 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	/**
 	 * Removes an fuction from this calculator.
 	 * 
-	 * @param order
-	 *            the operation order, starting at 0.
 	 * @param function
 	 *            the operation
 	 */
@@ -166,8 +172,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * <p>
 	 * This method will heuristically search for nested calculators.
 	 * 
-	 * @param calculator
-	 *            the calculator
+	 * @param calculators
+	 *            the calculators to be imported
 	 */
 	@SuppressWarnings("unchecked")
 	public void importFunctions(Calculator<T, V>... calculators) {
@@ -200,8 +206,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * <p>
 	 * This method will heuristically search for nested calculators.
 	 * 
-	 * @param calculator
-	 *            the calculator
+	 * @param calculators
+	 *            the calculators
 	 */
 	@SuppressWarnings("unchecked")
 	public void removeFunctions(Calculator<T, V>... calculators) {

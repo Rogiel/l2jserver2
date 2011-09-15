@@ -23,9 +23,21 @@ import com.l2jserver.util.calculator.CalculatorContext;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AttackCalculatorContext extends CalculatorContext {
+	/**
+	 * The attacker actor
+	 */
 	public final Actor attacker;
+	/**
+	 * The target actor
+	 */
 	public final Actor target;
 
+	/**
+	 * @param attacker
+	 *            the attacker
+	 * @param target
+	 *            the target
+	 */
 	public AttackCalculatorContext(Actor attacker, Actor target) {
 		this.attacker = attacker;
 		this.target = target;

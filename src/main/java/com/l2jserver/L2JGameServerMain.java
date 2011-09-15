@@ -30,8 +30,17 @@ import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 
+/**
+ * Main class
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class L2JGameServerMain {
-	public static void main(String[] args) throws InterruptedException {
+	/**
+	 * Main method
+	 * @param args no arguments are used
+	 */
+	public static void main(String[] args) {
 		final L2JGameServer server = new L2JGameServer();
 		try {
 			final ServiceManager serviceManager = server.getInjector()

@@ -76,6 +76,11 @@ public class CM_ATTACK extends AbstractClientPacket {
 	@SuppressWarnings("unused")
 	private CharacterAttackAction action;
 
+	/**
+	 * Enumeration of all possible attack actions
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum CharacterAttackAction {
 		/**
 		 * Normal click
@@ -86,12 +91,27 @@ public class CM_ATTACK extends AbstractClientPacket {
 		 */
 		SHIFT_CLICK(1);
 
+		/**
+		 * The attack action numeric id
+		 */
 		public final int id;
 
+		/**
+		 * @param id
+		 *            the action numeric id
+		 */
 		CharacterAttackAction(int id) {
 			this.id = id;
 		}
 
+		/**
+		 * Resolves the numeric action id to an {@link CharacterAttackAction}
+		 * type
+		 * 
+		 * @param id
+		 *            the numeric id
+		 * @return the resolved action
+		 */
 		public static CharacterAttackAction fromID(int id) {
 			for (final CharacterAttackAction action : values())
 				if (action.id == id)
@@ -100,6 +120,12 @@ public class CM_ATTACK extends AbstractClientPacket {
 		}
 	}
 
+	/**
+	 * @param charService
+	 *            the character service
+	 * @param idResolver
+	 *            the object id resolver
+	 */
 	@Inject
 	public CM_ATTACK(CharacterService charService, ObjectIDResolver idResolver) {
 		this.charService = charService;

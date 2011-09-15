@@ -82,6 +82,9 @@ public interface SpawnService extends Service {
 	 * Schedules an {@link PositionableObject} object to be spawned in a certain
 	 * time.
 	 * 
+	 * @param <T>
+	 *            the {@link PositionableObject} to be spawned
+	 * 
 	 * @param object
 	 *            the PositionableObject object
 	 * @param point
@@ -109,6 +112,9 @@ public interface SpawnService extends Service {
 	/**
 	 * Schedules an {@link PositionableObject} object to be spawned in a certain
 	 * time.
+	 * 
+	 * @param <T>
+	 *            the {@link PositionableObject} to be unspawned
 	 * 
 	 * @param object
 	 *            the PositionableObject object

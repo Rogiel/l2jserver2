@@ -40,6 +40,9 @@ import com.l2jserver.util.BufferUtils;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CM_BYPASS extends AbstractClientPacket {
+	/**
+	 * The logger
+	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
@@ -61,6 +64,12 @@ public class CM_BYPASS extends AbstractClientPacket {
 	 */
 	private String command;
 
+	/**
+	 * @param idResolver
+	 *            the object id resolver
+	 * @param npcService
+	 *            the {@link NPC} service
+	 */
 	@Inject
 	public CM_BYPASS(ObjectIDResolver idResolver, NPCService npcService) {
 		this.idResolver = idResolver;
@@ -98,6 +107,11 @@ public class CM_BYPASS extends AbstractClientPacket {
 		}
 	}
 
+	/**
+	 * @param tokenizer
+	 *            the tokenizer
+	 * @return an array of strings with each parameter
+	 */
 	private String[] createArgumentArray(StringTokenizer tokenizer) {
 		if (!tokenizer.hasMoreTokens())
 			return new String[0];

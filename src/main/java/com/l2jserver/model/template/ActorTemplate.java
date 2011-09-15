@@ -24,6 +24,8 @@ import com.l2jserver.model.world.Actor;
 /**
  * Template for {@link Actor}
  * 
+ * @param <T>
+ *            the {@link Actor} type this template is for
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class ActorTemplate<T extends Actor> extends
@@ -42,5 +44,10 @@ public abstract class ActorTemplate<T extends Actor> extends
 		return actor;
 	}
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @return the created template instance
+	 */
 	protected abstract T createInstance();
 }

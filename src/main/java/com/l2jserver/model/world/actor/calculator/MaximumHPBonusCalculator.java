@@ -31,6 +31,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MaximumHPBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public MaximumHPBonusCalculator() {
 		super(0x200, StatType.MAX_HP);
 	}

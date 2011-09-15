@@ -59,9 +59,9 @@ public interface VFSService extends Service {
 	 * Please note that event if the file DOES NOT exists a valid object will be
 	 * returned.
 	 * 
-	 * @param uri
-	 *            the file uri as an string
+	 * @param path
+	 *            the file path as an string
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
-	Path resolve(String name);
+	Path resolve(String path);
 }

@@ -31,6 +31,10 @@ import com.l2jserver.model.id.ID;
  * object will be created and following calls will always return the same
  * object.
  * 
+ * @param <I>
+ *            the raw id type
+ * @param <T>
+ *            the {@link ID} implementation
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface IDProvider<I, T extends ID<I>> {
@@ -38,7 +42,8 @@ public interface IDProvider<I, T extends ID<I>> {
 	 * Creates the ID object for an <b>EXISTING</b> ID.
 	 * 
 	 * @param id
-	 * @return
+	 *            the raw id value
+	 * @return the resolved {@link ID} object
 	 */
 	T resolveID(I id);
 }

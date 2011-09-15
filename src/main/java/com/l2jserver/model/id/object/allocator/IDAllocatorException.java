@@ -22,20 +22,40 @@ package com.l2jserver.model.id.object.allocator;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class IDAllocatorException extends RuntimeException {
+	/**
+	 * The Java Serialization Serial
+	 */
 	private static final long serialVersionUID = 111195059766878062L;
 
+	/**
+	 * Creates an empty instance of this exception
+	 */
 	public IDAllocatorException() {
 		super();
 	}
 
+	/**
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the root cause
+	 */
 	public IDAllocatorException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
+	/**
+	 * @param message
+	 *            the message
+	 */
 	public IDAllocatorException(String message) {
 		super(message);
 	}
 
+	/**
+	 * @param cause
+	 *            the root cause
+	 */
 	public IDAllocatorException(Throwable cause) {
 		super(cause);
 	}

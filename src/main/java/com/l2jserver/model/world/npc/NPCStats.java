@@ -19,7 +19,6 @@ package com.l2jserver.model.world.npc;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.calculator.ActorCalculator;
 import com.l2jserver.model.world.actor.stat.ActorStats;
-import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.npc.calculator.NPCCalculator;
 import com.l2jserver.model.world.npc.calculator.NPCCalculatorContext;
 import com.l2jserver.model.world.npc.calculator.NPCFormula;
@@ -42,17 +41,16 @@ import com.l2jserver.model.world.npc.calculator.base.NPCBaseRunSpeedCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseStrengthCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseWalkSpeedCalculator;
 import com.l2jserver.model.world.npc.calculator.base.NPCBaseWitnessCalculator;
-import com.l2jserver.util.calculator.SimpleCalculator;
 
 /**
  * This class is responsible for calculating the real NPC stats. The real stats
  * vary from the values from the templates, also, skills and items equipped can
  * change those values. Once an buff is applied, a new calculator is
- * {@link SimpleCalculator#importFunctions(SimpleCalculator) imported} and their
- * functions are added to this class calculator. Once the skill effect has past
- * away, all the functions that were imported are now
- * {@link SimpleCalculator#removeFunctions(SimpleCalculator) removed} and the
- * calculator return to its original state.
+ * {@link NPCCalculator#add(com.l2jserver.util.calculator.Function...) imported}
+ * and their functions are added to this class calculator. Once the skill effect
+ * has past away, all the functions that were imported are now
+ * {@link NPCCalculator#remove(com.l2jserver.util.calculator.Function) removed}
+ * and the calculator return to its original state.
  * <p>
  * Another important note is that calculators should perform calculations as
  * fast as possible.
@@ -206,8 +204,7 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 */
 	private final NPC npc;
 
-	private static final NPCCalculator calculator = new NPCCalculator(
-			StatType.class);
+	private static final NPCCalculator calculator = new NPCCalculator();
 
 	/**
 	 * Creates a new {@link NPCStats} and adds default calculators

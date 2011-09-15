@@ -57,6 +57,14 @@ public class SkillTemplate extends AbstractTemplate<Skill> {
 		return create(null);
 	}
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param actorID
+	 *            the actor ID
+	 * 
+	 * @return the created template instance
+	 */
 	public Skill create(ActorID<?> actorID) {
 		final Skill skill = new Skill(id);
 		if (actorID != null)

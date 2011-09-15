@@ -8,6 +8,45 @@
 	<description>Lineage II server emulator</description>
 	<inceptionYear>2011</inceptionYear>
 
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/l2jserver2/l2jserver2-gs/issues</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>GitHub</system>
+		<url>https://github.com/l2jserver2/l2jserver2-gs/wiki</url>
+	</ciManagement>
+
+	<developers>
+		<developer>
+			<id>rogiel</id>
+			<name>Rogiel</name>
+			<email>rogiel@rogiel.com</email>
+			<url>http://www.rogiel.com/</url>
+			<timezone>-3</timezone>
+			<roles>
+				<role>Creator</role>
+				<role>API Designer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>git://github.com/l2jserver2/l2jserver2-gs.git</connection>
+		<developerConnection>ssh://git@github.com:l2jserver2/l2jserver2-gs.git</developerConnection>
+		<tag>master</tag>
+		<url>https://github.com/l2jserver2/l2jserver2-gs</url>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License version 3</name>
+			<url>http://www.gnu.org/licenses/gpl.txt</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
+
 	<build>
 		<defaultGoal>package</defaultGoal>
 		<plugins>
@@ -198,40 +237,11 @@
 		<!-- vfs -->
 	</dependencies>
 
-	<issueManagement>
-		<system>GitHub</system>
-		<url>https://github.com/Rogiel/l2jserver2-gs/issues</url>
-	</issueManagement>
-	<ciManagement>
-		<system>GitHub</system>
-		<url>https://github.com/Rogiel/l2jserver2-gs/wiki</url>
-	</ciManagement>
-	<developers>
-		<developer>
-			<id>rogiel</id>
-			<name>Rogiel</name>
-			<email>rogiel@rogiel.com</email>
-			<url>http://www.rogiel.com</url>
-			<timezone>GMT - 3</timezone>
-			<roles>
-				<role>Creator</role>
-				<role>API Designer</role>
-			</roles>
-		</developer>
-	</developers>
-	<contributors>
-	</contributors>
-	<scm>
-		<connection>git://github.com/Rogiel/l2jserver2-gs.git</connection>
-		<developerConnection>ssh://git@github.com:Rogiel/l2jserver2-gs.git</developerConnection>
-		<tag>master</tag>
-		<url>https://github.com/Rogiel/l2jserver2-gs</url>
-	</scm>
 	<repositories>
 		<repository>
 			<id>repository.jboss.org</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases/
-			</url>
+				</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>

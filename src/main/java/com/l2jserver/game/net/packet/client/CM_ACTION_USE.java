@@ -43,35 +43,108 @@ public class CM_ACTION_USE extends AbstractClientPacket {
 	 */
 	private final CharacterService charService;
 
+	/**
+	 * The action to be performed
+	 */
 	private Action action;
 
+	/**
+	 * The enumeration of all possible actions
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum Action {
-		SIT_STAND(0), WALK_RUN(1),
+		/**
+		 * Toggles the character in SIT or STAND mode
+		 */
+		SIT_STAND(0),
+		/**
+		 * Toggles the character in WALK or RUN mode
+		 */
+		WALK_RUN(1),
 
-		PRIVATE_STORE_SELL(10), PRIVATE_STORE_BUY(11),
-
-		PET_FOLLOW_MOVE(15), PET_FOLLOW_MOVE2(21),
-
-		PET_ATTACK(16), PET_ATTACK2(22),
-
-		PET_STOP(17), PET_STOP2(23),
-
+		/**
+		 * Stats a new private store sell
+		 */
+		PRIVATE_STORE_SELL(10),
+		/**
+		 * Stats a new private store buy
+		 */
+		PRIVATE_STORE_BUY(11),
+		/**
+		 * Sets the pet in follow mode
+		 */
+		PET_FOLLOW_MOVE(15),
+		/**
+		 * Sets the pet in follow mode 2
+		 */
+		PET_FOLLOW_MOVE2(21),
+		/**
+		 * Orders the pet to attack
+		 */
+		PET_ATTACK(16),
+		/**
+		 * Orders the pet to attack (second type)
+		 */
+		PET_ATTACK2(22),
+		/**
+		 * Orders the pet to stop
+		 */
+		PET_STOP(17),
+		/**
+		 * Orders the pet to stop (second type)
+		 */
+		PET_STOP2(23),
+		/**
+		 * Unsummons the pet
+		 */
 		PET_UNSUMMON(19),
-
+		/**
+		 * Mounts or dismount from pet
+		 */
 		MOUNT_DISMOUNT(38),
+		/**
+		 * Switch Wild Hog Cannon mode
+		 */
+		WILD_HOG_CANNON_SWITCH_MODE(32),
+		/**
+		 * Stops Wild Hog Cannon
+		 */
+		WILD_HOG_CANNON_STOP(41),
 
-		WILD_HOG_CANNON_SWITCH_MODE(32), WILD_HOG_CANNON_STOP(41),
-
-		SOULESS_TOXIC_SMOKE(36), SOULESS_PARASITE_BURST(39),
-
+		/**
+		 * Souless toxic smoke
+		 */
+		SOULESS_TOXIC_SMOKE(36),
+		/**
+		 * Souless parasite burst
+		 */
+		SOULESS_PARASITE_BURST(39),
+		/**
+		 * Creates a new darwven manufacture
+		 */
 		DWARVEN_MANUFACTURE(37);
 
+		/**
+		 * The numeric action id
+		 */
 		public final int id;
 
+		/**
+		 * @param id
+		 *            the numeric action id
+		 */
 		Action(int id) {
 			this.id = id;
 		}
 
+		/**
+		 * Resolves the numeric id into an Java type action
+		 * 
+		 * @param id
+		 *            the numeric id
+		 * @return the resolved action
+		 */
 		public static Action fromID(int id) {
 			for (final Action action : values())
 				if (action.id == id)
@@ -80,11 +153,21 @@ public class CM_ACTION_USE extends AbstractClientPacket {
 		}
 	}
 
+	/**
+	 * If CTRL key was pressed for this action
+	 */
 	@SuppressWarnings("unused")
 	private boolean ctrlPressed;
+	/**
+	 * If SHIFT key was pressed for this action
+	 */
 	@SuppressWarnings("unused")
 	private boolean shiftPressed;
 
+	/**
+	 * @param charService
+	 *            the character service
+	 */
 	@Inject
 	public CM_ACTION_USE(CharacterService charService) {
 		this.charService = charService;

@@ -75,6 +75,9 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 
 	/**
 	 * Creates a new instance
+	 * 
+	 * @param message
+	 *            the {@link SystemMessage}
 	 */
 	public SM_SYSTEM_MESSAGE(SystemMessage message) {
 		super(OPCODE);
@@ -108,8 +111,9 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	 * 81-89 Territory names<br>
 	 * 101-121 Fortress names<br>
 	 * 
-	 * @param number
-	 * @return
+	 * @param fort
+	 *            the fort
+	 * @return the {@link SM_SYSTEM_MESSAGE} instance
 	 */
 	public final SM_SYSTEM_MESSAGE addFort(final Fort fort) {
 		params.add(new SystemMessagePacketParameter() {
@@ -206,7 +210,8 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	 * Elemental name - 0(Fire) ...
 	 * 
 	 * @param type
-	 * @return
+	 *            the type
+	 * @return the {@link SM_SYSTEM_MESSAGE} instance
 	 */
 	public final SM_SYSTEM_MESSAGE addElemntal(final int type) {
 		params.add(new SystemMessagePacketParameter() {
@@ -223,7 +228,8 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	 * ID from sysstring-e.dat
 	 * 
 	 * @param type
-	 * @return
+	 *            the type
+	 * @return the {@link SM_SYSTEM_MESSAGE} instance
 	 */
 	public final SM_SYSTEM_MESSAGE addSystemString(final int type) {
 		params.add(new SystemMessagePacketParameter() {
@@ -241,7 +247,7 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	 * 
 	 * @param type
 	 *            id of instance
-	 * @return
+	 * @return the {@link SM_SYSTEM_MESSAGE} instance
 	 */
 	public final SM_SYSTEM_MESSAGE addInstanceName(final int type) {
 		params.add(new SystemMessagePacketParameter() {

@@ -136,10 +136,25 @@ public class L2Character extends Player {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterMoveType {
-		RUN(0x01), WALK(0x00);
+		/**
+		 * Run mode
+		 */
+		RUN(0x01),
 
+		/**
+		 * Walk mode
+		 */
+		WALK(0x00);
+
+		/**
+		 * The move mode numeric id
+		 */
 		public final int id;
 
+		/**
+		 * @param id
+		 *            the mode numeric id
+		 */
 		CharacterMoveType(int id) {
 			this.id = id;
 		}
@@ -158,8 +173,8 @@ public class L2Character extends Player {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param baseAttributes
-	 *            the base attribute for this character
+	 * @param templateID
+	 *            the {@link CharacterTemplateID}
 	 */
 	public L2Character(CharacterTemplateID templateID) {
 		super(templateID);

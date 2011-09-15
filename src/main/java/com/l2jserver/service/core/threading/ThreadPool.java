@@ -55,14 +55,14 @@ public interface ThreadPool {
 	/**
 	 * Executes an asynchronous tasks at an scheduled time.
 	 * 
-	 * @param callable
-	 *            the callable instance
 	 * @param delay
 	 *            the initial delay to wait before the task is executed
-	 * @param repeat
-	 *            the repeating interval for this task
 	 * @param unit
 	 *            the time unit of delay
+	 * @param repeat
+	 *            the repeating interval for this task
+	 * @param task
+	 *            the task to be executed
 	 * @return the {@link AsyncFuture} notified once the task has completed
 	 */
 	ScheduledAsyncFuture async(long delay, TimeUnit unit, long repeat,

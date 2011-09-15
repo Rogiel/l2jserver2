@@ -54,6 +54,8 @@ public class JavaSourceFromByteArray extends SimpleJavaFileObject {
 	 *            class name of class
 	 * @param code
 	 *            source code of class
+	 * @param kind
+	 *            the class {@link javax.tools.JavaFileObject.Kind}
 	 */
 	public JavaSourceFromByteArray(String className, byte[] code,
 			JavaFileObject.Kind kind) {

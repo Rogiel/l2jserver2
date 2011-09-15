@@ -31,6 +31,9 @@ import org.jboss.netty.handler.codec.frame.FrameDecoder;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Lineage2FrameDecoder extends FrameDecoder {
+	/**
+	 * The message header size (in bytes)
+	 */
 	private static final int HEADER_SIZE = 2;
 
 	@Override

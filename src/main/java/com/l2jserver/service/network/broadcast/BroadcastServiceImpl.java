@@ -85,7 +85,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 		final L2Character character = conn.getCharacter();
 		Preconditions.checkNotNull(character, "character");
 		final CharacterID id = character.getID();
-		
+
 		log.debug("Starting character broadcast");
 
 		// broadcast everything nearby
@@ -197,8 +197,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 	 * 
 	 * @param conn
 	 *            the connection
-	 * @param character
-	 *            the character
+	 * @param o
+	 *            the object to be broadcasted
 	 */
 	private void broadcast(Lineage2Client conn, WorldObject o) {
 		log.debug("Broadcasting {}  to {}", o, conn);

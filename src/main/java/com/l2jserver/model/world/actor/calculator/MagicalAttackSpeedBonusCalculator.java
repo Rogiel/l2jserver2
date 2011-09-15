@@ -32,6 +32,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MagicalAttackSpeedBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public MagicalAttackSpeedBonusCalculator() {
 		super(0x200, StatType.MAGIC_ATTACK_SPEED);
 	}

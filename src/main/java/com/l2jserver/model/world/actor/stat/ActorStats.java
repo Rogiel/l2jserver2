@@ -36,7 +36,8 @@ import com.l2jserver.model.world.actor.calculator.WalkSpeedBonusCalculator;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
+ * @param <T>
+ *            the {@link ActorCalculatorContext} type
  */
 public abstract class ActorStats<T extends ActorCalculatorContext> {
 	// bonuses
@@ -142,6 +143,12 @@ public abstract class ActorStats<T extends ActorCalculatorContext> {
 	 */
 	private static final ActorFormula ATTACK_EVASION_BONUS_FORMULA = new AttackEvasionBonusCalculator();
 
+	/**
+	 * Adds default formulas to the <tt>calculator</tt>
+	 * 
+	 * @param calculator
+	 *            the calculator
+	 */
 	@SuppressWarnings("unchecked")
 	protected void addTo(ActorCalculator calculator) {
 		calculator.addNoSort(HP_BONUS_FORMULA, MP_BONUS_FORMULA,
@@ -318,7 +325,13 @@ public abstract class ActorStats<T extends ActorCalculatorContext> {
 		return getCalculator().calculate(type, ctx);
 	}
 
+	/**
+	 * @return the calculator
+	 */
 	protected abstract ActorCalculator getCalculator();
 
+	/**
+	 * @return the new context
+	 */
 	protected abstract T createContext();
 }

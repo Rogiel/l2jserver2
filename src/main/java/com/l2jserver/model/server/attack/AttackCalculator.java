@@ -24,11 +24,23 @@ import com.l2jserver.util.calculator.ComplexCalculator;
  */
 public class AttackCalculator extends
 		ComplexCalculator<AttackCalculatorContext, AttackCalculatorType> {
+	/**
+	 * @param functions
+	 *            the functions
+	 */
 	public AttackCalculator(AttackCalculatorFunction... functions) {
 		super(AttackCalculatorType.class, functions);
 	}
 
+	/**
+	 * The calculator attributes
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum AttackCalculatorType {
+		/**
+		 * Calculates the damage dealt by the attack
+		 */
 		DAMAGE;
 	}
 }

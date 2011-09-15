@@ -25,6 +25,9 @@ import java.util.concurrent.TimeoutException;
  * used to receive notifications once an event has been dispatched to all
  * listeners.
  * 
+ * @param <E>
+ *            the event type in this future
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface WorldEventFuture<E extends WorldEvent> extends Future<E> {

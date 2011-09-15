@@ -24,6 +24,11 @@ import java.util.Comparator;
  * An calculator is used to compute data and outputs its result. Note also, that
  * an calculator is also an function, that way you can nest calculators.
  * 
+ * @param <T>
+ *            the calculator context type
+ * @param <V>
+ *            the attribute set type
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
@@ -38,6 +43,8 @@ public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * Creates a new calculator with <tt>functions</tt> in the declaration
 	 * order.
 	 * 
+	 * @param value
+	 *            the attribute
 	 * @param functions
 	 *            the calculator functions
 	 */

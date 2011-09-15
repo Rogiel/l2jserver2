@@ -21,6 +21,9 @@ import com.l2jserver.model.world.WorldObject;
 /**
  * Filter an object in a world
  * 
+ * @param <O>
+ *            the {@link WorldObject} filtered by this filter
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface WorldObjectFilter<O extends WorldObject> {

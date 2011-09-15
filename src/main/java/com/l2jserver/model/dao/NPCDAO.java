@@ -41,7 +41,7 @@ public interface NPCDAO extends DataAccessObject<NPC, NPCID>, Cacheable {
 	/**
 	 * Select an {@link NPC} by its template.
 	 * 
-	 * @param name
+	 * @param templateID
 	 *            the npc template id
 	 * @return the found NPC. Null if does not exists.
 	 */

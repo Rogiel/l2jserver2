@@ -32,6 +32,10 @@ import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
  */
 @XmlJavaTypeAdapter(value = NPCTemplateIDAdapter.class)
 public class NPCTemplateID extends ActorTemplateID<NPCTemplate> {
+	/**
+	 * @param id the raw id
+	 * @param templateService the template service
+	 */
 	@Inject
 	public NPCTemplateID(@Assisted int id, TemplateService templateService) {
 		super(id, templateService);

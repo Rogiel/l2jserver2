@@ -90,10 +90,19 @@ public class Lineage2Encrypter extends OneToOneEncoder {
 		this.key = key;
 	}
 
+	/**
+	 * @return true if this encrypter is enabled
+	 */
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	/**
+	 * Sets the state of this encrypter
+	 * 
+	 * @param enabled
+	 *            the new state
+	 */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}

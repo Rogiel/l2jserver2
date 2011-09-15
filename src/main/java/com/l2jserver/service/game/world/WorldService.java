@@ -154,7 +154,7 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 			final WorldObjectFilter<T> filter);
 
 	/**
-	 * Shortcut method for {@link Iterable#iterable()} with filters. The
+	 * Shortcut method for {@link Iterable#iterator()} with filters. The
 	 * iterable instance returns the same {@link Iterator} as
 	 * {@link #iterator(WorldObjectFilter)}.
 	 * 

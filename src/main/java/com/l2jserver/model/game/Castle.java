@@ -28,18 +28,18 @@ import com.l2jserver.model.id.object.CharacterID;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Fort extends AbstractModel<FortID> {
+public class Castle extends AbstractModel<FortID> {
 	/**
-	 * The {@link Castle} of which this {@link Fort} belongs to
+	 * The {@link Castle} of which this {@link Castle} belongs to
 	 */
 	private CastleID castleID;
 	/**
-	 * The owner (clan leader) of which this {@link Fort} belongs to.
+	 * The owner (clan leader) of which this {@link Castle} belongs to.
 	 */
 	private CharacterID ownerID;
 
 	/**
-	 * The fort name
+	 * The castle name
 	 */
 	private String name;
 	/**
@@ -50,39 +50,6 @@ public class Fort extends AbstractModel<FortID> {
 	 * The last time this fort was owned by someone
 	 */
 	private Date lastOwnedTime;
-	/**
-	 * The fort type. TODO values names are unknown so far!
-	 */
-	private FortType fortType;
-
-	/**
-	 * The {@link Fort} types
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public enum FortType {
-		/**
-		 * Fort type 1
-		 */
-		TYPE1,
-		/**
-		 * Fort type 2
-		 */
-		TYPE2;
-	}
-
-	/**
-	 * The {@link Fort} state
-	 */
-	private boolean state;
-	/**
-	 * The {@link Fort} blood state
-	 */
-	private boolean blood;
-	/**
-	 * The {@link Fort} supply level
-	 */
-	private int supplyLvL;
 
 	/**
 	 * @return the castleID
@@ -162,69 +129,5 @@ public class Fort extends AbstractModel<FortID> {
 	public void setLastOwnedTime(Date lastOwnedTime) {
 		desireUpdate();
 		this.lastOwnedTime = lastOwnedTime;
-	}
-
-	/**
-	 * @return the fortType
-	 */
-	public FortType getFortType() {
-		return fortType;
-	}
-
-	/**
-	 * @param fortType
-	 *            the fortType to set
-	 */
-	public void setFortType(FortType fortType) {
-		desireUpdate();
-		this.fortType = fortType;
-	}
-
-	/**
-	 * @return the state
-	 */
-	public boolean isState() {
-		return state;
-	}
-
-	/**
-	 * @param state
-	 *            the state to set
-	 */
-	public void setState(boolean state) {
-		desireUpdate();
-		this.state = state;
-	}
-
-	/**
-	 * @return the blood
-	 */
-	public boolean isBlood() {
-		return blood;
-	}
-
-	/**
-	 * @param blood
-	 *            the blood to set
-	 */
-	public void setBlood(boolean blood) {
-		desireUpdate();
-		this.blood = blood;
-	}
-
-	/**
-	 * @return the supplyLvL
-	 */
-	public int getSupplyLvL() {
-		return supplyLvL;
-	}
-
-	/**
-	 * @param supplyLvL
-	 *            the supplyLvL to set
-	 */
-	public void setSupplyLvL(int supplyLvL) {
-		desireUpdate();
-		this.supplyLvL = supplyLvL;
 	}
 }

@@ -16,7 +16,7 @@
  */
 package com.l2jserver.service.game.chat;
 
-import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.server.ChatMessage;
 
 /**
  * An public {@link ChatChannel}. Please note that the concept of "public" does
@@ -24,8 +24,8 @@ import com.l2jserver.model.id.object.CharacterID;
  * (i.e. clan, global, region, etc...). That mean that a single message can be
  * broadcasted to more than a single client. Note that even in a public channel
  * only a single event
- * {@link ChatChannelListener#onMessage(ChatChannel, CharacterID, String)} will
- * be dispatched per listener.
+ * {@link ChatChannelListener#onMessage(ChatChannel, ChatMessage)} will be
+ * dispatched per listener.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

@@ -130,6 +130,8 @@ public class SoftCacheService extends AbstractService implements CacheService {
 	 * value object)
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * @param <K> the key type
+	 * @param <V> the value type
 	 */
 	private class SoftCache<K, V> extends AbstractReferenceCache<K, V> implements
 			Cache<K, V> {

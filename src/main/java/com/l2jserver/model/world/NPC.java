@@ -93,18 +93,32 @@ public class NPC extends Actor {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * @return the maximum HP
+	 */
 	public double getMaxHP() {
 		return this.getTemplate().getMaximumHP();
 	}
 
+	/**
+	 * @param maxHP the maximum HP
+	 * @throws UnsupportedOperationException always
+	 */
 	public void setMaxHP(double maxHP) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * @return the maximum MP
+	 */
 	public double getMaxMP() {
 		return this.getTemplate().getMaximumMP();
 	}
 
+	/**
+	 * @param maxMP the maximum MP
+	 * @throws UnsupportedOperationException always
+	 */
 	public void setMaxMP(double maxMP) {
 		throw new UnsupportedOperationException();
 	}

@@ -24,6 +24,9 @@ import com.l2jserver.model.world.Actor;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class PhysicalAttackCalculator extends AttackCalculator {
+	/**
+	 * Creates a new instance
+	 */
 	public PhysicalAttackCalculator() {
 		super(new AttackCalculatorFunction(0x000, AttackCalculatorType.DAMAGE) {
 			@Override

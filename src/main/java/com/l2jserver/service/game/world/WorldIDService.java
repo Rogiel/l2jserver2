@@ -43,8 +43,6 @@ public interface WorldIDService extends Service {
 	/**
 	 * Tries to resolve an ID based on its raw value
 	 * 
-	 * @param <V>
-	 *            the raw ID type
 	 * @param <I>
 	 *            the ID type
 	 * @param id

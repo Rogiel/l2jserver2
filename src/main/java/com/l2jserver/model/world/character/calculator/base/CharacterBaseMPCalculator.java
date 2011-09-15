@@ -37,6 +37,6 @@ public class CharacterBaseMPCalculator extends CharacterFormula {
 
 	@Override
 	public double calculate(L2Character c, CharacterTemplate t, double value) {
-		return t.getBaseBaseMP();
+		return t.getBaseMP();
 	}
 }

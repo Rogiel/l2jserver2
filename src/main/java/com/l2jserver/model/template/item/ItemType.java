@@ -133,6 +133,10 @@ public enum ItemType {
 	 */
 	public final int id;
 
+	/**
+	 * @param id
+	 *            the numeric id
+	 */
 	ItemType(int id) {
 		this.id = id;
 	}

@@ -26,6 +26,8 @@ import java.util.concurrent.TimeoutException;
  * features, such as waiting for an given task to finish.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <T>
+ *            the {@link Future} return type
  */
 public interface AsyncFuture<T> extends Future<T> {
 	/**

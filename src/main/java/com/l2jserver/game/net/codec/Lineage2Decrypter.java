@@ -70,7 +70,8 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 	/**
 	 * Creates a random key and enables descrypting
 	 * 
-	 * @return the generated key
+	 * @param key
+	 *            the key
 	 */
 	public void enable(Lineage2CryptographyKey key) {
 		this.setKey(key);
@@ -89,10 +90,19 @@ public class Lineage2Decrypter extends OneToOneDecoder {
 		this.key = key;
 	}
 
+	/**
+	 * @return true if decrypter is enabled
+	 */
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	/**
+	 * Sets the state of this decrypter
+	 * 
+	 * @param enabled
+	 *            the new state
+	 */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}

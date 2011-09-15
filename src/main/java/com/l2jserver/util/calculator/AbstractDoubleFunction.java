@@ -17,6 +17,10 @@
 package com.l2jserver.util.calculator;
 
 /**
+ * @param <T>
+ *            the context type
+ * @param <V>
+ *            the attribute calculated
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractDoubleFunction<T extends CalculatorContext, V extends Enum<V>>

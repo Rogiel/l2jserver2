@@ -207,6 +207,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.crafter;
 	}
 
+	/**
+	 * @return the base HP
+	 */
 	public double getBaseHP() {
 		if (stats == null)
 			return 0;
@@ -215,6 +218,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.hp.base;
 	}
 
+	/**
+	 * @return the base HP modifier
+	 */
 	public double getBaseHPModifier() {
 		if (stats == null)
 			return 0;
@@ -223,6 +229,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.hp.modifier;
 	}
 
+	/**
+	 * @return the base HP add
+	 */
 	public double getBaseHPAdd() {
 		if (stats == null)
 			return 0;
@@ -231,7 +240,10 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.hp.add;
 	}
 
-	public double getBaseBaseMP() {
+	/**
+	 * @return the base MP
+	 */
+	public double getBaseMP() {
 		if (stats == null)
 			return 0;
 		if (stats.mp == null)
@@ -239,6 +251,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.mp.base;
 	}
 
+	/**
+	 * @return the base MP modifier
+	 */
 	public double getBaseMPModifier() {
 		if (stats == null)
 			return 0;
@@ -247,6 +262,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.mp.modifier;
 	}
 
+	/**
+	 * @return the base MP add
+	 */
 	public double getBaseMPAdd() {
 		if (stats == null)
 			return 0;
@@ -255,6 +273,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.mp.add;
 	}
 
+	/**
+	 * @return the base CP
+	 */
 	public double getBaseCP() {
 		if (stats == null)
 			return 0;
@@ -263,6 +284,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.cp.base;
 	}
 
+	/**
+	 * @return the base CP modifier
+	 */
 	public double getBaseCPModifier() {
 		if (stats == null)
 			return 0;
@@ -271,6 +295,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.cp.modifier;
 	}
 
+	/**
+	 * @return the base CP add
+	 */
 	public double getBaseCPAdd() {
 		if (stats == null)
 			return 0;
@@ -390,6 +417,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.attack.magical.speed;
 	}
 
+	/**
+	 * @return the base run speed
+	 */
 	public double getBaseRunSpeed() {
 		if (stats == null)
 			return 0;
@@ -398,6 +428,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.move.run;
 	}
 
+	/**
+	 * @return the base walk speed
+	 */
 	public double getBaseWalkSpeed() {
 		if (stats == null)
 			return 0;
@@ -481,6 +514,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return stats.maximumLoad;
 	}
 
+	/**
+	 * @return the male collision radius
+	 */
 	public double getMaleCollisionRadius() {
 		if (collision == null)
 			return 0;
@@ -489,6 +525,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return collision.male.radius;
 	}
 
+	/**
+	 * @return the male collision height
+	 */
 	public double getMaleCollisionHeight() {
 		if (collision == null)
 			return 0;
@@ -497,6 +536,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return collision.male.height;
 	}
 
+	/**
+	 * @return the female collision radius
+	 */
 	public double getFemaleCollisionRadius() {
 		if (collision == null)
 			return 0;
@@ -505,6 +547,9 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 		return collision.female.radius;
 	}
 
+	/**
+	 * @return the female collision height
+	 */
 	public double getFemaleCollisionHeight() {
 		if (collision == null)
 			return 0;

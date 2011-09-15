@@ -86,6 +86,8 @@ public class ScriptContextImpl implements ScriptContext {
 	/**
 	 * Creates new scriptcontext with given root file
 	 * 
+	 * @param injector
+	 *            the Guice {@link Injector}
 	 * @param root
 	 *            file that represents root directory of this script context
 	 * @throws NullPointerException
@@ -101,6 +103,8 @@ public class ScriptContextImpl implements ScriptContext {
 	 * Creates new ScriptContext with given file as root and another
 	 * ScriptContext as parent
 	 * 
+	 * @param injector
+	 *            the Guice {@link Injector}
 	 * @param root
 	 *            file that represents root directory of this script context
 	 * @param parent

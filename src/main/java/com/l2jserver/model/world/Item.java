@@ -69,6 +69,9 @@ public class Item extends PositionableObject {
 	 */
 	private long count = 1;
 
+	/**
+	 * @param templateID the item template id
+	 */
 	public Item(ItemTemplateID templateID) {
 		this.templateID = templateID;
 	}

@@ -94,8 +94,8 @@ public class MarkupTag {
 	/**
 	 * Adds an internal text from an code
 	 * 
-	 * @param text
-	 *            the text
+	 * @param code
+	 *            the text code
 	 * @return this {@link MarkupTag}
 	 */
 	public MarkupTag textcode(int code) {
@@ -190,7 +190,7 @@ public class MarkupTag {
 	 *            the link text
 	 * @param action
 	 *            the link action (will automatically append "bypass -h")
-	 * @return
+	 * @return the MarkupTag for chained calls
 	 */
 	public MarkupTag addLink(String text, String action) {
 		final Tag tag = new L2LinkTag();

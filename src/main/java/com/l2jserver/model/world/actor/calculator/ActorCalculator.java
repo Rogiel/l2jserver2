@@ -25,8 +25,12 @@ import com.l2jserver.util.calculator.ComplexCalculator;
  */
 public class ActorCalculator extends
 		ComplexCalculator<ActorCalculatorContext, StatType> {
-	public ActorCalculator(Class<StatType> type,
+	/**
+	 * @param calculators
+	 *            the calculators
+	 */
+	public ActorCalculator(
 			Calculator<ActorCalculatorContext, StatType>... calculators) {
-		super(type, calculators);
+		super(StatType.class, calculators);
 	}
 }

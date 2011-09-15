@@ -22,6 +22,9 @@ import com.l2jserver.model.id.ID;
 /**
  * Simple model interface implementing {@link ID} related methods
  * 
+ * @param <T>
+ *            the ID type used to represent this {@link Model}
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
@@ -63,6 +66,7 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 * {@link ObjectDesire#INSERT} or {@link ObjectDesire#DELETE} the desire
 	 * will not be changed.
 	 */
+	@SuppressWarnings("javadoc")
 	protected void desireUpdate() {
 		if (this.desire != ObjectDesire.INSERT
 				&& this.desire != ObjectDesire.DELETE)
@@ -73,6 +77,7 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 * Set this object desire to {@link ObjectDesire#INSERT}. If the desire is
 	 * {@link ObjectDesire#DELETE} the desire will not be changed.
 	 */
+	@SuppressWarnings("javadoc")
 	protected void desireInsert() {
 		if (this.desire != ObjectDesire.DELETE)
 			this.desire = ObjectDesire.INSERT;

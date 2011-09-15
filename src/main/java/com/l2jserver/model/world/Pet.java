@@ -36,6 +36,9 @@ public class Pet extends Player {
 	 */
 	private ItemID itemID;
 
+	/**
+	 * @param templateID the pet template id
+	 */
 	public Pet(ActorTemplateID<?> templateID) {
 		super(templateID);
 	}

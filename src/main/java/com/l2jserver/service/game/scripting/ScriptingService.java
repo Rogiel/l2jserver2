@@ -32,10 +32,11 @@ import com.l2jserver.service.Service;
  */
 public interface ScriptingService extends Service {
 	/**
-	 * Loads script contexes from descriptor
+	 * Loads script contexts from descriptor
 	 * 
 	 * @param scriptDescriptor
 	 *            xml file that describes contexes
+	 * @return the {@link List} of {@link ScriptContext} loaded
 	 * @throws Exception
 	 *             if can't load file
 	 */

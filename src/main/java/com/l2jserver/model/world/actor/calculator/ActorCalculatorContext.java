@@ -29,6 +29,10 @@ public class ActorCalculatorContext extends CalculatorContext {
 	 */
 	public final Actor actor;
 
+	/**
+	 * @param actor
+	 *            the actor
+	 */
 	public ActorCalculatorContext(Actor actor) {
 		this.actor = actor;
 	}

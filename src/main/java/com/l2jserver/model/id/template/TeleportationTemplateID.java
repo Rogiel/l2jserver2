@@ -39,6 +39,10 @@ public class TeleportationTemplateID extends
 	 */
 	private final TemplateService templateService;
 
+	/**
+	 * @param id the raw id
+	 * @param templateService the template service
+	 */
 	@Inject
 	public TeleportationTemplateID(@Assisted int id,
 			TemplateService templateService) {

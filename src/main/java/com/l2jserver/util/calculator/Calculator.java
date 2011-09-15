@@ -17,8 +17,11 @@
 package com.l2jserver.util.calculator;
 
 /**
+ * @param <T>
+ *            the context used in this calculator
+ * @param <V>
+ *            the attribute calculated by this calculator
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
 public interface Calculator<T extends CalculatorContext, V extends Enum<V>>
 		extends Function<T, V> {

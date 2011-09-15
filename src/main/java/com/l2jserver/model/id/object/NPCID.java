@@ -40,6 +40,12 @@ public final class NPCID extends ActorID<NPC> {
 	 */
 	private final WorldService worldService;
 
+	/**
+	 * @param id
+	 *            the raw id
+	 * @param worldService
+	 *            the world service
+	 */
 	@Inject
 	public NPCID(@Assisted int id, WorldService worldService) {
 		super(id);

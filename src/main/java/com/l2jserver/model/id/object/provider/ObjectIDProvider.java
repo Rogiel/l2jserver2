@@ -19,6 +19,12 @@ package com.l2jserver.model.id.object.provider;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.provider.IDProvider;
 
+/**
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
+ * @param <T>
+ *            the ID type provided
+ */
 public interface ObjectIDProvider<T extends ObjectID<?>> extends
 		IDProvider<Integer, T> {
 	/**

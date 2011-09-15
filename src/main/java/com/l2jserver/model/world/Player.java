@@ -25,6 +25,9 @@ import com.l2jserver.model.id.template.ActorTemplateID;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class Player extends Actor {
+	/**
+	 * @param templateID the actor template id
+	 */
 	public Player(ActorTemplateID<?> templateID) {
 		super(templateID);
 	}

@@ -38,8 +38,8 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.database.DatabaseService;
 
 /**
- * Implementation for {@link IDService} that caches all {@link ID} objects in
- * memory.
+ * Implementation for {@link WorldIDService} that caches all {@link ID} objects
+ * in memory.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -50,7 +50,7 @@ public class CachedWorldIDService extends AbstractService implements
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The cache service
 	 */
@@ -105,11 +105,11 @@ public class CachedWorldIDService extends AbstractService implements
 	@Override
 	public void load() {
 		log.debug("Loading IDs from database");
-		
+
 		load(characterDao.selectIDs());
 		load(itemDao.selectIDs());
 		load(npcDao.selectIDs());
-		
+
 		log.debug("IDs loaded from database");
 		loaded = true;
 	}

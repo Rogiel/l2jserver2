@@ -50,17 +50,16 @@ import com.l2jserver.model.world.character.calculator.base.CharacterBaseRunSpeed
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseStrengthCalculator;
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseWalkSpeedCalculator;
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseWitnessCalculator;
-import com.l2jserver.util.calculator.SimpleCalculator;
 
 /**
  * This class is responsible for calculating the real character stats. The real
  * stats vary from the values from the templates, also, skills and items
  * equipped can change those values. Once an buff is applied, a new calculator
- * is {@link SimpleCalculator#importFunctions(SimpleCalculator) imported} and
- * their functions are added to this class calculator. Once the skill effect has
- * past away, all the functions that were imported are now
- * {@link SimpleCalculator#removeFunctions(SimpleCalculator) removed} and the
- * calculator return to its original state.
+ * is {@link CharacterCalculator#add(com.l2jserver.util.calculator.Function...)
+ * imported} and their functions are added to this class calculator. Once the
+ * skill effect has past away, all the functions that were imported are now
+ * {@link CharacterCalculator#remove(com.l2jserver.util.calculator.Function)
+ * removed} and the calculator return to its original state.
  * <p>
  * Another important note is that calculators should perform calculations as
  * fast as possible.
@@ -262,8 +261,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	private final L2Character character;
 
 	@SuppressWarnings("unchecked")
-	private static final CharacterCalculator calculator = new CharacterCalculator(
-			StatType.class);
+	private static final CharacterCalculator calculator = new CharacterCalculator();
 
 	/**
 	 * Creates a new {@link CharacterStats} and adds default calculators

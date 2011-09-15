@@ -73,6 +73,10 @@ public class AttackHit {
 		 */
 		public final byte flag;
 
+		/**
+		 * @param flag
+		 *            the bitset flag
+		 */
 		AttackHitFlag(byte flag) {
 			this.flag = flag;
 		}

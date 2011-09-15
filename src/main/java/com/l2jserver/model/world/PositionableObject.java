@@ -47,10 +47,16 @@ public abstract class PositionableObject extends AbstractObject {
 		this.point = point;
 	}
 
+	/**
+	 * @return the position coodinate
+	 */
 	public Coordinate getPosition() {
 		return point.getCoordinate();
 	}
 
+	/**
+	 * @param coord sets the current position
+	 */
 	public void setPosition(Coordinate coord) {
 		desireUpdate();
 		this.point = new Point3D(coord, (point != null ? point.getAngle() : 0));

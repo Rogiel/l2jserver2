@@ -22,6 +22,11 @@ import com.l2jserver.model.Model;
  * This is an abstract ID for most model objects that do not extend
  * {@link ObjectID}.
  * 
+ * @param <T>
+ *            the raw id type
+ * @param <O>
+ *            the model this {@link ID} provides
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractModelID<T, O extends Model<? extends ID<T>>>

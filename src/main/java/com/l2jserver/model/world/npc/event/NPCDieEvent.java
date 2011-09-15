@@ -29,8 +29,8 @@ public class NPCDieEvent extends ActorDieEvent implements NPCEvent {
 	/**
 	 * @param npc
 	 *            the died npc
-	 * @param the
-	 *            actor who killed the <tt>npc</tt>
+	 * @param killer
+	 *            the actor who killed the <tt>npc</tt>
 	 */
 	public NPCDieEvent(NPC npc, Actor killer) {
 		super(npc, killer);

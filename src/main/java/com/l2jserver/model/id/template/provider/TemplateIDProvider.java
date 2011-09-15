@@ -22,10 +22,11 @@ import com.l2jserver.model.id.provider.IDProvider;
 /**
  * Creates a new {@link TemplateID}
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
+ * @param <I>
+ *            the raw id type
  * @param <T>
- *            the subclass of {@link TemplateID} that will be createdF
+ *            the subclass of {@link TemplateID} that will be created
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface TemplateIDProvider<I, T extends TemplateID<?, I>> extends
 		IDProvider<I, T> {

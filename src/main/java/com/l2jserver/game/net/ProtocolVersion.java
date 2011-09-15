@@ -40,18 +40,45 @@ public enum ProtocolVersion {
 	 */
 	HIGH5(268, FREYA);
 
+	/**
+	 * The parent version
+	 */
 	public final ProtocolVersion parent;
+	/**
+	 * This version numeric ID
+	 */
 	public final int version;
 
+	/**
+	 * Creates a new instance
+	 * 
+	 * @param version
+	 *            the version integer id
+	 */
 	ProtocolVersion(int version) {
 		this(version, null);
 	}
 
+	/**
+	 * Creates a new instance with a parent version
+	 * 
+	 * @param version
+	 *            the version integer id
+	 * @param parent
+	 *            the parent version
+	 */
 	ProtocolVersion(int version, ProtocolVersion parent) {
 		this.version = version;
 		this.parent = parent;
 	}
 
+	/**
+	 * Checks if an given version is compatible with this
+	 * 
+	 * @param version
+	 *            the target version to be tested
+	 * @return true if version is compatible
+	 */
 	public boolean supports(ProtocolVersion version) {
 		if (this == version)
 			return true;
@@ -60,6 +87,11 @@ public enum ProtocolVersion {
 		return this.parent.supports(version);
 	}
 
+	/**
+	 * @param version
+	 *            the version integer id
+	 * @return the detected version from the numeric id. Can be <tt>null</tt>
+	 */
 	public static ProtocolVersion fromVersion(int version) {
 		for (ProtocolVersion v : values()) {
 			if (v.version == version)

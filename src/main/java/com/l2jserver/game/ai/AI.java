@@ -20,6 +20,7 @@ import com.google.inject.Inject;
 import com.l2jserver.game.ai.desires.Desire;
 import com.l2jserver.game.ai.desires.DesireQueue;
 import com.l2jserver.model.world.Actor;
+import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 
 /**
@@ -37,9 +38,18 @@ public abstract class AI<T extends Actor> {
 	 */
 	protected final T actor;
 
+	/**
+	 * The {@link WorldService} event dispatcher
+	 */
 	@Inject
 	protected WorldEventDispatcher eventDispatcher;
 
+	/**
+	 * Creates a new AI
+	 * 
+	 * @param actor
+	 *            the actor controlled by this {@link AI}
+	 */
 	protected AI(T actor) {
 		this.actor = actor;
 	}

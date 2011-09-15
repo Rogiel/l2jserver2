@@ -20,8 +20,13 @@ import com.l2jserver.model.id.ID;
 import com.l2jserver.service.database.DatabaseService;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Base model. Each object model must implement this interface to be able to be
+ * inserted into the database.
  * 
+ * @param <T>
+ *            the {@link ID} type used to represent this {@link Model}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface Model<T extends ID<?>> {
 	/**

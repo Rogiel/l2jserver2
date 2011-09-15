@@ -46,6 +46,10 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 	@SuppressWarnings("unused")
 	private String command;
 
+	/**
+	 * @param adminService
+	 *            the administrator service
+	 */
 	@Inject
 	public CM_ADMIN_COMMAND(AdministratorService adminService) {
 		this.adminService = adminService;

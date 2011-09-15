@@ -37,6 +37,10 @@ public final class ItemID extends ObjectID<Item> {
 	 */
 	private final ItemDAO itemDao;
 
+	/**
+	 * @param id the raw id
+	 * @param itemDao the item DAO
+	 */
 	@Inject
 	protected ItemID(@Assisted int id, ItemDAO itemDao) {
 		super(id);

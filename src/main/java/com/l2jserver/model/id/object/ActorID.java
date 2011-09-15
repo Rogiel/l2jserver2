@@ -33,6 +33,9 @@ import com.l2jserver.model.world.Actor;
  *            the actor subclass
  */
 public abstract class ActorID<T extends Actor> extends ObjectID<T> {
+	/**
+	 * @param id the raw id
+	 */
 	@Inject
 	public ActorID(@Assisted int id) {
 		super(id);

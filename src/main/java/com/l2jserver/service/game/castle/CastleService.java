@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game.castle;
 
+import com.l2jserver.model.game.Castle;
 import com.l2jserver.service.Service;
 
 /**

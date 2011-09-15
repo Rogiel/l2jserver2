@@ -23,8 +23,17 @@ package com.l2jserver.game.net.packet;
  * @see ServerPacket
  */
 public abstract class AbstractServerPacket implements ServerPacket {
+	/**
+	 * The packet OPCODE
+	 */
 	private final int opcode;
 
+	/**
+	 * Creates a new instance of the packet
+	 * 
+	 * @param opcode
+	 *            the packet opcode
+	 */
 	public AbstractServerPacket(int opcode) {
 		this.opcode = opcode;
 	}

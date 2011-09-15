@@ -21,6 +21,7 @@ import java.lang.ref.SoftReference;
 
 import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.template.Template;
+import com.l2jserver.service.game.template.TemplateService;
 
 /**
  * Templates IDs, different from {@link ObjectID}s, can be repeated and are
@@ -29,9 +30,22 @@ import com.l2jserver.model.template.Template;
  * Please, do not directly instantiate this class, use an {@link IDProvider}
  * instead.
  * 
+ * @param <T>
+ *            the template type provided by this {@link TemplateID}
+ * @param <I>
+ *            the raw ID type
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class TemplateID<T extends Template<?>, I> extends ID<I> {
+	/**
+	 * The cached template {@link Reference}
+	 * <p>
+	 * Please, avoid using it directly. Instead use {@link #getTemplate()} to
+	 * retrieve the template object, since it will check if the reference is
+	 * still valid and if not, will request the template with
+	 * {@link TemplateService}.
+	 */
 	private Reference<T> cached;
 
 	/**

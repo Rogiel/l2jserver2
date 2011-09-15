@@ -42,8 +42,8 @@ public class CharacterTargetDeselectedEvent implements CharacterEvent {
 	 * 
 	 * @param character
 	 *            the character
-	 * @param target
-	 *            the character target
+	 * @param oldTarget
+	 *            the character target before deselecting
 	 */
 	public CharacterTargetDeselectedEvent(L2Character character, Actor oldTarget) {
 		this.character = character;

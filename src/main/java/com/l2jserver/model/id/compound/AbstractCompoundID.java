@@ -21,6 +21,11 @@ import com.l2jserver.model.id.ID;
 /**
  * The compound {@link ID} is composed of two IDs.
  * 
+ * @param <T1>
+ *            the first {@link ID} type
+ * @param <T2>
+ *            the second {@link ID} type
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class AbstractCompoundID<T1, T2> extends ID<AbstractCompoundID<T1, T2>> {

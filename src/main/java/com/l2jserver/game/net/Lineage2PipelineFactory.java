@@ -23,6 +23,7 @@ import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.handler.logging.LoggingHandler;
 import org.jboss.netty.logging.InternalLogLevel;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.codec.Lineage2Decrypter;
@@ -56,6 +57,12 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	 */
 	private final WorldService worldService;
 
+	/**
+	 * Creates a new instance of this pipeline
+	 * @param injector the {@link Guice} {@link Injector}
+	 * @param networkService the network service
+	 * @param worldService the world service
+	 */
 	@Inject
 	public Lineage2PipelineFactory(Injector injector,
 			NetworkService networkService, WorldService worldService) {

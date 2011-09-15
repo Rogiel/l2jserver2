@@ -112,6 +112,7 @@ public abstract class HtmlTemplate {
 	 *            the name
 	 * @param value
 	 *            the value
+	 * @return the {@link HtmlTemplate} object. Used for chain calls.
 	 */
 	public HtmlTemplate register(String name, String value) {
 		variables.put(name, value);

@@ -15206,9 +15206,19 @@ public enum SystemMessage {
 	 */
 	THOMAS_D_TURKEY_DISAPPEARED(6505);
 
+	/**
+	 * The system message integer id
+	 */
 	public final int id;
+	/**
+	 * The cached {@link SM_SYSTEM_MESSAGE} packet
+	 */
 	public final SM_SYSTEM_MESSAGE packet;
 
+	/**
+	 * @param id
+	 *            the integer id
+	 */
 	SystemMessage(int id) {
 		this.id = id;
 		this.packet = new SM_SYSTEM_MESSAGE(this);

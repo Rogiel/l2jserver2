@@ -63,13 +63,39 @@ public class Shortcut extends AbstractModel<ShortcutID> {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum ShortcutType {
-		ITEM(1), SKILL(2), ACTION(3), MACRO(4), RECIPE(5), TPBOOKMARK(6);
+		/**
+		 * Item shortcut
+		 */
+		ITEM(1),
+		/**
+		 * Skill shortcut
+		 */
+		SKILL(2),
+		/**
+		 * Social action shortcut
+		 */
+		ACTION(3),
+		/**
+		 * Macro shortcut
+		 */
+		MACRO(4),
+		/**
+		 * Recipe shortcut
+		 */
+		RECIPE(5),
+		/**
+		 * Bookmark shortcut
+		 */
+		TPBOOKMARK(6);
 
 		/**
 		 * The shortcut type id
 		 */
 		public final int id;
 
+		/**
+		 * @param id the numeric id
+		 */
 		ShortcutType(int id) {
 			this.id = id;
 		}
@@ -78,7 +104,7 @@ public class Shortcut extends AbstractModel<ShortcutID> {
 		 * 
 		 * @param id
 		 *            the type id
-		 * @return
+		 * @return the {@link ShortcutType}
 		 */
 		public static ShortcutType fromID(int id) {
 			for (final ShortcutType shortcut : values()) {
@@ -101,8 +127,8 @@ public class Shortcut extends AbstractModel<ShortcutID> {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param character
-	 *            the character
+	 * @param characterID
+	 *            the character id
 	 */
 	public Shortcut(CharacterID characterID) {
 		this.characterID = characterID;

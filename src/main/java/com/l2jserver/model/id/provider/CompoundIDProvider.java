@@ -24,6 +24,12 @@ import com.l2jserver.model.id.compound.AbstractCompoundID;
  * The ID factory is used to create instances of IDs. It will automatically make
  * sure the ID is free before allocating it.
  * 
+ * @param <I1>
+ *            the first compound {@link ID} type
+ * @param <I2>
+ *            the second compound {@link ID} type
+ * @param <T>
+ *            the {@link CompoundIDProvider} type
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface CompoundIDProvider<I1 extends ID<?>, I2 extends ID<?>, T extends AbstractCompoundID<I1, I2>> {

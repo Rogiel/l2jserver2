@@ -44,6 +44,8 @@ public interface NPCService extends Service {
 	 *            the character
 	 * @param action
 	 *            the action type
+	 * @throws ActionServiceException
+	 *             if the action thrown an exception
 	 * @throws CannotSetTargetServiceException
 	 *             if was not possible to set the target
 	 */
@@ -60,6 +62,8 @@ public interface NPCService extends Service {
 	 *            the character
 	 * @param args
 	 *            the action arguments
+	 * @throws ActionServiceException
+	 *             if the action thrown an exeption
 	 * @throws CannotSetTargetServiceException
 	 *             if was not possible to set the target
 	 */

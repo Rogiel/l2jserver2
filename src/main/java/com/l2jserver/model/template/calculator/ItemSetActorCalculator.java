@@ -27,8 +27,17 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * 
  */
 public class ItemSetActorCalculator extends ActorFormula {
+	/**
+	 * The stat set
+	 */
 	private final StatSet set;
 
+	/**
+	 * @param set
+	 *            the stat set
+	 * @param type
+	 *            the stat type
+	 */
 	public ItemSetActorCalculator(StatSet set, StatType type) {
 		super(set.getOrder(), type);
 		this.set = set;

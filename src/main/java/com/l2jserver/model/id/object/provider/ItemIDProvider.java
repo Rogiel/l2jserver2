@@ -42,6 +42,14 @@ public class ItemIDProvider implements ObjectIDProvider<ItemID> {
 	 */
 	private final ItemIDGuiceFactory factory;
 
+	/**
+	 * @param allocator
+	 *            the id allocator
+	 * @param idService
+	 *            the world id service
+	 * @param factory
+	 *            the item id factory
+	 */
 	@Inject
 	public ItemIDProvider(IDAllocator allocator, WorldIDService idService,
 			ItemIDGuiceFactory factory) {

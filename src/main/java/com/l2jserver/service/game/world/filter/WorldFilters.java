@@ -57,8 +57,8 @@ public final class WorldFilters {
 	 * 
 	 * @param <O>
 	 *            the object type
-	 * @param filters
-	 *            the filters
+	 * @param filter
+	 *            the filter
 	 * @return the {@link NotFilter}
 	 */
 	public static final <O extends WorldObject> WorldObjectFilter<O> not(

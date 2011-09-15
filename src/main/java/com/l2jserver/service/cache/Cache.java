@@ -20,6 +20,8 @@ package com.l2jserver.service.cache;
  * This interface represents a Map structure for cache usage.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <K> the key type
+ * @param <V> the value type
  */
 public interface Cache<K, V> extends Iterable<V> {
 	/**
@@ -30,7 +32,9 @@ public interface Cache<K, V> extends Iterable<V> {
 	 * given id in the map, {@link IllegalArgumentException} will be thrown.
 	 * 
 	 * @param key
+	 *            the key name
 	 * @param value
+	 *            the cache content value
 	 */
 	void put(K key, V value);
 
@@ -38,7 +42,8 @@ public interface Cache<K, V> extends Iterable<V> {
 	 * Returns cached value correlated to given key.
 	 * 
 	 * @param key
-	 * @return
+	 *            the key
+	 * @return the cached value for this key
 	 */
 	V get(K key);
 
@@ -46,7 +51,8 @@ public interface Cache<K, V> extends Iterable<V> {
 	 * Checks whether this map contains a value related to given key.
 	 * 
 	 * @param key
-	 * @return
+	 *            the key
+	 * @return true if key has an value
 	 */
 	boolean contains(K key);
 
@@ -54,6 +60,7 @@ public interface Cache<K, V> extends Iterable<V> {
 	 * Removes an entry from the map, that has given key.
 	 * 
 	 * @param key
+	 *            the key
 	 */
 	void remove(K key);
 

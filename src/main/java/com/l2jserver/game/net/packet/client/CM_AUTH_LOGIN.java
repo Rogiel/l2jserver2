@@ -58,11 +58,29 @@ public class CM_AUTH_LOGIN extends AbstractClientPacket {
 	 * User account name
 	 */
 	private String loginName;
+	/**
+	 * The play key 1
+	 */
 	private int playKey1;
+	/**
+	 * The play key 2
+	 */
 	private int playKey2;
+	/**
+	 * The login key 1
+	 */
 	private int loginKey1;
+	/**
+	 * The login key 2
+	 */
 	private int loginKey2;
 
+	/**
+	 * @param characterDao
+	 *            the character DAO
+	 * @param accountIdFactory
+	 *            the account id factory
+	 */
 	@Inject
 	public CM_AUTH_LOGIN(CharacterDAO characterDao,
 			AccountIDProvider accountIdFactory) {

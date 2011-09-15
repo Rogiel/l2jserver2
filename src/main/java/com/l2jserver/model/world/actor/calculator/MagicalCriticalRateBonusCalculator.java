@@ -32,6 +32,9 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MagicalCriticalRateBonusCalculator extends ActorFormula {
+	/**
+	 * Creates a new instance
+	 */
 	public MagicalCriticalRateBonusCalculator() {
 		super(0x300, StatType.MCRITICAL_RATE);
 	}

@@ -42,6 +42,14 @@ public class PetIDProvider implements ObjectIDProvider<PetID> {
 	 */
 	private final PetIDGuiceFactory factory;
 
+	/**
+	 * @param allocator
+	 *            the id allocator
+	 * @param idService
+	 *            the world id service
+	 * @param factory
+	 *            the pet id factory
+	 */
 	@Inject
 	public PetIDProvider(IDAllocator allocator, WorldIDService idService,
 			PetIDGuiceFactory factory) {

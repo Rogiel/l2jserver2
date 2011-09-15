@@ -79,6 +79,7 @@ public class BaseNPCController implements NPCController {
 	 *            the action arguments
 	 * @return true if chat message was sent
 	 * @throws L2Exception
+	 *             if the talk action could not be performed
 	 */
 	protected boolean talk(NPC npc, Lineage2Client conn, L2Character character,
 			String... args) throws L2Exception {

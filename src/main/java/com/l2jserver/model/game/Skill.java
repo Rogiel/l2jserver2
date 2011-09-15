@@ -29,6 +29,9 @@ import com.l2jserver.model.world.Actor;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Skill extends AbstractModel<SkillID> {
+	/**
+	 * The {@link Skill} template id
+	 */
 	private final SkillTemplateID templateID;
 	/**
 	 * The skill level learned
@@ -38,6 +41,8 @@ public class Skill extends AbstractModel<SkillID> {
 	/**
 	 * Creates a new instance in level one
 	 * 
+	 * @param templateID
+	 *            the {@link SkillTemplateID} instance
 	 * @param level
 	 *            the level of this skill
 	 */
@@ -48,6 +53,9 @@ public class Skill extends AbstractModel<SkillID> {
 
 	/**
 	 * Creates a new instance in level one
+	 * 
+	 * @param templateID
+	 *            the {@link SkillTemplateID} instance
 	 */
 	public Skill(SkillTemplateID templateID) {
 		this(templateID, 1);

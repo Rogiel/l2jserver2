@@ -38,7 +38,13 @@ import com.l2jserver.service.cache.IgnoreCaching;
  * could be a huge performance issue. DAO implementations are encouraged to
  * override the iterator implementation with a more specific implementation.
  * 
+ * @param <O>
+ *            the {@link Model} supported by this DAO
+ * @param <I>
+ *            the ID used to represent the {@link Model} in this DAO
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
 public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 		Iterable<O> {
@@ -47,6 +53,8 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * 
 	 * @param id
 	 *            the id
+	 * @return the selected object. <tt>null</tt> if could not be found in the
+	 *         database.
 	 */
 	O select(I id);
 
