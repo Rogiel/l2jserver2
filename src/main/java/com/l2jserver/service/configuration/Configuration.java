@@ -16,11 +16,12 @@
  */
 package com.l2jserver.service.configuration;
 
-import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
 
 /**
  * Configuration interface
@@ -36,23 +37,6 @@ import java.lang.annotation.Target;
  */
 public interface Configuration {
 	/**
-	 * Each configuration can define the name of its configuration. This will be
-	 * used by implementations to look for the configuration.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 * 
-	 */
-	@Retention(RetentionPolicy.RUNTIME)
-	@Documented
-	@Target(value = ElementType.TYPE)
-	public @interface ConfigurationName {
-		/**
-		 * @return the configuration name
-		 */
-		String value();
-	}
-
-	/**
 	 * The getter method for an configuration property
 	 * <p>
 	 * The method must have no arguments.
@@ -62,11 +46,6 @@ public interface Configuration {
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(value = ElementType.METHOD)
 	public @interface ConfigurationPropertyGetter {
-		/**
-		 * @return the property name
-		 */
-		String name();
-
 		/**
 		 * @return the default value to be used
 		 */
@@ -83,9 +62,5 @@ public interface Configuration {
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(value = ElementType.METHOD)
 	public @interface ConfigurationPropertySetter {
-		/**
-		 * @return the property name
-		 */
-		String name();
 	}
 }

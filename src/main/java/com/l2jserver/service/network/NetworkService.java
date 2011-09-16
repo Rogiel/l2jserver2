@@ -27,7 +27,9 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertiesKey;
+import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
  * The network service is responsible for communicating the server with the game
@@ -78,7 +80,9 @@ public interface NetworkService extends Service {
 		 * 
 		 * @return the listen address
 		 */
-		@ConfigurationPropertyGetter(name = "listen", defaultValue = "0.0.0.0:7777")
+		@ConfigurationPropertyGetter(defaultValue = "0.0.0.0:7777")
+		@ConfigurationPropertiesKey("network.listen")
+		@ConfigurationXPath("/configuration/services/network/listen")
 		InetSocketAddress getListenAddress();
 
 		/**
@@ -87,7 +91,9 @@ public interface NetworkService extends Service {
 		 * @param addr
 		 *            the listen address
 		 */
-		@ConfigurationPropertySetter(name = "listen")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("network.listen")
+		@ConfigurationXPath("/configuration/services/network/listen")
 		void setListenAddress(InetSocketAddress addr);
 	}
 

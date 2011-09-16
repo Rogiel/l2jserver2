@@ -60,6 +60,8 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertiesKey;
+import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
@@ -155,92 +157,120 @@ public class JDBCDatabaseService extends AbstractService implements
 		/**
 		 * @return the jdbc url
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.url", defaultValue = "jdbc:mysql://localhost/l2jserver2")
+		@ConfigurationPropertyGetter(defaultValue = "jdbc:mysql://localhost/l2jserver2")
+		@ConfigurationPropertiesKey("jdbc.url")
+		@ConfigurationXPath("/configuration/services/database/jdbc/url")
 		String getJdbcUrl();
 
 		/**
 		 * @param jdbcUrl
 		 *            the new jdbc url
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.url")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.url")
+		@ConfigurationXPath("/configuration/services/database/jdbc/url")
 		void setJdbcUrl(String jdbcUrl);
 
 		/**
 		 * @return the jdbc driver class
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.driver", defaultValue = "com.jdbc.jdbc.Driver")
+		@ConfigurationPropertyGetter(defaultValue = "com.jdbc.jdbc.Driver")
+		@ConfigurationPropertiesKey("jdbc.driver")
+		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
 		String getDriver();
 
 		/**
 		 * @param driver
 		 *            the new jdbc driver
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.driver")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.driver")
+		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
 		void setDriver(Class<?> driver);
 
 		/**
 		 * @return the jdbc database username
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.username", defaultValue = "l2j")
+		@ConfigurationPropertyGetter(defaultValue = "l2j")
+		@ConfigurationPropertiesKey("jdbc.username")
+		@ConfigurationXPath("/configuration/services/database/jdbc/username")
 		String getUsername();
 
 		/**
 		 * @param username
 		 *            the jdbc database username
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.username")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.username")
+		@ConfigurationXPath("/configuration/services/database/jdbc/username")
 		void setUsername(String username);
 
 		/**
 		 * @return the jdbc database password
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.password", defaultValue = "changeme")
+		@ConfigurationPropertyGetter(defaultValue = "changeme")
+		@ConfigurationPropertiesKey("jdbc.password")
+		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		String getPassword();
 
 		/**
 		 * @param password
 		 *            the jdbc database password
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.password")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.password")
+		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		void setPassword(String password);
 
 		/**
 		 * @return the maximum number of active connections
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.active.max", defaultValue = "20")
+		@ConfigurationPropertyGetter(defaultValue = "20")
+		@ConfigurationPropertiesKey("jdbc.active.max")
+		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
 		int getMaxActiveConnections();
 
 		/**
 		 * @param password
 		 *            the maximum number of active connections
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.active.max")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.active.max")
+		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
 		void setMaxActiveConnections(int password);
 
 		/**
 		 * @return the maximum number of idle connections
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.idle.max", defaultValue = "20")
+		@ConfigurationPropertyGetter(defaultValue = "20")
+		@ConfigurationPropertiesKey("jdbc.idle.max")
+		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
 		int getMaxIdleConnections();
 
 		/**
 		 * @param password
 		 *            the maximum number of idle connections
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.idle.max")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.idle.max")
+		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
 		void setMaxIdleConnections(int password);
 
 		/**
 		 * @return the minimum number of idle connections
 		 */
-		@ConfigurationPropertyGetter(name = "jdbc.idle.min", defaultValue = "5")
+		@ConfigurationPropertyGetter(defaultValue = "5")
+		@ConfigurationPropertiesKey("jdbc.idle.min")
+		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
 		int getMinIdleConnections();
 
 		/**
 		 * @param password
 		 *            the minimum number of idle connections
 		 */
-		@ConfigurationPropertySetter(name = "jdbc.idle.min")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("jdbc.idle.min")
+		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
 		void setMinIdleConnections(int password);
 	}
 

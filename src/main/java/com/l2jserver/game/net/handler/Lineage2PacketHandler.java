@@ -124,7 +124,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 					body.text(exception);
 				}
 			};
-			connection.sendCommunityHTML(template);
+			connection.sendHTML(template);
 			// order client not to wait any packet
 			connection.sendActionFailed();
 

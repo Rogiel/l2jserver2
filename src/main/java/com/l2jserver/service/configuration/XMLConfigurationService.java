@@ -17,31 +17,35 @@
 package com.l2jserver.service.configuration;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.annotation.Annotation;
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
-import java.util.Properties;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertyGetter;
-import com.l2jserver.service.configuration.Configuration.ConfigurationPropertySetter;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.transformer.Transformer;
@@ -54,16 +58,27 @@ import com.l2jserver.util.transformer.TransformerFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ LoggingService.class, CacheService.class })
-public class ProxyConfigurationService extends AbstractService implements
+public class XMLConfigurationService extends AbstractService implements
 		ConfigurationService {
 	/**
 	 * The directory in which configuration files are stored
 	 */
-	private final File directory = new File("./config/properties");
+	private File file = new File("./config/config.xml");
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+	/**
+	 * The DOM {@link DocumentBuilderFactory}
+	 */
+	private DocumentBuilderFactory factory;
+	/**
+	 * The DOM {@link DocumentBuilder}
+	 */
+	private DocumentBuilder builder;
+
+	private Document properties;
 
 	/**
 	 * The cache of configuration objects
@@ -71,34 +86,40 @@ public class ProxyConfigurationService extends AbstractService implements
 	private Map<Class<?>, Object> cache = CollectionFactory.newWeakMap();
 
 	@Retention(RetentionPolicy.RUNTIME)
-	@Documented
-	@Target(value = ElementType.METHOD)
-	public @interface ConfigurationPropertiesKey {
+	public @interface ConfigurationXPath {
 		String value();
 	}
 
 	/**
-	 * Each configuration can define the name of its configuration. This will be
-	 * used by implementations to look for the configuration.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 * 
+	 * Creates a new empty instance
 	 */
-	@Retention(RetentionPolicy.RUNTIME)
-	@Documented
-	@Target(value = ElementType.TYPE)
-	public @interface ConfigurationName {
-		/**
-		 * @return the configuration name
-		 */
-		String value();
+	@Inject
+	protected XMLConfigurationService() {
+	}
+
+	/**
+	 * Creates a new service instance. <b>This is used for tests</b>
+	 * 
+	 * @param file
+	 *            the configuration file
+	 */
+	protected XMLConfigurationService(File file) {
+		this.file = file;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		if (!directory.exists())
-			if (!directory.mkdirs())
-				throw new ServiceStartException("Failed to create directories");
+		factory = DocumentBuilderFactory.newInstance();
+		try {
+			builder = factory.newDocumentBuilder();
+			properties = builder.parse(file);
+		} catch (ParserConfigurationException e) {
+			throw new ServiceStartException(e);
+		} catch (SAXException e) {
+			throw new ServiceStartException(e);
+		} catch (IOException e) {
+			throw new ServiceStartException(e);
+		}
 	}
 
 	@Override
@@ -109,15 +130,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		if (cache.containsKey(config))
 			return (C) cache.get(config);
 		log.debug("Trying to create {} proxy", config);
-		Properties properties;
-		try {
-			properties = findProperties(config);
-		} catch (IOException e) {
-			properties = new Properties();
-			log.warn(
-					"Configuration file for {} not found, falling back to default values",
-					config);
-		}
+
 		C proxy = (C) Proxy.newProxyInstance(this.getClass().getClassLoader(),
 				new Class<?>[] { config }, new ConfigInvocationHandler(
 						properties));
@@ -134,7 +147,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		/**
 		 * The invocation handler properties
 		 */
-		private final Properties properties;
+		private final Document properties;
 		/**
 		 * The invocation cache
 		 */
@@ -144,7 +157,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		 * @param properties
 		 *            the properties
 		 */
-		public ConfigInvocationHandler(Properties properties) {
+		public ConfigInvocationHandler(Document properties) {
 			this.properties = properties;
 		}
 
@@ -156,23 +169,19 @@ public class ProxyConfigurationService extends AbstractService implements
 			if (args == null || args.length == 0) {
 				final ConfigurationPropertyGetter getter = method
 						.getAnnotation(ConfigurationPropertyGetter.class);
-				final ConfigurationPropertiesKey propertiesKey = method
-						.getAnnotation(ConfigurationPropertiesKey.class);
+				final ConfigurationXPath xpath = method
+						.getAnnotation(ConfigurationXPath.class);
 				if (getter == null)
 					return null;
-				if (propertiesKey == null)
+				if (xpath == null)
 					return null;
-				return get(getter, propertiesKey, method.getReturnType());
+				return get(getter, xpath, method.getReturnType());
 			} else if (args.length == 1) {
-				final ConfigurationPropertySetter setter = method
-						.getAnnotation(ConfigurationPropertySetter.class);
-				final ConfigurationPropertiesKey propertiesKey = method
-						.getAnnotation(ConfigurationPropertiesKey.class);
-				if (setter == null)
+				final ConfigurationXPath xpath = method
+						.getAnnotation(ConfigurationXPath.class);
+				if (xpath == null)
 					return null;
-				if (propertiesKey == null)
-					return null;
-				set(propertiesKey, args[0], method.getParameterTypes()[0]);
+				set(xpath, args[0], method.getParameterTypes()[0]);
 			}
 			return null;
 		}
@@ -182,41 +191,50 @@ public class ProxyConfigurationService extends AbstractService implements
 		 * 
 		 * @param getter
 		 *            the getter annotation
-		 * @param propertiesKey
-		 *            if properties key annotation
+		 * @param xpath
+		 *            the xpath annotation
 		 * @param type
 		 *            the transformed type
 		 * @return the untransformed property
 		 */
 		private Object get(ConfigurationPropertyGetter getter,
-				ConfigurationPropertiesKey propertiesKey, Class<?> type) {
-			if (cache.containsKey(propertiesKey.value()))
-				return cache.get(propertiesKey.value());
-			Object o = untransform(
-					getRaw(propertiesKey.value(), getter.defaultValue()), type);
-			cache.put(propertiesKey.value(), o);
+				ConfigurationXPath xpath, Class<?> type) {
+			if (cache.containsKey(xpath.value()))
+				return cache.get(xpath.value());
+			Object o;
+			try {
+				o = untransform(getRaw(xpath.value(), getter.defaultValue()),
+						type);
+			} catch (XPathExpressionException e) {
+				return null;
+			}
+			cache.put(xpath.value(), o);
 			return o;
 		}
 
 		/**
 		 * Set the transformed value of an property
 		 * 
-		 * @param setter
-		 *            the setter annotation
+		 * @param xpath
+		 *            the xpath annotation
 		 * @param value
 		 *            the untransformed value
 		 * @param type
 		 *            the transformed type
+		 * @throws XPathExpressionException
+		 *             if any error occur while compiling the XPath
 		 */
-		private void set(ConfigurationPropertiesKey setter, Object value,
-				Class<?> type) {
+		private void set(ConfigurationXPath xpath, Object value, Class<?> type)
+				throws XPathExpressionException {
+			Node node = (Node) XPathFactory.newInstance().newXPath()
+					.compile(xpath.value())
+					.evaluate(properties, XPathConstants.NODE);
 			if (value != null) {
-				properties.setProperty(setter.value(),
-						transform(value.toString(), type));
-				cache.remove(setter.value());
+				node.setNodeValue(transform(value.toString(), type));
+				cache.put(xpath.value(), value);
 			} else {
-				properties.remove(setter.value());
-				cache.remove(setter.value());
+				node.getParentNode().removeChild(node);
+				cache.remove(xpath.value());
 			}
 		}
 
@@ -271,49 +289,19 @@ public class ProxyConfigurationService extends AbstractService implements
 		 * @param defaultValue
 		 *            the default value
 		 * @return the value found or default value
+		 * @throws XPathExpressionException
+		 *             if any XPath exception occur
 		 */
-		private String getRaw(String key, String defaultValue) {
+		private String getRaw(String key, String defaultValue)
+				throws XPathExpressionException {
 			if (properties == null)
 				return defaultValue;
-			if (properties.containsKey(key)) {
-				return (String) properties.get(key);
-			}
-			return defaultValue;
+			String value = XPathFactory.newInstance().newXPath()
+					.evaluate(key, properties);
+			if (value == null || value.length() == 0)
+				return defaultValue;
+			return value;
 		}
-	}
-
-	/**
-	 * Tries to locate an .properties file
-	 * 
-	 * @param clazz
-	 *            configuration interface class
-	 * @return the found property
-	 * @throws IOException
-	 *             if any i/o error occur
-	 */
-	private Properties findProperties(Class<?> clazz) throws IOException {
-		Preconditions.checkNotNull(clazz, "clazz");
-
-		ConfigurationName config = findAnnotation(ConfigurationName.class,
-				clazz);
-		Properties prop;
-		if (config == null) {
-			for (final Class<?> parent : clazz.getInterfaces()) {
-				prop = findProperties(parent);
-				if (prop != null)
-					return prop;
-			}
-			return null;
-		}
-		prop = new Properties();
-		final File file = new File(directory, config.value() + ".properties");
-		final InputStream in = new FileInputStream(file);
-		try {
-			prop.load(in);
-		} finally {
-			in.close();
-		}
-		return prop;
 	}
 
 	/**
@@ -349,7 +337,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	/**
 	 * @return the configuration store directory
 	 */
-	public File getDirectory() {
-		return directory;
+	public File getFile() {
+		return file;
 	}
 }

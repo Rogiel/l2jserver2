@@ -54,8 +54,10 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
 import com.l2jserver.service.configuration.ConfigurationService;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertiesKey;
+import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
@@ -139,14 +141,18 @@ public class XMLTemplateService extends AbstractService implements
 		/**
 		 * @return the directory in which templates are stored
 		 */
-		@ConfigurationPropertyGetter(name = "template.directory", defaultValue = "data/templates")
+		@ConfigurationPropertyGetter(defaultValue = "data/templates")
+		@ConfigurationPropertiesKey("template.directory")
+		@ConfigurationXPath("/configuration/services/template/directory")
 		URI getTemplateDirectory();
 
 		/**
 		 * @param file
 		 *            the directory in which templates are stored
 		 */
-		@ConfigurationPropertySetter(name = "template.directory")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("template.directory")
+		@ConfigurationXPath("/configuration/services/template/directory")
 		void setTemplateDirectory(URI file);
 	}
 

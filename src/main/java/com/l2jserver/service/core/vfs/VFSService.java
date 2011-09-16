@@ -22,7 +22,9 @@ import java.nio.file.Path;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertiesKey;
+import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
  * The VFS service is responsible for creating a Virtual File System that is
@@ -42,14 +44,18 @@ public interface VFSService extends Service {
 		/**
 		 * @return the VFS root {@link URI}
 		 */
-		@ConfigurationPropertyGetter(name = "vfs.root", defaultValue = "")
+		@ConfigurationPropertyGetter(defaultValue = "")
+		@ConfigurationPropertiesKey("vfs.root")
+		@ConfigurationXPath("/configuration/services/vfs/root")
 		Path getRoot();
 
 		/**
 		 * @param root
 		 *            the new VFS root {@link URI}
 		 */
-		@ConfigurationPropertySetter(name = "vfs.root")
+		@ConfigurationPropertySetter
+		@ConfigurationPropertiesKey("vfs.root")
+		@ConfigurationXPath("/configuration/services/vfs/root")
 		void setRoot(Path root);
 	}
 

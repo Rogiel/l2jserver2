@@ -21,7 +21,7 @@ import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.Configuration.ConfigurationName;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
 
 /**
  * This service provides access to an database implementation. Each

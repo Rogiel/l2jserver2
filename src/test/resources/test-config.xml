@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="configuration configuration.xsd"
+	xsi:noNamespaceSchemaLocation="configuration">
+<configuration>
+	<test>
+		<testvalue>test</testvalue>
+		<integer>256</integer>
+	</test>
+</configuration>
