@@ -41,7 +41,8 @@ public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
 	}
 
 	/**
-	 * @param provider the item template id provider
+	 * @param provider
+	 *            the item template id provider
 	 */
 	@Inject
 	public ItemTemplateIDAdapter(ItemTemplateIDProvider provider) {

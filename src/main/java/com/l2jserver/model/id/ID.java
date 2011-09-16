@@ -33,7 +33,8 @@ public abstract class ID<T> {
 	protected final T id;
 
 	/**
-	 * @param id the raw id
+	 * @param id
+	 *            the raw id
 	 */
 	@Inject
 	protected ID(T id) {

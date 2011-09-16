@@ -79,8 +79,10 @@ public class BroadcastServiceImpl extends AbstractService implements
 	private final WorldEventDispatcher eventDispatcher;
 
 	/**
-	 * @param worldService the world service
-	 * @param eventDispatcher the world service event disptacher
+	 * @param worldService
+	 *            the world service
+	 * @param eventDispatcher
+	 *            the world service event disptacher
 	 */
 	@Inject
 	public BroadcastServiceImpl(WorldService worldService,

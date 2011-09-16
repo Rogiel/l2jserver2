@@ -59,9 +59,13 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 
 	/**
 	 * Creates a new instance of this pipeline
-	 * @param injector the {@link Guice} {@link Injector}
-	 * @param networkService the network service
-	 * @param worldService the world service
+	 * 
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 * @param networkService
+	 *            the network service
+	 * @param worldService
+	 *            the world service
 	 */
 	@Inject
 	public Lineage2PipelineFactory(Injector injector,

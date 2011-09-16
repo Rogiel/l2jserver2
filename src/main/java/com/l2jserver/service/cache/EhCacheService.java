@@ -180,7 +180,8 @@ public class EhCacheService extends AbstractService implements CacheService {
 		private final net.sf.ehcache.Cache cache;
 
 		/**
-		 * @param cache the backing cache
+		 * @param cache
+		 *            the backing cache
 		 */
 		public EhCacheFacade(net.sf.ehcache.Cache cache) {
 			this.cache = cache;

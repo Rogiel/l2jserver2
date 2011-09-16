@@ -34,8 +34,10 @@ public class Tile {
 	private final byte flags;
 
 	/**
-	 * @param point the file point
-	 * @param flags the tile flags
+	 * @param point
+	 *            the file point
+	 * @param flags
+	 *            the tile flags
 	 */
 	public Tile(Point point, byte flags) {
 		this.point = point;

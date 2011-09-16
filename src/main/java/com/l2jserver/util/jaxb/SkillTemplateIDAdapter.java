@@ -43,7 +43,8 @@ public class SkillTemplateIDAdapter extends
 	}
 
 	/**
-	 * @param provider the {@link Skill} template id provider
+	 * @param provider
+	 *            the {@link Skill} template id provider
 	 */
 	@Inject
 	public SkillTemplateIDAdapter(SkillTemplateIDProvider provider) {

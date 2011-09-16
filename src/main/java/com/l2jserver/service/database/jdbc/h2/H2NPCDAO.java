@@ -31,9 +31,12 @@ import com.l2jserver.service.database.jdbc.JDBCNPCDAO;
  */
 public class H2NPCDAO extends JDBCNPCDAO implements NPCDAO {
 	/**
-	 * @param database the database service
-	 * @param idProvider the npc id provider
-	 * @param templateIdProvider the npc template id provider
+	 * @param database
+	 *            the database service
+	 * @param idProvider
+	 *            the npc id provider
+	 * @param templateIdProvider
+	 *            the npc template id provider
 	 */
 	@Inject
 	public H2NPCDAO(DatabaseService database, NPCIDProvider idProvider,

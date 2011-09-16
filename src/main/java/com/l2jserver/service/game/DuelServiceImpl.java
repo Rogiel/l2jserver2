@@ -33,7 +33,7 @@ public class DuelServiceImpl extends AbstractService implements DuelService {
 	 */
 	@SuppressWarnings("unused")
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	public void start(L2Character character1, L2Character character2) {
 		// TODO Auto-generated method stub

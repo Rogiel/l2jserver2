@@ -80,10 +80,14 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 	public static final String COORD_Z = "coord_z";
 
 	/**
-	 * @param database the database service
-	 * @param idFactory the item id provider
-	 * @param templateIdFactory the item template id provider
-	 * @param charIdFactory the character id provider
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the item id provider
+	 * @param templateIdFactory
+	 *            the item template id provider
+	 * @param charIdFactory
+	 *            the character id provider
 	 */
 	@Inject
 	public JDBCItemDAO(DatabaseService database,

@@ -245,6 +245,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		functions.clear();
 	}
 
+	@Override
 	public double calculate(V v, T ctx, double value) {
 		for (final Function<T, V> function : getList(v)) {
 			value = function.calculate(ctx, value);
@@ -257,6 +258,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		return 0;
 	}
 
+	@Override
 	public double calculate(V v, T ctx) {
 		return calculate(v, ctx, 0);
 	}

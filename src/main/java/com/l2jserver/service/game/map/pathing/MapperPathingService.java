@@ -185,8 +185,10 @@ public class MapperPathingService extends AbstractService implements
 		private final Point3D target;
 
 		/**
-		 * @param source the source point
-		 * @param target the taget point
+		 * @param source
+		 *            the source point
+		 * @param target
+		 *            the taget point
 		 */
 		public VoidPath(Point3D source, Point3D target) {
 			this.source = source;

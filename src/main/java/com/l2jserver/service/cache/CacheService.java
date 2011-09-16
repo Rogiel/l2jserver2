@@ -56,7 +56,8 @@ public interface CacheService extends Service {
 	 *            the cache value type
 	 * @param name
 	 *            the cache name
-	 * @param size the maximum cache size
+	 * @param size
+	 *            the maximum cache size
 	 * @size the maximum cache size
 	 * @return the created cache
 	 */
@@ -73,7 +74,8 @@ public interface CacheService extends Service {
 	 *            the cache value type
 	 * @param name
 	 *            the cache name
-	 * @param size the maximum cache size
+	 * @param size
+	 *            the maximum cache size
 	 * @size the maximum cache size
 	 * @return the created cache
 	 */

@@ -42,7 +42,8 @@ public class TeleportationTemplateIDAdapter extends
 	}
 
 	/**
-	 * @param provider the teleportation template id provider
+	 * @param provider
+	 *            the teleportation template id provider
 	 */
 	@Inject
 	public TeleportationTemplateIDAdapter(

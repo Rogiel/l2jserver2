@@ -42,6 +42,9 @@ public class PluginLoader implements Loader, Unloader {
 	/**
 	 * Returns list of suitable Template classes to load/unload
 	 * 
+	 * @param classes
+	 *            loaded classes
+	 * 
 	 * @return list of Template classes to load/unload
 	 */
 	@SuppressWarnings({ "unchecked", "unused" })

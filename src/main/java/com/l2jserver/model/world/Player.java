@@ -26,7 +26,8 @@ import com.l2jserver.model.id.template.ActorTemplateID;
  */
 public abstract class Player extends Actor {
 	/**
-	 * @param templateID the actor template id
+	 * @param templateID
+	 *            the actor template id
 	 */
 	public Player(ActorTemplateID<?> templateID) {
 		super(templateID);

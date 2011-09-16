@@ -26,4 +26,5 @@ public class CharacterNameAlreadyExistsException extends
 	/**
 	 * The Java Serialization API serial
 	 */
-	private static final long serialVersionUID = 1L;}
+	private static final long serialVersionUID = 1L;
+}

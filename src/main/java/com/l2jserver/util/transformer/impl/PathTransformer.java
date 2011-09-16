@@ -34,7 +34,7 @@ public class PathTransformer implements Transformer<Path> {
 
 	@Override
 	public String transform(Path value) {
-		if(value == null)
+		if (value == null)
 			return "";
 		return value.toString();
 	}

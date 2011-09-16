@@ -38,7 +38,7 @@ public class SecureBlowfishKeygenService extends AbstractService implements
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The random number generator
 	 */
@@ -52,7 +52,7 @@ public class SecureBlowfishKeygenService extends AbstractService implements
 	@Override
 	public byte[] generate() {
 		log.debug("Generating a new key");
-		
+
 		final byte[] key = new byte[16];
 		// randomize the 8 first bytes
 		for (int i = 0; i < key.length; i++) {

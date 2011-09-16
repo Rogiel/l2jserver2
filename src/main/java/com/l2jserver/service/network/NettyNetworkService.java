@@ -58,7 +58,7 @@ public class NettyNetworkService extends AbstractService implements
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The {@link WorldService} instance
 	 */
@@ -87,9 +87,12 @@ public class NettyNetworkService extends AbstractService implements
 	private Set<Lineage2Client> clients = CollectionFactory.newSet();
 
 	/**
-	 * @param configService the configuration service
-	 * @param injector the {@link Guice} {@link Injector}
-	 * @param worldService the world service
+	 * @param configService
+	 *            the configuration service
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 * @param worldService
+	 *            the world service
 	 */
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,
@@ -113,9 +116,9 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public void register(final Lineage2Client client) {
 		Preconditions.checkNotNull(client, "client");
-		
+
 		log.debug("Registering client: {}", client);
-		
+
 		clients.add(client);
 		client.getChannel().getCloseFuture()
 				.addListener(new ChannelFutureListener() {
@@ -130,7 +133,7 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public void unregister(Lineage2Client client) {
 		Preconditions.checkNotNull(client, "client");
-		
+
 		log.debug("Unregistering client: {}", client);
 		clients.remove(client);
 	}
@@ -138,9 +141,9 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public Lineage2Client discover(CharacterID character) {
 		Preconditions.checkNotNull(character, "character");
-		
+
 		log.debug("Discovering client object for {}", character);
-		
+
 		for (final Lineage2Client client : clients) {
 			if (character.equals(client.getCharacterID()))
 				return client;
@@ -151,9 +154,9 @@ public class NettyNetworkService extends AbstractService implements
 	@Override
 	public void broadcast(ServerPacket packet) {
 		Preconditions.checkNotNull(packet, "packet");
-		
+
 		log.debug("Broadcasting {} packet to all connected clients", packet);
-		
+
 		channel.write(packet);
 	}
 

@@ -32,7 +32,8 @@ public class DefaultClassListener implements ClassListener {
 	private final Injector injector;
 
 	/**
-	 * @param injector the {@link Guice} {@link Injector}
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
 	 */
 	public DefaultClassListener(Injector injector) {
 		this.injector = injector;

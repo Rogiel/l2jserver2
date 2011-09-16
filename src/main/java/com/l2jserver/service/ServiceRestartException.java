@@ -27,7 +27,7 @@ public class ServiceRestartException extends ServiceException {
 	 * The Java Serialization API serial
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Creates a new instance of this exception
 	 */

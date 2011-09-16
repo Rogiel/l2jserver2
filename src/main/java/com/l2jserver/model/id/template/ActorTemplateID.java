@@ -28,7 +28,8 @@ import com.l2jserver.service.game.template.TemplateService;
  * An {@link TemplateID} instance representing an {@link ActorTemplate} object
  * 
  * @param <T>
- *            the type of {@link ActorTemplate} this {@link TemplateID} represents
+ *            the type of {@link ActorTemplate} this {@link TemplateID}
+ *            represents
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ActorTemplateID<T extends ActorTemplate<?>> extends
@@ -39,8 +40,10 @@ public class ActorTemplateID<T extends ActorTemplate<?>> extends
 	private transient final TemplateService templateService;
 
 	/**
-	 * @param id the raw id
-	 * @param templateService the template service
+	 * @param id
+	 *            the raw id
+	 * @param templateService
+	 *            the template service
 	 */
 	@Inject
 	protected ActorTemplateID(@Assisted int id, TemplateService templateService) {

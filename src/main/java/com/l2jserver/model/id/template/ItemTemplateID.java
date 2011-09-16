@@ -37,8 +37,10 @@ public class ItemTemplateID extends TemplateID<ItemTemplate, Integer> {
 	private final TemplateService templateService;
 
 	/**
-	 * @param id the raw id
-	 * @param templateService the template service
+	 * @param id
+	 *            the raw id
+	 * @param templateService
+	 *            the template service
 	 */
 	@Inject
 	public ItemTemplateID(@Assisted int id, TemplateService templateService) {

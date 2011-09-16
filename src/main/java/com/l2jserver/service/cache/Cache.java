@@ -20,8 +20,10 @@ package com.l2jserver.service.cache;
  * This interface represents a Map structure for cache usage.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @param <K> the key type
- * @param <V> the value type
+ * @param <K>
+ *            the key type
+ * @param <V>
+ *            the value type
  */
 public interface Cache<K, V> extends Iterable<V> {
 	/**

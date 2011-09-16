@@ -34,8 +34,10 @@ public class SkillTemplateID extends TemplateID<SkillTemplate, Integer> {
 	private final TemplateService templateService;
 
 	/**
-	 * @param id the raw id
-	 * @param templateService the template service
+	 * @param id
+	 *            the raw id
+	 * @param templateService
+	 *            the template service
 	 */
 	@Inject
 	public SkillTemplateID(@Assisted int id, TemplateService templateService) {

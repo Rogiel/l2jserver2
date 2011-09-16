@@ -41,7 +41,8 @@ public abstract class AbstractJDBCDAO<T extends Model<?>, I extends ID<?>>
 	protected final JDBCDatabaseService database;
 
 	/**
-	 * @param database the database service
+	 * @param database
+	 *            the database service
 	 */
 	@Inject
 	protected AbstractJDBCDAO(DatabaseService database) {

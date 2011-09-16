@@ -28,7 +28,8 @@ import com.l2jserver.util.calculator.Calculator;
  */
 public class CharacterCalculator extends ActorCalculator {
 	/**
-	 * @param calculators the calculators
+	 * @param calculators
+	 *            the calculators
 	 */
 	public CharacterCalculator(
 			Calculator<ActorCalculatorContext, StatType>... calculators) {

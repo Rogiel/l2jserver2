@@ -38,7 +38,9 @@ import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 public class L2JGameServerMain {
 	/**
 	 * Main method
-	 * @param args no arguments are used
+	 * 
+	 * @param args
+	 *            no arguments are used
 	 */
 	public static void main(String[] args) {
 		final L2JGameServer server = new L2JGameServer();

@@ -42,6 +42,7 @@ public class MaximumCPBonusCalculator extends CharacterFormula {
 		super(0x100, StatType.MAX_CP);
 	}
 
+	@Override
 	protected double calculate(L2Character c, CharacterTemplate t, double value) {
 		return value
 				* BaseStats.CON.calculateBonus(c.getStats().getConcentration());

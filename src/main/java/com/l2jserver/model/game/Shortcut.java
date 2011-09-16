@@ -94,7 +94,8 @@ public class Shortcut extends AbstractModel<ShortcutID> {
 		public final int id;
 
 		/**
-		 * @param id the numeric id
+		 * @param id
+		 *            the numeric id
 		 */
 		ShortcutType(int id) {
 			this.id = id;

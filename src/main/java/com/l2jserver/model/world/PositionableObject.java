@@ -55,7 +55,8 @@ public abstract class PositionableObject extends AbstractObject {
 	}
 
 	/**
-	 * @param coord sets the current position
+	 * @param coord
+	 *            sets the current position
 	 */
 	public void setPosition(Coordinate coord) {
 		desireUpdate();

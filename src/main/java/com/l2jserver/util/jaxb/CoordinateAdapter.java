@@ -49,6 +49,7 @@ public class CoordinateAdapter extends
 
 	/**
 	 * Internal usage class: class used to read coordinate data from XML file
+	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	protected static class CoordinateElement {
@@ -75,9 +76,12 @@ public class CoordinateAdapter extends
 		}
 
 		/**
-		 * @param x the x cord
-		 * @param y the y cord
-		 * @param z the z cord
+		 * @param x
+		 *            the x cord
+		 * @param y
+		 *            the y cord
+		 * @param z
+		 *            the z cord
 		 */
 		public CoordinateElement(int x, int y, int z) {
 			super();

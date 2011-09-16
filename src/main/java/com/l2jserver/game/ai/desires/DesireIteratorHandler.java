@@ -33,7 +33,8 @@ public interface DesireIteratorHandler {
 	/**
 	 * This method is called each time for every desire that is in the queue.<br>
 	 * Remove of desire must be handeled by <b>iterator.remove();</b><br>
-	 * <br> {@link java.util.ConcurrentModificationException} will be thrown by
+	 * <br>
+	 * {@link java.util.ConcurrentModificationException} will be thrown by
 	 * {@link com.l2jserver.game.ai.desires.DesireQueue#iterateDesires(DesireIteratorHandler, DesireIteratorFilter[])}
 	 * if any of the following methods will be called from here:
 	 * <ul>

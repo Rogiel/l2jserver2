@@ -85,11 +85,16 @@ public class CachedWorldIDService extends AbstractService implements
 	private boolean loaded = false;
 
 	/**
-	 * @param cacheService the cache service
-	 * @param allocator the id allocator
-	 * @param characterDao the character DAO
-	 * @param itemDao the item dao
-	 * @param npcDao the NPC dao
+	 * @param cacheService
+	 *            the cache service
+	 * @param allocator
+	 *            the id allocator
+	 * @param characterDao
+	 *            the character DAO
+	 * @param itemDao
+	 *            the item dao
+	 * @param npcDao
+	 *            the NPC dao
 	 */
 	@Inject
 	public CachedWorldIDService(CacheService cacheService,

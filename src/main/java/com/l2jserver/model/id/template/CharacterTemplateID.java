@@ -30,8 +30,10 @@ import com.l2jserver.service.game.template.TemplateService;
  */
 public class CharacterTemplateID extends ActorTemplateID<CharacterTemplate> {
 	/**
-	 * @param id the raw id
-	 * @param templateService the template service
+	 * @param id
+	 *            the raw id
+	 * @param templateService
+	 *            the template service
 	 */
 	@Inject
 	public CharacterTemplateID(@Assisted int id, TemplateService templateService) {

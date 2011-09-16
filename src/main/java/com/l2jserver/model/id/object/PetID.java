@@ -37,8 +37,10 @@ public final class PetID extends ActorID<Pet> {
 	private final PetDAO petDao;
 
 	/**
-	 * @param id the raw id
-	 * @param petDao the pet DAO
+	 * @param id
+	 *            the raw id
+	 * @param petDao
+	 *            the pet DAO
 	 */
 	@Inject
 	protected PetID(int id, PetDAO petDao) {

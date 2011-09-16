@@ -33,7 +33,7 @@ public class GameTimeServiceImpl extends AbstractService implements
 	 */
 	@SuppressWarnings("unused")
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	public int getGameTime() {
 		return (int) (System.currentTimeMillis() % GAME_DAY) / 1000;

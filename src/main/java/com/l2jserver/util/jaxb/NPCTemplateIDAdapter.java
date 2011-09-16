@@ -42,7 +42,8 @@ public class NPCTemplateIDAdapter extends XmlAdapter<Integer, NPCTemplateID> {
 	}
 
 	/**
-	 * @param provider the {@link NPC} template id provider
+	 * @param provider
+	 *            the {@link NPC} template id provider
 	 */
 	@Inject
 	public NPCTemplateIDAdapter(NPCTemplateIDProvider provider) {

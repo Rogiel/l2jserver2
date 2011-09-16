@@ -139,6 +139,7 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 
 	/**
 	 * Compares two shortcut slots
+	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public static class ShortcutSlotComparator implements Comparator<Shortcut>,

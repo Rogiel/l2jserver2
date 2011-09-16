@@ -101,8 +101,10 @@ public class NPC extends Actor {
 	}
 
 	/**
-	 * @param maxHP the maximum HP
-	 * @throws UnsupportedOperationException always
+	 * @param maxHP
+	 *            the maximum HP
+	 * @throws UnsupportedOperationException
+	 *             always
 	 */
 	public void setMaxHP(double maxHP) {
 		throw new UnsupportedOperationException();
@@ -116,8 +118,10 @@ public class NPC extends Actor {
 	}
 
 	/**
-	 * @param maxMP the maximum MP
-	 * @throws UnsupportedOperationException always
+	 * @param maxMP
+	 *            the maximum MP
+	 * @throws UnsupportedOperationException
+	 *             always
 	 */
 	public void setMaxMP(double maxMP) {
 		throw new UnsupportedOperationException();

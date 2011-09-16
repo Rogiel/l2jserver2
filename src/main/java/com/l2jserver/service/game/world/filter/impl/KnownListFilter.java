@@ -34,7 +34,8 @@ public class KnownListFilter extends AndFilter<PositionableObject> {
 	public static final int KNOWNLIST_RANGE = 2000;
 
 	/**
-	 * @param object the object to locate known objects
+	 * @param object
+	 *            the object to locate known objects
 	 */
 	@SuppressWarnings("unchecked")
 	public KnownListFilter(PositionableObject object) {

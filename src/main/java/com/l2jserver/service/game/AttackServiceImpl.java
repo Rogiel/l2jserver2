@@ -69,9 +69,12 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	private final WorldEventDispatcher eventDispatcher;
 
 	/**
-	 * @param threadService the thread service
-	 * @param npcService the npc service
-	 * @param eventDispatcher the world service event dispatcher
+	 * @param threadService
+	 *            the thread service
+	 * @param npcService
+	 *            the npc service
+	 * @param eventDispatcher
+	 *            the world service event dispatcher
 	 */
 	@Inject
 	public AttackServiceImpl(ThreadService threadService,
@@ -107,8 +110,10 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 		private final Actor target;
 
 		/**
-		 * @param attacker the attacker
-		 * @param target the target
+		 * @param attacker
+		 *            the attacker
+		 * @param target
+		 *            the target
 		 */
 		public AttackCallable(Actor attacker, Actor target) {
 			this.attacker = attacker;
@@ -125,8 +130,9 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 			// TODO calculate miss
 			// TODO calculate critical
 			// TODO calculate soulshot
-			
-			log.debug("Attack dealt {} damage, but only {} is effective", damage, dealDamage);
+
+			log.debug("Attack dealt {} damage, but only {} is effective",
+					damage, dealDamage);
 
 			// reduce target life
 			target.setHP(target.getHP() - dealDamage);

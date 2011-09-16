@@ -43,7 +43,7 @@ public class SoftCacheService extends AbstractService implements CacheService {
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	/**
 	 * The interface cache
 	 */
@@ -61,7 +61,7 @@ public class SoftCacheService extends AbstractService implements CacheService {
 		Preconditions.checkNotNull(instance, "instance");
 		Preconditions.checkArgument(interfaceType.isInterface(),
 				"interfaceType is not an interface");
-		
+
 		log.debug("Decorating {} with cache", interfaceType);
 
 		@SuppressWarnings("unchecked")
@@ -101,7 +101,8 @@ public class SoftCacheService extends AbstractService implements CacheService {
 
 	@Override
 	public <K, V> Cache<K, V> createEternalCache(String name, int size) {
-		log.debug("Creating eternal cache {} with minimum size of {}", name, size);
+		log.debug("Creating eternal cache {} with minimum size of {}", name,
+				size);
 		return new EternalCache<K, V>(name);
 	}
 
@@ -130,11 +131,13 @@ public class SoftCacheService extends AbstractService implements CacheService {
 	 * value object)
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 * @param <K> the key type
-	 * @param <V> the value type
+	 * @param <K>
+	 *            the key type
+	 * @param <V>
+	 *            the value type
 	 */
-	private class SoftCache<K, V> extends AbstractReferenceCache<K, V> implements
-			Cache<K, V> {
+	private class SoftCache<K, V> extends AbstractReferenceCache<K, V>
+			implements Cache<K, V> {
 		/**
 		 * This class is a {@link SoftReference} with additional responsibility
 		 * of holding key object

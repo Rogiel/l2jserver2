@@ -41,6 +41,7 @@ public class MaximumHPAddCalculator extends CharacterFormula {
 		super(0x100, StatType.MAX_HP);
 	}
 
+	@Override
 	public double calculate(L2Character c, CharacterTemplate t, double value) {
 		int lvl = c.getLevel() - t.getMinimumLevel();
 		double mod = t.getBaseHPModifier() * lvl;

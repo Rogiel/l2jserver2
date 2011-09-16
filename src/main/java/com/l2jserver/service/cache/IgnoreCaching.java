@@ -24,6 +24,7 @@ import java.lang.annotation.Target;
 
 /**
  * Indicate to the proxy that this method should not be cached.
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Retention(RetentionPolicy.RUNTIME)

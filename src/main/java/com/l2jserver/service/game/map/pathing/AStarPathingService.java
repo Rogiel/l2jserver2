@@ -40,7 +40,7 @@ public class AStarPathingService extends AbstractService implements
 	 */
 	@SuppressWarnings("unused")
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	public Path findPath(PositionableObject object, Point3D point) {
 		return null;

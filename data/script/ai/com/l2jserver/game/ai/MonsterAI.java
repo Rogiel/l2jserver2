@@ -26,6 +26,7 @@ import com.l2jserver.model.world.NPC;
 public class MonsterAI extends NPCAI {
 	/**
 	 * @param creature
+	 *            the creature
 	 */
 	protected MonsterAI(NPC creature) {
 		super(creature);

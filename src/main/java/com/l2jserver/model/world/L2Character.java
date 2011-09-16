@@ -361,6 +361,7 @@ public class L2Character extends Player {
 	/**
 	 * @return the stats
 	 */
+	@Override
 	public CharacterStats getStats() {
 		return stats;
 	}

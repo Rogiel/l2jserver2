@@ -14,7 +14,8 @@ public enum CharacterRace {
 	public final int id;
 
 	/**
-	 * @param id the race numeric id
+	 * @param id
+	 *            the race numeric id
 	 */
 	CharacterRace(int id) {
 		this.id = id;

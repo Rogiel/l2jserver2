@@ -329,7 +329,8 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		private final CharacterID character;
 
 		/**
-		 * @param character the target character {@link ID}
+		 * @param character
+		 *            the target character {@link ID}
 		 */
 		public PrivateChatChannelImpl(CharacterID character) {
 			Preconditions.checkNotNull(character, "character");

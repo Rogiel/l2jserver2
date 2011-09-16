@@ -37,9 +37,13 @@ public class RGBColor {
 
 	/**
 	 * Creates a new RGB (red-green-blue) color
-	 * @param r the red byte
-	 * @param g the green byte
-	 * @param b the blue byte
+	 * 
+	 * @param r
+	 *            the red byte
+	 * @param g
+	 *            the green byte
+	 * @param b
+	 *            the blue byte
 	 */
 	protected RGBColor(byte r, byte g, byte b) {
 		this.red = r;
@@ -88,7 +92,9 @@ public class RGBColor {
 
 	/**
 	 * Creates an {@link RGBColor} from an byte array
-	 * @param rgb the RGB byte array
+	 * 
+	 * @param rgb
+	 *            the RGB byte array
 	 * @return the {@link RGBColor}
 	 */
 	public static RGBColor fromByteArray(byte[] rgb) {
@@ -96,7 +102,8 @@ public class RGBColor {
 	}
 
 	/**
-	 * @param color the color integer
+	 * @param color
+	 *            the color integer
 	 * @return the {@link RGBColor}
 	 */
 	public static RGBColor fromInteger(int color) {

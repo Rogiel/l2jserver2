@@ -79,7 +79,8 @@ public enum ActorExperience {
 	public final int level;
 
 	/**
-	 * @param experience the minimum experience for the level
+	 * @param experience
+	 *            the minimum experience for the level
 	 */
 	ActorExperience(long experience) {
 		this.experience = experience;

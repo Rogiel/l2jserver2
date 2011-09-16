@@ -41,6 +41,7 @@ public class MaximumCPAddCalculator extends CharacterFormula {
 		super(0x100, StatType.MAX_CP);
 	}
 
+	@Override
 	protected double calculate(L2Character c, CharacterTemplate t, double value) {
 		int lvl = c.getLevel() - t.getMinimumLevel();
 		double mod = t.getBaseCPModifier() * lvl;

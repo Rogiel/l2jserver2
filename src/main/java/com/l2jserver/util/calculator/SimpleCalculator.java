@@ -55,6 +55,7 @@ public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 		Arrays.sort(this.functions, FunctionOrderComparator.SHARED_INSTANCE);
 	}
 
+	@Override
 	public double calculate(V v, T ctx, double value) {
 		if (v != this.value)
 			return value;
@@ -64,6 +65,7 @@ public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 		return value;
 	}
 
+	@Override
 	public double calculate(V v, T ctx) {
 		return calculate(ctx, 0);
 	}

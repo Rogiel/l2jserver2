@@ -64,9 +64,12 @@ public abstract class JDBCCharacterFriendDAO extends
 			+ "_friend";
 
 	/**
-	 * @param database the database service
-	 * @param idProvider the frind id provider
-	 * @param charIdProvider the character id provider
+	 * @param database
+	 *            the database service
+	 * @param idProvider
+	 *            the frind id provider
+	 * @param charIdProvider
+	 *            the character id provider
 	 */
 	@Inject
 	public JDBCCharacterFriendDAO(DatabaseService database,

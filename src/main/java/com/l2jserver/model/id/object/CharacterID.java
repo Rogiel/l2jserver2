@@ -38,8 +38,10 @@ public final class CharacterID extends ActorID<L2Character> {
 	private transient final CharacterDAO characterDao;
 
 	/**
-	 * @param id the raw id
-	 * @param characterDao the character DAO
+	 * @param id
+	 *            the raw id
+	 * @param characterDao
+	 *            the character DAO
 	 */
 	@Inject
 	public CharacterID(@Assisted int id, CharacterDAO characterDao) {

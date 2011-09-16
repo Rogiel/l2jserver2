@@ -31,10 +31,14 @@ import com.l2jserver.service.database.jdbc.JDBCItemDAO;
  */
 public class H2ItemDAO extends JDBCItemDAO implements ItemDAO {
 	/**
-	 * @param database the database service
-	 * @param idFactory the item id provider
-	 * @param templateIdFactory the item template id provider
-	 * @param charIdFactory the character id provider
+	 * @param database
+	 *            the database service
+	 * @param idFactory
+	 *            the item id provider
+	 * @param templateIdFactory
+	 *            the item template id provider
+	 * @param charIdFactory
+	 *            the character id provider
 	 */
 	@Inject
 	public H2ItemDAO(DatabaseService database, ItemIDProvider idFactory,
