@@ -22,7 +22,7 @@ import com.google.inject.Scopes;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.cache.SoftCacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.ProxyConfigurationService;
+import com.l2jserver.service.configuration.XMLConfigurationService;
 import com.l2jserver.service.core.Log4JLoggingService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
@@ -80,7 +80,7 @@ public class ServiceModule extends AbstractModule {
 		bind(VFSService.class).to(Java7VFSService.class).in(Scopes.SINGLETON);
 		bind(ThreadService.class).to(ThreadServiceImpl.class).in(
 				Scopes.SINGLETON);
-		bind(ConfigurationService.class).to(ProxyConfigurationService.class)
+		bind(ConfigurationService.class).to(XMLConfigurationService.class)
 				.in(Scopes.SINGLETON);
 		bind(CacheService.class).to(SoftCacheService.class)
 				.in(Scopes.SINGLETON);
