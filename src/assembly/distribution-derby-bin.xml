@@ -24,7 +24,11 @@
 			</excludes>
 		</fileSet>
 		<fileSet>
-			<directory>${project.basedir}/dist</directory>
+			<directory>${project.basedir}/distribution/global</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/distribution/sql</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
 		<fileSet>
