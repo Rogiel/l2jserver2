@@ -42,11 +42,12 @@
 	<dependencySets>
 		<dependencySet>
 			<outputDirectory>/libs</outputDirectory>
-			<useProjectArtifact>true</useProjectArtifact>
+			<useProjectArtifact>false</useProjectArtifact>
 			<unpack>false</unpack>
 			<scope>runtime</scope>
 			<excludes>
-				<exclude>mysql:mysql-connector-java</exclude>
+				<exclude>mysql:*</exclude>
+				<exclude>com.orientechnologies:*</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>
