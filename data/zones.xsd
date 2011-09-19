@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="zones" xmlns="zones">
+	<xs:element name="zones">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="castle" maxOccurs="1" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="siege" maxOccurs="1" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="zone" type="ZoneType" maxOccurs="1"
+											minOccurs="1">
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="ZoneType">
+		<xs:sequence>
+			<xs:element name="point">
+				<xs:complexType>
+					<xs:sequence></xs:sequence>
+					<xs:attribute name="x" type="xs:int" use="required">
+					</xs:attribute>
+					<xs:attribute name="y" type="xs:int" use="required">
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+	</xs:complexType>
+</xs:schema>
+

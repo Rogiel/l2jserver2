@@ -2,7 +2,7 @@
 <npc
     controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
     id="13141" xsi:schemaLocation="npc ../npc.xsd"
-    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="npc">
     <info aggressive="false" targetable="false" attackable="true">
         <level>55</level>
         <race>MAGIC_CREATURE</race>

@@ -2,6 +2,6 @@
 <skill cooldown="0" delay="0"
     name="Miss Chipao Agathion Special Skill - Decrease Weight"
     id="23134" xsi:schemaLocation="skill ../skill.xsd"
-    xsi:noNamespaceSchemaLocation="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <maximumLevel>1</maximumLevel>
 </skill>

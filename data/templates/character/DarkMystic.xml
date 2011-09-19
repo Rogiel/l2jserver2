@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="DARK_MYSTIC" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="DARK_MYSTIC" xsi:schemaLocation="character ../character.xsd" xmlns="character">
     <stats crafter="false" level="1">
         <hp add="15.57" modifier="0.37" base="106.0"/>
         <mp add="7.38" modifier="0.14" base="40.0"/>

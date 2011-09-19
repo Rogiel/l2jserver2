@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<teleports xsi:schemaLocation="teleportation teleportation.xsd"
-    xsi:noNamespaceSchemaLocation="teleportation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<teleports xsi:schemaLocation="teleports teleports.xsd"
+    xmlns="teleports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <teleport price="10000" item="57"
         name="DE Village -> Town of Gludio" id="1">
         <point z="-3112" y="122779" x="-12787"/>

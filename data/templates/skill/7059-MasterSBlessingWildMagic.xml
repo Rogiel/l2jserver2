@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skill cooldown="0" delay="0" name="Master's Blessing - Wild Magic"
     id="7059" xsi:schemaLocation="skill ../skill.xsd"
-    xsi:noNamespaceSchemaLocation="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <maximumLevel>1</maximumLevel>
 </skill>

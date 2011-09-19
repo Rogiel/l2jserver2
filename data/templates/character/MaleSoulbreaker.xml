@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="MALE_SOULBREAKER" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="MALE_SOULBREAKER" xsi:schemaLocation="character ../character.xsd" xmlns="character">
     <stats crafter="false" level="40">
         <hp add="52.0" modifier="0.37" base="1173.65"/>
         <mp add="26.0" modifier="0.14" base="376.56"/>

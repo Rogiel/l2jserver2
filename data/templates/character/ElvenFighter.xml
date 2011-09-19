@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="ELVEN_FIGHTER" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="ELVEN_FIGHTER" xsi:schemaLocation="character ../character.xsd" xmlns="character">
     <stats crafter="false" level="1">
         <hp add="12.74" modifier="0.37" base="89.0"/>
         <mp add="5.46" modifier="0.14" base="30.0"/>

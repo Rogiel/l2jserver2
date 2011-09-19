@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="SPECTRAL_MASTER" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="SPECTRAL_MASTER" xsi:schemaLocation="character ../character.xsd" xmlns="character">
     <stats crafter="false" level="76">
         <hp add="66.4" modifier="0.37" base="3198.3"/>
         <mp add="33.2" modifier="0.14" base="1540.8"/>

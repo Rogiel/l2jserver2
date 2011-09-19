@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	class="ARBALESTER" xsi:schemaLocation="character ../character.xsd"
-	xsi:noNamespaceSchemaLocation="character">
+	xmlns="character">
 	<stats crafter="false" level="40">
 		<hp add="57.2" modifier="0.37" base="1139.74" />
 		<mp add="19.5" modifier="0.14" base="487.03" />

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zones>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="zones zones.xsd" xmlns="zones">
 	<castle>
 		<siege>
 			<zone id="GLUDIO_CASTLE_BATTLEFIELD_TERRITORY">
-				<point x="" y="" />
+				<point x="0" y="0" />
 			</zone>
 		</siege>
 	</castle>

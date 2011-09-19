@@ -2,7 +2,7 @@
 <npc
     controller="com.l2jserver.model.world.npc.controller.MonsterController"
     id="13148" xsi:schemaLocation="npc ../../npc.xsd"
-    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="npc">
     <info aggressive="false" targetable="false" attackable="true">
         <name display="false" send="false">Lindvior</name>
         <level>55</level>

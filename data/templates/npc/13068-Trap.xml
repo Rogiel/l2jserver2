@@ -2,7 +2,7 @@
 <npc
     controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
     id="13068" xsi:schemaLocation="npc ../npc.xsd"
-    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="npc">
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Trap</name>
         <level>66</level>

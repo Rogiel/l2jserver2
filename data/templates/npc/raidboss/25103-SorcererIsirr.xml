@@ -2,7 +2,7 @@
 <npc
     controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
     id="25103" xsi:schemaLocation="npc ../../npc.xsd"
-    xsi:noNamespaceSchemaLocation="npc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="npc">
     <info aggressive="false" targetable="true" attackable="true">
         <name display="true" send="false">Sorcerer Isirr</name>
         <title send="false">Raid Boss</title>

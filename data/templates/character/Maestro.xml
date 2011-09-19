@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="MAESTRO" xsi:schemaLocation="character ../character.xsd" xsi:noNamespaceSchemaLocation="character">
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="MAESTRO" xsi:schemaLocation="character ../character.xsd" xmlns="character">
     <stats crafter="true" level="76">
         <hp add="69.62" modifier="0.37" base="3293.2"/>
         <mp add="24.8" modifier="0.14" base="1155.6"/>

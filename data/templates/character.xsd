@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="character" type="characterTemplate" />
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="character" xmlns:character="character"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xmlns="character" xmlns:actor="actor" xmlns:template="template">
+	<xs:import namespace="template" schemaLocation="template.xsd" />
+	<xs:import namespace="actor" schemaLocation="actor.xsd" />
 
 	<xs:complexType name="characterTemplate">
-		<xs:sequence>
-			<xs:element name="stats" type="characterStatsMetadata"
-				minOccurs="0" />
-			<xs:element name="collision" type="collitionMetadataContainer"
-				minOccurs="0" />
-		</xs:sequence>
-		<xs:attribute name="class" type="characterClass" />
+		<xs:complexContent>
+			<xs:extension base="actor:actorTemplate">
+				<xs:sequence>
+					<xs:element name="stats" type="character:characterStatsMetadata"
+						minOccurs="1" maxOccurs="1" />
+					<xs:element name="collision" type="character:collisionMetadataContainer"
+						minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+				<xs:attribute name="class" type="character:characterClass" />
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="characterStatsMetadata">
 		<xs:sequence>
-			<xs:element name="hp" type="stat" minOccurs="0" />
-			<xs:element name="mp" type="stat" minOccurs="0" />
-			<xs:element name="cp" type="stat" minOccurs="0" />
-			<xs:element name="attack" type="attackMetadata" minOccurs="0" />
-			<xs:element name="defense" type="defenseMetadata"
+			<xs:element name="hp" type="character:stat" minOccurs="0" />
+			<xs:element name="mp" type="character:stat" minOccurs="0" />
+			<xs:element name="cp" type="character:stat" minOccurs="0" />
+			<xs:element name="attack" type="character:attackMetadata"
 				minOccurs="0" />
-			<xs:element name="move" type="moveMetadata" minOccurs="0" />
-			<xs:element name="base" type="baseMetadata" minOccurs="0" />
+			<xs:element name="defense" type="character:defenseMetadata"
+				minOccurs="0" />
+			<xs:element name="move" type="character:moveMetadata"
+				minOccurs="0" />
+			<xs:element name="base" type="character:baseMetadata"
+				minOccurs="0" />
 			<xs:element name="maxload" type="xs:int" />
 		</xs:sequence>
 		<xs:attribute name="level" type="xs:int" use="required" />
-		<xs:attribute name="crafter" type="xs:boolean" use="required" />
+		<xs:attribute name="crafter" type="xs:boolean" default="false" />
 	</xs:complexType>
 
 	<xs:complexType name="stat">
@@ -37,9 +48,9 @@
 
 	<xs:complexType name="attackMetadata">
 		<xs:sequence>
-			<xs:element name="physical" type="attackValueMetadata"
+			<xs:element name="physical" type="character:attackValueMetadata"
 				minOccurs="0" />
-			<xs:element name="magical" type="attackValueMetadata"
+			<xs:element name="magical" type="character:attackValueMetadata"
 				minOccurs="0" />
 		</xs:sequence>
 		<xs:attribute name="evasion" type="xs:int" use="required" />
@@ -55,9 +66,9 @@
 
 	<xs:complexType name="defenseMetadata">
 		<xs:sequence>
-			<xs:element name="physical" type="defenseValueMetadata"
+			<xs:element name="physical" type="character:defenseValueMetadata"
 				minOccurs="0" />
-			<xs:element name="magical" type="defenseValueMetadata"
+			<xs:element name="magical" type="character:defenseValueMetadata"
 				minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
@@ -83,11 +94,11 @@
 		<xs:attribute name="wit" type="xs:int" use="required" />
 	</xs:complexType>
 
-	<xs:complexType name="collitionMetadataContainer">
+	<xs:complexType name="collisionMetadataContainer">
 		<xs:sequence>
-			<xs:element name="male" type="collisionMetadata"
+			<xs:element name="male" type="character:collisionMetadata"
 				minOccurs="0" />
-			<xs:element name="female" type="collisionMetadata"
+			<xs:element name="female" type="character:collisionMetadata"
 				minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
@@ -239,4 +250,7 @@
 			<xs:enumeration value="DUMMY_ENTRY_34" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:element name="character" type="character:characterTemplate" />
 </xs:schema>
+
