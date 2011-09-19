@@ -46,7 +46,8 @@
 			<unpack>false</unpack>
 			<scope>runtime</scope>
 			<excludes>
-				<exclude>com.h2database:h2</exclude>
+				<exclude>com.h2database:*</exclude>
+				<exclude>org.apache.derby:*</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>
