@@ -2,7 +2,8 @@
 .project
 .metadata
 .classpath
-.settings/
+.settings/*
+.settings
 
 # Locally stored "Eclipse launch configurations"
 *.launch
