@@ -1,2 +1,14 @@
-/target
-/generated
+# Eclipse project files and folders
+.project
+.metadata
+.classpath
+.settings/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# Maven target directory
+target/
+
+# Find bugs configuration file
+/.fbprefs
