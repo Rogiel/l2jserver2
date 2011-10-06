@@ -14,31 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.orientdb;
+package com.l2jserver.service.database.jdbc.derby;
 
-import com.l2jserver.model.Model;
-import com.l2jserver.model.id.ID;
-import com.l2jserver.service.database.AbstractDAO;
-import com.l2jserver.service.database.AbstractOrientDatabaseService;
+import com.google.inject.Inject;
+import com.l2jserver.model.dao.CharacterDAO;
+import com.l2jserver.model.dao.ClanDAO;
+import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.object.provider.ClanIDProvider;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.JDBCClanDAO;
 
 /**
+ * {@link CharacterDAO} implementation for MySQL5
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @param <T>
- *            the model type
- * @param <I>
- *            the id type
  */
-public abstract class AbstractOrientDBDAO<T extends Model<?>, I extends ID<?>>
-		extends AbstractDAO<T, I> {
-	protected final AbstractOrientDatabaseService database;
-
+public class DerbyClanDAO extends JDBCClanDAO implements ClanDAO {
 	/**
 	 * @param database
-	 *            the database instance
+	 *            the database service
+	 * @param clanIdFactory
+	 *            the clan id provider
+	 * @param idFactory
+	 *            the character id provider
 	 */
-	protected AbstractOrientDBDAO(DatabaseService database) {
-		super(database);
-		this.database = (AbstractOrientDatabaseService) database;
+	@Inject
+	public DerbyClanDAO(DatabaseService database,
+			ClanIDProvider clanIdFactory, CharacterIDProvider idFactory) {
+		super(database, clanIdFactory, idFactory);
 	}
 }

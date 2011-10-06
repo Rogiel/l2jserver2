@@ -1,51 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.l2jserver</groupId>
 	<artifactId>l2jserver2-gameserver</artifactId>
-	<version>2.0.0</version>
-	<name>L2JServer - Game Server</name>
+	<name>L2JServer 2 - Game server module</name>
 	<description>Lineage II server emulator</description>
-	<inceptionYear>2011</inceptionYear>
-
-	<issueManagement>
-		<system>GitHub</system>
-		<url>https://github.com/l2jserver2/l2jserver2-gs/issues</url>
-	</issueManagement>
-
-	<ciManagement>
-		<system>GitHub</system>
-		<url>https://github.com/l2jserver2/l2jserver2-gs/wiki</url>
-	</ciManagement>
-
-	<developers>
-		<developer>
-			<id>rogiel</id>
-			<name>Rogiel</name>
-			<email>rogiel@rogiel.com</email>
-			<url>http://www.rogiel.com/</url>
-			<timezone>-3</timezone>
-			<roles>
-				<role>Creator</role>
-				<role>API Designer</role>
-			</roles>
-		</developer>
-	</developers>
-
-	<scm>
-		<connection>git://github.com/l2jserver2/l2jserver2-gs.git</connection>
-		<developerConnection>ssh://git@github.com:l2jserver2/l2jserver2-gs.git</developerConnection>
-		<tag>master</tag>
-		<url>https://github.com/l2jserver2/l2jserver2-gs</url>
-	</scm>
-
-	<licenses>
-		<license>
-			<name>GNU General Public License version 3</name>
-			<url>http://www.gnu.org/licenses/gpl.txt</url>
-			<distribution>manual</distribution>
-		</license>
-	</licenses>
 
 	<build>
 		<defaultGoal>package</defaultGoal>
@@ -93,9 +51,19 @@
 					<descriptors>
 						<descriptor>src/assembly/distribution-mysql5-bin.xml</descriptor>
 						<descriptor>src/assembly/distribution-h2-bin.xml</descriptor>
+						<descriptor>src/assembly/distribution-orientdb-bin.xml</descriptor>
+						<descriptor>src/assembly/distribution-derby-bin.xml</descriptor>
 						<descriptor>src/assembly/distribution-src.xml</descriptor>
 					</descriptors>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -105,7 +73,7 @@
 		<dependency>
 			<groupId>com.l2jserver</groupId>
 			<artifactId>l2jserver2-common</artifactId>
-			<version>2.0.0</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 		<!-- junit -->
@@ -122,7 +90,6 @@
 			<groupId>org.jboss.netty</groupId>
 			<artifactId>netty</artifactId>
 			<version>3.2.4.Final</version>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- google guice -->
 		<dependency>
@@ -130,21 +97,18 @@
 			<artifactId>guice</artifactId>
 			<version>3.0</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject.extensions</groupId>
 			<artifactId>guice-assistedinject</artifactId>
 			<version>3.0</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject.extensions</groupId>
 			<artifactId>guice-multibindings</artifactId>
 			<version>3.0</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- logging -->
 		<dependency>
@@ -159,7 +123,6 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.6.1</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- database -->
 		<dependency>
@@ -177,11 +140,22 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.8.1.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.orientechnologies</groupId>
+			<artifactId>orientdb-core</artifactId>
+			<version>1.0rc5</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- cache -->
 		<dependency>
@@ -189,7 +163,6 @@
 			<artifactId>ehcache-core</artifactId>
 			<version>2.4.2</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- html parser/generator -->
 		<dependency>
@@ -197,7 +170,6 @@
 			<artifactId>htmlparser</artifactId>
 			<version>2.1</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- utils -->
 		<dependency>
@@ -205,64 +177,44 @@
 			<artifactId>javolution</artifactId>
 			<version>5.5.1</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>r09</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.0.1</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-pool</groupId>
 			<artifactId>commons-pool</artifactId>
 			<version>1.5.6</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-math</artifactId>
 			<version>2.2</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
-		<!-- vfs -->
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>repository.jboss.org</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/
-				</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>maven2-repository.java.net</id>
-			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2/</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>EclipseLink Repo</id>
-			<url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
-		</repository>
-	</repositories>
+	<parent>
+		<groupId>com.l2jserver</groupId>
+		<artifactId>l2jserver2</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<url>http://github.com/l2jserver2</url>
+	<inceptionYear>2011</inceptionYear>
 </project>

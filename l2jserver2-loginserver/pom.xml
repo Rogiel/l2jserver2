@@ -4,38 +4,41 @@
 	<parent>
 		<artifactId>l2jserver2</artifactId>
 		<groupId>com.l2jserver</groupId>
-		<version>2.0.0</version>
+		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-loginserver</artifactId>
 
 	<dependencies>
 		<dependency>
+			<groupId>com.l2jserver</groupId>
+			<artifactId>l2jserver2-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 			<type>jar</type>
-			<scope>compile</scope>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.netty</groupId>
 			<artifactId>netty</artifactId>
 			<version>3.2.4.Final</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
 			<version>3.0</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject.extensions</groupId>
 			<artifactId>guice-assistedinject</artifactId>
 			<version>3.0</version>
 			<type>jar</type>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -48,13 +51,6 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.16</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>javacc</groupId>
-			<artifactId>javacc</artifactId>
-			<version>4.1</version>
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
@@ -79,10 +75,9 @@
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.l2jserver</groupId>
-			<artifactId>l2jserver2-common</artifactId>
-			<version>2.0.0</version>
-		</dependency>
 	</dependencies>
+	<name>L2JServer 2 - Login server module</name>
+	<url>http://github.com/l2jserver2</url>
+	<description>Lineage II server emulator</description>
+	<inceptionYear>2011</inceptionYear>
 </project>

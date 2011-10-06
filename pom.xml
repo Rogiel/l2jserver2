@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.l2jserver</groupId>
 	<artifactId>l2jserver2</artifactId>
-	<version>2.0.0</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
-	<name>L2JServer - Game Server</name>
+
+	<name>L2JServer 2</name>
 	<description>Lineage II server emulator</description>
 	<inceptionYear>2011</inceptionYear>
-	
+
 	<modules>
 		<module>l2jserver2-common</module>
 		<module>l2jserver2-gameserver</module>
@@ -19,12 +19,12 @@
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/l2jserver2/l2jserver2-gs/issues</url>
+		<url>https://github.com/l2jserver2/l2jserver2/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>GitHub</system>
-		<url>https://github.com/l2jserver2/l2jserver2-gs/wiki</url>
+		<url>https://github.com/l2jserver2/l2jserver2/wiki</url>
 	</ciManagement>
 
 	<developers>
@@ -42,10 +42,10 @@
 	</developers>
 
 	<scm>
-		<connection>git://github.com/l2jserver2/l2jserver2-gs.git</connection>
-		<developerConnection>ssh://git@github.com:l2jserver2/l2jserver2-gs.git</developerConnection>
+		<connection>scm:git://github.com/l2jserver2/l2jserver2.git</connection>
+		<developerConnection>scm:ssh://git@github.com:l2jserver2/l2jserver2.git</developerConnection>
 		<tag>master</tag>
-		<url>https://github.com/l2jserver2/l2jserver2-gs</url>
+		<url>https://github.com/l2jserver2/l2jserver2</url>
 	</scm>
 
 	<licenses>
@@ -72,45 +72,17 @@
 				<configuration>
 					<target>1.7</target>
 					<source>1.7</source>
+					<optimize>true</optimize>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>libs/</classpathPrefix>
-							<mainClass>com.l2jserver.L2JGameServerMain</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>assembly</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assembly/distribution-mysql5-bin.xml</descriptor>
-						<descriptor>src/assembly/distribution-h2-bin.xml</descriptor>
-						<descriptor>src/assembly/distribution-orientdb-bin.xml</descriptor>
-						<descriptor>src/assembly/distribution-src.xml</descriptor>
-					</descriptors>
-				</configuration>
 				<executions>
 					<execution>
 						<phase>package</phase>
 						<goals>
-							<goal>assembly</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -127,144 +99,12 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- netty -->
-		<dependency>
-			<groupId>org.jboss.netty</groupId>
-			<artifactId>netty</artifactId>
-			<version>3.2.4.Final</version>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- google guice -->
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-assistedinject</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-multibindings</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- database -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.16</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.3.155</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.orientechnologies</groupId>
-			<artifactId>orientdb-core</artifactId>
-			<version>1.0rc5</version>
-			<scope>compile</scope>
-		</dependency>
-		<!-- cache -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-core</artifactId>
-			<version>2.4.2</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- html parser/generator -->
-		<dependency>
-			<groupId>org.htmlparser</groupId>
-			<artifactId>htmlparser</artifactId>
-			<version>2.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- utils -->
-		<dependency>
-			<groupId>javolution</groupId>
-			<artifactId>javolution</artifactId>
-			<version>5.5.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>r09</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.0.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-			<version>1.5.6</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-math</artifactId>
-			<version>2.2</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
 	</dependencies>
 
 	<repositories>
 		<repository>
 			<id>repository.jboss.org</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/
-				</url>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -285,4 +125,5 @@
 			</snapshots>
 		</repository>
 	</repositories>
+	<url>http://github.com/l2jserver2</url>
 </project>
