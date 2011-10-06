@@ -18,26 +18,15 @@ package com.l2jserver.service.database;
 
 import java.sql.ResultSet;
 
-import com.google.inject.Injector;
+import com.google.inject.Inject;
 import com.l2jserver.model.Model;
-import com.l2jserver.model.dao.CharacterDAO;
-import com.l2jserver.model.dao.ClanDAO;
-import com.l2jserver.model.dao.ItemDAO;
-import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.model.dao.PetDAO;
 import com.l2jserver.model.id.ID;
-import com.l2jserver.model.world.Clan;
-import com.l2jserver.model.world.Item;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.Pet;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.util.ClassUtils;
 
 /**
  * This is an implementation of {@link DatabaseService} that provides an layer
@@ -78,42 +67,19 @@ import com.l2jserver.util.ClassUtils;
 public class GameServerJDBCDatabaseService extends AbstractJDBCDatabaseService
 		implements DatabaseService {
 	/**
-	 * The Google Guice {@link Injector}. It is used to get DAO instances.
-	 */
-	private final Injector injector;
-
-	/**
 	 * @param configService
 	 *            the config service
-	 * @param injector
-	 *            the Guice {@link Injector}
 	 * @param cacheService
 	 *            the cache service
 	 * @param threadService
 	 *            the thread service
+	 * @param daoResolver
+	 *            the {@link DataAccessObject DAO} resolver
 	 */
+	@Inject
 	public GameServerJDBCDatabaseService(ConfigurationService configService,
-			Injector injector, CacheService cacheService,
-			ThreadService threadService) {
-		super(configService, cacheService, threadService);
-		this.injector = injector;
-	}
-
-	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public <M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
-			Class<M> model) {
-		if (ClassUtils.isSubclass(model, L2Character.class)) {
-			return (DataAccessObject) injector.getInstance(CharacterDAO.class);
-		} else if (ClassUtils.isSubclass(model, Clan.class)) {
-			return (DataAccessObject) injector.getInstance(ClanDAO.class);
-		} else if (ClassUtils.isSubclass(model, Item.class)) {
-			return (DataAccessObject) injector.getInstance(ItemDAO.class);
-		} else if (ClassUtils.isSubclass(model, NPC.class)) {
-			return (DataAccessObject) injector.getInstance(NPCDAO.class);
-		} else if (ClassUtils.isSubclass(model, Pet.class)) {
-			return (DataAccessObject) injector.getInstance(PetDAO.class);
-		}
-		return null;
+			CacheService cacheService, ThreadService threadService,
+			DAOResolver daoResolver) {
+		super(configService, cacheService, threadService, daoResolver);
 	}
 }

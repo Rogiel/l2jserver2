@@ -16,8 +16,6 @@
  */
 package com.l2jserver.service.database;
 
-import com.l2jserver.model.Model;
-import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
@@ -48,19 +46,4 @@ public interface DatabaseService extends Service {
 	@ConfigurationName("database")
 	public interface DatabaseConfiguration extends ServiceConfiguration {
 	}
-
-	/**
-	 * Returns the {@link DataAccessObject} used to retrieve and save objects of
-	 * type <M>
-	 * 
-	 * @param <M>
-	 *            the {@link Model} type
-	 * @param <I>
-	 *            the {@link ID} type
-	 * @param model
-	 *            the model class
-	 * @return the {@link DataAccessObject} for {@link Model}
-	 */
-	<M extends Model<I>, I extends ID<M>> DataAccessObject<M, I> getDAO(
-			Class<M> model);
 }

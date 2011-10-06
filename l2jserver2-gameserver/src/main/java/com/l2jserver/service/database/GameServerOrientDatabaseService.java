@@ -18,6 +18,7 @@ package com.l2jserver.service.database;
 
 import java.sql.ResultSet;
 
+import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.AbstractService.Depends;
@@ -25,6 +26,7 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.game.template.TemplateService;
 
 /**
  * This is an implementation of {@link DatabaseService} that provides an layer
@@ -61,9 +63,9 @@ import com.l2jserver.service.core.threading.ThreadService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ LoggingService.class, CacheService.class,
-		ConfigurationService.class, ThreadService.class })
-public class LoginServerJDBCDatabaseService extends AbstractJDBCDatabaseService
-		implements DatabaseService {
+		ConfigurationService.class, TemplateService.class, ThreadService.class })
+public class GameServerOrientDatabaseService extends
+		AbstractOrientDatabaseService implements DatabaseService {
 	/**
 	 * @param configService
 	 *            the config service
@@ -74,7 +76,8 @@ public class LoginServerJDBCDatabaseService extends AbstractJDBCDatabaseService
 	 * @param daoResolver
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
-	public LoginServerJDBCDatabaseService(ConfigurationService configService,
+	@Inject
+	public GameServerOrientDatabaseService(ConfigurationService configService,
 			CacheService cacheService, ThreadService threadService,
 			DAOResolver daoResolver) {
 		super(configService, cacheService, threadService, daoResolver);

@@ -16,22 +16,12 @@
  */
 package com.l2jserver.service.database;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import javax.sql.DataSource;
-
-import org.apache.commons.dbcp.ConnectionFactory;
-import org.apache.commons.dbcp.DriverManagerConnectionFactory;
-import org.apache.commons.dbcp.PoolableConnectionFactory;
-import org.apache.commons.dbcp.PoolingDataSource;
-import org.apache.commons.pool.impl.GenericObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,6 +43,10 @@ import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.util.ArrayIterator;
 import com.l2jserver.util.factory.CollectionFactory;
+import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
+import com.orientechnologies.orient.core.query.nativ.OQueryContextNativeSchema;
+import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
  * This is an implementation of {@link DatabaseService} that provides an layer
@@ -76,17 +70,17 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractJDBCDatabaseService extends AbstractService
+public abstract class AbstractOrientDatabaseService extends AbstractService
 		implements DatabaseService {
 	/**
 	 * The configuration object
 	 */
-	private final JDBCDatabaseConfiguration config;
+	private final OrientDatabaseConfiguration config;
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory
-			.getLogger(AbstractJDBCDatabaseService.class);
+			.getLogger(AbstractOrientDatabaseService.class);
 
 	/**
 	 * The cache service
@@ -101,23 +95,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 */
 	private final DAOResolver daoResolver;
 
-	/**
-	 * The database connection pool
-	 */
-	private GenericObjectPool connectionPool;
-	/**
-	 * The dayabase connection factory
-	 */
-	private ConnectionFactory connectionFactory;
-	/**
-	 * The poolable connection factory
-	 */
-	@SuppressWarnings("unused")
-	private PoolableConnectionFactory poolableConnectionFactory;
-	/**
-	 * The connection {@link DataSource}.
-	 */
-	private PoolingDataSource dataSource;
+	private ODatabaseDocumentTx database;
 
 	/**
 	 * An cache object
@@ -130,68 +108,51 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	private ScheduledAsyncFuture autoSaveFuture;
 
 	/**
-	 * Configuration interface for {@link AbstractJDBCDatabaseService}.
+	 * Configuration interface for {@link AbstractOrientDatabaseService}.
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
+	public interface OrientDatabaseConfiguration extends DatabaseConfiguration {
 		/**
-		 * @return the jdbc url
+		 * @return the orientdb url
 		 */
-		@ConfigurationPropertyGetter(defaultValue = "jdbc:mysql://localhost/l2jserver2")
-		@ConfigurationPropertiesKey("jdbc.url")
-		@ConfigurationXPath("/configuration/services/database/jdbc/url")
-		String getJdbcUrl();
+		@ConfigurationPropertyGetter(defaultValue = "file:data/database")
+		@ConfigurationPropertiesKey("orientdb.url")
+		@ConfigurationXPath("/configuration/services/database/orientdb/url")
+		String getUrl();
 
 		/**
-		 * @param jdbcUrl
-		 *            the new jdbc url
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("jdbc.url")
-		@ConfigurationXPath("/configuration/services/database/jdbc/url")
-		void setJdbcUrl(String jdbcUrl);
-
-		/**
-		 * @return the jdbc driver class
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "com.jdbc.jdbc.Driver")
-		@ConfigurationPropertiesKey("jdbc.driver")
-		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
-		String getDriver();
-
-		/**
-		 * @param driver
-		 *            the new jdbc driver
+		 * @param url
+		 *            the new orientdb url
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("jdbc.driver")
-		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
-		void setDriver(Class<?> driver);
+		@ConfigurationPropertiesKey("orientdb.url")
+		@ConfigurationXPath("/configuration/services/database/orientdb/url")
+		void setUrl(String url);
 
 		/**
-		 * @return the jdbc database username
+		 * @return the orientdb database username
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "l2j")
-		@ConfigurationPropertiesKey("jdbc.username")
-		@ConfigurationXPath("/configuration/services/database/jdbc/username")
+		@ConfigurationPropertiesKey("orientdb.username")
+		@ConfigurationXPath("/configuration/services/database/orientdb/username")
 		String getUsername();
 
 		/**
 		 * @param username
-		 *            the jdbc database username
+		 *            the orientdb database username
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("jdbc.username")
-		@ConfigurationXPath("/configuration/services/database/jdbc/username")
+		@ConfigurationPropertiesKey("orientdb.username")
+		@ConfigurationXPath("/configuration/services/database/orientdb/username")
 		void setUsername(String username);
 
 		/**
-		 * @return the jdbc database password
+		 * @return the orientdb database password
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "changeme")
-		@ConfigurationPropertiesKey("jdbc.password")
-		@ConfigurationXPath("/configuration/services/database/jdbc/password")
+		@ConfigurationPropertiesKey("orientdb.password")
+		@ConfigurationXPath("/configuration/services/database/orientdb/password")
 		String getPassword();
 
 		/**
@@ -202,57 +163,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		@ConfigurationPropertiesKey("jdbc.password")
 		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		void setPassword(String password);
-
-		/**
-		 * @return the maximum number of active connections
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "20")
-		@ConfigurationPropertiesKey("jdbc.active.max")
-		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
-		int getMaxActiveConnections();
-
-		/**
-		 * @param password
-		 *            the maximum number of active connections
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("jdbc.active.max")
-		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
-		void setMaxActiveConnections(int password);
-
-		/**
-		 * @return the maximum number of idle connections
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "20")
-		@ConfigurationPropertiesKey("jdbc.idle.max")
-		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
-		int getMaxIdleConnections();
-
-		/**
-		 * @param password
-		 *            the maximum number of idle connections
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("jdbc.idle.max")
-		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
-		void setMaxIdleConnections(int password);
-
-		/**
-		 * @return the minimum number of idle connections
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "5")
-		@ConfigurationPropertiesKey("jdbc.idle.min")
-		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
-		int getMinIdleConnections();
-
-		/**
-		 * @param password
-		 *            the minimum number of idle connections
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("jdbc.idle.min")
-		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
-		void setMinIdleConnections(int password);
 	}
 
 	/**
@@ -266,10 +176,10 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
 	@Inject
-	public AbstractJDBCDatabaseService(ConfigurationService configService,
+	public AbstractOrientDatabaseService(ConfigurationService configService,
 			CacheService cacheService, ThreadService threadService,
 			DAOResolver daoResolver) {
-		config = configService.get(JDBCDatabaseConfiguration.class);
+		config = configService.get(OrientDatabaseConfiguration.class);
 		this.cacheService = cacheService;
 		this.threadService = threadService;
 		this.daoResolver = daoResolver;
@@ -277,20 +187,12 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		connectionPool = new GenericObjectPool(null);
-		connectionPool.setMaxActive(config.getMaxActiveConnections());
-		connectionPool.setMinIdle(config.getMinIdleConnections());
-		connectionPool.setMaxIdle(config.getMaxIdleConnections());
-
-		// test if connections are active while idle
-		connectionPool.setTestWhileIdle(true);
-
-		connectionFactory = new DriverManagerConnectionFactory(
-				config.getJdbcUrl(), config.getUsername(), config.getPassword());
-		poolableConnectionFactory = new PoolableConnectionFactory(
-				connectionFactory, connectionPool, null, "SELECT 1", false,
-				true);
-		dataSource = new PoolingDataSource(connectionPool);
+		database = new ODatabaseDocumentTx(config.getUrl());
+		if (!database.exists()) {
+			database.create();
+		} else {
+			database.open(config.getUsername(), config.getPassword());
+		}
 
 		// cache must be large enough for all world objects, to avoid
 		// duplication... this would endanger non-persistent states
@@ -306,7 +208,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 						int objects = 0;
 						for (final Model<?> object : objectCache) {
 							@SuppressWarnings("unchecked")
-							final DataAccessObject<Model<?>, ?> dao = (DataAccessObject<Model<?>, ?>) daoResolver
+							final DataAccessObject<Model<?>, ?> dao = daoResolver
 									.getDAO(object.getClass());
 							if (dao.save(object)) {
 								objects++;
@@ -330,19 +232,11 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 */
 	public <T> T query(Query<T> query) {
 		Preconditions.checkNotNull(query, "query");
+		log.debug("Executing query {} with {}", query, database);
 		try {
-			final Connection conn = dataSource.getConnection();
-			log.debug("Executing query {} with {}", query, conn);
-			try {
-				return query.query(conn);
-			} catch (SQLException e) {
-				log.error("Error executing query", e);
-				return null;
-			} finally {
-				conn.close();
-			}
+			return query.query(database);
 		} catch (SQLException e) {
-			log.error("Could not open database connection", e);
+			log.error("Database error", e);
 			return null;
 		}
 	}
@@ -406,19 +300,8 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		autoSaveFuture = null;
 		cacheService.dispose(objectCache);
 		objectCache = null;
-
-		try {
-			if (connectionPool != null)
-				connectionPool.close();
-		} catch (Exception e) {
-			log.error("Error stopping database service", e);
-			throw new ServiceStopException(e);
-		} finally {
-			connectionPool = null;
-			connectionFactory = null;
-			poolableConnectionFactory = null;
-			dataSource = null;
-		}
+		database.close();
+		database = null;
 	}
 
 	/**
@@ -434,13 +317,13 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		/**
 		 * Execute the query in <tt>conn</tt>
 		 * 
-		 * @param conn
-		 *            the connection
+		 * @param database
+		 *            the database connection
 		 * @return the query return value
 		 * @throws SQLException
 		 *             if any SQL error occur
 		 */
-		R query(Connection conn) throws SQLException;
+		R query(ODatabaseDocumentTx database) throws SQLException;
 	}
 
 	/**
@@ -488,49 +371,31 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			this.iterator = iterator;
 		}
 
-		@SuppressWarnings("unchecked")
 		@Override
-		public Integer query(Connection conn) throws SQLException {
-			Preconditions.checkNotNull(conn, "conn");
+		public Integer query(ODatabaseDocumentTx database) throws SQLException {
+			Preconditions.checkNotNull(database, "database");
 
 			log.debug("Starting INSERT/UPDATE query execution");
 
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
-				final String queryString = query();
-
-				log.debug("Preparing statement for {}: {}", object, queryString);
-				final PreparedStatement st = conn.prepareStatement(queryString,
-						Statement.RETURN_GENERATED_KEYS);
-
-				log.debug("Parametizing statement {} with {}", st, object);
-				this.parametize(st, object);
-
-				log.debug("Sending query to database for {}", object);
-				rows += st.executeUpdate();
-				log.debug("Query inserted or updated {} rows for {}", rows,
-						object);
-
-				// update object desire --it has been realized
-				if (object instanceof Model && rows > 0) {
-					log.debug("Updating Model ObjectDesire to NONE");
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-
-					final Mapper<? extends ID<?>> mapper = keyMapper();
-					if (mapper == null)
+				final ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> query = createQuery(
+						database, object);
+				final ODocument document;
+				if (query != null) {
+					List<ODocument> docs = database.query(query);
+					if (docs.size() >= 1) {
+						document = update(docs.get(0), object);
+					} else {
 						continue;
-					final ResultSet rs = st.getGeneratedKeys();
-					log.debug("Mapping generated keys with {} using {}",
-							mapper, rs);
-					while (rs.next()) {
-						final ID<?> generatedID = mapper.map(rs);
-						log.debug("Generated ID for {} is {}", object,
-								generatedID);
-						((Model<ID<?>>) object).setID(generatedID);
-						mapper.map(rs);
 					}
+				} else {
+					document = insert(new ODocument(), object);
 				}
+				if (document != null)
+					database.save(document);
+				rows++;
 			}
 			return rows;
 		}
@@ -538,21 +403,45 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		/**
 		 * Creates the <b>prepared</b> query for execution
 		 * 
-		 * @return the <b>prepared</b> query
+		 * @param database
+		 *            the database
+		 * @param object
+		 *            the object that is being updated
+		 * 
+		 * @return the <b>prepared</b> query. If <tt>null</tt> is returned a
+		 *         insert query will be performed.
 		 */
-		protected abstract String query();
+		protected abstract ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+				ODatabaseDocumentTx database, T object);
+
+		/**
+		 * Set the parameters in <tt>document</tt> for <tt>object</tt>. The
+		 * object can be removed calling {@link ODocument#delete()} and
+		 * returning <tt>null</tt>
+		 * 
+		 * @param document
+		 *            the document
+		 * @param object
+		 *            the object
+		 * @return the updated document. Can be <tt>null</tt>
+		 * @throws SQLException
+		 *             if any SQL error occur
+		 */
+		protected abstract ODocument update(ODocument document, T object)
+				throws SQLException;
 
 		/**
 		 * Set the parameters for in <tt>statement</tt> for <tt>object</tt>
 		 * 
-		 * @param st
-		 *            the prepared statement
+		 * @param document
+		 *            the document
 		 * @param object
 		 *            the object
+		 * @return the filled document
 		 * @throws SQLException
 		 *             if any SQL error occur
 		 */
-		protected abstract void parametize(PreparedStatement st, T object)
+		protected abstract ODocument insert(ODocument document, T object)
 				throws SQLException;
 
 		/**
@@ -582,28 +471,18 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 				.getLogger(SelectListQuery.class);
 
 		@Override
-		public List<T> query(Connection conn) throws SQLException {
-			Preconditions.checkNotNull(conn, "conn");
+		public List<T> query(ODatabaseDocumentTx database) throws SQLException {
+			Preconditions.checkNotNull(database, "database");
 
 			log.debug("Starting SELECT List<?> query execution");
 
-			final String queryString = query();
-			log.debug("Preparing statement with {}", queryString);
-			final PreparedStatement st = conn.prepareStatement(query());
-
-			log.debug("Parametizing statement {}", st);
-			parametize(st);
-
-			log.debug("Sending query to database for {}", st);
-			st.execute();
-
+			List<ODocument> result = database.query(createQuery(database));
 			final List<T> list = CollectionFactory.newList();
-			final ResultSet rs = st.getResultSet();
 			final Mapper<T> mapper = mapper();
-			log.debug("Database returned {}", rs);
-			while (rs.next()) {
+			log.debug("Database returned {}", result);
+			for (final ODocument document : result) {
 				log.debug("Mapping row with {}", mapper);
-				final T obj = mapper.map(rs);
+				final T obj = mapper.map(document);
 				if (obj == null) {
 					log.debug("Mapper {} returned a null row", mapper);
 					continue;
@@ -619,20 +498,13 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		/**
 		 * Creates the <b>prepared</b> query for execution
 		 * 
+		 * @param database
+		 *            the database
+		 * 
 		 * @return the <b>prepared</b> query
 		 */
-		protected abstract String query();
-
-		/**
-		 * Set the parameters for in <tt>statement</tt> for <tt>object</tt>
-		 * 
-		 * @param st
-		 *            the prepared statement
-		 * @throws SQLException
-		 *             if any SQL error occur
-		 */
-		protected void parametize(PreparedStatement st) throws SQLException {
-		}
+		protected abstract ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+				ODatabaseDocumentTx database);
 
 		/**
 		 * Return the mapper that will bind {@link ResultSet} objects into an
@@ -663,31 +535,25 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 				.getLogger(SelectSingleQuery.class);
 
 		@Override
-		public T query(Connection conn) throws SQLException {
-			Preconditions.checkNotNull(conn, "conn");
+		public T query(ODatabaseDocumentTx database) throws SQLException {
+			Preconditions.checkNotNull(database, "database");
 
 			log.debug("Starting SELECT single query execution");
 
-			final String queryString = query();
-			log.debug("Preparing statement with {}", queryString);
-			final PreparedStatement st = conn.prepareStatement(query());
-
-			log.debug("Parametizing statement {}", st);
-			parametize(st);
-
-			log.debug("Sending query to database for {}", st);
-			st.execute();
-
-			final ResultSet rs = st.getResultSet();
+			List<ODocument> result = database.query(createQuery(database));
 			final Mapper<T> mapper = mapper();
-			log.debug("Database returned {}", rs);
-			while (rs.next()) {
-				log.debug("Mapping row {} with {}", rs, mapper);
-				final T object = mapper.map(rs);
-				if (object instanceof Model)
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-				log.debug("Mapper {} returned {}", mapper, object);
-				return object;
+			log.debug("Database returned {}", result);
+			for (final ODocument document : result) {
+				log.debug("Mapping row with {}", mapper);
+				final T obj = mapper.map(document);
+				if (obj == null) {
+					log.debug("Mapper {} returned a null row", mapper);
+					continue;
+				}
+				if (obj instanceof Model)
+					((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
+				log.debug("Mapper {} returned {}", mapper, obj);
+				return obj;
 			}
 			return null;
 		}
@@ -695,27 +561,23 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		/**
 		 * Creates the <b>prepared</b> query for execution
 		 * 
+		 * @param database
+		 *            the database
+		 * 
 		 * @return the <b>prepared</b> query
 		 */
-		protected abstract String query();
-
-		/**
-		 * Set the parameters for in <tt>statement</tt> for <tt>object</tt>
-		 * 
-		 * @param st
-		 *            the prepared statement
-		 * @throws SQLException
-		 *             if any SQL error occur
-		 */
-		protected void parametize(PreparedStatement st) throws SQLException {
-		}
+		protected abstract ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+				ODatabaseDocumentTx database);
 
 		/**
 		 * Return the mapper that will bind {@link ResultSet} objects into an
 		 * <tt>T</tt> object instance. The mapper will need to create the object
 		 * instance.
+		 * <p>
+		 * <b>Note</b>: This method will be called for each row, an thus is a
+		 * good idea to create a new instance on each call!
 		 * 
-		 * @return the mapper
+		 * @return the mapper instance
 		 */
 		protected abstract Mapper<T> mapper();
 	}
@@ -735,13 +597,13 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * <b>Note</b>: it is required to call {@link ResultSet#next()}, since
 		 * it is called by the {@link Query}.
 		 * 
-		 * @param rs
-		 *            the result set
+		 * @param document
+		 *            the resulted document
 		 * @return the created instance
 		 * @throws SQLException
 		 *             if any SQL error occur
 		 */
-		T map(ResultSet rs) throws SQLException;
+		T map(ODocument document) throws SQLException;
 	}
 
 	/**
@@ -769,7 +631,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		/**
 		 * The database service instance
 		 */
-		private final AbstractJDBCDatabaseService database;
+		private final AbstractOrientDatabaseService database;
 
 		/**
 		 * The {@link ID} mapper
@@ -784,7 +646,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @param idMapper
 		 *            the {@link ID} {@link Mapper}
 		 */
-		public CachedMapper(AbstractJDBCDatabaseService database,
+		public CachedMapper(AbstractOrientDatabaseService database,
 				Mapper<I> idMapper) {
 			this.database = database;
 			this.idMapper = idMapper;
@@ -792,9 +654,9 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 
 		@Override
 		@SuppressWarnings("unchecked")
-		public final T map(ResultSet rs) throws SQLException {
-			log.debug("Mapping row {} ID with {}", rs, idMapper);
-			final I id = idMapper.map(rs);
+		public final T map(ODocument document) throws SQLException {
+			log.debug("Mapping row {} ID with {}", document, idMapper);
+			final I id = idMapper.map(document);
 			Preconditions.checkNotNull(id, "id");
 
 			log.debug("ID={}, locating cached object", id);
@@ -804,7 +666,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 
 			log.debug("Cached object not found, creating...");
 
-			final T object = map(id, rs);
+			final T object = map(id, document);
 			if (object != null)
 				database.updateCache(id, object);
 			log.debug("Object {} created", object);
@@ -817,12 +679,12 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * 
 		 * @param id
 		 *            the object id
-		 * @param rs
-		 *            the jdbc result set
+		 * @param document
+		 *            the document result
 		 * @return the created object
 		 * @throws SQLException
 		 *             if any SQL error occur
 		 */
-		protected abstract T map(I id, ResultSet rs) throws SQLException;
+		protected abstract T map(I id, ODocument document) throws SQLException;
 	}
 }
