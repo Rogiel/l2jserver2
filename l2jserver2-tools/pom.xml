@@ -2,12 +2,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>l2jserver2</artifactId>
 		<groupId>com.l2jserver</groupId>
+		<artifactId>l2jserver2</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-tools</artifactId>
+	
+	<name>L2JServer 2 - Commons module</name>
+	<description>Lineage II server emulator</description>
+	<url>http://github.com/l2jserver2</url>
+	<inceptionYear>2011</inceptionYear>
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.l2jserver</groupId>
@@ -15,8 +21,4 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
-	<name>L2JServer 2 - Tools module</name>
-	<url>http://github.com/l2jserver2</url>
-	<description>Lineage II server emulator</description>
-	<inceptionYear>2011</inceptionYear>
 </project>
