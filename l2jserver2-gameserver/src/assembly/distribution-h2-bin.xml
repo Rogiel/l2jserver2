@@ -1,0 +1,53 @@
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+	<id>h2-bin</id>
+	<formats>
+<!-- 		<format>tar.gz</format> -->
+<!-- 		<format>tar.bz2</format> -->
+		<format>zip</format>
+	</formats>
+	<baseDirectory></baseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>${project.basedir}</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>data/**</include>
+			</includes>
+			<excludes>
+				<exclude>.gitignore</exclude>
+				<exclude>data/cache/**</exclude>
+				<exclude>data/pathing.db</exclude>
+				<exclude>data/database.h2.*</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/distribution/global</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/distribution/sql</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>${project.artifactId}-${project.version}.jar</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>/libs</outputDirectory>
+			<useProjectArtifact>true</useProjectArtifact>
+			<unpack>false</unpack>
+			<scope>runtime</scope>
+			<excludes>
+				<exclude>mysql:mysql-connector-java</exclude>
+			</excludes>
+		</dependencySet>
+	</dependencySets>
+</assembly>
