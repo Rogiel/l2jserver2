@@ -39,6 +39,7 @@ public class AndFilter<O extends WorldObject> implements WorldObjectFilter<O> {
 	 * @param filters
 	 *            filters to be used with <tt>AND</tt> operator
 	 */
+	@SafeVarargs
 	public AndFilter(WorldObjectFilter<O>... filters) {
 		this.filters = filters;
 	}

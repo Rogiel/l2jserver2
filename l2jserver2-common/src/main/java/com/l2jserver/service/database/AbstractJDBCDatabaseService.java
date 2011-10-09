@@ -474,6 +474,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @param objects
 		 *            the object list
 		 */
+		@SafeVarargs
 		public InsertUpdateQuery(T... objects) {
 			this(new ArrayIterator<T>(objects));
 		}

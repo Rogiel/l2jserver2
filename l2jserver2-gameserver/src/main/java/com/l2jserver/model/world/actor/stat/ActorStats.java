@@ -149,7 +149,6 @@ public abstract class ActorStats<T extends ActorCalculatorContext> {
 	 * @param calculator
 	 *            the calculator
 	 */
-	@SuppressWarnings("unchecked")
 	protected void addTo(ActorCalculator calculator) {
 		calculator.addNoSort(HP_BONUS_FORMULA, MP_BONUS_FORMULA,
 				RUN_SPEED_BONUS_FORMULA, WALK_SPEED_BONUS_FORMULA,

@@ -357,6 +357,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * @param objects
 		 *            the object list
 		 */
+		@SafeVarargs
 		public InsertUpdateQuery(T... objects) {
 			this(new ArrayIterator<T>(objects));
 		}

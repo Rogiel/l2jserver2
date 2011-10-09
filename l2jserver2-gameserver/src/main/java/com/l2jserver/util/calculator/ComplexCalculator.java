@@ -81,6 +81,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * @param functions
 	 *            the calculator functions
 	 */
+	@SafeVarargs
 	public ComplexCalculator(V value, Function<T, V>... functions) {
 		super(0x00, value);
 		this.functions = new EnumMap<V, List<Function<T, V>>>(
@@ -97,6 +98,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * @param functions
 	 *            the calculator functions
 	 */
+	@SafeVarargs
 	public ComplexCalculator(Class<V> type, Function<T, V>... functions) {
 		this(type);
 		add(functions);
@@ -133,7 +135,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * @param functions
 	 *            the functions to be added
 	 */
-	public void add(Function<T, V>... functions) {
+	@SafeVarargs
+	public final void add(Function<T, V>... functions) {
 		for (final Function<T, V> func : functions) {
 			getList(func.type()).add(func);
 		}
@@ -149,7 +152,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * @param functions
 	 *            the functions to be added
 	 */
-	public void addNoSort(Function<T, V>... functions) {
+	@SafeVarargs
+	public final void addNoSort(Function<T, V>... functions) {
 		for (final Function<T, V> func : functions) {
 			getList(func.type()).add(func);
 		}

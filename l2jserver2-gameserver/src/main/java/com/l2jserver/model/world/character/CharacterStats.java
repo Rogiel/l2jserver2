@@ -263,7 +263,6 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	/**
 	 * The character calculator
 	 */
-	@SuppressWarnings("unchecked")
 	private static final CharacterCalculator calculator = new CharacterCalculator();
 
 	/**
@@ -300,7 +299,6 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	/**
 	 * Setups the default formulas
 	 */
-	@SuppressWarnings("unchecked")
 	private void setup() {
 		calculator.addNoSort(BASE_HP_FORMULA, BASE_MP_FORMULA, BASE_CP_FORMULA);
 

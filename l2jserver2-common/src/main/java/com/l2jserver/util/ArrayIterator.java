@@ -43,6 +43,7 @@ public class ArrayIterator<T> implements Iterator<T> {
 	 * @param objects
 	 *            the objects
 	 */
+	@SafeVarargs
 	public ArrayIterator(T... objects) {
 		this.objects = objects;
 	}

@@ -1,23 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<character class="FIGHTER">
-	<stats level="40" crafter="false">
-		<hp base="2444.46819" multiplier="7.5" add="" />
-		<mp base="2444.46819" multiplier="7.5" add="" />
-		<cp base="2444.46819" multiplier="7.5" add="" />
-		<base int="21" str="40" con="43" men="20" dex="30" wit="20" />
-		<attack critical="4" evasion="0">
-			<physical damage="688.86373" speed="253" />
-			<magical damage="470.40463" speed="333" />
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="character ../templates/character.xsd" xmlns="character"
+	class="HUMAN_FIGHTER">
+	<stats crafter="false" level="1">
+		<hp add="11.83" modifier="0.37" base="80.0" />
+		<mp add="5.46" modifier="0.14" base="30.0" />
+		<cp add="3.01" modifier="0.22" base="32.0" />
+		<attack accuracy="33" critical="44" evasion="33">
+			<physical speed="300.0" damage="4.0" />
+			<magical speed="333.0" damage="6.0" />
 		</attack>
 		<defense>
-			<physical value="0" />
-			<magical value="0" />
+			<physical value="80.0" />
+			<magical value="41.0" />
 		</defense>
-		<move run="120" walk="50" />
-		<load>100</load>
+		<move walk="115.0" run="115.0" />
+		<base wit="11" dex="30" men="25" con="43" str="40" int="21" />
+		<maxload>81900</maxload>
 	</stats>
 	<collision>
-		<male radius="" heigth="" />
-		<female radius="" heigth="" />
+		<male heigth="23.0" radius="9.0" />
+		<female heigth="23.5" radius="8.0" />
 	</collision>
 </character>

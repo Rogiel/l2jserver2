@@ -215,7 +215,6 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	 * @param npc
 	 *            the npc
 	 */
-	@SuppressWarnings("unchecked")
 	public NPCStats(NPC npc) {
 		super();
 		this.npc = npc;

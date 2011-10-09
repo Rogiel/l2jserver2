@@ -44,6 +44,7 @@ public class WorldObjectIterator<T extends WorldObject> implements Iterator<T> {
 	 * @param ids
 	 *            the {@link ObjectID} var-arg
 	 */
+	@SafeVarargs
 	public WorldObjectIterator(ObjectID<T>... ids) {
 		this(new ArrayIterator<ObjectID<T>>(ids));
 	}

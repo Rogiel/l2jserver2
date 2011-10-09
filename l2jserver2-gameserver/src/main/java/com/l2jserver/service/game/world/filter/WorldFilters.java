@@ -33,6 +33,7 @@ public final class WorldFilters {
 	 *            the filters
 	 * @return the {@link AndFilter}
 	 */
+	@SafeVarargs
 	public static final <O extends WorldObject> WorldObjectFilter<O> and(
 			WorldObjectFilter<O>... filters) {
 		return new AndFilter<O>(filters);
@@ -47,6 +48,7 @@ public final class WorldFilters {
 	 *            the filters
 	 * @return the {@link OrFilter}
 	 */
+	@SafeVarargs
 	public static final <O extends WorldObject> WorldObjectFilter<O> or(
 			WorldObjectFilter<O>... filters) {
 		return new OrFilter<O>(filters);

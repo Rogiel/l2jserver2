@@ -31,6 +31,7 @@ public class CharacterCalculator extends ActorCalculator {
 	 * @param calculators
 	 *            the calculators
 	 */
+	@SafeVarargs
 	public CharacterCalculator(
 			Calculator<ActorCalculatorContext, StatType>... calculators) {
 		super(calculators);

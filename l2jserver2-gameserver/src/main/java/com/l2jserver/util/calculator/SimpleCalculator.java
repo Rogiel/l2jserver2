@@ -48,6 +48,7 @@ public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 * @param functions
 	 *            the calculator functions
 	 */
+	@SafeVarargs
 	public SimpleCalculator(V value, Function<T, V>... functions) {
 		super(0x00, value);
 		this.value = value;

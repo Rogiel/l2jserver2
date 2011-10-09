@@ -39,6 +39,7 @@ public class OrFilter<O extends WorldObject> implements WorldObjectFilter<O> {
 	 * @param filters
 	 *            filters to be used with <tt>OR</tt> operator
 	 */
+	@SafeVarargs
 	public OrFilter(WorldObjectFilter<O>... filters) {
 		this.filters = filters;
 	}
