@@ -18,6 +18,7 @@ package com.l2jserver.model.id.object;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import com.l2jserver.model.dao.NPCDAO;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.provider.IDProvider;
 import com.l2jserver.model.world.NPC;
@@ -26,8 +27,17 @@ import com.l2jserver.service.game.world.WorldService;
 
 /**
  * An {@link ObjectID} instance representing an {@link NPC} object. Since NPC
- * instances are stores in run-time only, the search is performed in the
- * {@link WorldService} instead of using a {@link DataAccessObject}.
+ * instances can be stored in run-time only, the search is performed first in
+ * the {@link WorldService}, if no match is found, search is descended to an
+ * {@link DataAccessObject}.
+ * <p>
+ * <h1>Search order</h1>
+ * <ol>
+ * <li>{@link WorldService}: for run-time only {@link NPC NPCs}, but will also
+ * include all spawned {@link NPC NPCs};</li>
+ * <li>{@link NPCDAO}: for persisted {@link NPC NPCs}. Only for {@link NPC NPCs}
+ * that are not currently spawned in the world.</li>
+ * </ol>
  * <p>
  * Please, do not directly instantiate this class, use an {@link IDProvider}
  * instead.
@@ -39,21 +49,32 @@ public final class NPCID extends ActorID<NPC> {
 	 * {@link WorldService} used to locate objects
 	 */
 	private final WorldService worldService;
+	/**
+	 * {@link NPCDAO} used to locate objects if not located first by
+	 * {@link WorldService}
+	 */
+	private final NPCDAO npcDao;
 
 	/**
 	 * @param id
 	 *            the raw id
 	 * @param worldService
 	 *            the world service
+	 * @param npcDao
+	 *            the {@link NPC} {@link DataAccessObject DAO}
 	 */
 	@Inject
-	public NPCID(@Assisted int id, WorldService worldService) {
+	public NPCID(@Assisted int id, WorldService worldService, NPCDAO npcDao) {
 		super(id);
 		this.worldService = worldService;
+		this.npcDao = npcDao;
 	}
 
 	@Override
 	public NPC getObject() {
-		return worldService.find(this);
+		NPC npc = worldService.find(this);
+		if (npc == null)
+			npc = npcDao.select(this);
+		return npc;
 	}
 }
