@@ -55,7 +55,8 @@ public class ScriptingServiceImplTest {
 		final ScriptContext context = contexts.get(0);
 		Class<?> clazz = context.getClassLoader().loadClass(
 				"test.ScriptingCompilerTest");
+		Assert.assertNotNull(clazz.newInstance());
 		Assert.assertNotNull(clazz);
-		Assert.assertEquals("ScriptingCompilerTest", clazz.getSimpleName());
+		Assert.assertEquals("test.ScriptingCompilerTest", clazz.getName());
 	}
 }

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl.ecj;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,25 +47,25 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ScriptClassLoaderImpl extends ScriptClassLoader {
+public class EclipseCompilerScriptClassLoader extends ScriptClassLoader {
 
 	/**
 	 * Logger
 	 */
 	private static final Logger log = LoggerFactory
-			.getLogger(ScriptClassLoaderImpl.class);
+			.getLogger(EclipseCompilerScriptClassLoader.class);
 
 	/**
 	 * URL Stream handler to allow valid url generation by
 	 * {@link #getResource(String)}
 	 */
-	private final VirtualClassURLStreamHandler urlStreamHandler = new VirtualClassURLStreamHandler(
+	private final EclipseCompilerVirtualClassURLStreamHandler urlStreamHandler = new EclipseCompilerVirtualClassURLStreamHandler(
 			this);
 
 	/**
 	 * ClassFileManager that is related to this ClassLoader
 	 */
-	private final ClassFileManager classFileManager;
+	private final EclipseCompilerClassFileManager classFileManager;
 
 	/**
 	 * Classes that were loaded from libraries. They are no parsed for any
@@ -80,7 +80,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 * @param classFileManager
 	 *            classFileManager of this classLoader
 	 */
-	ScriptClassLoaderImpl(ClassFileManager classFileManager) {
+	EclipseCompilerScriptClassLoader(EclipseCompilerClassFileManager classFileManager) {
 		super(new URL[] {});
 		this.classFileManager = classFileManager;
 	}
@@ -94,7 +94,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 * @param parent
 	 *            parent classLoader
 	 */
-	ScriptClassLoaderImpl(ClassFileManager classFileManager, ClassLoader parent) {
+	EclipseCompilerScriptClassLoader(EclipseCompilerClassFileManager classFileManager, ClassLoader parent) {
 		super(new URL[] {}, parent);
 		this.classFileManager = classFileManager;
 	}
@@ -104,7 +104,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 * 
 	 * @return classFileManager of this classLoader
 	 */
-	public ClassFileManager getClassFileManager() {
+	public EclipseCompilerClassFileManager getClassFileManager() {
 		return classFileManager;
 	}
 
@@ -157,7 +157,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 		Class<?> c = bc.getDefinedClass();
 		if (c == null) {
 			byte[] b = bc.getBytes();
-			c = super.defineClass(name, b, 0, b.length);
+			c = super.defineClass(name.replace('/', '.'), b, 0, b.length);
 			bc.setDefinedClass(c);
 		}
 		return c;
@@ -177,7 +177,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 			if (classFileManager.getCompiledClasses().containsKey(newName)) {
 				try {
 					return new URL(null,
-							VirtualClassURLStreamHandler.HANDLER_PROTOCOL
+							EclipseCompilerVirtualClassURLStreamHandler.HANDLER_PROTOCOL
 									+ newName, urlStreamHandler);
 				} catch (MalformedURLException e) {
 					log.error("Can't create url for compiled class", e);
@@ -221,8 +221,8 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 
 		// load parent
 		ClassLoader parent = getParent();
-		if (parent instanceof ScriptClassLoaderImpl) {
-			ScriptClassLoaderImpl pscl = (ScriptClassLoaderImpl) parent;
+		if (parent instanceof EclipseCompilerScriptClassLoader) {
+			EclipseCompilerScriptClassLoader pscl = (EclipseCompilerScriptClassLoader) parent;
 			result.addAll(pscl.getClassesForPackage(packageName));
 		}
 

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl.ecj;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +27,7 @@ import java.net.URLStreamHandler;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class VirtualClassURLStreamHandler extends URLStreamHandler {
+public class EclipseCompilerVirtualClassURLStreamHandler extends URLStreamHandler {
 
 	/**
 	 * Script Handler protocol for classes compiled from source
@@ -37,7 +37,7 @@ public class VirtualClassURLStreamHandler extends URLStreamHandler {
 	/**
 	 * Script class loader that loaded those classes
 	 */
-	private final ScriptClassLoaderImpl cl;
+	private final EclipseCompilerScriptClassLoader cl;
 
 	/**
 	 * Creates new instance of url stream handler with given classloader
@@ -45,7 +45,7 @@ public class VirtualClassURLStreamHandler extends URLStreamHandler {
 	 * @param cl
 	 *            ScriptClassLoaderImpl that was used to load compiled class
 	 */
-	public VirtualClassURLStreamHandler(ScriptClassLoaderImpl cl) {
+	public EclipseCompilerVirtualClassURLStreamHandler(EclipseCompilerScriptClassLoader cl) {
 		this.cl = cl;
 	}
 
@@ -60,6 +60,6 @@ public class VirtualClassURLStreamHandler extends URLStreamHandler {
 	 */
 	@Override
 	protected URLConnection openConnection(URL u) throws IOException {
-		return new VirtualClassURLConnection(u, cl);
+		return new EclipseCompilerVirtualClassURLConnection(u, cl);
 	}
 }

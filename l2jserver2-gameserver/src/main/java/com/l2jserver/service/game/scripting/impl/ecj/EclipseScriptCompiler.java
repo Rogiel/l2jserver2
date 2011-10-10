@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl.ecj;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +27,7 @@ import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 import javax.tools.ToolProvider;
 
+import org.eclipse.jdt.internal.compiler.tool.EclipseCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,12 +44,12 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ScriptCompilerImpl implements ScriptCompiler {
+public class EclipseScriptCompiler implements ScriptCompiler {
 	/**
 	 * Logger for this class
 	 */
 	private static final Logger log = LoggerFactory
-			.getLogger(ScriptCompilerImpl.class);
+			.getLogger(EclipseScriptCompiler.class);
 
 	/**
 	 * Instance of JavaCompiler that will be used to compile classes
@@ -72,8 +73,8 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 * @throws RuntimeException
 	 *             if compiler is not available
 	 */
-	public ScriptCompilerImpl() {
-		this.javaCompiler = ToolProvider.getSystemJavaCompiler();
+	public EclipseScriptCompiler() {
+		this.javaCompiler = new EclipseCompiler();
 
 		if (javaCompiler == null) {
 			if (ToolProvider.getSystemJavaCompiler() != null) {
@@ -189,7 +190,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 			Iterable<JavaFileObject> compilationUnits) {
 		List<String> options = Arrays.asList("-encoding", "UTF-8", "-g");
 		DiagnosticListener<JavaFileObject> listener = new ErrorListener();
-		ClassFileManager manager = new ClassFileManager(javaCompiler, listener);
+		EclipseCompilerClassFileManager manager = new EclipseCompilerClassFileManager(javaCompiler, listener);
 		manager.setParentClassLoader(parentClassLoader);
 
 		if (libraries != null) {

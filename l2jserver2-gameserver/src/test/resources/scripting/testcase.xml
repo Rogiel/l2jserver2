@@ -18,6 +18,6 @@
   -->
 
 <scriptlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="../../contexts.xsd">
+            xsi:noNamespaceSchemaLocation="../../../../data/contexts.xsd">
     <scriptinfo root="./src/test/resources/scripting"/>
 </scriptlist>

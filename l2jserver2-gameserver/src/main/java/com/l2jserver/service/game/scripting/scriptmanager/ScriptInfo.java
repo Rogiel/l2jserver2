@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.l2jserver.service.game.scripting.impl.javacc.ScriptCompilerImpl;
+import com.l2jserver.service.game.scripting.impl.ecj.EclipseScriptCompiler;
 
 /**
  * Simple class that represents script info.<br>
@@ -60,7 +60,7 @@ public class ScriptInfo {
 	 * Default compiler class name.
 	 */
 	@XmlElement(name = "compiler")
-	private String compilerClass = ScriptCompilerImpl.class.getName();
+	private String compilerClass = EclipseScriptCompiler.class.getName();
 
 	/**
 	 * Returns root of script context

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl.jdk;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +44,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ClassFileManager extends
+public class JDKClassFileManager extends
 		ForwardingJavaFileManager<JavaFileManager> {
 
 	/**
@@ -56,7 +56,7 @@ public class ClassFileManager extends
 	/**
 	 * Classloader that will be used to load compiled classes
 	 */
-	protected ScriptClassLoaderImpl loader;
+	protected JDKScriptClassLoader loader;
 
 	/**
 	 * Parent classloader for loader
@@ -71,7 +71,7 @@ public class ClassFileManager extends
 	 * @param listener
 	 *            class that will report compilation errors
 	 */
-	public ClassFileManager(JavaCompiler compiler,
+	public JDKClassFileManager(JavaCompiler compiler,
 			DiagnosticListener<? super JavaFileObject> listener) {
 		super(compiler.getStandardFileManager(listener, null, null));
 	}
@@ -108,19 +108,19 @@ public class ClassFileManager extends
 	 * @return classLoader of this ClassFileManager
 	 */
 	@Override
-	public synchronized ScriptClassLoaderImpl getClassLoader(Location location) {
+	public synchronized JDKScriptClassLoader getClassLoader(Location location) {
 		if (loader == null) {
 			loader = AccessController
-					.doPrivileged(new PrivilegedAction<ScriptClassLoaderImpl>() {
+					.doPrivileged(new PrivilegedAction<JDKScriptClassLoader>() {
 						@Override
-						public ScriptClassLoaderImpl run() {
+						public JDKScriptClassLoader run() {
 							if (parentClassLoader != null) {
-								return new ScriptClassLoaderImpl(
-										ClassFileManager.this,
-										ClassFileManager.this.parentClassLoader);
+								return new JDKScriptClassLoader(
+										JDKClassFileManager.this,
+										JDKClassFileManager.this.parentClassLoader);
 							} else {
-								return new ScriptClassLoaderImpl(
-										ClassFileManager.this);
+								return new JDKScriptClassLoader(
+										JDKClassFileManager.this);
 							}
 						}
 					});
@@ -147,7 +147,7 @@ public class ClassFileManager extends
 	 *             if something goes wrong
 	 */
 	public void addLibrary(File file) throws IOException {
-		ScriptClassLoaderImpl classLoader = getClassLoader(null);
+		JDKScriptClassLoader classLoader = getClassLoader(null);
 		classLoader.addLibrary(file);
 	}
 

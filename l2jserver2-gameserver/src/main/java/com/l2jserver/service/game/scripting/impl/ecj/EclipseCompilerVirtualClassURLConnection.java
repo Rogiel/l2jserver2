@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.game.scripting.impl.javacc;
+package com.l2jserver.service.game.scripting.impl.ecj;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -26,14 +26,14 @@ import com.l2jserver.service.game.scripting.impl.BinaryClass;
 
 /**
  * This class represents URL Connection that is used to "connect" to scripts
- * binary data that was loaded by specified {@link ScriptCompilerImpl}.<br>
+ * binary data that was loaded by specified {@link EclipseScriptCompiler}.<br>
  * <br>
  * TODO: Implement all methods of {@link URLConnection} to ensure valid
  * behaviour
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class VirtualClassURLConnection extends URLConnection {
+public class EclipseCompilerVirtualClassURLConnection extends URLConnection {
 
 	/**
 	 * Input stream, is assigned from class
@@ -48,7 +48,7 @@ public class VirtualClassURLConnection extends URLConnection {
 	 * @param cl
 	 *            classloader
 	 */
-	protected VirtualClassURLConnection(URL url, ScriptClassLoaderImpl cl) {
+	protected EclipseCompilerVirtualClassURLConnection(URL url, EclipseCompilerScriptClassLoader cl) {
 		super(url);
 		BinaryClass bc = cl.getClassFileManager().getCompiledClasses()
 				.get(url.getHost());
