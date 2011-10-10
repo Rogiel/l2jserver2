@@ -17,6 +17,12 @@
 		<soulshot count="1" boost="2.0" />
 		<hit time="1080" />
 		<effects range="400">
+			<teleport>
+				
+			</teleport>
+			<buff duration="15" abnormal="speed_up_special">
+				
+			</buff>
 			<effect name="BUFF" duration="15" abnormalType="speed_up_special">
 				<add order="0x40" stat="RUN_SPEED" />
 			</effect>

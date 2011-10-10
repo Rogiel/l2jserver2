@@ -46,7 +46,6 @@ public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
 	 * @param old
 	 *            the old position
 	 */
-	@SuppressWarnings("unchecked")
 	public KnownListUpdateFilter(PositionableObject object, Point3D old) {
 		super(new KnownListFilter(object), new NotFilter<PositionableObject>(
 				new RangePointFilter(old, KNOWNLIST_RANGE)));

@@ -9,6 +9,15 @@
 	<name>L2JServer 2</name>
 	<description>Lineage II server emulator</description>
 	<inceptionYear>2011</inceptionYear>
+	<organization>
+		<name>L2JServer team</name>
+		<url>http://www.l2jserver.com/</url>
+	</organization>
+	<url>http://github.com/l2jserver2</url>
+	
+	<distributionManagement>
+		<downloadUrl>https://github.com/l2jserver2/l2jserver2/downloads</downloadUrl>
+	</distributionManagement>
 
 	<modules>
 		<module>l2jserver2-common</module>
@@ -18,13 +27,13 @@
 	</modules>
 
 	<issueManagement>
-		<system>GitHub</system>
+		<system>GitHub Issues</system>
 		<url>https://github.com/l2jserver2/l2jserver2/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>GitHub</system>
-		<url>https://github.com/l2jserver2/l2jserver2/wiki</url>
+		<url>https://github.com/l2jserver2/l2jserver2</url>
 	</ciManagement>
 
 	<developers>
@@ -45,14 +54,14 @@
 		<connection>scm:git://github.com/l2jserver2/l2jserver2.git</connection>
 		<developerConnection>scm:ssh://git@github.com:l2jserver2/l2jserver2.git</developerConnection>
 		<tag>master</tag>
-		<url>https://github.com/l2jserver2/l2jserver2</url>
+		<url>https://github.com/l2jserver2/l2jserver2/tree/${project.scm.tag}</url>
 	</scm>
 
 	<licenses>
 		<license>
 			<name>GNU General Public License version 3</name>
 			<url>http://www.gnu.org/licenses/gpl.txt</url>
-			<distribution>manual</distribution>
+			<distribution>repo</distribution>
 		</license>
 	</licenses>
 
@@ -125,5 +134,4 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	<url>http://github.com/l2jserver2</url>
 </project>

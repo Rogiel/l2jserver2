@@ -9,8 +9,8 @@
 	</parent>
 	<artifactId>l2jserver2-common</artifactId>
 	
-	<name>L2JServer 2 - Commons module</name>
-	<description>Lineage II server emulator</description>
+	<name>L2JServer 2 commons</name>
+	<description>This module contains all classes common to both login and game server</description>
 	<url>http://github.com/l2jserver2</url>
 	<inceptionYear>2011</inceptionYear>
 
