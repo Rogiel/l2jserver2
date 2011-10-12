@@ -37,7 +37,6 @@ public class KnownListFilter extends AndFilter<PositionableObject> {
 	 * @param object
 	 *            the object to locate known objects
 	 */
-	@SuppressWarnings("unchecked")
 	public KnownListFilter(PositionableObject object) {
 		super(new InstanceFilter<PositionableObject>(PositionableObject.class),
 				new RangeFilter(object, KNOWNLIST_RANGE),

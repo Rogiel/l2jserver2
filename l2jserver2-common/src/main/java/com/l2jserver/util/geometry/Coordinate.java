@@ -16,8 +16,6 @@
  */
 package com.l2jserver.util.geometry;
 
-import javax.xml.bind.annotation.XmlType;
-
 import org.apache.commons.math.geometry.Vector3D;
 
 /**

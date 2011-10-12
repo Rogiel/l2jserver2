@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
@@ -18,10 +17,11 @@ import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTempl
 public class TemplateSchemaGeneratorMain {
 	/**
 	 * @param args
-	 * @throws JAXBException
-	 * @throws IOException
+	 *            none
+	 * @throws Exception
+	 *             any exception
 	 */
-	public static void main(String[] args) throws JAXBException, IOException {
+	public static void main(String[] args) throws Exception {
 		final File baseDir = new File("generated/schemas");
 
 		JAXBContext context = JAXBContext.newInstance(CharacterTemplate.class,
