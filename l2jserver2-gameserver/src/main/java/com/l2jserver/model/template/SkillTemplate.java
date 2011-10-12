@@ -16,9 +16,14 @@
  */
 package com.l2jserver.model.template;
 
+import java.util.Collections;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -26,6 +31,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.SkillTemplateID;
+import com.l2jserver.model.template.skill.SkillEffect;
+import com.l2jserver.model.template.skill.effect.TeleportEffect;
+import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 
 /**
@@ -51,6 +59,9 @@ public class SkillTemplate extends AbstractTemplate<Skill> {
 	 * The maximum level supported by this skill
 	 */
 	protected int maximumLevel = 1;
+
+	@XmlElements({ @XmlElement(name = "teleport", type = TeleportEffect.class) })
+	protected List<SkillEffect> effects = CollectionFactory.newList();
 
 	@Override
 	public Skill create() {
@@ -106,6 +117,31 @@ public class SkillTemplate extends AbstractTemplate<Skill> {
 	 */
 	public int getCooldown() {
 		return cooldown;
+	}
+
+	/**
+	 * @return the effects
+	 */
+	public List<SkillEffect> getEffects() {
+		return Collections.unmodifiableList(effects);
+	}
+
+	/**
+	 * Tries to locate in the effects list an effect of the given type.
+	 * 
+	 * @param <E>
+	 *            the effect type
+	 * @param effectType
+	 *            the effect type class
+	 * @return the effect found, if any.
+	 */
+	@SuppressWarnings("unchecked")
+	public <E extends SkillEffect> E getEffect(Class<E> effectType) {
+		for (final SkillEffect effect : effects) {
+			if (effectType.isInstance(effect))
+				return (E) effect;
+		}
+		return null;
 	}
 
 	@Override

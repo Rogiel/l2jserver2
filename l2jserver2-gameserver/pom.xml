@@ -9,8 +9,8 @@
 	</parent>
 	<artifactId>l2jserver2-gameserver</artifactId>
 	
-	<name>L2JServer 2 - Game server module</name>
-	<description>Lineage II server emulator</description>
+	<name>L2JServer 2 game server</name>
+	<description>This game server is responsible for communicating the game client with the game virtual world. It provides data storage and processing along with broadcasting positioning data to other connected clients.</description>
 	<url>http://github.com/l2jserver2</url>
 	<inceptionYear>2011</inceptionYear>
 
