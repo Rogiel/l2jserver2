@@ -43,8 +43,8 @@ import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@XmlRootElement(name = "item")
-@XmlType(namespace = "item")
+@XmlRootElement(name = "item", namespace = "http://schemas.l2jserver2.com/item")
+@XmlType(namespace = "http://schemas.l2jserver2.com/item", name = "ItemType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ItemTemplate extends AbstractTemplate<Item> {
 	/**
@@ -53,44 +53,46 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	private static final Logger log = LoggerFactory
 			.getLogger(ItemTemplate.class);
 
-	@XmlAttribute(name = "id")
+	@XmlAttribute(name = "id", required = true)
 	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
 	protected ItemTemplateID id;
 
-	@XmlAttribute(name = "name")
+	@XmlAttribute(name = "name", required = true)
 	protected String name;
-	@XmlElement(name = "weight")
+	@XmlElement(name = "weight", required = true)
 	protected int weight = 0;
-	@XmlElement(name = "price")
+	@XmlElement(name = "price", required = true)
 	protected int price = 0;
-	@XmlElement(name = "icon")
+	@XmlElement(name = "icon", required = false)
 	protected String icon;
-	@XmlElement(name = "effect")
+	@XmlElement(name = "effect", required = false)
 	protected EffectContainer effect;
 
-	@XmlType(namespace = "item")
+	@XmlType(name = "ItemEffectsType")
 	private static class EffectContainer {
-		@XmlAttribute(name = "type")
+		@XmlAttribute(name = "type", required = true)
 		protected EffectType effect;
 	}
 
-	@XmlType(namespace = "item")
+	@XmlType(name = "ItemStatsType")
 	protected static class StatsContainer {
-		@XmlElement(name = "physicalDamage")
+		@XmlElement(name = "physicalDamage", required = false)
 		protected StatAttribute physicalDamage;
-		@XmlElement(name = "magicalDamage")
+		@XmlElement(name = "magicalDamage", required = false)
 		protected StatAttribute magicalDamage;
-		@XmlElement(name = "criticalChance")
+		@XmlElement(name = "criticalChance", required = false)
 		protected StatAttribute criticalChance;
-		@XmlElement(name = "physicalAttackSpeed")
+		@XmlElement(name = "physicalAttackSpeed", required = false)
 		protected StatAttribute physicalAttackSpeed;
 	}
 
-	@XmlElement(name = "stats")
+	@XmlElement(name = "stats", required = false)
 	protected StatsContainer stats;
 
+	@XmlElement(name = "material", required = true)
 	protected ItemMaterial material;
 
+	@XmlType(name = "ItemEffectType")
 	public enum EffectType {
 		IMMEDIATE;
 	}
@@ -99,13 +101,14 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 	protected WeaponType weaponType = WeaponType.NONE;
 	protected ArmorType armorType = ArmorType.NONE;
 
-	@XmlType(namespace = "item")
+	@XmlType(name = "ItemAttributeType")
 	public static class StatAttribute {
-		@XmlElement(name = "set")
+		@XmlElement(name = "set", required = true)
 		protected StatSet set;
 
+		@XmlType(name = "")
 		public static class StatSet {
-			@XmlAttribute(name = "order")
+			@XmlAttribute(name = "order", required = true)
 			protected int order;
 			@XmlValue
 			protected double value;

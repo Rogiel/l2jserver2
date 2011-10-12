@@ -33,6 +33,7 @@ import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
+import com.l2jserver.model.template.NPCTemplate.TalkMetadata.Chat;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.npc.NPCRace;
 import com.l2jserver.model.world.NPC;
@@ -45,245 +46,246 @@ import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@XmlRootElement(name = "npc")
-@XmlType(namespace = "npc", name = "npc")
+@XmlRootElement(name = "npc", namespace = "http://schemas.l2jserver2.com/npc")
+@XmlType(namespace = "http://schemas.l2jserver2.com/npc", name = "NPCType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NPCTemplate extends ActorTemplate<NPC> {
-	@XmlAttribute(name = "id")
+	@XmlAttribute(name = "id", required = true)
 	@XmlJavaTypeAdapter(value = NPCTemplateIDAdapter.class)
 	protected NPCTemplateID id = null;
-	@XmlAttribute(name = "controller")
+	@XmlAttribute(name = "controller", required = true)
 	protected Class<? extends NPCController> controller;
 
-	@XmlElement(name = "info")
+	@XmlElement(name = "info", required = true)
 	protected NPCInformationMetadata info = null;
 
-	@XmlType(namespace = "npc")
+	@XmlType(name = "NPCInfoType")
 	protected static class NPCInformationMetadata {
-		@XmlElement(name = "name")
+		@XmlElement(name = "name", required = false)
 		public NPCNameMetadata nameMetadata = null;
 
-		@XmlType(namespace = "npc")
+		@XmlType(name = "NPCNameType")
 		protected static class NPCNameMetadata {
 			@XmlValue
 			protected String name = null;
 			@XmlAttribute(name = "send")
-			protected Boolean send = null;
+			protected Boolean send = false;
 			@XmlAttribute(name = "display")
-			protected Boolean display = null;
+			protected Boolean display = false;
 		}
 
-		@XmlElement(name = "title")
+		@XmlElement(name = "title", required = false)
 		protected NPCTitleMetadata titleMetadata = null;
 
-		@XmlType(namespace = "npc")
+		@XmlType(name = "NPCTitleType")
 		protected static class NPCTitleMetadata {
 			@XmlValue
 			protected String title = null;
 			@XmlAttribute(name = "send")
-			protected Boolean send = null;
+			protected Boolean send = false;
 		}
 
-		@XmlElement(name = "level")
+		@XmlElement(name = "level", required = true)
 		protected int level = 0;
-		@XmlElement(name = "race")
+		@XmlElement(name = "race", required = false)
 		protected NPCRace race = NPCRace.NONE;
-		@XmlElement(name = "sex")
+		@XmlElement(name = "sex", required = false)
 		protected ActorSex sex = null;
 
-		@XmlAttribute(name = "attackable")
-		protected boolean attackable;
-		@XmlAttribute(name = "targetable")
-		protected boolean targetable;
-		@XmlAttribute(name = "aggressive")
-		protected boolean aggressive;
+		@XmlAttribute(name = "attackable", required = false)
+		protected boolean attackable = false;
+		@XmlAttribute(name = "targetable", required = false)
+		protected boolean targetable = false;
+		@XmlAttribute(name = "aggressive", required = false)
+		protected boolean aggressive = false;
 
-		@XmlElement(name = "stats")
+		@XmlElement(name = "stats", required = true)
 		protected NPCStatsMetadata stats = null;
 
-		@XmlType(namespace = "npc")
+		@XmlType(name = "NPCStatsType")
 		protected static class NPCStatsMetadata {
-			@XmlElement(name = "hp")
+			@XmlElement(name = "hp", required = true)
 			protected Stat hp = null;
-			@XmlElement(name = "mp")
+			@XmlElement(name = "mp", required = true)
 			protected Stat mp = null;
 
-			@XmlType(namespace = "npc")
+			@XmlType(name = "")
 			protected static class Stat {
-				@XmlAttribute(name = "max")
+				@XmlAttribute(name = "max", required = true)
 				protected double max = 0;
-				@XmlAttribute(name = "regen")
+				@XmlAttribute(name = "regen", required = true)
 				protected double regen = 0;
 			}
 
-			@XmlElement(name = "attack")
+			@XmlElement(name = "attack", required = false)
 			protected AttackMetadata attack = null;
 
-			@XmlType(namespace = "npc")
+			@XmlType(name = "NPCAttackType")
 			protected static class AttackMetadata {
-				@XmlAttribute(name = "range")
+				@XmlAttribute(name = "range", required = true)
 				protected int range = 0;
-				@XmlAttribute(name = "evasion")
+				@XmlAttribute(name = "evasion", required = true)
 				protected int evasion = 0;
-				@XmlAttribute(name = "critical")
+				@XmlAttribute(name = "critical", required = true)
 				protected int critical = 0;
 
-				@XmlElement(name = "physical")
+				@XmlElement(name = "physical", required = true)
 				protected AttackValueMetadata physical = null;
-				@XmlElement(name = "magical")
+				@XmlElement(name = "magical", required = true)
 				protected AttackValueMetadata magical = null;
 
-				@XmlType(namespace = "npc")
+				@XmlType(name = "")
 				protected static class AttackValueMetadata {
-					@XmlAttribute(name = "damage")
+					@XmlAttribute(name = "damage", required = true)
 					protected double damage = 0;
-					@XmlAttribute(name = "speed")
+					@XmlAttribute(name = "speed", required = true)
 					protected double speed = 0;
 				}
 			}
 
-			@XmlElement(name = "defense")
+			@XmlElement(name = "defense", required = false)
 			protected DefenseMetadata defense = null;
 
-			@XmlType(namespace = "npc")
+			@XmlType(name = "NPCDefenseType")
 			protected static class DefenseMetadata {
-				@XmlElement(name = "physical")
+				@XmlElement(name = "physical", required = true)
 				protected DefenseValueMetadata physical = null;
-				@XmlElement(name = "magical")
+				@XmlElement(name = "magical", required = true)
 				protected DefenseValueMetadata magical = null;
 
-				@XmlType(namespace = "npc")
+				@XmlType(name = "")
 				protected static class DefenseValueMetadata {
-					@XmlAttribute(name = "value")
+					@XmlAttribute(name = "value", required = true)
 					protected double value = 0;
 				}
 			}
 
-			@XmlElement(name = "move")
+			@XmlElement(name = "move", required = false)
 			protected MoveMetadata move = null;
 
-			@XmlType(namespace = "npc")
+			@XmlType(name = "NPCMovementType")
 			protected static class MoveMetadata {
-				@XmlAttribute(name = "run")
+				@XmlAttribute(name = "run", required = true)
 				protected double run = 0;
-				@XmlAttribute(name = "walk")
+				@XmlAttribute(name = "walk", required = true)
 				protected double walk = 0;
 			}
 
-			@XmlElement(name = "base")
+			@XmlElement(name = "base", required = true)
 			public BaseMetadata base = null;
 
-			@XmlType(namespace = "npc")
+			@XmlType(name = "NPCBaseStatsType")
 			protected static class BaseMetadata {
-				@XmlAttribute(name = "int")
+				@XmlAttribute(name = "int", required = true)
 				protected int intelligence = 0;
-				@XmlAttribute(name = "str")
+				@XmlAttribute(name = "str", required = true)
 				protected int strength = 0;
-				@XmlAttribute(name = "con")
+				@XmlAttribute(name = "con", required = true)
 				protected int concentration = 0;
-				@XmlAttribute(name = "men")
+				@XmlAttribute(name = "men", required = true)
 				protected int mentality = 0;
-				@XmlAttribute(name = "dex")
+				@XmlAttribute(name = "dex", required = true)
 				protected int dexterity = 0;
-				@XmlAttribute(name = "wit")
+				@XmlAttribute(name = "wit", required = true)
 				protected int witness = 0;
 			}
 		}
 
-		@XmlElement(name = "experience")
+		@XmlElement(name = "experience", required = true)
 		protected long experience = 0;
-		@XmlElement(name = "sp")
+		@XmlElement(name = "sp", required = true)
 		protected int sp = 0;
 
-		@XmlElement(name = "item")
+		@XmlElement(name = "item", required = false)
 		protected ItemMetadata item = null;
 
-		@XmlType(namespace = "npc")
+		@XmlType(name = "NPCItemsType")
 		protected static class ItemMetadata {
-			@XmlAttribute(name = "righthand")
+			@XmlAttribute(name = "righthand", required = false)
 			@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
 			protected ItemTemplateID rightHand = null;
-			@XmlAttribute(name = "lefthand")
+			@XmlAttribute(name = "lefthand", required = false)
 			@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
 			protected ItemTemplateID leftHand = null;
 		}
 
-		@XmlElement(name = "collision")
+		@XmlElement(name = "collision", required = false)
 		protected CollisionMetadata collision = null;
 
-		@XmlType(namespace = "npc")
+		@XmlType(name = "NPCCollisionType")
 		protected static class CollisionMetadata {
-			@XmlAttribute(name = "radius")
+			@XmlAttribute(name = "radius", required = true)
 			protected double radius = 0;
-			@XmlAttribute(name = "heigth")
+			@XmlAttribute(name = "heigth", required = true)
 			protected double height = 0;
 		}
 	}
 
-	@XmlElement(name = "ai")
+	@XmlElement(name = "ai", required = false)
 	protected AIMetadata ai = null;
 
-	@XmlType(namespace = "npc")
+	@XmlType(name = "NPCAIType")
 	protected static class AIMetadata {
-		@XmlAttribute(name = "script")
+		@XmlAttribute(name = "script", required = true)
 		protected String script = null;
 	}
 
-	@XmlElement(name = "talk")
+	@XmlElement(name = "talk", required = false)
 	protected TalkMetadata talk = null;
 
-	@XmlType(namespace = "npc")
+	@XmlType(name = "NPCTalkType")
 	protected static class TalkMetadata {
-		@XmlAttribute(name = "default")
+		@XmlAttribute(name = "default", required = true)
 		protected String defaultChat = null;
 
-		@XmlElement(name = "chat")
+		@XmlElement(name = "chat", required = true)
 		protected List<Chat> chats = null;
+
+		@XmlType(name = "")
+		public static class Chat {
+			@XmlAttribute(name = "id", required = true)
+			protected String id = null;
+			@XmlValue
+			protected String html = null;
+		}
 	}
 
-	@XmlType(namespace = "npc")
-	public static class Chat {
-		@XmlAttribute(name = "id")
-		protected String id = null;
-		@XmlValue
-		protected String html = null;
-	}
-
-	@XmlElementWrapper(name = "droplist")
-	@XmlElement(name = "item")
+	@XmlElementWrapper(name = "droplist", required = false)
+	@XmlElement(name = "item", required = true)
 	protected List<DropItemMetadata> droplist = null;
 
-	@XmlType(namespace = "npc")
+	@XmlType(name = "NPCDropType")
 	protected static class DropItemMetadata {
-		@XmlAttribute(name = "id")
+		@XmlAttribute(name = "id", required = true)
 		@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
 		protected ItemTemplateID item = null;
-		@XmlAttribute(name = "min")
+		@XmlAttribute(name = "min", required = true)
 		protected int min = 0;
-		@XmlAttribute(name = "max")
+		@XmlAttribute(name = "max", required = true)
 		protected int max = 0;
 
-		@XmlAttribute(name = "category")
+		@XmlAttribute(name = "category", required = true)
 		protected DropCategory category = null;
 
+		@XmlType(name = "NPCDropCategoryType")
 		public enum DropCategory {
 			DROP, SPOIL, UNK_1, UNK_2, UNK_3, UNK_4, UNK_5, UNK_6, UNK_7, UNK_8, UNK_9, UNK_10, UNK_11, UNK_12, UNK_13, UNK_14, UNK_15, UNK_16, UNK_17, UNK_18, UNK_19, UNK_20, UNK_21, UNK_22, UNK_23, UNK_24, UNK_25, UNK_26, UNK_27, UNK_28, UNK_29, UNK_30, UNK_31, UNK_32, UNK_33, UNK_34, UNK_35, UNK_36, UNK_100, UNK_101, UNK_102, UNK_200;
 		}
 
-		@XmlAttribute(name = "chance")
+		@XmlAttribute(name = "chance", required = true)
 		protected int chance = 0;
 	}
 
-	@XmlElementWrapper(name = "skills")
-	@XmlElement(name = "skill")
+	@XmlElementWrapper(name = "skills", required = false)
+	@XmlElement(name = "skill", required = true)
 	protected List<SkillMetadata> skills = null;
 
-	@XmlType(namespace = "npc")
+	@XmlType(name = "NPCSkillType")
 	protected static class SkillMetadata {
-		@XmlAttribute(name = "id")
+		@XmlAttribute(name = "id", required = true)
 		@XmlJavaTypeAdapter(value = SkillTemplateIDAdapter.class)
 		protected SkillTemplateID skill = null;
-		@XmlAttribute(name = "level")
+		@XmlAttribute(name = "level", required = true)
 		protected int level = 0;
 	}
 

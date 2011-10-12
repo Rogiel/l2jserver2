@@ -46,7 +46,6 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
-import com.l2jserver.model.template.NPCTemplate.Chat;
 import com.l2jserver.model.template.NPCTemplate.DropItemMetadata;
 import com.l2jserver.model.template.NPCTemplate.DropItemMetadata.DropCategory;
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata;
@@ -64,6 +63,7 @@ import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsM
 import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
 import com.l2jserver.model.template.NPCTemplate.SkillMetadata;
 import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
+import com.l2jserver.model.template.NPCTemplate.TalkMetadata.Chat;
 import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.npc.NPCRace;
@@ -102,7 +102,7 @@ public class NPCTemplateConverter {
 		controllers.put("L2FlyMonster", MonsterController.class);
 		Class.forName("com.mysql.jdbc.Driver");
 
-		final File target = new File("data/templates");
+		final File target = new File("generated/template/npc");
 
 		System.out.println("Scaning legacy HTML files...");
 		htmlScannedFiles = FileUtils.listFiles(L2J_HTML_FOLDER, new String[] {
@@ -119,10 +119,6 @@ public class NPCTemplateConverter {
 
 			final Marshaller m = c.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION,
-					"teleportation");
-			m.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
-					"teleportation teleportation.xsd");
 
 			final PreparedStatement st = conn
 					.prepareStatement("SELECT * FROM teleport");
@@ -163,7 +159,6 @@ public class NPCTemplateConverter {
 		try {
 			final Marshaller m = c.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "npc");
 
 			final PreparedStatement st = conn
 					.prepareStatement("SELECT npc.*, npcskills.level AS race "

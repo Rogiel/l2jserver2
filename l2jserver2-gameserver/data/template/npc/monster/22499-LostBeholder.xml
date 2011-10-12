@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22499" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Lost Beholder</name>
+        <level>69</level>
+        <race>BEAST</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="128.109038789856" max="69294.2944949816"/>
+            <mp regen="2.7" max="1314.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="5265.71071"/>
+                <magical speed="333.0" damage="3595.79784"/>
+            </attack>
+            <defense>
+                <physical value="465.84101"/>
+                <magical value="511.32334"/>
+            </defense>
+            <move walk="30.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.5" radius="20.0"/>
+    </info>
+    <skills>
+        <skill level="6" id="4032"/>
+        <skill level="7" id="4098"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="7" id="4412"/>
+        <skill level="8" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="6" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="6" id="4613"/>
+    </skills>
+</template:npc>

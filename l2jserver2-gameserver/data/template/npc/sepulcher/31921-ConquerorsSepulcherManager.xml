@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="31921" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Conquerors' Sepulcher Manager</name>
+        <level>70</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="21.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="SP"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+Your party must consist of at least four members. Come back when you have more friends.
+</body></html>]]></chat>
+        <chat id="NE"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+Visiting hours are over!
+</body></html>]]></chat>
+        <chat id="NL"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+The statue will only respond to the leader of the party.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+A strange-looking stone statue.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="NS"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+One among your party hasn't fulfilled the request of the nameless soul. Ask %member% to go and meet with the nameless soul and do as he asks.
+</body></html>]]></chat>
+        <chat id="SE"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+One of your party members doesn't have a pass. Either give %member% a pass to enter the sepulcher, or ask him to go get one and come back.
+</body></html>]]></chat>
+        <chat id="FULL"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+There is another party already in the sepulcher. Try again later.
+</body></html>]]></chat>
+        <chat id="OK"><![CDATA[<html><body>Conquerors' Sepulcher Manager:<br>
+Enter.
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
+</template:npc>

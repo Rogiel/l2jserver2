@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/item"
+	xmlns:tns="http://schemas.l2jserver2.com/item" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:import schemaLocation="l2jserver2.xsd" />
+
+	<xs:element name="item" type="tns:ItemType" />
+
+	<xs:complexType name="ItemType">
+		<xs:complexContent>
+			<xs:extension base="AbstractTemplateType">
+				<xs:sequence>
+					<xs:element name="weight" type="xs:int" />
+					<xs:element name="price" type="xs:int" />
+					<xs:element name="icon" type="xs:string" minOccurs="0" />
+					<xs:element name="effect" type="ItemEffectsType"
+						minOccurs="0" />
+					<xs:element name="stats" type="ItemStatsType" minOccurs="0" />
+					<xs:element name="material" type="ItemMaterialType" />
+					<xs:element name="itemType" type="ItemEnumType"
+						minOccurs="0" />
+					<xs:element name="weaponType" type="WeaponType"
+						minOccurs="0" />
+					<xs:element name="armorType" type="ArmorType" minOccurs="0" />
+				</xs:sequence>
+				<xs:attribute name="id" type="xs:int" use="required" />
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
+

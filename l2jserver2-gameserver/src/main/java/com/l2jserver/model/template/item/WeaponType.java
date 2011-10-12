@@ -1,5 +1,7 @@
 package com.l2jserver.model.template.item;
 
+import javax.xml.bind.annotation.XmlType;
+
 import com.l2jserver.model.world.actor.stat.StatType;
 
 /**
@@ -7,6 +9,7 @@ import com.l2jserver.model.world.actor.stat.StatType;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "WeaponType")
 public enum WeaponType {
 	/**
 	 * The Sword weapon type

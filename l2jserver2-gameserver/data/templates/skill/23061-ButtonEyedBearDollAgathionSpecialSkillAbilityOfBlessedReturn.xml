@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<skill cooldown="0" delay="0"
-    name="Button-Eyed Bear Doll Agathion Special Skill - Ability of Blessed Return"
-    id="23061" xsi:schemaLocation="skill ../skill.xsd"
-    xmlns="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <maximumLevel>1</maximumLevel>
-</skill>

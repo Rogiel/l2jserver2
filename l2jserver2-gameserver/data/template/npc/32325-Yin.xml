@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="32325" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Yin</name>
+        <title send="false">Attribute Master</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Yin:<br>
+The elemental attributes of water, fire, wind and earth, and the holy and dark attributes that symbolizes light and darkness, are extensions of the gods who correspond to each attribute and are the source of magic power. Attribute magic flows through the matter of this world, causing action and reaction and creating new matter and energy. It is even possible to enhance combat equipment by this energy by bestowing specific attributes onto it. As that attribute's magical power grows stronger, your strength will increase as well.<br>
+Here's a tip to remember: each attribute becomes even stronger when pitted against its opposite. Change the bestowed attribute to take advantage of each situation and you will reap the benefits!</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Yin:<br>
+Welcome!<br>
+It has come to our attention that area monsters have lately become increasingly powerful through their absorption of certain magical attributes. You have undoubtedly noticed that yourself, eh?<br>
+During my travels on the continent, I discovered a special technique that may allow us to defend ourselves against that attribute-enhanced power. It is far from fool-proof, but it may be our best chance!<br>
+Unfortunately, I require a variety of rare -- and expensive -- ingredients in order to manufacture the potion. My disciples are currently attempting to gather them at great risk to themselves. Perhaps you would be willing to help support their efforts?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Attributes.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 32326001">Buy an attribute-strengthening potion.</a><br>
+<a action="bypass -h npc_%objectId%_multisell 32326002">Exchange one Attribute Ore for another.</a><br>
+<a action="bypass -h npc_%objectId%_ReleaseAttribute">Remove attribute bestowed on weapon or armor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

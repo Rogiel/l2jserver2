@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="2" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <level>80</level>
+        <race>ANIMAL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2880.37628"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="894.75854"/>
+                <magical speed="333.0" damage="611.00409"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="0.1" radius="0.1"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+<br>
+<table width=610>
+<tr>
+<td width=250 align=left><a action="bypass _bbstop">HOME</a>&nbsp;>&nbsp;<a action="bypass _bbstop;2">Lineage II News</a></td>
+</tr>
+<tr>
+<td height=9></td>
+</tr>
+</table>
+<center>
+<table width=610 bgcolor="666666">
+<tr>
+<td width=50 height=18 align="center">Type</td>
+<td width=380 height=18 align="center">Title</td>
+<td width=90 height=18 align="center">Registered</td>
+<td width=90 height=18 align="left">Administrator</td>
+</tr>
+</table>
+<table width=610 height=46>
+<tr>
+<td width=50 align="right"><img src="l2ui.bbs_board" width=32 height=32></td>
+<td width=380 align="left"><table width=380><tr><td align="left">&nbsp;<a action="bypass _bbstop;10">Events (0)</a></td></tr><tr><td width=380 align="left">&nbsp;Scheduled Events</td></tr></table></td>
+<td width=90 align="center">0</td>
+<td width=90 align="center">0</td>
+</tr>
+</table>
+<img src="l2ui.squaregray" width="610" height="1">
+<table width=610 height=46>
+<tr>
+<td width=50 align="right"><img src="l2ui.bbs_board" width=32 height=32></td>
+<td width=380 align="left"><table width=380><tr><td align="left">&nbsp;<a action="bypass _bbstop;20">Official Announcements (0)</a></td></tr><tr><td width=380 align="left">&nbsp;General Information</td></tr></table></td>
+<td width=90 align="center">0</td>
+<td width=90 align="center">0</td>
+</tr>
+</table>
+<img src="l2ui.squaregray" width="610" height="1">
+<table width=610 height=46>
+<tr>
+<td width=50 align="right"><img src="l2ui.bbs_board" width=32 height=32></td>
+<td width=380 align="left"><table width=380><tr><td align="left">&nbsp;<a action="bypass _bbstop;30">Update Information (0)</a></td></tr><tr><td width=380 align="left">&nbsp;Patch Notes</td></tr></table></td>
+<td width=90 align="center">0</td>
+<td width=90 align="center">0</td>
+</tr>
+</table>
+<img src="l2ui.squaregray" width="610" height="1">
+</center>
+</body>
+</html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
+</template:npc>

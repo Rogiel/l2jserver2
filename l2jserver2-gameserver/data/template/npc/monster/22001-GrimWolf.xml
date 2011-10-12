@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22001" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Grim Wolf</name>
+        <level>25</level>
+        <race>ANIMAL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="460.96247"/>
+            <mp regen="1.5" max="259.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="64.83203"/>
+                <magical speed="333.0" damage="44.27187"/>
+            </attack>
+            <defense>
+                <physical value="101.83533"/>
+                <magical value="74.51868"/>
+            </defense>
+            <move walk="24.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1052</experience>
+        <sp>52</sp>
+        <collision heigth="11.0" radius="13.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="306" min="163" id="57"/>
+        <item chance="69351" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="69351" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="11558" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="9157" category="UNK_2" max="1" min="1" id="2152"/>
+        <item chance="432" category="UNK_1" max="1" min="1" id="391"/>
+        <item chance="691" category="UNK_1" max="1" min="1" id="413"/>
+        <item chance="494275" category="SPOIL" max="1" min="1" id="1867"/>
+        <item chance="57923" category="SPOIL" max="1" min="1" id="1899"/>
+        <item chance="65265" category="SPOIL" max="1" min="1" id="2152"/>
+    </droplist>
+    <skills>
+        <skill level="3" id="4274"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="13" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="4" id="4416"/>
+        <skill level="1" id="4417"/>
+        <skill level="3" id="4458"/>
+    </skills>
+</template:npc>

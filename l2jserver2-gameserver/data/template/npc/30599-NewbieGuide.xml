@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30599" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Newbie Guide</name>
+        <level>70</level>
+        <race>ELVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body> 
+Begin by hunting<font color="LEVEL"> red keltirs</font> or wolves near the village but the wolves are the more dangerous.<br>
+Around level 6 you should be able to challenge the<font color="LEVEL"> Kaboo Orcs</font> that lurk beyond the southwestern edge of the village, or the past the southeastern gate. Remember, though, that orcs are more dangerous than they seem, for if you attack one several others may come to its aid.<br>
+When you target a monster, the moster's name appears in the upper central portion of the screen.<font color="LEVEL"> The colour of the name tells you the monster's difficulty</font>. For now, hunt those that appear in white or sky blue. Those that appear in red or yellow are much stronger than you, so leave them alone.<br>
+finally, for now hunt near the<font color="LEVEL"> shadow of the Mother Tree</font>. Your strength will recover quickly when you stand beneath the Mother's nurturing branches.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body> 
+You may begin to learn skills when you reach Level 5. You will receive instructions in new skills from the<font color="LEVEL"> Masters</font> of the Temple of Eva. The Temple of Eva is the gratest edifice in the village, and can be found on the south side.<br>
+<a action="bypass -h npc_%objectId%_Chat 6">I want to know more about skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body> 
+You should have been given two weapons - a<font color="LEVEL"> dagger</font> and a squire's sword. Perhaps you have already noticed that daggers and swords perform differently in battle. The dagger is swift, but its accuracy suffers, while the squire's sword is noticeably slower than the dagger, but strikes with greater accuracy. Remember that different weapons may call upon different skills in their use. Either is a worthy weapon; it is up to you to decide which suits you best. When you have saved around 500 adena, buy a bone dagger if that's what you prefer, or a short sword if swords are more to your taste.<br>
+You may be able to improve your armour from the spoils of te monsters you slay, but that is a matter of luck. If you reach level 5 and are still lacking gloves, shoes or a helmet, you should consider purchasing the cheapest ones offered by the store.<br>
+When you reach level 6 return to me, and we will speak of this subject in more depth.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body> 
+Skills are not learned just once. They can be upgraded continuously through the use of SP. If you have learned the first level of Power Strike, you should gather 60 SP and upgrade to level 2.<br>
+Since every skill can be upgraded, it is up to you whether to become an expert in a single skill by concentrating your SP on it, or to become a generalist who learns skills at a lower level.
+</body></html>]]></chat>
+        <chat id="10"><![CDATA[<html><body>
+<font color="LEVEL">Nerupa</font>, who lives under the Mother Tree in the north end of the village, will usually have some small task for you. You should befriend her, for she will usually be of help to you. By all means, stop to see her whenever you can, and perform whatever errands she may ask.<br>
+Near the southwestern gate,<font color="LEVEL"> Pixy Murika</font> is seeking help. She worries that the forest has been unbalanced since keltirs and wolves began to multiply.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body> 
+Consider where you wish to finish, and that will tell you where to start. The Kingdom of Aden is in chaos, because they are at war with Elmore, and with Gracia across the sea. What better time will there be to restore the Elven people to their ancient greatness?<br>
+For now, the most important thing is to simply hone your skills in combat. What could be a greater priority in this time of war?<br>
+Begin your training by hunting<font color="LEVEL"> red keltirs</font> or wolves near the village. Be cautious, particularly with the wolves, for they are very savage. When you find an item after slaying a monster, try to equip any armour or weapon, and see if it's better than what you have now. For the rest, if you have no other use for it, sell it at the stores, so you will have adena when you need it.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="9"><![CDATA[<html><body> 
+It is proper and praiseworthy to remain vigilant for new quests. Is not your ultimate purpose to fight for the good of all Elvenkind? I will tell you of all the quests I know of for Fighters at your level. However, there may be others that I have not heard of; speak to the other villagers as well, to discover their needs.<br>
+I can tell you that there are one-time quests that you may only complete once, but also repetitive quests that may be undertaken several times.<br>
+<a action="bypass -h npc_%objectId%_Chat 10">I want to know more about the quests</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>
+And what will you learn first, my child? Your mind is an empty vessel; let me fill it with knowledge. Ask me whatever you wish to know.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">What should I do now?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">What is the best equipment for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">What is the best hunting site for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 5">Tell me about skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 9">Which quests are available to me?</a> 
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body> 
+If you have been alert, you may have noticed that when you defeat monster, you gain<font color="LEVEL"> SP</font> along with experience. SP stands for 'skill points'. If you are curious about SP, click the Character Status button and view the Status tab on the window. You must expend SP for each individual skill you acquire.<br>
+<a action="bypass -h npc_%objectId%_Chat 7">Tell me more about learning skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 8">Which skills ahould I learn first?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="12"><![CDATA[<html><body>Newbie Guide:<br>
+The Newbie Travel Token is reserved for players of level 20 or below.<br>
+It allows the player to move to the start town of another tribe via the<font color="LEVEL"> Newbie Guides</font> in each town<br>
+Be cautionus, for in many cases, you may learn and practice certain skills and quests that are unique to the own of each tribe.<br>
+Once a player reaches level 20, he is no longer able to teleport using the Newbie Travel Token.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Newbie Guide:<br>
+Don't hesitate to tell me if you require assistance. I can teach you about a number of useful things.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask for advice.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NpcLocationInfo">NPC Location Information.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/BlessingOfProtection.htm">Receive blessing of protection.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 12">Ask about the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1104_NewbieTravelToken">Teleport using the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagic.htm">Receive help from beneficial magic.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NewbieCoupons">Ask for help with a newbie item.</a>
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body> 
+When you reach level 5, you should pick one of two weapon skills, depending on your preference in weapons. If you fight with a dagger, learn<font color="LEVEL"> Mortal Blow </font>, and if you wield a sword learn Power Strike.<br>
+When you have learned the weapon skill of your choice, use any remaining SP to acquire some passive skills. Also, if you are using a bow,<font color="LEVEL"> Power Shot</font> is an invaluable skill. It is a powerful offensive skill that allows you to defeat even monsters who are somewhat stronger than you.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
+</template:npc>

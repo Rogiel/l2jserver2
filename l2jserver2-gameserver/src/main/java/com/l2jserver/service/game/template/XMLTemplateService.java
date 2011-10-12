@@ -141,7 +141,7 @@ public class XMLTemplateService extends AbstractService implements
 		/**
 		 * @return the directory in which templates are stored
 		 */
-		@ConfigurationPropertyGetter(defaultValue = "data/templates")
+		@ConfigurationPropertyGetter(defaultValue = "data/template")
 		@ConfigurationPropertiesKey("template.directory")
 		@ConfigurationXPath("/configuration/services/template/directory")
 		URI getTemplateDirectory();
@@ -232,6 +232,12 @@ public class XMLTemplateService extends AbstractService implements
 						BasicFileAttributes attrs) throws IOException {
 					if (!file.toString().endsWith(".xml"))
 						return FileVisitResult.CONTINUE;
+					// FIXME remove hard coded skip of item template loading
+					if (file.toString().contains("/item/"))
+						return FileVisitResult.CONTINUE;
+					// FIXME remove hard coded skip of zone template loading
+					if (file.toString().contains("zones.xml"))
+						return FileVisitResult.CONTINUE;
 					try {
 						loadTemplate(file);
 						return FileVisitResult.CONTINUE;
@@ -240,19 +246,6 @@ public class XMLTemplateService extends AbstractService implements
 					}
 				}
 			});
-
-			final Path teleportsXmlPath = templatePath.getParent().resolve(
-					"teleports.xml");
-			final InputStream in = Files.newInputStream(teleportsXmlPath);
-			try {
-				TeleportationTemplateContainer container = (TeleportationTemplateContainer) unmarshaller
-						.unmarshal(in);
-				for (final TeleportationTemplate template : container.templates) {
-					templates.put(template.getID(), template);
-				}
-			} finally {
-				in.close();
-			}
 		} catch (JAXBException e) {
 			throw new ServiceStartException(e);
 		} catch (IOException e) {
@@ -282,13 +275,21 @@ public class XMLTemplateService extends AbstractService implements
 		log.debug("Loading template {}", path);
 		final InputStream in = Files.newInputStream(path);
 		try {
-			final Template<?> template = (Template<?>) unmarshaller
-					.unmarshal(in);
-			log.debug("Template loaded: {}", template);
-			if (template.getID() != null)
-				templates.put(template.getID(), template);
+			Object obj = unmarshaller.unmarshal(in);
+			if (obj instanceof Template) {
+				final Template<?> template = (Template<?>) obj;
+				log.debug("Template loaded: {}", template);
+				if (template.getID() != null)
+					templates.put(template.getID(), template);
+			} else if (obj instanceof TeleportationTemplateContainer) {
+				for (final Template<?> template : ((TeleportationTemplateContainer) obj).templates) {
+					log.debug("Template loaded: {}", template);
+					if (template.getID() != null)
+						templates.put(template.getID(), template);
+				}
+			}
 		} finally {
-			in.close();
+			// in.close();
 		}
 	}
 
@@ -317,14 +318,14 @@ public class XMLTemplateService extends AbstractService implements
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	@XmlRootElement(name = "teleports")
+	@XmlRootElement(name = "teleports", namespace = "http://schemas.l2jserver2.com/teleport")
+	@XmlType(namespace = "http://schemas.l2jserver2.com/teleport", name = "TeleportsType")
 	@XmlAccessorType(XmlAccessType.FIELD)
-	@XmlType(namespace = "teleports")
 	public static class TeleportationTemplateContainer {
 		/**
 		 * The list of all teleportation templates
 		 */
-		@XmlElement(name = "teleport")
+		@XmlElement(namespace = "http://schemas.l2jserver2.com/teleport", name = "teleport")
 		public List<TeleportationTemplate> templates;
 	}
 }

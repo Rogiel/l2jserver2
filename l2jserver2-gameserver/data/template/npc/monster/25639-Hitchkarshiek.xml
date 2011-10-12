@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="25639" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Hitchkarshiek</name>
+        <title send="false">Wise Retainer of Suffering</title>
+        <level>81</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="188.168628266824" max="440657.534754126"/>
+            <mp regen="3.0" max="1846.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1845.69199"/>
+                <magical speed="333.0" damage="1103.56024"/>
+            </attack>
+            <defense>
+                <physical value="1110.90241"/>
+                <magical value="541.93835"/>
+            </defense>
+            <move walk="80.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3100452</experience>
+        <sp>410692</sp>
+        <item lefthand="13986" righthand="13985"/>
+        <collision heigth="40.8" radius="24.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="19" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="5467"/>
+        <skill level="2" id="5881"/>
+        <skill level="2" id="5888"/>
+        <skill level="1" id="5894"/>
+        <skill level="1" id="5986"/>
+    </skills>
+</template:npc>

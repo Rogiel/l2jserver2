@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25621" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Lost Warden</name>
+        <level>78</level>
+        <race>ANGEL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="87.9085509175166" max="207939.679772089"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="2987.18479"/>
+                <magical speed="333.0" damage="2039.86001"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="30.0" run="200.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1252189</experience>
+        <sp>190090</sp>
+        <item lefthand="0" righthand="8221"/>
+        <collision heigth="47.0" radius="13.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4173"/>
+        <skill level="7" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="11" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="7" id="4723"/>
+        <skill level="7" id="4738"/>
+        <skill level="1" id="5462"/>
+    </skills>
+</template:npc>

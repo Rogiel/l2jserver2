@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25115" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Icarus Sample 1</name>
+        <title send="false">Raid Boss</title>
+        <level>40</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="45.7692657718863" max="123885.15069835"/>
+            <mp regen="1.8" max="478.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="441.8825"/>
+                <magical speed="333.0" damage="64.68561"/>
+            </attack>
+            <defense>
+                <physical value="469.65105"/>
+                <magical value="229.12"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2741414</experience>
+        <sp>271385</sp>
+        <collision heigth="45.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="7593" category="DROP" max="33" min="11" id="62"/>
+        <item chance="124211" category="UNK_1" max="1" min="1" id="263"/>
+        <item chance="112639" category="UNK_2" max="63" min="21" id="952"/>
+        <item chance="16567" category="DROP" max="660" min="220" id="1958"/>
+        <item chance="352609" category="DROP" max="36" min="12" id="2073"/>
+        <item chance="7263" category="DROP" max="34" min="12" id="2429"/>
+        <item chance="6960" category="DROP" max="36" min="12" id="2430"/>
+        <item chance="6682" category="DROP" max="37" min="13" id="2431"/>
+        <item chance="6424" category="DROP" max="39" min="13" id="2432"/>
+        <item chance="6187" category="DROP" max="40" min="14" id="2433"/>
+        <item chance="5966" category="DROP" max="42" min="14" id="2452"/>
+        <item chance="5760" category="DROP" max="43" min="15" id="2453"/>
+        <item chance="167038" category="DROP" max="1" min="1" id="2454"/>
+        <item chance="9643" category="DROP" max="1134" min="378" id="2937"/>
+        <item chance="140186" category="DROP" max="78" min="26" id="2938"/>
+        <item chance="104137" category="DROP" max="105" min="35" id="2939"/>
+        <item chance="80996" category="DROP" max="135" min="45" id="2940"/>
+        <item chance="65086" category="DROP" max="168" min="56" id="2941"/>
+        <item chance="53600" category="DROP" max="204" min="68" id="2942"/>
+        <item chance="44998" category="DROP" max="243" min="81" id="2943"/>
+        <item chance="38366" category="DROP" max="285" min="95" id="2944"/>
+        <item chance="295679" category="UNK_2" max="6" min="2" id="4594"/>
+        <item chance="236542" category="UNK_2" max="7" min="3" id="4595"/>
+        <item chance="197119" category="UNK_2" max="9" min="3" id="4596"/>
+        <item chance="680000" category="UNK_101" max="2" min="1" id="8176"/>
+        <item chance="810000" category="UNK_100" max="4" min="1" id="9817"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="4" id="4740"/>
+        <skill level="1" id="4832"/>
+    </skills>
+</template:npc>

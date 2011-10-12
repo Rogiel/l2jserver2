@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22795" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Divinity Manager</name>
+        <level>84</level>
+        <race>ANGEL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="110.577296732991" max="32744.8265190398"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="80">
+                <physical speed="253.0" damage="5837.38676"/>
+                <magical speed="333.0" damage="3986.17844"/>
+            </attack>
+            <defense>
+                <physical value="572.58757"/>
+                <magical value="628.4921"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>165898</experience>
+        <sp>17700</sp>
+        <item lefthand="0" righthand="97"/>
+        <collision heigth="80.0" radius="15.0"/>
+    </info>
+    <droplist>
+        <item chance="26096" category="SPOIL" max="1" min="1" id="15663"/>
+        <item chance="42035" category="SPOIL" max="1" min="1" id="15666"/>
+        <item chance="113082" category="SPOIL" max="1" min="1" id="9628"/>
+        <item chance="3089" category="SPOIL" max="1" min="1" id="15795"/>
+        <item chance="4943" category="SPOIL" max="1" min="1" id="15798"/>
+        <item chance="700000" category="DROP" max="11919" min="5832" id="57"/>
+        <item chance="12" category="UNK_1" max="1" min="1" id="14105"/>
+        <item chance="5355" category="UNK_1" max="1" min="1" id="15663"/>
+        <item chance="20" category="UNK_1" max="1" min="1" id="14108"/>
+        <item chance="8625" category="UNK_1" max="1" min="1" id="15666"/>
+        <item chance="179354" category="UNK_2" max="1" min="1" id="1879"/>
+        <item chance="89677" category="UNK_2" max="1" min="1" id="1885"/>
+        <item chance="8440" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="5663" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="4678" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="5198" category="UNK_2" max="1" min="1" id="14166"/>
+        <item chance="1298" category="UNK_2" max="1" min="1" id="14167"/>
+        <item chance="129" category="UNK_2" max="1" min="1" id="14168"/>
+        <item chance="230" category="UNK_2" max="1" min="1" id="15795"/>
+        <item chance="369" category="UNK_2" max="1" min="1" id="15798"/>
+        <item chance="214" category="UNK_2" max="1" min="1" id="9557"/>
+        <item chance="10500" category="UNK_3" max="1" min="1" id="15690"/>
+        <item chance="10500" category="UNK_3" max="1" min="1" id="15540"/>
+        <item chance="49000" category="UNK_3" max="1" min="1" id="8056"/>
+    </droplist>
+    <skills>
+        <skill level="5" id="4276"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="14" id="4410"/>
+        <skill level="15" id="4411"/>
+        <skill level="13" id="4412"/>
+        <skill level="14" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="11" id="4415"/>
+        <skill level="8" id="4416"/>
+        <skill level="5" id="4441"/>
+        <skill level="2" id="4458"/>
+        <skill level="1" id="5466"/>
+        <skill level="1" id="6309"/>
+        <skill level="1" id="6316"/>
+    </skills>
+</template:npc>

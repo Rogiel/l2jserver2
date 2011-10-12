@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="18891" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Adult Buffalo</name>
+        <level>84</level>
+        <race>BEAST</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="4039.04270539801"/>
+            <mp regen="3.0" max="1812.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1144.7313"/>
+                <magical speed="333.0" damage="781.70308"/>
+            </attack>
+            <defense>
+                <physical value="357.86723"/>
+                <magical value="261.87171"/>
+            </defense>
+            <move walk="20.0" run="170.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>79302</experience>
+        <sp>8101</sp>
+        <collision heigth="25.2" radius="16.0"/>
+    </info>
+    <skills>
+        <skill level="2" id="4028"/>
+        <skill level="3" id="4071"/>
+        <skill level="5" id="4116"/>
+        <skill level="5" id="4379"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="15" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="18" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="5463"/>
+        <skill level="7" id="5620"/>
+        <skill level="17" id="6556"/>
+    </skills>
+</template:npc>

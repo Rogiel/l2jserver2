@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="21273" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Cave Noble Ant</name>
+        <level>39</level>
+        <race>BUG</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="925.85879"/>
+            <mp regen="1.8" max="463.32"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="166.06476"/>
+                <magical speed="333.0" damage="113.4007"/>
+            </attack>
+            <defense>
+                <physical value="152.46752"/>
+                <magical value="101.5146"/>
+            </defense>
+            <move walk="80.0" run="174.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>14204</experience>
+        <sp>902</sp>
+        <collision heigth="48.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="3922" min="1969" id="57"/>
+        <item chance="224" category="UNK_1" max="1" min="1" id="129"/>
+        <item chance="930725" category="SPOIL" max="19" min="1" id="1864"/>
+        <item chance="160371" category="UNK_2" max="9" min="3" id="1864"/>
+        <item chance="930725" category="SPOIL" max="9" min="1" id="1869"/>
+        <item chance="120279" category="UNK_2" max="6" min="2" id="1869"/>
+        <item chance="32074" category="UNK_2" max="9" min="3" id="1878"/>
+        <item chance="59214" category="UNK_2" max="6" min="2" id="1884"/>
+        <item chance="642766" category="SPOIL" max="1" min="1" id="1901"/>
+        <item chance="127081" category="UNK_1" max="1" min="1" id="2034"/>
+        <item chance="51511" category="UNK_2" max="1" min="1" id="2154"/>
+    </droplist>
+    <skills>
+        <skill level="3" id="4032"/>
+        <skill level="3" id="4072"/>
+        <skill level="1" id="4085"/>
+        <skill level="1" id="4086"/>
+        <skill level="1" id="4091"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="12" id="4410"/>
+        <skill level="12" id="4411"/>
+        <skill level="10" id="4412"/>
+        <skill level="10" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
+</template:npc>

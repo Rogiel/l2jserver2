@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="21755" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Dark Omen Invader Shaman</name>
+        <level>73</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2586.66898"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="752.73928"/>
+                <magical speed="333.0" damage="514.02335"/>
+            </attack>
+            <defense>
+                <physical value="310.02959"/>
+                <magical value="206.4212"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>27667</experience>
+        <sp>2847</sp>
+        <collision heigth="42.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="6219" min="3054" id="57"/>
+        <item chance="687" category="SPOIL" max="1" min="1" id="729"/>
+        <item chance="101" category="UNK_2" max="1" min="1" id="1808"/>
+        <item chance="228386" category="UNK_2" max="1" min="1" id="1865"/>
+        <item chance="228386" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="412363" category="SPOIL" max="1" min="1" id="1874"/>
+        <item chance="15226" category="UNK_2" max="1" min="1" id="1874"/>
+        <item chance="7613" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="206181" category="SPOIL" max="1" min="1" id="4043"/>
+        <item chance="7613" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="57" category="UNK_1" max="1" min="1" id="6323"/>
+        <item chance="76" category="UNK_1" max="1" min="1" id="6324"/>
+        <item chance="114" category="UNK_1" max="1" min="1" id="6325"/>
+        <item chance="10528" category="UNK_1" max="1" min="1" id="6341"/>
+        <item chance="8138" category="UNK_1" max="1" min="1" id="6343"/>
+        <item chance="14561" category="UNK_1" max="1" min="1" id="6345"/>
+        <item chance="2114" category="UNK_200" max="1" min="1" id="8731"/>
+        <item chance="529" category="UNK_200" max="1" min="1" id="8741"/>
+        <item chance="53" category="UNK_200" max="1" min="1" id="8751"/>
+        <item chance="11" category="UNK_200" max="1" min="1" id="8761"/>
+    </droplist>
+    <skills>
+        <skill level="7" id="4157"/>
+        <skill level="7" id="4160"/>
+        <skill level="11" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="18" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4675"/>
+        <skill level="3" id="4789"/>
+    </skills>
+</template:npc>

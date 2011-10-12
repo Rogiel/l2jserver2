@@ -65,7 +65,7 @@
 			article about VFSService. -->
 		<template>
 			<!-- The directory in which templates are stored -->
-			<directory>data/templates</directory>
+			<directory>data/template</directory>
 		</template>
 	</services>
 	<!-- /Services configuration section -->

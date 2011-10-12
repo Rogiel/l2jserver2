@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22316" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Garden Guardian Tree</name>
+        <level>83</level>
+        <race>PLANT</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="111.50705124295" max="32829.2831947712"/>
+            <mp regen="3.0" max="1777.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5815.28895"/>
+                <magical speed="333.0" damage="3971.08851"/>
+            </attack>
+            <defense>
+                <physical value="566.1783"/>
+                <magical value="621.45708"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>100984</experience>
+        <sp>10905</sp>
+        <collision heigth="47.0" radius="60.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="17721" min="8835" id="57"/>
+        <item chance="354164" category="UNK_2" max="1" min="1" id="1895"/>
+        <item chance="41319" category="UNK_2" max="1" min="1" id="4043"/>
+        <item chance="24792" category="UNK_2" max="1" min="1" id="4040"/>
+        <item chance="20659" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="10202" category="UNK_1" max="1" min="1" id="5537"/>
+        <item chance="9917" category="UNK_200" max="1" min="1" id="9546"/>
+        <item chance="661" category="UNK_1" max="1" min="1" id="11973"/>
+        <item chance="496" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="251633" category="SPOIL" max="1" min="1" id="4042"/>
+        <item chance="32019" category="SPOIL" max="1" min="1" id="6695"/>
+        <item chance="15098" category="SPOIL" max="1" min="1" id="6901"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="14" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="5" id="4416"/>
+        <skill level="3" id="4463"/>
+        <skill level="4" id="5273"/>
+        <skill level="1" id="5463"/>
+    </skills>
+</template:npc>

@@ -43,5 +43,9 @@ public class OrientDBDAOModule extends AbstractModule {
 		// // logs
 		// bind(ChatMessageDAO.class).to(OrientDBChatMessageDAO.class).in(
 		// Scopes.SINGLETON);
+
+		// DAO Resolver
+		bind(DAOResolver.class).to(GameServerDAOResolver.class).in(
+				Scopes.SINGLETON);
 	}
 }

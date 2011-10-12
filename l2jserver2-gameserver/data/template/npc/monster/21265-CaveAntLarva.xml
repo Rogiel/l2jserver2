@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="21265" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Cave Ant Larva</name>
+        <level>36</level>
+        <race>BUG</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="4.5" max="809.52639"/>
+            <mp regen="1.8" max="417.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="137.86467"/>
+                <magical speed="333.0" damage="94.1437"/>
+            </attack>
+            <defense>
+                <physical value="140.57278"/>
+                <magical value="93.59494"/>
+            </defense>
+            <move walk="40.0" run="60.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1904</experience>
+        <sp>115</sp>
+        <collision heigth="8.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="86630" category="SPOIL" max="1" min="1" id="1901"/>
+        <item chance="700000" category="DROP" max="530" min="264" id="57"/>
+        <item chance="20" category="UNK_1" max="1" min="1" id="83"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="124"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="127"/>
+        <item chance="15" category="UNK_1" max="1" min="1" id="130"/>
+        <item chance="20" category="UNK_1" max="1" min="1" id="144"/>
+        <item chance="669" category="UNK_1" max="1" min="1" id="2026"/>
+        <item chance="133390" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="66695" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="26678" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="41043" category="UNK_2" max="1" min="1" id="1884"/>
+        <item chance="7141" category="UNK_2" max="1" min="1" id="2154"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="12" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="31343" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Bellard</name>
+        <title send="false">Guard</title>
+        <level>80</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="628" righthand="126"/>
+        <collision heigth="23.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Ballard:<br>
+The<font color="LEVEL"> Valley of Saints</font> has been a holy place since ancient times. The saints of Einhasad Temple are buried there. It's also the only way to the<font color="LEVEL"> Monastery of Silence</font>.<br>
+According to rumors, kel mahums have started showing up recently in the Valley of Saints blocking the path to the monastery. Terrible things must be going on there! Unless you have an important business there, you'd best stay away from that area.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Guard Ballard:<br>
+The<font color="LEVEL"> Monastery of Silence</font> was established by the<font color="LEVEL"> Order of Saint Solina</font>, a branch of the Einhasad Temple.<br>
+Other travelers have said that it has a very austere and quiet atmosphere. The monks rarely speak with outsiders. Since it's in the middle of nowhere, it's a wonderful place for quiet meditation.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Ballard:<br>
+It is said that in Aden Kingdom, people worship Einhasad as the goddess of healing and peace. However, to us, she's the goddess of war and justice. Her statue in the temple says it all...<br>
+No matter how much you love peace, if you're not firm against evil, peace will be elusive. Don't you agree? The goddess of myth also used physical force to achieve justice and peace. We believe that we should punish evil by any means necessary.<br>
+The faith of Einhasad has a long tradition in our kingdom. We have many legends and myths regarding the goddess and her disciples. Especially in the Rune region, many ancient stories are told regarding the<font color="LEVEL"> Valley of Saints</font> and the<font color="LEVEL"> Monastery of Silence</font>.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Please tell me about the Valley of Saints." </a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Please tell me about the Monastery of Silence." </a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the lord & tax rate info.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

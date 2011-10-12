@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:skill cooldown="0" delay="0" name="Body Of Royal Guard Ant" id="4023"
+    xsi:schemaLocation="http://schemas.l2jserver2.com/skill ../skill.xsd"
+    xmlns:template="http://schemas.l2jserver2.com/skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <maximumLevel>1</maximumLevel>
+</template:skill>

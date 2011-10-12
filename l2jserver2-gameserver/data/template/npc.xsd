@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/npc" xmlns:tns="http://schemas.l2jserver2.com/npc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import schemaLocation="l2jserver2.xsd"/>
+
+  <xs:element name="npc" type="tns:NPCType"/>
+
+  <xs:complexType name="NPCType">
+    <xs:complexContent>
+      <xs:extension base="AbstractActorType">
+        <xs:sequence>
+          <xs:element name="info" type="NPCInfoType"/>
+          <xs:element name="ai" type="NPCAIType" minOccurs="0"/>
+          <xs:element name="talk" type="NPCTalkType" minOccurs="0"/>
+          <xs:element name="droplist" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="item" type="NPCDropType" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="skills" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="skill" type="NPCSkillType" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:int" use="required"/>
+        <xs:attribute name="controller" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

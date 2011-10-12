@@ -16,6 +16,8 @@
  */
 package com.l2jserver.model.template;
 
+import javax.xml.bind.annotation.XmlType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +30,7 @@ import com.l2jserver.model.world.Actor;
  *            the {@link Actor} type this template is for
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "AbstractActorType")
 public abstract class ActorTemplate<T extends Actor> extends
 		AbstractTemplate<T> {
 	/**

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="21231" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Sepulcher Preacher</name>
+        <level>77</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2762.08447"/>
+            <mp regen="3.0" max="1574.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="835.75573"/>
+                <magical speed="333.0" damage="570.71283"/>
+            </attack>
+            <defense>
+                <physical value="328.27073"/>
+                <magical value="218.56635"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>25727</experience>
+        <sp>2784</sp>
+        <collision heigth="50.4" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="7359" min="3602" id="57"/>
+        <item chance="812" category="SPOIL" max="1" min="1" id="729"/>
+        <item chance="34" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="133228" category="UNK_2" max="3" min="1" id="1867"/>
+        <item chance="199842" category="UNK_2" max="3" min="1" id="1872"/>
+        <item chance="487115" category="SPOIL" max="1" min="1" id="1875"/>
+        <item chance="19984" category="UNK_2" max="1" min="1" id="1875"/>
+        <item chance="39969" category="UNK_2" max="1" min="1" id="1881"/>
+        <item chance="2606" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="67" category="UNK_1" max="1" min="1" id="5289"/>
+        <item chance="96" category="UNK_1" max="1" min="1" id="5292"/>
+        <item chance="67" category="UNK_1" max="1" min="1" id="5294"/>
+        <item chance="32787" category="SPOIL" max="1" min="1" id="5480"/>
+        <item chance="9443" category="UNK_1" max="1" min="1" id="5494"/>
+        <item chance="6950" category="UNK_1" max="1" min="1" id="5525"/>
+        <item chance="6950" category="UNK_1" max="1" min="1" id="5526"/>
+        <item chance="2498" category="UNK_200" max="1" min="1" id="8732"/>
+        <item chance="625" category="UNK_200" max="1" min="1" id="8742"/>
+        <item chance="62" category="UNK_200" max="1" min="1" id="8752"/>
+    </droplist>
+    <skills>
+        <skill level="8" id="4002"/>
+        <skill level="1" id="4274"/>
+        <skill level="12" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
+</template:npc>

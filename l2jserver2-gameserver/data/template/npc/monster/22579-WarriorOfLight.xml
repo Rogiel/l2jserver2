@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22579" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Warrior of Light</name>
+        <level>79</level>
+        <race>DRAGON</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="197.379006428133" max="56759.8007674414"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="9122.90867"/>
+                <magical speed="333.0" damage="6229.76399"/>
+            </attack>
+            <defense>
+                <physical value="539.31213"/>
+                <magical value="591.96782"/>
+            </defense>
+            <move walk="100.0" run="200.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>156549</experience>
+        <sp>16504</sp>
+        <collision heigth="55.0" radius="50.0"/>
+    </info>
+    <skills>
+        <skill level="9" id="4211"/>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="10" id="4416"/>
+        <skill level="5" id="5274"/>
+        <skill level="1" id="5462"/>
+    </skills>
+</template:npc>

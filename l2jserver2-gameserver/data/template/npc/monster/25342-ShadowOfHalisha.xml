@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25342" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Shadow of Halisha</name>
+        <title send="false">Ruler of Sepulcher</title>
+        <level>80</level>
+        <race>DEMON</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="73.0538466979355" max="213848.930921219"/>
+            <mp regen="3.03" max="1725.888"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="866.44981"/>
+                <magical speed="333.0" damage="251.11046"/>
+            </attack>
+            <defense>
+                <physical value="1047.20215"/>
+                <magical value="510.858"/>
+            </defense>
+            <move walk="43.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2643173</experience>
+        <sp>390090</sp>
+        <item lefthand="0" righthand="6720"/>
+        <collision heigth="60.0" radius="23.0"/>
+    </info>
+    <droplist>
+        <item chance="365972" category="UNK_2" max="1" min="1" id="3936"/>
+        <item chance="32531" category="UNK_2" max="1" min="1" id="6578"/>
+        <item chance="9666" category="DROP" max="1" min="1" id="6680"/>
+        <item chance="621706" category="DROP" max="9" min="3" id="6707"/>
+        <item chance="5282" category="UNK_1" max="1" min="1" id="7575"/>
+        <item chance="411515" category="UNK_1" max="9" min="3" id="7579"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="9" id="4748"/>
+        <skill level="1" id="4922"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25217" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Cursed Clara</name>
+        <title send="false">Raid Boss</title>
+        <level>50</level>
+        <race>BEAST</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="53.8546339421093" max="155046.064475059"/>
+            <mp regen="2.1" max="747.8"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="458.48043"/>
+                <magical speed="333.0" damage="56.52768"/>
+            </attack>
+            <defense>
+                <physical value="600.71532"/>
+                <magical value="293.06"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2389767</experience>
+        <sp>281312</sp>
+        <collision heigth="25.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="27627" category="UNK_1" max="1" min="1" id="267"/>
+        <item chance="88033" category="DROP" max="1" min="1" id="856"/>
+        <item chance="132049" category="DROP" max="1" min="1" id="887"/>
+        <item chance="66024" category="DROP" max="1" min="1" id="918"/>
+        <item chance="108751" category="UNK_2" max="7" min="3" id="951"/>
+        <item chance="66398" category="DROP" max="243" min="81" id="4049"/>
+        <item chance="158823" category="DROP" max="120" min="40" id="4050"/>
+        <item chance="284041" category="DROP" max="42" min="14" id="4051"/>
+        <item chance="220035" category="UNK_1" max="36" min="12" id="4111"/>
+        <item chance="332294" category="UNK_2" max="3" min="1" id="4601"/>
+        <item chance="221530" category="UNK_2" max="4" min="2" id="4602"/>
+        <item chance="166147" category="UNK_2" max="6" min="2" id="4603"/>
+        <item chance="850000" category="UNK_101" max="1" min="1" id="8176"/>
+        <item chance="850000" category="UNK_100" max="3" min="1" id="9816"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="5" id="4752"/>
+        <skill level="1" id="4867"/>
+    </skills>
+</template:npc>

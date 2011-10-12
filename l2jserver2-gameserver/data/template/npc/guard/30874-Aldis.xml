@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30874" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Aldis</name>
+        <title send="false">Guard</title>
+        <level>80</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="102" righthand="2"/>
+        <collision heigth="24.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Guard Aldis:<br>
+Well, OK... It's that Baium is still said to be living there. The gods confined him there with a curse making it so he can never die. And so the king went crazy after the passage of a long time... But... this might be a secret... There is a rumor that not long ago, some crazy Dark Elf woman opened the door to the tower and released Baium. To find out the facts of the situation, an investigation team was sent by the royal family and the Ivory Tower...<br>
+Currently, that tower cannot be accessed by ordinary people.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go back.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Aldis:<br>
+A king of the Elmoreden Empire named Baium was said to be someone that wanted to reach the world of the gods and to ultimately become a god himself. When he became king and went crazy, he didn't just do so in a good way but caused great suffering to the people... Anyway, he started to build that tower in order to go to the world of the gods. But the gods destroyed that tower and confined the king in the tower forever. But... No, no... it's nothing. Anyway, so that tower came to be called the Tower of Insolence due to the arrogance of the king.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask for even more details.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Aldis:<br>
+If you follow the road a short way to the west, you'll be able to see a giant tower so tall it seems to pierce the sky. That is said to be a tower built by some king of the ancient kingdom... It is called the <font color="LEVEL">Tower of Insolence</font>...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask in detail about the Tower of Insolence.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

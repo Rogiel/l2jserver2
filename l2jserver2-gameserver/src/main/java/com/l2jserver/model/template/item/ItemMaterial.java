@@ -16,6 +16,9 @@
  */
 package com.l2jserver.model.template.item;
 
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name = "ItemMaterialType")
 public enum ItemMaterial {
 	COTTON, WOOD, PAPER, FISH, ORIHARUKON, HORN, ADAMANTAITE, CHRYSOLITE, MITHRIL, COBWEB, RUNE_XP, CLOTH, SCALE_OF_DRAGON, BONE, GOLD, LEATHER, FINE_STEEL, SILVER, DYESTUFF, CRYSTAL, RUNE_REMOVE_PENALTY, STEEL, BRONZE, RUNE_SP, LIQUID, BLOOD_STEEL, DAMASCUS;
 }

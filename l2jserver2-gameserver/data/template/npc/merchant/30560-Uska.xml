@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30560" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Uska</name>
+        <title send="false">Accessory Merchant</title>
+        <level>70</level>
+        <race>ORC</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Uska:<br>
+Does anyone care about high adventure? So nice to see you, Great Lawbreaker. I'm sorry but I cannot sell anything to you! Please just leave!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Uska:<br>
+For the eternal glory of the flame! Brother of the flame, greetings!<br>
+My name is Uska! I am honored to meet you, ha ha! I'm not one to beat around the bush. I'll come right to the point. Do you need an item? Then have a look at my wares! I won't waste your time if you don't waste mine, eh? I know how important keeping to your training regimen is, even in peacetime. Look sharp and let's do business!<br>
+<a action="bypass -h npc_%objectId%_Buy 3056000">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="17" id="4416"/>
+    </skills>
+</template:npc>

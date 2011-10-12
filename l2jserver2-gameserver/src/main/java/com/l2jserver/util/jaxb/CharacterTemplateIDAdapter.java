@@ -34,6 +34,13 @@ public class CharacterTemplateIDAdapter extends
 	 * The character template id provider
 	 */
 	private final CharacterTemplateIDProvider provider;
+	
+	/**
+	 * Used for template generator
+	 */
+	protected CharacterTemplateIDAdapter() {
+		this.provider = null;
+	}
 
 	/**
 	 * @param provider

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.TeleporterController"
+    id="30059" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Trisha</name>
+        <title send="false">Gatekeeper</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="25.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9080" msg="811;Execution Grounds">Execution Grounds - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9081" msg="811;Floran Agricultural Area">Floran Agricultural Area - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9082" msg="811;The Center of the Cruma Marshlands">The Center of the Cruma Marshlands - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Trisha:<br>
+It might be a better idea to walk slowly, taking your time in visiting the other villages. But if you don't have time, we Gatekeepers can open the door of time and space for you. Where do you wish to go?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1101_teleport_to_race_track" msg="811;Monster Racetrack">Teleport to Monster Racetrack (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1106_teleport_to_fantasy_isle" msg="811;Fantasy Isle">Teleport to Fantasy Isle (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Trisha:<br>
+Someone like you has no right to use the door of space and time. Use your own two feet.
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9980" msg="811;Execution Grounds">Execution Grounds - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9981" msg="811;Floran Agricultural Area">Floran Agricultural Area - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9982" msg="811;The Center of the Cruma Marshlands">The Center of the Cruma Marshlands - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 19" msg="811;The Town of Giran">The Town of Giran - 6800 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 85" msg="811;Heine">Heine - 12000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 18" msg="811;The Town of Gludio">The Town of Gludio - 3400 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1046" msg="811;The Town of Goddard">The Town of Goddard - 71000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1047" msg="811;Rune Township">Rune Township - 57000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1048" msg="811;Town of Schuttgart">Town of Schuttgart - 88000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1049" msg="811;Town of Aden">Town of Aden - 52000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1050" msg="811;Town of Oren">Town of Oren - 33000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1051" msg="811;Cruma Marshlands">Cruma Marshlands - 760 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1052" msg="811;Cruma Tower">Cruma Tower - 2300 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 86" msg="811;Fortress of Resistance">Fortress of Resistance - 1700 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1053" msg="811;Plains of Dion">Plains of Dion - 1500 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 87" msg="811;Bee Hive">Bee Hive - 2900 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1054" msg="811;Tanor Canyon">Tanor Canyon - 3900 Adena</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

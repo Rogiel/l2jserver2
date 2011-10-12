@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="10" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Jack Sage</name>
+        <title send="false">Eva's High Priest</title>
+        <level>85</level>
+        <race>DWARVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>723</experience>
+        <sp>10</sp>
+        <collision heigth="26.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+<br>
+<table width=610>
+<tr>
+<td width=250 align=left><a action="bypass _bbstop">HOME</a>&nbsp;>&nbsp;<a action="bypass _bbstop;2">Lineage II News</a>&nbsp;>&nbsp;<a action="bypass _bbstop;10">Events</a></td>
+</tr>
+<tr>
+<td height=9></td>
+</tr>
+</table>
+<center>
+<table width=610 bgcolor="666666">
+<tr>
+<td width=50 height=18 align="center">&nbsp;</td>
+<td width=380 height=18 align="center">Title</td>
+<td width=90 height=18 align="center">Type of Event</td>
+<td width=90 height=18 align="left">&nbsp;&nbsp;Date</td>
+</tr>
+</table>
+<table width=610 height=46>
+<tr>
+<td width=46 align="right"><img src="l2ui.bbs_board" width=32 height=32></td>
+<td width=94 align="left"><a action="bypass _bbstop;11">Wedding Event</a></td>
+<td width=290 align="left"><font color="FF9900">Marry to your love and Enjoy the benefits.</font></td>
+<td width=100 align="center">Custom Event</td>
+<td width=80 align="left">No Expiration</td>
+</tr>
+</table>
+<img src="l2ui.squaregray" width="610" height="1">
+<table width=610 height=46>
+<tr>
+<td width=46 align="right"><img src="l2ui.bbs_board" width=32 height=32></td>
+<td width=94 align="left"><a action="bypass _bbstop;12">Welcome Event</a></td>
+<td width=290 align="left"><font color="FF9900">The Biggest Event that a Lineage II Server has ever seen</font></td>
+<td width=100 align="center">Custom Event</td>
+<td width=80 align="left">May 21th</td>
+</tr>
+</table>
+<img src="l2ui.squaregray" width="610" height="1">
+</center>
+</body>
+</html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

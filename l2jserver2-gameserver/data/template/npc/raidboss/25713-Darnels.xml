@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25713" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Darnels</name>
+        <title send="false">Square</title>
+        <level>84</level>
+        <race>DEMON</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="159.893968662935" max="1395831.13184129"/>
+            <mp regen="30.0" max="18120.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="5370.66229"/>
+                <magical speed="333.0" damage="3746.43835"/>
+            </attack>
+            <defense>
+                <physical value="644.16101"/>
+                <magical value="345.95324"/>
+            </defense>
+            <move walk="60.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1789794</experience>
+        <sp>1050642</sp>
+        <collision heigth="40.6" radius="20.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="9" id="4182"/>
+        <skill level="9" id="4189"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5479"/>
+        <skill level="1" id="6658"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30170" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Radic</name>
+        <title send="false">Warehouse Keeper</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="17.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Warehouse Keeper Radic:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositP">Deposit an item. (Private Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawP">Withdraw an item. (Private Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Warehouse Keeper Radic:<br>
+<center>
+<a action="bypass -h npc_%objectId%_DepositC" msg="1039">Deposit an item. (Clan Warehouse)</a><br>
+<a action="bypass -h npc_%objectId%_WithdrawC">Withdraw an item. (Clan Warehouse)</a><br><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</center>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Warehouse Keeper Radic:<br>
+Greetings, adventurer. Welcome to the Ivory Tower. I recommend you that you leave any nonessential items with us and then go explore this place. It is essentially an entire city built by Wizards for Wizards. We are currently in the 1st basement, where you can find various Wizard Guilds.<br>
+Believe it or not, back during the days of the Elmoreden Empire, this place wielded power throughout the continent.<br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 1">Private Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Clan Warehouse</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/g_cube_warehouse001.htm"><font color="LEVEL">Wondrous Cubic</font></a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</center>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Warehouse Keeper Radic:<br>
+It looks like you've come to the wrong place, adventurer. I'm a warehouse keeper, which means I only teach Scavengers and Bounty Hunters. Why don't you look for a mentor better suited to your profession?
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

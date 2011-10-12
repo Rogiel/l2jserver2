@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="AbstractActorType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="AbstractTemplateType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AbstractTemplateType" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="CharacterStatsType">
+    <xs:sequence>
+      <xs:element name="hp">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="base" type="xs:double" use="required"/>
+          <xs:attribute name="modifier" type="xs:double" use="required"/>
+          <xs:attribute name="add" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mp">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="base" type="xs:double" use="required"/>
+          <xs:attribute name="modifier" type="xs:double" use="required"/>
+          <xs:attribute name="add" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cp">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="base" type="xs:double" use="required"/>
+          <xs:attribute name="modifier" type="xs:double" use="required"/>
+          <xs:attribute name="add" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="attack" type="CharacterAttackType"/>
+      <xs:element name="defense" type="CharacterDefenseType"/>
+      <xs:element name="move" type="CharacterMovementType"/>
+      <xs:element name="base" type="CharacterBaseStatsType"/>
+      <xs:element name="maxload" type="xs:int"/>
+    </xs:sequence>
+    <xs:attribute name="level" type="xs:int" use="required"/>
+    <xs:attribute name="crafter" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CharacterAttackType">
+    <xs:sequence>
+      <xs:element name="physical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="damage" type="xs:double" use="required"/>
+          <xs:attribute name="speed" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="magical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="damage" type="xs:double" use="required"/>
+          <xs:attribute name="speed" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="evasion" type="xs:int" use="required"/>
+    <xs:attribute name="critical" type="xs:int" use="required"/>
+    <xs:attribute name="accuracy" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CharacterDefenseType">
+    <xs:sequence>
+      <xs:element name="physical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="value" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="magical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="value" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CharacterMovementType">
+    <xs:sequence/>
+    <xs:attribute name="run" type="xs:double" use="required"/>
+    <xs:attribute name="walk" type="xs:double" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CharacterBaseStatsType">
+    <xs:sequence/>
+    <xs:attribute name="int" type="xs:int" use="required"/>
+    <xs:attribute name="str" type="xs:int" use="required"/>
+    <xs:attribute name="con" type="xs:int" use="required"/>
+    <xs:attribute name="men" type="xs:int" use="required"/>
+    <xs:attribute name="dex" type="xs:int" use="required"/>
+    <xs:attribute name="wit" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CharacterCollisionType">
+    <xs:sequence>
+      <xs:element name="male">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="radius" type="xs:double" use="required"/>
+          <xs:attribute name="heigth" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="female">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="radius" type="xs:double" use="required"/>
+          <xs:attribute name="heigth" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NPCInfoType">
+    <xs:sequence>
+      <xs:element name="name" type="NPCNameType" minOccurs="0"/>
+      <xs:element name="title" type="NPCTitleType" minOccurs="0"/>
+      <xs:element name="level" type="xs:int"/>
+      <xs:element name="race" type="NPCRaceType" minOccurs="0"/>
+      <xs:element name="sex" type="ActorSexType" minOccurs="0"/>
+      <xs:element name="stats" type="NPCStatsType"/>
+      <xs:element name="experience" type="xs:long"/>
+      <xs:element name="sp" type="xs:int"/>
+      <xs:element name="item" type="NPCItemsType" minOccurs="0"/>
+      <xs:element name="collision" type="NPCCollisionType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="attackable" type="xs:boolean" use="required"/>
+    <xs:attribute name="targetable" type="xs:boolean" use="required"/>
+    <xs:attribute name="aggressive" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCNameType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="send" type="xs:boolean"/>
+        <xs:attribute name="display" type="xs:boolean"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="NPCTitleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="send" type="xs:boolean"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="NPCStatsType">
+    <xs:sequence>
+      <xs:element name="hp">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="max" type="xs:double" use="required"/>
+          <xs:attribute name="regen" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mp">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="max" type="xs:double" use="required"/>
+          <xs:attribute name="regen" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="attack" type="NPCAttackType" minOccurs="0"/>
+      <xs:element name="defense" type="NPCDefenseType" minOccurs="0"/>
+      <xs:element name="move" type="NPCMovementType" minOccurs="0"/>
+      <xs:element name="base" type="NPCBaseStatsType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NPCAttackType">
+    <xs:sequence>
+      <xs:element name="physical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="damage" type="xs:double" use="required"/>
+          <xs:attribute name="speed" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="magical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="damage" type="xs:double" use="required"/>
+          <xs:attribute name="speed" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="range" type="xs:int" use="required"/>
+    <xs:attribute name="evasion" type="xs:int" use="required"/>
+    <xs:attribute name="critical" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCDefenseType">
+    <xs:sequence>
+      <xs:element name="physical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="value" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="magical">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="value" type="xs:double" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NPCMovementType">
+    <xs:sequence/>
+    <xs:attribute name="run" type="xs:double" use="required"/>
+    <xs:attribute name="walk" type="xs:double" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCBaseStatsType">
+    <xs:sequence/>
+    <xs:attribute name="int" type="xs:int" use="required"/>
+    <xs:attribute name="str" type="xs:int" use="required"/>
+    <xs:attribute name="con" type="xs:int" use="required"/>
+    <xs:attribute name="men" type="xs:int" use="required"/>
+    <xs:attribute name="dex" type="xs:int" use="required"/>
+    <xs:attribute name="wit" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCItemsType">
+    <xs:sequence/>
+    <xs:attribute name="righthand" type="xs:int"/>
+    <xs:attribute name="lefthand" type="xs:int"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCCollisionType">
+    <xs:sequence/>
+    <xs:attribute name="radius" type="xs:double" use="required"/>
+    <xs:attribute name="heigth" type="xs:double" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCAIType">
+    <xs:sequence/>
+    <xs:attribute name="script" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCTalkType">
+    <xs:sequence>
+      <xs:element name="chat" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="id" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="default" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCDropType">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:int" use="required"/>
+    <xs:attribute name="min" type="xs:int" use="required"/>
+    <xs:attribute name="max" type="xs:int" use="required"/>
+    <xs:attribute name="category" type="NPCDropCategoryType" use="required"/>
+    <xs:attribute name="chance" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="NPCSkillType">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:int" use="required"/>
+    <xs:attribute name="level" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ItemEffectsType">
+    <xs:sequence/>
+    <xs:attribute name="type" type="ItemEffectType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="ItemStatsType">
+    <xs:sequence>
+      <xs:element name="physicalDamage" type="ItemAttributeType" minOccurs="0"/>
+      <xs:element name="magicalDamage" type="ItemAttributeType" minOccurs="0"/>
+      <xs:element name="criticalChance" type="ItemAttributeType" minOccurs="0"/>
+      <xs:element name="physicalAttackSpeed" type="ItemAttributeType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ItemAttributeType">
+    <xs:sequence>
+      <xs:element name="set">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:double">
+              <xs:attribute name="order" type="xs:int" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CoordinateType">
+    <xs:sequence/>
+    <xs:attribute name="x" type="xs:int" use="required"/>
+    <xs:attribute name="y" type="xs:int" use="required"/>
+    <xs:attribute name="z" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="CharacterClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HUMAN_FIGHTER"/>
+      <xs:enumeration value="WARRIOR"/>
+      <xs:enumeration value="GLADIATOR"/>
+      <xs:enumeration value="WARLORD"/>
+      <xs:enumeration value="KNIGHT"/>
+      <xs:enumeration value="PALADIN"/>
+      <xs:enumeration value="DARK_AVENGER"/>
+      <xs:enumeration value="ROGUE"/>
+      <xs:enumeration value="TREASURE_HUNTER"/>
+      <xs:enumeration value="HAWKEYE"/>
+      <xs:enumeration value="DUELIST"/>
+      <xs:enumeration value="DREADNOUGHT"/>
+      <xs:enumeration value="PHOENIX_KNIGHT"/>
+      <xs:enumeration value="HELL_KNIGHT"/>
+      <xs:enumeration value="SAGITTARIUS"/>
+      <xs:enumeration value="ADVENTURER"/>
+      <xs:enumeration value="HUMAN_MYSTIC"/>
+      <xs:enumeration value="WIZARD"/>
+      <xs:enumeration value="SORCEROR"/>
+      <xs:enumeration value="NECROMANCER"/>
+      <xs:enumeration value="WARLOCK"/>
+      <xs:enumeration value="CLERIC"/>
+      <xs:enumeration value="BISHOP"/>
+      <xs:enumeration value="PROPHET"/>
+      <xs:enumeration value="ARCHMAGE"/>
+      <xs:enumeration value="SOULTAKER"/>
+      <xs:enumeration value="ARCANA_LORD"/>
+      <xs:enumeration value="CARDINAL"/>
+      <xs:enumeration value="HIEROPHANT"/>
+      <xs:enumeration value="ELVEN_FIGHTER"/>
+      <xs:enumeration value="ELVEN_KNIGHT"/>
+      <xs:enumeration value="TEMPLE_KNIGHT"/>
+      <xs:enumeration value="SWORD_SINGER"/>
+      <xs:enumeration value="ELVEN_SCOUT"/>
+      <xs:enumeration value="PLAINS_WALKER"/>
+      <xs:enumeration value="SILVER_RANGER"/>
+      <xs:enumeration value="EVA_TEMPLAR"/>
+      <xs:enumeration value="SWORD_MUSE"/>
+      <xs:enumeration value="WIND_RIDER"/>
+      <xs:enumeration value="MOONLIGHT_SENTINEL"/>
+      <xs:enumeration value="ELVEN_MYSTIC"/>
+      <xs:enumeration value="ELVEN_WIZARD"/>
+      <xs:enumeration value="SPELLSINGER"/>
+      <xs:enumeration value="ELEMENTAL_SUMMONER"/>
+      <xs:enumeration value="ORACLE"/>
+      <xs:enumeration value="ELDER"/>
+      <xs:enumeration value="MYSTIC_MUSE"/>
+      <xs:enumeration value="ELEMENTAL_MASTER"/>
+      <xs:enumeration value="EVA_SAINT"/>
+      <xs:enumeration value="DARK_FIGHTER"/>
+      <xs:enumeration value="PALUS_KNIGHT"/>
+      <xs:enumeration value="SHILLIEN_KNIGHT"/>
+      <xs:enumeration value="BLADEDANCER"/>
+      <xs:enumeration value="ASSASSIN"/>
+      <xs:enumeration value="ABYSS_WALKER"/>
+      <xs:enumeration value="PHANTOM_RANGER"/>
+      <xs:enumeration value="SHILLIEN_TEMPLAR"/>
+      <xs:enumeration value="spectralDancer"/>
+      <xs:enumeration value="GHOST_HUNTER"/>
+      <xs:enumeration value="GHOST_SENTINEL"/>
+      <xs:enumeration value="DARK_MYSTIC"/>
+      <xs:enumeration value="DARK_WIZARD"/>
+      <xs:enumeration value="SPELLHOWLER"/>
+      <xs:enumeration value="PHANTOM_SUMMONER"/>
+      <xs:enumeration value="SHILLIEN_ORACLE"/>
+      <xs:enumeration value="SHILLIEN_ELDER"/>
+      <xs:enumeration value="STORM_SCREAMER"/>
+      <xs:enumeration value="SPECTRAL_MASTER"/>
+      <xs:enumeration value="SHILLIEAN_SAINT"/>
+      <xs:enumeration value="ORC_FIGHTER"/>
+      <xs:enumeration value="ORC_RAIDER"/>
+      <xs:enumeration value="DESTROYER"/>
+      <xs:enumeration value="ORC_MONK"/>
+      <xs:enumeration value="TYRANT"/>
+      <xs:enumeration value="TITAN"/>
+      <xs:enumeration value="GRAND_KHAUATARI"/>
+      <xs:enumeration value="ORC_MYSTIC"/>
+      <xs:enumeration value="ORC_SHAMAN"/>
+      <xs:enumeration value="OVERLORD"/>
+      <xs:enumeration value="WARCRYER"/>
+      <xs:enumeration value="DOMINATOR"/>
+      <xs:enumeration value="DOOMCRYER"/>
+      <xs:enumeration value="DWARVEN_FIGHTER"/>
+      <xs:enumeration value="SCAVENGER"/>
+      <xs:enumeration value="BOUNTY_HUNTER"/>
+      <xs:enumeration value="ARTISAN"/>
+      <xs:enumeration value="WARSMITH"/>
+      <xs:enumeration value="FORTUNE_SEEKER"/>
+      <xs:enumeration value="MAESTRO"/>
+      <xs:enumeration value="MALE_SOLDIER"/>
+      <xs:enumeration value="TROOPER"/>
+      <xs:enumeration value="BERSEKER"/>
+      <xs:enumeration value="MALE_SOULBREAKER"/>
+      <xs:enumeration value="DOOMBRINGER"/>
+      <xs:enumeration value="MALE_SOULDHOUND"/>
+      <xs:enumeration value="FEMALE_SOLDIER"/>
+      <xs:enumeration value="WARDER"/>
+      <xs:enumeration value="FEMALE_SOULBREAKER"/>
+      <xs:enumeration value="ARBALESTER"/>
+      <xs:enumeration value="FEMALE_SOULDHOUND"/>
+      <xs:enumeration value="TRICKSTER"/>
+      <xs:enumeration value="INSPECTOR"/>
+      <xs:enumeration value="JUDICATOR"/>
+      <xs:enumeration value="DUMMY_ENTRY_1"/>
+      <xs:enumeration value="DUMMY_ENTRY_2"/>
+      <xs:enumeration value="DUMMY_ENTRY_3"/>
+      <xs:enumeration value="DUMMY_ENTRY_4"/>
+      <xs:enumeration value="DUMMY_ENTRY_5"/>
+      <xs:enumeration value="DUMMY_ENTRY_6"/>
+      <xs:enumeration value="DUMMY_ENTRY_7"/>
+      <xs:enumeration value="DUMMY_ENTRY_8"/>
+      <xs:enumeration value="DUMMY_ENTRY_9"/>
+      <xs:enumeration value="DUMMY_ENTRY_10"/>
+      <xs:enumeration value="DUMMY_ENTRY_11"/>
+      <xs:enumeration value="DUMMY_ENTRY_12"/>
+      <xs:enumeration value="DUMMY_ENTRY_13"/>
+      <xs:enumeration value="DUMMY_ENTRY_14"/>
+      <xs:enumeration value="DUMMY_ENTRY_15"/>
+      <xs:enumeration value="DUMMY_ENTRY_16"/>
+      <xs:enumeration value="DUMMY_ENTRY_17"/>
+      <xs:enumeration value="DUMMY_ENTRY_18"/>
+      <xs:enumeration value="DUMMY_ENTRY_19"/>
+      <xs:enumeration value="DUMMY_ENTRY_20"/>
+      <xs:enumeration value="DUMMY_ENTRY_21"/>
+      <xs:enumeration value="DUMMY_ENTRY_22"/>
+      <xs:enumeration value="DUMMY_ENTRY_23"/>
+      <xs:enumeration value="DUMMY_ENTRY_24"/>
+      <xs:enumeration value="DUMMY_ENTRY_25"/>
+      <xs:enumeration value="DUMMY_ENTRY_26"/>
+      <xs:enumeration value="DUMMY_ENTRY_27"/>
+      <xs:enumeration value="DUMMY_ENTRY_28"/>
+      <xs:enumeration value="DUMMY_ENTRY_29"/>
+      <xs:enumeration value="DUMMY_ENTRY_30"/>
+      <xs:enumeration value="DUMMY_ENTRY_31"/>
+      <xs:enumeration value="DUMMY_ENTRY_32"/>
+      <xs:enumeration value="DUMMY_ENTRY_33"/>
+      <xs:enumeration value="DUMMY_ENTRY_34"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NPCRaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HUMAN"/>
+      <xs:enumeration value="ELVEN"/>
+      <xs:enumeration value="DARKELVEN"/>
+      <xs:enumeration value="ORC"/>
+      <xs:enumeration value="DWARVEN"/>
+      <xs:enumeration value="KAMAEL"/>
+      <xs:enumeration value="UNDEAD"/>
+      <xs:enumeration value="MAGIC_CREATURE"/>
+      <xs:enumeration value="BEAST"/>
+      <xs:enumeration value="ANIMAL"/>
+      <xs:enumeration value="PLANT"/>
+      <xs:enumeration value="HUMANOID"/>
+      <xs:enumeration value="SPIRIT"/>
+      <xs:enumeration value="ANGEL"/>
+      <xs:enumeration value="DEMON"/>
+      <xs:enumeration value="DRAGON"/>
+      <xs:enumeration value="GIANT"/>
+      <xs:enumeration value="BUG"/>
+      <xs:enumeration value="FAIRIE"/>
+      <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="NON_LIVING"/>
+      <xs:enumeration value="SIEGE_WEAPON"/>
+      <xs:enumeration value="DEFENDING_ARMY"/>
+      <xs:enumeration value="MERCENARIE"/>
+      <xs:enumeration value="UNKNOWN"/>
+      <xs:enumeration value="NONE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ActorSexType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MALE"/>
+      <xs:enumeration value="FEMALE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NPCDropCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DROP"/>
+      <xs:enumeration value="SPOIL"/>
+      <xs:enumeration value="UNK_1"/>
+      <xs:enumeration value="UNK_2"/>
+      <xs:enumeration value="UNK_3"/>
+      <xs:enumeration value="UNK_4"/>
+      <xs:enumeration value="UNK_5"/>
+      <xs:enumeration value="UNK_6"/>
+      <xs:enumeration value="UNK_7"/>
+      <xs:enumeration value="UNK_8"/>
+      <xs:enumeration value="UNK_9"/>
+      <xs:enumeration value="UNK_10"/>
+      <xs:enumeration value="UNK_11"/>
+      <xs:enumeration value="UNK_12"/>
+      <xs:enumeration value="UNK_13"/>
+      <xs:enumeration value="UNK_14"/>
+      <xs:enumeration value="UNK_15"/>
+      <xs:enumeration value="UNK_16"/>
+      <xs:enumeration value="UNK_17"/>
+      <xs:enumeration value="UNK_18"/>
+      <xs:enumeration value="UNK_19"/>
+      <xs:enumeration value="UNK_20"/>
+      <xs:enumeration value="UNK_21"/>
+      <xs:enumeration value="UNK_22"/>
+      <xs:enumeration value="UNK_23"/>
+      <xs:enumeration value="UNK_24"/>
+      <xs:enumeration value="UNK_25"/>
+      <xs:enumeration value="UNK_26"/>
+      <xs:enumeration value="UNK_27"/>
+      <xs:enumeration value="UNK_28"/>
+      <xs:enumeration value="UNK_29"/>
+      <xs:enumeration value="UNK_30"/>
+      <xs:enumeration value="UNK_31"/>
+      <xs:enumeration value="UNK_32"/>
+      <xs:enumeration value="UNK_33"/>
+      <xs:enumeration value="UNK_34"/>
+      <xs:enumeration value="UNK_35"/>
+      <xs:enumeration value="UNK_36"/>
+      <xs:enumeration value="UNK_100"/>
+      <xs:enumeration value="UNK_101"/>
+      <xs:enumeration value="UNK_102"/>
+      <xs:enumeration value="UNK_200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ItemEffectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IMMEDIATE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ItemMaterialType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COTTON"/>
+      <xs:enumeration value="WOOD"/>
+      <xs:enumeration value="PAPER"/>
+      <xs:enumeration value="FISH"/>
+      <xs:enumeration value="ORIHARUKON"/>
+      <xs:enumeration value="HORN"/>
+      <xs:enumeration value="ADAMANTAITE"/>
+      <xs:enumeration value="CHRYSOLITE"/>
+      <xs:enumeration value="MITHRIL"/>
+      <xs:enumeration value="COBWEB"/>
+      <xs:enumeration value="RUNE_XP"/>
+      <xs:enumeration value="CLOTH"/>
+      <xs:enumeration value="SCALE_OF_DRAGON"/>
+      <xs:enumeration value="BONE"/>
+      <xs:enumeration value="GOLD"/>
+      <xs:enumeration value="LEATHER"/>
+      <xs:enumeration value="FINE_STEEL"/>
+      <xs:enumeration value="SILVER"/>
+      <xs:enumeration value="DYESTUFF"/>
+      <xs:enumeration value="CRYSTAL"/>
+      <xs:enumeration value="RUNE_REMOVE_PENALTY"/>
+      <xs:enumeration value="STEEL"/>
+      <xs:enumeration value="BRONZE"/>
+      <xs:enumeration value="RUNE_SP"/>
+      <xs:enumeration value="LIQUID"/>
+      <xs:enumeration value="BLOOD_STEEL"/>
+      <xs:enumeration value="DAMASCUS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ItemEnumType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"/>
+      <xs:enumeration value="ARROW"/>
+      <xs:enumeration value="POTION"/>
+      <xs:enumeration value="WEAPON_ENCHANT_SCROLL"/>
+      <xs:enumeration value="ARMOR_ENCHANT_SCROLL"/>
+      <xs:enumeration value="SCROLL"/>
+      <xs:enumeration value="RECIPE"/>
+      <xs:enumeration value="MATERIAL"/>
+      <xs:enumeration value="PET_COLLAR"/>
+      <xs:enumeration value="CASTLE_GUARD"/>
+      <xs:enumeration value="LOTTERY_TICKET"/>
+      <xs:enumeration value="RACE_TICKET"/>
+      <xs:enumeration value="DYE"/>
+      <xs:enumeration value="SEED"/>
+      <xs:enumeration value="CROP"/>
+      <xs:enumeration value="MATURECROP"/>
+      <xs:enumeration value="HARVEST"/>
+      <xs:enumeration value="SEED2"/>
+      <xs:enumeration value="TICKET_OF_LORD"/>
+      <xs:enumeration value="LURE"/>
+      <xs:enumeration value="BLESSED_WEAPON_ENCHANT_SCROLL"/>
+      <xs:enumeration value="BLESSED_ARMOR_ENCHANT_SCROLL"/>
+      <xs:enumeration value="COUPON"/>
+      <xs:enumeration value="ELIXIR"/>
+      <xs:enumeration value="ATTRIBUTE_ENCHANT_SCROLL"/>
+      <xs:enumeration value="BOLT"/>
+      <xs:enumeration value="SCRL_INC_ENCHANT_PROP_WP"/>
+      <xs:enumeration value="SCRL_INC_ENCHANT_PROP_AM"/>
+      <xs:enumeration value="ANCIENT_CRYSTAL_ENCHANT_WP"/>
+      <xs:enumeration value="ANCIENT_CRYSTAL_ENCHANT_AM"/>
+      <xs:enumeration value="RUNE_SELECT"/>
+      <xs:enumeration value="RUNE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="WeaponType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SWORD"/>
+      <xs:enumeration value="BLUNT"/>
+      <xs:enumeration value="DAGGER"/>
+      <xs:enumeration value="BOW"/>
+      <xs:enumeration value="POLE"/>
+      <xs:enumeration value="NONE"/>
+      <xs:enumeration value="DUAL"/>
+      <xs:enumeration value="ETC"/>
+      <xs:enumeration value="FIST"/>
+      <xs:enumeration value="DUALFIST"/>
+      <xs:enumeration value="FISHINGROD"/>
+      <xs:enumeration value="RAPIER"/>
+      <xs:enumeration value="ANCIENTSWORD"/>
+      <xs:enumeration value="CROSSBOW"/>
+      <xs:enumeration value="FLAG"/>
+      <xs:enumeration value="OWNTHING"/>
+      <xs:enumeration value="DUALDAGGER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ArmorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"/>
+      <xs:enumeration value="LIGHT"/>
+      <xs:enumeration value="HEAVY"/>
+      <xs:enumeration value="MAGIC"/>
+      <xs:enumeration value="SIGILO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TeleportRestrictionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOBLE"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

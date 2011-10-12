@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25554" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Brutus the Obstinate</name>
+        <title send="false">Forsaken Prisoner</title>
+        <level>78</level>
+        <race>DEMON</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="87.9040997147757" max="205362.145098505"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7149.40064"/>
+                <magical speed="333.0" damage="941.25731"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.92"/>
+            </defense>
+            <move walk="37.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2504378</experience>
+        <sp>380180</sp>
+        <collision heigth="40.0" radius="24.0"/>
+    </info>
+    <droplist>
+        <item chance="8104" category="UNK_1" max="1" min="1" id="6367"/>
+        <item chance="624177" category="UNK_1" max="9" min="3" id="6691"/>
+        <item chance="179677" category="UNK_3" max="1" min="1" id="9626"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4182"/>
+        <skill level="7" id="4190"/>
+        <skill level="7" id="4195"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5465"/>
+    </skills>
+</template:npc>

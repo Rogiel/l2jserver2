@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25447" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Immortal Savior Mardil</name>
+        <title send="false">Raid Boss</title>
+        <level>71</level>
+        <race>DEMON</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="85.2293587663441" max="271409.0955071"/>
+            <mp regen="3.0" max="1377.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="1194.92418"/>
+                <magical speed="333.0" damage="231.0889"/>
+            </attack>
+            <defense>
+                <physical value="901.96077"/>
+                <magical value="440.02"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3074084</experience>
+        <sp>495533</sp>
+        <item lefthand="0" righthand="3939"/>
+        <collision heigth="38.0" radius="13.5"/>
+    </info>
+    <droplist>
+        <item chance="6687" category="UNK_1" max="1" min="1" id="164"/>
+        <item chance="6687" category="UNK_1" max="1" min="1" id="213"/>
+        <item chance="23971" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="239707" category="UNK_2" max="1" min="1" id="960"/>
+        <item chance="14002" category="DROP" max="1" min="1" id="5326"/>
+        <item chance="14002" category="DROP" max="1" min="1" id="5329"/>
+        <item chance="260220" category="DROP" max="12" min="4" id="5487"/>
+        <item chance="138784" category="DROP" max="22" min="8" id="5488"/>
+        <item chance="237763" category="UNK_1" max="12" min="4" id="5533"/>
+        <item chance="126682" category="UNK_1" max="22" min="8" id="5544"/>
+        <item chance="3995" category="UNK_2" max="1" min="1" id="6577"/>
+        <item chance="850000" category="UNK_101" max="2" min="1" id="8176"/>
+        <item chance="520000" category="UNK_102" max="1" min="1" id="8619"/>
+        <item chance="840000" category="UNK_100" max="4" min="2" id="9814"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4178"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4960"/>
+    </skills>
+</template:npc>

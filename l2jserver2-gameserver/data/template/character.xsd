@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/character" xmlns:tns="http://schemas.l2jserver2.com/character" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import schemaLocation="l2jserver2.xsd"/>
+
+  <xs:element name="character" type="tns:CharacterType"/>
+
+  <xs:complexType name="CharacterType">
+    <xs:complexContent>
+      <xs:extension base="AbstractActorType">
+        <xs:sequence>
+          <xs:element name="stats" type="CharacterStatsType"/>
+          <xs:element name="collision" type="CharacterCollisionType"/>
+        </xs:sequence>
+        <xs:attribute name="class" type="CharacterClassType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

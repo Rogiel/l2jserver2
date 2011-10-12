@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="31076" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Newbie Guide</name>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="20.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Newbie Guide:<br>
+May Einhasad's light protect you! It is my responsibility to advise new adventurers.<br>
+The power of evil is growing day by day, we hear tales of unending wars, and -- most ominous of all -- even the power of Dawn and Dusk struggle for supremacy... You will need all your strength and skill to survive in such a dangerous world. Please pay heed to my advice...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask for advice about class transfers.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagic.htm">See the list of available supplemental magic.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagicServitor.htm">See the list of the supplemental magic for servitors.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/BlessingOfProtection.htm">Receive Blessing of Protection.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NewbieCoupons">Receive support with a Newbie item.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Newbie Guide:<br>
+A class transfer permits a character who has reached a certain level of experience and ability to acquire a new, higher-level occupation.<br>
+In order to complete the class transfer, you must undertake a <font color="LEVEL">Class Change Quest</font>. Only characters who are at least level 19 may perform this quest; the class transfer takes effect once the quest is completed and the character reaches level 20. Choose your new occupation wisely, because you cannot undue it once the class transfer is completed.<br>
+To hear detailed information about where you can receive a Class Transfer Quest, which occupations you can choose, and more, you should speak to the appropriate Grand Master.<br>
+Fighters and Elven Fighters should visit Grand Master Ramos of the Fighters Guild.<br>
+Mages and Elven Mages should visit High Priestess Levian of the Temple.<br>
+Dark Fighters and Dark Mages should visit Grand Master Xenos of the Dark Elf Guild.<br>
+Orc Fighters and Orc Mages should visit High Prefect Osborn.<br>
+Dwarf Fighters should visit Warehouse Chief Moke or Head Blacksmith Tapoy.<br>
+Kamael Soldiers should visit Grand Master Yeniche of the Kamael Guild.
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30950" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Euclie</name>
+        <title send="false">Researcher</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="18.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Researcher Euclie:<br>
+A while back we were visited by investigators from the Ivory Tower. Their scroll of teleport would not function properly here, leading them to surmise that the area around the tower is mysteriously warped. This was likely done by the original designers of the tower in order to prevent invaders from using teleportation to move troops within the tower.<br>
+The only teleportation device that works well here is the dimension vortex. We have not determined why it works while other modes of teleportation do not. Dimension stones allow movement between floors. For example, if you want to go to the <font color="LEVEL">10th floor</font>, you need a <font color="LEVEL">Red Dimension Stone</font>. To return to the <font color="LEVEL">first floor</font>, you will need a <font color="LEVEL">Green Dimension Stone</font>.<br>
+Unfortunately the demons have discovered the dimension vortex, and are in a frenzy trying to collect all the dimension stones they can find. I suppose they want to control all movement within the tower. If you need a dimension stone, you must take one from a demon. It will not be easy. I wish you luck...! Don't get killed!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Researcher Euclie:<br>
+He is a fearless demon who led a legion of his minions in an invasion of the Tower of Insolence. His followers include Longhorn General Golconda and the fearsome Kernon, but Death Lord Hallate himself is the most frightening of all. He is capable of killing six angels single-handedly! He is truly the epitome of evil.<br>
+It is said that he seeks something that is kept on the top floor of this tower. What it is, I haven't a clue!<br>
+It was Hallate who destroyed the force field that was protecting the tower. Ironically, it was this action that made your presence here possible, so we're technically in debt to him.<br>
+Anyway, the conflicts between Hallate's legion and the Platinum tribe and the angels guarding the tower have reduced the entire tower to a battleground.<br>
+Hallate's headquarters is on the third floor. I advise you to keep your distance from him.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Researcher Euclie:<br>
+Welcome! It is a pleasure to see someone with blood flowing through their veins again! You don't work for that demon Hallate, do you? Or some treacherous angel? Oh, well, whatever, I'm glad to see you!<br>
+I am currently researching the <font color="LEVEL">dimension vortex</font>! It is truly amazing! Moments ago I activated it and was instantly transported here from the first floor!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Who is Hallate?"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"What is the dimension vortex?"</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

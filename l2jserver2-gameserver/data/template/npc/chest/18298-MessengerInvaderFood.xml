@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="18298" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Messenger Invader Food</name>
+        <level>78</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="9.095" max="3259.9791329"/>
+            <mp regen="3.21" max="1976.076"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1051.86125"/>
+                <magical speed="333.0" damage="768.56482"/>
+            </attack>
+            <defense>
+                <physical value="387.11331"/>
+                <magical value="234.50516"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="8.5" radius="8.5"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="2604" min="1301" id="57"/>
+        <item chance="92" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="912" category="UNK_2" max="1" min="1" id="960"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
+</template:npc>

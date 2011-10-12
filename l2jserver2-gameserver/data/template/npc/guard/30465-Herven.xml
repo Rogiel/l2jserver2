@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30465" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Herven</name>
+        <title send="false">Guard</title>
+        <level>80</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="275"/>
+        <collision heigth="24.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Herven:<br>
+You are a new face. Have you come from foreign lands? You must know that Dion s local specialty is the <font color="LEVEL">mandragora!</font> Well then, do you know where the largest Mandragora Farm in Dion is? If you just follow the road in front of me, you can take a look at <font color="LEVEL">Aaron Nightshade's</font> Mandragora Farm, the largest mandragora operation in Dion.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about 'mandragoras'.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Guard Herven:<br>
+You don't know anything, do you? To think that you are unfamiliar with mandragoras. Listen carefully -- the extract and leaves of a mandragora have the ability to make a dying man jump right out of his bed. It also has many other mysterious powers -- Mystics are always conducting research on it, but they say there is still much left to be learned.<br>
+Growing mandragoras definitely guarantees a high profit, but if you are not careful you could lose your life. It is a dangerous plant. When you pass the Mandragora Farm, make sure to cover your ears, or their cries will rip your eardrums.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

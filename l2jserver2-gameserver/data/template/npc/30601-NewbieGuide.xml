@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30601" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Newbie Guide</name>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="19.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Where shall we start, eh? From the looks of you, I doubt your head is ready to burst from knowledge yet, Just heed my counsel, and we'll get you off on the right foot.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">What should I do now?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">What is the best equipment for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">What is the best hunting site for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 5">Tell me about skills.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 0">Which quests are available to me?</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>When you reach Level 5 you'll start studying your skills, Skills are taught at the Iron Gate Guild -- the<font color="LEVEL">warehouse</font>, as they call it-by the east gate, or the Black Anvil Guild - it looks like a blacksmith's shop if you look east from the square at the north gate, Now, this is important you'll need SP to gain your skills, SP is short for skill points, and they're earned along with experience whenever you defeat a monster, SP are deducted whenever you learn a new skill,You can check yourSP by clicking the Character Status button, then on the Status tab in the window, Of course, the number of SP you need will vary, depending on the skill you're after.<br>
+<a action="bypass -h npc_%objectId%_Chat 6">I want to know more about skills.</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Unless your friends are rich and generous, I suppose you're still using the weapons and armor you were given by the guilds?<br>
+For now, whatever you have will do, After defeating monsters, you'll often find armor they left behind,Sometimes weapons too,if you're lucky you may get your hands on<font color="LEVEL"> cloth shoes</font>, apprentice's shoes or cloth caps as hunting spoils.<br>
+Your guild will have issued you two weapons to start with a<font color="LEVEL"> dagger</font>and a guild member's club, I hope you've figured out the difference. Ha! The dagger is swift, and has a good chance to do critical damage, while a club (blunt) is much slower, but is more likely to score a hit. Remember, the weapons you.<br>
+Come back when you reach Level 6, and I'll tell you more about weapons.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Return</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>Right now, you should leave the village by south gate and hunt<font color="LEVEL"> longtail keltirs</font>, gremlin scavengers or wolves, Wolves are the most dangerous, so take care, If there are too many hunters on that side of the village, look to the eastside of the bank after you exit the village from the north gate.<br>
+Remember, when you target a monster, it's name will appear at the top-center of the screen. The color of the name shows how difficult it is. For now, stick to creatures with white or sky-blue names, The ones in red and yellow are much stronger than you, so steer clear.<br>
+And be ye warned,you're not ready to go messing with goblins yet, They're agood deal smarter and stronger than they seem. Most importantly, they understand teamwork -- if one goblin is in trouble, others will come to its aid. So even if you're strong enough to take a goblin one-on-one, you're nowhere near ready to deal with two or three, Watch yourself now.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Think about the long term, and that will show you the beginning, The Kingdom of Aden is in chaos, because of the war with Elmore to the north and Gracia across the sea, But hark we now,<font color="LEVEL"> there are always opportunities in times of chaos</font>, We Dwarves are merchants, and that means we're opportunists by nature, If you want to become rich and leave your mark on the world, then need my advice.<br>
+For now, your task is to master the arms and armor you've been given, Whether you survive to become a Bounty Hunter, collecting scales from dragons, or take the path of a Warsmith, with massive siege engines at your command, it all starts with the basics I can tell you here and now.<br>
+So practice your hunting skills on<font color="LEVEL"> longtail keltirs</font>, or gremlin scavengers around the village. When you find items left behind by your prey, try equipping the weapons and armor to see if they're better than what your've already got. As for the rest, if you have no use for it you can always sell it at the shops for pocket money.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Return</a>
+</body></html>]]></chat>
+        <chat id="12"><![CDATA[<html><body>Newbie Guide:<br>
+The Newbie Travel Token is reserved for players of level 20 or below.<br>
+It allows the player to move to the start town of another tribe via the<font color="LEVEL"> Newbie Guides</font> in each town<br>
+Be cautionus, for in many cases, you may learn and practice certain skills and quests that are unique to the own of each tribe.<br>
+Once a player reaches level 20, he is no longer able to teleport using the Newbie Travel Token.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Newbie Guide:<br>
+Can I help you with anything? Eh? Well, then, what would you like to know?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask for advice.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NpcLocationInfo">NPC Location Information.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/BlessingOfProtection.htm">Receive blessing of protection.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 12">Ask about the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1104_NewbieTravelToken">Teleport using the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagic.htm">Receive help from beneficial magic.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NewbieCoupons">Ask for help with a newbie item.</a>
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body>If you use your head while hunting, you should have about 60 SP by the time you reach Level 5. The elders at the Iron Gate Guild (or the warehouse, as they call it) or the Black Anvil Guild (that would be the blacksmith) can tell you the skills in which you can train.<br>
+Skills are divided into active skills and passive skills,<font color="LEVEL"> Active skills</font> have to be deliberately used by you, while passive skills increase your basic abilities from the moment you learn them. We Dwarves like creating things more than destroying them, so we don't teach active skills about destroying. Study the master's list, and think about what you'll want to learn in the future as well. If you work hard to earn enough SP, you'll pick up a skill around Level 7. The Create Item skill, which lets you... well, it lets you create items, OK? Now that's a good Dwarven skill. Think about getting that one.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Return.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

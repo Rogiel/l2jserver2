@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="13132" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Timitran</name>
+        <level>55</level>
+        <race>ANIMAL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="0.0" max="1673.05473"/>
+            <mp regen="0.9" max="889.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="8.47458"/>
+                <magical speed="333.0" damage="5.78704"/>
+            </attack>
+            <defense>
+                <physical value="60000.0"/>
+                <magical value="200000.0"/>
+            </defense>
+            <move walk="12.0" run="180.0"/>
+            <base wit="20" dex="30" men="25" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="90.0" radius="23.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html>
+<body>
+Temple Book of Secrets:<br>
+Once you have strengthened your weapon, you should be able to face even a strong Sprite.<br>
+You will find the Water Sprite Papion on a bridge spanning the Temples of Water and Fire.<br>
+</body>
+</html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
+</template:npc>

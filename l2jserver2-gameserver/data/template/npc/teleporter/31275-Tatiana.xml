@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.TeleporterController"
+    id="31275" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Tatiana</name>
+        <title send="false">Gatekeeper</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="25.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9960" msg="811;Varka Silenos Village">Varka Silenos Village - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9961" msg="811;Ketra Orc Village">Ketra Orc Village - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9962" msg="811;Devil's Pass">Devil's Pass - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9963" msg="811;Garden of Wild Beasts">Garden of Wild Beasts - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9964" msg="811;The Center of the Hot Springs">The Center of the Hot Springs - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9965" msg="811;The Center of the Wall of Argos">The Center of the Wall of Argos - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9966" msg="811;Shrine of Loyalty">Shrine of Loyalty - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9967" msg="811;Four Sepulchers">Four Sepulchers - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9968" msg="811;Imperial Tomb">Imperial Tomb - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9970" msg="811;Forge of the Gods, Top Level">Forge of the Gods, Top Level - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9971" msg="811;Forge of the Gods, Lower Level">Forge of the Gods, Lower Level - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9954" msg="811;Monastery of Silence">Monastery of Silence - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 1089" msg="811;The Town of Gludio">The Town of Gludio - 71000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1090" msg="811;The Town of Giran">The Town of Giran - 63000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1091" msg="811;The Town of Dion">The Town of Dion - 71000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 108" msg="811;Rune Township">Rune Township - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1092" msg="811;Heine">Heine - 83000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1093" msg="811;Town of Schuttgart">Town of Schuttgart - 10000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 132" msg="811;Town of Aden">Town of Aden - 8100 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1094" msg="811;Town of Oren">Town of Oren - 37000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 109" msg="811;Varka Silenos Stronghold">Varka Silenos Stronghold - 4200 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 110" msg="811;Ketra Orc Outpost">Ketra Orc Outpost - 1800 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1095" msg="811;Hot Springs">Hot Springs - 9300 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1096" msg="811;Wall of Argos">Wall of Argos - 2200 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 1097" msg="811;Monastery of Silence">Monastery of Silence - 10000 Adena </a><br1>
+<a action="bypass -h npc_%objectId%_goto 200926" msg="811;Entrance to the Forge of the Gods">Entrance to the Forge of the Gods - 10000 Adena</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Tatiana:<br>
+The Ivory Tower won't permit me to help criminals. You must accept and bear the punishment for your crimes. Once your debt is paid you may enter the gate of time and space.
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9060" msg="811;Varka Silenos Village">Varka Silenos Village - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9061" msg="811;Ketra Orc Village">Ketra Orc Village - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9062" msg="811;Devil's Pass">Devil's Pass - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9063" msg="811;Garden of Wild Beasts">Garden of Wild Beasts - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9064" msg="811;The Center of the Hot Springs">The Center of the Hot Springs - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9065" msg="811;The Center of the Wall of Argos">The Center of the Wall of Argos - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9066" msg="811;Shrine of Loyalty">Shrine of Loyalty - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9067" msg="811;Four Sepulchers">Four Sepulchers - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9068" msg="811;Imperial Tomb">Imperial Tomb - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9070" msg="811;Forge of the Gods - Top Level">Forge of the Gods - Top Level - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9071" msg="811;Forge of the Gods - Lower Level">Forge of the Gods - Lower Level - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9054" msg="811;Monastery of Silence">Monastery of Silence - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Tatiana:<br>
+Greetings. I am Tatiana, Gatekeeper of Goddard Castle Town. If you wish, I can open the door of space and time and enable you to move vast distances in a flash. To fully understand the process, you would need years of training at the Ivory Tower, just as I have done.<br>
+Well! Have you decided on a destination?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1101_teleport_to_race_track" msg="811;Monster Racetrack">Move to Monster Race Track (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1106_teleport_to_fantasy_isle" msg="811;Fantasy Isle">Move to Fantasy Isle (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

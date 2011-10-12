@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="18239" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Statue of Protection</name>
+        <level>78</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="52.326" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="870.82765"/>
+                <magical speed="333.0" damage="554.09618"/>
+            </attack>
+            <defense>
+                <physical value="434.65794"/>
+                <magical value="263.30668"/>
+            </defense>
+            <move walk="53.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>66895</experience>
+        <sp>7596</sp>
+        <item lefthand="0" righthand="5795"/>
+        <collision heigth="42.0" radius="15.0"/>
+    </info>
+    <skills>
+        <skill level="5" id="4071"/>
+        <skill level="1" id="4274"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="17" id="4412"/>
+        <skill level="17" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="5" id="4436"/>
+        <skill level="5" id="4437"/>
+    </skills>
+</template:npc>

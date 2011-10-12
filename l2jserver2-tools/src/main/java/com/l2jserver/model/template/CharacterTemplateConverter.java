@@ -33,6 +33,7 @@ import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
 
+import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata;
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata.AttackMetadata;
 import com.l2jserver.model.template.CharacterTemplate.CharacterStatsMetadata.AttackMetadata.AttackValueMetadata;
@@ -50,7 +51,7 @@ import com.l2jserver.model.template.CharacterTemplate.CollitionMetadataContainer
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class CharacterTemplateConverter {
-	private static final String JDBC_URL = "jdbc:mysql://localhost/l2j-old";
+	private static final String JDBC_URL = "jdbc:mysql://localhost/l2jlegacy";
 	private static final String JDBC_USERNAME = "l2j";
 	private static final String JDBC_PASSWORD = "changeme";
 
@@ -72,9 +73,6 @@ public class CharacterTemplateConverter {
 
 		final Marshaller m = c.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "character");
-		m.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
-				"character ../character.xsd");
 
 		final Connection conn = DriverManager.getConnection(JDBC_URL,
 				JDBC_USERNAME, JDBC_PASSWORD);
@@ -108,6 +106,8 @@ public class CharacterTemplateConverter {
 	private static CharacterTemplate fillTemplate(ResultSet rs)
 			throws SQLException {
 		final CharacterTemplate t = new CharacterTemplate();
+		
+		t.id = new CharacterTemplateID(rs.getInt("Classid"), null);
 
 		t.stats = new CharacterStatsMetadata();
 		t.stats.hp = new Stat();

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30524" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Pippi</name>
+        <title send="false">Collector</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="17.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Collector Pippi:<br>
+Just east of the village you will find the <font color="LEVEL">Mithril Mine.</font> It was created by our ancestors who survived the ouslaught of the Orc savages. They dreamed of one day restoring the kingdom of the Dwarves here in the Spine Mountains.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"Tell me about the Mithril Mine."</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Collector Pippi:<br>
+I haven't seen it, but isn't the Earth Worm a big worm? <font color="LEVEL">Priestess Chichirin</font> in the temple knows all about the Earth Wyrm. You should visit Chichirin.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Collector Pippi:<br>
+The mine useds to be a vast expanse consisting of hundreds of tunnels, but most of them were destroyed after the attack of the<font color="LEVEL"> Earth Wyrm</font> and he mithril is collected from very few tunnels now.<br>
+Currently, our guild is working to restore destroyed tunnels and greatly increase the output of the mithril. This plan has been delayed, though, because our timid elders are afraid the the Earth Worm might regain consciousness.<br>
+Maybe it's because they are old, but they are all cowards. Pippi could take care of that Earth Worm with one fist!<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Earth Wyrm.</a>
+</body></html>
+]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

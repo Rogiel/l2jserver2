@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30991" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Lottery Ticket Seller</name>
+        <level>70</level>
+        <race>ELVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="24.5" radius="6.0"/>
+    </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+%result%
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a><br>
+</body></html>
+]]></chat>
+        <chat id="default"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+Every ticket is a potential winner! Step right up!<br>
+<a action="bypass -h npc_%objectId%_Loto 0">Purchase Lottery Ticket</a><br>
+<a action="bypass -h npc_%objectId%_Loto 23">Current lottery jackpot</a><br>
+<a action="bypass -h npc_%objectId%_Loto 24">Previous winning numbers/Prize claim</a>
+</body></html>
+]]></chat>
+        <chat id="1"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+Thank you for playing the lottery.<br>
+One lottery Ticket costs %ticket_price% Adena.<br>
+If you wish to play the lottery, press the button.<br>
+<center>
+<a action="bypass -h npc_%objectId%_Loto 21">Continue</a><br>
+<a action="bypass -h npc_%objectId%_Loto 25">Lottery instructions</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Quit</a>
+</center>
+</body></html>
+]]></chat>
+        <chat id="3"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+May I have your attention please!<br>
+The total jackpot amount so far for the Round %race% Lottery is %adena% Adena.<br><br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a><br>
+</center>
+</body></html>
+]]></chat>
+        <chat id="6"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+Thank you for playing the lottery.  <br>  The winners will be announced at  7:00 pm on Saturday <br>
+<center>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a><br>
+</center>
+</body></html>
+]]></chat>
+        <chat id="2"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+Here is how to play the lottery:<br>
+Select five numbers between 1 and 20. Your prize is determined by how many winning numbers you match.<br>
+First place goes to those who pick all five winning numbers. First place prize amount is %prize5% % of the total jackpot amount, minus the fourth place prize.<br>
+Second place goes to those who pick four out of the five winning numbers. Second place prize amount is %prize4% % of the total jackpot amount, minus the fourth place prize.<br>
+Third place goes to those who pick three out of the five winning numbers. Third place prize amount is %prize3% % of the total jackpot amount, minus the fourth place prize.<br>
+Those who pick two or less of the winning number may receive %prize2% Adena. <br>
+The prize money for each category will be divided equally amongst winners. If there are no winners in any category, those winnings are transferred to the next jackpot.<br>
+Lottery Tickets are sold on a weekly basis, starting at 7:10 pm every Saturday until 6:50 pm the following Saturday.<br>
+The winning numbers are announced at 7:00 pm every Saturday. All times are subject to change.<br>
+I wish you luck! Enjoy the lottery.<br>
+<A action="bypass -h npc_%objectId%_Chat 0">Back</a><br>
+<A action="bypass -h npc_%objectId%_Loto 0">Buy a Lottery Ticket.</a><br>
+</body></html>
+]]></chat>
+        <chat id="5"><![CDATA[<html><body>
+Lottery Ticket Seller:<br>
+This is Round %race% of Lottery. Choose five numbers:<br>
+<center>
+<table width=240 height=120 border=0 cellspacing=0 cellpadding=0>
+ <tr>
+  <td><img src="L2UI.lottotl" width=20 height=20></td>
+  <td><img src="L2UI.lottotc" width=200 height=22></td>
+  <td><img src="L2UI.lottotr" width=20 height=20></td>
+ </tr>
+ <tr>
+  <td><img src="L2UI.lottoml" width=20 height=80></td>
+  <td align=center valign=top>
+   <table width=200 height=80 border=0 cellspacing=0 cellpadding=0>
+    <tr>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 1" fore="L2UI.lottoNum01" back="L2UI.lottoNum01a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 2" fore="L2UI.lottoNum02" back="L2UI.lottoNum02a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 3" fore="L2UI.lottoNum03" back="L2UI.lottoNum03a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 4" fore="L2UI.lottoNum04" back="L2UI.lottoNum04a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 5" fore="L2UI.lottoNum05" back="L2UI.lottoNum05a_check" width=40 height=20></td>
+    </tr>
+    <tr>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 6" fore="L2UI.lottoNum06" back="L2UI.lottoNum06a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 7" fore="L2UI.lottoNum07" back="L2UI.lottoNum07a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 8" fore="L2UI.lottoNum08" back="L2UI.lottoNum08a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 9" fore="L2UI.lottoNum09" back="L2UI.lottoNum09a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 10" fore="L2UI.lottoNum10" back="L2UI.lottoNum10a_check" width=40 height=20></td>
+    </tr>
+    <tr>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 11" fore="L2UI.lottoNum11" back="L2UI.lottoNum11a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 12" fore="L2UI.lottoNum12" back="L2UI.lottoNum12a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 13" fore="L2UI.lottoNum13" back="L2UI.lottoNum13a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 14" fore="L2UI.lottoNum14" back="L2UI.lottoNum14a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 15" fore="L2UI.lottoNum15" back="L2UI.lottoNum15a_check" width=40 height=20></td>
+    </tr>
+    <tr>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 16" fore="L2UI.lottoNum16" back="L2UI.lottoNum16a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 17" fore="L2UI.lottoNum17" back="L2UI.lottoNum17a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 18" fore="L2UI.lottoNum18" back="L2UI.lottoNum18a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 19" fore="L2UI.lottoNum19" back="L2UI.lottoNum19a_check" width=40 height=20></td>
+     <td><button value="" action="bypass -h npc_%objectId%_Loto 20" fore="L2UI.lottoNum20" back="L2UI.lottoNum20a_check" width=40 height=20></td>
+    </tr>
+   </table>
+  </td>
+  <td><img src="L2UI.lottomr" width=20 height=80></td>
+ </tr>
+ <tr>
+  <td><img src="L2UI.lottobl" width=20 height=20></td>
+  <td><img src="L2UI.lottobc" width=200 height=22></td>
+  <td><img src="L2UI.lottobr" width=20 height=20></td>
+ </tr>
+</table>
+</center>
+<br><a action="bypass -h npc_%objectId%_Loto 0">Return</a><br>
+</body></html>
+]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
+</template:npc>

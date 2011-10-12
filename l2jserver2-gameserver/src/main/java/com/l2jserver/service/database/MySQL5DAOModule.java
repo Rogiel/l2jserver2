@@ -53,5 +53,9 @@ public class MySQL5DAOModule extends AbstractModule {
 		// logs
 		bind(ChatMessageDAO.class).to(MySQL5ChatMessageDAO.class).in(
 				Scopes.SINGLETON);
+
+		// DAO Resolver
+		bind(DAOResolver.class).to(GameServerDAOResolver.class).in(
+				Scopes.SINGLETON);
 	}
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.TeleporterController"
+    id="30719" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Mariell</name>
+        <title send="false">Gatekeeper</title>
+        <level>70</level>
+        <race>ELVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.5" radius="8.5"/>
+    </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Mariell:<br>
+You may not enter The Ivory Tower. Go back the way you came.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Mariell:<br>
+Hi there. The Dark Elf Guild is located on the 4th floor, the Elves of Light are on the 3rd, and the Human Mystics are downstairs. With a history stained by blood, don't you think it is encouraging to see the different races gathered in a small tower like this?<br>
+Now, what can I do for you?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Go to another floor.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br> 
+<a action="bypass -h npc_%objectId%_goto 31" msg="811;Underground Shopping Area">Underground Shopping Area</a><br1> 
+<a action="bypass -h npc_%objectId%_goto 32" msg="811;1st Floor Lobby">1st Floor Lobby</a><br1> 
+<a action="bypass -h npc_%objectId%_goto 33" msg="811;2nd Floor Human Wizard Guild">2nd Floor Human Wizard Guild</a><br1> 
+<a action="bypass -h npc_%objectId%_goto 35" msg="811;4th Floor Dark Wizard Guild">4th Floor Dark Wizard Guild</a> 
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
+</template:npc>

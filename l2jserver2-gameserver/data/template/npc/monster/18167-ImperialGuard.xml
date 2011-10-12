@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="18167" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Imperial Guard</name>
+        <level>78</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="52.326" max="2975.2369188"/>
+            <mp regen="3.0702" max="1742.976"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="870.82765"/>
+                <magical speed="333.0" damage="554.09618"/>
+            </attack>
+            <defense>
+                <physical value="434.65794"/>
+                <magical value="263.30668"/>
+            </defense>
+            <move walk="27.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>41438</experience>
+        <sp>4705</sp>
+        <item lefthand="0" righthand="142"/>
+        <collision heigth="31.0" radius="12.0"/>
+    </info>
+    <skills>
+        <skill level="5" id="4285"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="9" id="4573"/>
+    </skills>
+</template:npc>

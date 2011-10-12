@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30199" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Yates</name>
+        <title send="false">Guard</title>
+        <level>80</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="275"/>
+        <collision heigth="24.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Guard Yates:<br>
+Halt! Welcome to the town of Oren. There are dangerous areas around the town, so please be careful and prepare yourself. But... to the west there is no harm. As you can see on the map, the motherland of the Elves, the Elven Forest, is nearby.<br>
+I heard it's a wonderful place, I hope that one day I can visit it... It is hard to get there, however, because the Dragon Claw Mountains are blocking the way.<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">View the information about the lord and the tax rate of the manor.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

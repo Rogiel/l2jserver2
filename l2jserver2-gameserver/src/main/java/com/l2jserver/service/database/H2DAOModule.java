@@ -52,5 +52,9 @@ public class H2DAOModule extends AbstractModule {
 		// logs
 		bind(ChatMessageDAO.class).to(H2ChatMessageDAO.class).in(
 				Scopes.SINGLETON);
+
+		// DAO Resolver
+		bind(DAOResolver.class).to(GameServerDAOResolver.class).in(
+				Scopes.SINGLETON);
 	}
 }

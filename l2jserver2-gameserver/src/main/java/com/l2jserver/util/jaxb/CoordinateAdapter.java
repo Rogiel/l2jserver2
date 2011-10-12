@@ -17,6 +17,7 @@
 package com.l2jserver.util.jaxb;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import com.l2jserver.util.geometry.Coordinate;
@@ -52,21 +53,22 @@ public class CoordinateAdapter extends
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
+	@XmlType(name = "CoordinateType")
 	protected static class CoordinateElement {
 		/**
 		 * The x cord
 		 */
-		@XmlAttribute(name = "x")
+		@XmlAttribute(name = "x", required = true)
 		public int x;
 		/**
 		 * The y cord
 		 */
-		@XmlAttribute(name = "y")
+		@XmlAttribute(name = "y", required = true)
 		public int y;
 		/**
 		 * The z cord
 		 */
-		@XmlAttribute(name = "z")
+		@XmlAttribute(name = "z", required = true)
 		public int z;
 
 		/**
@@ -84,7 +86,6 @@ public class CoordinateAdapter extends
 		 *            the z cord
 		 */
 		public CoordinateElement(int x, int y, int z) {
-			super();
 			this.x = x;
 			this.y = y;
 			this.z = z;

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="32713" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Pathfinder Worker</name>
+        <level>80</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Pathfinder Agent:<br>
+Nighttime Zaken was able to rid himself of all weakness. He is basically immortal, except that he can still be attacked through his daytime counterpart...<br>
+Since it is a part of Pailaka, the mirror dimension world of dreams, it is possible to mount an attack there. If you go as part of a major force...say, the <font color="LEVEL">union of at least 8 parties</font>, it may be possible to confront him even in this incarnation.<br>
+Do you wish to try?<br>
+<a action="bypass -h npc_%objectId%_Quest">Challenge Nighttime Zaken.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Pathfinder Agent:<br>
+Daytime Zaken is another aspect of Zaken.<br>
+Unlike his nighttime counterpart, he hides himself because he knows he is weak...<br>
+But there is a way to find him. Light a <font color="LEVEL">candle on a barrel</font> and it will show you the way.<br>
+But be careful! The candlelight may also alert his subordinates to your location.<br>
+Compared to Nighttime Zaken, Daytime Zaken is not that strong -- you should be able to attack him with a combined force of <font color="LEVEL">1 to 3 parties</font>.<br>
+<a action="bypass -h npc_%objectId%_Quest">Challenge Daytime Zaken.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Pathfinder Agent:<br>
+Pirate King Zaken once lived here. But it's been said that he may have allied himself with the invaders from the Dream World, which is why adventurers seeking to challenge him now cannot find him.<br>
+We believe that he has now created a giant Dream Dimension by drawing on the power of night.<br>
+Because of that, Zaken was separated into two individuals, one corporeal during the day and the other at night. He is more powerful now than ever, and he has been attacking the real world from the Dream Dimension.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask how to fight Nighttime Zaken.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask how to fight Daytime Zaken.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

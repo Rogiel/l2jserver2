@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="29014" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Orfen</name>
+        <level>50</level>
+        <race>FAIRIE</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="441.65" max="261551.926"/>
+            <mp regen="20.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="722.31"/>
+                <magical speed="333.0" damage="1398.68"/>
+            </attack>
+            <defense>
+                <physical value="1602.0"/>
+                <magical value="293.0"/>
+            </defense>
+            <move walk="60.0" run="230.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2041407</experience>
+        <sp>153786</sp>
+        <collision heigth="143.0" radius="35.0"/>
+    </info>
+    <droplist>
+        <item chance="42000" category="DROP" max="1" min="1" id="76"/>
+        <item chance="35000" category="DROP" max="1" min="1" id="145"/>
+        <item chance="42000" category="DROP" max="1" min="1" id="162"/>
+        <item chance="35000" category="DROP" max="1" min="1" id="199"/>
+        <item chance="35000" category="DROP" max="1" min="1" id="201"/>
+        <item chance="42000" category="DROP" max="1" min="1" id="231"/>
+        <item chance="35000" category="DROP" max="1" min="1" id="265"/>
+        <item chance="42000" category="DROP" max="1" min="1" id="283"/>
+        <item chance="42000" category="DROP" max="1" min="1" id="303"/>
+        <item chance="350000" category="UNK_1" max="2" min="1" id="854"/>
+        <item chance="350000" category="UNK_1" max="2" min="1" id="885"/>
+        <item chance="300000" category="UNK_1" max="2" min="1" id="917"/>
+        <item chance="100000" category="UNK_2" max="1" min="1" id="60"/>
+        <item chance="100000" category="UNK_2" max="1" min="1" id="400"/>
+        <item chance="100000" category="UNK_2" max="1" min="1" id="420"/>
+        <item chance="100000" category="UNK_2" max="1" min="1" id="441"/>
+        <item chance="100000" category="UNK_2" max="1" min="1" id="472"/>
+        <item chance="100000" category="UNK_3" max="2" min="1" id="64"/>
+        <item chance="100000" category="UNK_3" max="2" min="1" id="103"/>
+        <item chance="100000" category="UNK_3" max="2" min="1" id="517"/>
+        <item chance="100000" category="UNK_3" max="2" min="1" id="608"/>
+        <item chance="100000" category="UNK_3" max="2" min="1" id="951"/>
+        <item chance="1000000" category="UNK_4" max="150000"
+            min="110000" id="57"/>
+        <item chance="1000000" category="UNK_5" max="150000"
+            min="110000" id="57"/>
+        <item chance="1000000" category="UNK_6" max="150000"
+            min="110000" id="57"/>
+        <item chance="1000000" category="UNK_7" max="150000"
+            min="110000" id="57"/>
+        <item chance="1000000" category="UNK_8" max="150000"
+            min="110000" id="57"/>
+        <item chance="300000" category="UNK_9" max="1" min="1" id="6661"/>
+        <item chance="100000" category="UNK_200" max="2" min="1" id="8754"/>
+        <item chance="450000" category="UNK_200" max="4" min="2" id="8744"/>
+        <item chance="400000" category="UNK_200" max="4" min="2" id="8745"/>
+        <item chance="50000" category="UNK_200" max="2" min="1" id="8755"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4062"/>
+        <skill level="1" id="4063"/>
+        <skill level="1" id="4064"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="13" id="4416"/>
+    </skills>
+</template:npc>

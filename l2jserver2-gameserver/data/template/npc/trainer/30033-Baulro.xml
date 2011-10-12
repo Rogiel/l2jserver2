@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30033" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Baulro</name>
+        <title send="false">Magister</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Magister Baulo:<br>
+Johanes, the priest of this place, is my twin brother. When we were young, we were expected to follow in the footsteps of our father, who was bishop. But I became fascinated by the power of magic, and opted to become a magister instead. I will be forever grateful to my brother for encouraging me to find my own path, even over the objections of my parents and family. He was a wise and compassionate man, even then.
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Baulro:<br>
+Unfortunately, I cannot teach someone in your profession. You must seek instruction elsewhere, my child.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Baulro:<br>
+I am Magister Baulro, in charge all magical instruction here. All beneficial magic has its origin in Einhasad, the goddess of nature and light. Through years of study, we can acquire the skill to tap into this awesome force. Do you wish to learn that skill?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Priest Johanes.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30876" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Eastan</name>
+        <title send="false">Guard</title>
+        <level>80</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="102" righthand="2"/>
+        <collision heigth="24.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Guard Eastan:<br>
+We're not talking about the birds that actually live in the bushes. These Magpie Brothers are not so cute. Originally they were of the Dwarven guild that specializes in searching ruins and collecting relics but they were going around the graves of the ancient Dwarven kings and stealing stuff. And they were expelled from our tribe when this was discovered. But they simply changed themselves into a new grave robbing guild and now they make no distinction of race when digging up the places in which the past royalty are buried. Of course, various graves at the National Cemetary have also been vandalized by them... <br>
+I don't understand why the ghosts don't deal with those creatures. Really!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Go back.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Guard Eastan:<br>
+Hello, honored traveler. Welcome to Aden Village.<br>
+If you leave the village and follow the road to the east, you will come to the National Cemetary in which the royalty and holy ones have been buried since the time of Elmoreden and I recommend you go take a look sometime. Of course, the unifying king His Royal Highness Raoul and the previous kings are all sleeping there.<br>
+But recently, the upkeep of the cemetary has been neglected... Those troublesome magpies...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about magpies.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

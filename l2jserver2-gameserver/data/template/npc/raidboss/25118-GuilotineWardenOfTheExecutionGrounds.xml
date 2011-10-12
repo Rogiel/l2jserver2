@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25118" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Guilotine Warden of the Execution Grounds</name>
+        <title send="false">Raid Boss</title>
+        <level>35</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="66.9859801832901" max="138899.136909231"/>
+            <mp regen="1.8" max="402.6"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="327.3913"/>
+                <magical speed="333.0" damage="51.71999"/>
+            </attack>
+            <defense>
+                <physical value="410.18844"/>
+                <magical value="200.1"/>
+            </defense>
+            <move walk="50.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1912395</experience>
+        <sp>144137</sp>
+        <item lefthand="0" righthand="96"/>
+        <collision heigth="58.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="134016" category="DROP" max="1" min="1" id="353"/>
+        <item chance="214426" category="DROP" max="1" min="1" id="380"/>
+        <item chance="62305" category="DROP" max="157" min="53" id="1950"/>
+        <item chance="211973" category="DROP" max="72" min="24" id="1951"/>
+        <item chance="17439" category="UNK_1" max="1" min="1" id="159"/>
+        <item chance="17439" category="UNK_1" max="1" min="1" id="187"/>
+        <item chance="17439" category="UNK_1" max="1" min="1" id="188"/>
+        <item chance="17439" category="UNK_1" max="1" min="1" id="189"/>
+        <item chance="17439" category="UNK_1" max="1" min="1" id="190"/>
+        <item chance="27777" category="UNK_1" max="54" min="18" id="2048"/>
+        <item chance="199993" category="UNK_1" max="7" min="3" id="2049"/>
+        <item chance="75735" category="UNK_1" max="21" min="7" id="2050"/>
+        <item chance="44179" category="UNK_1" max="36" min="12" id="2051"/>
+        <item chance="166660" category="UNK_1" max="9" min="3" id="2058"/>
+        <item chance="326602" category="UNK_2" max="3" min="1" id="4591"/>
+        <item chance="217735" category="UNK_2" max="4" min="2" id="4592"/>
+        <item chance="163301" category="UNK_2" max="6" min="2" id="4593"/>
+        <item chance="13064" category="UNK_2" max="1" min="1" id="6573"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="4" id="4175"/>
+        <skill level="4" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="4" id="4726"/>
+        <skill level="4" id="4736"/>
+        <skill level="1" id="4833"/>
+    </skills>
+</template:npc>

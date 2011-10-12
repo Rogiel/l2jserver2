@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="29025" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Baium</name>
+        <level>75</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="718.0" max="1709400.0"/>
+            <mp regen="99.0" max="18000.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1874.18"/>
+                <magical speed="333.0" damage="1596.95"/>
+            </attack>
+            <defense>
+                <physical value="3300.0"/>
+                <magical value="2200.0"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="82.0" radius="65.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>
+As you approach the statue, you hear a familiar voice whispering in your ear. It says,<br>
+<font color="LEVEL">All right. It's almost completed... If you wish to possess the secret of immortality, ancient treasures, and the secret of the seal, then call his name...</font><br>
+<a action="bypass -h npc_%objectId%_Quest baium">Wake Baium</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
+</template:npc>

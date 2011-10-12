@@ -1,10 +1,13 @@
 package com.l2jserver.model.template.character;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Represents the character race.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "CharacterRaceType")
 public enum CharacterRace {
 	HUMAN(0x00), ELF(0x01), DARK_ELF(0x02), ORC(0x03), DWARF(0x04), KAMAEL(0x05);
 

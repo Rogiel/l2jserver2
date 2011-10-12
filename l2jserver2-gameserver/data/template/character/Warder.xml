@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template:character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="WARDER" xsi:schemaLocation="http://schemas.l2jserver2.com/character ../character.xsd" xmlns:template="http://schemas.l2jserver2.com/character">
+    <stats crafter="false" level="20">
+        <hp add="30.8" modifier="0.37" base="449.9"/>
+        <mp add="13.2" modifier="0.14" base="196.36"/>
+        <cp add="15.4" modifier="0.22" base="224.95"/>
+        <attack accuracy="35" critical="45" evasion="35">
+            <physical speed="300.0" damage="4.0"/>
+            <magical speed="333.0" damage="6.0"/>
+        </attack>
+        <defense>
+            <physical value="80.0"/>
+            <magical value="41.0"/>
+        </defense>
+        <move walk="122.0" run="122.0"/>
+        <base wit="11" dex="35" men="27" con="30" str="39" int="28"/>
+        <maxload>87000</maxload>
+    </stats>
+    <collision>
+        <male heigth="22.6" radius="8.0"/>
+        <female heigth="22.6" radius="7.0"/>
+    </collision>
+</template:character>

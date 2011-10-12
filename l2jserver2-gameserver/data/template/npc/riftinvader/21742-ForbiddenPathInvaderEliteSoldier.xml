@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="21742" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Forbidden Path Invader Elite Soldier</name>
+        <level>65</level>
+        <race>DEMON</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2193.43142"/>
+            <mp regen="2.7" max="1188.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="582.81759"/>
+                <magical speed="333.0" damage="397.98887"/>
+            </attack>
+            <defense>
+                <physical value="271.89033"/>
+                <magical value="181.02764"/>
+            </defense>
+            <move walk="80.0" run="165.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>33720</experience>
+        <sp>3133</sp>
+        <collision heigth="40.0" radius="14.0"/>
+    </info>
+    <droplist>
+        <item chance="520636" category="SPOIL" max="1" min="1" id="4091"/>
+        <item chance="520636" category="SPOIL" max="1" min="1" id="4096"/>
+        <item chance="15463" category="SPOIL" max="1" min="1" id="5166"/>
+        <item chance="700000" category="DROP" max="9318" min="4596" id="57"/>
+        <item chance="34" category="UNK_1" max="1" min="1" id="234"/>
+        <item chance="7498" category="UNK_1" max="1" min="1" id="4119"/>
+        <item chance="44488" category="UNK_2" max="300" min="100" id="1343"/>
+        <item chance="138409" category="UNK_2" max="3" min="1" id="1867"/>
+        <item chance="103806" category="UNK_2" max="6" min="2" id="1872"/>
+        <item chance="69204" category="UNK_2" max="1" min="1" id="1882"/>
+        <item chance="10927" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="5190" category="UNK_2" max="1" min="1" id="4042"/>
+        <item chance="116" category="UNK_2" max="1" min="1" id="5440"/>
+        <item chance="4152" category="UNK_200" max="1" min="1" id="8729"/>
+        <item chance="1038" category="UNK_200" max="1" min="1" id="8739"/>
+        <item chance="104" category="UNK_200" max="1" min="1" id="8749"/>
+        <item chance="21" category="UNK_200" max="1" min="1" id="8759"/>
+    </droplist>
+    <skills>
+        <skill level="3" id="4285"/>
+        <skill level="14" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="6" id="4582"/>
+    </skills>
+</template:npc>

@@ -16,9 +16,12 @@
  */
 package com.l2jserver.model.template.npc;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "NPCRaceType")
 public enum NPCRace {
 	// character races
 	HUMAN, ELVEN, DARKELVEN, ORC, DWARVEN, KAMAEL,

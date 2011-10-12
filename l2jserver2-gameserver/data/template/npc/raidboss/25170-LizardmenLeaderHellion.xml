@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25170" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Lizardmen Leader Hellion</name>
+        <title send="false">Raid Boss</title>
+        <level>38</level>
+        <race>HUMANOID</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="30.8726873073006" max="82089.0524454172"/>
+            <mp regen="1.8" max="447.96"/>
+            <attack critical="8" evasion="0" range="40">
+                <physical speed="253.0" damage="204.55422"/>
+                <magical speed="333.0" damage="16.14769"/>
+            </attack>
+            <defense>
+                <physical value="445.32861"/>
+                <magical value="217.24"/>
+            </defense>
+            <move walk="53.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>1957608</experience>
+        <sp>163199</sp>
+        <item lefthand="0" righthand="223"/>
+        <collision heigth="63.0" radius="30.0"/>
+    </info>
+    <droplist>
+        <item chance="36743" category="UNK_1" max="1" min="1" id="226"/>
+        <item chance="36743" category="UNK_1" max="1" min="1" id="232"/>
+        <item chance="25658" category="DROP" max="16" min="6" id="631"/>
+        <item chance="763333" category="UNK_2" max="3" min="1" id="951"/>
+        <item chance="145399" category="DROP" max="120" min="40" id="1964"/>
+        <item chance="321455" category="UNK_1" max="12" min="4" id="2070"/>
+        <item chance="171443" category="UNK_1" max="22" min="8" id="2072"/>
+        <item chance="197590" category="DROP" max="1" min="1" id="2413"/>
+        <item chance="282245" category="DROP" max="1" min="1" id="2495"/>
+        <item chance="37732" category="DROP" max="420" min="140" id="2936"/>
+        <item chance="71802" category="DROP" max="243" min="81" id="2945"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="7" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="3" id="4752"/>
+        <skill level="1" id="4855"/>
+    </skills>
+</template:npc>

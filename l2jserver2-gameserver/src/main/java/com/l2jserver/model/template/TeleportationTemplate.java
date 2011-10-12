@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -38,9 +39,9 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@XmlRootElement(name = "teleport")
+@XmlRootElement(name = "teleport", namespace = "http://schemas.l2jserver2.com/teleport")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "teleports")
+@XmlType(namespace = "http://schemas.l2jserver2.com/teleport", name = "TeleportType")
 public class TeleportationTemplate extends AbstractTemplate<Coordinate> {
 	@XmlAttribute(name = "id")
 	@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
@@ -48,18 +49,21 @@ public class TeleportationTemplate extends AbstractTemplate<Coordinate> {
 	@XmlAttribute(name = "name")
 	protected String name;
 
-	@XmlAttribute(name = "item")
+	@XmlAttribute(name = "item", required = false)
 	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
 	protected ItemTemplateID itemTemplateID;
-	@XmlAttribute(name = "price")
+	@XmlAttribute(name = "price", required = true)
 	protected int price;
 
-	@XmlElement(name = "point")
+	@XmlElement(name = "point", required = false)
 	@XmlJavaTypeAdapter(CoordinateAdapter.class)
 	protected Coordinate coordinate;
 
+	@XmlElementWrapper(name = "restrictions", required = false)
+	@XmlElement(name = "restriction", required = true)
 	protected List<TeleportRestriction> restrictions;
 
+	@XmlType(name = "TeleportRestrictionType")
 	public enum TeleportRestriction {
 		NOBLE;
 	}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25563" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Beautiful Atrielle</name>
+        <title send="false">Forsaken Prisoner</title>
+        <level>81</level>
+        <race>DEMON</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="90.4131766063558" max="211731.614773484"/>
+            <mp regen="3.0" max="1708.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7561.96024"/>
+                <magical speed="333.0" damage="984.65036"/>
+            </attack>
+            <defense>
+                <physical value="1036.83381"/>
+                <magical value="505.8"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2730279</experience>
+        <sp>394141</sp>
+        <collision heigth="75.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="3318" category="UNK_1" max="1" min="1" id="6371"/>
+        <item chance="752053" category="UNK_1" max="3" min="1" id="6695"/>
+        <item chance="78810" category="UNK_4" max="1" min="1" id="9582"/>
+        <item chance="55850" category="UNK_4" max="1" min="1" id="9588"/>
+        <item chance="39893" category="UNK_4" max="1" min="1" id="9592"/>
+        <item chance="91945" category="UNK_3" max="1" min="1" id="9627"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="7" id="4182"/>
+        <skill level="7" id="4188"/>
+        <skill level="7" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5467"/>
+    </skills>
+</template:npc>

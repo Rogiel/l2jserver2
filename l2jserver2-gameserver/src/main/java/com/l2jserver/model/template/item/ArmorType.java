@@ -16,11 +16,14 @@
  */
 package com.l2jserver.model.template.item;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Enum of all available armor types
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "ArmorType")
 public enum ArmorType {
 	NONE, LIGHT, HEAVY, MAGIC, SIGILO;
 }

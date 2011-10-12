@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="32282" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Yiyen</name>
+        <title send="false">Archaeologist</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="21.3" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>Yiyen:<br>
+<a action="bypass -h npc_%objectId%_Quest DarkCloudMansion">Enter the Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Yiyen:<br>
+Ah, that is... I'm sorry. To tell you the truth, I haven't actually been inside either. Perhaps I should have gone in, but I've been so busy investigating the surroundings, finding a place to stay and writing letters to my father. I've been procrastinating, I know.<br>
+...<br>
+No, no, no -- it's not because I'm scared...<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Enter the Dark Cloud Mansion</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Yiyen:<br>
+So impatient! Good manners never hurt anyone, you know... Oh, well, so you wish to know about the requirements for entry? Very well.<br>
+First of all, the magical characters above the entrance signify two people holding hands. I interpret this to mean that one person alone will not be granted entry. This glyph here...represents "mighty power." Perhaps the ones who enter must possess a certain level of strength.<br>
+Hmm...you can ignore the rest of these symbols; I'm sure they have no bearing on this subject.<br>
+...<br>
+To be perfectly honest with you, I can't actually read the rest yet -- but they don't seem very important based on their position.<br>
+(To enter, form a party of two characters who are over level 78.)<br>
+<a action="bypass -h npc_%objectId%_Quest DarkCloudMansion">Enter the Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Yiyen:<br>
+Yikes! That was a surprise.<br>
+...<br>
+I'm sorry. I didn't mean to act so shocked -- it's just so unusual to see people in this area...<br>
+My name is Yiyen, and I'm an archeologist searching for a magical ruin that may be responsible for some strange phenomena on the Isle of Prayer. Thank the gods, I think I've finally found it.<br>
+It is called the <font color="LEVEL">Darkcloud Mansion</font>, if I have translated the name correctly...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the interior of the Mansion.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ignore her and enter the Darkcloud Mansion.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Yiyen:<br>
+Ah, wait! There is a force field within the building. You may only enter under certain conditions.<br>
+Did i already tell you about this? Did you find out from someone else?<br>
+...<br>
+I'm so absent-minded these days<br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask about how to enter the Mansion.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">Ignore her and enter the Dark Cloud Mansion.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

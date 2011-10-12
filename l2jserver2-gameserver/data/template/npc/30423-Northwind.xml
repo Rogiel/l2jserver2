@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30423" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Northwind</name>
+        <level>70</level>
+        <race>ELVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="21.0" radius="6.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Norwind:<br>
+Welcome, traveler. This fortress is where the great siege battle occurred during the bloody wars between the Elves and Dark Elves. Many young Elves met their doom here.<br>
+I have been thinking deeply about fate, love and war over here, since traveling the Elven Forest. May I ask you? Are you interested in stories about fate and love? How about a tragic love story I read a few days ago?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Say you would like to hear the story.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Norwind:<br>
+It is a story about two lovers in a time long ago. One day the man discovered that he was infected with an incurable disease.  Even Magic was useless against it. Rather than tell his lover, he feigned anger and forced her away.<br>
+Within a year both were dead, he of the illness and she of a broken heart. Fate can be quite mercilles, don't you think?
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
+</template:npc>

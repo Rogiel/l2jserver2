@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="32179" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Putin</name>
+        <title send="false">Marksman</title>
+        <level>70</level>
+        <race>KAMAEL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="39.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="9645"/>
+        <collision heigth="25.0" radius="13.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Marksman Putin:<br>
+Thank you for your efforts. If you step through the door behind me, you will enter Kamael Village.<br>
+The monsters in Mimir's Forest are powerful, aren't they? If you feel that they are easy, it may be time for you to challenge yourself with a trip to <font color="LEVEL">Nornil's Cave</font>.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Nornil's Cave.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See information on permanent residence and tax rates. </a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Marksman Putin:<br>
+Nornil's Cave is widely known as the origin of all the monsters who roam the Isle of Souls. Survive it and you will gain the qualifications necessary to depart this island for the mainland as a soldier of the Kamael.<br>
+To be honest, even if you don't pass you may still be able to leave the island, but this is the traditional path, and tradition is something we Kamael value.
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="25" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<skill cooldown="0" delay="0" name="Traits Strengthen Necklace"
-    id="3386" xsi:schemaLocation="skill ../skill.xsd"
-    xmlns="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <maximumLevel>1</maximumLevel>
-</skill>

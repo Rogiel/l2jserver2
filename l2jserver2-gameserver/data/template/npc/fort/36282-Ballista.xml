@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="36282" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Ballista</name>
+        <title send="false">Hunter's Fortress</title>
+        <level>80</level>
+        <race>DEFENDING_ARMY</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="391.417777464402" max="679374.315371996"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="7476.50801"/>
+                <magical speed="333.0" damage="5105.48575"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="1.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="59.0" radius="112.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="2342"/>
+        <skill level="1" id="4045"/>
+        <skill level="16" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="22" id="4416"/>
+    </skills>
+</template:npc>

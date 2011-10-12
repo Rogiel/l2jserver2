@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.TeleporterController"
+    id="30177" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Valentina</name>
+        <title send="false">Gatekeeper</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="25.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Gatekeeper Valentina:<br>
+We, the Gatekeepers can open gates to worlds aside from this one. Do you wish for me to open a gate for you? Perhaps the gate to hell?
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9900" msg="811;Gludin Arena">Gludin Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9902" msg="811;Giran Arena">Giran Arena - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10010" msg="811;Forest of Evil">Forest of Evil - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10011" msg="811;Timak Outpost">Timak Outpost - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 10012" msg="811;Altar of Rites">Altar of Rites - 1 Olympiad Token</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9901" msg="811;Coliseum">Coliseum - 1 Olympiad Token</a><br1>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 51" msg="811;Town of Aden">Town of Aden - 6900 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 47" msg="811;The Town of Giran">The Town of Giran - 9400 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1070" msg="811;Rune Township">Rune Township - 10000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1071" msg="811;Town of Goddard">Town of Goddard - 12000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1072" msg="811;Heine">Heine - 16000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1073" msg="811;The Town of Dion">The Town of Dion - 11000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1074" msg="811;The Town of Schuttgart">The Town of Schuttgart - 19000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1075" msg="811;The Town of Gludio">The Town of Gludio - 11000 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 48" msg="811;Ivory Tower">Ivory Tower - 3700 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 49" msg="811;Hunters Village">Hunters Village - 4100 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 50" msg="811;Hardins Private Academy">Hardin's Private Academy - 6100 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 15000" msg="811;Sel Mahum Training Grounds (West Gate)">Sel Mahum Training Grounds (West Gate) - 2400 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 15001" msg="811;Sel Mahum Training Grounds (South Gate)">Sel Mahum Training Grounds (South Gate) - 3700 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 15002" msg="811;Sel Mahum Training Grounds (Center)">Sel Mahum Training Grounds (Center) - 1800 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 97" msg="811;Plains of the Lizardmen">Plains of the Lizardmen - 3900 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 1077" msg="811;Outlaw Forest">Outlaw Forest - 5200 Adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 98" msg="811;Sea of Spores">Sea of Spores - 2500 Adena</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gatekeeper Valentina:<br>
+Hello! I am Gatekeeper Valentina, dispatched here from the Ivory Tower. Some people think the Ivory Tower is plotting to dominate the world; others think it's filled with lunatics. Of course, there are a few who see it as our hope for a better, safer world...<br>
+What do you think? Are the Ivory Tower's wizards evil, mad...or our salvation?<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Teleport</a><br>
+<a action="bypass -h npc_%objectId%_multisell 002">Exchange Dimension Diamonds.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 2000_NoblesseTeleport">Noblesse Exclusive Teleport</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1101_teleport_to_race_track" msg="811;Monster Racetrack">Teleport to Monster Racetrack (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1106_teleport_to_fantasy_isle" msg="811;Fantasy Isle">Teleport to Fantasy Isle (free).</a><br>
+<a action="bypass -h npc_%objectId%_Quest CharacterBirthday">Receive your Birthday Gift!</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 9000" msg="811;Gludin Arena">Gludin Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9002" msg="811;Giran Arena">Giran Arena - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9110" msg="811;Forest of Evil">Forest of Evil - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9111" msg="811;Timak Outpost">Timak Outpost - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9112" msg="811;Altar of Rites">Altar of Rites - 1000 adena</a><br1>
+<a action="bypass -h npc_%objectId%_goto 9001" msg="811;Coliseum">Coliseum - 1000 adena</a><br1>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

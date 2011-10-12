@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="29099" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Baylor</name>
+        <title send="false">Warden</title>
+        <level>83</level>
+        <race>DEMON</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="100.862738374864" max="1078413.49462422"/>
+            <mp regen="1000.0" max="100000.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2098.52696"/>
+                <magical speed="333.0" damage="1433.02187"/>
+            </attack>
+            <defense>
+                <physical value="1415.44576"/>
+                <magical value="1035.7618"/>
+            </defense>
+            <move walk="34.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>3190205</experience>
+        <sp>2191683</sp>
+        <collision heigth="77.5" radius="54.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="5221"/>
+        <skill level="1" id="5222"/>
+        <skill level="1" id="5223"/>
+        <skill level="1" id="5224"/>
+        <skill level="1" id="5227"/>
+        <skill level="1" id="5228"/>
+        <skill level="1" id="5229"/>
+        <skill level="1" id="5467"/>
+        <skill level="1" id="5479"/>
+    </skills>
+</template:npc>

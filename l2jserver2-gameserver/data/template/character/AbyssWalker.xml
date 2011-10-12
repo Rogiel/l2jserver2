@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template:character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://schemas.l2jserver2.com/character ../character.xsd"
+	xmlns:template="http://schemas.l2jserver2.com/character" class="ABYSS_WALKER">
+	<stats level="40" crafter="false">
+		<hp base="1096.0" modifier="0.37" add="49.4" />
+		<mp base="359.1" modifier="0.14" add="19.5" />
+		<cp base="602.8" modifier="0.22" add="27.17" />
+		<attack evasion="35" critical="45" accuracy="35">
+			<physical damage="4.0" speed="300.0" />
+			<magical damage="6.0" speed="333.0" />
+		</attack>
+		<defense>
+			<physical value="80.0" />
+			<magical value="41.0" />
+		</defense>
+		<move run="122.0" walk="122.0" />
+		<base int="25" str="41" con="32" men="26" dex="34" wit="12" />
+		<maxload>69000</maxload>
+	</stats>
+	<collision>
+		<male radius="7.5" heigth="24.0" />
+		<female radius="7.0" heigth="23.5" />
+	</collision>
+</template:character>

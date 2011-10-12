@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30220" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Starden</name>
+        <title send="false">Sentinel</title>
+        <level>80</level>
+        <race>ELVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="8" evasion="0" range="1100">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="276"/>
+        <collision heigth="23.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Sentinel Starden:<br>
+May the song of stars give you happiness. I am Starden, one of the sentinels who protect the forest, the Mother Tree Glade, and Elves of light.<br>
+If my expression looks dark, then forgive me. Originally, I was a cheerful elf who enjoyed poetry and singing, but now I've lost all my former optimism since I went through the war. I had to look upon the sight of my friends being brutally killed by the Dark Elves at the <font color="LEVEL">final battle of the Underground Fortress</font> ... I try hard to forget the fear and sorrow of those times, but I still have nightmares once in a while.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the final battle of the Underground Fortress</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">See the Lord and get the tax rate information.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Sentinel Starden:<br>
+The Underground Fortress was the final stronghold in the battle with Humans, and an important stronghold in the war with the Elves. It was the site of several offensive and defensive battles as well. In the end, the demons summoned by the Dark Elven enchanters completely razed the fortress with fire, and the Elven fighters who were defending it were brutally murdered.<br>
+The Underground Fortress has become a very dangerous place. The ghosts of dead fighters and evil spirits are drawn by the power of the black magic cast by the Dark Elves, and make their nests there. If you want to go there, cross this bridge, then follow the path southwest.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="9" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30113" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Juris</name>
+        <title send="false">Magister</title>
+        <level>70</level>
+        <race>ELVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="21.2" radius="7.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Magister Juris:<br>
+May your spirit be as peaceful as the waters of a calm lake. It is always nice to meet a fellow Elf in this strange land.<br>
+To see the people here, you would never think they had known anything else but peace and prosperity. But in fact there is a hidden <font color="LEVEL">Dark Shadow</font> here.<br>
+Perhaps you will one day discover the identity of that Darkness. As a student of magic, just remember that one cannot judge something based solely on its appearance...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the Dark Shadow.</a><br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Magister Juris:<br>
+Very well. The cause of that shadow is Land Dragon Antharas, the legendary Earth Dragon born of Shilen.<br>
+It sleeps in the recesses of  the Valley of Dragons, but who can say when it will awaken? If that happens, all this prosperity will dissolve into fear and chaos in an instant.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask about the Valley of Dragons.</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Magister Juris:<br>
+It is an enormous canyon located to the north of this village. Long ago, many drakes and dragons resided there.<br>
+Even now, many careless hunters perish there. Many monsters summoned by Land Dragon Antharas still inhabit the canyon and protect its nest.<br>
+If you're thinking about visiting it, you should be very careful.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back</a>
+</body></html>]]></chat>
+        <chat id="noteach"><![CDATA[<html><body>Magister Juris:<br>
+May the tranquility of the still lakes be with you. I am Magister Juris and I teach magic to the Elves.<br>
+I would like to share my knowledge with you, but unfortunately only Elven Mystics can understand my teachings. I'm sure there is someone who can teach you, if you search further.
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="15" id="4416"/>
+    </skills>
+</template:npc>

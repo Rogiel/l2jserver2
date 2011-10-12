@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22215" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Tyrannosaurus</name>
+        <level>80</level>
+        <race>BEAST</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="195.708888732201" max="339687.157685998"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="7476.50801"/>
+                <magical speed="333.0" damage="5105.48575"/>
+            </attack>
+            <defense>
+                <physical value="546.2"/>
+                <magical value="599.52818"/>
+            </defense>
+            <move walk="105.0" run="220.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>727610</experience>
+        <sp>81666</sp>
+        <collision heigth="89.7" radius="60.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="139448" min="68305" id="57"/>
+        <item chance="70147" category="UNK_1" max="1" min="1" id="5541"/>
+        <item chance="247" category="UNK_1" max="1" min="1" id="305"/>
+        <item chance="157901" category="UNK_2" max="9" min="3" id="1879"/>
+        <item chance="118426" category="UNK_2" max="6" min="2" id="1885"/>
+        <item chance="44584" category="UNK_2" max="1" min="1" id="9628"/>
+        <item chance="29918" category="UNK_2" max="1" min="1" id="9630"/>
+        <item chance="24715" category="UNK_2" max="1" min="1" id="9629"/>
+        <item chance="39475" category="UNK_200" max="1" min="1" id="9573"/>
+        <item chance="9869" category="UNK_200" max="1" min="1" id="9574"/>
+        <item chance="987" category="UNK_200" max="1" min="1" id="9575"/>
+        <item chance="198" category="UNK_200" max="1" min="1" id="9576"/>
+        <item chance="686527" category="SPOIL" max="1" min="1" id="6711"/>
+        <item chance="749227" category="SPOIL" max="5" min="1" id="6710"/>
+        <item chance="138558" category="SPOIL" max="1" min="1" id="6901"/>
+    </droplist>
+    <skills>
+        <skill level="9" id="4084"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="3" id="4416"/>
+        <skill level="4" id="4417"/>
+        <skill level="5" id="4438"/>
+        <skill level="5" id="4439"/>
+        <skill level="5" id="4440"/>
+        <skill level="5" id="4441"/>
+        <skill level="2" id="4444"/>
+        <skill level="1" id="4445"/>
+        <skill level="4" id="5081"/>
+        <skill level="4" id="5082"/>
+        <skill level="4" id="5083"/>
+        <skill level="1" id="5087"/>
+        <skill level="1" id="5098"/>
+        <skill level="1" id="5099"/>
+        <skill level="1" id="5100"/>
+        <skill level="1" id="5101"/>
+        <skill level="1" id="5102"/>
+        <skill level="1" id="5120"/>
+        <skill level="9" id="5599"/>
+        <skill level="9" id="5601"/>
+    </skills>
+</template:npc>

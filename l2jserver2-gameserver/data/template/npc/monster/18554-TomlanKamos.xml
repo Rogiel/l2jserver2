@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="18554" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Tomlan Kamos</name>
+        <title send="false">Kaneus</title>
+        <level>23</level>
+        <race>GIANT</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="10.6620464638458" max="51638.8844951664"/>
+            <mp regen="4.8" max="1159.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="68.01129"/>
+                <magical speed="333.0" damage="46.4429"/>
+            </attack>
+            <defense>
+                <physical value="153.03962"/>
+                <magical value="167.98162"/>
+            </defense>
+            <move walk="55.0" run="130.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>355901</experience>
+        <sp>19458</sp>
+        <item lefthand="0" righthand="4"/>
+        <collision heigth="53.0" radius="25.0"/>
+    </info>
+    <droplist>
+        <item chance="188679" category="UNK_1" max="11" min="1" id="25"/>
+        <item chance="320754" category="UNK_3" max="2" min="1" id="26"/>
+        <item chance="56603" category="UNK_3" max="10" min="4" id="34"/>
+        <item chance="320754" category="UNK_2" max="1" min="1" id="955"/>
+        <item chance="377358" category="UNK_2" max="8" min="3" id="956"/>
+        <item chance="245283" category="UNK_1" max="20" min="8" id="1926"/>
+        <item chance="188679" category="UNK_1" max="72" min="37" id="1928"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="2" id="4172"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="14" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="1" id="4719"/>
+        <skill level="1" id="5597"/>
+    </skills>
+</template:npc>

@@ -1,11 +1,14 @@
 package com.l2jserver.model.template.actor;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Represent the sex of an actor.
  * <p>
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "ActorSexType")
 public enum ActorSex {
 	/**
 	 * Represents an male character

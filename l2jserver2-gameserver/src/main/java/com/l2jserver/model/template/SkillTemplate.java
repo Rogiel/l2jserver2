@@ -33,14 +33,14 @@ import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@XmlRootElement(name = "skill")
-@XmlType(namespace = "skill", name = "skill")
+@XmlRootElement(name = "skill", namespace = "http://schemas.l2jserver2.com/skill")
+@XmlType(namespace = "http://schemas.l2jserver2.com/skill", name = "SkillType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillTemplate extends AbstractTemplate<Skill> {
-	@XmlAttribute(name = "id")
+	@XmlAttribute(name = "id", required = true)
 	@XmlJavaTypeAdapter(value = SkillTemplateIDAdapter.class)
 	protected SkillTemplateID id;
-	@XmlAttribute(name = "name")
+	@XmlAttribute(name = "name", required = true)
 	protected String name;
 	@XmlAttribute(name = "delay")
 	protected int delay;

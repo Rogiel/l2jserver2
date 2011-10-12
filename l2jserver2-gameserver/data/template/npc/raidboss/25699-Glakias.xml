@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25699" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Glakias</name>
+        <title send="false">Archery Knight Captain</title>
+        <level>85</level>
+        <race>HUMANOID</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="139.120530920571" max="780461.719331055"/>
+            <mp regen="500.0" max="18468.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="8184.13934"/>
+                <magical speed="333.0" damage="2579.00134"/>
+            </attack>
+            <defense>
+                <physical value="1876.12993"/>
+                <magical value="640.6708"/>
+            </defense>
+            <move walk="40.0" run="120.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="67.5" radius="28.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="15" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="5463"/>
+        <skill level="1" id="6293"/>
+        <skill level="1" id="6294"/>
+        <skill level="1" id="6295"/>
+        <skill level="1" id="6297"/>
+        <skill level="1" id="6298"/>
+        <skill level="1" id="6661"/>
+    </skills>
+</template:npc>

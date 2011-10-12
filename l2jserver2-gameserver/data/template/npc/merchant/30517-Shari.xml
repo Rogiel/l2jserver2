@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30517" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Shari</name>
+        <title send="false">Armor Merchant</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="18.5" radius="7.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Armor Merchant Shari:<br>
+Can I sell you something, sir? Just tell me what you want.<br>
+<a action="bypass -h npc_%objectId%_Buy 3051700">Buy Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Buy 3051701">Buy Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_exc_multisell 003">Exchange equipment.</a>
+</body></html>]]></chat>
+        <chat id="pk"><![CDATA[<html><body>Armor Merchant Shari:<br>
+Ahem, my name is Shari. They say it's not an appropriate name for a girl, but I'm proud of it. I was an orphan, but I'm pretty successful now, having my own shop. When I first started working for this store, many people were jealous of my talent. But I won them over with my personality, and they all like me now.<br>
+I was named the 324th excellent salesperson for selling thirty items everyday and establishing a new record. After two years, I became the youngest shop owner. I won first place as the 87th Best Selling Store sponsored by the Silver Scale, and was honored with the Best Service award as the 143rd Green Store ... 423rd ... 23rd ... 672nd ...
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Armor Merchant Shari:<br>
+Psst, take a look at these items...<br>
+Too expensive? Don't you know these Dwarven-crafted items are sold at a premium in other places?<br>
+What a bunch of country bumpkins...<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Buy/Sell/Refund.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3051700">Try on Fighter equipment.</a><br>
+<a action="bypass -h npc_%objectId%_Wear 3051701">Try on Wizard equipment.</a><br>
+<a action="bypass -h npc_%objectId%_TerritoryStatus">Ask about the local lord and tax rate.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

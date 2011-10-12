@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="31971" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Otillo</name>
+        <title send="false">Magister</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="noteach"><![CDATA[<html><body>Magister Otillo:<br>
+You still want to learn magic from me after all you've seen? If you still trust me, I'll teach you, but I can't do anything without my magic staff! I'm a bit stiff at the moment, and I can't hold it in my mouth! Ha! No, this won't work at all! You must find another magician whose body is still intact!
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Magister Otillo:<br>
+Arghh! What now?! Oh, are you here to see me? Well, feel free to laugh. I've been working on a spell to make my body as pliable as rubber. As you can see, it's had rather the opposite effect. Well, that's the nature of experimentation, eh? No risk, no reward.<br>
+Perhaps you'd like to give it a try? What's the worst that could happen?<br>
+<a action="bypass -h npc_%objectId%_SkillList">Learn skills.</a><br>
+<a action="bypass -h npc_%objectId%_Link common/skill_enchant_help.htm">Ask about Skill Enchanting.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

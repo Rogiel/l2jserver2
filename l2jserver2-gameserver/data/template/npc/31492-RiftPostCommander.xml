@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="31492" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Rift Post Commander</name>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="655" righthand="80"/>
+        <collision heigth="23.0" radius="7.0"/>
+    </info>
+    <talk default="default">
+        <chat id="3"><![CDATA[<html><body>Rift Post:<br>
+There are rules to the<font color="LEVEL"> Rift of Dimension</font>. Where you go and what goes on inside there remains a mystery. Once you get inside using the fragment, you'll only be able to stay for<font color="LEVEL"> about 40 minutes</font> before<font color="LEVEL"> the dimension shifts</font>. Don't forget that.<br>
+If you don't like where you entered, you can<font color="LEVEL"> move just once</font>.<br>
+This decision must be made by<font color="LEVEL"> the party leader</font>.<br>
+You may not leave the party or allow anyone else to join your party while there, it's too dangerous.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Rift Post:<br>
+The Rift has levels based on what you are responsible for.<br>
+<font color="LEVEL"> The 30th level force consists of recruits, the 40th soldiers, the 50th officers, the 60th generals, the 70th commanders, and the higher force heroes</font>. You are free to choose the level that fits you.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Rift Post:<br>
+Welcome to the rift between the dimensions of time and space! Where you're standing now is relatively safe. It was created using all available resources. By the way, I see that inner space where you're looking, and I must warn you... We can't guarantee your safety! Don't try to go there without our help!<br>
+Don't forget! You'll have a better chance of returning alive if you take some friends with you. What do you want to do?<br>
+<a action="bypass -h npc_%objectId%_EnterRift 5">"I want to go to the inner space of the rift."</a><br>
+<a action="bypass -h Quest OracleTeleport Return">"I want to go back to my world."</a><br>
+<a action="bypass -h Quest OracleTeleport Festival">"I want to go to the Blood Offering."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Where's a good place for me to fight?"</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">"Please tell me the rules and characteristics of this place."</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

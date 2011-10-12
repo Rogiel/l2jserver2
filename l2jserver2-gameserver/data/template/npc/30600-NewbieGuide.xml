@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="30600" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Newbie Guide</name>
+        <level>70</level>
+        <race>DARKELVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="23.0" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="2"><![CDATA[<html><body>Always keep your mind fixed on the ultimate goad! War has brought chaos to the realms of Men, and chaos is our natural element. We seek to make use of this chaos to advance our race and bury the sun dwellers.<br>
+But first things first. Begin by mastering the weapons and armor you have now. Go hunt keltirs or wolves around the village. When you find weapons or armour on the monsters you slay, try to use them yourself. Items which are usless to you may be sold at a shop, to finance your futher adventures.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Newbie Guide:<br>
+If you need advice, do not hesitate to ask me! I will do my very best to help you.<br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask for advice.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NpcLocationInfo">NPC Location Information.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/BlessingOfProtection.htm">Receive blessing of protection.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 12">Ask about the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Quest 1104_NewbieTravelToken">Teleport using the Newbie Travel Token.</a><br>
+<a action="bypass -h npc_%objectId%_Link default/SupportMagic.htm">Receive help from beneficial magic.</a><br>
+<a action="bypass -h npc_%objectId%_Quest NewbieCoupons">Ask for help with a newbie item.</a>
+</body></html>]]></chat>
+        <chat id="7"><![CDATA[<html><body>There are many here in the village who could benefit from your services. Speak to them to find those who wish to offer employment. They will offer you an assignment when you click on<font color="LEVEL"> Quest</font>.<br>
+They will not ask you to perform a quest which is beyond your abilities, so if they refuse to offer a task, it means that your level is too low to provide a reasonable chance of success.<br>
+You should also know that there are quests that you may only perform once, but there are also repeating quests that you may complete several times.<br>
+<a action="bypass -h npc_%objectId%_Chat 8">I want to know more about Quests</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="4"><![CDATA[<html><body>For now, you should hunt<font color="LEVEL"> keltirs</font>, elder keltirs, or wolves near the village. Wolves are the most dangerous, so take care.<br>
+When you target a monster, the monster's name appears in the upper central portion of the screen.<font color="LEVEL"> The colour of the name tells you the monster's difficulty</font>. For now, hunt those that appear in white or sky blue. those that appear in red or yello are much stronger than you, so leave them alone.<br>
+Finally, a warning -- you are not yet powerful enough to engage orcs. They are both stonger and more clever than they seem. Worst of all, they understand teamwork, and if you engage one orc others will come to help it against you. Even if you have a chance against a single orc, two or more will surely slay you.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>What guidance can I offer you? There is much you must learn before you can be counted among the great heros of our race.<br>
+<a action="bypass -h npc_%objectId%_Chat 2">What should I do now?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 3">What is the best equipment for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 4">What is the best hunting site for me?</a><br>
+<a action="bypass -h npc_%objectId%_Chat 5">Tell me about skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 6">Which quests are available to me?</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>If you have powerful companions, they may purchase equipment for you. Otherwise, equipment for novices is provided by the Temple of Shilen.<br>
+For now, you should seek to master the arms and armor you already possess. You will sometimes obtain arms and armor from the monsters you hunt. With some luck, you may acquire<font color="LEVEL"> cloth shoes, apprentice's shoes</font>, or a<font color="LEVEL"> cloth cap</font>.<br>
+The temple will provide you with two different blades, a<font color="LEVEL"> dagger</font> and a squire's sword. The dagger is swift, but its accuracy suffers, while the squire's sword (one-handed sword) is noticeably slower than the dagger, but strikes with greater accuracy. Remember that different weapons may call upon different skills in their use.<br>
+Return to me when you have achieved<font color="LEVEL"> level 6.</font> and I will teach you more about weapons.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>You may begin to learn skills when you reach level 5. Training in skills may be obtained at the Temple of Shilen, where the masters and elders stay. The Temple is the largest building in the village, north of the village square. The masters there will teach you. First, however, you will need to acquire<font color="LEVEL"> SP</font> before you can obtain skills, SP stands for skill points, and like experience, they are earned by defeating monsters. SP are deducted when you learn a new skill. If you are curious about you SP, click the Character Status button and view the Status tab on the window. You must expand SP for each individual skill you acquire.<br>
+<a action="bypass -h npc_%objectId%_Chat 6">I want to know more about skills</a><br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="6"><![CDATA[<html><body>Speak to<font color="LEVEL"> Master Harant</font> or Master Trudy, and they will reveal teh skills and spells you may learn.<br>
+You must understand that skills are divided into active skills and passive skills.<font color="LEVEL"> Active skills</font> must be selected each time they are used, while passive skills provide a permanent increase to your basic abilities when they're obtained. As a Dark Fighter, you can acquire skills that increase your abilities.<br>
+When you reach Level 5, learn offensive active skills.<font color="LEVEL"> Power Strike, Mortal Blow, and Power Shot are the first three offensive active skills you may learn. Power Strike may only be used with sword type weapons, Mortal Blow with dagger types, and Power shot with bow type weapons. Power Shot, in particular, can cause great damage, but consumes great amounts of MP, so use it wisely.<br>
+Finally, if you have a few spare SP, then learning<font color="LEVEL"> Aura Defense</font> may be a good idea. This skill increases your defense, and is <tr><td>especially useful at your current levels, when your equipment is still rather weak.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+        <chat id="12"><![CDATA[<html><body>Newbie Guide:<br>
+The Newbie Travel Token is reserved for players of level 20 or below.<br>
+It allows the player to move to the start town of another tribe via the<font color="LEVEL"> Newbie Guides</font> in each town<br>
+Be cautionus, for in many cases, you may learn and practice certain skills and quests that are unique to the own of each tribe.<br>
+Once a player reaches level 20, he is no longer able to teleport using the Newbie Travel Token.
+</body></html>]]></chat>
+        <chat id="8"><![CDATA[<html><body>I am pleased to tell you what I know, but I do not know everything. You should speak to as many of the villagers as you can.<br>
+Have you already spoken to<font color="LEVEL"> Abyssal Celebrant Undrias</font> at teh gate of the Temple of Shilen? He may want to ask a favor of you.<br>
+Also, seek out<font color="LEVEL"> Sentry Nelsya</font> at the north entrance of the village. 'Tis the season of Shilen's Hunting Ceremony, and they are looking for volunteers.<br>
+Let's see... ah, yes! See that you speak to<font color="LEVEL"> Collette</font> and to Trader Payne as well.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="16" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22258" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">White Sand Mirage</name>
+        <level>79</level>
+        <race>SPIRIT</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="3127.82459333517"/>
+            <mp regen="3.0" max="1641.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="929.93081"/>
+                <magical speed="333.0" damage="635.0222"/>
+            </attack>
+            <defense>
+                <physical value="337.07008"/>
+                <magical value="246.65326"/>
+            </defense>
+            <move walk="60.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>12941</experience>
+        <sp>1434</sp>
+        <collision heigth="27.0" radius="12.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="3717" min="1821" id="57"/>
+        <item chance="200000" category="UNK_100" max="1" min="1" id="9593"/>
+        <item chance="7428" category="UNK_2" max="1" min="1" id="1894"/>
+        <item chance="7819" category="UNK_2" max="1" min="1" id="4039"/>
+        <item chance="1938" category="UNK_2" max="1" min="1" id="4041"/>
+        <item chance="7428" category="UNK_2" max="1" min="1" id="4044"/>
+        <item chance="1783" category="UNK_200" max="1" min="1" id="9546"/>
+        <item chance="9" category="UNK_2" max="1" min="1" id="959"/>
+        <item chance="611" category="UNK_1" max="1" min="1" id="5545"/>
+        <item chance="671" category="UNK_1" max="1" min="1" id="5546"/>
+        <item chance="611" category="UNK_1" max="1" min="1" id="5529"/>
+        <item chance="40" category="UNK_1" max="1" min="1" id="11964"/>
+        <item chance="40" category="UNK_1" max="1" min="1" id="11971"/>
+        <item chance="40" category="UNK_1" max="1" min="1" id="11968"/>
+        <item chance="95236" category="SPOIL" max="1" min="1" id="1894"/>
+        <item chance="12222" category="SPOIL" max="1" min="1" id="5487"/>
+        <item chance="1206" category="SPOIL" max="1" min="1" id="3036"/>
+    </droplist>
+    <skills>
+        <skill level="9" id="4153"/>
+        <skill level="1" id="4288"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="7" id="4416"/>
+        <skill level="1" id="4444"/>
+        <skill level="9" id="4477"/>
+        <skill level="1" id="5242"/>
+        <skill level="1" id="5463"/>
+        <skill level="1" id="5549"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="32632" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Gracia Survivor</name>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="160.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="22.5" radius="9.5"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Gracia Survivor:<br>
+The current situation in Gracia?<br>
+Right now, the Seed of Destruction is It's currently occupied by the enemy and our troops are attacking.<br>
+The Seed of Infinity is It's currently occupied by the enemy and our troops are attacking.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Gracia Survivor:<br>
+Do you know of the continent of Gracia? It is located far across the sea from Aden; its land is barren and its climate is rough. Despite these challenges -- or perhaps because of them -- it was the home of a strong, hardy people.<br>
+But now all has changed... Strange Seeds appeared throughout the continent, spawning <font color="LEVEL">Pagan Monsters</font> who wreaked havoc on the land. Although we fought under the command of King Keucereus, we were outmatched. Gracia fell under the sway of that great evil.<br>
+Fortunately, a few survivors were able to reach Aden and ask for help. There your clan leaders promised to send assistance. Since then, our soldiers have formed a combined force under the command of King Keucereus, waiting for our chance to exact vengeance on those who destroyed our homes. A few of my comrades stayed behind in Aden to appeal to other adventurers for help.<br>
+<a action="bypass -h npc_%objectId%_Quest 1003_Survivor">Ask how to help Gracia.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about the current situation in Gracia.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

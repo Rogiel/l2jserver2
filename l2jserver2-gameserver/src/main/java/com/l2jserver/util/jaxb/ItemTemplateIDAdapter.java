@@ -55,13 +55,15 @@ public class ItemTemplateIDAdapter extends XmlAdapter<Integer, ItemTemplateID> {
 			return null;
 		if (provider == null)
 			return new ItemTemplateID(v, null);
+		if (v == null)
+			v = 57; // FIXME create constant holding important item ids
 		return provider.resolveID(v);
 	}
 
 	@Override
 	public Integer marshal(ItemTemplateID v) throws Exception {
 		if (v == null)
-			return 0;
+			return 57;
 		return v.getID();
 	}
 }

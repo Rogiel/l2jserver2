@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="13275" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Young Honey Watermelon</name>
+        <level>1</level>
+        <race>OTHER</race>
+        <stats>
+            <hp regen="2.0" max="39.74519"/>
+            <mp regen="0.9" max="40.0"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="8.47458"/>
+                <magical speed="333.0" damage="5.78704"/>
+            </attack>
+            <defense>
+                <physical value="44.44444"/>
+                <magical value="32.52252"/>
+            </defense>
+            <move walk="50.0" run="100.0"/>
+            <base wit="20" dex="30" men="10" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="20.0" radius="10.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4390"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="3" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="19" id="4416"/>
+        <skill level="5" id="4441"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="30436" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Sarien</name>
+        <title send="false">Trader</title>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="24.0" radius="10.0"/>
+    </info>
+    <talk default="default">
+        <chat id="pk"><![CDATA[<html><body>Trader Sarien:<br>
+I do not deal with the wicked.
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Trader Sarien:<br>
+I studied at Einhovant's School of Magic when I was just a wee lad. I quit when I realized that I didn't have any magical talent and became a trader, but my time there taught me a great deal about this business.<br>
+<a action="bypass -h npc_%objectId%_Buy 3043600">Buy items and minerals.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about magic materials.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Trader Sarien:<br>
+Basically, there are eight main ingredients used in the research of magic. The eight ingredients are crimson mushrooms, Dragon's Tooth, green wild grapes, Mandragora Roots, monster eye meat, willow roots, bone powder and jade fragments. Knowledge of these magic ingredients are largely helpful when doing business with Mystics of the Ivory Tower. Even now, I came here after hearing that magic ingredients could be obtained in the area.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Return</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

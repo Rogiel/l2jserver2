@@ -16,6 +16,8 @@
  */
 package com.l2jserver.model.template;
 
+import javax.xml.bind.annotation.XmlType;
+
 import com.l2jserver.model.id.TemplateID;
 
 /**
@@ -26,6 +28,7 @@ import com.l2jserver.model.id.TemplateID;
  * @param <T>
  *            the type of object created by this template
  */
+@XmlType(name = "AbstractTemplateType")
 public abstract class AbstractTemplate<T> implements Template<T> {
 	// /**
 	// * The {@link TemplateID}

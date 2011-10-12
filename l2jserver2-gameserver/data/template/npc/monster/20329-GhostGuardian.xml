@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="20329" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Ghost Guardian</name>
+        <level>21</level>
+        <race>UNDEAD</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="364.30351"/>
+            <mp regen="1.5" max="205.2"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="47.91924"/>
+                <magical speed="333.0" damage="32.72263"/>
+            </attack>
+            <defense>
+                <physical value="89.73059"/>
+                <magical value="59.74364"/>
+            </defense>
+            <move walk="80.0" run="140.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>772</experience>
+        <sp>36</sp>
+        <collision heigth="22.0" radius="8.0"/>
+    </info>
+    <droplist>
+        <item chance="181" category="UNK_1" max="1" min="1" id="16"/>
+        <item chance="700000" category="DROP" max="234" min="131" id="57"/>
+        <item chance="32362" category="UNK_2" max="1" min="1" id="1867"/>
+        <item chance="287587" category="SPOIL" max="1" min="1" id="1869"/>
+        <item chance="24271" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="24271" category="UNK_2" max="1" min="1" id="1870"/>
+        <item chance="24271" category="UNK_2" max="1" min="1" id="1871"/>
+        <item chance="32362" category="UNK_2" max="1" min="1" id="1872"/>
+        <item chance="28759" category="SPOIL" max="1" min="1" id="1880"/>
+        <item chance="29542" category="SPOIL" max="1" min="1" id="1898"/>
+        <item chance="593" category="UNK_2" max="1" min="1" id="2258"/>
+        <item chance="971" category="UNK_2" max="1" min="1" id="5268"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="1" id="4416"/>
+    </skills>
+</template:npc>

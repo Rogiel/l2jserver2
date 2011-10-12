@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<skill cooldown="0" delay="0"
-    name="Master's Blessing - Prophecy of Water" id="23273"
-    xsi:schemaLocation="skill ../skill.xsd"
-    xmlns="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <maximumLevel>1</maximumLevel>
-</skill>

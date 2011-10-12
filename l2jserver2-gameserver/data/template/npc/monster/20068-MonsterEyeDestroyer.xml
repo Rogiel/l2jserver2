@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="20068" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="true" targetable="true" attackable="true">
+        <name display="true" send="false">Monster Eye Destroyer</name>
+        <level>26</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="3.5" max="487.5704"/>
+            <mp regen="1.5" max="273.0"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="69.75926"/>
+                <magical speed="333.0" damage="47.63653"/>
+            </attack>
+            <defense>
+                <physical value="105.02818"/>
+                <magical value="69.92894"/>
+            </defense>
+            <move walk="90.0" run="159.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>1294</experience>
+        <sp>65</sp>
+        <collision heigth="43.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="1871" category="SPOIL" max="1" min="1" id="391"/>
+        <item chance="70456" category="SPOIL" max="1" min="1" id="1899"/>
+        <item chance="7002" category="SPOIL" max="1" min="1" id="2261"/>
+        <item chance="700000" category="DROP" max="374" min="196" id="57"/>
+        <item chance="32" category="UNK_1" max="1" min="1" id="101"/>
+        <item chance="32" category="UNK_1" max="1" min="1" id="312"/>
+        <item chance="32" category="UNK_1" max="1" min="1" id="313"/>
+        <item chance="32" category="UNK_1" max="1" min="1" id="314"/>
+        <item chance="886" category="UNK_1" max="1" min="1" id="2020"/>
+        <item chance="126534" category="UNK_2" max="1" min="1" id="1864"/>
+        <item chance="63267" category="UNK_2" max="1" min="1" id="1869"/>
+        <item chance="25307" category="UNK_2" max="1" min="1" id="1878"/>
+        <item chance="982" category="UNK_2" max="1" min="1" id="2262"/>
+    </droplist>
+    <skills>
+        <skill level="2" id="4076"/>
+        <skill level="2" id="4157"/>
+        <skill level="2" id="4160"/>
+        <skill level="1" id="4276"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="12" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
+</template:npc>

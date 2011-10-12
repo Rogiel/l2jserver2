@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25423" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Fairy Queen Timiniel</name>
+        <title send="false">Raid Boss</title>
+        <level>61</level>
+        <race>FAIRIE</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="74.4686933653732" max="226767.438196184"/>
+            <mp regen="2.7" max="1066.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="822.13654"/>
+                <magical speed="333.0" damage="150.22565"/>
+            </attack>
+            <defense>
+                <physical value="757.48038"/>
+                <magical value="369.52"/>
+            </defense>
+            <move walk="80.0" run="190.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2601295</experience>
+        <sp>380861</sp>
+        <collision heigth="54.0" radius="10.0"/>
+    </info>
+    <droplist>
+        <item chance="18530" category="UNK_1" max="1" min="1" id="234"/>
+        <item chance="16783" category="DROP" max="1" min="1" id="2398"/>
+        <item chance="16783" category="DROP" max="1" min="1" id="2399"/>
+        <item chance="26861" category="DROP" max="1" min="1" id="2403"/>
+        <item chance="26861" category="DROP" max="1" min="1" id="2404"/>
+        <item chance="84631" category="DROP" max="48" min="16" id="4084"/>
+        <item chance="60182" category="DROP" max="67" min="23" id="4085"/>
+        <item chance="304725" category="DROP" max="18" min="6" id="4086"/>
+        <item chance="174129" category="DROP" max="31" min="11" id="4087"/>
+        <item chance="682092" category="UNK_1" max="9" min="3" id="4119"/>
+        <item chance="208965" category="UNK_2" max="3" min="1" id="4622"/>
+        <item chance="417930" category="UNK_2" max="1" min="1" id="4623"/>
+        <item chance="139310" category="UNK_2" max="4" min="2" id="4624"/>
+        <item chance="80799" category="UNK_2" max="1" min="1" id="6572"/>
+        <item chance="690000" category="UNK_101" max="2" min="1" id="8176"/>
+        <item chance="830000" category="UNK_100" max="4" min="1" id="9818"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4187"/>
+        <skill level="6" id="4190"/>
+        <skill level="6" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="13" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="1" id="4953"/>
+    </skills>
+</template:npc>

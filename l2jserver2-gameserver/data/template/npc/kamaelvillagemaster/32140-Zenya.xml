@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="32140" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Zenya</name>
+        <title send="false">Vice Hierarch</title>
+        <level>70</level>
+        <race>KAMAEL</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="10.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="22.25" radius="13.0"/>
+    </info>
+    <talk default="default">
+        <chat id="1"><![CDATA[<html><body>Vice Hierarch Zenya:<br>
+Vice Hierarch Casca can tell you about the skills available to male Kamael -- I can tell you of the Arbalesters, those skilled female Kamael who make up the secret Steelrazor force.<br>
+Strictly speaking, not all Arbalesters belong to the Steelrazor, just as not all Human Knights belong to a guild.<br>
+Arbalesters learn to mislead and deceive their enemies through their stealth and skill at trapping. Their weapon of choice is the Bow.<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Back.</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Vice Hierarch Zenya:<br>
+I am Vice Hierarch Zenya. I assist the Hierarch and watch over you, our young Kamael warriors, who are leaving the safety of our little nest.<br>
+Now that the seal on the Kamael has been broken and other races come in and out of the village as they please, I am concerned that the Kamael who leave this place will forget our ancient traditions and customs. Certainly they are very different from those of the outside world...<br>
+Do not forget! Cling tightly to the skills, the culture and the spirit of the Kamael.<br>
+<a action="bypass -h npc_%objectId%_Quest kamael_occupation_change">Listen to information about first class transfer.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 1">Ask about Arbalester.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="25" id="4416"/>
+    </skills>
+</template:npc>

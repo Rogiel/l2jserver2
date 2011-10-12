@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="32346" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Kanaf</name>
+        <level>70</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="24.0" radius="10.0"/>
+    </info>
+    <talk default="default">
+        <chat id="3"><![CDATA[<html><body>Kanaf:<br>
+To attempt to enter the town by yourself would be suicide! You must enter with the rest of your party members.
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Kanaf:<br>
+It is said that there is a passage to a workshop somewhere in the Steel Citadel where evil creatures are being manufactured for the war. Supposedly you need something very rare in order to enter it, and no one we know has yet been able to do so.<br>
+<a action="bypass -h npc_%objectId%_Chat 3">Ask him about other information.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Infiltrate the town</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Kanaf:<br>
+Shh! Please be still. Over there is the <font color="LEVEL">old town</font>, which is the only entrance to the Steel Citadel. It is used as a prison camp for Native captives.<br>
+Some time ago, when the Steel Citadel's defenses were temporarily weakened, we attacked the town in an attempt to rescue the captives. However, the enemy was still too strong, and many of us were killed or wounded. <br>
+And our comrades in the town still thirst for their freedom!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">Infiltrate the town.</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">Ask him for new information about the town.</a><br>
+<a action="bypass -h npc_%objectId%_Quest">Quest.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>

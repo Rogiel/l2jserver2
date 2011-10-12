@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="20346" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Darkstone Golem</name>
+        <level>13</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.5" max="214.61578"/>
+            <mp regen="1.2" max="132.64"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="25.04271"/>
+                <magical speed="333.0" damage="17.10092"/>
+            </attack>
+            <defense>
+                <physical value="68.67458"/>
+                <magical value="45.72431"/>
+            </defense>
+            <move walk="23.0" run="23.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>545</experience>
+        <sp>21</sp>
+        <collision heigth="31.0" radius="20.0"/>
+    </info>
+    <droplist>
+        <item chance="5564" category="UNK_1" max="1" min="1" id="20"/>
+        <item chance="3891" category="UNK_1" max="1" min="1" id="43"/>
+        <item chance="700000" category="DROP" max="150" min="106" id="57"/>
+        <item chance="19845" category="UNK_2" max="1" min="1" id="736"/>
+        <item chance="169366" category="SPOIL" max="1" min="1" id="1803"/>
+        <item chance="537455" category="SPOIL" max="1" min="1" id="1831"/>
+        <item chance="26460" category="UNK_2" max="1" min="1" id="1866"/>
+        <item chance="201546" category="SPOIL" max="1" min="1" id="1869"/>
+        <item chance="39690" category="UNK_2" max="1" min="1" id="1871"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4249"/>
+        <skill level="3" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="5" id="4284"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="10" id="4410"/>
+        <skill level="10" id="4411"/>
+        <skill level="12" id="4412"/>
+        <skill level="19" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="2" id="4444"/>
+    </skills>
+</template:npc>

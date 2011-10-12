@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="31002" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Reorin</name>
+        <title send="false">Maestro</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="16.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="4"><![CDATA[<html><body>Maestro Reorin:<br>
+I was not satisfied. I had enough adena that I never needed to work again. I could have retired with my lovely wife to a life of leisure. I was highly respected by all, but still I wanted more. I dreamed of creating a masterpiece that would go down in history. It was all I could think of. It even kept me awake at night! Soon I became as a man possessed, ignoring my apprentices and worst of all my adoring wife. In the midst of this obsession, demons whispered in my ear their words of temptation...<br>
+<a action="bypass -h npc_%objectId%_Chat 5">"How did they tempt you?"</a>
+</body></html>]]></chat>
+        <chat id="3"><![CDATA[<html><body>Maestro Reorin:<br>
+Well, lets see... About 50 years ago I became the youngest blacksmith in the history of the Black Anvil Guild to earn the postition of Maestro! I truly was at the pinnacle of success!<br>
+Many heroes of that day would trust only me for thier weapons and armor. I made the sword of Sir Cedric Athebalt, and the spear of Helena Blackbird, the female general! All of my products sold for high prices as soon as they went on the market.<br>
+Everyone wanted to be my apprentice but I had to send most of them away. I eventually had over 30 apprentices working for me.<br>
+And then... I met and married the most beautifull girl in Schuttgart... But...<br>
+<a action="bypass -h npc_%objectId%_Chat 4">"But...?"</a>
+</body></html>]]></chat>
+        <chat id="1"><![CDATA[<html><body>Maestro Reorin:<br>
+Hiccup~! Are you lost? I know how that feels!<br>
+Hiccup~ Well, let's see... if you look to the west you will see Oren Castle Town...<br>
+And that castle to north? That is Oren Castle... Hiccup~!<br>
+Past the castle, cross the river and keep heading north... you will reach the Ivory Tower, home to the Mystics...<br>
+<a action="bypass -h npc_%objectId%_Chat 0">"Return"</a>
+</body></html>]]></chat>
+        <chat id="default"><![CDATA[<html><body>Maestro Reorin:<br>
+Hiccup~ Who goes there?... What could you possibly want from me, the "Blacksmith of Demons"?<br>
+Sorry, but the shop is closed! Permanently! Hey, buddy, you don't have any liquor on you, by chance? I could really use a drink!<br>
+<a action="bypass -h npc_%objectId%_Chat 1">"I need directions."</a><br>
+<a action="bypass -h npc_%objectId%_Chat 2">"Why are you a drunk?"</a><br>
+<a action="bypass -h npc_%objectId%_Quest">"Quest"</a>
+</body></html>]]></chat>
+        <chat id="2"><![CDATA[<html><body>Maestro Reorin:<br>
+Hiccup~! Are you sure you want to hear such a sad story? I, who at one time was a prominent maestro... How the mighty have fallen... Thrown out of the guild and seduced by demons. Are you sure you want to hear all of this<br>
+<a action="bypass -h npc_%objectId%_Chat 3">"Tell me everything."</a>
+</body></html>]]></chat>
+        <chat id="5"><![CDATA[<html><body>Maestro Reorin:<br>
+It was the evil Death Lord Hallate. He who leads the army of darkness... He who is known as the insolent invader or the archenemy of the angels. He made me an offer that I couldn't refuse. He promised me that he would help me to create a masterpiece that would go down in history. Ignoring the entreaties of my darling wife I went along with it... and fell into the demon's trap...<br>
+This led to his taking of my beloved wife Reiria... Hicupp~!<br>
+Oh, what the?! I can't bear to think of it anymore! Hiccup~!<br>
+Please leave me alone!<br>
+<a action="bypass -h npc_%objectId%_Chat 0">"Return"</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

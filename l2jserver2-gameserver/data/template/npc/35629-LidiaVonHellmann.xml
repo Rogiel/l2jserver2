@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.BaseNPCController"
+    id="35629" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Lidia von Hellmann</name>
+        <level>78</level>
+        <race>DEMON</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="37.3" max="903214.01529417"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="1575.77421"/>
+                <magical speed="333.0" damage="556.49512"/>
+            </attack>
+            <defense>
+                <physical value="998.10183"/>
+                <magical value="486.91174"/>
+            </defense>
+            <move walk="20.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <item lefthand="0" righthand="8209"/>
+        <collision heigth="25.4" radius="10.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="3" id="4071"/>
+        <skill level="1" id="4085"/>
+        <skill level="1" id="4086"/>
+        <skill level="1" id="4095"/>
+        <skill level="3" id="4275"/>
+        <skill level="1" id="4278"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="9" id="4416"/>
+        <skill level="1" id="4997"/>
+        <skill level="1" id="4998"/>
+        <skill level="1" id="4999"/>
+    </skills>
+</template:npc>

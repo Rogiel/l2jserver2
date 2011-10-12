@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="20524" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Grey Wolf Elder</name>
+        <level>7</level>
+        <race>ANIMAL</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="2.0" max="108.42254"/>
+            <mp regen="0.9" max="84.88"/>
+            <attack critical="1" evasion="0" range="40">
+                <physical speed="253.0" damage="14.80956"/>
+                <magical speed="333.0" damage="10.11301"/>
+            </attack>
+            <defense>
+                <physical value="55.51894"/>
+                <magical value="36.96514"/>
+            </defense>
+            <move walk="24.0" run="110.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>152</experience>
+        <sp>5</sp>
+        <collision heigth="9.0" radius="13.0"/>
+    </info>
+    <skills>
+        <skill level="9" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="13" id="4410"/>
+        <skill level="13" id="4411"/>
+        <skill level="9" id="4412"/>
+        <skill level="9" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="5" id="4415"/>
+        <skill level="4" id="4416"/>
+    </skills>
+</template:npc>

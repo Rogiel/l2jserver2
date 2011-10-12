@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="22072" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Horrifying Cannon Golem VI</name>
+        <level>53</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="6.5" max="1570.8463"/>
+            <mp regen="2.4" max="832.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="353.71092"/>
+                <magical speed="333.0" damage="241.5387"/>
+            </attack>
+            <defense>
+                <physical value="214.18326"/>
+                <magical value="156.73001"/>
+            </defense>
+            <move walk="130.0" run="180.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>9936</experience>
+        <sp>745</sp>
+        <collision heigth="30.0" radius="21.0"/>
+    </info>
+    <droplist>
+        <item chance="700000" category="DROP" max="2638" min="1299" id="57"/>
+        <item chance="5" category="UNK_1" max="1" min="1" id="203"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="204"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="205"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="206"/>
+        <item chance="242276" category="UNK_1" max="1" min="1" id="1864"/>
+        <item chance="121138" category="UNK_1" max="1" min="1" id="1869"/>
+        <item chance="12114" category="UNK_1" max="1" min="1" id="1880"/>
+        <item chance="112261" category="SPOIL" max="1" min="1" id="1920"/>
+        <item chance="419" category="UNK_1" max="1" min="1" id="2112"/>
+        <item chance="407" category="UNK_1" max="1" min="1" id="2116"/>
+        <item chance="407" category="UNK_1" max="1" min="1" id="2117"/>
+        <item chance="407" category="UNK_1" max="1" min="1" id="2118"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="2503"/>
+        <item chance="416" category="UNK_1" max="1" min="1" id="2969"/>
+        <item chance="6562" category="SPOIL" max="1" min="1" id="3034"/>
+        <item chance="242" category="UNK_2" max="1" min="1" id="3034"/>
+        <item chance="54680" category="SPOIL" max="1" min="1" id="4042"/>
+        <item chance="4038" category="UNK_1" max="1" min="1" id="4043"/>
+        <item chance="1615" category="UNK_2" max="1" min="1" id="5550"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="7891"/>
+        <item chance="4" category="UNK_1" max="1" min="1" id="7897"/>
+        <item chance="416" category="UNK_1" max="1" min="1" id="8338"/>
+        <item chance="395" category="UNK_1" max="1" min="1" id="8344"/>
+        <item chance="2804" category="UNK_200" max="1" min="1" id="8726"/>
+        <item chance="701" category="UNK_200" max="1" min="1" id="8736"/>
+        <item chance="70" category="UNK_200" max="1" min="1" id="8746"/>
+        <item chance="14" category="UNK_200" max="1" min="1" id="8756"/>
+    </droplist>
+    <skills>
+        <skill level="6" id="4032"/>
+        <skill level="5" id="4232"/>
+        <skill level="1" id="4273"/>
+        <skill level="1" id="4274"/>
+        <skill level="10" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="14" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="1" id="4414"/>
+        <skill level="4" id="4415"/>
+        <skill level="2" id="4416"/>
+        <skill level="10" id="4417"/>
+        <skill level="4" id="4437"/>
+        <skill level="2" id="4457"/>
+    </skills>
+</template:npc>

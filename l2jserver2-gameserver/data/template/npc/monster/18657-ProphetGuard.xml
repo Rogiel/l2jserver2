@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.MonsterController"
+    id="18657" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Prophet Guard</name>
+        <level>74</level>
+        <race>HUMANOID</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="17.0" max="8619.06371275888"/>
+            <mp regen="3.0" max="1607.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="445.25"/>
+                <magical speed="333.0" damage="152.024"/>
+            </attack>
+            <defense>
+                <physical value="332.70061"/>
+                <magical value="243.45587"/>
+            </defense>
+            <move walk="34.0" run="175.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>37565</experience>
+        <sp>4122</sp>
+        <item lefthand="6918" righthand="2504"/>
+        <collision heigth="41.0" radius="16.0"/>
+    </info>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="13" id="4415"/>
+        <skill level="6" id="4416"/>
+        <skill level="7" id="4563"/>
+    </skills>
+</template:npc>

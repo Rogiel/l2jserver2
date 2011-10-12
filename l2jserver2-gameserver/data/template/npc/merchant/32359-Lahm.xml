@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="32359" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Lahm</name>
+        <title send="false">Blacksmith of Power</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="1.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="16.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Lahm:<br>
+Please help me!<br>
+I heard this story from my ancestors, so I dont't know all the exact details, but I will tell you what I know. Listen carefully!<br>
+The Isle of Prayer was once a nest of the Water Dragon Fafurion. The dragon was usually friendly, but occasionally it would fly into a murderous rage -- perhaps because of some kind of spell. When in that state, however, it would destroy its surroundings completely. The Elves of Innadril feared for their safety, so they sent a female Elf to become Fafurion's priestess. It was her task to keep the creature calm. This interested the evil Beleth, who manipulated the priestess to control Fafurion, and planted "Seeds of Evil" on monsters around the Isle of Prayer as a means of spyring on the situation.<br>
+A couple of years ago, I was able to extract a Seed of Evil fragment from a dead monster on the Isle of Prayer. I discovered that it contains a magic both powerful and evil -- even the mere fragment I had was astonishing. We are now focusing our efforts on extracting that power to apply to our other Dwarven technologies.<br>
+As you see, I am too old to fight these monsters. Will you collect more of these fragments for me? I shall give you a precious gift if you do... There are 6 types of seeds, with each color representing a different ability. You will be able to find the seeds scattered throughout Isle of Prayer. Go quickly -- you will not be disappointed in your reward!<br>
+<a action="bypass -h npc_%objectId%_multisell 350980012">Give him Seeds of Evil.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="1" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

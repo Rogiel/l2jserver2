@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25575" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">All-Seeing Rango</name>
+        <title send="false">Forsaken Inmate</title>
+        <level>73</level>
+        <race>MAGIC_CREATURE</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="84.1856152463255" max="194342.366232331"/>
+            <mp regen="3.0" max="1442.4"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="4658.99941"/>
+                <magical speed="333.0" damage="838.41114"/>
+            </attack>
+            <defense>
+                <physical value="930.08877"/>
+                <magical value="453.74"/>
+            </defense>
+            <move walk="60.0" run="170.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>2234730</experience>
+        <sp>360602</sp>
+        <collision heigth="45.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="28970" category="UNK_2" max="1" min="1" id="729"/>
+        <item chance="33468" category="DROP" max="1" min="1" id="5297"/>
+        <item chance="53529" category="DROP" max="1" min="1" id="5298"/>
+        <item chance="20593" category="DROP" max="1" min="1" id="5301"/>
+        <item chance="208809" category="DROP" max="27" min="9" id="5478"/>
+        <item chance="66120" category="DROP" max="60" min="20" id="5479"/>
+        <item chance="105347" category="DROP" max="84" min="28" id="5482"/>
+        <item chance="3476" category="UNK_2" max="1" min="1" id="6569"/>
+        <item chance="28979" category="UNK_2" max="1" min="1" id="6570"/>
+        <item chance="52146" category="UNK_3" max="1" min="1" id="9625"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4187"/>
+        <skill level="6" id="4190"/>
+        <skill level="6" id="4194"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="2" id="4416"/>
+    </skills>
+</template:npc>

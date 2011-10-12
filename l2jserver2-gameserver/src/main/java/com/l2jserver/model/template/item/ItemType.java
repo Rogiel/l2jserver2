@@ -16,11 +16,14 @@
  */
 package com.l2jserver.model.template.item;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Enum for all available item types
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "ItemEnumType")
 public enum ItemType {
 	/**
 	 * No specific item type

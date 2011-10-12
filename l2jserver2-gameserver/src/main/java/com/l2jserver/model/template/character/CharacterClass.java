@@ -26,11 +26,14 @@ import static com.l2jserver.model.template.character.CharacterRace.HUMAN;
 import static com.l2jserver.model.template.character.CharacterRace.KAMAEL;
 import static com.l2jserver.model.template.character.CharacterRace.ORC;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Defines all the possible classes for an character
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@XmlType(name = "CharacterClassType")
 public enum CharacterClass {
 	/**
 	 * Human fighter

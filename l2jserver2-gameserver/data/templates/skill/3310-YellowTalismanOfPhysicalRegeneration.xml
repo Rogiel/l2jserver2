@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<skill cooldown="0" delay="0"
-    name="Yellow Talisman of Physical Regeneration" id="3310"
-    xsi:schemaLocation="skill ../skill.xsd"
-    xmlns="skill" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <maximumLevel>1</maximumLevel>
-</skill>

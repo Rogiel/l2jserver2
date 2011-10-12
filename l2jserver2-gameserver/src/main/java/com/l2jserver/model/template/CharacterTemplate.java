@@ -36,134 +36,134 @@ import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@XmlRootElement(name = "character")
-@XmlType(namespace = "character")
+@XmlRootElement(name = "character", namespace = "http://schemas.l2jserver2.com/character")
+@XmlType(namespace = "http://schemas.l2jserver2.com/character", name = "CharacterType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CharacterTemplate extends ActorTemplate<L2Character> {
 	@XmlJavaTypeAdapter(CharacterTemplateIDAdapter.class)
-	@XmlAttribute(name = "class")
+	@XmlAttribute(name = "class", required = true)
 	protected CharacterTemplateID id = null;
 
-	@XmlElement(name = "stats")
+	@XmlElement(name = "stats", required = true)
 	protected CharacterStatsMetadata stats = null;
 
-	@XmlType(namespace = "character")
+	@XmlType(name = "CharacterStatsType")
 	protected static class CharacterStatsMetadata {
-		@XmlAttribute(name = "level")
+		@XmlAttribute(name = "level", required = true)
 		protected int level = 0;
-		@XmlAttribute(name = "crafter")
+		@XmlAttribute(name = "crafter", required = false)
 		protected boolean crafter = false;
 
-		@XmlElement(name = "hp")
+		@XmlElement(name = "hp", required = true)
 		protected Stat hp = null;
-		@XmlElement(name = "mp")
+		@XmlElement(name = "mp", required = true)
 		protected Stat mp = null;
-		@XmlElement(name = "cp")
+		@XmlElement(name = "cp", required = true)
 		protected Stat cp = null;
 
-		@XmlType(namespace = "character")
+		@XmlType(name = "")
 		protected static class Stat {
-			@XmlAttribute(name = "base")
+			@XmlAttribute(name = "base", required = true)
 			protected double base = 0;
-			@XmlAttribute(name = "modifier")
+			@XmlAttribute(name = "modifier", required = true)
 			protected double modifier = 0;
-			@XmlAttribute(name = "add")
+			@XmlAttribute(name = "add", required = true)
 			protected double add = 0;
 		}
 
-		@XmlElement(name = "attack")
+		@XmlElement(name = "attack", required = true)
 		protected AttackMetadata attack = null;
 
-		@XmlType(namespace = "character")
+		@XmlType(name = "CharacterAttackType")
 		protected static class AttackMetadata {
-			@XmlAttribute(name = "evasion")
+			@XmlAttribute(name = "evasion", required = true)
 			protected int evasion = 0;
-			@XmlAttribute(name = "critical")
+			@XmlAttribute(name = "critical", required = true)
 			protected int critical = 0;
-			@XmlAttribute(name = "accuracy")
+			@XmlAttribute(name = "accuracy", required = true)
 			protected int accuracy = 0;
 
-			@XmlElement(name = "physical")
+			@XmlElement(name = "physical", required = true)
 			protected AttackValueMetadata physical = null;
-			@XmlElement(name = "magical")
+			@XmlElement(name = "magical", required = true)
 			protected AttackValueMetadata magical = null;
 
-			@XmlType(namespace = "character")
+			@XmlType(name = "")
 			protected static class AttackValueMetadata {
-				@XmlAttribute(name = "damage")
+				@XmlAttribute(name = "damage", required = true)
 				protected double damage = 0;
-				@XmlAttribute(name = "speed")
+				@XmlAttribute(name = "speed", required = true)
 				protected double speed = 0;
 			}
 		}
 
-		@XmlElement(name = "defense")
+		@XmlElement(name = "defense", required = true)
 		protected DefenseMetadata defense = null;
 
-		@XmlType(namespace = "character")
+		@XmlType(name = "CharacterDefenseType")
 		protected static class DefenseMetadata {
-			@XmlElement(name = "physical")
+			@XmlElement(name = "physical", required = true)
 			protected DefenseValueMetadata physical = null;
-			@XmlElement(name = "magical")
+			@XmlElement(name = "magical", required = true)
 			protected DefenseValueMetadata magical = null;
 
-			@XmlType(namespace = "character")
+			@XmlType(name = "")
 			protected static class DefenseValueMetadata {
-				@XmlAttribute(name = "value")
+				@XmlAttribute(name = "value", required = true)
 				protected double value = 0;
 			}
 		}
 
-		@XmlElement(name = "move")
+		@XmlElement(name = "move", required = true)
 		protected MoveMetadata move = null;
 
-		@XmlType(namespace = "character")
+		@XmlType(name = "CharacterMovementType")
 		protected static class MoveMetadata {
-			@XmlAttribute(name = "run")
+			@XmlAttribute(name = "run", required = true)
 			protected double run = 0;
-			@XmlAttribute(name = "walk")
+			@XmlAttribute(name = "walk", required = true)
 			protected double walk = 0;
 		}
 
-		@XmlElement(name = "base")
+		@XmlElement(name = "base", required = true)
 		protected BaseMetadata base = null;
 
-		@XmlType(namespace = "character")
+		@XmlType(name = "CharacterBaseStatsType")
 		protected static class BaseMetadata {
-			@XmlAttribute(name = "int")
+			@XmlAttribute(name = "int", required = true)
 			protected int intelligence = 0;
-			@XmlAttribute(name = "str")
+			@XmlAttribute(name = "str", required = true)
 			protected int strength = 0;
-			@XmlAttribute(name = "con")
+			@XmlAttribute(name = "con", required = true)
 			protected int concentration = 0;
-			@XmlAttribute(name = "men")
+			@XmlAttribute(name = "men", required = true)
 			protected int mentality = 0;
-			@XmlAttribute(name = "dex")
+			@XmlAttribute(name = "dex", required = true)
 			protected int dexterity = 0;
-			@XmlAttribute(name = "wit")
+			@XmlAttribute(name = "wit", required = true)
 			protected int witness = 0;
 		}
 
-		@XmlElement(name = "maxload")
+		@XmlElement(name = "maxload", required = true)
 		protected int maximumLoad = 0;
 	}
 
-	@XmlElement(name = "collision")
+	@XmlElement(name = "collision", required = true)
 	protected CollitionMetadataContainer collision = null;
 
-	@XmlType(namespace = "character")
+	@XmlType(name = "CharacterCollisionType")
 	protected static class CollitionMetadataContainer {
-		@XmlElement(name = "male")
+		@XmlElement(name = "male", required = true)
 		protected CollisionMetadata male = null;
 
-		@XmlElement(name = "female")
+		@XmlElement(name = "female", required = true)
 		protected CollisionMetadata female = null;
 
-		@XmlType(namespace = "character")
+		@XmlType(name = "")
 		protected static class CollisionMetadata {
-			@XmlAttribute(name = "radius")
+			@XmlAttribute(name = "radius", required = true)
 			protected double radius = 0;
-			@XmlAttribute(name = "heigth")
+			@XmlAttribute(name = "heigth", required = true)
 			protected double height = 0;
 		}
 	}

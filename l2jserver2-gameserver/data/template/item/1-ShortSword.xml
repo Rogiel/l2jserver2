@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://schemas.l2jserver2.com/item ../item.xsd"
+	xmlns:template="http://schemas.l2jserver2.com/item" id="1" icon="icon.etc_adena_i00">
+	<name>Short Sword</name>
+	<material>STEEL</material>
+	<effect type="IMMEDIATE" />
+	<price>1</price>
+	<stats>
+		<physicalDamage>
+			<set order="128">510</set>
+		</physicalDamage>
+		<magicalDamage>
+			<set order="128">508</set>
+		</magicalDamage>
+		<criticalChance>
+			<set order="128">8</set>
+		</criticalChance>
+		<physicalAttackSpeed>
+			<set order="128">379</set>
+		</physicalAttackSpeed>
+	</stats>
+</template:item>

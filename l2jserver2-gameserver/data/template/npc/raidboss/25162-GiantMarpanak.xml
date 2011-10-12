@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="25162" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Giant Marpanak</name>
+        <title send="false">Raid Boss</title>
+        <level>60</level>
+        <race>GIANT</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="253.244358973511" max="614249.151468482"/>
+            <mp regen="2.4" max="1036.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="2937.05045"/>
+                <magical speed="333.0" damage="1851.60109"/>
+            </attack>
+            <defense>
+                <physical value="742.95024"/>
+                <magical value="362.44"/>
+            </defense>
+            <move walk="15.0" run="180.0"/>
+            <base wit="70" dex="73" men="80" con="57" str="60" int="76"/>
+        </stats>
+        <experience>4154684</experience>
+        <sp>587467</sp>
+        <item lefthand="0" righthand="3937"/>
+        <collision heigth="91.0" radius="42.0"/>
+    </info>
+    <droplist>
+        <item chance="12285" category="DROP" max="1" min="1" id="110"/>
+        <item chance="35597" category="UNK_1" max="1" min="1" id="287"/>
+        <item chance="121265" category="UNK_2" max="18" min="6" id="948"/>
+        <item chance="85994" category="DROP" max="1" min="1" id="2416"/>
+        <item chance="85994" category="DROP" max="1" min="1" id="2417"/>
+        <item chance="224438" category="DROP" max="120" min="40" id="4077"/>
+        <item chance="93115" category="DROP" max="243" min="81" id="4088"/>
+        <item chance="53873" category="DROP" max="420" min="140" id="4089"/>
+        <item chance="325231" category="UNK_1" max="36" min="12" id="4121"/>
+        <item chance="267622" category="UNK_2" max="4" min="2" id="4622"/>
+        <item chance="200717" category="UNK_2" max="6" min="2" id="4623"/>
+        <item chance="160573" category="UNK_2" max="7" min="3" id="4624"/>
+        <item chance="830000" category="UNK_101" max="3" min="1" id="8176"/>
+        <item chance="830000" category="UNK_100" max="6" min="2" id="9817"/>
+    </droplist>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="6" id="4173"/>
+        <skill level="6" id="4177"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="11" id="4416"/>
+        <skill level="1" id="4494"/>
+        <skill level="6" id="4730"/>
+        <skill level="6" id="4735"/>
+        <skill level="1" id="4851"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="36478" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Mickey</name>
+        <title send="false">Pet Trader</title>
+        <level>70</level>
+        <race>DWARVEN</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="7.5" max="2444.46819"/>
+            <mp regen="2.7" max="1345.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="688.86373"/>
+                <magical speed="333.0" damage="470.40463"/>
+            </attack>
+            <defense>
+                <physical value="295.91597"/>
+                <magical value="216.53847"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>0</experience>
+        <sp>0</sp>
+        <collision heigth="17.5" radius="8.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body><br>
+Through the restore function, you can transform a pet that has been evolved into a special form back to its original form. Since the process transfers the experience value, restoring a high level pet might actually result in a decrease in the pet's level.<br>
+Any items in the pet's inventory will be transferred to the owner's inventory.<br>
+Which pet would you like to restore?<br><br>
+<a action="bypass -h npc_%objectId%_restore 1">Restore Great Snow Wolf to Great Wolf.</a><br>
+<a action="bypass -h npc_%objectId%_restore 2">Restore Snow Fenrir to Fenrir.</a><br>
+<a action="bypass -h npc_%objectId%_restore 3">Restore Red Wind Strider to Wind Strider.</a><br>
+<a action="bypass -h npc_%objectId%_restore 4">Restore Red Star Strider to Star Strider.</a><br>
+<a action="bypass -h npc_%objectId%_restore 5">Restore Red Twilight Strider to Twilight Strider.</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="18" id="4416"/>
+    </skills>
+</template:npc>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.NotImplementedNPCController"
+    id="35184" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Saul</name>
+        <title send="false">Chamberlain</title>
+        <level>75</level>
+        <race>HUMAN</race>
+        <sex>MALE</sex>
+        <stats>
+            <hp regen="8.5" max="2676.65854"/>
+            <mp regen="3.0" max="1507.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="794.70901"/>
+                <magical speed="333.0" damage="542.68324"/>
+            </attack>
+            <defense>
+                <physical value="319.24623"/>
+                <magical value="233.61053"/>
+            </defense>
+            <move walk="50.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>563</experience>
+        <sp>10</sp>
+        <collision heigth="22.5" radius="9.5"/>
+    </info>
+    <talk default="default">
+        <chat id="t1"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13016" msg="811;Front Of Giran Castle">Front Of Giran Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13017" msg="811;Giran Town Square">Giran Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13018" msg="811;Front of the Valley Fortress">Front of the Valley Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13019" msg="811;Giran Harbor">Giran Harbor</a><br1>
+</body></html>]]></chat>
+        <chat id="d"><![CDATA[<html><body>%npcname%:<br>
+What is your command?
+<br>
+<center>
+<a action="bypass -h npc_%objectId%_operate_door 1 23220001 23220002">Open the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23220001 23220002">Close the Outer Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 23220005 23220006">Open the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23220005 23220006">Close the Inner Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 1 23220001 23220002 23220005 23220006">Open All Castle Gates</a><br>
+<a action="bypass -h npc_%objectId%_operate_door 0 23220001 23220002 23220005 23220006">Close All Castle Gates</a>
+</center>
+</body></html>]]></chat>
+        <chat id="t2"><![CDATA[<html><body>&$556;<br><br>
+<a action="bypass -h npc_%objectId%_goto 13016" msg="811;Front Of Giran Castle">Front Of Giran Castle</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13017" msg="811;Giran Town Square">Giran Town Square</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13018" msg="811;Front of the Valley Fortress">Front of the Valley Fortress</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13019" msg="811;Giran Harbor">Giran Harbor</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13020" msg="811;Breka's Stronghold">Breka's Stronghold - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13021" msg="811;Devil's Isle">Devil's Isle - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13022" msg="811;Dragon Valley">Dragon Valley - 500</a><br1>
+<a action="bypass -h npc_%objectId%_goto 13023" msg="811;Tanor Canyon">Tanor Canyon - 500</a><br1>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4045"/>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="11" id="4410"/>
+        <skill level="11" id="4411"/>
+        <skill level="11" id="4412"/>
+        <skill level="11" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="14" id="4416"/>
+    </skills>
+</template:npc>
