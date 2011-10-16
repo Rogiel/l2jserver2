@@ -1,18 +1,18 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.l2jserver.service.game.template;
 
@@ -42,12 +42,12 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.TemplateID;
-import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.template.ItemTemplate;
-import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.template.SkillTemplate;
-import com.l2jserver.model.template.TeleportationTemplate;
 import com.l2jserver.model.template.Template;
+import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.item.ItemTemplate;
+import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.npc.TeleportationTemplate;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -61,6 +61,7 @@ import com.l2jserver.service.configuration.XMLConfigurationService.Configuration
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
+import com.l2jserver.util.jaxb.EffectTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
@@ -111,7 +112,11 @@ public class XMLTemplateService extends AbstractService implements
 	 */
 	private final CharacterTemplateIDAdapter charIdTemplateAdapter;
 	/**
-	 * The teleportation template id adapater
+	 * The effect template id adapter
+	 */
+	private final EffectTemplateIDAdapter effectIdTemplateAdapter;
+	/**
+	 * The teleportation template id adapter
 	 */
 	private final TeleportationTemplateIDAdapter teleportationIdTemplateAdapter;
 
@@ -171,6 +176,8 @@ public class XMLTemplateService extends AbstractService implements
 	 *            the skill template id adapter
 	 * @param charIdTemplateAdapter
 	 *            the character id template adapter
+	 * @param effectIdTemplateAdapter
+	 *            the effect id template adapter
 	 * @param teleportationIdTemplateAdapter
 	 *            the teleportation template id adapter
 	 */
@@ -181,6 +188,7 @@ public class XMLTemplateService extends AbstractService implements
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
 			SkillTemplateIDAdapter skillTemplateIdAdapter,
 			CharacterTemplateIDAdapter charIdTemplateAdapter,
+			EffectTemplateIDAdapter effectIdTemplateAdapter,
 			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
 		this.vfsService = vfsService;
 		this.cacheService = cacheService;
@@ -189,6 +197,7 @@ public class XMLTemplateService extends AbstractService implements
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
 		this.skillTemplateIdAdapter = skillTemplateIdAdapter;
 		this.charIdTemplateAdapter = charIdTemplateAdapter;
+		this.effectIdTemplateAdapter = effectIdTemplateAdapter;
 		this.teleportationIdTemplateAdapter = teleportationIdTemplateAdapter;
 	}
 
@@ -204,16 +213,12 @@ public class XMLTemplateService extends AbstractService implements
 			log.debug("Creating Unmarshaller instance");
 			unmarshaller = context.createUnmarshaller();
 
-			unmarshaller.setAdapter(NPCTemplateIDAdapter.class,
-					npcTemplateIdAdapter);
-			unmarshaller.setAdapter(ItemTemplateIDAdapter.class,
-					itemTemplateIdAdapter);
-			unmarshaller.setAdapter(SkillTemplateIDAdapter.class,
-					skillTemplateIdAdapter);
-			unmarshaller.setAdapter(CharacterTemplateIDAdapter.class,
-					charIdTemplateAdapter);
-			unmarshaller.setAdapter(TeleportationTemplateIDAdapter.class,
-					teleportationIdTemplateAdapter);
+			unmarshaller.setAdapter(npcTemplateIdAdapter);
+			unmarshaller.setAdapter(itemTemplateIdAdapter);
+			unmarshaller.setAdapter(skillTemplateIdAdapter);
+			unmarshaller.setAdapter(charIdTemplateAdapter);
+			unmarshaller.setAdapter(effectIdTemplateAdapter);
+			unmarshaller.setAdapter(teleportationIdTemplateAdapter);
 
 			final Path templatePath = vfsService.resolve(config
 					.getTemplateDirectory().toString());
@@ -255,7 +260,7 @@ public class XMLTemplateService extends AbstractService implements
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends Template<?>> T getTemplate(TemplateID<T, ?> id) {
+	public <T extends Template> T getTemplate(TemplateID<T, ?> id) {
 		Preconditions.checkNotNull(id, "id");
 		return (T) templates.get(id);
 	}
@@ -277,12 +282,12 @@ public class XMLTemplateService extends AbstractService implements
 		try {
 			Object obj = unmarshaller.unmarshal(in);
 			if (obj instanceof Template) {
-				final Template<?> template = (Template<?>) obj;
+				final Template template = (Template) obj;
 				log.debug("Template loaded: {}", template);
 				if (template.getID() != null)
 					templates.put(template.getID(), template);
 			} else if (obj instanceof TeleportationTemplateContainer) {
-				for (final Template<?> template : ((TeleportationTemplateContainer) obj).templates) {
+				for (final Template template : ((TeleportationTemplateContainer) obj).templates) {
 					log.debug("Template loaded: {}", template);
 					if (template.getID() != null)
 						templates.put(template.getID(), template);
@@ -299,7 +304,7 @@ public class XMLTemplateService extends AbstractService implements
 	 * @param template
 	 *            the template to be purged
 	 */
-	public void removeTemplate(Template<?> template) {
+	public void removeTemplate(Template template) {
 		Preconditions.checkNotNull(template, "template");
 		log.debug("Removing template {}", template);
 		templates.remove(template.getID());

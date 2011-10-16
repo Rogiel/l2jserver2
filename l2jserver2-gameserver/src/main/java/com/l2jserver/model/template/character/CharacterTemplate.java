@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.character;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,8 +25,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.template.character.CharacterClass;
-import com.l2jserver.model.template.character.CharacterRace;
+import com.l2jserver.model.template.actor.ActorTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 

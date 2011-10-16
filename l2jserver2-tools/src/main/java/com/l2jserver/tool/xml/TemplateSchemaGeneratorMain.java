@@ -8,10 +8,10 @@ import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
 
-import com.l2jserver.model.template.CharacterTemplate;
-import com.l2jserver.model.template.ItemTemplate;
-import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.template.SkillTemplate;
+import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.item.ItemTemplate;
+import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTemplateContainer;
 
 public class TemplateSchemaGeneratorMain {

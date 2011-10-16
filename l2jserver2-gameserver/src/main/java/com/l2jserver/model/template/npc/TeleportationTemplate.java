@@ -1,20 +1,20 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.npc;
 
 import java.util.List;
 
@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
+import com.l2jserver.model.template.AbstractTemplate;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.jaxb.CoordinateAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
@@ -42,7 +43,7 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 @XmlRootElement(name = "teleport", namespace = "http://schemas.l2jserver2.com/teleport")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(namespace = "http://schemas.l2jserver2.com/teleport", name = "TeleportType")
-public class TeleportationTemplate extends AbstractTemplate<Coordinate> {
+public class TeleportationTemplate extends AbstractTemplate {
 	@XmlAttribute(name = "id")
 	@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
 	protected TeleportationTemplateID id;
@@ -68,7 +69,11 @@ public class TeleportationTemplate extends AbstractTemplate<Coordinate> {
 		NOBLE;
 	}
 
-	@Override
+	/**
+	 * Create a new {@link Coordinate}
+	 * 
+	 * @return the created object
+	 */
 	public Coordinate create() {
 		return coordinate;
 	}

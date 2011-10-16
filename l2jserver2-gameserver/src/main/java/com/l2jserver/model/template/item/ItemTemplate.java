@@ -1,20 +1,20 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.item;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,11 +29,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.template.AbstractTemplate;
 import com.l2jserver.model.template.calculator.ItemSetActorCalculator;
-import com.l2jserver.model.template.item.ArmorType;
-import com.l2jserver.model.template.item.ItemMaterial;
-import com.l2jserver.model.template.item.ItemType;
-import com.l2jserver.model.template.item.WeaponType;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
@@ -46,7 +43,7 @@ import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 @XmlRootElement(name = "item", namespace = "http://schemas.l2jserver2.com/item")
 @XmlType(namespace = "http://schemas.l2jserver2.com/item", name = "ItemType")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ItemTemplate extends AbstractTemplate<Item> {
+public class ItemTemplate extends AbstractTemplate {
 	/**
 	 * The logger
 	 */
@@ -136,7 +133,11 @@ public class ItemTemplate extends AbstractTemplate<Item> {
 		}
 	}
 
-	@Override
+	/**
+	 * Create a new {@link Item}
+	 * 
+	 * @return the created object
+	 */
 	public Item create() {
 		log.debug("Creating a new Item instance with template {}", this);
 		return new Item(id);

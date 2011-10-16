@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.template.ActorTemplate;
+import com.l2jserver.model.template.actor.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.model.world.actor.stat.StatType;

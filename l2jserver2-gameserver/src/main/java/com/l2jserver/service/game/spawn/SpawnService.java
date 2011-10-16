@@ -1,18 +1,18 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.l2jserver.service.game.spawn;
 
@@ -23,11 +23,10 @@ import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
+import com.l2jserver.model.world.actor.event.ActorTeleportingEvent;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
-import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
@@ -130,20 +129,20 @@ public interface SpawnService extends Service {
 	/**
 	 * Teleports the object to the given <tt>point</tt>.
 	 * <p>
-	 * An {@link PlayerTeleportingEvent} will be dispatched and the new position
+	 * An {@link ActorTeleportingEvent} will be dispatched and the new position
 	 * will be broadcast to all clients.
 	 * 
-	 * @param player
-	 *            the player object
+	 * @param actor
+	 *            the actor object
 	 * @param coordinate
 	 *            the teleportation coordinate
 	 * @throws NotSpawnedServiceException
 	 *             if the object to be teleported is not spawned
 	 * @throws CharacterAlreadyTeleportingServiceException
-	 *             if this player is already being teleported. This will only be
-	 *             thrown for {@link L2Character} instances.
+	 *             if <tt>actor</tt> is already being teleported. This will only
+	 *             be thrown for {@link L2Character} instances.
 	 */
-	void teleport(Player player, Coordinate coordinate)
+	void teleport(Actor actor, Coordinate coordinate)
 			throws NotSpawnedServiceException,
 			CharacterAlreadyTeleportingServiceException;
 

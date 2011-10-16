@@ -1,18 +1,18 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.l2jserver.service.network.broadcast;
 
@@ -37,6 +37,7 @@ import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
 import com.l2jserver.model.world.actor.event.ActorDieEvent;
+import com.l2jserver.model.world.actor.event.ActorTeleportingEvent;
 import com.l2jserver.model.world.actor.event.ActorUnspawnEvent;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
@@ -45,7 +46,6 @@ import com.l2jserver.model.world.character.event.CharacterRunningEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
-import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.world.WorldService;
@@ -121,7 +121,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
 					broadcast(conn, e.getObject());
-				} else if (e instanceof PlayerTeleportingEvent
+				} else if (e instanceof ActorTeleportingEvent
 						|| e instanceof CharacterLeaveWorldEvent
 						|| e instanceof ActorUnspawnEvent) {
 					// object is now out of sight

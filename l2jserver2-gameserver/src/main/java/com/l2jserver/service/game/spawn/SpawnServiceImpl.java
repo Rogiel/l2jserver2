@@ -1,18 +1,18 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.l2jserver.service.game.spawn;
 
@@ -33,14 +33,13 @@ import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.PositionableObject;
+import com.l2jserver.model.world.actor.event.ActorTeleportingEvent;
 import com.l2jserver.model.world.event.SpawnEvent;
 import com.l2jserver.model.world.event.UnspawnEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.npc.event.NPCUnspawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
-import com.l2jserver.model.world.player.event.PlayerTeleportingEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.AsyncFuture;
@@ -219,31 +218,31 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	}
 
 	@Override
-	public void teleport(Player player, Coordinate coordinate)
+	public void teleport(Actor actor, Coordinate coordinate)
 			throws CharacterAlreadyTeleportingServiceException {
-		Preconditions.checkNotNull(player, "player");
+		Preconditions.checkNotNull(actor, "actor");
 		Preconditions.checkNotNull(coordinate, "coordinate");
 
-		log.debug("Teleporting {} to {}", player, coordinate);
+		log.debug("Teleporting {} to {}", actor, coordinate);
 
-		if (player instanceof L2Character) {
-			if (((L2Character) player).isTeleporting())
+		if (actor instanceof L2Character) {
+			if (((L2Character) actor).isTeleporting())
 				throw new CharacterAlreadyTeleportingServiceException();
 
 			final Lineage2Client conn = networkService
-					.discover((CharacterID) player.getID());
+					.discover((CharacterID) actor.getID());
 			if (conn == null)
 				// TODO throw an exception here
 				return;
 			conn.write(new SM_TELEPORT(conn.getCharacter(), coordinate
 					.toPoint()));
-			((L2Character) player).setState(ActorState.TELEPORTING);
-			((L2Character) player).setTargetLocation(coordinate.toPoint());
+			((L2Character) actor).setState(ActorState.TELEPORTING);
+			((L2Character) actor).setTargetLocation(coordinate.toPoint());
 		} else {
-			player.setPosition(coordinate);
+			actor.setPosition(coordinate);
 		}
 		// dispatch teleport event
-		eventDispatcher.dispatch(new PlayerTeleportingEvent(player, coordinate
+		eventDispatcher.dispatch(new ActorTeleportingEvent(actor, coordinate
 				.toPoint()));
 		// remember: broadcasting is done through events!
 	}

@@ -1,20 +1,20 @@
 /*
- * This file is part of l2jserver <l2jserver.com>.
+ * This file is part of l2jserver2 <l2jserver2.com>.
  *
- * l2jserver is free software: you can redistribute it and/or modify
+ * l2jserver2 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * l2jserver is distributed in the hope that it will be useful,
+ * l2jserver2 is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
+ * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.npc;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -46,27 +46,28 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
-import com.l2jserver.model.template.NPCTemplate.DropItemMetadata;
-import com.l2jserver.model.template.NPCTemplate.DropItemMetadata.DropCategory;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.CollisionMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.ItemMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCNameMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.AttackMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.AttackMetadata.AttackValueMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.BaseMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata.DefenseValueMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.MoveMetadata;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.Stat;
-import com.l2jserver.model.template.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
-import com.l2jserver.model.template.NPCTemplate.SkillMetadata;
-import com.l2jserver.model.template.NPCTemplate.TalkMetadata;
-import com.l2jserver.model.template.NPCTemplate.TalkMetadata.Chat;
-import com.l2jserver.model.template.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.npc.NPCRace;
+import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.npc.NPCTemplate.DropItemMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.SkillMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.DropItemMetadata.DropCategory;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.CollisionMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.ItemMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCNameMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.AttackMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.BaseMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.MoveMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.Stat;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.AttackMetadata.AttackValueMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata.DefenseValueMetadata;
+import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata.Chat;
+import com.l2jserver.model.template.npc.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.world.npc.controller.BaseNPCController;
 import com.l2jserver.model.world.npc.controller.MonsterController;
 import com.l2jserver.model.world.npc.controller.NPCController;

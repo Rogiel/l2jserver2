@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General public License
  * along with l2jserver.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template;
+package com.l2jserver.model.template.npc;
 
 import java.util.Collection;
 import java.util.List;
@@ -33,9 +33,10 @@ import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
-import com.l2jserver.model.template.NPCTemplate.TalkMetadata.Chat;
+import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.actor.ActorSex;
-import com.l2jserver.model.template.npc.NPCRace;
+import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata.Chat;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.npc.controller.NPCController;
 import com.l2jserver.util.factory.CollectionFactory;
