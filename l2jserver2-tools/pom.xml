@@ -8,13 +8,17 @@
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-tools</artifactId>
-	
+
 	<name>L2JServer 2 tools</name>
 	<description>Module providing tools for developer usage only. Those tools are used for conversion and batch updating scripts.</description>
-	<url>http://github.com/l2jserver2</url>
 	<inceptionYear>2011</inceptionYear>
-	
+
 	<dependencies>
+		<dependency>
+			<groupId>com.l2jserver</groupId>
+			<artifactId>l2jserver2-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.l2jserver</groupId>
 			<artifactId>l2jserver2-gameserver</artifactId>

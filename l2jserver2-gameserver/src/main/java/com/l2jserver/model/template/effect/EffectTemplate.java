@@ -21,11 +21,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.l2jserver.model.id.template.EffectTemplateID;
 import com.l2jserver.model.template.Template;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.effect.Effect;
+import com.l2jserver.util.jaxb.EffectTemplateIDAdapter;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -35,6 +37,7 @@ import com.l2jserver.model.world.actor.effect.Effect;
 @XmlSeeAlso({ TeleportEffectTemplate.class })
 public abstract class EffectTemplate implements Template {
 	@XmlAttribute(name = "id")
+	@XmlJavaTypeAdapter(EffectTemplateIDAdapter.class)
 	protected EffectTemplateID id;
 
 	protected EffectTemplate() {

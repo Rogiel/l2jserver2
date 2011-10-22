@@ -13,10 +13,15 @@
 		<name>L2JServer team</name>
 		<url>http://www.l2jserver.com/</url>
 	</organization>
-	<url>http://github.com/l2jserver2</url>
-	
+	<url>http://www.l2jserver2.com/</url>
+
 	<distributionManagement>
 		<downloadUrl>https://github.com/l2jserver2/l2jserver2/downloads</downloadUrl>
+		<site>
+			<id>l2jserver2</id>
+			<name>l2jserver2</name>
+			<url>scp:l2jserver@l2jserver.com/l2jserver2.com</url>
+		</site>
 	</distributionManagement>
 
 	<modules>

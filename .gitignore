@@ -12,3 +12,4 @@ target/
 
 # Find bugs configuration file
 /.fbprefs
+/l2jserver2-site

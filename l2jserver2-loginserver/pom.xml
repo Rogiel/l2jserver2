@@ -8,10 +8,9 @@
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-loginserver</artifactId>
-	
+
 	<name>L2JServer 2 login server</name>
 	<description>The login server provides authentication capabilities for the game clients. The login server can provide login for several game servers at the same time.</description>
-	<url>http://github.com/l2jserver2</url>
 	<inceptionYear>2011</inceptionYear>
 
 	<dependencies>
@@ -20,7 +19,7 @@
 			<artifactId>l2jserver2-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

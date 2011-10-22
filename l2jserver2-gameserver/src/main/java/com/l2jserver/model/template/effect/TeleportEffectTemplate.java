@@ -19,7 +19,9 @@ package com.l2jserver.model.template.effect;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.world.Actor;
@@ -29,6 +31,7 @@ import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceExcept
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.util.jaxb.CoordinateAdapter;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -42,7 +45,8 @@ public class TeleportEffectTemplate extends EffectTemplate {
 
 	@XmlAttribute(name = "type", required = false)
 	private SkillTeleportEffectLocation type = SkillTeleportEffectLocation.TARGET;
-	@XmlAttribute(name = "point")
+	@XmlElement(name = "point")
+	@XmlJavaTypeAdapter(CoordinateAdapter.class)
 	private Coordinate coordinate;
 
 	/**
