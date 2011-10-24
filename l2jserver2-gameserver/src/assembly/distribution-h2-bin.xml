@@ -29,14 +29,15 @@
 			<directory>${project.basedir}/distribution/sql</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
-		<fileSet>
-			<directory>${project.build.directory}</directory>
-			<outputDirectory>/</outputDirectory>
-			<includes>
-				<include>${project.artifactId}-${project.version}.jar</include>
-			</includes>
-		</fileSet>
 	</fileSets>
+	<files>
+		<file>
+			<source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>l2jserver2.jar</destName>
+			<fileMode>0755</fileMode>
+		</file>
+	</files>
 	<dependencySets>
 		<dependencySet>
 			<outputDirectory>/libs</outputDirectory>
