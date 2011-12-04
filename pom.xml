@@ -20,7 +20,7 @@
 		<site>
 			<id>l2jserver2</id>
 			<name>l2jserver2</name>
-			<url>scp:l2jserver@l2jserver.com/l2jserver2.com</url>
+			<url>scp:l2jserver2@l2jserver2.com/l2jserver2.com</url>
 		</site>
 	</distributionManagement>
 

@@ -48,10 +48,29 @@ public class ActorEffectContainer implements Iterable<Effect> {
 		this.actor = actor;
 	}
 
+	/**
+	 * Adds a new effect to the actor's effect container.
+	 * <p>
+	 * Please note that if the <i>same</i> effect object is already in this
+	 * container, nothing no exception will be thrown and the effect will not be
+	 * applied twice.
+	 * 
+	 * @param effect
+	 *            the effect to be added
+	 */
 	public void addEffect(Effect effect) {
 		effects.add(effect);
 	}
 
+	/**
+	 * Removes an effect that is attached to the actor's effect container.
+	 * <p>
+	 * Please note that if the effect is not in the container, no exception will
+	 * be thrown.
+	 * 
+	 * @param effect
+	 *            the effect to be removed
+	 */
 	public void removeEffect(Effect effect) {
 		effects.remove(effect);
 	}

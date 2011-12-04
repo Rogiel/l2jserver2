@@ -178,6 +178,12 @@
 			<artifactId>htmlparser</artifactId>
 			<version>2.1</version>
 			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- utils -->
 		<dependency>

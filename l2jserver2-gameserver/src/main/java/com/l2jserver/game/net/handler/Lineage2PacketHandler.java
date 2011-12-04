@@ -49,6 +49,10 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	 */
 	private final WorldService worldService;
 	/**
+	 * The timeout handler is responsible for disconnecting idle clients.
+	 */
+	private final Lineage2TimeoutHandler timeoutHandler;
+	/**
 	 * The Lineage 2 connection
 	 */
 	private Lineage2Client connection;
@@ -60,11 +64,14 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	 *            the netty network service
 	 * @param worldService
 	 *            the world service
+	 * @param timeoutHandler
+	 *            the timeout handler
 	 */
 	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService,
-			WorldService worldService) {
+			WorldService worldService, Lineage2TimeoutHandler timeoutHandler) {
 		this.nettyNetworkService = nettyNetworkService;
 		this.worldService = worldService;
+		this.timeoutHandler = timeoutHandler;
 	}
 
 	@Override
@@ -73,6 +80,7 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 		connection = new Lineage2Client(worldService, nettyNetworkService,
 				e.getChannel());
 		connection.getPacketWriter().setConnection(connection);
+		timeoutHandler.setConnection(connection);
 
 		nettyNetworkService.register(connection);
 
