@@ -100,24 +100,6 @@
 			<version>3.2.4.Final</version>
 		</dependency>
 		<!-- google guice -->
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-assistedinject</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject.extensions</groupId>
-			<artifactId>guice-multibindings</artifactId>
-			<version>3.0</version>
-			<type>jar</type>
-		</dependency>
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -125,12 +107,6 @@
 			<version>1.6.1</version>
 			<type>jar</type>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
 		</dependency>
 		<!-- database -->
 		<dependency>
@@ -159,12 +135,6 @@
 			<version>1.0rc5</version>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-			<type>jar</type>
-		</dependency>
 		<!-- cache -->
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
@@ -186,42 +156,6 @@
 			</exclusions>
 		</dependency>
 		<!-- utils -->
-		<dependency>
-			<groupId>javolution</groupId>
-			<artifactId>javolution</artifactId>
-			<version>5.5.1</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>r09</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.0.1</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-			<version>1.5.6</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-math</artifactId>
-			<version>2.2</version>
-			<type>jar</type>
-		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>

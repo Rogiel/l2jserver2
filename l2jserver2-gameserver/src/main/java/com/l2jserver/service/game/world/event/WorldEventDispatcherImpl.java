@@ -284,7 +284,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 				return false;
 			if (complete)
 				return false;
-			return cancel();
+			return cancel(mayInterruptIfRunning);
 		}
 
 		@Override
