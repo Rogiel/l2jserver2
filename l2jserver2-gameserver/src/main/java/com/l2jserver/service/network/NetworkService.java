@@ -28,7 +28,7 @@ import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertiesKey;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
@@ -81,7 +81,7 @@ public interface NetworkService extends Service {
 		 * @return the listen address
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "0.0.0.0:7777")
-		@ConfigurationPropertiesKey("network.listen")
+		@ConfigurationPropertyKey("network.listen")
 		@ConfigurationXPath("/configuration/services/network/listen")
 		InetSocketAddress getListenAddress();
 
@@ -92,7 +92,7 @@ public interface NetworkService extends Service {
 		 *            the listen address
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("network.listen")
+		@ConfigurationPropertyKey("network.listen")
 		@ConfigurationXPath("/configuration/services/network/listen")
 		void setListenAddress(InetSocketAddress addr);
 	}

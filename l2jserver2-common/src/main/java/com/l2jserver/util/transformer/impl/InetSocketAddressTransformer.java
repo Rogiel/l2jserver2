@@ -18,6 +18,7 @@ package com.l2jserver.util.transformer.impl;
 
 import java.net.InetSocketAddress;
 
+import com.l2jserver.util.transformer.TransformException;
 import com.l2jserver.util.transformer.Transformer;
 
 /**
@@ -41,7 +42,7 @@ public class InetSocketAddressTransformer implements
 	public InetSocketAddress untransform(String value) {
 		final String[] pieces = value.split(":");
 		if (pieces.length != 2)
-			return null;
+			throw new TransformException("InetSocketAddress must have format ip:port");
 		return new InetSocketAddress(pieces[0], Integer.parseInt(pieces[1]));
 	}
 

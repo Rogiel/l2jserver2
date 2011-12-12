@@ -20,6 +20,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 
+import com.l2jserver.util.transformer.TransformException;
 import com.l2jserver.util.transformer.Transformer;
 
 /**
@@ -43,7 +44,7 @@ public class URLTransformer implements Transformer<URL> {
 		try {
 			return new URL(value);
 		} catch (MalformedURLException e) {
-			return null;
+			throw new TransformException(e);
 		}
 	}
 

@@ -23,7 +23,7 @@ import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertiesKey;
+import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
@@ -45,7 +45,7 @@ public interface VFSService extends Service {
 		 * @return the VFS root {@link URI}
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "")
-		@ConfigurationPropertiesKey("vfs.root")
+		@ConfigurationPropertyKey("vfs.root")
 		@ConfigurationXPath("/configuration/services/vfs/root")
 		Path getRoot();
 
@@ -54,7 +54,7 @@ public interface VFSService extends Service {
 		 *            the new VFS root {@link URI}
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertiesKey("vfs.root")
+		@ConfigurationPropertyKey("vfs.root")
 		@ConfigurationXPath("/configuration/services/vfs/root")
 		void setRoot(Path root);
 	}

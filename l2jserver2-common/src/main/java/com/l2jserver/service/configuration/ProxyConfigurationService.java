@@ -73,7 +73,7 @@ public class ProxyConfigurationService extends AbstractService implements
 	@Retention(RetentionPolicy.RUNTIME)
 	@Documented
 	@Target(value = ElementType.METHOD)
-	public @interface ConfigurationPropertiesKey {
+	public @interface ConfigurationPropertyKey {
 		String value();
 	}
 
@@ -156,8 +156,8 @@ public class ProxyConfigurationService extends AbstractService implements
 			if (args == null || args.length == 0) {
 				final ConfigurationPropertyGetter getter = method
 						.getAnnotation(ConfigurationPropertyGetter.class);
-				final ConfigurationPropertiesKey propertiesKey = method
-						.getAnnotation(ConfigurationPropertiesKey.class);
+				final ConfigurationPropertyKey propertiesKey = method
+						.getAnnotation(ConfigurationPropertyKey.class);
 				if (getter == null)
 					return null;
 				if (propertiesKey == null)
@@ -166,8 +166,8 @@ public class ProxyConfigurationService extends AbstractService implements
 			} else if (args.length == 1) {
 				final ConfigurationPropertySetter setter = method
 						.getAnnotation(ConfigurationPropertySetter.class);
-				final ConfigurationPropertiesKey propertiesKey = method
-						.getAnnotation(ConfigurationPropertiesKey.class);
+				final ConfigurationPropertyKey propertiesKey = method
+						.getAnnotation(ConfigurationPropertyKey.class);
 				if (setter == null)
 					return null;
 				if (propertiesKey == null)
@@ -189,7 +189,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		 * @return the untransformed property
 		 */
 		private Object get(ConfigurationPropertyGetter getter,
-				ConfigurationPropertiesKey propertiesKey, Class<?> type) {
+				ConfigurationPropertyKey propertiesKey, Class<?> type) {
 			if (cache.containsKey(propertiesKey.value()))
 				return cache.get(propertiesKey.value());
 			Object o = untransform(
@@ -208,7 +208,7 @@ public class ProxyConfigurationService extends AbstractService implements
 		 * @param type
 		 *            the transformed type
 		 */
-		private void set(ConfigurationPropertiesKey setter, Object value,
+		private void set(ConfigurationPropertyKey setter, Object value,
 				Class<?> type) {
 			if (value != null) {
 				properties.setProperty(setter.value(),

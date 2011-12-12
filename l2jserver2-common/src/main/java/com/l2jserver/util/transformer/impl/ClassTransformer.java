@@ -16,6 +16,7 @@
  */
 package com.l2jserver.util.transformer.impl;
 
+import com.l2jserver.util.transformer.TransformException;
 import com.l2jserver.util.transformer.Transformer;
 
 /**
@@ -39,7 +40,7 @@ public class ClassTransformer implements Transformer<Class<?>> {
 		try {
 			return Class.forName(value);
 		} catch (ClassNotFoundException e) {
-			return null;
+			throw new TransformException(e);
 		}
 	}
 

@@ -17,34 +17,38 @@
 package com.l2jserver.util.transformer;
 
 /**
- * An transformer can transform an {@link Object} into an {@link String} and the
- * {@link String} back to an equivalent object.
- * 
- * @param <T>
- *            the transformed type
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface Transformer<T> {
-	/**
-	 * Transform the object in a string
-	 * 
-	 * @param value
-	 *            the object
-	 * @return the string of the object
-	 * @throws TransformException
-	 *             if any error occur while transforming
-	 */
-	String transform(T value) throws TransformException;
+public class TransformException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+
+	public TransformException() {
+	}
 
 	/**
-	 * Untransforms the string back to an object
-	 * 
-	 * @param value
-	 *            the string
-	 * @return the object
-	 * @throws TransformException
-	 *             if any error occur while transforming
+	 * @param message
+	 *            the message
 	 */
-	T untransform(String value) throws TransformException;
+	public TransformException(String message) {
+		super(message);
+	}
+
+	/**
+	 * @param cause
+	 *            the cause
+	 */
+	public TransformException(Throwable cause) {
+		super(cause);
+	}
+
+	/**
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the cause
+	 */
+	public TransformException(String message, Throwable cause) {
+		super(message, cause);
+	}
 }

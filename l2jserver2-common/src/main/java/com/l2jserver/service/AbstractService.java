@@ -91,7 +91,7 @@ public abstract class AbstractService implements Service {
 	}
 
 	@Override
-	public Class<? extends Service>[] getDependencies() {
+	public final Class<? extends Service>[] getDependencies() {
 		final Depends deps = this.getClass().getAnnotation(Depends.class);
 		if (deps == null)
 			return null;

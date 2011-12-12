@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.configuration;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -45,6 +46,7 @@ public interface Configuration {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(value = ElementType.METHOD)
+	@Documented
 	public @interface ConfigurationPropertyGetter {
 		/**
 		 * @return the default value to be used
@@ -61,6 +63,7 @@ public interface Configuration {
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(value = ElementType.METHOD)
+	@Documented
 	public @interface ConfigurationPropertySetter {
 	}
 }
