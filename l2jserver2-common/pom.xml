@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.l2jserver</groupId>
 		<artifactId>l2jserver2</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-common</artifactId>
