@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.l2jserver</groupId>
 		<artifactId>l2jserver2</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-tools</artifactId>
@@ -17,12 +17,12 @@
 		<dependency>
 			<groupId>com.l2jserver</groupId>
 			<artifactId>l2jserver2-common</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.l2jserver</groupId>
 			<artifactId>l2jserver2-gameserver</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
