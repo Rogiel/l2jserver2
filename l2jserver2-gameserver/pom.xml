@@ -4,54 +4,17 @@
 	<parent>
 		<groupId>com.l2jserver</groupId>
 		<artifactId>l2jserver2</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-gameserver</artifactId>
-	
+
 	<name>L2JServer 2 game server</name>
 	<description>This game server is responsible for communicating the game client with the game virtual world. It provides data storage and processing along with broadcasting positioning data to other connected clients.</description>
 	<inceptionYear>2011</inceptionYear>
 
 	<build>
-		<defaultGoal>package</defaultGoal>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<skipTests>true</skipTests>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<target>1.7</target>
-					<source>1.7</source>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>libs/</classpathPrefix>
-							<mainClass>com.l2jserver.L2JGameServerMain</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>assembly</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -64,14 +27,6 @@
 						<descriptor>src/assembly/distribution-src.xml</descriptor>
 					</descriptors>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>assembly</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -81,9 +36,9 @@
 		<dependency>
 			<groupId>com.l2jserver</groupId>
 			<artifactId>l2jserver2-common</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -92,7 +47,7 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
-	
+
 		<!-- netty -->
 		<dependency>
 			<groupId>org.jboss.netty</groupId>

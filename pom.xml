@@ -3,24 +3,35 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.l2jserver</groupId>
 	<artifactId>l2jserver2</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>L2JServer 2</name>
 	<description>Lineage II server emulator</description>
 	<inceptionYear>2011</inceptionYear>
 	<organization>
-		<name>L2JServer team</name>
-		<url>http://www.l2jserver.com/</url>
+		<name>Rogiel</name>
+		<url>http://www.l2jserver2.com/</url>
 	</organization>
 	<url>http://www.l2jserver2.com/</url>
 
+	<scm>
+		<developerConnection>scm:git:${basedir}</developerConnection>
+		<connection>scm:git:${basedir}</connection>
+	</scm>
 	<distributionManagement>
 		<downloadUrl>https://github.com/l2jserver2/l2jserver2/downloads</downloadUrl>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>l2jserver2-repository</id>
+			<name>L2JServer 2 Maven Repository</name>
+			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/maven.l2jserver2.com</url>
+			<layout>default</layout>
+		</repository>
 		<site>
-			<id>l2jserver2</id>
+			<id>l2jserver2-site</id>
 			<name>l2jserver2</name>
-			<url>scp:l2jserver2@l2jserver2.com/l2jserver2.com</url>
+			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/l2jserver2.com</url>
 		</site>
 	</distributionManagement>
 
@@ -31,7 +42,7 @@
 	</modules>
 
 	<issueManagement>
-		<system>GitHub Issues</system>
+		<system>GitHub</system>
 		<url>https://github.com/l2jserver2/l2jserver2/issues</url>
 	</issueManagement>
 
@@ -42,7 +53,7 @@
 
 	<developers>
 		<developer>
-			<id>rogiel</id>
+			<id>Rogiel</id>
 			<name>Rogiel</name>
 			<email>rogiel@rogiel.com</email>
 			<url>http://www.rogiel.com/</url>
@@ -53,13 +64,6 @@
 			</roles>
 		</developer>
 	</developers>
-
-	<scm>
-		<connection>scm:git://github.com/l2jserver2/l2jserver2.git</connection>
-		<developerConnection>scm:ssh://git@github.com:l2jserver2/l2jserver2.git</developerConnection>
-		<tag>master</tag>
-		<url>https://github.com/l2jserver2/l2jserver2/tree/${project.scm.tag}</url>
-	</scm>
 
 	<licenses>
 		<license>
@@ -74,76 +78,112 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<preparationGoals>package</preparationGoals>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.11</version>
 				<configuration>
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>install</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0</version>
 				<configuration>
-					<target>1.7</target>
-					<source>1.7</source>
-					<optimize>true</optimize>
+					<outputEncoding>UTF-8</outputEncoding>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.8</version>
+							<configuration>
+								<encoding>UTF-8</encoding>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<version>2.4</version>
+							<configuration>
+								<developerConnection>scm:git@github.com:l2jserver2/l2jserver2.git</developerConnection>
+								<anonymousConnection>scm:git://github.com/l2jserver2/l2jserver2.git</anonymousConnection>
+								<webAccessUrl>https://github.com/l2jserver2/l2jserver2/tree/master/</webAccessUrl>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-changelog-plugin</artifactId>
+							<version>2.2</version>
+							<configuration>
+								<outputEncoding>UTF-8</outputEncoding>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.3</version>
+							<configuration>
+								<inputEncoding>UTF-8</inputEncoding>
+								<outputEncoding>UTF-8</outputEncoding>
+							</configuration>
+						</plugin>
+					</reportPlugins>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<inherited>false</inherited>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assembly/bin.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>assembly</goal>
-						</goals>
-					</execution>
-				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-ssh</artifactId>
+						<version>2.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-install-plugin</artifactId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.2.2</version>
 					<executions>
 						<execution>
 							<phase>package</phase>
 							<goals>
-								<goal>install</goal>
+								<goal>attached</goal>
 							</goals>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.7</version>
+					<configuration>
+						<uniqueVersion>false</uniqueVersion>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-ssh</artifactId>
+							<version>2.1</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -163,25 +203,18 @@
 	<repositories>
 		<repository>
 			<id>repository.jboss.org</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
 		</repository>
 		<repository>
 			<id>maven2-repository.java.net</id>
 			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2/</url>
+			<url>http://download.java.net/maven/2</url>
 			<layout>default</layout>
 		</repository>
 		<repository>
 			<id>orientechnologies-repository</id>
 			<name>Orient Technologies Maven2 Repository</name>
 			<url>http://www.orientechnologies.com/listing/m2</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
 		</repository>
 	</repositories>
 </project>
