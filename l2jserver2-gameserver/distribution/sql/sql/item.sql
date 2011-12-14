@@ -12,12 +12,3 @@ CREATE TABLE IF NOT EXISTS `item` (
   KEY `character_id` (`character_id`),
   KEY `template_id` (`template_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Temporary sample data
---
-
-INSERT INTO `item` (`item_id`, `template_id`, `character_id`, `location`, `paperdoll`, `count`, `coord_x`, `coord_y`, `coord_z`) VALUES
-(268635457, 57, 268437456, 'INVENTORY', NULL, 200000000, NULL, NULL, NULL),
-(268635459, 57, NULL, 'GROUND', NULL, 100, 147459, 24434, -1992),
-(268635460, 1, 268437456, 'INVENTORY', NULL, 1, NULL, NULL, NULL);

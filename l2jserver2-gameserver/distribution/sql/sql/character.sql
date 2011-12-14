@@ -24,10 +24,3 @@ CREATE TABLE IF NOT EXISTS `character` (
   KEY `name` (`name`),
   KEY `clan_id` (`clan_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
---
--- Temporary sample data
---
-
-INSERT INTO `character` (`character_id`, `account_id`, `clan_id`, `name`, `race`, `class`, `sex`, `level`, `experience`, `sp`, `point_x`, `point_y`, `point_z`, `point_angle`, `appearance_hair_style`, `appearance_hair_color`, `apperance_face`) VALUES
-(268437456, 'rogiel', NULL, 'Rogiel', 'HUMAN', 'HUMAN_FIGHTER', 'MALE', 1, 0, 0, -71338, 258271, -3104, 0, 'STYLE_B', 'COLOR_B', 'FACE_B'),
-(268437457, 'rogiel2', NULL, 'Rogiel2', 'HUMAN', 'HUMAN_FIGHTER', 'MALE', 0, 0, 0, 0, 0, 0, 0, 'STYLE_A', 'COLOR_A', 'FACE_A');
