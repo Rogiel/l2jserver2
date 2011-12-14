@@ -237,9 +237,6 @@ public class XMLTemplateService extends AbstractService implements
 						BasicFileAttributes attrs) throws IOException {
 					if (!file.toString().endsWith(".xml"))
 						return FileVisitResult.CONTINUE;
-					// FIXME remove hard coded skip of item template loading
-					if (file.toString().contains("/item/"))
-						return FileVisitResult.CONTINUE;
 					// FIXME remove hard coded skip of zone template loading
 					if (file.toString().contains("zones.xml"))
 						return FileVisitResult.CONTINUE;

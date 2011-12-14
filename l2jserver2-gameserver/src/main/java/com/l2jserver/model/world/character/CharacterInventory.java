@@ -107,6 +107,10 @@ public class CharacterInventory implements Iterable<Item> {
 	 */
 	public enum InventoryLocation {
 		/**
+		 * The item is dropped on the ground
+		 */
+		GROUND,
+		/**
 		 * The item is equipped
 		 */
 		PAPERDOLL,

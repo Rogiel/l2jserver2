@@ -14,31 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.dao;
+package com.l2jserver.service.game.item;
 
-import java.util.List;
-
-import com.l2jserver.model.id.object.ItemID;
-import com.l2jserver.model.world.Item;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.cache.Cacheable;
-import com.l2jserver.service.database.DataAccessObject;
+import com.l2jserver.service.Service;
 
 /**
- * The {@link ItemDAO} is can load and save {@link Character character
- * instances} .
+ * This service handles item management. Drop and pick up, create and destroy.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ItemDAO extends DataAccessObject<Item, ItemID>, Cacheable {
-	/**
-	 * Load the inventory for an {@link L2Character character}.
-	 * 
-	 * @param character
-	 *            the character
-	 * @return amount of items loaded
-	 */
-	int loadInventory(L2Character character);
+public interface ItemService extends Service {
 
-	List<Item> loadDroppedItems();
 }

@@ -30,11 +30,6 @@ import com.l2jserver.util.geometry.Point3D;
  */
 public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
 	/**
-	 * Constant declaring the range in which knownlist will be scanned
-	 */
-	public static final int KNOWNLIST_RANGE = 2000;
-
-	/**
 	 * Creates a new instance.
 	 * <p>
 	 * This filter will only accept {@link WorldObject} which were not in vision
@@ -48,6 +43,6 @@ public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
 	 */
 	public KnownListUpdateFilter(PositionableObject object, Point3D old) {
 		super(new KnownListFilter(object), new NotFilter<PositionableObject>(
-				new RangePointFilter(old, KNOWNLIST_RANGE)));
+				new RangePointFilter(old, KnownListFilter.KNOWNLIST_RANGE)));
 	}
 }

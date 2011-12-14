@@ -20,6 +20,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.model.world.Item;
 
 /**
  * This packet sends an item that is dropped on the ground
@@ -32,22 +33,25 @@ public class SM_ITEM_GROUND extends AbstractServerPacket {
 	 */
 	public static final int OPCODE = 0x16;
 
-	public SM_ITEM_GROUND() {
+	private final Item item;
+
+	public SM_ITEM_GROUND(Item item) {
 		super(OPCODE);
+		this.item = item;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt(268437456); // char who dropped
-		buffer.writeInt(268635461); // item obj id
-		buffer.writeInt(57); // item template id
+		buffer.writeInt((item.getOwnerID() != null ? item.getOwnerID().getID() : 0)); // char who dropped
+		buffer.writeInt(item.getID().getID()); // item obj id
+		buffer.writeInt(item.getTemplateID().getID()); // item template id
 
-		buffer.writeInt(-84341); // x
-		buffer.writeInt(244623); // y
-		buffer.writeInt(-3728); // z
+		buffer.writeInt(item.getPoint().getX()); // x
+		buffer.writeInt(item.getPoint().getY()); // y
+		buffer.writeInt(item.getPoint().getZ()); // z
 		// only show item count if it is a stackable item
 		buffer.writeInt(0x01); // show count
-		buffer.writeLong(4001); // count
+		buffer.writeLong(item.getCount()); // count
 
 		buffer.writeInt(1); // unknown
 	}

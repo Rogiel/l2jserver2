@@ -41,6 +41,8 @@ import com.l2jserver.service.game.chat.ChatLoggingService;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.chat.DatabaseChatLoggingService;
 import com.l2jserver.service.game.chat.SimpleChatService;
+import com.l2jserver.service.game.item.ItemService;
+import com.l2jserver.service.game.item.ItemServiceImpl;
 import com.l2jserver.service.game.map.pathing.MapperPathingService;
 import com.l2jserver.service.game.map.pathing.PathingService;
 import com.l2jserver.service.game.npc.NPCService;
@@ -80,8 +82,8 @@ public class ServiceModule extends AbstractModule {
 		bind(VFSService.class).to(Java7VFSService.class).in(Scopes.SINGLETON);
 		bind(ThreadService.class).to(ThreadServiceImpl.class).in(
 				Scopes.SINGLETON);
-		bind(ConfigurationService.class).to(XMLConfigurationService.class)
-				.in(Scopes.SINGLETON);
+		bind(ConfigurationService.class).to(XMLConfigurationService.class).in(
+				Scopes.SINGLETON);
 		bind(CacheService.class).to(SoftCacheService.class)
 				.in(Scopes.SINGLETON);
 
@@ -119,6 +121,7 @@ public class ServiceModule extends AbstractModule {
 		bind(AttackService.class).to(AttackServiceImpl.class).in(
 				Scopes.SINGLETON);
 		bind(NPCService.class).to(NPCServiceImpl.class).in(Scopes.SINGLETON);
+		bind(ItemService.class).to(ItemServiceImpl.class).in(Scopes.SINGLETON);
 
 		bind(WorldService.class).to(WorldServiceImpl.class)
 				.in(Scopes.SINGLETON);

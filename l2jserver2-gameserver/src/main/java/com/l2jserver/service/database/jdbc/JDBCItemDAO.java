@@ -21,6 +21,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.inject.Inject;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.CharacterID;
@@ -50,6 +53,11 @@ import com.l2jserver.util.geometry.Coordinate;
  */
 public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 		implements ItemDAO {
+	/**
+	 * The logger
+	 */
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The {@link ItemID} factory
 	 */
@@ -120,6 +128,10 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 			final ItemTemplateID templateId = templateIdFactory.resolveID(rs
 					.getInt(TEMPLATE_ID));
 			final ItemTemplate template = templateId.getTemplate();
+			if (template == null) {
+				log.warn("No template found for {} while loading {}", templateId, id);
+				return null;
+			}
 			final Item item = template.create();
 
 			item.setID(id);
@@ -186,6 +198,27 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 		});
 		inventory.load(items);
 		return items.size();
+	}
+
+	@Override
+	public List<Item> loadDroppedItems() {
+		return database.query(new SelectListQuery<Item>() {
+			@Override
+			protected String query() {
+				return "SELECT * FROM `" + TABLE + "` WHERE `" + LOCATION
+						+ "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st) throws SQLException {
+				st.setString(1, InventoryLocation.GROUND.name());
+			}
+
+			@Override
+			protected Mapper<Item> mapper() {
+				return mapper;
+			}
+		});
 	}
 
 	@Override

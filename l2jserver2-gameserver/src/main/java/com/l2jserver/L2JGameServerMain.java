@@ -22,6 +22,7 @@ import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.chat.ChatService;
+import com.l2jserver.service.game.item.ItemService;
 import com.l2jserver.service.game.map.pathing.PathingService;
 import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.service.game.scripting.ScriptingService;
@@ -58,6 +59,7 @@ public class L2JGameServerMain {
 
 			serviceManager.start(ChatService.class);
 			serviceManager.start(NPCService.class);
+			serviceManager.start(ItemService.class);
 
 			serviceManager.start(CharacterService.class);
 			serviceManager.start(PathingService.class);

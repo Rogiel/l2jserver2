@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item id="2" icon="icon.etc_adena_i00">
-	<name>Adena</name>
-	<material>GOLD</material>
-	<effect type="IMMEDIATE" />
+<template:item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://schemas.l2jserver2.com/item ../item.xsd"
+	xmlns:template="http://schemas.l2jserver2.com/item" id="2" name="Long Sword">
+	<weight>1</weight>
 	<price>1</price>
-</item>
+	<icon>icon.etc_adena_i00</icon>
+	<material>GOLD</material>
+	<!-- <effect type="IMMEDIATE" /> -->
+</template:item>

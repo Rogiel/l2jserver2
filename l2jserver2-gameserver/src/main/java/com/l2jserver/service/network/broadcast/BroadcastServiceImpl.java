@@ -26,11 +26,13 @@ import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_DIE;
+import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.PositionableObject;
@@ -218,6 +220,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 			conn.write(new SM_NPC_INFO((NPC) o));
 		} else if (o instanceof L2Character) {
 			conn.write(new SM_CHAR_INFO_BROADCAST((L2Character) o));
+		} else if (o instanceof Item) {
+			conn.write(new SM_ITEM_GROUND((Item) o));
 		}
 	}
 }
