@@ -19,6 +19,7 @@ package com.l2jserver.service.database.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -36,8 +37,8 @@ import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory;
-import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
+import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
@@ -129,7 +130,8 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 					.getInt(TEMPLATE_ID));
 			final ItemTemplate template = templateId.getTemplate();
 			if (template == null) {
-				log.warn("No template found for {} while loading {}", templateId, id);
+				log.warn("No template found for {} while loading {}",
+						templateId, id);
 				return null;
 			}
 			final Item item = template.create();
@@ -138,8 +140,7 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 			if (rs.getObject(CHAR_ID) != null)
 				item.setOwnerID(charIdFactory.resolveID(rs.getInt(CHAR_ID)));
 			if (rs.getObject(LOCATION) != null)
-				item.setLocation(InventoryLocation.valueOf(rs
-						.getString(LOCATION)));
+				item.setLocation(ItemLocation.valueOf(rs.getString(LOCATION)));
 			if (rs.getObject(PAPERDOLL) != null)
 				item.setPaperdoll(InventoryPaperdoll.valueOf(rs
 						.getString(PAPERDOLL)));
@@ -211,7 +212,7 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 
 			@Override
 			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setString(1, InventoryLocation.GROUND.name());
+				st.setString(1, ItemLocation.GROUND.name());
 			}
 
 			@Override
@@ -244,7 +245,56 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 
 	@Override
 	public boolean update(Item item) {
-		return false;
+		// public static final String ITEM_ID = "item_id";
+		// public static final String TEMPLATE_ID = "template_id";
+		// public static final String CHAR_ID = JDBCCharacterDAO.CHAR_ID;
+		//
+		// public static final String LOCATION = "location";
+		// public static final String PAPERDOLL = "paperdoll";
+		// public static final String COUNT = "count";
+		// public static final String COORD_X = "coord_x";
+		// public static final String COORD_Y = "coord_y";
+		// public static final String COORD_Z = "coord_z";
+
+		return database.query(new InsertUpdateQuery<Item>(item) {
+			@Override
+			protected String query() {
+				return "UPDATE `" + TABLE + "` SET `" + CHAR_ID + "` = ?,`"
+						+ LOCATION + "` = ?,`" + PAPERDOLL + "` = ?,`" + COUNT
+						+ "` = ?,`" + COORD_X + "` = ?,`" + COORD_Y + "` = ?,`"
+						+ COORD_Z + "` = ? WHERE `" + ITEM_ID + "` = ?";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st, Item item)
+					throws SQLException {
+				int i = 1;
+
+				// SET
+				if (item.getOwnerID() != null) {
+					st.setInt(i++, item.getOwnerID().getID());
+				} else {
+					st.setNull(i++, Types.INTEGER);
+				}
+				st.setString(i++, item.getLocation().name());
+				st.setString(i++, (item.getPaperdoll() != null ? item
+						.getPaperdoll().name() : null));
+				st.setLong(i++, item.getCount());
+				if (item.getPoint() != null) {
+					st.setInt(i++, item.getPoint().getX());
+					st.setInt(i++, item.getPoint().getY());
+					st.setInt(i++, item.getPoint().getZ());
+				} else {
+					st.setInt(i++, 0);
+					st.setInt(i++, 0);
+					st.setInt(i++, 0);
+				}
+
+				// WHERE
+				st.setInt(i++, item.getID().getID());
+			}
+		}) > 0;
+
 	}
 
 	@Override

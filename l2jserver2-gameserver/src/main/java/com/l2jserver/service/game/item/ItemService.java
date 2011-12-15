@@ -16,7 +16,17 @@
  */
 package com.l2jserver.service.game.item;
 
+import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
+import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
+import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
+import com.l2jserver.service.game.spawn.SpawnService;
+import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
  * This service handles item management. Drop and pick up, create and destroy.
@@ -24,5 +34,60 @@ import com.l2jserver.service.Service;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ItemService extends Service {
+	/**
+	 * Executes an action for an Item.
+	 * 
+	 * @param item
+	 *            the item
+	 * @param character
+	 *            the character issuing the action
+	 * @param action
+	 *            the action type
+	 * @return <code>item</code> or another instance if the item was stacked.
+	 * @throws ItemNotOnGroundServiceException
+	 *             if the item is not on ground at the moment
+	 * @throws NotSpawnedServiceException
+	 *             if the item is not registered with {@link SpawnService}
+	 */
+	Item action(Item item, L2Character character, CharacterAction action)
+			throws ItemNotOnGroundServiceException, NotSpawnedServiceException;
 
+	/**
+	 * Picks up an dropped item and places it into another players inventory
+	 * 
+	 * @param item
+	 *            the item
+	 * @param character
+	 *            the character
+	 * @return <code>item</code> or another instance if the item was stacked.
+	 * @throws ItemNotOnGroundServiceException
+	 *             if the item is not on ground at the moment
+	 * @throws NotSpawnedServiceException
+	 *             if the item is not registered with {@link SpawnService}
+	 */
+	Item pickUp(Item item, L2Character character)
+			throws ItemNotOnGroundServiceException, NotSpawnedServiceException;
+
+	/**
+	 * Drops an item on the ground. If <code>actor</code> is not
+	 * <code>null</code> he is flagged as the dropper actor.
+	 * 
+	 * @param item
+	 *            the item
+	 * @param point
+	 *            the drop point. Can be <code>null</code> if
+	 *            {@link Item#getPoint()} is set.
+	 * @param actor
+	 *            the dropping actor. Can be <code>null</code>.
+	 * @throws ItemAlreadyOnGroundServiceException
+	 *             if the item is already dropped
+	 * @throws AlreadySpawnedServiceException
+	 *             if the item is already spawned in the {@link WorldService}
+	 * @throws SpawnPointNotFoundServiceException
+	 *             if <code>point</code> was <code>null</code> and
+	 *             {@link Item#getPoint()} was not set.
+	 */
+	void drop(Item item, Point3D point, Actor actor)
+			throws ItemAlreadyOnGroundServiceException,
+			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException;
 }

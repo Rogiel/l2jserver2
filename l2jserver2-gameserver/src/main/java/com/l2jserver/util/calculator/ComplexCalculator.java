@@ -168,6 +168,14 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	public void remove(Function<T, V> function) {
 		getList(function.type()).remove(function);
 	}
+	
+	/**
+	 * Removes all functions from <code>type</code>
+	 * @param type the type
+	 */
+	public void remove(V type) {
+		getList(type).clear();
+	}
 
 	/**
 	 * Imports all functions from the given <tt>calculator</tt>. This is useful

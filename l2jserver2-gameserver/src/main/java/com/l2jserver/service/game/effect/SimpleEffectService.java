@@ -63,8 +63,10 @@ public class SimpleEffectService extends AbstractService implements
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		pool = threadService.createThreadPool("EffectService", 20);
-		for (int i = 0; i < 20; i++) {
+		final int threads = Runtime.getRuntime().availableProcessors();
+		
+		pool = threadService.createThreadPool("EffectService", threads);
+		for (int i = 0; i < threads; i++) {
 			pool.async(10, TimeUnit.MILLISECONDS, 10, new Runnable() {
 				@Override
 				public void run() {

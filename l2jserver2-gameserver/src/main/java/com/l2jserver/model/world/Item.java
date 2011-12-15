@@ -19,7 +19,7 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.item.ItemTemplate;
-import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
+import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 
 /**
@@ -27,13 +27,13 @@ import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll
  * be:
  * <ul>
  * <li><b>In the {@link L2Character character} inventory</b>: <tt>location</tt>
- * is {@link InventoryLocation#INVENTORY}, <tt>coordinate</tt> and
+ * is {@link ItemLocation#INVENTORY}, <tt>coordinate</tt> and
  * <tt>paperdoll</tt> are null.</li>
  * <li><b>In the {@link L2Character character} warehouse</b>: <tt>location</tt>
- * is {@link InventoryLocation#WAREHOUSE}, <tt>coordinate</tt> and
+ * is {@link ItemLocation#WAREHOUSE}, <tt>coordinate</tt> and
  * <tt>paperdoll</tt> are null.</li>
  * <li><b>Equipped by the {@link L2Character character}</b>: <tt>location</tt>
- * is {@link InventoryLocation#PAPERDOLL}, <tt>paperdoll</tt> is not null and
+ * is {@link ItemLocation#PAPERDOLL}, <tt>paperdoll</tt> is not null and
  * <tt>coordinate</tt> is null.</li>
  * <li><b>Dropped on the ground</b>: <tt>location</tt></li> and
  * <tt>paperdoll</tt> are null, <tt>coordinate</tt> is not null and represents
@@ -58,7 +58,7 @@ public class Item extends PositionableObject {
 	/**
 	 * Inventory location of this item
 	 */
-	private InventoryLocation location;
+	private ItemLocation location;
 	/**
 	 * Paperdoll slot for this item
 	 */
@@ -96,7 +96,7 @@ public class Item extends PositionableObject {
 	/**
 	 * @return the location
 	 */
-	public InventoryLocation getLocation() {
+	public ItemLocation getLocation() {
 		return location;
 	}
 
@@ -104,10 +104,10 @@ public class Item extends PositionableObject {
 	 * @param location
 	 *            the location to set
 	 */
-	public void setLocation(InventoryLocation location) {
+	public void setLocation(ItemLocation location) {
 		desireUpdate();
 		this.location = location;
-		if (location != InventoryLocation.PAPERDOLL)
+		if (location != ItemLocation.PAPERDOLL)
 			this.paperdoll = null;
 	}
 

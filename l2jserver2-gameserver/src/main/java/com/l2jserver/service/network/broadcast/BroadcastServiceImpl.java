@@ -46,6 +46,7 @@ import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.model.world.character.event.CharacterRunningEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
+import com.l2jserver.model.world.item.ItemPickUpEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
@@ -125,8 +126,10 @@ public class BroadcastServiceImpl extends AbstractService implements
 					broadcast(conn, e.getObject());
 				} else if (e instanceof ActorTeleportingEvent
 						|| e instanceof CharacterLeaveWorldEvent
-						|| e instanceof ActorUnspawnEvent) {
+						|| e instanceof ActorUnspawnEvent
+						|| e instanceof ItemPickUpEvent) {
 					// object is now out of sight
+					//FIXME pick up animation is not happening
 					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof CharacterWalkingEvent) {
 					conn.write(new SM_MOVE_TYPE(((CharacterWalkingEvent) e)

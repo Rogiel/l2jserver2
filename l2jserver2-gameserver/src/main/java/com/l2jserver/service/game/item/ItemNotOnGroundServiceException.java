@@ -14,34 +14,46 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.actor.effect;
-
-import com.l2jserver.service.game.effect.EffectService;
+package com.l2jserver.service.game.item;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface TemporalEffect extends Effect {
+public class ItemNotOnGroundServiceException extends ItemServiceException {
 	/**
-	 * Continues the effect calculation, if necessary.
-	 * 
-	 * @return the next action
+	 * Java Serialization API ID
 	 */
-	TemporalEffectAction continueEffect();
+	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The result from {@link TemporalEffect#continueEffect()}, instructs the
-	 * {@link EffectService} in what it should do next.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * Creates a new instance
 	 */
-	public enum TemporalEffectAction {
-		CANCEL, CONTINUE;
+	public ItemNotOnGroundServiceException() {
 	}
 
 	/**
-	 * Ends the effect. Deattachs the actor from any service it may have been
-	 * attached due to this effect and reverts actor back to normal state.
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the cause
 	 */
-	void cancelEffect();
+	public ItemNotOnGroundServiceException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	/**
+	 * @param message
+	 *            the message
+	 */
+	public ItemNotOnGroundServiceException(String message) {
+		super(message);
+	}
+
+	/**
+	 * @param cause
+	 *            the cause
+	 */
+	public ItemNotOnGroundServiceException(Throwable cause) {
+		super(cause);
+	}
 }

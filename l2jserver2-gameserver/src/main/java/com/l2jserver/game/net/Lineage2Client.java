@@ -27,6 +27,9 @@ import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.game.net.packet.server.SM_ACTION_FAILED;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY_UPDATE;
+import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY_UPDATE.InventoryUpdateType;
 import com.l2jserver.game.net.packet.server.SM_COMMUNITY_HTML;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_SYSTEM_MESSAGE;
@@ -319,6 +322,57 @@ public class Lineage2Client {
 	 */
 	public ChannelFuture sendCommunityHTML(HtmlTemplate template) {
 		return write(new SM_COMMUNITY_HTML(template));
+	}
+
+	/**
+	 * Sends the whole user inventory to the client. This is a very bandwidth
+	 * consuming process and should be avoided.
+	 * 
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture sendInventoryUpdate() {
+		return write(new SM_CHAR_INVENTORY(characterID.getObject()
+				.getInventory()));
+	}
+
+	/**
+	 * Removes <code>items</code> from the game client UI.
+	 * 
+	 * @param items
+	 *            the list of items to be removed
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture removeInventoryItems(Item... items) {
+		return write(new SM_CHAR_INVENTORY_UPDATE(InventoryUpdateType.REMOVE,
+				items));
+	}
+
+	/**
+	 * Updates <code>items</code> in the game client UI.
+	 * 
+	 * @param items
+	 *            the list of items to be updated
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture updateInventoryItems(Item... items) {
+		return write(new SM_CHAR_INVENTORY_UPDATE(InventoryUpdateType.UPDATE,
+				items));
+	}
+
+	/**
+	 * Adds <code>items</code> in the game client UI.
+	 * 
+	 * @param items
+	 *            the list of items to be added
+	 * @return the {@link ChannelFuture} that will be notified once the packet
+	 *         has been written.
+	 */
+	public ChannelFuture addInventoryItems(Item... items) {
+		return write(new SM_CHAR_INVENTORY_UPDATE(InventoryUpdateType.ADD,
+				items));
 	}
 
 	/**

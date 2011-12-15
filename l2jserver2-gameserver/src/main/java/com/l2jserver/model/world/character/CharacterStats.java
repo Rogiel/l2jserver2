@@ -19,6 +19,7 @@ package com.l2jserver.model.world.character;
 import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.calculator.ActorCalculator;
+import com.l2jserver.model.world.actor.calculator.ActorCalculatorContext;
 import com.l2jserver.model.world.actor.stat.ActorStats;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
@@ -50,6 +51,7 @@ import com.l2jserver.model.world.character.calculator.base.CharacterBaseRunSpeed
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseStrengthCalculator;
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseWalkSpeedCalculator;
 import com.l2jserver.model.world.character.calculator.base.CharacterBaseWitnessCalculator;
+import com.l2jserver.util.calculator.Calculator;
 
 /**
  * This class is responsible for calculating the real character stats. The real
@@ -263,7 +265,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	/**
 	 * The character calculator
 	 */
-	private static final CharacterCalculator calculator = new CharacterCalculator();
+	private final CharacterCalculator calculator = new CharacterCalculator();
 
 	/**
 	 * Creates a new {@link CharacterStats} and adds default calculators
@@ -290,10 +292,46 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	}
 
 	/**
+	 * Adds an formula to the character calculator
+	 * 
+	 * @param formula
+	 *            the formula
+	 */
+	public void addMaxCP(Calculator<ActorCalculatorContext, StatType> formula) {
+		calculator.add(formula);
+	}
+	
+	/**
+	 * Reset the calculator to its default state
+	 */
+	public void resetMaxCP() {
+		calculator.remove(BASE_CP_FORMULA);
+		calculator.add(BASE_CP_FORMULA);
+	}
+
+	/**
 	 * @return the calculated maximum load
 	 */
 	public int getMaximumLoad() {
 		return (int) calc(StatType.MAX_LOAD);
+	}
+	
+	/**
+	 * Adds an formula to the character calculator
+	 * 
+	 * @param formula
+	 *            the formula
+	 */
+	public void addMaximumLoad(Calculator<ActorCalculatorContext, StatType> formula) {
+		calculator.add(formula);
+	}
+	
+	/**
+	 * Reset the calculator to its default state
+	 */
+	public void resetMaximumLoad() {
+		calculator.remove(BASE_CP_FORMULA);
+		calculator.add(BASE_CP_FORMULA);
 	}
 
 	/**

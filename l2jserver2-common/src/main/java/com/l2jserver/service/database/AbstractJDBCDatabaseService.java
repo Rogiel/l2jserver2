@@ -302,19 +302,25 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 				new Runnable() {
 					@Override
 					public void run() {
-						log.debug("Auto save task started");
-						int objects = 0;
-						for (final Model<?> object : objectCache) {
-							@SuppressWarnings("unchecked")
-							final DataAccessObject<Model<?>, ?> dao = (DataAccessObject<Model<?>, ?>) daoResolver
-									.getDAO(object.getClass());
-							if (dao.save(object)) {
-								objects++;
+						try {
+							log.debug("Auto save task started");
+							int objects = 0;
+							for (final Model<?> object : objectCache) {
+								@SuppressWarnings("unchecked")
+								final DataAccessObject<Model<?>, ?> dao = (DataAccessObject<Model<?>, ?>) daoResolver
+										.getDAO(object.getClass());
+								if (dao == null)
+									continue;
+								if (dao.save(object)) {
+									objects++;
+								}
 							}
+							log.info(
+									"{} objects have been saved by the auto save task",
+									objects);
+						} catch (Exception e) {
+							log.error("Error occured in save thread", e);
 						}
-						log.info(
-								"{} objects have been saved by the auto save task",
-								objects);
 					}
 				});
 	}
@@ -609,8 +615,11 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 					log.debug("Mapper {} returned a null row", mapper);
 					continue;
 				}
-				if (obj instanceof Model)
-					((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
+				if (obj instanceof Model) {
+					if (((Model<?>) obj).getObjectDesire() == ObjectDesire.INSERT) {
+						((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
+					}
+				}
 				log.debug("Mapper {} returned {}", mapper, obj);
 				list.add(obj);
 			}
@@ -685,8 +694,11 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			while (rs.next()) {
 				log.debug("Mapping row {} with {}", rs, mapper);
 				final T object = mapper.map(rs);
-				if (object instanceof Model)
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
+				if (object instanceof Model) {
+					if (((Model<?>) object).getObjectDesire() == ObjectDesire.INSERT) {
+						((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
+					}
+				}
 				log.debug("Mapper {} returned {}", mapper, object);
 				return object;
 			}

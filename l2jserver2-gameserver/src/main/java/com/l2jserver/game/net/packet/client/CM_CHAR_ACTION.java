@@ -20,14 +20,20 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
+import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.model.id.ObjectID;
+import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
+import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
+import com.l2jserver.service.game.item.ItemNotOnGroundServiceException;
+import com.l2jserver.service.game.item.ItemService;
 import com.l2jserver.service.game.npc.ActionServiceException;
 import com.l2jserver.service.game.npc.NPCService;
+import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.util.geometry.Coordinate;
 
 /**
@@ -41,18 +47,37 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x1f;
 
+	/**
+	 * The {@link ObjectID} resolver
+	 */
 	private final ObjectIDResolver idResolver;
+	/**
+	 * The {@link NPC} Service
+	 */
 	private final NPCService npcService;
+	/**
+	 * The {@link Item} Service
+	 */
+	private final ItemService itemService;
 
+	/**
+	 * The object id
+	 */
 	private int objectId;
 	@SuppressWarnings("unused")
 	private Coordinate origin;
+	/**
+	 * The character action type (aka mouse button)
+	 */
 	private CharacterAction action;
 
 	public enum CharacterAction {
+		/**
+		 * If the player has clicked with the left mouse button.
+		 */
 		CLICK(0),
 		/**
-		 * This is the right click action.
+		 * If the player has clicked with the right mouse button.
 		 */
 		RIGHT_CLICK(1);
 
@@ -71,9 +96,11 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	}
 
 	@Inject
-	public CM_CHAR_ACTION(ObjectIDResolver idResolver, NPCService npcService) {
+	public CM_CHAR_ACTION(ObjectIDResolver idResolver, NPCService npcService,
+			ItemService itemService) {
 		this.idResolver = idResolver;
 		this.npcService = npcService;
+		this.itemService = itemService;
 	}
 
 	@Override
@@ -86,19 +113,39 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 
 	@Override
 	public void process(final Lineage2Client conn) {
-		// since this is an erasure type, this is safe.
-		final ObjectID<NPC> id = idResolver.resolve(objectId);
-		if (!(id instanceof NPCID)) {
+		final ObjectID<?> id = idResolver.resolve(objectId);
+		if (id instanceof NPCID) {
+			final NPC npc = ((NPCID) id).getObject();
+			try {
+				npcService.action(npc, conn.getCharacter(), action);
+			} catch (ActionServiceException e) {
+				conn.sendActionFailed();
+			} catch (CannotSetTargetServiceException e) {
+				conn.sendActionFailed();
+			}
+		} else if (id instanceof ItemID) {
+			final Item item = ((ItemID) id).getObject();
+			try {
+				final Item stackItem = itemService.action(item,
+						conn.getCharacter(), action);
+				if (stackItem.equals(item)) { // adds
+					conn.addInventoryItems(stackItem);
+				} else { // update only
+					conn.updateInventoryItems(stackItem);
+				}
+				conn.sendSystemMessage(SystemMessage.YOU_PICKED_UP_S1_S2, Long
+						.toString(item.getCount()), item.getTemplate()
+						.getName());
+				conn.sendActionFailed();
+			} catch (ItemNotOnGroundServiceException
+					| NotSpawnedServiceException e) {
+				conn.sendSystemMessage(SystemMessage.FAILED_TO_PICKUP_S1, item
+						.getTemplate().getName());
+				conn.sendActionFailed();
+			}
+		} else {
 			conn.sendActionFailed();
 			return;
-		}
-		final NPC npc = id.getObject();
-		try {
-			npcService.action(npc, conn.getCharacter(), action);
-		} catch (ActionServiceException e) {
-			conn.sendActionFailed();
-		} catch (CannotSetTargetServiceException e) {
-			conn.sendActionFailed();
 		}
 	}
 }

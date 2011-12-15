@@ -22,7 +22,7 @@ import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory;
-import com.l2jserver.model.world.character.CharacterInventory.InventoryLocation;
+import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 
 /**
  * This packet send the inventory to the client
@@ -58,7 +58,7 @@ public class SM_CHAR_INVENTORY extends AbstractServerPacket {
 		// TODO implement real item slot
 		int slot = 0;
 		for (Item item : inventory) {
-			if (item.getLocation() == InventoryLocation.WAREHOUSE
+			if (item.getLocation() == ItemLocation.WAREHOUSE
 					|| item.getLocation() == null) {
 				continue;
 			}
@@ -69,7 +69,7 @@ public class SM_CHAR_INVENTORY extends AbstractServerPacket {
 			buffer.writeLong(item.getCount()); // count
 			buffer.writeShort(0x00); // item type2
 			buffer.writeShort(0x00); // item type3
-			buffer.writeShort((item.getLocation() == InventoryLocation.PAPERDOLL ? 0x01
+			buffer.writeShort((item.getLocation() == ItemLocation.PAPERDOLL ? 0x01
 					: 0x00)); // equiped?
 			buffer.writeInt((item.getPaperdoll() != null ? item.getPaperdoll().id
 					: 0)); // body part

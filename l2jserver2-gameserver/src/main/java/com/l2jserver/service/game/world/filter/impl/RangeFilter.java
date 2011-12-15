@@ -56,6 +56,8 @@ public class RangeFilter implements WorldObjectFilter<PositionableObject> {
 	public boolean accept(PositionableObject other) {
 		if (other == null)
 			return false;
+		if(other.getPoint() == null)
+			return false;
 
 		final double dx = FastMath.abs(object.getPoint().getX()
 				- other.getPoint().getX());
