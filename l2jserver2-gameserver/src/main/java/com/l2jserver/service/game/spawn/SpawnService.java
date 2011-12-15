@@ -30,7 +30,10 @@ import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.item.ItemService;
 import com.l2jserver.service.game.npc.NPCService;
+import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -52,6 +55,12 @@ import com.l2jserver.util.geometry.Point3D;
  * do, the {@link NPC} will not be respawned. The only possible way to respawn
  * it is through an forced spawn (manual) or server restart. See
  * {@link NPCService} if you wish to correctly unspawn an {@link NPC}.
+ * <p>
+ * Also note that this service is a low level implementation. In most cases, it
+ * might be more suitable the usage of high-level services, like
+ * {@link ItemService}, {@link NPCService} or {@link CharacterService}, since
+ * they can provide more security and dispatch more events to the
+ * {@link WorldService}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

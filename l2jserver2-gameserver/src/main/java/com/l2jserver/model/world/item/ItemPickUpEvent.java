@@ -38,6 +38,10 @@ public class ItemPickUpEvent implements ItemEvent, CharacterEvent {
 	 * The item picked up
 	 */
 	private final Item item;
+	/**
+	 * The new item
+	 */
+	private final Item newItem;
 
 	/**
 	 * Creates a new instance of this event
@@ -46,10 +50,19 @@ public class ItemPickUpEvent implements ItemEvent, CharacterEvent {
 	 *            the picking up character
 	 * @param item
 	 *            the picked up item
+	 * @param newItem the new {@link Item}
 	 */
-	public ItemPickUpEvent(L2Character character, Item item) {
+	public ItemPickUpEvent(L2Character character, Item item, Item newItem) {
 		this.character = character;
 		this.item = item;
+		this.newItem = newItem;
+	}
+
+	/**
+	 * @return the new {@link Item}
+	 */
+	public Item getNewItem() {
+		return newItem;
 	}
 
 	@Override

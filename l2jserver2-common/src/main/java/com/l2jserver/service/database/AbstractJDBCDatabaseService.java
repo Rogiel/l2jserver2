@@ -515,7 +515,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 				this.parametize(st, object);
 
 				log.debug("Sending query to database for {}", object);
-				rows += st.executeUpdate();
+				rows = st.executeUpdate();
 				log.debug("Query inserted or updated {} rows for {}", rows,
 						object);
 
@@ -616,9 +616,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 					continue;
 				}
 				if (obj instanceof Model) {
-					if (((Model<?>) obj).getObjectDesire() == ObjectDesire.INSERT) {
-						((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
-					}
+					((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
 				}
 				log.debug("Mapper {} returned {}", mapper, obj);
 				list.add(obj);
@@ -695,9 +693,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 				log.debug("Mapping row {} with {}", rs, mapper);
 				final T object = mapper.map(rs);
 				if (object instanceof Model) {
-					if (((Model<?>) object).getObjectDesire() == ObjectDesire.INSERT) {
-						((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-					}
+					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 				}
 				log.debug("Mapper {} returned {}", mapper, object);
 				return object;

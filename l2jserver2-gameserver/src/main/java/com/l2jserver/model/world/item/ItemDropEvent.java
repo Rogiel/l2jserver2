@@ -19,20 +19,19 @@ package com.l2jserver.model.world.item;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
-import com.l2jserver.model.world.Player;
 import com.l2jserver.model.world.WorldObject;
-import com.l2jserver.model.world.player.event.PlayerEvent;
+import com.l2jserver.model.world.actor.event.ActorEvent;
 
 /**
  * Event dispatched once an {@link Item} has been dropped on the ground.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ItemDropEvent implements ItemEvent, PlayerEvent {
+public class ItemDropEvent implements ItemEvent, ActorEvent {
 	/**
-	 * The dropping player
+	 * The dropping actor
 	 */
-	private final Player player;
+	private final Actor actor;
 	/**
 	 * The item dropped
 	 */
@@ -41,13 +40,13 @@ public class ItemDropEvent implements ItemEvent, PlayerEvent {
 	/**
 	 * Creates a new instance of this event
 	 * 
-	 * @param player
-	 *            the dropping player
+	 * @param actor
+	 *            the dropping actor
 	 * @param item
 	 *            the dropped item
 	 */
-	public ItemDropEvent(Player player, Item item) {
-		this.player = player;
+	public ItemDropEvent(Actor actor, Item item) {
+		this.actor = actor;
 		this.item = item;
 	}
 
@@ -57,18 +56,13 @@ public class ItemDropEvent implements ItemEvent, PlayerEvent {
 	}
 
 	@Override
-	public Player getPlayer() {
-		return player;
-	}
-
-	@Override
 	public Item getItem() {
 		return item;
 	}
 
 	@Override
 	public Actor getActor() {
-		return player;
+		return actor;
 	}
 
 	@Override

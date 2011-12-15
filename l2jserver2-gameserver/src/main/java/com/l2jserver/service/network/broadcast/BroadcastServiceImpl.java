@@ -46,6 +46,7 @@ import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.model.world.character.event.CharacterRunningEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
+import com.l2jserver.model.world.item.ItemDropEvent;
 import com.l2jserver.model.world.item.ItemPickUpEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
@@ -115,7 +116,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 			@Override
 			protected boolean dispatch(WorldEvent e, PositionableObject object) {
 				log.debug("Broadcast event received: {}", e);
-				if (e instanceof NPCSpawnEvent) {
+				if (e instanceof NPCSpawnEvent || e instanceof ItemDropEvent) {
 					broadcast(conn, e.getObject());
 				} else if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
@@ -129,7 +130,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 						|| e instanceof ActorUnspawnEvent
 						|| e instanceof ItemPickUpEvent) {
 					// object is now out of sight
-					//FIXME pick up animation is not happening
+					// FIXME pick up animation is not happening
 					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof CharacterWalkingEvent) {
 					conn.write(new SM_MOVE_TYPE(((CharacterWalkingEvent) e)

@@ -16,6 +16,10 @@
  */
 package com.l2jserver.model;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Preconditions;
 import com.l2jserver.model.id.ID;
 
@@ -28,6 +32,8 @@ import com.l2jserver.model.id.ID;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * The object id
 	 */
@@ -58,6 +64,7 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	public void setObjectDesire(ObjectDesire desire) {
 		if (desire == null)
 			desire = ObjectDesire.NONE;
+		log.debug("{} set desire to {}", this, desire);
 		this.desire = desire;
 	}
 
@@ -69,8 +76,10 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	@SuppressWarnings("javadoc")
 	protected void desireUpdate() {
 		if (this.desire != ObjectDesire.INSERT
-				&& this.desire != ObjectDesire.DELETE)
+				&& this.desire != ObjectDesire.DELETE) {
+			log.debug("{} desires an update", this);
 			this.desire = ObjectDesire.UPDATE;
+		}
 	}
 
 	/**
@@ -79,8 +88,10 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 */
 	@SuppressWarnings("javadoc")
 	protected void desireInsert() {
-		if (this.desire != ObjectDesire.DELETE)
+		if (this.desire != ObjectDesire.DELETE) {
+			log.debug("{} desires an insert", this);
 			this.desire = ObjectDesire.INSERT;
+		}
 	}
 
 	@Override

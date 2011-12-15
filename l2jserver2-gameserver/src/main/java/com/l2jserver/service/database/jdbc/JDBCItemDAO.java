@@ -184,12 +184,13 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 			@Override
 			protected String query() {
 				return "SELECT * FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?";
+						+ "` = ? AND `location` = ?";
 			}
 
 			@Override
 			protected void parametize(PreparedStatement st) throws SQLException {
 				st.setInt(1, character.getID().getID());
+				st.setString(2, ItemLocation.INVENTORY.name());
 			}
 
 			@Override
@@ -239,23 +240,47 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 
 	@Override
 	public boolean insert(Item item) {
-		throw new UnsupportedOperationException(
-				"Saving items is not yet implemented!");
+		return database.query(new InsertUpdateQuery<Item>(item) {
+			@Override
+			protected String query() {
+				return "INSERT INTO `" + TABLE + "` (`" + ITEM_ID + "`,`"
+						+ TEMPLATE_ID + "`,`" + CHAR_ID + "`,`" + LOCATION
+						+ "`,`" + PAPERDOLL + "`,`" + COUNT + "`,`" + COORD_X
+						+ "`,`" + COORD_Y + "`,`" + COORD_Z
+						+ "`) VALUES(?,?,?,?,?,?,?,?,?)";
+			}
+
+			@Override
+			protected void parametize(PreparedStatement st, Item item)
+					throws SQLException {
+				int i = 1;
+
+				st.setInt(i++, item.getID().getID());
+				st.setInt(i++, item.getTemplateID().getID());
+				if (item.getOwnerID() != null) {
+					st.setInt(i++, item.getOwnerID().getID());
+				} else {
+					st.setNull(i++, Types.INTEGER);
+				}
+				st.setString(i++, item.getLocation().name());
+				st.setString(i++, (item.getPaperdoll() != null ? item
+						.getPaperdoll().name() : null));
+				st.setLong(i++, item.getCount());
+				if (item.getPoint() != null) {
+					st.setInt(i++, item.getPoint().getX());
+					st.setInt(i++, item.getPoint().getY());
+					st.setInt(i++, item.getPoint().getZ());
+				} else {
+					st.setNull(i++, Types.INTEGER);
+					st.setNull(i++, Types.INTEGER);
+					st.setNull(i++, Types.INTEGER);
+				}
+			}
+		}) > 0;
 	}
 
 	@Override
 	public boolean update(Item item) {
-		// public static final String ITEM_ID = "item_id";
-		// public static final String TEMPLATE_ID = "template_id";
-		// public static final String CHAR_ID = JDBCCharacterDAO.CHAR_ID;
-		//
-		// public static final String LOCATION = "location";
-		// public static final String PAPERDOLL = "paperdoll";
-		// public static final String COUNT = "count";
-		// public static final String COORD_X = "coord_x";
-		// public static final String COORD_Y = "coord_y";
-		// public static final String COORD_Z = "coord_z";
-
 		return database.query(new InsertUpdateQuery<Item>(item) {
 			@Override
 			protected String query() {
@@ -285,16 +310,15 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 					st.setInt(i++, item.getPoint().getY());
 					st.setInt(i++, item.getPoint().getZ());
 				} else {
-					st.setInt(i++, 0);
-					st.setInt(i++, 0);
-					st.setInt(i++, 0);
+					st.setNull(i++, Types.INTEGER);
+					st.setNull(i++, Types.INTEGER);
+					st.setNull(i++, Types.INTEGER);
 				}
 
 				// WHERE
 				st.setInt(i++, item.getID().getID());
 			}
 		}) > 0;
-
 	}
 
 	@Override

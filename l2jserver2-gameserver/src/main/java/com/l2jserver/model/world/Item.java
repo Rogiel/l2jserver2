@@ -17,21 +17,22 @@
 package com.l2jserver.model.world;
 
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.template.item.ItemTemplate;
-import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
+import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 
 /**
  * This class represents an {@link Item} in the Lineage II World. The item can
  * be:
  * <ul>
  * <li><b>In the {@link L2Character character} inventory</b>: <tt>location</tt>
- * is {@link ItemLocation#INVENTORY}, <tt>coordinate</tt> and
- * <tt>paperdoll</tt> are null.</li>
+ * is {@link ItemLocation#INVENTORY}, <tt>coordinate</tt> and <tt>paperdoll</tt>
+ * are null.</li>
  * <li><b>In the {@link L2Character character} warehouse</b>: <tt>location</tt>
- * is {@link ItemLocation#WAREHOUSE}, <tt>coordinate</tt> and
- * <tt>paperdoll</tt> are null.</li>
+ * is {@link ItemLocation#WAREHOUSE}, <tt>coordinate</tt> and <tt>paperdoll</tt>
+ * are null.</li>
  * <li><b>Equipped by the {@link L2Character character}</b>: <tt>location</tt>
  * is {@link ItemLocation#PAPERDOLL}, <tt>paperdoll</tt> is not null and
  * <tt>coordinate</tt> is null.</li>
@@ -58,7 +59,7 @@ public class Item extends PositionableObject {
 	/**
 	 * Inventory location of this item
 	 */
-	private ItemLocation location;
+	private ItemLocation location = ItemLocation.INVENTORY;
 	/**
 	 * Paperdoll slot for this item
 	 */
@@ -155,5 +156,10 @@ public class Item extends PositionableObject {
 	public void setOwnerID(CharacterID ownerID) {
 		desireUpdate();
 		this.ownerID = ownerID;
+	}
+
+	@Override
+	public ItemID getID() {
+		return (ItemID) super.getID();
 	}
 }

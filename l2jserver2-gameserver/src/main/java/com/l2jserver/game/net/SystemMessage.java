@@ -204,7 +204,7 @@ public enum SystemMessage {
 	 * ID: 29<br>
 	 * Message: You have obtained $s2 $s1.
 	 */
-	YOU_PICKED_UP_S1_S2(29),
+	YOU_PICKED_UP_S2_S1(29),
 
 	/**
 	 * ID: 30<br>

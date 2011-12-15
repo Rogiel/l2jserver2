@@ -59,6 +59,7 @@ public class SM_CHAR_INVENTORY extends AbstractServerPacket {
 		int slot = 0;
 		for (Item item : inventory) {
 			if (item.getLocation() == ItemLocation.WAREHOUSE
+					|| item.getLocation() == ItemLocation.GROUND
 					|| item.getLocation() == null) {
 				continue;
 			}

@@ -118,9 +118,7 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 			final NPC npc = ((NPCID) id).getObject();
 			try {
 				npcService.action(npc, conn.getCharacter(), action);
-			} catch (ActionServiceException e) {
-				conn.sendActionFailed();
-			} catch (CannotSetTargetServiceException e) {
+			} catch (ActionServiceException | CannotSetTargetServiceException e) {
 				conn.sendActionFailed();
 			}
 		} else if (id instanceof ItemID) {
@@ -133,7 +131,7 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 				} else { // update only
 					conn.updateInventoryItems(stackItem);
 				}
-				conn.sendSystemMessage(SystemMessage.YOU_PICKED_UP_S1_S2, Long
+				conn.sendSystemMessage(SystemMessage.YOU_PICKED_UP_S2_S1, Long
 						.toString(item.getCount()), item.getTemplate()
 						.getName());
 				conn.sendActionFailed();

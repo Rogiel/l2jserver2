@@ -16,12 +16,13 @@
  */
 package com.l2jserver.model.world.character;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.l2jserver.model.id.object.ItemID;
+import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -77,6 +78,23 @@ public class CharacterInventory implements Iterable<Item> {
 	}
 
 	/**
+	 * Removes several items from the players inventory.
+	 * 
+	 * @param items
+	 *            the items to be removed
+	 * @return the items that were effectivelly removed
+	 */
+	public Item[] remove(Item... items) {
+		final List<Item> removedItems = CollectionFactory.newList();
+		for (final Item item : items) {
+			if (this.items.remove(item)) {
+				removedItems.add(item);
+			}
+		}
+		return removedItems.toArray(new Item[removedItems.size()]);
+	}
+
+	/**
 	 * Removes all items from the given {@link ItemID}
 	 * 
 	 * @param itemID
@@ -84,7 +102,7 @@ public class CharacterInventory implements Iterable<Item> {
 	 * @return an array of all items removed. Can never be <code>null</code>.
 	 */
 	public Item[] remove(ItemID itemID) {
-		final ArrayList<Item> removedItems = new ArrayList<Item>();
+		final List<Item> removedItems = CollectionFactory.newList();
 		for (final Item item : items) {
 			if (item.getID().equals(itemID)) {
 				items.remove(item);
@@ -92,6 +110,23 @@ public class CharacterInventory implements Iterable<Item> {
 			}
 		}
 		return removedItems.toArray(new Item[removedItems.size()]);
+	}
+
+	/**
+	 * Returns all items from the given {@link ItemTemplateID}
+	 * 
+	 * @param itemTemplateID
+	 *            the {@link ItemTemplateID}
+	 * @return an array of all items with the given ID
+	 */
+	public Item[] getItems(ItemTemplateID itemTemplateID) {
+		final List<Item> allItems = CollectionFactory.newList();
+		for (final Item item : items) {
+			if (item.getTemplateID().equals(itemTemplateID)) {
+				allItems.add(item);
+			}
+		}
+		return allItems.toArray(new Item[allItems.size()]);
 	}
 
 	/**

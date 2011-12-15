@@ -120,6 +120,17 @@ public class Point3D extends Point {
 		return coordinate;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Point3D [" + coordinate.getX() + "," + coordinate.getY() + ","
+				+ coordinate.getZ() + "," + angle + "]";
+	}
+
 	/**
 	 * Creates a new instance from the 3 points and an angle
 	 * 

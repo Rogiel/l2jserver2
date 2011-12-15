@@ -53,6 +53,33 @@ public interface ItemService extends Service {
 			throws ItemNotOnGroundServiceException, NotSpawnedServiceException;
 
 	/**
+	 * Splits this item in two pieces
+	 * 
+	 * @param item
+	 *            the item to be splitted
+	 * @param count
+	 *            the amount of items that will be decreased from the argument
+	 *            {@link Item} and added to the result one.
+	 * @return the splitted item
+	 * @throws NotEnoughItemsServiceException
+	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 */
+	Item split(Item item, long count) throws NotEnoughItemsServiceException;
+
+	/**
+	 * Stacks several items into a single one. Items must be provided by the
+	 * same template!
+	 * 
+	 * @param items
+	 *            the items to be stacked
+	 * @return the stacked item (it may be a totally new item or it might reuse
+	 *         another one)
+	 * @throws NonStackableItemsServiceException
+	 *             if the item templates says they are not stackable
+	 */
+	Item stack(Item... items) throws NonStackableItemsServiceException;
+
+	/**
 	 * Picks up an dropped item and places it into another players inventory
 	 * 
 	 * @param item
@@ -74,6 +101,35 @@ public interface ItemService extends Service {
 	 * 
 	 * @param item
 	 *            the item
+	 * @param count
+	 *            the number of items to be dropped. Will cause an split.
+	 * @param point
+	 *            the drop point. Can be <code>null</code> if
+	 *            {@link Item#getPoint()} is set.
+	 * @param actor
+	 *            the dropping actor. Can be <code>null</code>.
+	 * @return <code>item</code> or another instance if the item was splitted.
+	 * @throws ItemAlreadyOnGroundServiceException
+	 *             if the item is already dropped
+	 * @throws AlreadySpawnedServiceException
+	 *             if the item is already spawned in the {@link WorldService}
+	 * @throws SpawnPointNotFoundServiceException
+	 *             if <code>point</code> was <code>null</code> and
+	 *             {@link Item#getPoint()} was not set.
+	 * @throws NotEnoughItemsServiceException
+	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 */
+	Item drop(Item item, long count, Point3D point, Actor actor)
+			throws ItemAlreadyOnGroundServiceException,
+			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException,
+			NotEnoughItemsServiceException;
+
+	/**
+	 * Drops an item on the ground. If <code>actor</code> is not
+	 * <code>null</code> he is flagged as the dropper actor.
+	 * 
+	 * @param item
+	 *            the item
 	 * @param point
 	 *            the drop point. Can be <code>null</code> if
 	 *            {@link Item#getPoint()} is set.
@@ -86,8 +142,11 @@ public interface ItemService extends Service {
 	 * @throws SpawnPointNotFoundServiceException
 	 *             if <code>point</code> was <code>null</code> and
 	 *             {@link Item#getPoint()} was not set.
+	 * @throws NotEnoughItemsServiceException
+	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
 	 */
 	void drop(Item item, Point3D point, Actor actor)
 			throws ItemAlreadyOnGroundServiceException,
-			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException;
+			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException,
+			NotEnoughItemsServiceException;
 }
