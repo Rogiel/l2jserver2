@@ -503,11 +503,15 @@ public class CharacterServiceImpl extends AbstractService implements
 		// BroadcastService will catch this event and update the knownlist
 		eventDispatcher.dispatch(new CharacterMoveEvent(character, old));
 
-		if (point.getCoordinate().equals(
-				character.getTargetLocation().getCoordinate())) {
-			character.setState(null);
-			character.setTargetLocation(null);
-			// TODO dispatch stop event
+		// target location is null if picking an item right after logging in and
+		// has not moved the char.
+		if (character.getTargetLocation() != null) {
+			if (point.getCoordinate().equals(
+					character.getTargetLocation().getCoordinate())) {
+				character.setState(null);
+				character.setTargetLocation(null);
+				// TODO dispatch stop event
+			}
 		}
 	}
 
