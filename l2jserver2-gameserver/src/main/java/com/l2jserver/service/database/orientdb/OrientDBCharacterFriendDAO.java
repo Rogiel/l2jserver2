@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterFriendDAO;
 import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.id.FriendID;
@@ -265,7 +266,7 @@ public class OrientDBCharacterFriendDAO extends
 	@Override
 	public boolean save(final CharacterFriendList friends) {
 		for (final CharacterFriend friend : friends) {
-			if (!save(friend))
+			if (save(friend) == 0)
 				return false;
 		}
 		return true;
@@ -274,9 +275,19 @@ public class OrientDBCharacterFriendDAO extends
 	@Override
 	public boolean delete(final CharacterFriendList friends) {
 		for (final CharacterFriend friend : friends) {
-			if (!delete(friend))
+			if (deleteObjects(friend) == 0)
 				return false;
 		}
 		return true;
+	}
+	
+	@Override
+	protected CharacterFriend[] wrap(Model<?>... objects) {
+		final CharacterFriend[] array = new CharacterFriend[objects.length];
+		int i = 0;
+		for (final Model<?> object : objects) {
+			array[i++] = (CharacterFriend) object;
+		}
+		return array;
 	}
 }

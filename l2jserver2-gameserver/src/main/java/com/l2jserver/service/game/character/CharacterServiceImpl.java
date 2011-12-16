@@ -26,8 +26,8 @@ import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
-import com.l2jserver.game.net.packet.server.SM_CHAT;
-import com.l2jserver.game.net.packet.server.SM_MOVE;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_CHAT;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.dao.CharacterDAO;
@@ -242,7 +242,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		character.getAppearance().setHairColor(hairColor);
 		character.getAppearance().setFace(face);
 
-		if (characterDao.save(character))
+		if (characterDao.save(character) > 0)
 			return character;
 		return null;
 	}
@@ -275,14 +275,14 @@ public class CharacterServiceImpl extends AbstractService implements
 		final ChatChannelListener globalChatListener = new ChatChannelListener() {
 			@Override
 			public void onMessage(ChatChannel channel, ChatMessage message) {
-				conn.write(new SM_CHAT(message.getSender().getObject(),
+				conn.write(new SM_ACTOR_CHAT(message.getSender().getObject(),
 						ChatMessageType.ALL, message.getMessage()));
 			}
 		};
 		final ChatChannelListener tradeChatListener = new ChatChannelListener() {
 			@Override
 			public void onMessage(ChatChannel channel, ChatMessage message) {
-				conn.write(new SM_CHAT(message.getSender().getObject(),
+				conn.write(new SM_ACTOR_CHAT(message.getSender().getObject(),
 						ChatMessageType.TRADE, message.getMessage()));
 			}
 		};
@@ -474,7 +474,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		// for now, let's just write the packet, we don't have much validation
 		// to be done yet. With character validation packet, another packet of
 		// these will be broadcasted.
-		conn.write(new SM_MOVE(character, coordinate));
+		conn.write(new SM_ACTOR_MOVE(character, coordinate));
 		// we don't dispatch events here, they will be dispatched by
 		// with the same packet referred up here.
 	}

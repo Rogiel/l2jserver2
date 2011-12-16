@@ -37,7 +37,7 @@ import com.l2jserver.util.BufferUtils;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CM_CHAT extends AbstractClientPacket {
+public class CM_CHAR_CHAT extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -55,7 +55,7 @@ public class CM_CHAT extends AbstractClientPacket {
 	private String target;
 
 	@Inject
-	public CM_CHAT(ChatService chatService) {
+	public CM_CHAR_CHAT(ChatService chatService) {
 		this.chatService = chatService;
 	}
 

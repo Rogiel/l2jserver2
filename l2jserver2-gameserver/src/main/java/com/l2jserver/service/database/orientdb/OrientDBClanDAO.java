@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.id.ChatMessageID;
@@ -222,5 +223,15 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 				return null;
 			}
 		});
+	}
+	
+	@Override
+	protected Clan[] wrap(Model<?>... objects) {
+		final Clan[] array = new Clan[objects.length];
+		int i = 0;
+		for (final Model<?> object : objects) {
+			array[i++] = (Clan) object;
+		}
+		return array;
 	}
 }

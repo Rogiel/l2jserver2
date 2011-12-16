@@ -16,8 +16,8 @@
  */
 package com.l2jserver.service.game.chat;
 
-import com.l2jserver.game.net.packet.client.CM_CHAT;
-import com.l2jserver.game.net.packet.server.SM_CHAT;
+import com.l2jserver.game.net.packet.client.CM_CHAR_CHAT;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_CHAT;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.server.ChatMessage;
@@ -54,8 +54,8 @@ import com.l2jserver.service.Service;
  * {@link ChatBanActiveChatServiceException} will be thrown.
  * 
  * <h1>Packets</h1>
- * Messages are received (from the clients) with {@link CM_CHAT} and sent (to
- * the clients) with {@link SM_CHAT}.
+ * Messages are received (from the clients) with {@link CM_CHAR_CHAT} and sent (to
+ * the clients) with {@link SM_ACTOR_CHAT}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

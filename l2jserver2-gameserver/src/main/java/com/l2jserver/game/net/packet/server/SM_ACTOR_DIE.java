@@ -29,7 +29,7 @@ import com.l2jserver.model.world.Actor;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * @see AttackHit
  */
-public class SM_DIE extends AbstractServerPacket {
+public class SM_ACTOR_DIE extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -40,7 +40,7 @@ public class SM_DIE extends AbstractServerPacket {
 	 */
 	private final Actor actor;
 
-	public SM_DIE(Actor actor) {
+	public SM_ACTOR_DIE(Actor actor) {
 		super(OPCODE);
 		this.actor = actor;
 	}

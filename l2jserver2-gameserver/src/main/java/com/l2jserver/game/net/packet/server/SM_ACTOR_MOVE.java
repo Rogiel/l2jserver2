@@ -20,39 +20,49 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.Actor;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
- * This packet sends an item that is dropped on the ground
+ * This packet notifies the client that the character is moving to an certain
+ * point. If the {@link Actor} moving is the same as the client connected, the
+ * client will send position validations at specific time intervals.
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @author <a href="http://www.rogiel.com">Rogiel</a> O
  */
-public class SM_ITEM_GROUND extends AbstractServerPacket {
+public class SM_ACTOR_MOVE extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x16;
+	public static final int OPCODE = 0x2f;
 
-	private final Item item;
+	/**
+	 * The selected character
+	 */
+	private final Actor actor;
+	/**
+	 * The destination coordinate
+	 */
+	private Coordinate target;
 
-	public SM_ITEM_GROUND(Item item) {
+	public SM_ACTOR_MOVE(Actor actor, Coordinate target) {
 		super(OPCODE);
-		this.item = item;
+		this.actor = actor;
+		this.target = target;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt((item.getOwnerID() != null ? item.getOwnerID().getID() : 0)); // char who dropped
-		buffer.writeInt(item.getID().getID()); // item obj id
-		buffer.writeInt(item.getTemplateID().getID()); // item template id
+		buffer.writeInt(actor.getID().getID());
 
-		buffer.writeInt(item.getPoint().getX()); // x
-		buffer.writeInt(item.getPoint().getY()); // y
-		buffer.writeInt(item.getPoint().getZ()); // z
-		// only show item count if it is a stackable item
-		buffer.writeInt(0x01); // show count
-		buffer.writeLong(item.getCount()); // count
+		// target
+		buffer.writeInt(target.getX());
+		buffer.writeInt(target.getY());
+		buffer.writeInt(target.getZ());
 
-		buffer.writeInt(0); // unknown
+		// source
+		buffer.writeInt(actor.getPoint().getX());
+		buffer.writeInt(actor.getPoint().getY());
+		buffer.writeInt(actor.getPoint().getZ());
 	}
 }

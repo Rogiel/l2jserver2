@@ -37,7 +37,7 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CM_DROP_ITEM extends AbstractClientPacket {
+public class CM_ITEM_DROP extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -69,7 +69,7 @@ public class CM_DROP_ITEM extends AbstractClientPacket {
 	 *            the item id provider
 	 */
 	@Inject
-	public CM_DROP_ITEM(ItemService itemService, ItemIDProvider itemIdProvider) {
+	public CM_ITEM_DROP(ItemService itemService, ItemIDProvider itemIdProvider) {
 		this.itemService = itemService;
 		this.itemIdProvider = itemIdProvider;
 	}

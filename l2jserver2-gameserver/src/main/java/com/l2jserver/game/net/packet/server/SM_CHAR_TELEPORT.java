@@ -20,39 +20,43 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.util.geometry.Point3D;
 
 /**
- * This packet sends an item that is dropped on the ground
+ * This packet notifies the client that the chosen character has been
+ * successfully selected.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_ITEM_GROUND extends AbstractServerPacket {
+public class SM_CHAR_TELEPORT extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x16;
+	public static final int OPCODE = 0x22;
 
-	private final Item item;
+	/**
+	 * The selected character
+	 */
+	private final L2Character character;
+	/**
+	 * The teleportation point
+	 */
+	private final Point3D point;
 
-	public SM_ITEM_GROUND(Item item) {
+	public SM_CHAR_TELEPORT(L2Character character, Point3D point) {
 		super(OPCODE);
-		this.item = item;
+		this.character = character;
+		this.point = point;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt((item.getOwnerID() != null ? item.getOwnerID().getID() : 0)); // char who dropped
-		buffer.writeInt(item.getID().getID()); // item obj id
-		buffer.writeInt(item.getTemplateID().getID()); // item template id
-
-		buffer.writeInt(item.getPoint().getX()); // x
-		buffer.writeInt(item.getPoint().getY()); // y
-		buffer.writeInt(item.getPoint().getZ()); // z
-		// only show item count if it is a stackable item
-		buffer.writeInt(0x01); // show count
-		buffer.writeLong(item.getCount()); // count
-
-		buffer.writeInt(0); // unknown
+		buffer.writeInt(character.getID().getID());
+		buffer.writeInt(point.getX());
+		buffer.writeInt(point.getY());
+		buffer.writeInt(point.getZ());
+		buffer.writeInt(0x00); // isValidation ??
+		buffer.writeInt((int) point.getAngle()); // nYaw
 	}
 }

@@ -21,9 +21,7 @@ import static org.jboss.netty.channel.Channels.pipeline;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.handler.logging.LoggingHandler;
-import org.jboss.netty.handler.timeout.IdleStateHandler;
 import org.jboss.netty.logging.InternalLogLevel;
-import org.jboss.netty.util.HashedWheelTimer;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -81,9 +79,9 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	@Override
 	public ChannelPipeline getPipeline() throws Exception {
 		final ChannelPipeline pipeline = pipeline();
-		
-		pipeline.addLast("timeout.tiner", new IdleStateHandler(
-				new HashedWheelTimer(), 30, 30, 0));
+
+		// pipeline.addLast("timeout.tiner", new IdleStateHandler(
+		// new HashedWheelTimer(), 30, 30, 0));
 
 		pipeline.addLast("frame.encoder", new Lineage2FrameEncoder());
 		pipeline.addLast("frame.decoder", new Lineage2FrameDecoder());
@@ -104,7 +102,7 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 		final Lineage2TimeoutHandler timeoutHandler = new Lineage2TimeoutHandler();
 		pipeline.addLast("packet.handler", new Lineage2PacketHandler(
 				nettyNetworkService, worldService, timeoutHandler));
-		pipeline.addLast("timeout.handler", timeoutHandler);
+		//pipeline.addLast("timeout.handler", timeoutHandler);
 
 		return pipeline;
 	}

@@ -27,7 +27,7 @@ import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
-import com.l2jserver.game.net.packet.server.SM_TELEPORT;
+import com.l2jserver.game.net.packet.server.SM_CHAR_TELEPORT;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
@@ -234,7 +234,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			if (conn == null)
 				// TODO throw an exception here
 				return;
-			conn.write(new SM_TELEPORT(conn.getCharacter(), coordinate
+			conn.write(new SM_CHAR_TELEPORT(conn.getCharacter(), coordinate
 					.toPoint()));
 			((L2Character) actor).setState(ActorState.TELEPORTING);
 			((L2Character) actor).setTargetLocation(coordinate.toPoint());

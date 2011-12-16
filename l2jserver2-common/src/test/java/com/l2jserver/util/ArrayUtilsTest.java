@@ -29,13 +29,32 @@ import org.junit.Test;
 public class ArrayUtilsTest extends ArrayUtils {
 	@Test
 	public void testCopyArrayExcept() {
-		final String str1 = "one";
-		final String str2 = "two";
-		final String str3 = "three";
+		final TestClass objA = new TestClass("a");
+		final TestClass objB = new TestClass("b");
+		final TestClass objC = new TestClass("c");
 
-		String[] arr = new String[] { str1, str2, str3 };
+		TestClass[] arr = new TestClass[] { objA, objB, objC };
+		TestClass[] selected = ArrayUtils.copyArrayExcept(TestClass[].class,
+				arr, objB);
 
-		Assert.assertTrue(Arrays.equals(new String[] { str1, str3 },
-				ArrayUtils.copyArrayExcept(arr, str2)));
+		System.out.println(Arrays.toString(selected));
+		Assert.assertTrue(Arrays.equals(new TestClass[] { objA, objC },
+				selected));
+	}
+
+	private static class TestClass {
+		private String name;
+
+		/**
+		 * @param string
+		 */
+		public TestClass(String string) {
+			this.name = string;
+		}
+
+		@Override
+		public String toString() {
+			return "TestClass [name=" + name + "]";
+		}
 	}
 }

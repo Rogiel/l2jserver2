@@ -17,6 +17,7 @@
 package com.l2jserver.util;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import com.l2jserver.util.factory.CollectionFactory;
@@ -27,14 +28,19 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 public class ArrayUtils {
 	@SafeVarargs
-	@SuppressWarnings("unchecked")
-	public final static <T> T[] copyArrayExcept(T[] array, T... except) {
+	public final static <T> T[] copyArrayExcept(Class<T[]> type, T[] array,
+			T... except) {
 		final List<T> values = CollectionFactory.newList();
 		for (final T item : array) {
-			if (Arrays.binarySearch(except, item) < 0) {
+			if (Arrays.binarySearch(except, item, new Comparator<T>() {
+				@Override
+				public int compare(Object o1, Object o2) {
+					return (o1 == o2 ? 1 : 0);
+				}
+			}) >= 0) {
 				values.add(item);
 			}
 		}
-		return (T[]) values.toArray();
+		return Arrays.copyOf(values.toArray(), values.size(), type);
 	}
 }

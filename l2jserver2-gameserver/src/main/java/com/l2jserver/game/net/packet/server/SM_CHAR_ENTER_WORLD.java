@@ -29,7 +29,7 @@ import com.l2jserver.util.BufferUtils;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_ENTER_WORLD extends AbstractServerPacket {
+public class SM_CHAR_ENTER_WORLD extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -52,7 +52,7 @@ public class SM_ENTER_WORLD extends AbstractServerPacket {
 	 * @param sessionId
 	 *            the session id
 	 */
-	public SM_ENTER_WORLD(L2Character character, int sessionId) {
+	public SM_CHAR_ENTER_WORLD(L2Character character, int sessionId) {
 		super(OPCODE);
 		this.character = character;
 		this.sessionId = sessionId;

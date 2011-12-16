@@ -311,7 +311,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 										.getDAO(object.getClass());
 								if (dao == null)
 									continue;
-								if (dao.save(object)) {
+								if (dao.save(object) > 0) {
 									objects++;
 								}
 							}
@@ -548,6 +548,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 							}
 						}
 					}
+					conn.commit();
 					return rows;
 				} finally {
 					st.close();

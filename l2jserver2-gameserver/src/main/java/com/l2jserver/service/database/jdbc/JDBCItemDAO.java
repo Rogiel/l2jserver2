@@ -26,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
@@ -342,5 +343,15 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 				idFactory.destroy(object.getID());
 			}
 		});
+	}
+	
+	@Override
+	protected Item[] wrap(Model<?>... objects) {
+		final Item[] array = new Item[objects.length];
+		int i = 0;
+		for (final Model<?> object : objects) {
+			array[i++] = (Item) object;
+		}
+		return array;
 	}
 }

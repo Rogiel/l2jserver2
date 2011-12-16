@@ -32,7 +32,7 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.model.world.item.ItemDropEvent;
-import com.l2jserver.model.world.item.ItemPickUpEvent;
+import com.l2jserver.model.world.item.ItemPickEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -176,10 +176,10 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 				stackItems[items.length] = item;
 				try {
 					item = stack(stackItems);
-					Item[] removedItems = character.getInventory().remove(
-							stackItems);
-					Item[] databaseDeleteItems = ArrayUtils.copyArrayExcept(removedItems, item);
-					itemDao.deleteObjects(databaseDeleteItems);
+					Item[] deleteItems = ArrayUtils.copyArrayExcept(
+							Item[].class, stackItems, item);
+					character.getInventory().remove(deleteItems);
+					itemDao.deleteObjects(deleteItems);
 					character.getInventory().add(item);
 				} catch (NonStackableItemsServiceException e) {
 					character.getInventory().add(item);
@@ -196,8 +196,8 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 				itemDao.save(originalItem);
 			}
 			spawnService.unspawn(originalItem);
-			eventDispatcher.dispatch(new ItemPickUpEvent(character,
-					originalItem, item));
+			eventDispatcher.dispatch(new ItemPickEvent(character, originalItem,
+					item));
 
 			return item;
 		}

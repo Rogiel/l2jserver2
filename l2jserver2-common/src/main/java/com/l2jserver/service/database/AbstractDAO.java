@@ -51,42 +51,39 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
-	public boolean save(T object) {
+	public int save(T object) {
 		return save(object, false);
 	}
 
 	@Override
-	public boolean save(T object, boolean force) {
+	public int save(T object, boolean force) {
 		switch (object.getObjectDesire()) {
 		case INSERT:
-			return insert(object);
+			return insertObjects(wrap(object));
 		case UPDATE:
-			return update(object);
+			return updateObjects(wrap(object));
 		case DELETE:
-			return delete(object);
+			return deleteObjects(wrap(object));
 		case NONE:
-			return (force ? update(object) : false);
+			return (force ? updateObjects(wrap(object)) : 0);
 		default:
-			return false;
+			return 0;
 		}
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public boolean insert(T object) {
-		return insertObjects(object) > 0;
+	public void insert(T object) {
+		insertObjects(wrap(object));
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public boolean update(T object) {
-		return updateObjects(object) > 0;
+	public void update(T object) {
+		updateObjects(wrap(object));
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public boolean delete(T object) {
-		return deleteObjects(object) > 0;
+	public void delete(T object) {
+		deleteObjects(wrap(object));
 	}
 
 	@Override
@@ -128,4 +125,6 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	public DatabaseService getDatabase() {
 		return database;
 	}
+
+	protected abstract T[] wrap(Model<?>... objects);
 }

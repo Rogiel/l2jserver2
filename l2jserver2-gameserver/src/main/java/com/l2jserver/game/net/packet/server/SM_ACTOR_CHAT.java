@@ -20,8 +20,10 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.util.geometry.Point3D;
+import com.l2jserver.service.game.chat.ChatMessageType;
+import com.l2jserver.util.BufferUtils;
 
 /**
  * This packet notifies the client that the chosen character has been
@@ -29,34 +31,56 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_TELEPORT extends AbstractServerPacket {
+public class SM_ACTOR_CHAT extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x22;
+	public static final int OPCODE = 0x4a;
 
 	/**
-	 * The selected character
+	 * The sending actor
 	 */
-	private final L2Character character;
+	private final Actor actor;
 	/**
-	 * The teleportation point
+	 * The message destination
 	 */
-	private final Point3D point;
+	private ChatMessageType destination;
+	/**
+	 * The message
+	 */
+	private String message = null;
+	/**
+	 * The message ID
+	 */
+	private int messageID = 0;
 
-	public SM_TELEPORT(L2Character character, Point3D point) {
+	public SM_ACTOR_CHAT(Actor character, ChatMessageType destination, String message) {
 		super(OPCODE);
-		this.character = character;
-		this.point = point;
+		this.actor = character;
+		this.destination = destination;
+		this.message = message;
+	}
+
+	public SM_ACTOR_CHAT(Actor actor, ChatMessageType destination, int messageID) {
+		super(OPCODE);
+		this.actor = actor;
+		this.destination = destination;
+		this.messageID = messageID;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt(character.getID().getID());
-		buffer.writeInt(point.getX());
-		buffer.writeInt(point.getY());
-		buffer.writeInt(point.getZ());
-		buffer.writeInt(0x00); // isValidation ??
-		buffer.writeInt((int) point.getAngle()); // nYaw
+		buffer.writeInt(actor.getID().getID());
+		buffer.writeInt(destination.id);
+		if (actor instanceof L2Character) {
+			BufferUtils.writeString(buffer, ((L2Character) actor).getName());
+		} else {
+			buffer.writeInt(actor.getID().getID());
+		}
+		if (message != null) {
+			BufferUtils.writeString(buffer, message);
+		} else {
+			buffer.writeInt(messageID);
+		}
 	}
 }

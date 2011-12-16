@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.id.ChatMessageID;
@@ -255,5 +256,15 @@ public class OrientDBChatMessageDAO extends
 				return null;
 			}
 		});
+	}
+	
+	@Override
+	protected ChatMessage[] wrap(Model<?>... objects) {
+		final ChatMessage[] array = new ChatMessage[objects.length];
+		int i = 0;
+		for (final Model<?> object : objects) {
+			array[i++] = (ChatMessage) object;
+		}
+		return array;
 	}
 }

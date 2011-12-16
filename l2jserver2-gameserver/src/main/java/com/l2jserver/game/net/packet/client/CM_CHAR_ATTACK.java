@@ -41,7 +41,7 @@ import com.l2jserver.util.geometry.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CM_ATTACK extends AbstractClientPacket {
+public class CM_CHAR_ATTACK extends AbstractClientPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -127,7 +127,7 @@ public class CM_ATTACK extends AbstractClientPacket {
 	 *            the object id resolver
 	 */
 	@Inject
-	public CM_ATTACK(CharacterService charService, ObjectIDResolver idResolver) {
+	public CM_CHAR_ATTACK(CharacterService charService, ObjectIDResolver idResolver) {
 		this.charService = charService;
 		this.idResolver = idResolver;
 	}

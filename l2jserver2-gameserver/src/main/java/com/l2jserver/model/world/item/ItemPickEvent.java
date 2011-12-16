@@ -29,7 +29,7 @@ import com.l2jserver.model.world.character.event.CharacterEvent;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ItemPickUpEvent implements ItemEvent, CharacterEvent {
+public class ItemPickEvent implements ItemEvent, CharacterEvent {
 	/**
 	 * The pickupping character
 	 */
@@ -52,7 +52,7 @@ public class ItemPickUpEvent implements ItemEvent, CharacterEvent {
 	 *            the picked up item
 	 * @param newItem the new {@link Item}
 	 */
-	public ItemPickUpEvent(L2Character character, Item item, Item newItem) {
+	public ItemPickEvent(L2Character character, Item item, Item newItem) {
 		this.character = character;
 		this.item = item;
 		this.newItem = newItem;

@@ -210,7 +210,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 							@SuppressWarnings("unchecked")
 							final DataAccessObject<Model<?>, ?> dao = daoResolver
 									.getDAO(object.getClass());
-							if (dao.save(object)) {
+							if (dao.save(object) > 0) {
 								objects++;
 							}
 						}

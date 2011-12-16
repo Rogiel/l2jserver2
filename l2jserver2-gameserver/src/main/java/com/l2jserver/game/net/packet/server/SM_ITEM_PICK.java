@@ -20,49 +20,50 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.world.Actor;
-import com.l2jserver.util.geometry.Coordinate;
+import com.l2jserver.model.server.AttackHit;
+import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
 
 /**
- * This packet notifies the client that the character is moving to an certain
- * point. If the {@link Actor} moving is the same as the client connected, the
- * client will send position validations at specific time intervals.
+ * This packet makes an character pick up an item
  * 
- * @author <a href="http://www.rogiel.com">Rogiel</a> O
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @see AttackHit
  */
-public class SM_MOVE extends AbstractServerPacket {
+public class SM_ITEM_PICK extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x2f;
+	public static final int OPCODE = 0x17;
 
 	/**
-	 * The selected character
+	 * The {@link Item} being picked up
 	 */
-	private final Actor actor;
+	private final Item item;
 	/**
-	 * The destination coordinate
+	 * The {@link L2Character} picking the item
 	 */
-	private Coordinate target;
+	private final L2Character character;
 
-	public SM_MOVE(Actor actor, Coordinate target) {
+	/**
+	 * @param character
+	 *            the character that is picking the <code>item</code>
+	 * @param item
+	 *            the item that is being picked
+	 */
+	public SM_ITEM_PICK(L2Character character, Item item) {
 		super(OPCODE);
-		this.actor = actor;
-		this.target = target;
+		this.item = item;
+		this.character = character;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt(actor.getID().getID());
+		buffer.writeInt(character.getID().getID());
+		buffer.writeInt(item.getID().getID());
 
-		// target
-		buffer.writeInt(target.getX());
-		buffer.writeInt(target.getY());
-		buffer.writeInt(target.getZ());
-
-		// source
-		buffer.writeInt(actor.getPoint().getX());
-		buffer.writeInt(actor.getPoint().getY());
-		buffer.writeInt(actor.getPoint().getZ());
+		buffer.writeInt(item.getPoint().getX());
+		buffer.writeInt(item.getPoint().getY());
+		buffer.writeInt(item.getPoint().getZ());
 	}
 }

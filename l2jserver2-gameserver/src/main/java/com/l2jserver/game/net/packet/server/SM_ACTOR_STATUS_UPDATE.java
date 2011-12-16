@@ -16,14 +16,15 @@
  */
 package com.l2jserver.game.net.packet.server;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
 import com.l2jserver.model.world.Actor;
-import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.chat.ChatMessageType;
-import com.l2jserver.util.BufferUtils;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * This packet notifies the client that the chosen character has been
@@ -31,56 +32,59 @@ import com.l2jserver.util.BufferUtils;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_CHAT extends AbstractServerPacket {
+public class SM_ACTOR_STATUS_UPDATE extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
-	public static final int OPCODE = 0x4a;
+	public static final int OPCODE = 0x18;
 
 	/**
-	 * The sending actor
+	 * The stats the can be updated with the packet
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	private final Actor actor;
-	/**
-	 * The message destination
-	 */
-	private ChatMessageType destination;
-	/**
-	 * The message
-	 */
-	private String message = null;
-	/**
-	 * The message ID
-	 */
-	private int messageID = 0;
+	public enum Stat {
+		LEVEL(0x01), EXPERIENCE(0x02), STR(0x03), DEX(0x04), CON(0x05), INT(
+				0x06), WIT(0x07), MEN(0x08),
 
-	public SM_CHAT(Actor character, ChatMessageType destination, String message) {
-		super(OPCODE);
-		this.actor = character;
-		this.destination = destination;
-		this.message = message;
+		HP(0x09), MAX_HP(0x0a), MP(0x0b), MAX_MP(0x0c),
+
+		SP(0x0d), LOAD(0x0e), MAX_LOAD(0x0f),
+
+		PHYSICAL_ATK(0x11), ATTACK_SPEED(0x12), PHYSICAL_DEFENSE(0x13), EVASION(
+				0x14), ACCURACY(0x15), CRITICAL(0x16), MAGICAL_ATTACK(0x17), CAST_SPEED(
+				0x18), MAGICAL_DEFENSE(0x19), PVP_FLAG(0x1a), KARMA(0x1b),
+
+		CP(0x21), MAX_CP(0x22);
+
+		public final int id;
+
+		Stat(int id) {
+			this.id = id;
+		}
 	}
 
-	public SM_CHAT(Actor actor, ChatMessageType destination, int messageID) {
+	private final Map<Stat, Integer> update = CollectionFactory.newMap();
+	private final Actor actor;
+
+	public SM_ACTOR_STATUS_UPDATE(Actor actor) {
 		super(OPCODE);
 		this.actor = actor;
-		this.destination = destination;
-		this.messageID = messageID;
 	}
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt(actor.getID().getID());
-		buffer.writeInt(destination.id);
-		if (actor instanceof L2Character) {
-			BufferUtils.writeString(buffer, ((L2Character) actor).getName());
-		} else {
-			buffer.writeInt(actor.getID().getID());
+		buffer.writeInt(update.size());
+
+		for (Entry<Stat, Integer> entry : update.entrySet()) {
+			buffer.writeInt(entry.getKey().id);
+			buffer.writeInt(entry.getValue());
 		}
-		if (message != null) {
-			BufferUtils.writeString(buffer, message);
-		} else {
-			buffer.writeInt(messageID);
-		}
+	}
+
+	public SM_ACTOR_STATUS_UPDATE add(Stat stat, int value) {
+		update.put(stat, value);
+		return this;
 	}
 }

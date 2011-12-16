@@ -23,6 +23,7 @@ import java.sql.Types;
 import java.util.List;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.object.CharacterID;
@@ -429,5 +430,15 @@ public abstract class JDBCCharacterDAO extends
 				st.setInt(1, character.getID().getID());
 			}
 		});
+	}
+
+	@Override
+	protected L2Character[] wrap(Model<?>... objects) {
+		final L2Character[] array = new L2Character[objects.length];
+		int i = 0;
+		for (final Model<?> object : objects) {
+			array[i++] = (L2Character) object;
+		}
+		return array;
 	}
 }

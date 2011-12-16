@@ -70,10 +70,10 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * 
 	 * @param object
 	 *            the object
-	 * @return true if the row was inserted or updated
+	 * @return the number of affected rows
 	 * @see DataAccessObject#save(Model, boolean)
 	 */
-	boolean save(O object);
+	int save(O object);
 
 	/**
 	 * Save the instance to the database. If a new database entry was created
@@ -83,61 +83,61 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 *            the object
 	 * @param force
 	 *            will force an save, even if the object has not changed
-	 * @return true if the row was inserted or updated
+	 * @return the number of affected rows
 	 */
-	boolean save(O object, boolean force);
-
+	int save(O object, boolean force);
+	
 	/**
 	 * Inserts the instance in the database.
 	 * 
 	 * @param object
 	 *            the object
-	 * @return true if the row was inserted
 	 */
-	boolean insert(O object);
+	void insert(O object);
 
 	/**
-	 * Inserts several instances in the database using a transaction (if possible).
+	 * Inserts several instances in the database using a transaction (if
+	 * possible).
 	 * 
 	 * @param objects
 	 *            the objects
 	 * @return the number of inserted rows
 	 */
 	int insertObjects(@SuppressWarnings("unchecked") O... objects);
-
+	
 	/**
 	 * Updates the instance in the database.
 	 * 
 	 * @param object
 	 *            the object
-	 * @return true if the row was updated
 	 */
-	boolean update(O object);
+	void update(O object);
 
 	/**
-	 * Updates several instances in the database using a transaction (if possible).
+	 * Updates several instances in the database using a transaction (if
+	 * possible).
 	 * 
 	 * @param objects
 	 *            the objects
 	 * @return the number of updated rows
 	 */
 	int updateObjects(@SuppressWarnings("unchecked") O... objects);
-
+	
 	/**
 	 * Deletes the instance in the database.
 	 * 
 	 * @param object
 	 *            the object
-	 * @return true if the row was deleted
 	 */
-	boolean delete(O object);
+	void delete(O object);
 
 	/**
-	 * Deletes several instances in the database using an transaction (if possible).
+	 * Deletes several instances in the database using an transaction (if
+	 * possible).
 	 * 
 	 * @param objects
 	 *            the objects
-	 * @return the numver of deleted rows
+	 * @return the number of deleted rows
 	 */
 	int deleteObjects(@SuppressWarnings("unchecked") O... objects);
 }

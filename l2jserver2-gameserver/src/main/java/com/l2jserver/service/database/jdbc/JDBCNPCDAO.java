@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.NPCDAO;
 import com.l2jserver.model.id.object.NPCID;
@@ -299,5 +300,15 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 				st.setInt(1, npc.getID().getID());
 			}
 		});
+	}
+	
+	@Override
+	protected NPC[] wrap(Model<?>... objects) {
+		final NPC[] array = new NPC[objects.length];
+		int i = 0;
+		for (final Model<?> object : objects) {
+			array[i++] = (NPC) object;
+		}
+		return array;
 	}
 }

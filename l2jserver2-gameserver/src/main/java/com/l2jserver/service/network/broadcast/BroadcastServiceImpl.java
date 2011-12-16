@@ -25,9 +25,10 @@ import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
-import com.l2jserver.game.net.packet.server.SM_DIE;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_DIE;
 import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
-import com.l2jserver.game.net.packet.server.SM_MOVE;
+import com.l2jserver.game.net.packet.server.SM_ITEM_PICK;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_MOVE;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
@@ -47,7 +48,7 @@ import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.model.world.character.event.CharacterRunningEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
 import com.l2jserver.model.world.item.ItemDropEvent;
-import com.l2jserver.model.world.item.ItemPickUpEvent;
+import com.l2jserver.model.world.item.ItemPickEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
@@ -120,15 +121,18 @@ public class BroadcastServiceImpl extends AbstractService implements
 					broadcast(conn, e.getObject());
 				} else if (e instanceof CharacterMoveEvent) {
 					final CharacterMoveEvent evt = (CharacterMoveEvent) e;
-					conn.write(new SM_MOVE((L2Character) object, evt.getPoint()
+					conn.write(new SM_ACTOR_MOVE((L2Character) object, evt.getPoint()
 							.getCoordinate()));
 				} else if (e instanceof PlayerTeleportedEvent
 						|| e instanceof CharacterEnterWorldEvent) {
 					broadcast(conn, e.getObject());
+				} else if (e instanceof ItemPickEvent) {
+					conn.write(new SM_ITEM_PICK(((ItemPickEvent) e)
+							.getCharacter(), (Item) object));
+					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof ActorTeleportingEvent
 						|| e instanceof CharacterLeaveWorldEvent
-						|| e instanceof ActorUnspawnEvent
-						|| e instanceof ItemPickUpEvent) {
+						|| e instanceof ActorUnspawnEvent) {
 					// object is now out of sight
 					// FIXME pick up animation is not happening
 					conn.write(new SM_OBJECT_REMOVE(object));
@@ -139,7 +143,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 					conn.write(new SM_MOVE_TYPE(((CharacterRunningEvent) e)
 							.getCharacter()));
 				} else if (e instanceof ActorDieEvent) {
-					conn.write(new SM_DIE(((ActorDieEvent) e).getActor()));
+					conn.write(new SM_ACTOR_DIE(((ActorDieEvent) e).getActor()));
 				}
 				// keep listener alive
 				return true;

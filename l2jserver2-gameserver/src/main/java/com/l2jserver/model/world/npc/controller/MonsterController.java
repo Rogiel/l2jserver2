@@ -18,8 +18,8 @@ package com.l2jserver.model.world.npc.controller;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE;
-import com.l2jserver.game.net.packet.server.SM_STATUS_UPDATE.Stat;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE.Stat;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.game.character.CharacterService;
@@ -51,7 +51,7 @@ public class MonsterController extends BaseNPCController {
 			charService.attack(character, mob);
 		} else {
 			charService.target(character, mob);
-			conn.write(new SM_STATUS_UPDATE(mob).add(Stat.MAX_HP,
+			conn.write(new SM_ACTOR_STATUS_UPDATE(mob).add(Stat.MAX_HP,
 					(int) mob.getTemplate().getMaximumHP()).add(Stat.HP,
 					(int) mob.getHP()));
 		}
