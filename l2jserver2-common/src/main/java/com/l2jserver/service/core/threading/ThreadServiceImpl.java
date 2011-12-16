@@ -16,6 +16,9 @@
  */
 package com.l2jserver.service.core.threading;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutionException;
@@ -34,6 +37,7 @@ import com.google.common.base.Preconditions;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * The default implementation for {@link ThreadService}
@@ -51,9 +55,25 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	 */
 	private ThreadPool pool;
 
+	/**
+	 * The list of active thread pools
+	 */
+	private Map<String, ThreadPoolImpl> threadPools;
+
 	@Override
 	protected void doStart() throws ServiceStartException {
 		pool = createThreadPool("shared", 20);
+		threadPools = CollectionFactory.newMap();
+
+		pool.async(50, TimeUnit.MILLISECONDS, 50, new Runnable() {
+			@Override
+			public void run() {
+				for (final Entry<String, ThreadPoolImpl> entry : threadPools
+						.entrySet()) {
+					entry.getValue().notifyListeners();
+				}
+			}
+		});
 		// scheduler = Executors.newScheduledThreadPool(10);
 		// async = Executors.newCachedThreadPool();
 	}
@@ -96,15 +116,19 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	public ThreadPool createThreadPool(String name, int maxThreads) {
 		log.debug("Creating new ThreadPool {} with maximum of {} threads",
 				name, maxThreads);
-		return new ThreadPoolImpl(name,
+		final ThreadPoolImpl pool = new ThreadPoolImpl(name,
 				Executors.newScheduledThreadPool(maxThreads));
+		threadPools.put(name, pool);
+		return pool;
 	}
 
 	@Override
 	public void dispose(ThreadPool pool) {
 		log.debug("Disposing ThreadPool {}", pool);
-		if (pool instanceof ThreadPoolImpl)
+		if (pool instanceof ThreadPoolImpl) {
 			((ThreadPoolImpl) pool).executor.shutdown();
+			threadPools.remove(((ThreadPoolImpl) pool).name);
+		}
 		throw new UnsupportedOperationException(
 				"The given ThreadPool is not supported by this service");
 	}
@@ -113,6 +137,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	protected void doStop() throws ServiceStopException {
 		dispose(pool);
 		pool = null;
+		threadPools = null;
 	}
 
 	/**
@@ -127,6 +152,10 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		 * The future that is delegated in this implementation
 		 */
 		private final Future<T> future;
+		/**
+		 * List of all active listeners
+		 */
+		private List<AsyncListener<T>> listeners = CollectionFactory.newList();
 
 		/**
 		 * Creates a new instance
@@ -206,6 +235,31 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 				return false;
 			}
 		}
+
+		@Override
+		public void addListener(AsyncListener<T> listener) {
+			listeners.add(listener);
+		}
+
+		@Override
+		public void removeListener(AsyncListener<T> listener) {
+			listeners.remove(listener);
+		}
+
+		/**
+		 * Notify all listeners that the task has been completed
+		 */
+		private void notifyListeners() {
+			for (final AsyncListener<T> listener : listeners) {
+				T object = null;
+				try {
+					object = this.get(0, TimeUnit.MILLISECONDS);
+				} catch (InterruptedException | ExecutionException
+						| TimeoutException e) {
+				}
+				listener.onComplete(this, object);
+			}
+		}
 	}
 
 	/**
@@ -280,6 +334,11 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		 * The backing executor
 		 */
 		private final ScheduledExecutorService executor;
+		/**
+		 * The list of active and pending futures
+		 */
+		private final List<AsyncFutureImpl<?>> activeFutures = CollectionFactory
+				.newList();
 
 		/**
 		 * @param name
@@ -321,6 +380,18 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		@Override
 		public void dispose() {
 			ThreadServiceImpl.this.dispose(this);
+		}
+
+		/**
+		 * Notify all future listeners when the task is complete.
+		 */
+		private void notifyListeners() {
+			for (final AsyncFutureImpl<?> future : activeFutures) {
+				if (future.isDone()) {
+					future.notifyListeners();
+					activeFutures.remove(future);
+				}
+			}
 		}
 	}
 }

@@ -45,9 +45,6 @@ public class ArrayUtilsTest extends ArrayUtils {
 	private static class TestClass {
 		private String name;
 
-		/**
-		 * @param string
-		 */
 		public TestClass(String string) {
 			this.name = string;
 		}

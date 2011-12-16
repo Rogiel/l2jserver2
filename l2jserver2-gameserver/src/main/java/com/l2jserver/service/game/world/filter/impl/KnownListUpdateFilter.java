@@ -16,10 +16,11 @@
  */
 package com.l2jserver.service.game.world.filter.impl;
 
+import static com.l2jserver.service.game.world.filter.WorldFilters.not;
+
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.game.world.filter.AndFilter;
-import com.l2jserver.service.game.world.filter.NotFilter;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
@@ -42,7 +43,7 @@ public class KnownListUpdateFilter extends AndFilter<PositionableObject> {
 	 *            the old position
 	 */
 	public KnownListUpdateFilter(PositionableObject object, Point3D old) {
-		super(new KnownListFilter(object), new NotFilter<PositionableObject>(
-				new RangePointFilter(old, KnownListFilter.KNOWNLIST_RANGE)));
+		super(new KnownListFilter(object), not(new RangePointFilter(old,
+				KnownListFilter.KNOWNLIST_RANGE)));
 	}
 }

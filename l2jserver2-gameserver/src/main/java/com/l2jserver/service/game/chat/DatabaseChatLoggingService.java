@@ -80,7 +80,7 @@ public class DatabaseChatLoggingService extends AbstractService implements
 		message.setMessage(messageText);
 
 		// save in database
-		chatMessageDao.save(message, true);
+		chatMessageDao.insert(message);
 
 		return message;
 	}

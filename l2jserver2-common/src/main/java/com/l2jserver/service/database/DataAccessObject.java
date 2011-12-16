@@ -21,6 +21,7 @@ import java.util.Iterator;
 
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
+import com.l2jserver.service.core.threading.AsyncFuture;
 
 /**
  * The Data Access Object interface used used to retrieve, save and remove
@@ -65,8 +66,8 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	Collection<I> selectIDs();
 
 	/**
-	 * Save the instance to the database. If a new database entry was created
-	 * returns true. This method will only save if the object has changed.
+	 * Save the instance to the database. This method will only save if the
+	 * object has changed.
 	 * 
 	 * @param object
 	 *            the object
@@ -74,6 +75,38 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @see DataAccessObject#save(Model, boolean)
 	 */
 	int save(O object);
+
+	/**
+	 * Save several instances to the database. This method will only save if the
+	 * object has changed.
+	 * <p>
+	 * Note that differently from {@link #insertObjects(Model...)},
+	 * {@link #updateObjects(Model...)} and {@link #deleteObjects(Model...)},
+	 * this method does not uses an transaction and could have a bigger
+	 * performance hit.
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the number of affected rows
+	 */
+	int saveObjects(@SuppressWarnings("unchecked") O... objects);
+
+	/**
+	 * Asynchronously save several instances to the database. This method will
+	 * only save if the object has changed.
+	 * <p>
+	 * Note that differently from {@link #insertObjects(Model...)},
+	 * {@link #updateObjects(Model...)} and {@link #deleteObjects(Model...)},
+	 * this method does not uses an transaction and could have a bigger
+	 * performance hit.
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the task future. The future returns an Integer with the number of
+	 *         affected rows.
+	 */
+	AsyncFuture<Integer> saveObjectsAsync(
+			@SuppressWarnings("unchecked") O... objects);
 
 	/**
 	 * Save the instance to the database. If a new database entry was created
@@ -86,7 +119,7 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @return the number of affected rows
 	 */
 	int save(O object, boolean force);
-	
+
 	/**
 	 * Inserts the instance in the database.
 	 * 
@@ -104,7 +137,19 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @return the number of inserted rows
 	 */
 	int insertObjects(@SuppressWarnings("unchecked") O... objects);
-	
+
+	/**
+	 * Asynchronously insert several instances in the database using a
+	 * transaction (if possible).
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the task future. The future returns an Integer with the number of
+	 *         inserted rows.
+	 */
+	AsyncFuture<Integer> insertObjectsAsync(
+			@SuppressWarnings("unchecked") O... objects);
+
 	/**
 	 * Updates the instance in the database.
 	 * 
@@ -122,7 +167,19 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @return the number of updated rows
 	 */
 	int updateObjects(@SuppressWarnings("unchecked") O... objects);
-	
+
+	/**
+	 * Asynchronously update several instances in the database using a
+	 * transaction (if possible).
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the task future. The future returns an Integer with the number of
+	 *         updated rows.
+	 */
+	AsyncFuture<Integer> updateObjectsAsync(
+			@SuppressWarnings("unchecked") O... objects);
+
 	/**
 	 * Deletes the instance in the database.
 	 * 
@@ -140,4 +197,16 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @return the number of deleted rows
 	 */
 	int deleteObjects(@SuppressWarnings("unchecked") O... objects);
+
+	/**
+	 * Asynchronously delete several instances in the database using a
+	 * transaction (if possible).
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the task future. The future returns an Integer with the number of
+	 *         deleted rows.
+	 */
+	AsyncFuture<Integer> deleteObjectsAsync(
+			@SuppressWarnings("unchecked") O... objects);
 }

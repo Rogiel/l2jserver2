@@ -73,4 +73,21 @@ public interface AsyncFuture<T> extends Future<T> {
 	 *         note that false will be returned if the timeout has expired too!
 	 */
 	boolean awaitUninterruptibly(long timeout, TimeUnit unit);
+
+	/**
+	 * Adds an listener that will be notified once the executing has been
+	 * completed.
+	 * 
+	 * @param listener
+	 *            the listener to be added
+	 */
+	void addListener(AsyncListener<T> listener);
+
+	/**
+	 * Removes an listener
+	 * 
+	 * @param listener
+	 *            the listener to be removed
+	 */
+	void removeListener(AsyncListener<T> listener);
 }

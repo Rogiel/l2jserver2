@@ -55,7 +55,7 @@ public final class WorldFilters {
 	}
 
 	/**
-	 * Performs an <tt>NOTA</tt> operation
+	 * Performs an <tt>NOT</tt> operation
 	 * 
 	 * @param <O>
 	 *            the object type

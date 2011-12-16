@@ -17,10 +17,13 @@
 package com.l2jserver.service.database;
 
 import java.util.Iterator;
+import java.util.concurrent.Callable;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
+import com.l2jserver.service.core.threading.AsyncFuture;
+import com.l2jserver.service.core.threading.ThreadService;
 
 /**
  * Abstract DAO implementations. Store an instance of {@link DatabaseService}.
@@ -40,6 +43,12 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	 * The database service instance
 	 */
 	protected final DatabaseService database;
+
+	@Inject
+	/**
+	 * The ThreadService used to execute operations asynchronously.
+	 */
+	protected ThreadService threadService;
 
 	/**
 	 * @param database
@@ -72,8 +81,40 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
+	@SafeVarargs
+	public final int saveObjects(T... objects) {
+		int rows = 0;
+		for (final T object : objects) {
+			rows += save(object);
+		}
+		return rows;
+	}
+
+	@Override
+	@SafeVarargs
+	public final AsyncFuture<Integer> saveObjectsAsync(final T... objects) {
+		return threadService.async(new Callable<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				return saveObjects(objects);
+			}
+		});
+	}
+
+	@Override
 	public void insert(T object) {
 		insertObjects(wrap(object));
+	}
+
+	@Override
+	@SafeVarargs
+	public final AsyncFuture<Integer> insertObjectsAsync(final T... objects) {
+		return threadService.async(new Callable<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				return insertObjects(objects);
+			}
+		});
 	}
 
 	@Override
@@ -82,8 +123,30 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
+	@SafeVarargs
+	public final AsyncFuture<Integer> updateObjectsAsync(final T... objects) {
+		return threadService.async(new Callable<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				return updateObjects(objects);
+			}
+		});
+	}
+
+	@Override
 	public void delete(T object) {
 		deleteObjects(wrap(object));
+	}
+
+	@Override
+	@SafeVarargs
+	public final AsyncFuture<Integer> deleteObjectsAsync(final T... objects) {
+		return threadService.async(new Callable<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				return deleteObjects(objects);
+			}
+		});
 	}
 
 	@Override
