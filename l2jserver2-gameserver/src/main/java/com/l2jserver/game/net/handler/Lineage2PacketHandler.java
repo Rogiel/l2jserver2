@@ -28,7 +28,6 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 import com.google.common.base.Throwables;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.ClientPacket;
-import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
@@ -45,10 +44,6 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	 */
 	private final NettyNetworkService nettyNetworkService;
 	/**
-	 * The {@link WorldService} instance
-	 */
-	private final WorldService worldService;
-	/**
 	 * The timeout handler is responsible for disconnecting idle clients.
 	 */
 	private final Lineage2TimeoutHandler timeoutHandler;
@@ -62,23 +57,19 @@ public class Lineage2PacketHandler extends SimpleChannelHandler {
 	 * 
 	 * @param nettyNetworkService
 	 *            the netty network service
-	 * @param worldService
-	 *            the world service
 	 * @param timeoutHandler
 	 *            the timeout handler
 	 */
 	public Lineage2PacketHandler(NettyNetworkService nettyNetworkService,
-			WorldService worldService, Lineage2TimeoutHandler timeoutHandler) {
+			Lineage2TimeoutHandler timeoutHandler) {
 		this.nettyNetworkService = nettyNetworkService;
-		this.worldService = worldService;
 		this.timeoutHandler = timeoutHandler;
 	}
 
 	@Override
 	public void channelOpen(ChannelHandlerContext ctx, ChannelStateEvent e)
 			throws Exception {
-		connection = new Lineage2Client(worldService, nettyNetworkService,
-				e.getChannel());
+		connection = new Lineage2Client(e.getChannel());
 		connection.getPacketWriter().setConnection(connection);
 		timeoutHandler.setConnection(connection);
 

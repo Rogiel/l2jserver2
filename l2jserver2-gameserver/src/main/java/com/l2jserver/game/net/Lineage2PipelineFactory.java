@@ -34,7 +34,6 @@ import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.handler.Lineage2PacketHandler;
 import com.l2jserver.game.net.handler.Lineage2TimeoutHandler;
-import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.NettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
 
@@ -53,10 +52,6 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	 * The {@link NettyNetworkService}
 	 */
 	private final NettyNetworkService nettyNetworkService;
-	/**
-	 * The {@link WorldService} instance
-	 */
-	private final WorldService worldService;
 
 	/**
 	 * Creates a new instance of this pipeline
@@ -65,15 +60,12 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	 *            the {@link Guice} {@link Injector}
 	 * @param networkService
 	 *            the network service
-	 * @param worldService
-	 *            the world service
 	 */
 	@Inject
 	public Lineage2PipelineFactory(Injector injector,
-			NetworkService networkService, WorldService worldService) {
+			NetworkService networkService) {
 		this.injector = injector;
 		this.nettyNetworkService = (NettyNetworkService) networkService;
-		this.worldService = worldService;
 	}
 
 	@Override
@@ -101,8 +93,8 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 
 		final Lineage2TimeoutHandler timeoutHandler = new Lineage2TimeoutHandler();
 		pipeline.addLast("packet.handler", new Lineage2PacketHandler(
-				nettyNetworkService, worldService, timeoutHandler));
-		//pipeline.addLast("timeout.handler", timeoutHandler);
+				nettyNetworkService, timeoutHandler));
+		// pipeline.addLast("timeout.handler", timeoutHandler);
 
 		return pipeline;
 	}

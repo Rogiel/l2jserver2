@@ -16,8 +16,6 @@
  */
 package com.l2jserver.game.net;
 
-import java.util.Set;
-
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
 
@@ -33,14 +31,12 @@ import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY_UPDATE.InventoryUp
 import com.l2jserver.game.net.packet.server.SM_COMMUNITY_HTML;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_SYSTEM_MESSAGE;
+import com.l2jserver.model.game.Fort;
+import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.filter.impl.CharacterBroadcastFilter;
-import com.l2jserver.service.network.NetworkService;
-import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.html.markup.HtmlTemplate;
 
 /**
@@ -48,7 +44,7 @@ import com.l2jserver.util.html.markup.HtmlTemplate;
  * database) to the controller (protocol stuff).
  * <p>
  * This class also provides handy methods for {@link #write(ServerPacket)
- * writing} and {@link #broadcast(ServerPacket) broadcasting} packets.
+ * writing} packets.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -71,32 +67,13 @@ public class Lineage2Client {
 	 */
 	private ProtocolVersion version;
 
-	// services
-	/**
-	 * The {@link NetworkService} instance. This service is used to retrieve the
-	 * {@link Lineage2Client} based on an {@link CharacterID}.
-	 */
-	private final NetworkService networkService;
-	/**
-	 * The {@link WorldService} instance. This service is used to dynamically
-	 * generate knownlists.
-	 */
-	private final WorldService worldService;
-
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param worldService
-	 *            the world service
-	 * @param networkService
-	 *            the network service
 	 * @param channel
 	 *            the channel
 	 */
-	public Lineage2Client(WorldService worldService,
-			NetworkService networkService, Channel channel) {
-		this.worldService = worldService;
-		this.networkService = networkService;
+	public Lineage2Client(Channel channel) {
 		this.channel = channel;
 	}
 
@@ -274,6 +251,10 @@ public class Lineage2Client {
 				packet.addItem((Item) obj);
 			else if (obj instanceof Number)
 				packet.addNumber((Integer) obj);
+			else if (obj instanceof Skill)
+				packet.addSkill((Skill) obj);
+			else if (obj instanceof Fort)
+				packet.addFort((Fort) obj);
 		}
 		return write(packet);
 	}
@@ -331,7 +312,7 @@ public class Lineage2Client {
 	 * @return the {@link ChannelFuture} that will be notified once the packet
 	 *         has been written.
 	 */
-	public ChannelFuture sendInventoryUpdate() {
+	public ChannelFuture updateEntireInventoryItems() {
 		return write(new SM_CHAR_INVENTORY(characterID.getObject()
 				.getInventory()));
 	}
@@ -373,32 +354,6 @@ public class Lineage2Client {
 	public ChannelFuture addInventoryItems(Item... items) {
 		return write(new SM_CHAR_INVENTORY_UPDATE(InventoryUpdateType.ADD,
 				items));
-	}
-
-	/**
-	 * Broadcast a packet to all characters in this character knownlist.
-	 * <p>
-	 * Note that in the broadcasting process, this client will be included.
-	 * <p>
-	 * Please note that this method will <b>not</b> block for all packets to be
-	 * sent. It is possible to check if all packets were sent successfully using
-	 * the {@link ChannelFuture} instances.
-	 * 
-	 * @param packet
-	 *            the packet
-	 * @return an {@link Set} containing all {@link ChannelFuture} instances.
-	 */
-	public Set<ChannelFuture> broadcast(ServerPacket packet) {
-		final Set<ChannelFuture> futures = CollectionFactory.newSet();
-		for (final L2Character character : worldService
-				.iterable(new CharacterBroadcastFilter(characterID.getObject()))) {
-			final Lineage2Client conn = networkService.discover(character
-					.getID());
-			if (conn == null)
-				continue;
-			futures.add(conn.write(packet));
-		}
-		return futures;
 	}
 
 	/**

@@ -40,5 +40,10 @@ public interface ItemDAO extends DataAccessObject<Item, ItemID>, Cacheable {
 	 */
 	int loadInventory(L2Character character);
 
-	List<Item> loadDroppedItems();
+	/**
+	 * Select from the database the items dropped on the ground
+	 * 
+	 * @return an {@link List} of all items on the ground
+	 */
+	List<Item> selectDroppedItems();
 }

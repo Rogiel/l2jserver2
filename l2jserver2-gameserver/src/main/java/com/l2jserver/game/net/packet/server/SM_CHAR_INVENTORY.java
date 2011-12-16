@@ -58,12 +58,6 @@ public class SM_CHAR_INVENTORY extends AbstractServerPacket {
 		// TODO implement real item slot
 		int slot = 0;
 		for (Item item : inventory) {
-			if (item.getLocation() == ItemLocation.WAREHOUSE
-					|| item.getLocation() == ItemLocation.GROUND
-					|| item.getLocation() == null) {
-				continue;
-			}
-
 			buffer.writeInt(item.getID().getID()); // obj id
 			buffer.writeInt(item.getTemplateID().getID()); // item id
 			buffer.writeInt(slot); // loc slot

@@ -60,6 +60,16 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
+	public AsyncFuture<T> selectAsync(final I id) {
+		return threadService.async(new Callable<T>() {
+			@Override
+			public T call() throws Exception {
+				return select(id);
+			}
+		});
+	}
+
+	@Override
 	public int save(T object) {
 		return save(object, false);
 	}

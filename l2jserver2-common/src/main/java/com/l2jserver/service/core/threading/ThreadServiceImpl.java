@@ -62,8 +62,8 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		pool = createThreadPool("shared", 20);
 		threadPools = CollectionFactory.newMap();
+		pool = createThreadPool("shared", 20);
 
 		pool.async(50, TimeUnit.MILLISECONDS, 50, new Runnable() {
 			@Override

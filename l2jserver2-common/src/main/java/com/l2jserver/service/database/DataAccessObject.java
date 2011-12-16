@@ -59,6 +59,18 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	O select(I id);
 
 	/**
+	 * Asynchronously load the instance represented by <tt>id</tt> from the
+	 * database
+	 * 
+	 * @param id
+	 *            the id
+	 * @return the {@link AsyncFuture} that will load the selected object.
+	 *         {@link AsyncFuture} might return <tt>null</tt> if the object
+	 *         could not be found in the database.
+	 */
+	AsyncFuture<O> selectAsync(I id);
+
+	/**
 	 * Loads an List of all {@link ID}s in the database
 	 * 
 	 * @return the list containing all {@link ID} objects

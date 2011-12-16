@@ -205,7 +205,7 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 	}
 
 	@Override
-	public List<Item> loadDroppedItems() {
+	public List<Item> selectDroppedItems() {
 		return database.query(new SelectListQuery<Item>() {
 			@Override
 			protected String query() {

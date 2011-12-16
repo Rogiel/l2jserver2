@@ -95,7 +95,7 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		items = itemDao.loadDroppedItems();
+		items = itemDao.selectDroppedItems();
 		try {
 			for (final Item item : items) {
 				spawnService.spawn(item, null);
