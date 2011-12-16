@@ -44,6 +44,7 @@ import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.util.ArrayUtils;
 import com.l2jserver.util.geometry.Point3D;
 
 /**
@@ -177,12 +178,8 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 					item = stack(stackItems);
 					Item[] removedItems = character.getInventory().remove(
 							stackItems);
-					for (final Item removeItem : removedItems) {
-						if (!removeItem.equals(item)) {
-							itemDao.delete(removeItem);
-							itemIdProvider.destroy(removeItem.getID());
-						}
-					}
+					Item[] databaseDeleteItems = ArrayUtils.copyArrayExcept(removedItems, item);
+					itemDao.deleteObjects(databaseDeleteItems);
 					character.getInventory().add(item);
 				} catch (NonStackableItemsServiceException e) {
 					character.getInventory().add(item);
@@ -195,6 +192,9 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 			this.items.remove(item);
 
 			itemDao.save(item);
+			if (!item.equals(originalItem)) {
+				itemDao.save(originalItem);
+			}
 			spawnService.unspawn(originalItem);
 			eventDispatcher.dispatch(new ItemPickUpEvent(character,
 					originalItem, item));

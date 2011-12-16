@@ -454,7 +454,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 * <ul>
 	 * <li>INSERT INTO</li>
 	 * <li>UPDATE</li>
-	 * <li>DELETE FROM</li>
 	 * </ul>
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -501,45 +500,64 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			Preconditions.checkNotNull(conn, "conn");
 
 			log.debug("Starting INSERT/UPDATE query execution");
+			try {
+				conn.setAutoCommit(false);
 
-			int rows = 0;
-			while (iterator.hasNext()) {
-				final T object = iterator.next();
 				final String queryString = query();
 
-				log.debug("Preparing statement for {}: {}", object, queryString);
+				log.debug("Preparing statement for {}", queryString);
 				final PreparedStatement st = conn.prepareStatement(queryString,
 						Statement.RETURN_GENERATED_KEYS);
+				try {
+					int rows = 0;
+					while (iterator.hasNext()) {
+						final T object = iterator.next();
 
-				log.debug("Parametizing statement {} with {}", st, object);
-				this.parametize(st, object);
+						log.debug("Parametizing statement {} with {}", st,
+								object);
+						this.parametize(st, object);
 
-				log.debug("Sending query to database for {}", object);
-				rows = st.executeUpdate();
-				log.debug("Query inserted or updated {} rows for {}", rows,
-						object);
+						log.debug("Sending query to database for {}", object);
+						rows += st.executeUpdate();
+						log.debug("Query inserted or updated {} rows for {}",
+								rows, object);
 
-				// update object desire --it has been realized
-				if (object instanceof Model && rows > 0) {
-					log.debug("Updating Model ObjectDesire to NONE");
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
+						// update object desire --it has been realized
+						if (object instanceof Model && rows > 0) {
+							log.debug("Updating Model ObjectDesire to NONE");
+							((Model<?>) object)
+									.setObjectDesire(ObjectDesire.NONE);
 
-					final Mapper<? extends ID<?>> mapper = keyMapper();
-					if (mapper == null)
-						continue;
-					final ResultSet rs = st.getGeneratedKeys();
-					log.debug("Mapping generated keys with {} using {}",
-							mapper, rs);
-					while (rs.next()) {
-						final ID<?> generatedID = mapper.map(rs);
-						log.debug("Generated ID for {} is {}", object,
-								generatedID);
-						((Model<ID<?>>) object).setID(generatedID);
-						mapper.map(rs);
+							final Mapper<? extends ID<?>> mapper = keyMapper();
+							if (mapper == null)
+								continue;
+							final ResultSet rs = st.getGeneratedKeys();
+							try {
+								log.debug(
+										"Mapping generated keys with {} using {}",
+										mapper, rs);
+								while (rs.next()) {
+									final ID<?> generatedID = mapper.map(rs);
+									log.debug("Generated ID for {} is {}",
+											object, generatedID);
+									((Model<ID<?>>) object).setID(generatedID);
+									mapper.map(rs);
+								}
+							} finally {
+								rs.close();
+							}
+						}
 					}
+					return rows;
+				} finally {
+					st.close();
 				}
+			} catch (SQLException e) {
+				conn.rollback();
+				throw e;
+			} finally {
+				conn.setAutoCommit(true);
 			}
-			return rows;
 		}
 
 		/**
@@ -561,6 +579,143 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 */
 		protected abstract void parametize(PreparedStatement st, T object)
 				throws SQLException;
+
+		/**
+		 * Return the key mapper. Can be null if no generated keys are used or
+		 * are not important.
+		 * 
+		 * @return the key mapper
+		 */
+		protected Mapper<? extends ID<?>> keyMapper() {
+			return null;
+		}
+	}
+
+	/**
+	 * This query is used for the following statements:
+	 * <ul>
+	 * <li>DELETE FROM</li>
+	 * </ul>
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <T>
+	 *            the query return type
+	 */
+	public static abstract class DeleteQuery<T> implements Query<Integer> {
+		/**
+		 * The logger
+		 */
+		private final Logger log = LoggerFactory.getLogger(DeleteQuery.class);
+
+		/**
+		 * The {@link DatabaseService}
+		 */
+		private final AbstractJDBCDatabaseService database;
+		/**
+		 * The iterator
+		 */
+		private final Iterator<T> iterator;
+
+		/**
+		 * Creates a new query for <tt>objects</tt>
+		 * 
+		 * @param database
+		 *            the {@link DatabaseService}
+		 * @param objects
+		 *            the object list
+		 */
+		@SafeVarargs
+		public DeleteQuery(AbstractJDBCDatabaseService database, T... objects) {
+			this(database, new ArrayIterator<T>(objects));
+		}
+
+		/**
+		 * Create a new query for objects in <tt>iterator</tt>
+		 * 
+		 * @param database
+		 *            the {@link DatabaseService}
+		 * @param iterator
+		 *            the object iterator
+		 */
+		public DeleteQuery(AbstractJDBCDatabaseService database,
+				Iterator<T> iterator) {
+			this.iterator = iterator;
+			this.database = database;
+		}
+
+		@Override
+		public Integer query(Connection conn) throws SQLException {
+			Preconditions.checkNotNull(conn, "conn");
+
+			log.debug("Starting DELETE query execution");
+			try {
+				conn.setAutoCommit(false);
+
+				final String queryString = query();
+
+				log.debug("Preparing statement for {}", queryString);
+				final PreparedStatement st = conn.prepareStatement(queryString);
+
+				try {
+					int rows = 0;
+					while (iterator.hasNext()) {
+						final T object = iterator.next();
+
+						log.debug("Parametizing statement {} with {}", st,
+								object);
+						this.parametize(st, object);
+
+						log.debug("Sending query to database for {}", object);
+						rows = st.executeUpdate();
+						log.debug("Query deleted {} rows for {}", rows, object);
+
+						dispose(object);
+						if (object instanceof Model) {
+							database.removeCache(((Model<?>) object)
+									.getObjectDesire());
+						}
+					}
+					conn.commit();
+					return rows;
+				} finally {
+					st.close();
+				}
+			} catch (SQLException e) {
+				conn.rollback();
+				throw e;
+			} finally {
+				conn.setAutoCommit(true);
+			}
+		}
+
+		/**
+		 * Creates the <b>prepared</b> query for execution
+		 * 
+		 * @return the <b>prepared</b> query
+		 */
+		protected abstract String query();
+
+		/**
+		 * Set the parameters for in <tt>statement</tt> for <tt>object</tt>
+		 * 
+		 * @param st
+		 *            the prepared statement
+		 * @param object
+		 *            the object
+		 * @throws SQLException
+		 *             if any SQL error occur
+		 */
+		protected abstract void parametize(PreparedStatement st, T object)
+				throws SQLException;
+
+		/**
+		 * Disposes all object related resources, such as IDs.
+		 * 
+		 * @param object
+		 *            the object that was been deleted
+		 */
+		protected abstract void dispose(T object);
 
 		/**
 		 * Return the key mapper. Can be null if no generated keys are used or
@@ -597,31 +752,38 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			final String queryString = query();
 			log.debug("Preparing statement with {}", queryString);
 			final PreparedStatement st = conn.prepareStatement(query());
+			try {
+				log.debug("Parametizing statement {}", st);
+				parametize(st);
 
-			log.debug("Parametizing statement {}", st);
-			parametize(st);
+				log.debug("Sending query to database for {}", st);
+				st.execute();
 
-			log.debug("Sending query to database for {}", st);
-			st.execute();
-
-			final List<T> list = CollectionFactory.newList();
-			final ResultSet rs = st.getResultSet();
-			final Mapper<T> mapper = mapper();
-			log.debug("Database returned {}", rs);
-			while (rs.next()) {
-				log.debug("Mapping row with {}", mapper);
-				final T obj = mapper.map(rs);
-				if (obj == null) {
-					log.debug("Mapper {} returned a null row", mapper);
-					continue;
+				final List<T> list = CollectionFactory.newList();
+				final ResultSet rs = st.getResultSet();
+				try {
+					final Mapper<T> mapper = mapper();
+					log.debug("Database returned {}", rs);
+					while (rs.next()) {
+						log.debug("Mapping row with {}", mapper);
+						final T obj = mapper.map(rs);
+						if (obj == null) {
+							log.debug("Mapper {} returned a null row", mapper);
+							continue;
+						}
+						if (obj instanceof Model) {
+							((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
+						}
+						log.debug("Mapper {} returned {}", mapper, obj);
+						list.add(obj);
+					}
+					return list;
+				} finally {
+					rs.close();
 				}
-				if (obj instanceof Model) {
-					((Model<?>) obj).setObjectDesire(ObjectDesire.NONE);
-				}
-				log.debug("Mapper {} returned {}", mapper, obj);
-				list.add(obj);
+			} finally {
+				st.close();
 			}
-			return list;
 		}
 
 		/**
@@ -679,26 +841,34 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			final String queryString = query();
 			log.debug("Preparing statement with {}", queryString);
 			final PreparedStatement st = conn.prepareStatement(query());
+			try {
+				log.debug("Parametizing statement {}", st);
+				parametize(st);
 
-			log.debug("Parametizing statement {}", st);
-			parametize(st);
+				log.debug("Sending query to database for {}", st);
+				st.execute();
 
-			log.debug("Sending query to database for {}", st);
-			st.execute();
-
-			final ResultSet rs = st.getResultSet();
-			final Mapper<T> mapper = mapper();
-			log.debug("Database returned {}", rs);
-			while (rs.next()) {
-				log.debug("Mapping row {} with {}", rs, mapper);
-				final T object = mapper.map(rs);
-				if (object instanceof Model) {
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
+				final ResultSet rs = st.getResultSet();
+				try {
+					final Mapper<T> mapper = mapper();
+					log.debug("Database returned {}", rs);
+					while (rs.next()) {
+						log.debug("Mapping row {} with {}", rs, mapper);
+						final T object = mapper.map(rs);
+						if (object instanceof Model) {
+							((Model<?>) object)
+									.setObjectDesire(ObjectDesire.NONE);
+						}
+						log.debug("Mapper {} returned {}", mapper, object);
+						return object;
+					}
+					return null;
+				} finally {
+					rs.close();
 				}
-				log.debug("Mapper {} returned {}", mapper, object);
-				return object;
+			} finally {
+				st.close();
 			}
-			return null;
 		}
 
 		/**

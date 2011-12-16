@@ -45,7 +45,7 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class OrientDBChatMessageDAO extends
+public class OrientDBChatMessageDAO extends
 		AbstractOrientDBDAO<ChatMessage, ChatMessageID> implements
 		ChatMessageDAO {
 	/**
@@ -180,8 +180,8 @@ public abstract class OrientDBChatMessageDAO extends
 	}
 
 	@Override
-	public boolean insert(ChatMessage message) {
-		return database.query(new InsertUpdateQuery<ChatMessage>(message) {
+	public int insertObjects(ChatMessage... messages) {
+		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, ChatMessage object) {
@@ -212,18 +212,18 @@ public abstract class OrientDBChatMessageDAO extends
 
 				return document;
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(ChatMessage message) {
+	public int updateObjects(ChatMessage... messages) {
 		// cannot update chat message logs
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean delete(ChatMessage message) {
-		return database.query(new InsertUpdateQuery<ChatMessage>(message) {
+	public int deleteObjects(ChatMessage... messages) {
+		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, final ChatMessage message) {
@@ -254,6 +254,6 @@ public abstract class OrientDBChatMessageDAO extends
 				// TODO Auto-generated method stub
 				return null;
 			}
-		}) > 0;
+		});
 	}
 }

@@ -40,6 +40,7 @@ import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
+import com.l2jserver.service.database.AbstractJDBCDatabaseService.DeleteQuery;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
@@ -239,8 +240,8 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 	}
 
 	@Override
-	public boolean insert(Item item) {
-		return database.query(new InsertUpdateQuery<Item>(item) {
+	public int insertObjects(Item... items) {
+		return database.query(new InsertUpdateQuery<Item>(items) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + ITEM_ID + "`,`"
@@ -276,12 +277,12 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 					st.setNull(i++, Types.INTEGER);
 				}
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(Item item) {
-		return database.query(new InsertUpdateQuery<Item>(item) {
+	public int updateObjects(Item... items) {
+		return database.query(new InsertUpdateQuery<Item>(items) {
 			@Override
 			protected String query() {
 				return "UPDATE `" + TABLE + "` SET `" + CHAR_ID + "` = ?,`"
@@ -318,12 +319,12 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 				// WHERE
 				st.setInt(i++, item.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean delete(Item item) {
-		return database.query(new InsertUpdateQuery<Item>(item) {
+	public int deleteObjects(Item... items) {
+		return database.query(new DeleteQuery<Item>(database, items) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + ITEM_ID
@@ -335,6 +336,11 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 					throws SQLException {
 				st.setInt(1, item.getID().getID());
 			}
-		}) > 0;
+
+			@Override
+			protected void dispose(Item object) {
+				idFactory.destroy(object.getID());
+			}
+		});
 	}
 }

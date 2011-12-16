@@ -29,12 +29,12 @@ import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ClanIDProvider;
 import com.l2jserver.model.world.Clan;
-import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.DatabaseService;
 
 /**
  * {@link CharacterDAO} implementation for JDBC
@@ -137,8 +137,8 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
 	}
 
 	@Override
-	public boolean insert(Clan clan) {
-		return database.query(new InsertUpdateQuery<Clan>(clan) {
+	public int insertObjects(Clan... clans) {
+		return database.query(new InsertUpdateQuery<Clan>(clans) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + CLAN_ID
@@ -150,18 +150,18 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
 					throws SQLException {
 				st.setInt(1, clan.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(Clan clan) {
-		// TODO Auto-generated method stub
-		return false;
+	public int updateObjects(Clan... clans) {
+		// TODO implement clan update
+		return 0;
 	}
 
 	@Override
-	public boolean delete(Clan clan) {
-		return database.query(new InsertUpdateQuery<Clan>(clan) {
+	public int deleteObjects(Clan... clans) {
+		return database.query(new InsertUpdateQuery<Clan>(clans) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + CLAN_ID
@@ -173,6 +173,6 @@ public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
 					throws SQLException {
 				st.setInt(1, clan.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 }

@@ -168,8 +168,8 @@ public abstract class JDBCCharacterFriendDAO extends
 	}
 
 	@Override
-	public boolean insert(CharacterFriend friend) {
-		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
+	public int insertObjects(CharacterFriend... friends) {
+		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
@@ -182,19 +182,19 @@ public abstract class JDBCCharacterFriendDAO extends
 				st.setInt(1, friend.getCharacterID().getID());
 				st.setInt(2, friend.getFriendID().getID());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(CharacterFriend friend) {
+	public int updateObjects(CharacterFriend... friends) {
 		// it is not possible update friend objects, because they are only a ID
 		// pair and IDs are immutable
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean delete(CharacterFriend friend) {
-		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
+	public int deleteObjects(CharacterFriend... friends) {
+		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + CHAR_ID
@@ -207,7 +207,7 @@ public abstract class JDBCCharacterFriendDAO extends
 				st.setInt(1, friend.getCharacterID().getID());
 				st.setInt(2, friend.getFriendID().getID());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override

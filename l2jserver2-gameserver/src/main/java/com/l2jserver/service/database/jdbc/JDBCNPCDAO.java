@@ -217,8 +217,8 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 	}
 
 	@Override
-	public boolean insert(NPC npc) {
-		return database.query(new InsertUpdateQuery<NPC>(npc) {
+	public int insertObjects(NPC... npcs) {
+		return database.query(new InsertUpdateQuery<NPC>(npcs) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + NPC_ID + "`,`"
@@ -246,12 +246,12 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 
 				st.setLong(i++, npc.getRespawnInterval());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(NPC npc) {
-		return database.query(new InsertUpdateQuery<NPC>(npc) {
+	public int updateObjects(NPC... npcs) {
+		return database.query(new InsertUpdateQuery<NPC>(npcs) {
 			@Override
 			protected String query() {
 				return "UPDATE `" + TABLE + "` SET `" + NPC_TEMPLATE_ID
@@ -282,12 +282,12 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 				// WHERE
 				st.setInt(i++, npc.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean delete(NPC npc) {
-		return database.query(new InsertUpdateQuery<NPC>(npc) {
+	public int deleteObjects(NPC... npcs) {
+		return database.query(new InsertUpdateQuery<NPC>(npcs) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + NPC_ID + "` = ?";
@@ -298,6 +298,6 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 					throws SQLException {
 				st.setInt(1, npc.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 }

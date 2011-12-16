@@ -248,8 +248,8 @@ public class OrientDBCharacterDAO extends
 	}
 
 	@Override
-	public boolean insert(L2Character object) {
-		return database.query(new InsertUpdateQuery<L2Character>(object) {
+	public int insertObjects(L2Character... objects) {
+		return database.query(new InsertUpdateQuery<L2Character>(objects) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, L2Character object) {
@@ -301,12 +301,12 @@ public class OrientDBCharacterDAO extends
 
 				return document;
 			}
-		}) != 0;
+		});
 	}
 
 	@Override
-	public boolean update(final L2Character character) {
-		return database.query(new InsertUpdateQuery<L2Character>(character) {
+	public int updateObjects(final L2Character... characters) {
+		return database.query(new InsertUpdateQuery<L2Character>(characters) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, final L2Character character) {
@@ -368,12 +368,12 @@ public class OrientDBCharacterDAO extends
 					throws SQLException {
 				return null;
 			}
-		}) != 0;
+		});
 	}
 
 	@Override
-	public boolean delete(L2Character object) {
-		return database.query(new InsertUpdateQuery<L2Character>(object) {
+	public int deleteObjects(L2Character... objects) {
+		return database.query(new InsertUpdateQuery<L2Character>(objects) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, final L2Character character) {
@@ -403,7 +403,7 @@ public class OrientDBCharacterDAO extends
 					throws SQLException {
 				return null;
 			}
-		}) != 0;
+		});
 	}
 
 	@Override

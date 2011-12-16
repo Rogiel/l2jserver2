@@ -44,7 +44,7 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
+public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 		implements ClanDAO {
 	/**
 	 * The {@link ChatMessageID} factory
@@ -159,8 +159,8 @@ public abstract class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 	}
 
 	@Override
-	public boolean insert(Clan clan) {
-		return database.query(new InsertUpdateQuery<Clan>(clan) {
+	public int insertObjects(Clan... clans) {
+		return database.query(new InsertUpdateQuery<Clan>(clans) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, Clan object) {
@@ -180,18 +180,18 @@ public abstract class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 				document.field(CHAR_ID_LEADER, clan.getLeaderID().getID());
 				return document;
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(Clan clan) {
+	public int updateObjects(Clan... clans) {
 		// cannot update chat message logs
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean delete(Clan clan) {
-		return database.query(new InsertUpdateQuery<Clan>(clan) {
+	public int deleteObjects(Clan... clans) {
+		return database.query(new InsertUpdateQuery<Clan>(clans) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, final Clan clan) {
@@ -221,6 +221,6 @@ public abstract class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 				// TODO Auto-generated method stub
 				return null;
 			}
-		}) > 0;
+		});
 	}
 }

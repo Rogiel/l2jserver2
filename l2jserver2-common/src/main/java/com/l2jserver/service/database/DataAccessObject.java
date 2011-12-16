@@ -21,7 +21,6 @@ import java.util.Iterator;
 
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
-import com.l2jserver.service.cache.IgnoreCaching;
 
 /**
  * The Data Access Object interface used used to retrieve, save and remove
@@ -63,7 +62,6 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * 
 	 * @return the list containing all {@link ID} objects
 	 */
-	@IgnoreCaching
 	Collection<I> selectIDs();
 
 	/**
@@ -75,7 +73,6 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * @return true if the row was inserted or updated
 	 * @see DataAccessObject#save(Model, boolean)
 	 */
-	@IgnoreCaching
 	boolean save(O object);
 
 	/**
@@ -88,7 +85,6 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 *            will force an save, even if the object has not changed
 	 * @return true if the row was inserted or updated
 	 */
-	@IgnoreCaching
 	boolean save(O object, boolean force);
 
 	/**
@@ -98,8 +94,16 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 *            the object
 	 * @return true if the row was inserted
 	 */
-	@IgnoreCaching
 	boolean insert(O object);
+
+	/**
+	 * Inserts several instances in the database using a transaction (if possible).
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the number of inserted rows
+	 */
+	int insertObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
 	 * Updates the instance in the database.
@@ -108,8 +112,16 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 *            the object
 	 * @return true if the row was updated
 	 */
-	@IgnoreCaching
 	boolean update(O object);
+
+	/**
+	 * Updates several instances in the database using a transaction (if possible).
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the number of updated rows
+	 */
+	int updateObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
 	 * Deletes the instance in the database.
@@ -118,6 +130,14 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 *            the object
 	 * @return true if the row was deleted
 	 */
-	@IgnoreCaching
 	boolean delete(O object);
+
+	/**
+	 * Deletes several instances in the database using an transaction (if possible).
+	 * 
+	 * @param objects
+	 *            the objects
+	 * @return the numver of deleted rows
+	 */
+	int deleteObjects(@SuppressWarnings("unchecked") O... objects);
 }

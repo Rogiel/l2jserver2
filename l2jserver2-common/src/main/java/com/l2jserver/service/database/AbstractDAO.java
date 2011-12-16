@@ -72,6 +72,24 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
+	public boolean insert(T object) {
+		return insertObjects(object) > 0;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public boolean update(T object) {
+		return updateObjects(object) > 0;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public boolean delete(T object) {
+		return deleteObjects(object) > 0;
+	}
+
+	@Override
 	public Iterator<T> iterator() {
 		return new Iterator<T>() {
 			/**

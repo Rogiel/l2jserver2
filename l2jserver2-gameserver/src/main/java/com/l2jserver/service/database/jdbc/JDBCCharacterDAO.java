@@ -296,8 +296,8 @@ public abstract class JDBCCharacterDAO extends
 	}
 
 	@Override
-	public boolean insert(L2Character character) {
-		return database.query(new InsertUpdateQuery<L2Character>(character) {
+	public int insertObjects(L2Character... characters) {
+		return database.query(new InsertUpdateQuery<L2Character>(characters) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
@@ -349,12 +349,12 @@ public abstract class JDBCCharacterDAO extends
 				st.setString(i++, appearance.getHairColor().name());
 				st.setString(i++, appearance.getFace().name());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(L2Character character) {
-		return database.query(new InsertUpdateQuery<L2Character>(character) {
+	public int updateObjects(L2Character... characters) {
+		return database.query(new InsertUpdateQuery<L2Character>(characters) {
 			@Override
 			protected String query() {
 				return "UPDATE `" + TABLE + "` SET `" + ACCOUNT_ID + "` = ?,`"
@@ -411,12 +411,12 @@ public abstract class JDBCCharacterDAO extends
 				// WHERE
 				st.setInt(i++, character.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean delete(L2Character character) {
-		return database.query(new InsertUpdateQuery<L2Character>(character) {
+	public int deleteObjects(L2Character... characters) {
+		return database.query(new InsertUpdateQuery<L2Character>(characters) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + CHAR_ID
@@ -428,6 +428,6 @@ public abstract class JDBCCharacterDAO extends
 					L2Character character) throws SQLException {
 				st.setInt(1, character.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 }

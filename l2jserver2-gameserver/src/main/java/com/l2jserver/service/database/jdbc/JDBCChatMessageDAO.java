@@ -169,8 +169,8 @@ public abstract class JDBCChatMessageDAO extends
 	}
 
 	@Override
-	public boolean insert(ChatMessage message) {
-		return database.query(new InsertUpdateQuery<ChatMessage>(message) {
+	public int insertObjects(ChatMessage... messages) {
+		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
 			@Override
 			protected String query() {
 				return "INSERT INTO `" + TABLE + "` (`" + TYPE + "`,`"
@@ -200,18 +200,18 @@ public abstract class JDBCChatMessageDAO extends
 			protected Mapper<ChatMessageID> keyMapper() {
 				return primaryKeyMapper;
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(ChatMessage message) {
+	public int updateObjects(ChatMessage... messages) {
 		// cannot update chat message logs
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean delete(ChatMessage message) {
-		return database.query(new InsertUpdateQuery<ChatMessage>(message) {
+	public int deleteObjects(ChatMessage... messages) {
+		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
 			@Override
 			protected String query() {
 				return "DELETE FROM `" + TABLE + "` WHERE `" + MESSAGE_ID
@@ -223,6 +223,6 @@ public abstract class JDBCChatMessageDAO extends
 					throws SQLException {
 				st.setInt(1, message.getID().getID());
 			}
-		}) > 0;
+		});
 	}
 }

@@ -45,7 +45,7 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class OrientDBCharacterFriendDAO extends
+public class OrientDBCharacterFriendDAO extends
 		AbstractOrientDBDAO<CharacterFriend, FriendID> implements
 		CharacterFriendDAO {
 	/**
@@ -194,8 +194,8 @@ public abstract class OrientDBCharacterFriendDAO extends
 	}
 
 	@Override
-	public boolean insert(CharacterFriend friend) {
-		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
+	public int insertObjects(CharacterFriend... friends) {
+		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, CharacterFriend object) {
@@ -215,19 +215,19 @@ public abstract class OrientDBCharacterFriendDAO extends
 				document.field(CHAR_ID_FRIEND, friend.getFriendID());
 				return document;
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
-	public boolean update(CharacterFriend friend) {
+	public int updateObjects(CharacterFriend... friends) {
 		// it is not possible update friend objects, because they are only a ID
 		// pair and IDs are immutable
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean delete(CharacterFriend friend) {
-		return database.query(new InsertUpdateQuery<CharacterFriend>(friend) {
+	public int deleteObjects(CharacterFriend... friends) {
+		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
 			@Override
 			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
 					ODatabaseDocumentTx database, final CharacterFriend friend) {
@@ -259,7 +259,7 @@ public abstract class OrientDBCharacterFriendDAO extends
 					CharacterFriend friend) throws SQLException {
 				return null;
 			}
-		}) > 0;
+		});
 	}
 
 	@Override
