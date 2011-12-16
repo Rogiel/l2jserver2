@@ -29,25 +29,26 @@ import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.ClientPacket;
 import com.l2jserver.game.net.packet.client.CM_ACTION_USE;
 import com.l2jserver.game.net.packet.client.CM_ADMIN_COMMAND;
-import com.l2jserver.game.net.packet.client.CM_CHAR_ATTACK;
 import com.l2jserver.game.net.packet.client.CM_AUTH_LOGIN;
 import com.l2jserver.game.net.packet.client.CM_BYPASS;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION;
 import com.l2jserver.game.net.packet.client.CM_CHAR_APPEARING;
+import com.l2jserver.game.net.packet.client.CM_CHAR_ATTACK;
+import com.l2jserver.game.net.packet.client.CM_CHAR_CHAT;
 import com.l2jserver.game.net.packet.client.CM_CHAR_CREATE;
 import com.l2jserver.game.net.packet.client.CM_CHAR_MOVE;
 import com.l2jserver.game.net.packet.client.CM_CHAR_OPEN_MAP;
 import com.l2jserver.game.net.packet.client.CM_CHAR_POSITION;
 import com.l2jserver.game.net.packet.client.CM_CHAR_REQ_INVENTORY;
 import com.l2jserver.game.net.packet.client.CM_CHAR_SELECT;
-import com.l2jserver.game.net.packet.client.CM_CHAR_CHAT;
-import com.l2jserver.game.net.packet.client.CM_ITEM_DROP;
 import com.l2jserver.game.net.packet.client.CM_ENTER_WORLD;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_ALL_FORTRESS_INFO;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_KEY_MAPPING;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_MANOR_LIST;
 import com.l2jserver.game.net.packet.client.CM_GG_KEY;
 import com.l2jserver.game.net.packet.client.CM_GOTO_LOBBY;
+import com.l2jserver.game.net.packet.client.CM_ITEM_DESTROY;
+import com.l2jserver.game.net.packet.client.CM_ITEM_DROP;
 import com.l2jserver.game.net.packet.client.CM_LOGOUT;
 import com.l2jserver.game.net.packet.client.CM_PROTOCOL_VERSION;
 import com.l2jserver.game.net.packet.client.CM_REQUEST_CHAR_TEMPLATE;
@@ -190,6 +191,8 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CM_CHAR_ATTACK.class;
 		case CM_ITEM_DROP.OPCODE:
 			return CM_ITEM_DROP.class;
+		case CM_ITEM_DESTROY.OPCODE:
+			return CM_ITEM_DESTROY.class;
 		default:
 			logger.warn("Unknown packet for 0x{}", Integer.toHexString(opcode));
 			break;

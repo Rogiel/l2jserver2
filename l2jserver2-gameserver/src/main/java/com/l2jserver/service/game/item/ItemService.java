@@ -80,6 +80,29 @@ public interface ItemService extends Service {
 	Item stack(Item... items) throws NonStackableItemsServiceException;
 
 	/**
+	 * Destroys the given item
+	 * 
+	 * @param item
+	 *            the item to be destroyed
+	 * @param count
+	 *            the amount of items to be destroyed
+	 * @return <code>true</code> if the entire item was destroyed.
+	 *         <code>false</code> only if it was partially destroyed.
+	 * @throws NotEnoughItemsServiceException
+	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 */
+	boolean destroy(Item item, long count)
+			throws NotEnoughItemsServiceException;
+
+	/**
+	 * Destroys several items
+	 * 
+	 * @param items
+	 *            the items to be destroyed
+	 */
+	void destroy(Item... items);
+
+	/**
 	 * Picks up an dropped item and places it into another players inventory
 	 * 
 	 * @param item

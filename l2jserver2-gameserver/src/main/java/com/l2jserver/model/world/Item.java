@@ -150,6 +150,13 @@ public class Item extends PositionableObject {
 	}
 
 	/**
+	 * @return the owner
+	 */
+	public L2Character getOwner() {
+		return ownerID.getObject();
+	}
+
+	/**
 	 * @param ownerID
 	 *            the ownerID to set
 	 */

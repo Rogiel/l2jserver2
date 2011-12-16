@@ -37,6 +37,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
@@ -158,6 +159,33 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 	}
 
 	@Override
+	public boolean destroy(Item item, long count)
+			throws NotEnoughItemsServiceException {
+		synchronized (item) {
+			Item destroyItem = split(item, count);
+			itemDao.delete(destroyItem);
+			if (destroyItem.getOwnerID() != null)
+				destroyItem.getOwner().getInventory().remove(destroyItem);
+			if (!destroyItem.equals(item))
+				itemDao.save(item);
+			return destroyItem.equals(item);
+		}
+	}
+
+	@Override
+	public void destroy(Item... items) {
+		// requests the delete and starts removing items from inventory model
+		AsyncFuture<Integer> async = itemDao.deleteObjectsAsync(items);
+		for (final Item item : items) {
+			if (item.getOwnerID() != null) {
+				item.getOwner().getInventory().remove(item);
+			}
+		}
+		// now wait until database operation finishes
+		async.awaitUninterruptibly();
+	}
+
+	@Override
 	public Item pickUp(Item item, L2Character character)
 			throws ItemNotOnGroundServiceException, NotSpawnedServiceException {
 		synchronized (item) {
@@ -178,8 +206,7 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 					item = stack(stackItems);
 					Item[] deleteItems = ArrayUtils.copyArrayExcept(
 							Item[].class, stackItems, item);
-					character.getInventory().remove(deleteItems);
-					itemDao.deleteObjects(deleteItems);
+					destroy(deleteItems);
 					character.getInventory().add(item);
 				} catch (NonStackableItemsServiceException e) {
 					character.getInventory().add(item);
