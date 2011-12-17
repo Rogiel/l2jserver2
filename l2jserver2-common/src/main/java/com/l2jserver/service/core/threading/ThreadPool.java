@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.core.threading;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -31,18 +30,18 @@ public interface ThreadPool {
 	 * 
 	 * @param <T>
 	 *            the task return type
-	 * @param callable
+	 * @param task
 	 *            the callable instance
 	 * @return the {@link AsyncFuture} notified once the task has completed
 	 */
-	<T> AsyncFuture<T> async(Callable<T> callable);
+	<T> AsyncFuture<T> async(Task<T> task);
 
 	/**
 	 * Executes an asynchronous tasks at an scheduled time.
 	 * 
 	 * @param <T>
 	 *            the task return type
-	 * @param callable
+	 * @param task
 	 *            the callable instance
 	 * @param delay
 	 *            the initial delay to wait before the task is executed
@@ -50,7 +49,7 @@ public interface ThreadPool {
 	 *            the time unit of delay
 	 * @return the {@link AsyncFuture} notified once the task has completed
 	 */
-	<T> AsyncFuture<T> async(long delay, TimeUnit unit, Callable<T> callable);
+	<T> AsyncFuture<T> async(long delay, TimeUnit unit, Task<T> task);
 
 	/**
 	 * Executes an asynchronous tasks at an scheduled time.
@@ -73,5 +72,4 @@ public interface ThreadPool {
 	 * execute tasks.
 	 */
 	void dispose();
-
 }

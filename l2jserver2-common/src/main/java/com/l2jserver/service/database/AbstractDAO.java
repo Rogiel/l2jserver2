@@ -17,13 +17,14 @@
 package com.l2jserver.service.database;
 
 import java.util.Iterator;
-import java.util.concurrent.Callable;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
+import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.database.DatabaseService.TransactionExecutor;
 
 /**
  * Abstract DAO implementations. Store an instance of {@link DatabaseService}.
@@ -61,7 +62,7 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 
 	@Override
 	public AsyncFuture<T> selectAsync(final I id) {
-		return threadService.async(new Callable<T>() {
+		return threadService.async(new AbstractTask<T>() {
 			@Override
 			public T call() throws Exception {
 				return select(id);
@@ -92,18 +93,23 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 
 	@Override
 	@SafeVarargs
-	public final int saveObjects(T... objects) {
-		int rows = 0;
-		for (final T object : objects) {
-			rows += save(object);
-		}
-		return rows;
+	public final int saveObjects(final T... objects) {
+		return database.transaction(new TransactionExecutor() {
+			@Override
+			public int perform() {
+				int rows = 0;
+				for (final T object : objects) {
+					rows += save(object);
+				}
+				return rows;
+			}
+		});
 	}
 
 	@Override
 	@SafeVarargs
 	public final AsyncFuture<Integer> saveObjectsAsync(final T... objects) {
-		return threadService.async(new Callable<Integer>() {
+		return threadService.async(new AbstractTask<Integer>() {
 			@Override
 			public Integer call() throws Exception {
 				return saveObjects(objects);
@@ -119,7 +125,7 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	@Override
 	@SafeVarargs
 	public final AsyncFuture<Integer> insertObjectsAsync(final T... objects) {
-		return threadService.async(new Callable<Integer>() {
+		return threadService.async(new AbstractTask<Integer>() {
 			@Override
 			public Integer call() throws Exception {
 				return insertObjects(objects);
@@ -135,7 +141,7 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	@Override
 	@SafeVarargs
 	public final AsyncFuture<Integer> updateObjectsAsync(final T... objects) {
-		return threadService.async(new Callable<Integer>() {
+		return threadService.async(new AbstractTask<Integer>() {
 			@Override
 			public Integer call() throws Exception {
 				return updateObjects(objects);
@@ -151,7 +157,7 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	@Override
 	@SafeVarargs
 	public final AsyncFuture<Integer> deleteObjectsAsync(final T... objects) {
-		return threadService.async(new Callable<Integer>() {
+		return threadService.async(new AbstractTask<Integer>() {
 			@Override
 			public Integer call() throws Exception {
 				return deleteObjects(objects);

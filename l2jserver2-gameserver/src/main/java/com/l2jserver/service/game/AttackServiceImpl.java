@@ -33,6 +33,7 @@ import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.npc.NPCService;
@@ -99,7 +100,7 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	private class AttackCallable implements Callable<AttackHit> {
+	private class AttackCallable extends AbstractTask<AttackHit> {
 		/**
 		 * The attacker
 		 */

@@ -49,6 +49,8 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
+import com.l2jserver.service.core.threading.AbstractTask;
+import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.util.ArrayIterator;
@@ -128,6 +130,11 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 * every 1 minute.
 	 */
 	private ScheduledAsyncFuture autoSaveFuture;
+
+	/**
+	 * The connection used inside a transaction from multiple DAOs.
+	 */
+	private ThreadLocal<Connection> transactionalConnection = new ThreadLocal<>();
 
 	/**
 	 * Configuration interface for {@link AbstractJDBCDatabaseService}.
@@ -325,6 +332,46 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 				});
 	}
 
+	@Override
+	public int transaction(TransactionExecutor executor) {
+		Preconditions.checkNotNull(executor, "executor");
+		try {
+			final Connection conn = dataSource.getConnection();
+			log.debug("Executing transaction {} with {}", executor, conn);
+			try {
+				conn.setAutoCommit(false);
+
+				transactionalConnection.set(conn);
+				final int rows = executor.perform();
+
+				conn.commit();
+				return rows;
+			} catch (Exception e) {
+				conn.rollback();
+				throw e;
+			} finally {
+				transactionalConnection.remove();
+				conn.setAutoCommit(true);
+				conn.close();
+			}
+		} catch (DatabaseException e) {
+			throw e;
+		} catch (Throwable e) {
+			throw new DatabaseException(e);
+		}
+	}
+
+	@Override
+	public AsyncFuture<Integer> transactionAsync(
+			final TransactionExecutor executor) {
+		return threadService.async(new AbstractTask<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				return transaction(executor);
+			}
+		});
+	}
+
 	/**
 	 * Executes an <tt>query</tt> in the database.
 	 * 
@@ -333,23 +380,47 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 * @param query
 	 *            the query
 	 * @return an instance of <tt>T</tt>
+	 * @throws DatabaseException
+	 *             if any exception occur (can have nested {@link SQLException})
 	 */
-	public <T> T query(Query<T> query) {
+	public <T> T query(Query<T> query) throws DatabaseException {
 		Preconditions.checkNotNull(query, "query");
 		try {
-			final Connection conn = dataSource.getConnection();
+			boolean inTransaction = false;
+			Connection conn = transactionalConnection.get();
+			if (conn == null) {
+				log.debug(
+						"Transactional connection for {} is not set, creating new connection",
+						query);
+				inTransaction = false;
+				conn = dataSource.getConnection();
+			}
 			log.debug("Executing query {} with {}", query, conn);
 			try {
-				return query.query(conn);
-			} catch (SQLException e) {
-				log.error("Error executing query", e);
-				return null;
+				if (!inTransaction) {
+					conn.setAutoCommit(false);
+				}
+				try {
+					return query.query(conn);
+				} finally {
+					if (!inTransaction) {
+						conn.commit();
+					}
+				}
+			} catch (Exception e) {
+				if (!inTransaction) {
+					conn.rollback();
+				}
+				throw e;
 			} finally {
-				conn.close();
+				if (!inTransaction) {
+					conn.setAutoCommit(true);
+					conn.close();
+				}
 			}
-		} catch (SQLException e) {
+		} catch (Throwable e) {
 			log.error("Could not open database connection", e);
-			return null;
+			throw new DatabaseException(e);
 		}
 	}
 
@@ -500,64 +571,52 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			Preconditions.checkNotNull(conn, "conn");
 
 			log.debug("Starting INSERT/UPDATE query execution");
+			final String queryString = query();
+
+			log.debug("Preparing statement for {}", queryString);
+			final PreparedStatement st = conn.prepareStatement(queryString,
+					Statement.RETURN_GENERATED_KEYS);
 			try {
-				conn.setAutoCommit(false);
+				int rows = 0;
+				while (iterator.hasNext()) {
+					final T object = iterator.next();
 
-				final String queryString = query();
+					log.debug("Parametizing statement {} with {}", st, object);
+					this.parametize(st, object);
 
-				log.debug("Preparing statement for {}", queryString);
-				final PreparedStatement st = conn.prepareStatement(queryString,
-						Statement.RETURN_GENERATED_KEYS);
-				try {
-					int rows = 0;
-					while (iterator.hasNext()) {
-						final T object = iterator.next();
+					log.debug("Sending query to database for {}", object);
+					rows += st.executeUpdate();
+					log.debug("Query inserted or updated {} rows for {}", rows,
+							object);
 
-						log.debug("Parametizing statement {} with {}", st,
-								object);
-						this.parametize(st, object);
+					// update object desire --it has been realized
+					if (object instanceof Model && rows > 0) {
+						log.debug("Updating Model ObjectDesire to NONE");
+						((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 
-						log.debug("Sending query to database for {}", object);
-						rows += st.executeUpdate();
-						log.debug("Query inserted or updated {} rows for {}",
-								rows, object);
-
-						// update object desire --it has been realized
-						if (object instanceof Model && rows > 0) {
-							log.debug("Updating Model ObjectDesire to NONE");
-							((Model<?>) object)
-									.setObjectDesire(ObjectDesire.NONE);
-
-							final Mapper<? extends ID<?>> mapper = keyMapper();
-							if (mapper == null)
-								continue;
-							final ResultSet rs = st.getGeneratedKeys();
-							try {
-								log.debug(
-										"Mapping generated keys with {} using {}",
-										mapper, rs);
-								while (rs.next()) {
-									final ID<?> generatedID = mapper.map(rs);
-									log.debug("Generated ID for {} is {}",
-											object, generatedID);
-									((Model<ID<?>>) object).setID(generatedID);
-									mapper.map(rs);
-								}
-							} finally {
-								rs.close();
+						final Mapper<? extends ID<?>> mapper = keyMapper();
+						if (mapper == null)
+							continue;
+						final ResultSet rs = st.getGeneratedKeys();
+						try {
+							log.debug(
+									"Mapping generated keys with {} using {}",
+									mapper, rs);
+							while (rs.next()) {
+								final ID<?> generatedID = mapper.map(rs);
+								log.debug("Generated ID for {} is {}", object,
+										generatedID);
+								((Model<ID<?>>) object).setID(generatedID);
+								mapper.map(rs);
 							}
+						} finally {
+							rs.close();
 						}
 					}
-					conn.commit();
-					return rows;
-				} finally {
-					st.close();
 				}
-			} catch (SQLException e) {
-				conn.rollback();
-				throw e;
+				return rows;
 			} finally {
-				conn.setAutoCommit(true);
+				st.close();
 			}
 		}
 
@@ -650,43 +709,32 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			Preconditions.checkNotNull(conn, "conn");
 
 			log.debug("Starting DELETE query execution");
+			final String queryString = query();
+
+			log.debug("Preparing statement for {}", queryString);
+			final PreparedStatement st = conn.prepareStatement(queryString);
+
 			try {
-				conn.setAutoCommit(false);
+				int rows = 0;
+				while (iterator.hasNext()) {
+					final T object = iterator.next();
 
-				final String queryString = query();
+					log.debug("Parametizing statement {} with {}", st, object);
+					this.parametize(st, object);
 
-				log.debug("Preparing statement for {}", queryString);
-				final PreparedStatement st = conn.prepareStatement(queryString);
+					log.debug("Sending query to database for {}", object);
+					rows = st.executeUpdate();
+					log.debug("Query deleted {} rows for {}", rows, object);
 
-				try {
-					int rows = 0;
-					while (iterator.hasNext()) {
-						final T object = iterator.next();
-
-						log.debug("Parametizing statement {} with {}", st,
-								object);
-						this.parametize(st, object);
-
-						log.debug("Sending query to database for {}", object);
-						rows = st.executeUpdate();
-						log.debug("Query deleted {} rows for {}", rows, object);
-
-						dispose(object);
-						if (object instanceof Model) {
-							database.removeCache(((Model<?>) object)
-									.getObjectDesire());
-						}
+					dispose(object);
+					if (object instanceof Model) {
+						database.removeCache(((Model<?>) object)
+								.getObjectDesire());
 					}
-					conn.commit();
-					return rows;
-				} finally {
-					st.close();
 				}
-			} catch (SQLException e) {
-				conn.rollback();
-				throw e;
+				return rows;
 			} finally {
-				conn.setAutoCommit(true);
+				st.close();
 			}
 		}
 

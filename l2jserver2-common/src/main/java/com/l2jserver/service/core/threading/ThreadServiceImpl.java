@@ -19,7 +19,6 @@ package com.l2jserver.service.core.threading;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.concurrent.Callable;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -79,7 +78,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	}
 
 	@Override
-	public <T> AsyncFuture<T> async(Callable<T> callable) {
+	public <T> AsyncFuture<T> async(Task<T> callable) {
 		Preconditions.checkNotNull(callable, "callable");
 
 		log.debug("Scheduling async task: {}", callable);
@@ -87,8 +86,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	}
 
 	@Override
-	public <T> AsyncFuture<T> async(long delay, TimeUnit unit,
-			Callable<T> callable) {
+	public <T> AsyncFuture<T> async(long delay, TimeUnit unit, Task<T> callable) {
 		Preconditions.checkArgument(delay >= 0, "delay < 0");
 		Preconditions.checkNotNull(unit, "unit");
 		Preconditions.checkNotNull(callable, "callable");
@@ -352,14 +350,14 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		}
 
 		@Override
-		public <T> AsyncFuture<T> async(Callable<T> callable) {
+		public <T> AsyncFuture<T> async(Task<T> callable) {
 			log.debug("Task {} submited to {}", callable, name);
 			return new AsyncFutureImpl<T>(executor.submit(callable));
 		}
 
 		@Override
 		public <T> AsyncFuture<T> async(long delay, TimeUnit unit,
-				Callable<T> callable) {
+				Task<T> callable) {
 			if (log.isDebugEnabled())
 				log.debug("Task {} scheduled in {} {} to {}", new Object[] {
 						callable, delay, unit, name });
@@ -371,8 +369,9 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		public ScheduledAsyncFuture async(long delay, TimeUnit unit,
 				long repeat, Runnable task) {
 			if (log.isDebugEnabled())
-				log.debug("Task {} scheduled every {} {} to {}", new Object[] {
-						task, repeat, unit, name });
+				log.debug(
+						"Task {} scheduled every {} {} to {}, starting in {}",
+						new Object[] { task, repeat, unit, name, delay });
 			return new ScheduledAsyncFutureImpl(executor.scheduleAtFixedRate(
 					task, delay, repeat, unit));
 		}

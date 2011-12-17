@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.core.threading;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import com.l2jserver.service.Service;
@@ -39,7 +38,7 @@ public interface ThreadService extends Service {
 	 *            the callable instance
 	 * @return the {@link AsyncFuture} notified once the task has completed
 	 */
-	<T> AsyncFuture<T> async(Callable<T> callable);
+	<T> AsyncFuture<T> async(Task<T> callable);
 
 	/**
 	 * Executes an asynchronous tasks at an scheduled time. <b>Please note that
@@ -58,7 +57,7 @@ public interface ThreadService extends Service {
 	 *            the time unit of delay
 	 * @return the {@link AsyncFuture} notified once the task has completed
 	 */
-	<T> AsyncFuture<T> async(long delay, TimeUnit unit, Callable<T> callable);
+	<T> AsyncFuture<T> async(long delay, TimeUnit unit, Task<T> callable);
 
 	/**
 	 * Executes an asynchronous tasks at an scheduled time. <b>Please note that

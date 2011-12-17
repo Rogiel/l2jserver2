@@ -39,6 +39,8 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
+import com.l2jserver.service.core.threading.AbstractTask;
+import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.util.ArrayIterator;
@@ -219,6 +221,22 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 								objects);
 					}
 				});
+	}
+
+	@Override
+	public int transaction(TransactionExecutor executor) {
+		return executor.perform();
+	}
+
+	@Override
+	public AsyncFuture<Integer> transactionAsync(
+			final TransactionExecutor executor) {
+		return threadService.async(new AbstractTask<Integer>() {
+			@Override
+			public Integer call() throws Exception {
+				return transaction(executor);
+			}
+		});
 	}
 
 	/**

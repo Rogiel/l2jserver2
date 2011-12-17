@@ -19,7 +19,6 @@ package com.l2jserver.service.game.npc;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -42,6 +41,7 @@ import com.l2jserver.model.world.npc.event.NPCDieEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
+import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.database.DatabaseService;
@@ -244,7 +244,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		final double seconds = distance / npc.getTemplate().getRunSpeed();
 		// TODO this is an dirty implementation!
 		return threadService.async((int) (seconds * 1000),
-				TimeUnit.MILLISECONDS, new Callable<Boolean>() {
+				TimeUnit.MILLISECONDS, new AbstractTask<Boolean>() {
 					@Override
 					public Boolean call() throws Exception {
 						npc.setState(null);

@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.game.spawn;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -42,6 +41,7 @@ import com.l2jserver.model.world.npc.event.NPCUnspawnEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.WorldService;
@@ -158,7 +158,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		log.debug("Scheduling spawn of {} at {} in {}ms", new Object[] {
 				object, point, unit.toMillis(time) });
 
-		return threadService.async(time, unit, new Callable<T>() {
+		return threadService.async(time, unit, new AbstractTask<T>() {
 			@Override
 			public T call() throws Exception {
 				spawn(object, point);
@@ -208,7 +208,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 		log.debug("Scheduling unspawn of {} in {}ms", object,
 				unit.toMillis(time));
 
-		return threadService.async(time, unit, new Callable<T>() {
+		return threadService.async(time, unit, new AbstractTask<T>() {
 			@Override
 			public T call() throws Exception {
 				unspawn(object);

@@ -20,6 +20,7 @@ import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
+import com.l2jserver.service.core.threading.AsyncFuture;
 
 /**
  * This service provides access to an database implementation. Each
@@ -45,5 +46,58 @@ public interface DatabaseService extends Service {
 	 */
 	@ConfigurationName("database")
 	public interface DatabaseConfiguration extends ServiceConfiguration {
+	}
+
+	/**
+	 * Executes several operations inside a single database transaction.
+	 * <p>
+	 * Queries inside a transaction applies to an <i>all-or-none</i> model. If
+	 * any of the queries executed fails, none of them will be persisted to the
+	 * database and no changes will be performed. Transactions are useful in
+	 * maintaining data consistency.
+	 * <p>
+	 * <b>Important</b>: You should <b>never</b> call any async
+	 * {@link DataAccessObject} within a transaction. Doing so, will make it be
+	 * executed in <b>another transaction</b> and might even cause data
+	 * corruption due to queries being executed in different transactions.
+	 * <p>
+	 * If you wish to execute an transaction asynchronously, see
+	 * {@link #transactionAsync(TransactionExecutor)}.
+	 * 
+	 * @param executor
+	 *            the executor implementation (normally an anonymous class)
+	 * @return the number of affected rows
+	 * @see DatabaseService#transactionAsync(TransactionExecutor)
+	 */
+	int transaction(TransactionExecutor executor);
+
+	/**
+	 * Asynchronously executes several operations inside a single database
+	 * transaction.
+	 * <p>
+	 * Queries inside a transaction applies to an<i>all-or-none</i> model. If
+	 * any of the queries executed fails, none of them will be persisted to the
+	 * database and no changes will be performed. Transactions are useful in
+	 * maintaining data consistency.
+	 * 
+	 * @param executor
+	 *            the executor implementation (normally an anonymous class)
+	 * @return the number of affected rows
+	 */
+	AsyncFuture<Integer> transactionAsync(TransactionExecutor executor);
+
+	/**
+	 * This class executes DAO operations inside an transaction. It is
+	 * recommended to implement it in an anonymous class.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public interface TransactionExecutor {
+		/**
+		 * Perform operations inside the transaction.
+		 * 
+		 * @return the number of affected rows
+		 */
+		int perform();
 	}
 }

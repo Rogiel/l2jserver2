@@ -89,13 +89,8 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int save(O object);
 
 	/**
-	 * Save several instances to the database. This method will only save if the
-	 * object has changed.
-	 * <p>
-	 * Note that differently from {@link #insertObjects(Model...)},
-	 * {@link #updateObjects(Model...)} and {@link #deleteObjects(Model...)},
-	 * this method does not uses an transaction and could have a bigger
-	 * performance hit.
+	 * Save several instances to the database using a transaction (if possible).
+	 * This method will only save if the object has changed.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -104,13 +99,8 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int saveObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
-	 * Asynchronously save several instances to the database. This method will
-	 * only save if the object has changed.
-	 * <p>
-	 * Note that differently from {@link #insertObjects(Model...)},
-	 * {@link #updateObjects(Model...)} and {@link #deleteObjects(Model...)},
-	 * this method does not uses an transaction and could have a bigger
-	 * performance hit.
+	 * Asynchronously save several instances to the database using a transaction
+	 * (if possible). This method will only save if the object has changed.
 	 * 
 	 * @param objects
 	 *            the objects
