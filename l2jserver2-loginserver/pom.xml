@@ -52,19 +52,5 @@
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>20030825.184428</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-			<version>20030825.183949</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
 	</dependencies>
 </project>
