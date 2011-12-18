@@ -19,7 +19,6 @@ package com.l2jserver.service.game.world.event;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -83,44 +82,53 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	}
 
 	/**
-	 * Stats the world event disptacher
+	 * Stats the world event dispatcher
 	 */
 	public void start() {
-		threadPool = threadService.createThreadPool("event-dispatcher", 1);
-		threadPool.async(0, TimeUnit.MILLISECONDS, 20, new TimerTask() {
-			@Override
-			public void run() {
-				EventContainer event;
-				while ((event = events.poll()) != null) {
-					try {
-						log.debug("Dispatching event {}", event.event);
+		final int threads = Runtime.getRuntime().availableProcessors();
+		threadPool = threadService
+				.createThreadPool("event-dispatcher", threads);
+		for (int i = 0; i < threads; i++) {
+			threadPool.async(0, TimeUnit.MILLISECONDS, 10, new Runnable() {
+				@Override
+				public void run() {
+					EventContainer event;
+					while ((event = events.poll()) != null) {
+						synchronized (event) {
+							try {
+								if (event.future.isCancelled())
+									continue;
 
-						// set state
-						event.future.running = true;
-						event.future.complete = false;
+								log.debug("Dispatching event {}", event.event);
 
-						// dispatch
-						if (doDispatch(event))
-							// the set will update state
-							event.future.set(event.event);
-					} catch (Throwable t) {
-						event.future.setException(t);
-						log.warn("Exception in WorldEventDispatcher thread", t);
+								// set state
+								event.future.running = true;
+								event.future.complete = false;
+
+								// dispatch
+								doDispatch(event.event);
+								// the set will update state
+								event.future.set(event.event);
+							} catch (Throwable t) {
+								event.future.setException(t);
+								log.warn(
+										"Exception in WorldEventDispatcher thread",
+										t);
+							}
+						}
 					}
 				}
-			}
-		});
+			});
+		}
 	}
 
 	@Override
-	public <E extends WorldEvent> WorldEventFuture<E> dispatch(E event) {
+	public <E extends WorldEvent> WorldEventFuture<E> dispatch(final E event) {
 		Preconditions.checkNotNull(event, "event");
 		log.debug("Queing dispatch for event {}", event);
+
 		final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
 		events.add(new EventContainer(event, future));
-		// final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
-		// final EventContainer c = new EventContainer(event, future);
-		// doDispatch(c);
 		return future;
 	}
 
@@ -129,18 +137,15 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	 * 
 	 * @param event
 	 *            the event
-	 * @return true if dispatch was not canceled
 	 */
-	public synchronized boolean doDispatch(EventContainer event) {
-		final ObjectID<?>[] objects = event.event.getDispatchableObjects();
+	private synchronized void doDispatch(WorldEvent event) {
+		final ObjectID<?>[] objects = event.getDispatchableObjects();
 		for (ObjectID<?> obj : objects) {
 			if (obj == null)
 				continue;
 			for (final WorldListener listener : globalListeners) {
-				if (event.future.isCancelled())
-					return false;
 				try {
-					if (!listener.dispatch(event.event))
+					if (!listener.dispatch(event))
 						// remove listener if return value is false
 						globalListeners.remove(listener);
 				} catch (Throwable t) {
@@ -151,10 +156,8 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 			}
 			final Set<WorldListener> listeners = getListeners(obj);
 			for (final WorldListener listener : listeners) {
-				if (event.future.isCancelled())
-					return false;
 				try {
-					if (!listener.dispatch(event.event))
+					if (!listener.dispatch(event))
 						// remove listener if return value is false
 						listeners.remove(listener);
 				} catch (Throwable t) {
@@ -164,7 +167,6 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 				}
 			}
 		}
-		return true;
 	}
 
 	@Override
@@ -288,10 +290,10 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 		}
 
 		@Override
-		public void await() throws InterruptedException {
+		public void await() throws ExecutionException {
 			try {
 				super.get();
-			} catch (ExecutionException e) {
+			} catch (InterruptedException e) {
 			}
 		}
 

@@ -17,7 +17,7 @@
 package com.l2jserver.service.network;
 
 import java.util.Set;
-import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.ChannelFuture;
@@ -26,6 +26,8 @@ import org.jboss.netty.channel.ServerChannel;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.logging.InternalLoggerFactory;
 import org.jboss.netty.logging.Slf4JLoggerFactory;
+import org.jboss.netty.util.ThreadNameDeterminer;
+import org.jboss.netty.util.ThreadRenamingRunnable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,8 +43,12 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.threading.ThreadPool;
+import com.l2jserver.service.core.threading.ThreadPoolPriority;
+import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
+import com.l2jserver.util.ThreadPoolUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -50,14 +56,19 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ LoggingService.class, BlowfishKeygenService.class,
-		WorldService.class })
+@Depends({ LoggingService.class, ThreadService.class,
+		BlowfishKeygenService.class, WorldService.class })
 public class NettyNetworkService extends AbstractService implements
 		NetworkService {
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+	/**
+	 * The {@link ThreadService}
+	 */
+	private final ThreadService threadService;
 
 	/**
 	 * The network configuration object
@@ -68,6 +79,14 @@ public class NettyNetworkService extends AbstractService implements
 	 */
 	private final Injector injector;
 
+	/**
+	 * Netty Boss {@link ThreadPool}
+	 */
+	private ThreadPool bossPool;
+	/**
+	 * Netty Worker {@link ThreadPool}
+	 */
+	private ThreadPool workerPool;
 	/**
 	 * The server bootstrap
 	 */
@@ -86,10 +105,13 @@ public class NettyNetworkService extends AbstractService implements
 	 *            the configuration service
 	 * @param injector
 	 *            the {@link Guice} {@link Injector}
+	 * @param threadService
+	 *            the {@link ThreadService}
 	 */
 	@Inject
 	public NettyNetworkService(ConfigurationService configService,
-			Injector injector) {
+			Injector injector, ThreadService threadService) {
+		this.threadService = threadService;
 		this.config = configService.get(NetworkConfiguration.class);
 		this.injector = injector;
 		InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory());
@@ -97,9 +119,24 @@ public class NettyNetworkService extends AbstractService implements
 
 	@Override
 	protected void doStart() {
+		bossPool = threadService.createThreadPool("netty-boss", 10, 60,
+				TimeUnit.SECONDS, ThreadPoolPriority.HIGH);
+		workerPool = threadService.createThreadPool("netty-worker", 50, 60,
+				TimeUnit.SECONDS, ThreadPoolPriority.HIGH);
+
+		ThreadRenamingRunnable
+				.setThreadNameDeterminer(new ThreadNameDeterminer() {
+					@Override
+					public String determineThreadName(String currentThreadName,
+							String proposedThreadName) throws Exception {
+						return currentThreadName;
+					}
+				});
+
 		server = new ServerBootstrap(new NioServerSocketChannelFactory(
-				Executors.newCachedThreadPool(),
-				Executors.newCachedThreadPool()));
+				ThreadPoolUtils.wrap(bossPool),
+				ThreadPoolUtils.wrap(workerPool), 50));
+
 		server.setPipelineFactory(new Lineage2PipelineFactory(injector, this));
 		channel = (ServerChannel) server.bind(config.getListenAddress());
 	}
@@ -160,9 +197,15 @@ public class NettyNetworkService extends AbstractService implements
 	protected void doStop() {
 		try {
 			channel.close().awaitUninterruptibly();
+			server.releaseExternalResources();
+			bossPool.dispose();
+			workerPool.dispose();
 		} finally {
 			server = null;
 			channel = null;
+			bossPool = null;
+			workerPool = null;
 		}
+		clients.clear();
 	}
 }

@@ -27,12 +27,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.util.concurrent.AbstractFuture;
+import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.server.SM_GG_QUERY;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -65,6 +68,11 @@ public class GameGuardServiceImpl extends AbstractService implements
 			(byte) 0xf1, 0x3f, (byte) 0xee, 0x68, 0x5b, (byte) 0xc5 };
 
 	/**
+	 * The {@link ChatService}
+	 */
+	private final NetworkService networkService;
+
+	/**
 	 * The map containing all pending futures
 	 */
 	private Map<Lineage2Client, GGFuture> futures;
@@ -75,6 +83,15 @@ public class GameGuardServiceImpl extends AbstractService implements
 	 */
 	@SuppressWarnings("unused")
 	private MessageDigest digester;
+
+	/**
+	 * @param networkService
+	 *            the network service
+	 */
+	@Inject
+	private GameGuardServiceImpl(NetworkService networkService) {
+		this.networkService = networkService;
+	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
@@ -87,8 +104,9 @@ public class GameGuardServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public Future<GameGuardResponse> query(final Lineage2Client conn) {
+	public Future<GameGuardResponse> query(final L2Character character) {
 		log.debug("Quering client for GameGuard authentication key");
+		final Lineage2Client conn = networkService.discover(character.getID());
 		conn.write(new SM_GG_QUERY(STATIC_KEY)).addListener(
 				new ChannelFutureListener() {
 					@Override

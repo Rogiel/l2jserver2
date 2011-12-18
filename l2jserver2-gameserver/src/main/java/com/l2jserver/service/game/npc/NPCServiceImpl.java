@@ -255,10 +255,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	}
 
 	@Override
-	public void attack(NPC npc, Lineage2Client conn, L2Character attacker)
+	public void attack(NPC npc, L2Character attacker)
 			throws NotAttackableNPCServiceException {
 		Preconditions.checkNotNull(npc, "npc");
-		Preconditions.checkNotNull(conn, "conn");
 		Preconditions.checkNotNull(attacker, "attacker");
 
 		log.debug("{} is being attacked by {}", npc, attacker);

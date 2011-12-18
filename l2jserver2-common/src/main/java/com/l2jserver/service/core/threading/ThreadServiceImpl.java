@@ -22,12 +22,13 @@ import java.util.Map.Entry;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,7 +63,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	@Override
 	protected void doStart() throws ServiceStartException {
 		threadPools = CollectionFactory.newMap();
-		pool = createThreadPool("shared", 20);
+		pool = createThreadPool("shared", 1);
 
 		pool.async(50, TimeUnit.MILLISECONDS, 50, new Runnable() {
 			@Override
@@ -111,13 +112,52 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 	}
 
 	@Override
-	public ThreadPool createThreadPool(String name, int maxThreads) {
-		log.debug("Creating new ThreadPool {} with maximum of {} threads",
-				name, maxThreads);
-		final ThreadPoolImpl pool = new ThreadPoolImpl(name,
-				Executors.newScheduledThreadPool(maxThreads));
+	public ThreadPool createThreadPool(final String name, final int threads,
+			final long threadTimeout, final TimeUnit threadTimeoutUnit,
+			final ThreadPoolPriority priority) {
+		log.debug(
+				"Creating new {} priority ThreadPool {}; threads: {}, timeout:{}",
+				new Object[] { priority, name, threads, threadTimeout });
+		final ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(
+				threads);
+		if (threadTimeout >= 1) {
+			executor.setKeepAliveTime(threadTimeout, threadTimeoutUnit);
+			executor.allowCoreThreadTimeOut(true);
+		}
+		executor.setThreadFactory(new ThreadFactory() {
+			private final AtomicInteger threadNumber = new AtomicInteger(1);
+
+			@Override
+			public Thread newThread(Runnable r) {
+				final Thread thread = new Thread(r, name + "-"
+						+ threadNumber.getAndIncrement());
+				thread.setPriority(priority.threadPriority);
+				return thread;
+			}
+		});
+
+		final ThreadPoolImpl pool = new ThreadPoolImpl(name, executor);
 		threadPools.put(name, pool);
 		return pool;
+	}
+
+	@Override
+	public ThreadPool createThreadPool(String name, int threads) {
+		return createThreadPool(name, threads, -1, null,
+				ThreadPoolPriority.NORMAL);
+	}
+
+	@Override
+	public ThreadPool createThreadPool(String name, int threads,
+			ThreadPoolPriority priority) {
+		return createThreadPool(name, threads, -1, null, priority);
+	}
+
+	@Override
+	public ThreadPool createThreadPool(String name, int threads,
+			long threadTimeout, TimeUnit threadTimeoutUnit) {
+		return createThreadPool(name, threads, threadTimeout,
+				threadTimeoutUnit, ThreadPoolPriority.NORMAL);
 	}
 
 	@Override
@@ -126,6 +166,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		if (pool instanceof ThreadPoolImpl) {
 			((ThreadPoolImpl) pool).executor.shutdown();
 			threadPools.remove(((ThreadPoolImpl) pool).name);
+			return;
 		}
 		throw new UnsupportedOperationException(
 				"The given ThreadPool is not supported by this service");
@@ -331,7 +372,7 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		/**
 		 * The backing executor
 		 */
-		private final ScheduledExecutorService executor;
+		private final ScheduledThreadPoolExecutor executor;
 		/**
 		 * The list of active and pending futures
 		 */
@@ -342,9 +383,9 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 		 * @param name
 		 *            the pool name
 		 * @param executor
-		 *            the backing {@link ScheduledExecutorService}
+		 *            the backing {@link ScheduledThreadPoolExecutor}
 		 */
-		public ThreadPoolImpl(String name, ScheduledExecutorService executor) {
+		public ThreadPoolImpl(String name, ScheduledThreadPoolExecutor executor) {
 			this.name = name;
 			this.executor = executor;
 		}
@@ -391,6 +432,11 @@ public class ThreadServiceImpl extends AbstractService implements ThreadService 
 					activeFutures.remove(future);
 				}
 			}
+		}
+
+		@Override
+		public boolean isDisposed() {
+			return executor.isShutdown();
 		}
 	}
 }

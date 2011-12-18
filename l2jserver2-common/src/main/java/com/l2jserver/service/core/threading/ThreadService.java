@@ -80,15 +80,71 @@ public interface ThreadService extends Service {
 			Runnable task);
 
 	/**
+	 * Creates a new thread pool with {@link ThreadPoolPriority#NORMAL normal}
+	 * priority and that can be increased up to {@link Integer#MAX_VALUE} active
+	 * threads, if necessary.
+	 * <p>
+	 * Threads in this pool will never expire.
+	 * 
+	 * @param name
+	 *            the pool name
+	 * @param threads
+	 *            the maximum amount of active threads
+	 * @return the new thread pool
+	 */
+	ThreadPool createThreadPool(String name, int threads);
+
+	/**
+	 * Creates a new thread pool that can increase up to
+	 * {@link Integer#MAX_VALUE} active threads, if necessary.
+	 * <p>
+	 * Threads in this pool will never expire.
+	 * 
+	 * @param name
+	 *            the pool name
+	 * @param threads
+	 *            the maximum amount of active threads
+	 * @param priority
+	 *            the processor scheduling priority
+	 * @return the new thread pool
+	 */
+	ThreadPool createThreadPool(String name, int threads,
+			ThreadPoolPriority priority);
+
+	/**
+	 * Creates a new thread pool with {@link ThreadPoolPriority#NORMAL normal}
+	 * priority.
+	 * 
+	 * @param name
+	 *            the pool name
+	 * @param threads
+	 *            the maximum amount of active threads
+	 * @param threadTimeout
+	 *            the time it takes to expire an inactive thread
+	 * @param threadTimeoutUnit
+	 *            the {@link TimeUnit} for <code>threadTimeout</code>
+	 * @return the new thread pool
+	 */
+	ThreadPool createThreadPool(String name, int threads, long threadTimeout,
+			TimeUnit threadTimeoutUnit);
+
+	/**
 	 * Creates a new thread pool.
 	 * 
 	 * @param name
 	 *            the pool name
-	 * @param maxThreads
-	 *            the maximum amount of threads.
+	 * @param threads
+	 *            the maximum amount of active threads
+	 * @param threadTimeout
+	 *            the time it takes to expire an inactive thread
+	 * @param threadTimeoutUnit
+	 *            the {@link TimeUnit} for <code>threadTimeout</code>
+	 * @param priority
+	 *            the processor scheduling priority
 	 * @return the new thread pool
 	 */
-	ThreadPool createThreadPool(String name, int maxThreads);
+	ThreadPool createThreadPool(String name, int threads, long threadTimeout,
+			TimeUnit threadTimeoutUnit, ThreadPoolPriority priority);
 
 	/**
 	 * Disposes an given thread pool. After disposing the thread pool will no

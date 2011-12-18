@@ -19,8 +19,7 @@ package com.l2jserver.service.core.threading;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This is an ThreadPool you can use it to schedule tasks in the future or to
- * repeat them many times.
+ * This is an ThreadPool that you can use to asynchronously execute tasks.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -72,4 +71,9 @@ public interface ThreadPool {
 	 * execute tasks.
 	 */
 	void dispose();
+
+	/**
+	 * @return true if the thread pool is no longer usable (i.e. was disposed)
+	 */
+	boolean isDisposed();
 }

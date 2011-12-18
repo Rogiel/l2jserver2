@@ -16,7 +16,9 @@
  */
 package com.l2jserver;
 
+import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceManager;
+import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
@@ -37,41 +39,42 @@ import com.l2jserver.service.network.keygen.BlowfishKeygenService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2JGameServerMain {
+	public static final Class<?>[] SERVICES = { CacheService.class,
+			ConfigurationService.class, DatabaseService.class,
+			WorldIDService.class, ScriptingService.class,
+			TemplateService.class, ChatService.class, NPCService.class,
+			ItemService.class, CharacterService.class, PathingService.class,
+			BlowfishKeygenService.class, NetworkService.class };
+
 	/**
 	 * Main method
 	 * 
 	 * @param args
 	 *            no arguments are used
 	 */
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		final L2JGameServer server = new L2JGameServer();
 		try {
 			final ServiceManager serviceManager = server.getInjector()
 					.getInstance(ServiceManager.class);
 
-			serviceManager.start(CacheService.class);
-			serviceManager.start(ConfigurationService.class);
-			serviceManager.start(DatabaseService.class);
-			serviceManager.start(WorldIDService.class);
+			for (final Class<?> service : SERVICES) {
+				serviceManager.start((Class<? extends Service>) service);
+			}
 
-			serviceManager.start(ScriptingService.class);
-			serviceManager.start(TemplateService.class);
-
-			serviceManager.start(ChatService.class);
-			serviceManager.start(NPCService.class);
-			serviceManager.start(ItemService.class);
-
-			serviceManager.start(CharacterService.class);
-			serviceManager.start(PathingService.class);
-
-			serviceManager.start(BlowfishKeygenService.class);
-			serviceManager.start(NetworkService.class);
-
-			// final long free = Runtime.getRuntime().freeMemory();
-			// final long allocated = Runtime.getRuntime().totalMemory();
-			// final long maximum = Runtime.getRuntime().maxMemory();
-			// final long processors =
-			// Runtime.getRuntime().availableProcessors();
+			Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+				@Override
+				public void run() {
+					for (final Class<?> service : SERVICES) {
+						try {
+							serviceManager
+									.stop((Class<? extends Service>) service);
+						} catch (ServiceStopException e) {
+						}
+					}
+				}
+			}));
 		} catch (Exception e) {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();

@@ -19,6 +19,7 @@ package com.l2jserver.service.network.gameguard;
 import java.util.concurrent.Future;
 
 import com.l2jserver.game.net.Lineage2Client;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 
 /**
@@ -30,11 +31,11 @@ public interface GameGuardService extends Service {
 	/**
 	 * Queries the client GameGuard for an response
 	 * 
-	 * @param conn
-	 *            the lineage 2 connection
+	 * @param character
+	 *            the lineage 2 character
 	 * @return an future that will be used to obtain validation status
 	 */
-	Future<GameGuardResponse> query(Lineage2Client conn);
+	Future<GameGuardResponse> query(L2Character character);
 
 	/**
 	 * The Game guard key state

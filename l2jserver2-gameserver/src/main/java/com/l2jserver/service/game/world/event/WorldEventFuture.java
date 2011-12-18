@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.game.world.event;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -34,10 +35,10 @@ public interface WorldEventFuture<E extends WorldEvent> extends Future<E> {
 	/**
 	 * Waits until the event is dispatched to all listeners
 	 * 
-	 * @throws InterruptedException
-	 *             if the thread has been interrupted while waiting
+	 * @throws ExecutionException
+	 *             if any error occur while dispatching the event
 	 */
-	void await() throws InterruptedException;
+	void await() throws ExecutionException;
 
 	/**
 	 * Waits until the event is dispatched to all listeners
