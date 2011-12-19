@@ -22,6 +22,7 @@ import java.util.Iterator;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.core.threading.AsyncFuture;
+import com.l2jserver.service.database.DatabaseService.TransactionExecutor;
 
 /**
  * The Data Access Object interface used used to retrieve, save and remove
@@ -37,6 +38,58 @@ import com.l2jserver.service.core.threading.AsyncFuture;
  * query will be made requesting the given object. In a large dataset, this
  * could be a huge performance issue. DAO implementations are encouraged to
  * override the iterator implementation with a more specific implementation.
+ * <p>
+ * <h1>Transactions</h1>
+ * {@link DatabaseService} implementations are required to implement
+ * {@link DatabaseService#transaction(com.l2jserver.service.database.DatabaseService.TransactionExecutor)}
+ * which can allow you to perform several operations within a single database
+ * transaction and have consistency guarantee. Since not all services might
+ * support transactions, if transaction is not supported, the system degrades
+ * gracefully and executes the operations outside an transaction. See below an
+ * example of how to execute in-transaction operations:
+ * 
+ * <pre>
+ * final {@link DataAccessObject}<ObjectType1> anyDao1 = ...;
+ * final {@link DataAccessObject}<ObjectType2> anyDao2 = ...;
+ * final int rows = {@link DatabaseService databaseService}.{@link DatabaseService#transaction(com.l2jserver.service.database.DatabaseService.TransactionExecutor) transaction}(new {@link TransactionExecutor}() {
+ * 	public int {@link TransactionExecutor#perform() perform}() {
+ * 		int rows = anyDao1.{@link #insert(Model) insert}(object1);
+ * 		rows += anyDao2.{@link #delete(Model) delete}(object2);
+ * 		return rows;
+ * 	}
+ * });
+ * </pre>
+ * 
+ * If any any operation inside the transaction fails, none of them will be
+ * commited to the database and its state will be restored previus to the
+ * execution of the transaction.
+ * <p>
+ * <h2>Important note about asynchronous transactions</h2>
+ * You should not use any of the {@link #insertObjectsAsync(Model...)},
+ * {@link #updateObjectsAsync(Model...)}, {@link #deleteObjectsAsync(Model...)}
+ * or {@link #selectAsync(ID)} methods within an transaction. Doing so, will not
+ * result in exception, though all operations will be performed <b>outside</b>
+ * the transaction and might not be performed in the declared order. You should,
+ * instead, make a call to
+ * {@link DatabaseService#transactionAsync(com.l2jserver.service.database.DatabaseService.TransactionExecutor)}
+ * in order to execute transactions in an asynchronous manner. Remember, even in
+ * asynchronous transactions, you should use the synchronous DAO methods. If you
+ * wish to execute the previus transactions in a asynchronous manner, all you
+ * need to do is change the <code>transaction</code> method, as shown below:
+ * 
+ * <pre>
+ * final {@link DataAccessObject}<ObjectType1> anyDao1 = ...;
+ * final {@link DataAccessObject}<ObjectType2> anyDao2 = ...;
+ * final {@link AsyncFuture}<Integer> f = {@link DatabaseService databaseService}.{@link DatabaseService#transactionAsync(com.l2jserver.service.database.DatabaseService.TransactionExecutor) transactionAsync}(new {@link TransactionExecutor}() {
+ * 	public int {@link TransactionExecutor#perform() perform}() {
+ * 		// note the use of synchronous operations here!
+ * 		int rows = anyDao1.{@link #insert(Model) insert}(object1);
+ * 		rows += anyDao2.{@link #delete(Model) delete}(object2);
+ * 		return rows;
+ * 	}
+ * });
+ * final int rows = f.{@link AsyncFuture#get() get}();
+ * </pre>
  * 
  * @param <O>
  *            the {@link Model} supported by this DAO
