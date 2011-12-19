@@ -26,11 +26,15 @@ import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_CHAT;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_DIE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_MOVE;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE.Stat;
 import com.l2jserver.game.net.packet.server.SM_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
+import com.l2jserver.game.net.packet.server.SM_CHAR_TELEPORT;
+import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_ITEM_PICK;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
@@ -39,6 +43,7 @@ import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
 import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
@@ -60,6 +65,7 @@ import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
 import com.l2jserver.model.world.item.ItemDropEvent;
 import com.l2jserver.model.world.item.ItemPickEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
+import com.l2jserver.model.world.npc.event.NPCTalkEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -133,10 +139,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 		Preconditions.checkNotNull(conn, "conn");
 		final CharacterID id = character.getID();
 
-		log.debug("Starting character broadcast");
-
-		// broadcast everything nearby
-		// broadcast(conn);
+		log.debug("Registering character broadcast listeners");
 
 		// event broadcast listener
 		// this listener will be filtered so that only interesting events are
@@ -191,71 +194,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 					// process update known list
 					broadcastUpdate(conn, evt.getCharacter(), evt.getPoint());
 				} else if (e instanceof CharacterEnterWorldEvent) {
-					final CharacterEnterWorldEvent evt = (CharacterEnterWorldEvent) e;
-					final L2Character character = evt.getCharacter();
-					final CharacterID id = character.getID();
-
-					// chat listener
-					final ChatChannelListener globalChatListener = new ChatChannelListener() {
-						@Override
-						public void onMessage(ChatChannel channel,
-								ChatMessage message) {
-							conn.write(new SM_ACTOR_CHAT(message.getSender()
-									.getObject(), ChatMessageType.ALL, message
-									.getMessage()));
-						}
-					};
-					final ChatChannelListener tradeChatListener = new ChatChannelListener() {
-						@Override
-						public void onMessage(ChatChannel channel,
-								ChatMessage message) {
-							conn.write(new SM_ACTOR_CHAT(message.getSender()
-									.getObject(), ChatMessageType.TRADE,
-									message.getMessage()));
-						}
-					};
-
-					// leave world event
-					eventDispatcher.addListener(id, new CharacterListener() {
-						@Override
-						protected boolean dispatch(CharacterEvent e) {
-							if (!(e instanceof CharacterLeaveWorldEvent))
-								return true;
-
-							log.debug(
-									"Character {} is leaving world, removing chat listeners",
-									character);
-
-							// remove chat listeners
-							chatService.getGlobalChannel()
-									.removeMessageListener(globalChatListener);
-							chatService.getTradeChannel()
-									.removeMessageListener(tradeChatListener);
-
-							// we can kill this listener now
-							return false;
-						}
-					});
-
-					// register global chat listener
-					chatService.getGlobalChannel().addMessageListener(
-							globalChatListener);
-					chatService.getTradeChannel().addMessageListener(
-							tradeChatListener);
-
-					log.debug("Sending greeting message to client");
-					conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);
-					conn.sendMessage("This an an development version for l2jserver 2.0");
-					conn.sendMessage("Please note that many of the features are not yet implemented.");
-
-					// send this user information
-					log.debug("Sending character information packets");
-					conn.write(new SM_CHAR_INFO(evt.getCharacter()));
-					conn.write(new SM_CHAR_INFO_EXTRA(evt.getCharacter()));
-					conn.write(new SM_CHAR_INVENTORY(evt.getCharacter()
-							.getInventory()));
-					
-					broadcastAll(conn, character);
+					clientEnterWorld(conn, (CharacterEnterWorldEvent) e);
 				} else if (e instanceof CharacterStartMovingEvent) {
 					conn.write(new SM_ACTOR_MOVE(
 							((CharacterStartMovingEvent) e).getCharacter(),
@@ -263,10 +202,22 @@ public class BroadcastServiceImpl extends AbstractService implements
 									.getCoordinate()));
 				} else if (e instanceof CharacterTargetSelectedEvent) {
 					final CharacterTargetSelectedEvent evt = (CharacterTargetSelectedEvent) e;
-					conn.write(new SM_TARGET(evt.getTarget(), evt
-							.getCharacter().getLevel()
-							- evt.getTarget().getLevel()));
+					final Actor target = evt.getTarget();
+					final L2Character character = evt.getCharacter();
+					conn.write(new SM_TARGET(target, character.getLevel()
+							- target.getLevel()));
+					if (target instanceof NPC) {
+						final NPC mob = (NPC) target;
+						conn.write(new SM_ACTOR_STATUS_UPDATE(mob).add(
+								Stat.MAX_HP,
+								(int) mob.getTemplate().getMaximumHP()).add(
+								Stat.HP, (int) mob.getHP()));
+					}
 				} else if (e instanceof PlayerTeleportedEvent) {
+					final L2Character character = (L2Character) ((PlayerTeleportedEvent) e)
+							.getPlayer();
+					conn.write(new SM_CHAR_INFO(character));
+					conn.write(new SM_CHAR_INFO_EXTRA(character));
 					broadcastAll(conn, character);
 				} else if (e instanceof ActorAttackHitEvent) {
 					conn.write(new SM_ATTACK(((ActorAttackHitEvent) e).getHit()));
@@ -276,6 +227,14 @@ public class BroadcastServiceImpl extends AbstractService implements
 				} else if (e instanceof CharacterWalkingEvent
 						|| e instanceof CharacterRunningEvent) {
 					conn.write(new SM_MOVE_TYPE((L2Character) e.getObject()));
+				} else if (e instanceof ActorTeleportingEvent) {
+					final ActorTeleportingEvent evt = (ActorTeleportingEvent) e;
+					conn.write(new SM_CHAR_TELEPORT((L2Character) evt
+							.getActor(), evt.getPoint()));
+				} else if (e instanceof NPCTalkEvent) {
+					conn.write(new SM_HTML(((NPCTalkEvent) e).getNPC(),
+							((NPCTalkEvent) e).getHtml()));
+					conn.sendActionFailed();
 				}
 				// keep listener alive
 				return true;
@@ -338,5 +297,74 @@ public class BroadcastServiceImpl extends AbstractService implements
 		} else if (o instanceof Item) {
 			conn.write(new SM_ITEM_GROUND((Item) o));
 		}
+	}
+
+	/**
+	 * Sends required packets for a client to enter the game virtual world
+	 * 
+	 * @param conn
+	 *            the Lineage 2 connection
+	 * @param e
+	 *            the event
+	 */
+	private void clientEnterWorld(final Lineage2Client conn,
+			CharacterEnterWorldEvent e) {
+		final L2Character character = e.getCharacter();
+		final CharacterID id = character.getID();
+
+		// chat listener
+		final ChatChannelListener globalChatListener = new ChatChannelListener() {
+			@Override
+			public void onMessage(ChatChannel channel, ChatMessage message) {
+				conn.write(new SM_ACTOR_CHAT(message.getSender().getObject(),
+						ChatMessageType.ALL, message.getMessage()));
+			}
+		};
+		final ChatChannelListener tradeChatListener = new ChatChannelListener() {
+			@Override
+			public void onMessage(ChatChannel channel, ChatMessage message) {
+				conn.write(new SM_ACTOR_CHAT(message.getSender().getObject(),
+						ChatMessageType.TRADE, message.getMessage()));
+			}
+		};
+
+		// leave world event
+		eventDispatcher.addListener(id, new CharacterListener() {
+			@Override
+			protected boolean dispatch(CharacterEvent e) {
+				if (!(e instanceof CharacterLeaveWorldEvent))
+					return true;
+
+				log.debug(
+						"Character {} is leaving world, removing chat listeners",
+						character);
+
+				// remove chat listeners
+				chatService.getGlobalChannel().removeMessageListener(
+						globalChatListener);
+				chatService.getTradeChannel().removeMessageListener(
+						tradeChatListener);
+
+				// we can kill this listener now
+				return false;
+			}
+		});
+
+		// register global chat listener
+		chatService.getGlobalChannel().addMessageListener(globalChatListener);
+		chatService.getTradeChannel().addMessageListener(tradeChatListener);
+
+		log.debug("Sending greeting message to client");
+		conn.sendSystemMessage(SystemMessage.WELCOME_TO_LINEAGE);
+		conn.sendMessage("This an an development version for l2jserver 2.0");
+		conn.sendMessage("Please note that many of the features are not yet implemented.");
+
+		// send this user information
+		log.debug("Sending character information packets");
+		conn.write(new SM_CHAR_INFO(e.getCharacter()));
+		conn.write(new SM_CHAR_INFO_EXTRA(e.getCharacter()));
+		conn.write(new SM_CHAR_INVENTORY(e.getCharacter().getInventory()));
+
+		broadcastAll(conn, character);
 	}
 }

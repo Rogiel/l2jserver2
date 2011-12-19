@@ -120,14 +120,11 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 					.getInt(NPC_TEMPLATE_ID));
 			NPCTemplate template = templateId.getTemplate();
 			if (template == null) {
-				// set default npc instance, for now!
-				// RoxxyGatekeeperTemplate - 30006
 				log.warn("No template found for {}", templateId);
 				return null;
 			}
 
 			final NPC npc = template.create();
-
 			npc.setID(id);
 
 			if (rs.getString(HP) != null)
@@ -301,7 +298,7 @@ public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 			}
 		});
 	}
-	
+
 	@Override
 	protected NPC[] wrap(Model<?>... objects) {
 		final NPC[] array = new NPC[objects.length];

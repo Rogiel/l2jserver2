@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.model.world.npc;
 
-import com.l2jserver.game.net.Lineage2Client;
+import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.exception.L2Exception;
@@ -33,15 +33,54 @@ public interface NPCController {
 	 * 
 	 * @param npc
 	 *            the {@link NPC} instance
-	 * @param conn
-	 *            the connection to {@link L2Character}
 	 * @param character
 	 *            the interacting character
 	 * @param args
 	 *            the action arguments
+	 * @throws NPCControllerException
+	 *             if the exception requires an system message response
 	 * @throws L2Exception
 	 *             any {@link L2Exception}
 	 */
-	void action(NPC npc, Lineage2Client conn, L2Character character,
-			String... args) throws L2Exception;
+	void action(NPC npc, L2Character character, String... args)
+			throws NPCControllerException, L2Exception;
+
+	/**
+	 * Exception thrown if the {@link NPCController} could not perform an
+	 * certain operation
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
+	public static class NPCControllerException extends L2Exception {
+		private static final long serialVersionUID = 1L;
+
+		/**
+		 * The {@link SystemMessage}
+		 */
+		private final SystemMessage systemMessage;
+
+		/**
+		 * Creates a new instance
+		 * 
+		 * @param systemMessage
+		 *            the {@link SystemMessage} to be sent to the client
+		 */
+		public NPCControllerException(SystemMessage systemMessage) {
+			this.systemMessage = systemMessage;
+		}
+
+		/**
+		 * Creates a new instance with a <code>null</code> system message.
+		 */
+		public NPCControllerException() {
+			this(null);
+		}
+
+		/**
+		 * @return the system message
+		 */
+		public SystemMessage getSystemMessage() {
+			return systemMessage;
+		}
+	}
 }

@@ -14,16 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.model.world.npc.controller.impl;
 
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Client;
-import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE;
-import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE.Stat;
+import com.l2jserver.model.id.template.provider.TeleportationTemplateIDProvider;
+import com.l2jserver.model.template.npc.TeleportationTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.service.game.character.CharacterService;
-import com.l2jserver.service.game.npc.NPCService;
+import com.l2jserver.model.world.npc.BaseNPCController;
+import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.exception.L2Exception;
 
 /**
@@ -31,29 +30,33 @@ import com.l2jserver.util.exception.L2Exception;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MonsterController extends BaseNPCController {
+public class TeleporterController extends BaseNPCController {
 	/**
-	 * The {@link CharacterService}
+	 * The {@link SpawnService}
 	 */
 	@Inject
-	protected CharacterService charService;
+	protected SpawnService spawnService;
 	/**
-	 * The {@link NPCService}
+	 * The teleportation template id provider
 	 */
 	@Inject
-	protected NPCService npcService;
+	protected TeleportationTemplateIDProvider teleportationIdProvider;
 
 	@Override
-	public void action(NPC mob, Lineage2Client conn, L2Character character,
-			String... args) throws L2Exception {
-		// send hp update
-		if (mob.getID().equals(character.getTargetID())) {
-			charService.attack(character, mob);
-		} else {
-			charService.target(character, mob);
-			conn.write(new SM_ACTOR_STATUS_UPDATE(mob).add(Stat.MAX_HP,
-					(int) mob.getTemplate().getMaximumHP()).add(Stat.HP,
-					(int) mob.getHP()));
+	public void interact(NPC npc, L2Character character, String... args)
+			throws L2Exception {
+		if (args.length >= 2) {
+			if (args[0].equals("goto")) {
+				final TeleportationTemplate tele = teleportationIdProvider
+						.resolveID(Integer.parseInt(args[1])).getTemplate();
+				if (tele == null) {
+					throw new NPCControllerException();
+				}
+				// TODO remove items from character inventory
+				spawnService.teleport(character, tele.getCoordinate());
+				return;
+			}
 		}
+		super.interact(npc, character, args);
 	}
 }

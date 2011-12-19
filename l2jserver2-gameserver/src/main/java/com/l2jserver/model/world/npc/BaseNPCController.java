@@ -14,18 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.model.world.npc;
 
 import java.util.Arrays;
 
 import org.htmlparser.Parser;
 import org.htmlparser.util.ParserException;
 
-import com.l2jserver.game.net.Lineage2Client;
-import com.l2jserver.game.net.packet.server.SM_HTML;
+import com.google.inject.Inject;
 import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.npc.NPCService;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
@@ -37,19 +38,53 @@ import com.l2jserver.util.html.markup.MarkupTag;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class BaseNPCController implements NPCController {
+public abstract class BaseNPCController implements NPCController {
+	/**
+	 * The {@link CharacterService}
+	 */
+	@Inject
+	protected CharacterService charService;
+	/**
+	 * The {@link NPCService}
+	 */
+	@Inject
+	protected NPCService npcService;
+
 	@Override
-	public void action(NPC npc, Lineage2Client conn, L2Character character,
-			final String... args) throws L2Exception {
+	public void action(NPC npc, L2Character character, final String... args)
+			throws L2Exception {
+		if (npc.getID().equals(character.getTargetID())) {
+			interact(npc, character, args);
+		} else {
+			charService.target(character, npc);
+		}
+	}
+
+	/**
+	 * Performs the controller-specific NPC<->L2Character interaction.
+	 * 
+	 * @param npc
+	 *            the {@link NPC} instance
+	 * @param character
+	 *            the interacting character
+	 * @param args
+	 *            the action arguments
+	 * @throws NPCControllerException
+	 *             if the exception requires an system message response
+	 * @throws L2Exception
+	 *             any {@link L2Exception}
+	 */
+	public void interact(NPC npc, L2Character character, final String... args)
+			throws L2Exception {
 		if (args.length == 2) {
 			if (args[0].equals("Chat")) {
-				if (talk(npc, conn, character,
+				if (talk(npc, character,
 						Arrays.copyOfRange(args, 1, args.length)))
 					return;
 			}
 		} else if (args.length == 0 || args.length == 1) {
 			// default action is talk
-			if (talk(npc, conn, character, new String[0]))
+			if (talk(npc, character, new String[0]))
 				return;
 		}
 		// action not handled message
@@ -62,8 +97,7 @@ public class BaseNPCController implements NPCController {
 				body.text("Arguments: " + Arrays.toString(args));
 			}
 		}.register("name", character.getName());
-		conn.write(new SM_HTML(npc, template));
-		conn.sendActionFailed();
+		npcService.talk(npc, character, template);
 	}
 
 	/**
@@ -71,8 +105,6 @@ public class BaseNPCController implements NPCController {
 	 * 
 	 * @param npc
 	 *            the {@link NPC} instance
-	 * @param conn
-	 *            the connection to {@link L2Character}
 	 * @param character
 	 *            the interacting character
 	 * @param args
@@ -81,8 +113,8 @@ public class BaseNPCController implements NPCController {
 	 * @throws L2Exception
 	 *             if the talk action could not be performed
 	 */
-	protected boolean talk(NPC npc, Lineage2Client conn, L2Character character,
-			String... args) throws L2Exception {
+	protected boolean talk(NPC npc, L2Character character, String... args)
+			throws L2Exception {
 		String id = null;
 		if (args.length >= 1) {
 			id = args[0];
@@ -90,8 +122,7 @@ public class BaseNPCController implements NPCController {
 		final String html = getHTML(npc, id);
 		if (html == null)
 			return false;
-		conn.write(new SM_HTML(npc, html));
-		conn.sendActionFailed();
+		npcService.talk(npc, character, html);
 		return true;
 	}
 

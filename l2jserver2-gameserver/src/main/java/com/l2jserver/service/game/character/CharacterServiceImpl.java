@@ -270,7 +270,6 @@ public class CharacterServiceImpl extends AbstractService implements
 	public void target(L2Character character, Actor target)
 			throws CannotSetTargetServiceException {
 		Preconditions.checkNotNull(character, "character");
-		Preconditions.checkNotNull(target, "target");
 
 		log.debug("Setting {} target to {}", character, target);
 

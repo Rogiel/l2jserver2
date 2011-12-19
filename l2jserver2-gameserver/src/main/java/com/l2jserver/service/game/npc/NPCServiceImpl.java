@@ -28,7 +28,6 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.dao.NPCDAO;
 import com.l2jserver.model.template.npc.NPCTemplate;
@@ -36,8 +35,10 @@ import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.npc.controller.NPCController;
+import com.l2jserver.model.world.npc.NPCController;
+import com.l2jserver.model.world.npc.NPCController.NPCControllerException;
 import com.l2jserver.model.world.npc.event.NPCDieEvent;
+import com.l2jserver.model.world.npc.event.NPCTalkEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -53,18 +54,18 @@ import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
-import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.geometry.Point3D;
+import com.l2jserver.util.html.markup.HtmlTemplate;
 
 /**
  * Default {@link NPCService} implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ SpawnService.class, NetworkService.class, CharacterService.class,
-		ThreadService.class, AttackService.class, DatabaseService.class })
+@Depends({ SpawnService.class, CharacterService.class, ThreadService.class,
+		AttackService.class, DatabaseService.class })
 public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The logger
@@ -75,10 +76,6 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 * The {@link SpawnService} used to spawn the {@link NPC} instances
 	 */
 	private final SpawnService spawnService;
-	/**
-	 * The {@link NetworkService} used to discover {@link Lineage2Client}
-	 */
-	private final NetworkService networkService;
 	/**
 	 * The {@link CharacterService}
 	 */
@@ -121,8 +118,6 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * @param spawnService
 	 *            the spawn service
-	 * @param networkService
-	 *            the network service
 	 * @param characterService
 	 *            the character service
 	 * @param threadService
@@ -138,12 +133,10 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	 */
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
-			NetworkService networkService, CharacterService characterService,
-			ThreadService threadService, AttackService attackService,
-			WorldEventDispatcher eventDispatcher, NPCDAO npcDao,
-			Injector injector) {
+			CharacterService characterService, ThreadService threadService,
+			AttackService attackService, WorldEventDispatcher eventDispatcher,
+			NPCDAO npcDao, Injector injector) {
 		this.spawnService = spawnService;
-		this.networkService = networkService;
 		this.characterService = characterService;
 		this.threadService = threadService;
 		this.attackService = attackService;
@@ -168,7 +161,8 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 
 	@Override
 	public void action(NPC npc, L2Character character, CharacterAction action)
-			throws ActionServiceException, CannotSetTargetServiceException {
+			throws ActionServiceException, CannotSetTargetServiceException,
+			NPCControllerException {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(action, "action");
@@ -176,10 +170,11 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		log.debug("{} interacting with {} (action={})", new Object[] {
 				character, npc, action });
 
-		final Lineage2Client conn = networkService.discover(character.getID());
 		try {
 			final NPCController controller = getController(npc);
-			controller.action(npc, conn, character, new String[0]);
+			controller.action(npc, character, new String[0]);
+		} catch (NPCControllerException e) {
+			throw e;
 		} catch (L2Exception e) {
 			throw new ActionServiceException(e);
 		}
@@ -187,22 +182,37 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 
 	@Override
 	public void action(NPC npc, L2Character character, String... args)
-			throws ActionServiceException, CannotSetTargetServiceException {
+			throws ActionServiceException, CannotSetTargetServiceException, NPCControllerException {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(character, "character");
 		if (args == null)
 			args = new String[0];
 
-		log.debug("{} interacting with {} (action={})", new Object[] {
+		log.debug("{} interacting with {} (args={})", new Object[] {
 				character, npc, Arrays.toString(args) });
 
-		final Lineage2Client conn = networkService.discover(character.getID());
 		try {
 			final NPCController controller = getController(npc);
-			controller.action(npc, conn, character, args);
+			controller.action(npc, character, args);
+		} catch (NPCControllerException e) {
+			throw e;
 		} catch (L2Exception e) {
 			throw new ActionServiceException(e);
 		}
+	}
+
+	@Override
+	public void talk(NPC npc, L2Character character, HtmlTemplate template) {
+		Preconditions.checkNotNull(template, "template");
+		talk(npc, character, template.toHtmlString());
+	}
+
+	@Override
+	public void talk(NPC npc, L2Character character, String html) {
+		Preconditions.checkNotNull(npc, "npc");
+		Preconditions.checkNotNull(character, "character");
+		Preconditions.checkNotNull(html, "html");
+		eventDispatcher.dispatch(new NPCTalkEvent(npc, character, html));
 	}
 
 	@Override

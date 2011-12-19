@@ -38,7 +38,7 @@ import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.actor.ActorTemplate;
 import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata.Chat;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.model.world.npc.controller.NPCController;
+import com.l2jserver.model.world.npc.NPCController;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;

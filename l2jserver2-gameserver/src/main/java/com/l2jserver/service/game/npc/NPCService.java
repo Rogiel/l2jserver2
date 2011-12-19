@@ -16,15 +16,18 @@
  */
 package com.l2jserver.service.game.npc;
 
+import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.npc.NPCController.NPCControllerException;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.util.geometry.Point3D;
+import com.l2jserver.util.html.markup.HtmlTemplate;
 
 /**
  * This service controls {@link NPC} objects. It can execute {@link NPC}
@@ -47,9 +50,12 @@ public interface NPCService extends Service {
 	 *             if the action thrown an exception
 	 * @throws CannotSetTargetServiceException
 	 *             if was not possible to set the target
+	 * @throws NPCControllerException
+	 *             if the exception requires an {@link SystemMessage}
 	 */
 	void action(NPC npc, L2Character character, CharacterAction action)
-			throws ActionServiceException, CannotSetTargetServiceException;
+			throws ActionServiceException, CannotSetTargetServiceException,
+			NPCControllerException;
 
 	/**
 	 * Executes an action for an NPC. Each {@link NPCTemplate} have it's own
@@ -65,9 +71,38 @@ public interface NPCService extends Service {
 	 *             if the action thrown an exeption
 	 * @throws CannotSetTargetServiceException
 	 *             if was not possible to set the target
+	 * @throws NPCControllerException
+	 *             if the exception requires an {@link SystemMessage}
 	 */
 	void action(NPC npc, L2Character character, String... args)
-			throws ActionServiceException, CannotSetTargetServiceException;
+			throws ActionServiceException, CannotSetTargetServiceException,
+			NPCControllerException;
+
+	/**
+	 * Sends an HTML message with the given <code>npc</code>
+	 * 
+	 * @param npc
+	 *            the {@link NPC} that is sending the message
+	 * @param character
+	 *            the {@link L2Character character} that is talking to the
+	 *            {@link NPC}
+	 * @param template
+	 *            the {@link HtmlTemplate}
+	 */
+	void talk(NPC npc, L2Character character, HtmlTemplate template);
+
+	/**
+	 * Sends an HTML message with the given <code>npc</code>
+	 * 
+	 * @param npc
+	 *            the {@link NPC} that is sending the message
+	 * @param character
+	 *            the {@link L2Character character} that is talking to the
+	 *            {@link NPC}
+	 * @param html
+	 *            the html content
+	 */
+	void talk(NPC npc, L2Character character, String html);
 
 	/**
 	 * Kills the given <tt>npc</tt>. If "nobody" killed the NPC (i.e. died by

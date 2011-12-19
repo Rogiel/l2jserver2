@@ -29,6 +29,7 @@ import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.npc.NPCController.NPCControllerException;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.npc.ActionServiceException;
 import com.l2jserver.service.game.npc.NPCService;
@@ -100,6 +101,10 @@ public class CM_BYPASS extends AbstractClientPacket {
 			} catch (ActionServiceException e) {
 				conn.sendActionFailed();
 			} catch (CannotSetTargetServiceException e) {
+				conn.sendActionFailed();
+			} catch (NPCControllerException e) {
+				if (e.getSystemMessage() != null)
+					conn.sendSystemMessage(e.getSystemMessage());
 				conn.sendActionFailed();
 			}
 		} else {

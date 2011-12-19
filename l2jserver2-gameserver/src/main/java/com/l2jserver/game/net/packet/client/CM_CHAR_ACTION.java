@@ -28,6 +28,7 @@ import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.npc.NPCController.NPCControllerException;
 import com.l2jserver.service.game.character.CannotSetTargetServiceException;
 import com.l2jserver.service.game.item.ItemNotOnGroundServiceException;
 import com.l2jserver.service.game.item.ItemService;
@@ -118,6 +119,10 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 			final NPC npc = ((NPCID) id).getObject();
 			try {
 				npcService.action(npc, conn.getCharacter(), action);
+			} catch(NPCControllerException e) {
+				if(e.getSystemMessage() != null)
+					conn.sendSystemMessage(e.getSystemMessage());
+				conn.sendActionFailed();
 			} catch (ActionServiceException | CannotSetTargetServiceException e) {
 				conn.sendActionFailed();
 			}

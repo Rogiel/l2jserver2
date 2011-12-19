@@ -14,14 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.world.npc.controller;
+package com.l2jserver.model.world.npc.controller.impl;
 
 import java.util.Arrays;
 
-import com.l2jserver.game.net.Lineage2Client;
-import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.model.world.npc.BaseNPCController;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.html.markup.HtmlTemplate;
 import com.l2jserver.util.html.markup.MarkupTag;
@@ -34,7 +33,7 @@ import com.l2jserver.util.html.markup.MarkupTag;
  */
 public class NotImplementedNPCController extends BaseNPCController {
 	@Override
-	public void action(NPC npc, Lineage2Client conn, L2Character character,
+	public void interact(NPC npc, L2Character character,
 			final String... args) throws L2Exception {
 		// action not handled
 		final HtmlTemplate template = new HtmlTemplate() {
@@ -46,7 +45,6 @@ public class NotImplementedNPCController extends BaseNPCController {
 				body.text("Arguments: " + Arrays.toString(args));
 			}
 		}.register("name", character.getName());
-		conn.write(new SM_HTML(npc, template));
-		conn.sendActionFailed();
+		npcService.talk(npc, character, template);
 	}
 }

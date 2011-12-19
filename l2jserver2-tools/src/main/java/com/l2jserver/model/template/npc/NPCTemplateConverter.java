@@ -68,11 +68,11 @@ import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCSt
 import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata.DefenseValueMetadata;
 import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata.Chat;
 import com.l2jserver.model.template.npc.TeleportationTemplate.TeleportRestriction;
-import com.l2jserver.model.world.npc.controller.BaseNPCController;
-import com.l2jserver.model.world.npc.controller.MonsterController;
-import com.l2jserver.model.world.npc.controller.NPCController;
-import com.l2jserver.model.world.npc.controller.NotImplementedNPCController;
-import com.l2jserver.model.world.npc.controller.TeleporterController;
+import com.l2jserver.model.world.npc.BaseNPCController;
+import com.l2jserver.model.world.npc.NPCController;
+import com.l2jserver.model.world.npc.controller.impl.MonsterController;
+import com.l2jserver.model.world.npc.controller.impl.NotImplementedNPCController;
+import com.l2jserver.model.world.npc.controller.impl.TeleporterController;
 import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTemplateContainer;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.geometry.Coordinate;

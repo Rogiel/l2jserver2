@@ -23,11 +23,6 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
-import com.l2jserver.game.net.Lineage2Client;
-import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
-import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
-import com.l2jserver.game.net.packet.server.SM_CHAR_TELEPORT;
-import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
@@ -71,10 +66,6 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	 */
 	private final WorldEventDispatcher eventDispatcher;
 	/**
-	 * The {@link NetworkService}
-	 */
-	private final NetworkService networkService;
-	/**
 	 * The {@link ThreadService}
 	 */
 	private final ThreadService threadService;
@@ -84,18 +75,14 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	 *            the world service
 	 * @param eventDispatcher
 	 *            the world service event dispatcher
-	 * @param networkService
-	 *            the network service
 	 * @param threadService
 	 *            the thread service
 	 */
 	@Inject
 	public SpawnServiceImpl(WorldService worldService,
-			WorldEventDispatcher eventDispatcher,
-			NetworkService networkService, ThreadService threadService) {
+			WorldEventDispatcher eventDispatcher, ThreadService threadService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
-		this.networkService = networkService;
 		this.threadService = threadService;
 	}
 
@@ -229,13 +216,6 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 			if (((L2Character) actor).isTeleporting())
 				throw new CharacterAlreadyTeleportingServiceException();
 
-			final Lineage2Client conn = networkService
-					.discover((CharacterID) actor.getID());
-			if (conn == null)
-				// TODO throw an exception here
-				return;
-			conn.write(new SM_CHAR_TELEPORT(conn.getCharacter(), coordinate
-					.toPoint()));
 			((L2Character) actor).setState(ActorState.TELEPORTING);
 			((L2Character) actor).setTargetLocation(coordinate.toPoint());
 		} else {
@@ -251,8 +231,6 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	public void finishTeleport(L2Character character)
 			throws CharacterNotTeleportingServiceException {
 		Preconditions.checkNotNull(character, "character");
-		final CharacterID id = character.getID();
-		final Lineage2Client conn = networkService.discover(id);
 
 		if (!character.isTeleporting())
 			throw new CharacterNotTeleportingServiceException();
@@ -266,8 +244,5 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 				.getTargetLocation()));
 
 		character.setTargetLocation(null);
-
-		conn.write(new SM_CHAR_INFO(character));
-		conn.write(new SM_CHAR_INFO_EXTRA(character));
 	}
 }
