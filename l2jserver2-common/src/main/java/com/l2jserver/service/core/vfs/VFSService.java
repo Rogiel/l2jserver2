@@ -22,8 +22,6 @@ import java.nio.file.Path;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
@@ -39,13 +37,11 @@ public interface VFSService extends Service {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 * @see Configuration
 	 */
-	@ConfigurationName("vfs")
 	public interface VFSConfiguration extends ServiceConfiguration {
 		/**
 		 * @return the VFS root {@link URI}
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "")
-		@ConfigurationPropertyKey("vfs.root")
 		@ConfigurationXPath("/configuration/services/vfs/root")
 		Path getRoot();
 
@@ -54,7 +50,6 @@ public interface VFSService extends Service {
 		 *            the new VFS root {@link URI}
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("vfs.root")
 		@ConfigurationXPath("/configuration/services/vfs/root")
 		void setRoot(Path root);
 	}

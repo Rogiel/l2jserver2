@@ -19,7 +19,6 @@ package com.l2jserver.service.database;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
 import com.l2jserver.service.core.threading.AsyncFuture;
 
 /**
@@ -44,7 +43,6 @@ public interface DatabaseService extends Service {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 * @see Configuration
 	 */
-	@ConfigurationName("database")
 	public interface DatabaseConfiguration extends ServiceConfiguration {
 	}
 

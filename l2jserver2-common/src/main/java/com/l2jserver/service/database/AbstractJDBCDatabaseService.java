@@ -47,7 +47,6 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
@@ -146,7 +145,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the jdbc url
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "jdbc:mysql://localhost/l2jserver2")
-		@ConfigurationPropertyKey("jdbc.url")
 		@ConfigurationXPath("/configuration/services/database/jdbc/url")
 		String getJdbcUrl();
 
@@ -155,7 +153,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the new jdbc url
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.url")
 		@ConfigurationXPath("/configuration/services/database/jdbc/url")
 		void setJdbcUrl(String jdbcUrl);
 
@@ -163,7 +160,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the jdbc driver class
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "com.jdbc.jdbc.Driver")
-		@ConfigurationPropertyKey("jdbc.driver")
 		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
 		String getDriver();
 
@@ -172,7 +168,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the new jdbc driver
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.driver")
 		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
 		void setDriver(Class<?> driver);
 
@@ -180,7 +175,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the jdbc database username
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "l2j")
-		@ConfigurationPropertyKey("jdbc.username")
 		@ConfigurationXPath("/configuration/services/database/jdbc/username")
 		String getUsername();
 
@@ -189,7 +183,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the jdbc database username
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.username")
 		@ConfigurationXPath("/configuration/services/database/jdbc/username")
 		void setUsername(String username);
 
@@ -197,7 +190,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the jdbc database password
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "changeme")
-		@ConfigurationPropertyKey("jdbc.password")
 		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		String getPassword();
 
@@ -206,7 +198,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the jdbc database password
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.password")
 		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		void setPassword(String password);
 
@@ -214,7 +205,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the maximum number of active connections
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "20")
-		@ConfigurationPropertyKey("jdbc.active.max")
 		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
 		int getMaxActiveConnections();
 
@@ -223,7 +213,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the maximum number of active connections
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.active.max")
 		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
 		void setMaxActiveConnections(int password);
 
@@ -231,7 +220,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the maximum number of idle connections
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "20")
-		@ConfigurationPropertyKey("jdbc.idle.max")
 		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
 		int getMaxIdleConnections();
 
@@ -240,7 +228,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the maximum number of idle connections
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.idle.max")
 		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
 		void setMaxIdleConnections(int password);
 
@@ -248,7 +235,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 * @return the minimum number of idle connections
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "5")
-		@ConfigurationPropertyKey("jdbc.idle.min")
 		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
 		int getMinIdleConnections();
 
@@ -257,7 +243,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		 *            the minimum number of idle connections
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.idle.min")
 		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
 		void setMinIdleConnections(int password);
 	}

@@ -22,17 +22,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
-
 /**
  * Configuration interface
  * <p>
  * Each service desiring to use the configuration system must extend the
  * interface and define methods for getters and setters. Each method must be
  * annotated either with {@link ConfigurationPropertyGetter} or
- * {@link ConfigurationPropertySetter}
- * <p>
- * Each interface may optionally be annotated with {@link ConfigurationName}.
+ * {@link ConfigurationPropertySetter}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

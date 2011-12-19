@@ -37,7 +37,6 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
@@ -119,7 +118,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * @return the orientdb url
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "file:data/database")
-		@ConfigurationPropertyKey("orientdb.url")
 		@ConfigurationXPath("/configuration/services/database/orientdb/url")
 		String getUrl();
 
@@ -128,7 +126,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 *            the new orientdb url
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("orientdb.url")
 		@ConfigurationXPath("/configuration/services/database/orientdb/url")
 		void setUrl(String url);
 
@@ -136,7 +133,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * @return the orientdb database username
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "l2j")
-		@ConfigurationPropertyKey("orientdb.username")
 		@ConfigurationXPath("/configuration/services/database/orientdb/username")
 		String getUsername();
 
@@ -145,7 +141,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 *            the orientdb database username
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("orientdb.username")
 		@ConfigurationXPath("/configuration/services/database/orientdb/username")
 		void setUsername(String username);
 
@@ -153,7 +148,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * @return the orientdb database password
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "changeme")
-		@ConfigurationPropertyKey("orientdb.password")
 		@ConfigurationXPath("/configuration/services/database/orientdb/password")
 		String getPassword();
 
@@ -162,7 +156,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 *            the jdbc database password
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("jdbc.password")
 		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		void setPassword(String password);
 	}

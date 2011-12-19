@@ -55,8 +55,6 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationName;
-import com.l2jserver.service.configuration.ProxyConfigurationService.ConfigurationPropertyKey;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
@@ -140,14 +138,12 @@ public class XMLTemplateService extends AbstractService implements
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	@ConfigurationName("template")
 	public interface XMLTemplateServiceConfiguration extends
 			TemplateServiceConfiguration {
 		/**
 		 * @return the directory in which templates are stored
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "data/template")
-		@ConfigurationPropertyKey("template.directory")
 		@ConfigurationXPath("/configuration/services/template/directory")
 		URI getTemplateDirectory();
 
@@ -156,7 +152,6 @@ public class XMLTemplateService extends AbstractService implements
 		 *            the directory in which templates are stored
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationPropertyKey("template.directory")
 		@ConfigurationXPath("/configuration/services/template/directory")
 		void setTemplateDirectory(URI file);
 	}
