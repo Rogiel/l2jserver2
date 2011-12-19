@@ -249,7 +249,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		eventDispatcher.dispatch(new CharacterEnterWorldEvent(character));
 
 		// update character
-		characterDao.save(character);
+		characterDao.saveObjectsAsync(character);
 	}
 
 	@Override
@@ -263,7 +263,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
 		character.setOnline(false);
 
-		characterDao.save(character);
+		characterDao.saveObjectsAsync(character);
 	}
 
 	@Override
@@ -328,7 +328,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		} else {
 			throw new ActorIsNotAttackableServiceException();
 		}
-		characterDao.save(character);
+		characterDao.saveObjectsAsync(character);
 	}
 
 	@Override
@@ -366,7 +366,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		// notify the client.
 		eventDispatcher.dispatch(new CharacterStartMovingEvent(character,
 				coordinate.toPoint()));
-		characterDao.save(character);
+		characterDao.saveObjectsAsync(character);
 	}
 
 	@Override
@@ -403,6 +403,8 @@ public class CharacterServiceImpl extends AbstractService implements
 				// TODO dispatch stop event
 			}
 		}
+		
+		characterDao.saveObjectsAsync(character);
 	}
 
 	@Override

@@ -163,11 +163,11 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 			throws NotEnoughItemsServiceException {
 		synchronized (item) {
 			Item destroyItem = split(item, count);
-			itemDao.delete(destroyItem);
+			itemDao.deleteObjectsAsync(destroyItem);
 			if (destroyItem.getOwnerID() != null)
 				destroyItem.getOwner().getInventory().remove(destroyItem);
 			if (!destroyItem.equals(item))
-				itemDao.save(item);
+				itemDao.saveObjectsAsync(item);
 			return destroyItem.equals(item);
 		}
 	}
@@ -218,9 +218,9 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 			character.getInventory().add(item);
 			this.items.remove(item);
 
-			itemDao.save(item);
+			itemDao.saveObjectsAsync(item);
 			if (!item.equals(originalItem)) {
-				itemDao.save(originalItem);
+				itemDao.saveObjectsAsync(originalItem);
 			}
 			spawnService.unspawn(originalItem);
 			eventDispatcher.dispatch(new ItemPickEvent(character, originalItem,
@@ -254,9 +254,9 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 				}
 			}
 
-			itemDao.save(item);
+			itemDao.saveObjectsAsync(item);
 			if (!item.equals(sourceItem)) {
-				itemDao.save(sourceItem);
+				itemDao.saveObjectsAsync(sourceItem);
 			}
 			items.add(item);
 
