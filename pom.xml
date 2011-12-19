@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.l2jserver</groupId>
 	<artifactId>l2jserver2</artifactId>
@@ -27,6 +28,13 @@
 			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/maven.l2jserver2.com</url>
 			<layout>default</layout>
 		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>l2jserver2-repository-snapshot</id>
+			<name>L2JServer 2 Maven Repository</name>
+			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/snapshot.l2jserver2.com</url>
+			<layout>default</layout>
+		</snapshotRepository>
 		<site>
 			<id>l2jserver2-site</id>
 			<name>l2jserver2</name>
