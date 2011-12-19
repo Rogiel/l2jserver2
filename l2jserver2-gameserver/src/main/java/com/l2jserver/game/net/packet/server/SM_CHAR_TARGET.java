@@ -28,7 +28,7 @@ import com.l2jserver.model.world.Actor;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_TARGET extends AbstractServerPacket {
+public class SM_CHAR_TARGET extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -40,13 +40,13 @@ public class SM_TARGET extends AbstractServerPacket {
 	private final Actor object;
 	private int color;
 
-	public SM_TARGET(Actor object, int color) {
+	public SM_CHAR_TARGET(Actor object, int color) {
 		super(OPCODE);
 		this.object = object;
 		this.color = color;
 	}
 
-	public SM_TARGET(Actor object) {
+	public SM_CHAR_TARGET(Actor object) {
 		this(object, 0);
 	}
 

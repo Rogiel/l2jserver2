@@ -33,6 +33,8 @@ import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
+import com.l2jserver.game.net.packet.server.SM_CHAR_TARGET;
+import com.l2jserver.game.net.packet.server.SM_CHAR_TARGET_UNSELECT;
 import com.l2jserver.game.net.packet.server.SM_CHAR_TELEPORT;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
@@ -40,7 +42,6 @@ import com.l2jserver.game.net.packet.server.SM_ITEM_PICK;
 import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
-import com.l2jserver.game.net.packet.server.SM_TARGET;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.model.world.Actor;
@@ -60,6 +61,7 @@ import com.l2jserver.model.world.character.event.CharacterListener;
 import com.l2jserver.model.world.character.event.CharacterMoveEvent;
 import com.l2jserver.model.world.character.event.CharacterRunningEvent;
 import com.l2jserver.model.world.character.event.CharacterStartMovingEvent;
+import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
 import com.l2jserver.model.world.item.ItemDropEvent;
@@ -204,7 +206,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 					final CharacterTargetSelectedEvent evt = (CharacterTargetSelectedEvent) e;
 					final Actor target = evt.getTarget();
 					final L2Character character = evt.getCharacter();
-					conn.write(new SM_TARGET(target, character.getLevel()
+					conn.write(new SM_CHAR_TARGET(target, character.getLevel()
 							- target.getLevel()));
 					if (target instanceof NPC) {
 						final NPC mob = (NPC) target;
@@ -213,6 +215,9 @@ public class BroadcastServiceImpl extends AbstractService implements
 								(int) mob.getTemplate().getMaximumHP()).add(
 								Stat.HP, (int) mob.getHP()));
 					}
+				} else if (e instanceof CharacterTargetDeselectedEvent) {
+					conn.write(new SM_CHAR_TARGET_UNSELECT(
+							((CharacterTargetDeselectedEvent) e).getCharacter()));
 				} else if (e instanceof PlayerTeleportedEvent) {
 					final L2Character character = (L2Character) ((PlayerTeleportedEvent) e)
 							.getPlayer();
