@@ -28,7 +28,7 @@ import com.l2jserver.game.net.packet.server.SM_ACTOR_DIE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_MOVE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE.Stat;
-import com.l2jserver.game.net.packet.server.SM_ATTACK;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
@@ -39,7 +39,7 @@ import com.l2jserver.game.net.packet.server.SM_CHAR_TELEPORT;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_ITEM_PICK;
-import com.l2jserver.game.net.packet.server.SM_MOVE_TYPE;
+import com.l2jserver.game.net.packet.server.SM_CHAR_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
 import com.l2jserver.model.id.object.CharacterID;
@@ -171,10 +171,10 @@ public class BroadcastServiceImpl extends AbstractService implements
 					// object is now out of sight
 					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof CharacterWalkingEvent) {
-					conn.write(new SM_MOVE_TYPE(((CharacterWalkingEvent) e)
+					conn.write(new SM_CHAR_MOVE_TYPE(((CharacterWalkingEvent) e)
 							.getCharacter()));
 				} else if (e instanceof CharacterRunningEvent) {
-					conn.write(new SM_MOVE_TYPE(((CharacterRunningEvent) e)
+					conn.write(new SM_CHAR_MOVE_TYPE(((CharacterRunningEvent) e)
 							.getCharacter()));
 				} else if (e instanceof ActorDieEvent) {
 					conn.write(new SM_ACTOR_DIE(((ActorDieEvent) e).getActor()));
@@ -225,13 +225,13 @@ public class BroadcastServiceImpl extends AbstractService implements
 					conn.write(new SM_CHAR_INFO_EXTRA(character));
 					broadcastAll(conn, character);
 				} else if (e instanceof ActorAttackHitEvent) {
-					conn.write(new SM_ATTACK(((ActorAttackHitEvent) e).getHit()));
+					conn.write(new SM_ACTOR_ATTACK(((ActorAttackHitEvent) e).getHit()));
 					conn.sendSystemMessage(SystemMessage.YOU_DID_S1_DMG,
 							(int) ((ActorAttackHitEvent) e).getHit()
 									.getDamage());
 				} else if (e instanceof CharacterWalkingEvent
 						|| e instanceof CharacterRunningEvent) {
-					conn.write(new SM_MOVE_TYPE((L2Character) e.getObject()));
+					conn.write(new SM_CHAR_MOVE_TYPE((L2Character) e.getObject()));
 				} else if (e instanceof ActorTeleportingEvent) {
 					final ActorTeleportingEvent evt = (ActorTeleportingEvent) e;
 					conn.write(new SM_CHAR_TELEPORT((L2Character) evt

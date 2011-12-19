@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.SM_STOP;
+import com.l2jserver.game.net.packet.server.SM_CHAR_STOP;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.util.geometry.Coordinate;
@@ -95,7 +95,7 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 	public void process(final Lineage2Client conn) {
 		if (target.equals(origin)) {
 			log.debug("Target is same as origin. Stopping character.");
-			conn.write(new SM_STOP(conn.getCharacter()));
+			conn.write(new SM_CHAR_STOP(conn.getCharacter()));
 			return;
 		}
 		if (target.getDistance(origin) >= 98010000) {

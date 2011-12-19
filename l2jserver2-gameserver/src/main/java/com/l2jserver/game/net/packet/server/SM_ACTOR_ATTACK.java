@@ -33,7 +33,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * @see AttackHit
  */
-public class SM_ATTACK extends AbstractServerPacket {
+public class SM_ACTOR_ATTACK extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -48,13 +48,13 @@ public class SM_ATTACK extends AbstractServerPacket {
 	 */
 	private final List<AttackHit> hits = CollectionFactory.newList();
 
-	public SM_ATTACK(Actor attacker, AttackHit... hits) {
+	public SM_ACTOR_ATTACK(Actor attacker, AttackHit... hits) {
 		super(OPCODE);
 		this.attacker = attacker;
 		Collections.addAll(this.hits, hits);
 	}
 
-	public SM_ATTACK(AttackHit... hits) {
+	public SM_ACTOR_ATTACK(AttackHit... hits) {
 		this(hits[0].getAttacker(), hits);
 	}
 
@@ -90,7 +90,7 @@ public class SM_ATTACK extends AbstractServerPacket {
 		buffer.writeInt(first.getTarget().getPoint().getZ());
 	}
 
-	public SM_ATTACK add(AttackHit hit) {
+	public SM_ACTOR_ATTACK add(AttackHit hit) {
 		hits.add(hit);
 		return this;
 	}

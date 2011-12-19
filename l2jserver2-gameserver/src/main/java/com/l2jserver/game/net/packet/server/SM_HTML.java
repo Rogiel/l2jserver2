@@ -63,6 +63,18 @@ public class SM_HTML extends AbstractServerPacket {
 		this.html = template.toHtmlString();
 	}
 
+	public SM_HTML(String html) {
+		this(null, html);
+	}
+
+	public SM_HTML(Html html) {
+		this(null, html);
+	}
+
+	public SM_HTML(HtmlTemplate template) {
+		this(null, template);
+	}
+
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt((npc != null ? npc.getID().getID() : 0x01));

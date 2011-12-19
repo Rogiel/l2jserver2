@@ -27,7 +27,7 @@ import com.l2jserver.model.world.L2Character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_STOP extends AbstractServerPacket {
+public class SM_CHAR_STOP extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -35,7 +35,7 @@ public class SM_STOP extends AbstractServerPacket {
 
 	private L2Character character;
 
-	public SM_STOP(L2Character character) {
+	public SM_CHAR_STOP(L2Character character) {
 		super(OPCODE);
 		this.character = character;
 	}

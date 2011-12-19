@@ -27,7 +27,7 @@ import com.l2jserver.model.world.L2Character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SM_MOVE_TYPE extends AbstractServerPacket {
+public class SM_CHAR_MOVE_TYPE extends AbstractServerPacket {
 	/**
 	 * The packet OPCODE
 	 */
@@ -38,7 +38,7 @@ public class SM_MOVE_TYPE extends AbstractServerPacket {
 	 */
 	private final L2Character character;
 
-	public SM_MOVE_TYPE(L2Character character) {
+	public SM_CHAR_MOVE_TYPE(L2Character character) {
 		super(OPCODE);
 		this.character = character;
 	}
