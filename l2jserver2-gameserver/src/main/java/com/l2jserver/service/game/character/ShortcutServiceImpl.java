@@ -31,7 +31,6 @@ import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * 
  */
 public class ShortcutServiceImpl extends AbstractService implements
 		ShortcutService {
@@ -62,8 +61,8 @@ public class ShortcutServiceImpl extends AbstractService implements
 			int slot) throws ShortcutSlotNotFreeServiceException {
 		Preconditions.checkNotNull(character, "character");
 		Preconditions.checkNotNull(item, "item");
-		Preconditions.checkArgument(page >= 0 && page <= 10, "0 <= page <= 10");
-		Preconditions.checkArgument(page >= 0 && slot <= 12, "0 <= slot <= 10");
+		Preconditions.checkArgument(page >= 0 && page < 10, "0 <= page < 10");
+		Preconditions.checkArgument(page >= 0 && slot < 12, "0 <= slot < 12");
 
 		if (character.getShortcuts().get(page, slot) != null)
 			throw new ShortcutSlotNotFreeServiceException();
@@ -90,15 +89,15 @@ public class ShortcutServiceImpl extends AbstractService implements
 	public void remove(L2Character character, int page, int slot)
 			throws ShortcutSlotEmptyServiceException {
 		Preconditions.checkNotNull(character, "character");
-		Preconditions.checkArgument(page >= 0 && page <= 10, "0 <= page <= 10");
-		Preconditions.checkArgument(page >= 0 && slot <= 12, "0 <= slot <= 10");
+		Preconditions.checkArgument(page >= 0 && page < 10, "0 <= page < 10");
+		Preconditions.checkArgument(page >= 0 && slot < 12, "0 <= slot < 12");
 		final CharacterShortcut shortcut = character.getShortcuts().get(page,
 				slot);
 		if (shortcut == null)
 			throw new ShortcutSlotEmptyServiceException();
 
-		// synchronous delete here
-		shortcutDao.delete(shortcut);
+		// asynchronous delete here
+		shortcutDao.deleteObjectsAsync(shortcut);
 		character.getShortcuts().unregister(shortcut);
 
 		eventDispatcher.dispatch(new CharacterDeleteShortcutEvent(character,
