@@ -37,7 +37,6 @@ import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.model.world.character.CharacterInventory;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
@@ -54,7 +53,7 @@ import com.l2jserver.util.geometry.Coordinate;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
+public class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 		implements ItemDAO {
 	/**
 	 * The logger
@@ -180,9 +179,8 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 	}
 
 	@Override
-	public int loadInventory(final L2Character character) {
-		final CharacterInventory inventory = character.getInventory();
-		final List<Item> items = database.query(new SelectListQuery<Item>() {
+	public List<Item> selectByCharacter(final L2Character character) {
+		return database.query(new SelectListQuery<Item>() {
 			@Override
 			protected String query() {
 				return "SELECT * FROM `" + TABLE + "` WHERE `" + CHAR_ID
@@ -200,8 +198,6 @@ public abstract class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID>
 				return mapper;
 			}
 		});
-		inventory.load(items);
-		return items.size();
 	}
 
 	@Override

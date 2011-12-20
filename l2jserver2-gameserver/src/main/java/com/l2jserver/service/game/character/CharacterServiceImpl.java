@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.dao.CharacterDAO;
+import com.l2jserver.model.dao.CharacterShortcutDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
@@ -106,6 +107,10 @@ public class CharacterServiceImpl extends AbstractService implements
 	 * The {@link ItemDAO}
 	 */
 	private final ItemDAO itemDao;
+	/**
+	 * The {@link CharacterShortcutDAO}
+	 */
+	private final CharacterShortcutDAO shortcutDao;
 
 	/**
 	 * The character ID provider
@@ -136,6 +141,8 @@ public class CharacterServiceImpl extends AbstractService implements
 	 *            the character DAO
 	 * @param itemDao
 	 *            the item DAO
+	 * @param shortcutDao
+	 *            the shortcut DAO
 	 * @param charTemplateIdProvider
 	 *            the character template id provider
 	 * @param charIdProvider
@@ -146,6 +153,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			WorldEventDispatcher eventDispatcher, SpawnService spawnService,
 			NPCService npcService, GameGuardService ggService,
 			CharacterDAO characterDao, ItemDAO itemDao,
+			CharacterShortcutDAO shortcutDao,
 			CharacterTemplateIDProvider charTemplateIdProvider,
 			CharacterIDProvider charIdProvider) {
 		this.broadcastService = broadcastService;
@@ -155,6 +163,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		this.ggService = ggService;
 		this.characterDao = characterDao;
 		this.itemDao = itemDao;
+		this.shortcutDao = shortcutDao;
 		this.charTemplateIdProvider = charTemplateIdProvider;
 		this.charIdProvider = charIdProvider;
 	}
@@ -223,7 +232,10 @@ public class CharacterServiceImpl extends AbstractService implements
 
 		log.debug("Character {} is entering world", character);
 
-		itemDao.loadInventory(character);
+		// load character data
+		character.getInventory().load(itemDao.selectByCharacter(character));
+		character.getShortcuts().load(shortcutDao.selectByCharacter(character));
+
 		character.setOnline(true);
 		// inventory interfere on calculators
 		character.getStats().updateCalculator();
@@ -403,7 +415,7 @@ public class CharacterServiceImpl extends AbstractService implements
 				// TODO dispatch stop event
 			}
 		}
-		
+
 		characterDao.saveObjectsAsync(character);
 	}
 

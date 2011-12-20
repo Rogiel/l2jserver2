@@ -25,11 +25,11 @@ import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
-import com.l2jserver.service.database.H2DAOModule;
+import com.l2jserver.service.database.JDBCDAOModule;
 
 public class StaticTemplateServiceTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new IDProviderModule(), new H2DAOModule());
+			new IDProviderModule(), new JDBCDAOModule());
 	private final ItemTemplateIDProvider factory = injector
 			.getInstance(ItemTemplateIDProvider.class);
 

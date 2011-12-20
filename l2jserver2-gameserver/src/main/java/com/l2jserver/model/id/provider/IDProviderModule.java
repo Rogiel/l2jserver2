@@ -69,13 +69,16 @@ public class IDProviderModule extends AbstractModule {
 
 		// MISC OBJECTS
 		install(new FactoryModuleBuilder().build(AccountIDProvider.class));
+		install(new FactoryModuleBuilder()
+				.build(CharacterShortcutIDProvider.class));
 		install(new FactoryModuleBuilder().build(FortIDProvider.class));
 		install(new FactoryModuleBuilder().build(FriendIDProvider.class));
 		install(new FactoryModuleBuilder().build(ChatMessageIDProvider.class));
 
 		// TEMPLATE IDS
 		install(new FactoryModuleBuilder().build(ItemTemplateIDProvider.class));
-		install(new FactoryModuleBuilder().build(EffectTemplateIDProvider.class));
+		install(new FactoryModuleBuilder()
+				.build(EffectTemplateIDProvider.class));
 		install(new FactoryModuleBuilder().build(SkillTemplateIDProvider.class));
 		install(new FactoryModuleBuilder()
 				.build(CharacterTemplateIDProvider.class));

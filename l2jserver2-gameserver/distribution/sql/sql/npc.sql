@@ -13,7 +13,7 @@ CREATE TABLE `npc` (
   KEY `point` (`point_x`,`point_y`,`point_z`,`point_angle`),
   KEY `xy` (`point_x`,`point_y`),
   KEY `xyz` (`point_x`,`point_y`,`point_z`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);
 
 --
 -- STATIC DATA

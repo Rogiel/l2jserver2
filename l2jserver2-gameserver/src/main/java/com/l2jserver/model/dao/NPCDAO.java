@@ -22,7 +22,6 @@ import java.util.List;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -30,7 +29,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface NPCDAO extends DataAccessObject<NPC, NPCID>, Cacheable {
+public interface NPCDAO extends DataAccessObject<NPC, NPCID> {
 	/**
 	 * Load all {@link NPC} instances
 	 * 

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `item` (
+CREATE TABLE `item` (
   `item_id` int(12) NOT NULL,
   `template_id` int(10) NOT NULL,
   `character_id` int(12) DEFAULT NULL,
@@ -11,4 +11,4 @@ CREATE TABLE IF NOT EXISTS `item` (
   PRIMARY KEY (`item_id`),
   KEY `character_id` (`character_id`),
   KEY `template_id` (`template_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);

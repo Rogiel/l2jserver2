@@ -34,7 +34,8 @@ import com.l2jserver.model.world.WorldObject;
  * @param <T>
  *            the {@link WorldObject} type
  */
-public abstract class ObjectID<T extends WorldObject> extends ID<Integer> {
+public abstract class ObjectID<T extends WorldObject> extends
+		AbstractModelID<Integer, T> {
 	/**
 	 * Creates a new instance
 	 * 

@@ -56,7 +56,7 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCCharacterDAO extends
+public class JDBCCharacterDAO extends
 		AbstractJDBCDAO<L2Character, CharacterID> implements CharacterDAO {
 	/**
 	 * The {@link CharacterID} factory

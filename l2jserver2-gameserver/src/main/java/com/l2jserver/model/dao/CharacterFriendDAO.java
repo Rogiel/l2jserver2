@@ -20,7 +20,6 @@ import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.id.FriendID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
-import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.cache.IgnoreCaching;
 import com.l2jserver.service.database.DataAccessObject;
 
@@ -31,7 +30,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface CharacterFriendDAO extends
-		DataAccessObject<CharacterFriend, FriendID>, Cacheable {
+		DataAccessObject<CharacterFriend, FriendID> {
 	/**
 	 * Load the friend list for character represented by <tt>character</tt> from
 	 * the database

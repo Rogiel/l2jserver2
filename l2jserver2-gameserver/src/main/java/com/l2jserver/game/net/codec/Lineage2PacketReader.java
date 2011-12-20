@@ -41,6 +41,8 @@ import com.l2jserver.game.net.packet.client.CM_CHAR_OPEN_MAP;
 import com.l2jserver.game.net.packet.client.CM_CHAR_POSITION;
 import com.l2jserver.game.net.packet.client.CM_CHAR_REQ_INVENTORY;
 import com.l2jserver.game.net.packet.client.CM_CHAR_SELECT;
+import com.l2jserver.game.net.packet.client.CM_CHAR_SHORTCUT_REMOVE;
+import com.l2jserver.game.net.packet.client.CM_CHAR_SHORTCUT_CREATE;
 import com.l2jserver.game.net.packet.client.CM_CHAR_TARGET_UNSELECT;
 import com.l2jserver.game.net.packet.client.CM_ENTER_WORLD;
 import com.l2jserver.game.net.packet.client.CM_EXT_REQ_ALL_FORTRESS_INFO;
@@ -196,6 +198,10 @@ public class Lineage2PacketReader extends OneToOneDecoder {
 			return CM_ITEM_DESTROY.class;
 		case CM_CHAR_TARGET_UNSELECT.OPCODE:
 			return CM_CHAR_TARGET_UNSELECT.class;
+		case CM_CHAR_SHORTCUT_CREATE.OPCODE:
+			return CM_CHAR_SHORTCUT_CREATE.class;
+		case CM_CHAR_SHORTCUT_REMOVE.OPCODE:
+			return CM_CHAR_SHORTCUT_REMOVE.class;
 		default:
 			logger.warn("Unknown packet for 0x{}", Integer.toHexString(opcode));
 			break;

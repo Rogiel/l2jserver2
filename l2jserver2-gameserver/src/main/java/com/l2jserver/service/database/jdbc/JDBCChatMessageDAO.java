@@ -45,7 +45,7 @@ import com.l2jserver.service.game.chat.ChatMessageType;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCChatMessageDAO extends
+public class JDBCChatMessageDAO extends
 		AbstractJDBCDAO<ChatMessage, ChatMessageID> implements ChatMessageDAO {
 	/**
 	 * The {@link ChatMessageID} factory

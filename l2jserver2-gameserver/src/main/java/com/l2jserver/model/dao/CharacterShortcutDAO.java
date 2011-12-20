@@ -16,16 +16,28 @@
  */
 package com.l2jserver.model.dao;
 
-import com.l2jserver.model.id.ChatMessageID;
-import com.l2jserver.model.server.ChatMessage;
+import java.util.List;
+
+import com.l2jserver.model.game.CharacterShortcut;
+import com.l2jserver.model.id.CharacterShortcutID;
+import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
- * The {@link ChatMessageDAO} is can load and save {@link ChatMessage chat
- * messages}.
+ * The {@link CharacterShortcutDAO} is can load and save
+ * {@link CharacterFriendList character friend list}.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ChatMessageDAO extends
-		DataAccessObject<ChatMessage, ChatMessageID> {
+public interface CharacterShortcutDAO extends
+		DataAccessObject<CharacterShortcut, CharacterShortcutID> {
+	/**
+	 * Loads the shortcuts at the list fors <tt>character</tt> from the database
+	 * 
+	 * @param character
+	 *            the character
+	 * @return all shortcuts from the given character
+	 */
+	List<CharacterShortcut> selectByCharacter(L2Character character);
 }

@@ -43,7 +43,7 @@ import com.l2jserver.service.database.DatabaseService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCCharacterFriendDAO extends
+public class JDBCCharacterFriendDAO extends
 		AbstractJDBCDAO<CharacterFriend, FriendID> implements
 		CharacterFriendDAO {
 	/**

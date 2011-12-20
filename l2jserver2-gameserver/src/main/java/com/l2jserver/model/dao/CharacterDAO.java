@@ -22,7 +22,6 @@ import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -32,7 +31,7 @@ import com.l2jserver.service.database.DataAccessObject;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface CharacterDAO extends
-		DataAccessObject<L2Character, CharacterID>, Cacheable {
+		DataAccessObject<L2Character, CharacterID> {
 	/**
 	 * Load the members of the given <tt>clan</tt>
 	 * 

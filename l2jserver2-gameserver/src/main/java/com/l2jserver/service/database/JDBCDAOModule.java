@@ -21,37 +21,41 @@ import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.CharacterFriendDAO;
+import com.l2jserver.model.dao.CharacterShortcutDAO;
 import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.service.database.jdbc.mysql5.MySQL5CharacterDAO;
-import com.l2jserver.service.database.jdbc.mysql5.MySQL5CharacterFriendDAO;
-import com.l2jserver.service.database.jdbc.mysql5.MySQL5ChatMessageDAO;
-import com.l2jserver.service.database.jdbc.mysql5.MySQL5ClanDAO;
-import com.l2jserver.service.database.jdbc.mysql5.MySQL5ItemDAO;
-import com.l2jserver.service.database.jdbc.mysql5.MySQL5NPCDAO;
+import com.l2jserver.service.database.jdbc.JDBCCharacterDAO;
+import com.l2jserver.service.database.jdbc.JDBCCharacterFriendDAO;
+import com.l2jserver.service.database.jdbc.JDBCCharacterShortcutDAO;
+import com.l2jserver.service.database.jdbc.JDBCChatMessageDAO;
+import com.l2jserver.service.database.jdbc.JDBCClanDAO;
+import com.l2jserver.service.database.jdbc.JDBCItemDAO;
+import com.l2jserver.service.database.jdbc.JDBCNPCDAO;
 
 /**
- * Google Guice {@link Module} for MySQL5 DAOs
+ * Google Guice {@link Module} for JDBC DAOs
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class MySQL5DAOModule extends AbstractModule {
+public class JDBCDAOModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(CharacterDAO.class).to(MySQL5CharacterDAO.class).in(
+		bind(CharacterDAO.class).to(JDBCCharacterDAO.class)
+				.in(Scopes.SINGLETON);
+		bind(CharacterFriendDAO.class).to(JDBCCharacterFriendDAO.class).in(
 				Scopes.SINGLETON);
-		bind(CharacterFriendDAO.class).to(MySQL5CharacterFriendDAO.class).in(
+		bind(CharacterShortcutDAO.class).to(JDBCCharacterShortcutDAO.class).in(
 				Scopes.SINGLETON);
 
-		bind(NPCDAO.class).to(MySQL5NPCDAO.class).in(Scopes.SINGLETON);
+		bind(NPCDAO.class).to(JDBCNPCDAO.class).in(Scopes.SINGLETON);
 
-		bind(ItemDAO.class).to(MySQL5ItemDAO.class).in(Scopes.SINGLETON);
-		bind(ClanDAO.class).to(MySQL5ClanDAO.class).in(Scopes.SINGLETON);
+		bind(ItemDAO.class).to(JDBCItemDAO.class).in(Scopes.SINGLETON);
+		bind(ClanDAO.class).to(JDBCClanDAO.class).in(Scopes.SINGLETON);
 
 		// logs
-		bind(ChatMessageDAO.class).to(MySQL5ChatMessageDAO.class).in(
+		bind(ChatMessageDAO.class).to(JDBCChatMessageDAO.class).in(
 				Scopes.SINGLETON);
 
 		// DAO Resolver

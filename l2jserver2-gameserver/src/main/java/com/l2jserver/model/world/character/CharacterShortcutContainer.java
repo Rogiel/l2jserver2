@@ -16,14 +16,12 @@
  */
 package com.l2jserver.model.world.character;
 
-import java.io.Serializable;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
-import com.l2jserver.model.game.Shortcut;
+import com.l2jserver.model.game.CharacterShortcut;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -32,7 +30,7 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class CharacterShortcutContainer implements Iterable<Shortcut> {
+public class CharacterShortcutContainer implements Iterable<CharacterShortcut> {
 	/**
 	 * The character
 	 */
@@ -40,7 +38,8 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	/**
 	 * The shortcut list
 	 */
-	private List<Shortcut> shortcuts = CollectionFactory.newList();
+	private Map<Integer, CharacterShortcut> shortcuts = CollectionFactory
+			.newMap();
 
 	/**
 	 * Creates a new instance
@@ -58,9 +57,8 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 * @param shortcut
 	 *            the shortcut to be added
 	 */
-	public void register(Shortcut shortcut) {
-		shortcuts.add(shortcut);
-		Collections.sort(shortcuts, new ShortcutSlotComparator());
+	public void register(CharacterShortcut shortcut) {
+		shortcuts.put(shortcut.getPage() * 12 + shortcut.getSlot(), shortcut);
 	}
 
 	/**
@@ -69,41 +67,32 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 * @param shortcut
 	 *            the shortcut to be removed
 	 */
-	public void unregister(Shortcut shortcut) {
-		shortcuts.remove(shortcut);
-		Collections.sort(shortcuts, new ShortcutSlotComparator());
+	public void unregister(CharacterShortcut shortcut) {
+		for (final Entry<Integer, CharacterShortcut> entry : shortcuts
+				.entrySet()) {
+			if (entry.getValue().getID().equals(shortcut.getID())) {
+				shortcuts.remove(entry.getKey());
+				return;
+			}
+		}
 	}
 
 	/**
-	 * Swap two shortcuts between them. Once swap is complete,
-	 * <tt>shortcut1</tt> will be in the place of <tt>shortcut2</tt>, and
-	 * <tt>shortcut2</tt> in <tt>shortcut1</tt>.
-	 * 
-	 * @param shortcut1
-	 *            the first shortcut
-	 * @param shortcut2
-	 *            the second shortcut
+	 * @param page
+	 *            the page
+	 * @param slot
+	 *            the slot
+	 * @return the given character shortcut, if registered.
 	 */
-	public void swap(Shortcut shortcut1, Shortcut shortcut2) {
-		// only swap if is registered already
-		if (!shortcuts.contains(shortcut1) || !shortcuts.contains(shortcut2))
-			return;
-
-		final int slot1 = shortcut1.getSlot();
-		final int page1 = shortcut1.getPage();
-		shortcut1.setSlot(shortcut2.getSlot());
-		shortcut1.setPage(shortcut2.getPage());
-		shortcut2.setSlot(slot1);
-		shortcut2.setPage(page1);
-
-		Collections.sort(shortcuts, new ShortcutSlotComparator());
+	public CharacterShortcut get(int page, int slot) {
+		return shortcuts.get(page * 12 + slot);
 	}
 
 	/**
 	 * @return true if container is full
 	 */
 	public boolean isFull() {
-		return shortcuts.size() >= 12 * 4;
+		return shortcuts.size() >= 12 * 10;
 	}
 
 	/**
@@ -120,14 +109,22 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 * @param shortcuts
 	 *            the collection of shortcuts
 	 */
-	public void load(Collection<Shortcut> shortcuts) {
-		this.shortcuts.addAll(shortcuts);
-		Collections.sort(this.shortcuts, new ShortcutSlotComparator());
+	public void load(Collection<CharacterShortcut> shortcuts) {
+		for (final CharacterShortcut shortcut : shortcuts) {
+			register(shortcut);
+		}
+	}
+
+	/**
+	 * @return the amount if shortcuts in the container
+	 */
+	public int getShortcutCount() {
+		return shortcuts.size();
 	}
 
 	@Override
-	public Iterator<Shortcut> iterator() {
-		return shortcuts.iterator();
+	public Iterator<CharacterShortcut> iterator() {
+		return shortcuts.values().iterator();
 	}
 
 	/**
@@ -135,24 +132,5 @@ public class CharacterShortcutContainer implements Iterable<Shortcut> {
 	 */
 	public L2Character getCharacter() {
 		return character;
-	}
-
-	/**
-	 * Compares two shortcut slots
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public static class ShortcutSlotComparator implements Comparator<Shortcut>,
-			Serializable {
-		/**
-		 * The Java Serialization API serial
-		 */
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		public int compare(Shortcut o1, Shortcut o2) {
-			return ((o1.getPage() * o1.getSlot()) - (o2.getPage() * o2
-					.getSlot()));
-		}
 	}
 }

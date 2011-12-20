@@ -31,13 +31,13 @@ import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.H2DAOModule;
+import com.l2jserver.service.database.JDBCDAOModule;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 
 public class CharacterIDProviderTest {
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new H2DAOModule(), new IDProviderModule());
+			new JDBCDAOModule(), new IDProviderModule());
 	private CharacterIDProvider charIdFactory;
 
 	@Before

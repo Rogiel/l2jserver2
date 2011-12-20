@@ -47,7 +47,7 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
+public class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
 		NPCDAO {
 	/**
 	 * The logger

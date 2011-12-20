@@ -18,7 +18,6 @@ package com.l2jserver.model.dao;
 
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
-import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -26,5 +25,5 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ClanDAO extends DataAccessObject<Clan, ClanID>, Cacheable {
+public interface ClanDAO extends DataAccessObject<Clan, ClanID> {
 }

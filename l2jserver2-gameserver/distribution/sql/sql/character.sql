@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `character` (
+CREATE TABLE `character` (
   `character_id` int(12) NOT NULL,
   `account_id` varchar(50) NOT NULL,
   `clan_id` int(10) DEFAULT NULL,
@@ -23,4 +23,4 @@ CREATE TABLE IF NOT EXISTS `character` (
   KEY `account_id` (`account_id`),
   KEY `name` (`name`),
   KEY `clan_id` (`clan_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);

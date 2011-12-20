@@ -14,24 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
-import com.l2jserver.service.database.JDBCDAOModule;
+package com.l2jserver.service.game.character;
 
 /**
- * The game server Google Guice {@link Module}.
+ * Exception thrown when the shortcut slot is not free
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new JDBCDAOModule());
-	}
+public class ShortcutSlotNotFreeServiceException extends
+		CharacterServiceException {
+	/**
+	 * The Java Serialization API serial
+	 */
+	private static final long serialVersionUID = 1L;
 }

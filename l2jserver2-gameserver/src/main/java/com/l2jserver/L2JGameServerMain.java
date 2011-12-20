@@ -23,6 +23,7 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.character.ShortcutService;
 import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.item.ItemService;
 import com.l2jserver.service.game.map.pathing.PathingService;
@@ -43,8 +44,9 @@ public class L2JGameServerMain {
 			ConfigurationService.class, DatabaseService.class,
 			WorldIDService.class, ScriptingService.class,
 			TemplateService.class, ChatService.class, NPCService.class,
-			ItemService.class, CharacterService.class, PathingService.class,
-			BlowfishKeygenService.class, NetworkService.class };
+			ItemService.class, CharacterService.class, ShortcutService.class,
+			PathingService.class, BlowfishKeygenService.class,
+			NetworkService.class };
 
 	/**
 	 * Main method

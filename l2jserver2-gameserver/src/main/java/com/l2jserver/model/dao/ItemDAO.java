@@ -21,7 +21,6 @@ import java.util.List;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.cache.Cacheable;
 import com.l2jserver.service.database.DataAccessObject;
 
 /**
@@ -30,15 +29,15 @@ import com.l2jserver.service.database.DataAccessObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface ItemDAO extends DataAccessObject<Item, ItemID>, Cacheable {
+public interface ItemDAO extends DataAccessObject<Item, ItemID> {
 	/**
 	 * Load the inventory for an {@link L2Character character}.
 	 * 
 	 * @param character
 	 *            the character
-	 * @return amount of items loaded
+	 * @return amount list of character items
 	 */
-	int loadInventory(L2Character character);
+	List<Item> selectByCharacter(L2Character character);
 
 	/**
 	 * Select from the database the items dropped on the ground

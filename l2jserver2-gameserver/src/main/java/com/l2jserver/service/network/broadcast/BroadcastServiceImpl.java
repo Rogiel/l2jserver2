@@ -23,23 +23,25 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
+import com.l2jserver.game.net.packet.server.SM_ACTOR_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_CHAT;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_DIE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_MOVE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE.Stat;
-import com.l2jserver.game.net.packet.server.SM_ACTOR_ATTACK;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
+import com.l2jserver.game.net.packet.server.SM_CHAR_MOVE_TYPE;
+import com.l2jserver.game.net.packet.server.SM_CHAR_SHORTCUT_LIST;
+import com.l2jserver.game.net.packet.server.SM_CHAR_SHORTCUT_REGISTER;
 import com.l2jserver.game.net.packet.server.SM_CHAR_TARGET;
 import com.l2jserver.game.net.packet.server.SM_CHAR_TARGET_UNSELECT;
 import com.l2jserver.game.net.packet.server.SM_CHAR_TELEPORT;
 import com.l2jserver.game.net.packet.server.SM_HTML;
 import com.l2jserver.game.net.packet.server.SM_ITEM_GROUND;
 import com.l2jserver.game.net.packet.server.SM_ITEM_PICK;
-import com.l2jserver.game.net.packet.server.SM_CHAR_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_NPC_INFO;
 import com.l2jserver.game.net.packet.server.SM_OBJECT_REMOVE;
 import com.l2jserver.model.id.object.CharacterID;
@@ -54,6 +56,7 @@ import com.l2jserver.model.world.actor.event.ActorAttackHitEvent;
 import com.l2jserver.model.world.actor.event.ActorDieEvent;
 import com.l2jserver.model.world.actor.event.ActorTeleportingEvent;
 import com.l2jserver.model.world.actor.event.ActorUnspawnEvent;
+import com.l2jserver.model.world.character.event.CharacterCreateShortcutEvent;
 import com.l2jserver.model.world.character.event.CharacterEnterWorldEvent;
 import com.l2jserver.model.world.character.event.CharacterEvent;
 import com.l2jserver.model.world.character.event.CharacterLeaveWorldEvent;
@@ -171,11 +174,11 @@ public class BroadcastServiceImpl extends AbstractService implements
 					// object is now out of sight
 					conn.write(new SM_OBJECT_REMOVE(object));
 				} else if (e instanceof CharacterWalkingEvent) {
-					conn.write(new SM_CHAR_MOVE_TYPE(((CharacterWalkingEvent) e)
-							.getCharacter()));
+					conn.write(new SM_CHAR_MOVE_TYPE(
+							((CharacterWalkingEvent) e).getCharacter()));
 				} else if (e instanceof CharacterRunningEvent) {
-					conn.write(new SM_CHAR_MOVE_TYPE(((CharacterRunningEvent) e)
-							.getCharacter()));
+					conn.write(new SM_CHAR_MOVE_TYPE(
+							((CharacterRunningEvent) e).getCharacter()));
 				} else if (e instanceof ActorDieEvent) {
 					conn.write(new SM_ACTOR_DIE(((ActorDieEvent) e).getActor()));
 				}
@@ -225,13 +228,15 @@ public class BroadcastServiceImpl extends AbstractService implements
 					conn.write(new SM_CHAR_INFO_EXTRA(character));
 					broadcastAll(conn, character);
 				} else if (e instanceof ActorAttackHitEvent) {
-					conn.write(new SM_ACTOR_ATTACK(((ActorAttackHitEvent) e).getHit()));
+					conn.write(new SM_ACTOR_ATTACK(((ActorAttackHitEvent) e)
+							.getHit()));
 					conn.sendSystemMessage(SystemMessage.YOU_DID_S1_DMG,
 							(int) ((ActorAttackHitEvent) e).getHit()
 									.getDamage());
 				} else if (e instanceof CharacterWalkingEvent
 						|| e instanceof CharacterRunningEvent) {
-					conn.write(new SM_CHAR_MOVE_TYPE((L2Character) e.getObject()));
+					conn.write(new SM_CHAR_MOVE_TYPE((L2Character) e
+							.getObject()));
 				} else if (e instanceof ActorTeleportingEvent) {
 					final ActorTeleportingEvent evt = (ActorTeleportingEvent) e;
 					conn.write(new SM_CHAR_TELEPORT((L2Character) evt
@@ -240,6 +245,9 @@ public class BroadcastServiceImpl extends AbstractService implements
 					conn.write(new SM_HTML(((NPCTalkEvent) e).getNPC(),
 							((NPCTalkEvent) e).getHtml()));
 					conn.sendActionFailed();
+				} else if (e instanceof CharacterCreateShortcutEvent) {
+					conn.write(new SM_CHAR_SHORTCUT_REGISTER(
+							((CharacterCreateShortcutEvent) e).getShortcut()));
 				}
 				// keep listener alive
 				return true;
@@ -369,6 +377,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 		conn.write(new SM_CHAR_INFO(e.getCharacter()));
 		conn.write(new SM_CHAR_INFO_EXTRA(e.getCharacter()));
 		conn.write(new SM_CHAR_INVENTORY(e.getCharacter().getInventory()));
+		conn.write(new SM_CHAR_SHORTCUT_LIST(e.getCharacter().getShortcuts()));
 
 		broadcastAll(conn, character);
 	}

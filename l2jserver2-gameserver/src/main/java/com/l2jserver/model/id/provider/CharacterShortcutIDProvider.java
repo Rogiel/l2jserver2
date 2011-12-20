@@ -14,24 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver;
+package com.l2jserver.model.id.provider;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
-import com.l2jserver.model.id.provider.IDProviderModule;
-import com.l2jserver.service.ServiceModule;
-import com.l2jserver.service.database.JDBCDAOModule;
+import com.l2jserver.model.id.CastleID;
+import com.l2jserver.model.id.CharacterShortcutID;
 
 /**
- * The game server Google Guice {@link Module}.
+ * Creates a new {@link CastleID}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class GameServerModule extends AbstractModule {
-	@Override
-	protected void configure() {
-		install(new ServiceModule());
-		install(new IDProviderModule());
-		install(new JDBCDAOModule());
-	}
+public interface CharacterShortcutIDProvider extends
+		IDProvider<Integer, CharacterShortcutID> {
 }

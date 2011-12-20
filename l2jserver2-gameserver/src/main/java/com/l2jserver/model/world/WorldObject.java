@@ -16,6 +16,7 @@
  */
 package com.l2jserver.model.world;
 
+import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ObjectID;
 
 /**
@@ -25,7 +26,7 @@ import com.l2jserver.model.id.ObjectID;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface WorldObject {
+public interface WorldObject extends Model<ObjectID<?>> {
 	/**
 	 * Get the object's ID
 	 * 

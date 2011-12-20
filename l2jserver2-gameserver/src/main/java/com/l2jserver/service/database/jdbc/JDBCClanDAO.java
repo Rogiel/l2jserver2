@@ -42,7 +42,7 @@ import com.l2jserver.service.database.DatabaseService;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
+public class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
 		implements ClanDAO {
 	/**
 	 * The {@link ClanID} factory
