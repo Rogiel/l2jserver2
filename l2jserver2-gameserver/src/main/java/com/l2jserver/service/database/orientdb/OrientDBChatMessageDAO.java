@@ -38,7 +38,7 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.chat.ChatMessageType;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
-import com.orientechnologies.orient.core.query.nativ.OQueryContextNativeSchema;
+import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
@@ -132,16 +132,14 @@ public class OrientDBChatMessageDAO extends
 	public ChatMessage select(final ChatMessageID id) {
 		return database.query(new SelectSingleQuery<ChatMessage>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(MESSAGE_ID).eq(id.getID()).go();
 					};
 				};
@@ -158,16 +156,14 @@ public class OrientDBChatMessageDAO extends
 	public List<ChatMessageID> selectIDs() {
 		return database.query(new SelectListQuery<ChatMessageID>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return true;
 					};
 				};
@@ -184,7 +180,7 @@ public class OrientDBChatMessageDAO extends
 	public int insertObjects(ChatMessage... messages) {
 		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, ChatMessage object) {
 				return null;
 			}
@@ -226,16 +222,14 @@ public class OrientDBChatMessageDAO extends
 	public int deleteObjects(ChatMessage... messages) {
 		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, final ChatMessage message) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(MESSAGE_ID).eq(message.getID())
 								.and().go();
 					};
@@ -257,7 +251,7 @@ public class OrientDBChatMessageDAO extends
 			}
 		});
 	}
-	
+
 	@Override
 	protected ChatMessage[] wrap(Model<?>... objects) {
 		final ChatMessage[] array = new ChatMessage[objects.length];

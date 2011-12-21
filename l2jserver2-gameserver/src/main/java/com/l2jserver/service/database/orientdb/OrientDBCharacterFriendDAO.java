@@ -38,7 +38,7 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.jdbc.JDBCCharacterDAO;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
-import com.orientechnologies.orient.core.query.nativ.OQueryContextNativeSchema;
+import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
@@ -115,16 +115,14 @@ public class OrientDBCharacterFriendDAO extends
 	public CharacterFriend select(final FriendID id) {
 		return database.query(new SelectSingleQuery<CharacterFriend>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CHAR_ID).eq(id.getID1().getID())
 								.field(CHAR_ID_FRIEND).eq(id.getID2().getID())
 								.go();
@@ -144,16 +142,14 @@ public class OrientDBCharacterFriendDAO extends
 		final List<CharacterFriend> list = database
 				.query(new SelectListQuery<CharacterFriend>() {
 					@Override
-					protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+					protected ONativeSynchQuery<OQueryContextNative> createQuery(
 							ODatabaseDocumentTx database) {
-						return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-								database, CLASS_NAME,
-								new OQueryContextNativeSchema<ODocument>()) {
+						return new ONativeSynchQuery<OQueryContextNative>(
+								database, CLASS_NAME, new OQueryContextNative()) {
 							private static final long serialVersionUID = 1L;
 
 							@Override
-							public boolean filter(
-									OQueryContextNativeSchema<ODocument> criteria) {
+							public boolean filter(OQueryContextNative criteria) {
 								return criteria.field(CHAR_ID)
 										.eq(character.getID().getID()).go();
 							};
@@ -172,16 +168,14 @@ public class OrientDBCharacterFriendDAO extends
 	public List<FriendID> selectIDs() {
 		return database.query(new SelectListQuery<FriendID>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return true;
 					};
 				};
@@ -198,7 +192,7 @@ public class OrientDBCharacterFriendDAO extends
 	public int insertObjects(CharacterFriend... friends) {
 		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, CharacterFriend object) {
 				return null;
 			}
@@ -230,16 +224,14 @@ public class OrientDBCharacterFriendDAO extends
 	public int deleteObjects(CharacterFriend... friends) {
 		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, final CharacterFriend friend) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CHAR_ID)
 								.eq(friend.getCharacterID().getID()).and()
 								.field(CHAR_ID_FRIEND)
@@ -280,7 +272,7 @@ public class OrientDBCharacterFriendDAO extends
 		}
 		return true;
 	}
-	
+
 	@Override
 	protected CharacterFriend[] wrap(Model<?>... objects) {
 		final CharacterFriend[] array = new CharacterFriend[objects.length];

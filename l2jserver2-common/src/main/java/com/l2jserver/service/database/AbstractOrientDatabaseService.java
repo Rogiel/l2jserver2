@@ -46,7 +46,7 @@ import com.l2jserver.util.ArrayIterator;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
-import com.orientechnologies.orient.core.query.nativ.OQueryContextNativeSchema;
+import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
@@ -392,7 +392,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final T object = iterator.next();
-				final ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> query = createQuery(
+				final ONativeSynchQuery<OQueryContextNative> query = createQuery(
 						database, object);
 				final ODocument document;
 				if (query != null) {
@@ -423,7 +423,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * @return the <b>prepared</b> query. If <tt>null</tt> is returned a
 		 *         insert query will be performed.
 		 */
-		protected abstract ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+		protected abstract ONativeSynchQuery<OQueryContextNative> createQuery(
 				ODatabaseDocumentTx database, T object);
 
 		/**
@@ -515,7 +515,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * 
 		 * @return the <b>prepared</b> query
 		 */
-		protected abstract ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+		protected abstract ONativeSynchQuery<OQueryContextNative> createQuery(
 				ODatabaseDocumentTx database);
 
 		/**
@@ -578,7 +578,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 * 
 		 * @return the <b>prepared</b> query
 		 */
-		protected abstract ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+		protected abstract ONativeSynchQuery<OQueryContextNative> createQuery(
 				ODatabaseDocumentTx database);
 
 		/**

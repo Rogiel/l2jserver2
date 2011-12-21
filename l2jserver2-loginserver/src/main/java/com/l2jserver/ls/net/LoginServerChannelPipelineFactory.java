@@ -6,8 +6,6 @@ import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
 import org.jboss.netty.handler.codec.frame.LengthFieldBasedFrameDecoder;
 import org.jboss.netty.handler.codec.frame.LengthFieldPrepender;
-import org.jboss.netty.handler.codec.serialization.ObjectDecoder;
-import org.jboss.netty.handler.codec.serialization.ObjectEncoder;
 
 import com.l2jserver.service.gameserver.GameServerNetworkService;
 
@@ -30,8 +28,8 @@ public class LoginServerChannelPipelineFactory implements
 		pipeline.addLast("frameDecoder", new LengthFieldBasedFrameDecoder(
 				1048576, 0, 4, 0, 4));
 
-		pipeline.addLast("encoder", new ObjectEncoder());
-		pipeline.addLast("decoder", new ObjectDecoder());
+		// pipeline.addLast("encoder", new ObjectEncoder());
+		// pipeline.addLast("decoder", new ObjectDecoder());
 
 		return null;
 	}

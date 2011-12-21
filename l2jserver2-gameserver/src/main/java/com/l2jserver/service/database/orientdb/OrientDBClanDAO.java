@@ -37,7 +37,7 @@ import com.l2jserver.service.database.AbstractOrientDatabaseService.SelectSingle
 import com.l2jserver.service.database.DatabaseService;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
-import com.orientechnologies.orient.core.query.nativ.OQueryContextNativeSchema;
+import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
@@ -111,16 +111,14 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 	public Clan select(final ClanID id) {
 		return database.query(new SelectSingleQuery<Clan>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CLAN_ID).eq(id.getID()).go();
 					};
 				};
@@ -137,16 +135,14 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 	public List<ClanID> selectIDs() {
 		return database.query(new SelectListQuery<ClanID>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return true;
 					};
 				};
@@ -163,7 +159,7 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 	public int insertObjects(Clan... clans) {
 		return database.query(new InsertUpdateQuery<Clan>(clans) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, Clan object) {
 				return null;
 			}
@@ -194,16 +190,14 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 	public int deleteObjects(Clan... clans) {
 		return database.query(new InsertUpdateQuery<Clan>(clans) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, final Clan clan) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CLAN_ID).eq(clan.getID()).go();
 					};
 				};
@@ -224,7 +218,7 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
 			}
 		});
 	}
-	
+
 	@Override
 	protected Clan[] wrap(Model<?>... objects) {
 		final Clan[] array = new Clan[objects.length];

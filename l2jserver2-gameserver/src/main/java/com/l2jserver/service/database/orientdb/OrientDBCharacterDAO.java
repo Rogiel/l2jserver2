@@ -50,7 +50,7 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.util.geometry.Point3D;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
-import com.orientechnologies.orient.core.query.nativ.OQueryContextNativeSchema;
+import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
@@ -200,18 +200,16 @@ public class OrientDBCharacterDAO extends
 	public L2Character select(final CharacterID id) {
 		return database.query(new SelectSingleQuery<L2Character>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CHAR_ID).eq(id.getID()).go();
-					};
+					}
 				};
 			}
 
@@ -226,16 +224,14 @@ public class OrientDBCharacterDAO extends
 	public Collection<CharacterID> selectIDs() {
 		return database.query(new SelectListQuery<CharacterID>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return true;
 					};
 				};
@@ -252,7 +248,7 @@ public class OrientDBCharacterDAO extends
 	public int insertObjects(L2Character... objects) {
 		return database.query(new InsertUpdateQuery<L2Character>(objects) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, L2Character object) {
 				return null;
 			}
@@ -309,16 +305,14 @@ public class OrientDBCharacterDAO extends
 	public int updateObjects(final L2Character... characters) {
 		return database.query(new InsertUpdateQuery<L2Character>(characters) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, final L2Character character) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CHAR_ID)
 								.eq(character.getID().getID()).go();
 					};
@@ -376,16 +370,14 @@ public class OrientDBCharacterDAO extends
 	public int deleteObjects(L2Character... objects) {
 		return database.query(new InsertUpdateQuery<L2Character>(objects) {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database, final L2Character character) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(CHAR_ID)
 								.eq(character.getID().getID()).go();
 					};
@@ -416,16 +408,14 @@ public class OrientDBCharacterDAO extends
 	public L2Character selectByName(final String name) {
 		return database.query(new SelectSingleQuery<L2Character>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
+					public boolean filter(OQueryContextNative criteria) {
 						return criteria.field(NAME).eq(name).go();
 					};
 				};
@@ -442,17 +432,16 @@ public class OrientDBCharacterDAO extends
 	public List<L2Character> selectByAccount(final AccountID account) {
 		return database.query(new SelectListQuery<L2Character>() {
 			@Override
-			protected ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>> createQuery(
+			protected ONativeSynchQuery<OQueryContextNative> createQuery(
 					ODatabaseDocumentTx database) {
-				return new ONativeSynchQuery<ODocument, OQueryContextNativeSchema<ODocument>>(
-						database, CLASS_NAME,
-						new OQueryContextNativeSchema<ODocument>()) {
+				return new ONativeSynchQuery<OQueryContextNative>(database,
+						CLASS_NAME, new OQueryContextNative()) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public boolean filter(
-							OQueryContextNativeSchema<ODocument> criteria) {
-						return criteria.field(ACCOUNT_ID).eq(account.getID()).go();
+					public boolean filter(OQueryContextNative criteria) {
+						return criteria.field(ACCOUNT_ID).eq(account.getID())
+								.go();
 					};
 				};
 			}
@@ -463,7 +452,7 @@ public class OrientDBCharacterDAO extends
 			}
 		});
 	}
-	
+
 	@Override
 	protected L2Character[] wrap(Model<?>... objects) {
 		final L2Character[] array = new L2Character[objects.length];
