@@ -19,6 +19,7 @@ package com.l2jserver.service.game.admin;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceException;
 
 /**
  * This service handles administrators in the server
@@ -37,9 +38,11 @@ public interface AdministratorService extends Service {
 	 *            the command
 	 * @param args
 	 *            the arguments
+	 * @throws ServiceException
+	 *             if any service exception occur
 	 */
 	void command(Lineage2Client conn, L2Character character, String command,
-			String... args);
+			String... args) throws ServiceException;
 
 	/**
 	 * The base interface for Administrator commands

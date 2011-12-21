@@ -20,6 +20,8 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
+import com.l2jserver.util.factory.CollectionFactory;
+
 /**
  * This class represents desire queue, it's thread-safe. Desires can be added
  * and removed. If desire is added - previous desires will be checked, if same
@@ -80,7 +82,7 @@ public class DesireQueue {
 	public synchronized void addDesire(Desire desire) {
 		// Lazy initialization of desire queue
 		if (queue == null) {
-			queue = new PriorityQueue<Desire>();
+			queue = CollectionFactory.newPriorityQueue();
 		}
 
 		// Iterate over the list to find similar desires

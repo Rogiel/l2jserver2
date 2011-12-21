@@ -17,8 +17,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<type>jar</type>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -37,7 +36,7 @@
 		<dependency>
 			<groupId>org.jboss.netty</groupId>
 			<artifactId>netty</artifactId>
-			<version>3.2.4.Final</version>
+			<version>3.2.7.Final</version>
 		</dependency>
 
 		<!-- google guice -->

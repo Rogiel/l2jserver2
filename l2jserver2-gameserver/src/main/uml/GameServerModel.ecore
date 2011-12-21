@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="com.l2jserver2.model"
+    nsURI="http://model.l2jserver2.com/model/1.0" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractModel" abstract="true" eSuperTypes="#//Model"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ID" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractModelID" abstract="true" eSuperTypes="#//ID"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractCompoundID" eSuperTypes="#//ID"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IDProvider" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundIDProvider" abstract="true"
+      interface="true" eSuperTypes="#//IDProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WorldObject" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" eSuperTypes="#//PositionableObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//PositionableObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Template" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="NPC"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NPC" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="L2Character" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pet" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractTemplate" abstract="true" eSuperTypes="#//Template"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SkillTemplate" eSuperTypes="#//AbstractTemplate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActorTemplate" eSuperTypes="#//AbstractTemplate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacterTemplate" eSuperTypes="#//ActorTemplate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NPCTemplate" eSuperTypes="#//ActorTemplate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemTemplate" eSuperTypes="#//AbstractTemplate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectTemplate" eSuperTypes="#//AbstractTemplate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositionableObject" abstract="true"
+      eSuperTypes="#//WorldObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacterShortcut" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChatMessage" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Castle" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacterFriend" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Fort" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Skill" eSuperTypes="#//AbstractModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataAccessObject" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDAO" abstract="true" eSuperTypes="#//DataAccessObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JDBCAbstractDAO" abstract="true" eSuperTypes="#//AbstractDAO"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacterDAO" abstract="true" interface="true"
+      eSuperTypes="#//DataAccessObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemDAO" abstract="true" interface="true"
+      eSuperTypes="#//DataAccessObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NPCDAO" abstract="true" interface="true"
+      eSuperTypes="#//DataAccessObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JDBCCharacterDAO" eSuperTypes="#//JDBCAbstractDAO #//CharacterDAO"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JDBCItemDAO" eSuperTypes="#//ItemDAO #//JDBCAbstractDAO"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JDBCNPCDAO" eSuperTypes="#//NPCDAO #//JDBCAbstractDAO"/>
+</ecore:EPackage>

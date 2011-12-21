@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="com.l2jserver2.ai"
+    nsURI="http://model.l2jserver2.com/1.0" nsPrefix="ai">
+  <eClassifiers xsi:type="ecore:EClass" name="AIService" abstract="true" interface="true">
+    <eOperations name="desire">
+      <eParameters name="desire" eType="#//Desire"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AI" instanceClassName="com.l2jserver2.ai.AI"
+      abstract="true" interface="true">
+    <eOperations name="getWorldEventListener">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This method returns the WorldEventListener that should filter all world events intereting for this AI"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActorAI" abstract="true" eSuperTypes="#//AI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NPCAI" eSuperTypes="#//ActorAI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacterAI" eSuperTypes="#//ActorAI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PetAI" eSuperTypes="#//ActorAI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MonsterAI" eSuperTypes="#//NPCAI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Desire" instanceClassName="com.l2jserver2.ai.Desire"
+      abstract="true" interface="true">
+    <eOperations name="perform">
+      <eParameters name="elaspsedTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="getAI" eType="#//AI"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttackDesire" eSuperTypes="#//AbstractDesire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CastDesire" eSuperTypes="#//AbstractDesire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDesire" abstract="true" eSuperTypes="#//Desire"/>
+</ecore:EPackage>

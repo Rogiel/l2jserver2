@@ -21,6 +21,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
+import com.l2jserver.service.ServiceException;
 import com.l2jserver.service.game.admin.AdministratorService;
 import com.l2jserver.util.BufferUtils;
 
@@ -77,7 +78,14 @@ public class CM_ADMIN_COMMAND extends AbstractClientPacket {
 		// conn.sendActionFailed();
 		// }
 		// }
-		adminService.command(conn, conn.getCharacter(), "", new String[] {});
+		try {
+			adminService
+					.command(conn, conn.getCharacter(), "", new String[] {});
+		} catch (ServiceException e) {
+			conn.sendMessage("Invalid administrator command or syntax");
+		} finally {
+			conn.sendActionFailed();
+		}
 
 		// TODO implement admin commands
 	}
