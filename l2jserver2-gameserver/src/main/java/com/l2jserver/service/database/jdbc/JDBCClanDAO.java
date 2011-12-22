@@ -16,167 +16,109 @@
  */
 package com.l2jserver.service.database.jdbc;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import java.util.Collection;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.ClanDAO;
-import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.object.provider.ClanIDProvider;
 import com.l2jserver.model.world.Clan;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
+import com.l2jserver.service.database.mapper.ClanMapper;
+import com.l2jserver.service.database.model.QClan;
+import com.mysema.query.sql.AbstractSQLQuery;
+import com.mysema.query.sql.dml.SQLDeleteClause;
+import com.mysema.query.sql.dml.SQLInsertClause;
+import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
  * {@link CharacterDAO} implementation for JDBC
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID>
-		implements ClanDAO {
-	/**
-	 * The {@link ClanID} factory
-	 */
-	private final ClanIDProvider idFactory;
-	/**
-	 * The {@link CharacterID} factory
-	 */
-	@SuppressWarnings("unused")
-	private final CharacterIDProvider charIdFactory;
-
-	/**
-	 * Character table name
-	 */
-	public static final String TABLE = "clan";
-	// FIELDS
-	public static final String CLAN_ID = "clan_id";
-	public static final String CHAR_ID_LEADER = "character_id_leader";
+public class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implements
+		ClanDAO {
+	private final ClanMapper mapper;
 
 	/**
 	 * @param database
 	 *            the database service
-	 * @param clanIdFactory
-	 *            the clan id provider
-	 * @param idFactory
-	 *            the character id provider
+	 * @param mapper
+	 *            the mapper
 	 */
 	@Inject
-	public JDBCClanDAO(DatabaseService database, ClanIDProvider clanIdFactory,
-			final CharacterIDProvider idFactory) {
+	public JDBCClanDAO(DatabaseService database, final ClanMapper mapper) {
 		super(database);
-		this.idFactory = clanIdFactory;
-		this.charIdFactory = idFactory;
+		this.mapper = mapper;
 	}
-
-	/**
-	 * The {@link Mapper} for {@link ClanID}
-	 */
-	private final Mapper<ClanID> idMapper = new Mapper<ClanID>() {
-		@Override
-		public ClanID map(ResultSet rs) throws SQLException {
-			return idFactory.resolveID(rs.getInt(CLAN_ID));
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link Clan}
-	 */
-	private final Mapper<Clan> mapper = new CachedMapper<Clan, ClanID>(
-			database, idMapper) {
-		@Override
-		protected Clan map(ClanID id, ResultSet rs) throws SQLException {
-			final Clan clan = new Clan();
-			clan.setID(id);
-			return clan;
-		}
-	};
 
 	@Override
 	public Clan select(final ClanID id) {
-		return database.query(new SelectSingleQuery<Clan>() {
+		return database.query(new SelectSingleQuery<Clan, QClan>(QClan.clan,
+				mapper) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + CLAN_ID
-						+ "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, id.getID());
-			}
-
-			@Override
-			protected Mapper<Clan> mapper() {
-				return mapper;
+			protected void query(AbstractSQLQuery<?> q, QClan e) {
+				q.where(e.clanId.eq(id.getID()));
 			}
 		});
 	}
 
 	@Override
-	public List<ClanID> selectIDs() {
-		return database.query(new SelectListQuery<ClanID>() {
+	public Collection<ClanID> selectIDs() {
+		return database.query(new SelectListQuery<ClanID, QClan>(QClan.clan,
+				mapper.getIDMapper()) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "`";
-			}
-
-			@Override
-			protected Mapper<ClanID> mapper() {
-				return idMapper;
+			protected void query(AbstractSQLQuery<?> q, QClan e) {
 			}
 		});
 	}
 
 	@Override
-	public int insertObjects(Clan... clans) {
-		return database.query(new InsertUpdateQuery<Clan>(clans) {
+	public int insertObjects(Clan... objects) {
+		return database.query(new InsertQuery<Clan, QClan, Integer>(QClan.clan,
+				QClan.clan.clanId, objects) {
 			@Override
-			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + CLAN_ID
-						+ "`) VALUES(?)";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st, Clan clan)
-					throws SQLException {
-				st.setInt(1, clan.getID().getID());
+			protected void map(SQLInsertClause q, Clan o) {
+				q.set(e.clanId, o.getID().getID()).set(e.characterIdLeader,
+						o.getLeaderID().getID());
 			}
 		});
 	}
 
 	@Override
-	public int updateObjects(Clan... clans) {
-		// TODO implement clan update
-		return 0;
+	public int updateObjects(Clan... objects) {
+		return database
+				.query(new UpdateQuery<Clan, QClan>(QClan.clan, objects) {
+					@Override
+					protected void query(SQLUpdateClause q, Clan o) {
+						q.where(e.clanId.eq(o.getID().getID()));
+					}
+
+					@Override
+					protected void map(SQLUpdateClause q, Clan o) {
+						q.set(e.clanId, o.getID().getID()).set(
+								e.characterIdLeader, o.getLeaderID().getID());
+					}
+				});
 	}
 
 	@Override
-	public int deleteObjects(Clan... clans) {
-		return database.query(new InsertUpdateQuery<Clan>(clans) {
-			@Override
-			protected String query() {
-				return "DELETE FROM `" + TABLE + "` WHERE `" + CLAN_ID
-						+ "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st, Clan clan)
-					throws SQLException {
-				st.setInt(1, clan.getID().getID());
-			}
-		});
+	public int deleteObjects(Clan... objects) {
+		return database
+				.query(new DeleteQuery<Clan, QClan>(QClan.clan, objects) {
+					@Override
+					protected void query(SQLDeleteClause q, Clan o) {
+						q.where(e.clanId.eq(o.getID().getID()));
+					}
+				});
 	}
-	
+
 	@Override
 	protected Clan[] wrap(Model<?>... objects) {
 		final Clan[] array = new Clan[objects.length];

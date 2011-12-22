@@ -16,9 +16,6 @@
  */
 package com.l2jserver.service.database.jdbc;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import com.google.inject.Inject;
@@ -26,17 +23,18 @@ import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterFriendDAO;
 import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.id.FriendID;
-import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.provider.FriendIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.mapper.CharacterFriendMapper;
+import com.l2jserver.service.database.model.QCharacterFriend;
+import com.mysema.query.sql.AbstractSQLQuery;
+import com.mysema.query.sql.dml.SQLDeleteClause;
+import com.mysema.query.sql.dml.SQLInsertClause;
 
 /**
  * {@link CharacterFriendDAO} implementation for JDBC
@@ -47,107 +45,47 @@ public class JDBCCharacterFriendDAO extends
 		AbstractJDBCDAO<CharacterFriend, FriendID> implements
 		CharacterFriendDAO {
 	/**
-	 * The {@link FriendID} provider
+	 * The {@link CharacterFriend} mapper
 	 */
-	private final FriendIDProvider idProvider;
-	/**
-	 * The {@link CharacterID} provider
-	 */
-	private final CharacterIDProvider charIdProvider;
-
-	/**
-	 * Character table name
-	 */
-	public static final String TABLE = "character_friend";
-	// FIELDS
-	public static final String CHAR_ID = JDBCCharacterDAO.CHAR_ID;
-	public static final String CHAR_ID_FRIEND = JDBCCharacterDAO.CHAR_ID
-			+ "_friend";
+	private final CharacterFriendMapper mapper;
 
 	/**
 	 * @param database
 	 *            the database service
-	 * @param idProvider
-	 *            the frind id provider
-	 * @param charIdProvider
-	 *            the character id provider
+	 * @param mapper
+	 *            the character friend mapper
 	 */
 	@Inject
 	public JDBCCharacterFriendDAO(DatabaseService database,
-			final FriendIDProvider idProvider,
-			CharacterIDProvider charIdProvider) {
+			CharacterFriendMapper mapper) {
 		super(database);
-		this.idProvider = idProvider;
-		this.charIdProvider = charIdProvider;
+		this.mapper = mapper;
 	}
-
-	/**
-	 * The {@link Mapper} for {@link FriendID}
-	 */
-	private final Mapper<FriendID> idMapper = new Mapper<FriendID>() {
-		@Override
-		public FriendID map(ResultSet rs) throws SQLException {
-			final CharacterID characterId = charIdProvider.resolveID(rs
-					.getInt(CHAR_ID));
-			final CharacterID friendId = charIdProvider.resolveID(rs
-					.getInt(CHAR_ID_FRIEND));
-			return idProvider.createID(characterId, friendId);
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link CharacterFriend}
-	 */
-	private final Mapper<CharacterFriend> mapper = new CachedMapper<CharacterFriend, FriendID>(
-			database, idMapper) {
-		@Override
-		protected CharacterFriend map(FriendID id, ResultSet rs)
-				throws SQLException {
-			return new CharacterFriend(id);
-		}
-	};
 
 	@Override
 	public CharacterFriend select(final FriendID id) {
-		return database.query(new SelectSingleQuery<CharacterFriend>() {
-			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ? AND `" + CHAR_ID_FRIEND + "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, id.getID1().getID());
-				st.setInt(2, id.getID2().getID());
-			}
-
-			@Override
-			protected Mapper<CharacterFriend> mapper() {
-				return mapper;
-			}
-		});
+		return database
+				.query(new SelectSingleQuery<CharacterFriend, QCharacterFriend>(
+						QCharacterFriend.characterFriend, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q,
+							QCharacterFriend e) {
+						q.where(e.characterId.eq(id.getCharacterID().getID())
+								.and(e.characterIdFriend.eq(id.getFriendID()
+										.getID())));
+					}
+				});
 	}
 
 	@Override
 	public void load(final L2Character character) {
 		final List<CharacterFriend> list = database
-				.query(new SelectListQuery<CharacterFriend>() {
+				.query(new SelectListQuery<CharacterFriend, QCharacterFriend>(
+						QCharacterFriend.characterFriend, mapper) {
 					@Override
-					protected String query() {
-						return "SELECT * FROM `" + TABLE + "` WHERE `"
-								+ CHAR_ID + "` = ?";
-					}
-
-					@Override
-					protected void parametize(PreparedStatement st)
-							throws SQLException {
-						st.setInt(1, character.getID().getID());
-					}
-
-					@Override
-					protected Mapper<CharacterFriend> mapper() {
-						return mapper;
+					protected void query(AbstractSQLQuery<?> q,
+							QCharacterFriend e) {
+						q.where(e.characterId.eq(character.getID().getID()));
 					}
 				});
 		character.getFriendList().load(list);
@@ -155,35 +93,25 @@ public class JDBCCharacterFriendDAO extends
 
 	@Override
 	public List<FriendID> selectIDs() {
-		return database.query(new SelectListQuery<FriendID>() {
+		return database.query(new SelectListQuery<FriendID, QCharacterFriend>(
+				QCharacterFriend.characterFriend, mapper.getIDMapper()) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "`";
-			}
-
-			@Override
-			protected Mapper<FriendID> mapper() {
-				return idMapper;
+			protected void query(AbstractSQLQuery<?> q, QCharacterFriend e) {
 			}
 		});
 	}
 
 	@Override
 	public int insertObjects(CharacterFriend... friends) {
-		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
-			@Override
-			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
-						+ CHAR_ID_FRIEND + "`) VALUES(?,?)";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st,
-					CharacterFriend friend) throws SQLException {
-				st.setInt(1, friend.getCharacterID().getID());
-				st.setInt(2, friend.getFriendID().getID());
-			}
-		});
+		return database
+				.query(new InsertQuery<CharacterFriend, QCharacterFriend, Object>(
+						QCharacterFriend.characterFriend, friends) {
+					@Override
+					protected void map(SQLInsertClause q, CharacterFriend o) {
+						q.set(e.characterId, o.getCharacterID().getID()).set(
+								e.characterIdFriend, o.getFriendID().getID());
+					}
+				});
 	}
 
 	@Override
@@ -195,20 +123,17 @@ public class JDBCCharacterFriendDAO extends
 
 	@Override
 	public int deleteObjects(CharacterFriend... friends) {
-		return database.query(new InsertUpdateQuery<CharacterFriend>(friends) {
-			@Override
-			protected String query() {
-				return "DELETE FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?,`" + CHAR_ID_FRIEND + "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st,
-					CharacterFriend friend) throws SQLException {
-				st.setInt(1, friend.getCharacterID().getID());
-				st.setInt(2, friend.getFriendID().getID());
-			}
-		});
+		return database
+				.query(new DeleteQuery<CharacterFriend, QCharacterFriend>(
+						QCharacterFriend.characterFriend, friends) {
+					@Override
+					protected void query(SQLDeleteClause q, CharacterFriend o) {
+						q.where(e.characterId.eq(
+								o.getID().getCharacterID().getID()).and(
+								e.characterIdFriend.eq(o.getID().getFriendID()
+										.getID())));
+					}
+				});
 	}
 
 	@Override
@@ -228,7 +153,7 @@ public class JDBCCharacterFriendDAO extends
 		}
 		return true;
 	}
-	
+
 	@Override
 	protected CharacterFriend[] wrap(Model<?>... objects) {
 		final CharacterFriend[] array = new CharacterFriend[objects.length];

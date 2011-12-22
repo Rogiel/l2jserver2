@@ -48,7 +48,6 @@
 			<excludes>
 				<exclude>mysql:*</exclude>
 				<exclude>org.apache.derby:*</exclude>
-				<exclude>com.orientechnologies:*</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>

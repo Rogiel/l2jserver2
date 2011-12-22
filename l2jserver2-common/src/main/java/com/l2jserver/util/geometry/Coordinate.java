@@ -18,10 +18,11 @@ package com.l2jserver.util.geometry;
 
 import org.apache.commons.math.geometry.Vector3D;
 
+
 /**
  * Represents an coordinate in the game world.
  * <p>
- * Each coordinate has 3 points: x, y and z.
+ * Each coordinate has 3 axis: x, y and z.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.database;
 
+import com.l2jserver.model.Model;
+import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
@@ -98,4 +100,60 @@ public interface DatabaseService extends Service {
 		 */
 		int perform();
 	}
+
+	/**
+	 * Checks for the cached version of the object
+	 * 
+	 * @param <I>
+	 *            the {@link ID} type
+	 * @param <O>
+	 *            the {@link Model} type
+	 * 
+	 * @param id
+	 *            the object ID
+	 * @return the cached version, if any
+	 */
+	<I extends ID<?>, O extends Model<?>> Object getCachedObject(I id);
+
+	/**
+	 * Checks for the cached version of the object
+	 * 
+	 * @param <I>
+	 *            the {@link ID} type
+	 * @param <O>
+	 *            the {@link Model} type
+	 * 
+	 * @param id
+	 *            the object ID
+	 * @return true if has an cached version,
+	 */
+	<I extends ID<?>, O extends Model<?>> boolean hasCachedObject(I id);
+
+	/**
+	 * Updates an cache object
+	 * 
+	 * @param <I>
+	 *            the {@link ID} type
+	 * @param <O>
+	 *            the {@link Model} type
+	 * 
+	 * @param id
+	 *            the cache key
+	 * @param value
+	 *            the model value
+	 */
+	<I extends ID<?>, O extends Model<?>> void updateCache(I id, O value);
+
+	/**
+	 * Removes an cached object
+	 * 
+	 * @param <I>
+	 *            the {@link ID} type
+	 * @param <O>
+	 *            the {@link Model} type
+	 * 
+	 * @param id
+	 *            the object id
+	 */
+	<I extends ID<?>, O extends Model<?>> void removeCache(I id);
 }

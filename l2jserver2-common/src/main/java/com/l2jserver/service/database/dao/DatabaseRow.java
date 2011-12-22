@@ -14,31 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.orientdb;
+package com.l2jserver.service.database.dao;
 
-import com.l2jserver.model.Model;
-import com.l2jserver.model.id.ID;
-import com.l2jserver.service.database.AbstractDAO;
-import com.l2jserver.service.database.AbstractOrientDatabaseService;
-import com.l2jserver.service.database.DatabaseService;
+import com.mysema.query.types.Path;
 
 /**
+ * Database column used to read data
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @param <T>
- *            the model type
- * @param <I>
- *            the id type
  */
-public abstract class AbstractOrientDBDAO<T extends Model<?>, I extends ID<?>>
-		extends AbstractDAO<T, I> {
-	protected final AbstractOrientDatabaseService database;
-
-	/**
-	 * @param database
-	 *            the database instance
-	 */
-	protected AbstractOrientDBDAO(DatabaseService database) {
-		super(database);
-		this.database = (AbstractOrientDatabaseService) database;
-	}
+public interface DatabaseRow {
+	<T> T get(Path<T> path);
+	
+	<T> boolean isNull(Path<T> path);
 }

@@ -180,8 +180,9 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * 
 	 * @param object
 	 *            the object
+	 * @return the number of inserted rows
 	 */
-	void insert(O object);
+	int insert(O object);
 
 	/**
 	 * Inserts several instances in the database using a transaction (if
@@ -210,8 +211,9 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	 * 
 	 * @param object
 	 *            the object
+	 * @return the number of updated rows
 	 */
-	void update(O object);
+	int update(O object);
 
 	/**
 	 * Updates several instances in the database using a transaction (if

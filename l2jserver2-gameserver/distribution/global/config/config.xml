@@ -26,6 +26,16 @@
 				<!-- The driver used to connect to the database. Please note that the 
 					driver library must be available in the JVM classpath. -->
 				<driver>com.mysql.jdbc.Driver</driver>
+				
+				<!-- The SQLTemplates provides several low-level SQL management. Templates 
+					are database dependent. -->
+				<templates>com.mysema.query.sql.MySQLTemplates</templates>
+
+				<!-- The query factory provides an class that allows to convert Java 
+					code to SQL code and parses database results into more easily managed Java 
+					code. -->
+				<queryFactory>com.mysema.query.sql.mysql.MySQLQueryFactory
+				</queryFactory>
 
 				<!-- The username used to login into the database. NOTE: Try not use 
 					"root" in production servers for security reasons. -->

@@ -16,29 +16,26 @@
  */
 package com.l2jserver.service.database.jdbc;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
+import java.util.Collection;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.id.ChatMessageID;
-import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.provider.ChatMessageIDProvider;
 import com.l2jserver.model.server.ChatMessage;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.game.chat.ChatMessageType;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
+import com.l2jserver.service.database.mapper.ChatMessageMapper;
+import com.l2jserver.service.database.model.QLogChat;
+import com.mysema.query.sql.AbstractSQLQuery;
+import com.mysema.query.sql.dml.SQLDeleteClause;
+import com.mysema.query.sql.dml.SQLInsertClause;
+import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
  * {@link CharacterDAO} implementation for JDBC
@@ -47,186 +44,99 @@ import com.l2jserver.service.game.chat.ChatMessageType;
  */
 public class JDBCChatMessageDAO extends
 		AbstractJDBCDAO<ChatMessage, ChatMessageID> implements ChatMessageDAO {
-	/**
-	 * The {@link ChatMessageID} factory
-	 */
-	private final ChatMessageIDProvider idFactory;
-	/**
-	 * The {@link CharacterID} factory
-	 */
-	private final CharacterIDProvider charIdFactory;
-
-	/**
-	 * Character table name
-	 */
-	public static final String TABLE = "log_chat";
-	// FIELDS
-	public static final String MESSAGE_ID = "message_id";
-	public static final String TYPE = "type";
-	public static final String CHANNEL_ID = "channel_id";
-	public static final String SENDER = "sender";
-	public static final String DATE = "date";
-	public static final String MESSAGE = "message";
+	private final ChatMessageMapper mapper;
 
 	/**
 	 * @param database
 	 *            the database service
-	 * @param idFactory
-	 *            the chat message id provider
-	 * @param charIdFactory
-	 *            the character id provider
+	 * @param mapper
+	 *            the mapper
 	 */
 	@Inject
-	public JDBCChatMessageDAO(DatabaseService database,
-			ChatMessageIDProvider idFactory,
-			final CharacterIDProvider charIdFactory) {
+	public JDBCChatMessageDAO(DatabaseService database, ChatMessageMapper mapper) {
 		super(database);
-		this.idFactory = idFactory;
-		this.charIdFactory = charIdFactory;
+		this.mapper = mapper;
 	}
-
-	/**
-	 * The {@link Mapper} for {@link ChatMessageID}
-	 */
-	private final Mapper<ChatMessageID> idMapper = new Mapper<ChatMessageID>() {
-		@Override
-		public ChatMessageID map(ResultSet rs) throws SQLException {
-			return idFactory.resolveID(rs.getInt(MESSAGE_ID));
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link ChatMessageID} as a PRIMARY KEY
-	 */
-	private final Mapper<ChatMessageID> primaryKeyMapper = new Mapper<ChatMessageID>() {
-		@Override
-		public ChatMessageID map(ResultSet rs) throws SQLException {
-			return idFactory.resolveID(rs.getInt(1));
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link ChatMessage}
-	 */
-	private final Mapper<ChatMessage> mapper = new CachedMapper<ChatMessage, ChatMessageID>(
-			database, idMapper) {
-		@Override
-		protected ChatMessage map(ChatMessageID id, ResultSet rs)
-				throws SQLException {
-			final ChatMessage message = new ChatMessage();
-			message.setID(id);
-
-			message.setType(ChatMessageType.valueOf(rs.getString(TYPE)));
-			switch (message.getType()) {
-			case SHOUT:
-				message.setTarget(charIdFactory.resolveID(rs.getInt(CHANNEL_ID)));
-				break;
-			default:
-				message.setChannelID(rs.getInt(CHANNEL_ID));
-				break;
-			}
-			message.setSender(charIdFactory.resolveID(rs.getInt(SENDER)));
-			message.setDate(new Date(rs.getTimestamp(DATE).getTime()));
-			message.setMessage(rs.getString(MESSAGE));
-
-			return message;
-		}
-	};
 
 	@Override
 	public ChatMessage select(final ChatMessageID id) {
-		return database.query(new SelectSingleQuery<ChatMessage>() {
+		return database.query(new SelectSingleQuery<ChatMessage, QLogChat>(
+				QLogChat.logChat, mapper) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + MESSAGE_ID
-						+ "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, id.getID());
-			}
-
-			@Override
-			protected Mapper<ChatMessage> mapper() {
-				return mapper;
+			protected void query(AbstractSQLQuery<?> q, QLogChat e) {
+				q.where(e.messageId.eq(id.getID()));
 			}
 		});
 	}
 
 	@Override
-	public List<ChatMessageID> selectIDs() {
-		return database.query(new SelectListQuery<ChatMessageID>() {
+	public Collection<ChatMessageID> selectIDs() {
+		return database.query(new SelectListQuery<ChatMessageID, QLogChat>(
+				QLogChat.logChat, mapper.getIDMapper()) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "`";
-			}
-
-			@Override
-			protected Mapper<ChatMessageID> mapper() {
-				return idMapper;
+			protected void query(AbstractSQLQuery<?> q, QLogChat e) {
 			}
 		});
 	}
 
 	@Override
-	public int insertObjects(ChatMessage... messages) {
-		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
+	public int insertObjects(ChatMessage... objects) {
+		return database.query(new InsertQuery<ChatMessage, QLogChat, Integer>(
+				QLogChat.logChat, QLogChat.logChat.messageId, objects) {
 			@Override
-			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + TYPE + "`,`"
-						+ CHANNEL_ID + "`,`" + SENDER + "`,`" + DATE + "`,`"
-						+ MESSAGE + "`) VALUES(?,?,?,?,?)";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st, ChatMessage message)
-					throws SQLException {
-				int i = 1;
-				st.setString(i++, message.getType().name());
-				switch (message.getType()) {
+			protected void map(SQLInsertClause q, ChatMessage o) {
+				q.set(e.type, o.getType()).set(e.sender, o.getSender().getID())
+						.set(e.date, o.getDate())
+						.set(e.message, o.getMessage());
+				switch (o.getType()) {
 				case SHOUT:
-					st.setInt(i++, message.getTarget().getID());
+					q.set(e.channelId, o.getTarget().getID());
 					break;
 				default:
-					st.setInt(i++, message.getChannelID());
+					q.set(e.channelId, o.getChannelID());
 					break;
 				}
-				st.setInt(i++, message.getSender().getID());
-				st.setTimestamp(i++, new Timestamp(message.getDate().getTime()));
-				st.setString(i++, message.getMessage());
-			}
-
-			@Override
-			protected Mapper<ChatMessageID> keyMapper() {
-				return primaryKeyMapper;
 			}
 		});
 	}
 
 	@Override
-	public int updateObjects(ChatMessage... messages) {
-		// cannot update chat message logs
-		return 0;
-	}
-
-	@Override
-	public int deleteObjects(ChatMessage... messages) {
-		return database.query(new InsertUpdateQuery<ChatMessage>(messages) {
+	public int updateObjects(ChatMessage... objects) {
+		return database.query(new UpdateQuery<ChatMessage, QLogChat>(
+				QLogChat.logChat, objects) {
 			@Override
-			protected String query() {
-				return "DELETE FROM `" + TABLE + "` WHERE `" + MESSAGE_ID
-						+ "` = ?";
+			protected void query(SQLUpdateClause q, ChatMessage o) {
+				q.where(e.messageId.eq(o.getID().getID()));
 			}
 
 			@Override
-			protected void parametize(PreparedStatement st, ChatMessage message)
-					throws SQLException {
-				st.setInt(1, message.getID().getID());
+			protected void map(SQLUpdateClause q, ChatMessage o) {
+				q.set(e.type, o.getType()).set(e.sender, o.getSender().getID())
+						.set(e.date, o.getDate())
+						.set(e.message, o.getMessage());
+				switch (o.getType()) {
+				case SHOUT:
+					q.set(e.channelId, o.getTarget().getID());
+					break;
+				default:
+					q.set(e.channelId, o.getChannelID());
+					break;
+				}
 			}
 		});
 	}
-	
+
+	@Override
+	public int deleteObjects(ChatMessage... objects) {
+		return database.query(new DeleteQuery<ChatMessage, QLogChat>(
+				QLogChat.logChat, objects) {
+			@Override
+			protected void query(SQLDeleteClause q, ChatMessage o) {
+				q.where(e.messageId.eq(o.getID().getID()));
+			}
+		});
+	}
+
 	@Override
 	protected ChatMessage[] wrap(Model<?>... objects) {
 		final ChatMessage[] array = new ChatMessage[objects.length];

@@ -21,7 +21,6 @@ import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.database.AbstractDAO;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService;
 
 /**
  * {@link AbstractDAO} for JDBC DAO implementation

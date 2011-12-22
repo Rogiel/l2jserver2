@@ -118,8 +118,8 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
-	public void insert(T object) {
-		insertObjects(wrap(object));
+	public int insert(T object) {
+		return insertObjects(wrap(object));
 	}
 
 	@Override
@@ -134,8 +134,8 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	}
 
 	@Override
-	public void update(T object) {
-		updateObjects(wrap(object));
+	public int update(T object) {
+		return updateObjects(wrap(object));
 	}
 
 	@Override

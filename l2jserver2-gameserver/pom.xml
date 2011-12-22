@@ -21,7 +21,6 @@
 					<descriptors>
 						<descriptor>src/main/assembly/distribution-mysql5-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-h2-bin.xml</descriptor>
-						<descriptor>src/main/assembly/distribution-orientdb-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-derby-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-src.xml</descriptor>
 					</descriptors>
@@ -82,12 +81,6 @@
 			<artifactId>derby</artifactId>
 			<version>10.8.2.2</version>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.orientechnologies</groupId>
-			<artifactId>orientdb-core</artifactId>
-			<version>1.0rc7</version>
-			<type>jar</type>
 		</dependency>
 		<!-- cache -->
 		<dependency>

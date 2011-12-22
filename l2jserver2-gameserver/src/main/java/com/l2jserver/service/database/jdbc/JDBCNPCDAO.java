@@ -16,285 +16,157 @@
  */
 package com.l2jserver.service.database.jdbc;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.Collection;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.NPCDAO;
 import com.l2jserver.model.id.object.NPCID;
-import com.l2jserver.model.id.object.provider.NPCIDProvider;
 import com.l2jserver.model.id.template.NPCTemplateID;
-import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
-import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.world.NPC;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.util.geometry.Point3D;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
+import com.l2jserver.service.database.mapper.NPCMapper;
+import com.l2jserver.service.database.model.QNPC;
+import com.mysema.query.sql.AbstractSQLQuery;
+import com.mysema.query.sql.dml.SQLDeleteClause;
+import com.mysema.query.sql.dml.SQLInsertClause;
+import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
  * {@link CharacterDAO} implementation for JDBC
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements
-		NPCDAO {
-	/**
-	 * The logger
-	 */
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-	/**
-	 * The {@link NPCID} provider
-	 */
-	private final NPCIDProvider idProvider;
-	/**
-	 * The {@link NPCTemplateID} provider
-	 */
-	private final NPCTemplateIDProvider templateIdProvider;
-
-	/**
-	 * Character table name
-	 */
-	public static final String TABLE = "npc";
-	// FIELDS
-	public static final String NPC_ID = "npc_id";
-	public static final String NPC_TEMPLATE_ID = "npc_template_id";
-
-	public static final String HP = "hp";
-	public static final String MP = "mp";
-
-	public static final String POINT_X = "point_x";
-	public static final String POINT_Y = "point_y";
-	public static final String POINT_Z = "point_z";
-	public static final String POINT_ANGLE = "point_angle";
-
-	public static final String RESPAWN_TIME = "respawn_time";
+public class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements NPCDAO {
+	private final NPCMapper mapper;
 
 	/**
 	 * @param database
 	 *            the database service
-	 * @param idProvider
-	 *            the npc id provider
-	 * @param templateIdProvider
-	 *            the npc template id provider
+	 * @param mapper
+	 *            the mapper
 	 */
 	@Inject
-	public JDBCNPCDAO(DatabaseService database, final NPCIDProvider idProvider,
-			NPCTemplateIDProvider templateIdProvider) {
+	public JDBCNPCDAO(DatabaseService database, NPCMapper mapper) {
 		super(database);
-		this.idProvider = idProvider;
-		this.templateIdProvider = templateIdProvider;
+		this.mapper = mapper;
 	}
-
-	/**
-	 * The {@link Mapper} for {@link NPCID}
-	 */
-	private final Mapper<NPCID> idMapper = new Mapper<NPCID>() {
-		@Override
-		public NPCID map(ResultSet rs) throws SQLException {
-			if (rs.getString(NPC_ID) == null)
-				return null;
-			return idProvider.resolveID(rs.getInt(NPC_ID));
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link NPC}
-	 */
-	private final Mapper<NPC> mapper = new CachedMapper<NPC, NPCID>(database,
-			idMapper) {
-		@Override
-		protected NPC map(NPCID id, ResultSet rs) throws SQLException {
-			NPCTemplateID templateId = templateIdProvider.resolveID(rs
-					.getInt(NPC_TEMPLATE_ID));
-			NPCTemplate template = templateId.getTemplate();
-			if (template == null) {
-				log.warn("No template found for {}", templateId);
-				return null;
-			}
-
-			final NPC npc = template.create();
-			npc.setID(id);
-
-			if (rs.getString(HP) != null)
-				npc.setHP(rs.getDouble(HP));
-			if (rs.getString(MP) != null)
-				npc.setMP(rs.getDouble(MP));
-
-			npc.setPoint(Point3D.fromXYZA(rs.getInt(POINT_X),
-					rs.getInt(POINT_Y), rs.getInt(POINT_Z),
-					rs.getDouble(POINT_ANGLE)));
-
-			npc.setRespawnInterval(rs.getLong(RESPAWN_TIME));
-
-			return npc;
-		}
-	};
 
 	@Override
 	public NPC select(final NPCID id) {
-		return database.query(new SelectSingleQuery<NPC>() {
-			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + NPC_ID
-						+ "` = ?";
-			}
+		return database
+				.query(new SelectSingleQuery<NPC, QNPC>(QNPC.npc, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QNPC e) {
+						q.where(e.npcId.eq(id.getID()));
+					}
+				});
+	}
 
+	@Override
+	public Collection<NPC> loadAll() {
+		return database.query(new SelectListQuery<NPC, QNPC>(QNPC.npc, mapper) {
 			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, id.getID());
-			}
-
-			@Override
-			protected Mapper<NPC> mapper() {
-				return mapper;
+			protected void query(AbstractSQLQuery<?> q, QNPC e) {
 			}
 		});
 	}
 
 	@Override
-	public List<NPC> loadAll() {
-		return database.query(new SelectListQuery<NPC>() {
+	public List<NPC> selectByTemplate(final NPCTemplateID templateID) {
+		return database.query(new SelectListQuery<NPC, QNPC>(QNPC.npc, mapper) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "`";
-			}
-
-			@Override
-			protected Mapper<NPC> mapper() {
-				return mapper;
+			protected void query(AbstractSQLQuery<?> q, QNPC e) {
+				q.where(e.npcTemplateId.eq(templateID.getID()));
 			}
 		});
 	}
 
 	@Override
-	public List<NPC> selectByTemplate(final NPCTemplateID template) {
-		return database.query(new SelectListQuery<NPC>() {
+	public Collection<NPCID> selectIDs() {
+		return database.query(new SelectListQuery<NPCID, QNPC>(QNPC.npc, mapper
+				.getIDMapper()) {
 			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `"
-						+ NPC_TEMPLATE_ID + "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, template.getID());
-			}
-
-			@Override
-			protected Mapper<NPC> mapper() {
-				return mapper;
+			protected void query(AbstractSQLQuery<?> q, QNPC e) {
 			}
 		});
 	}
 
 	@Override
-	public List<NPCID> selectIDs() {
-		return database.query(new SelectListQuery<NPCID>() {
+	public int insertObjects(NPC... objects) {
+		return database.query(new InsertQuery<NPC, QNPC, Object>(QNPC.npc,
+				objects) {
 			@Override
-			protected String query() {
-				return "SELECT `" + NPC_ID + "` FROM `" + TABLE + "`";
-			}
+			protected void map(SQLInsertClause q, NPC o) {
+				q.set(e.npcId, o.getID().getID())
+						.set(e.npcTemplateId, o.getTemplateID().getID())
+						.set(e.hp, o.getHP())
+						.set(e.mp, o.getMP())
+						.set(e.pointX,
+								(o.getPoint() != null ? o.getPoint().getX()
+										: null))
+						.set(e.pointY,
+								(o.getPoint() != null ? o.getPoint().getY()
+										: null))
+						.set(e.pointZ,
+								(o.getPoint() != null ? o.getPoint().getZ()
+										: null))
+						.set(e.pointAngle,
+								(o.getPoint() != null ? o.getPoint().getAngle()
+										: null))
 
-			@Override
-			protected Mapper<NPCID> mapper() {
-				return idMapper;
-			}
-		});
-	}
+						.set(e.respawnTime, o.getRespawnInterval());
 
-	@Override
-	public int insertObjects(NPC... npcs) {
-		return database.query(new InsertUpdateQuery<NPC>(npcs) {
-			@Override
-			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + NPC_ID + "`,`"
-						+ NPC_TEMPLATE_ID + "`,`" + HP + "`, `" + MP + "`,`"
-						+ POINT_X + "`,`" + POINT_Y + "`,`" + POINT_Z + "`,`"
-						+ POINT_ANGLE + "`,`" + RESPAWN_TIME
-						+ "`) VALUES(?,?,?,?,?,?,?,?,?)";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st, NPC npc)
-					throws SQLException {
-				int i = 1;
-
-				st.setInt(i++, npc.getID().getID());
-				st.setInt(i++, npc.getTemplateID().getID());
-
-				st.setDouble(i++, npc.getHP());
-				st.setDouble(i++, npc.getMP());
-
-				st.setInt(i++, npc.getPoint().getX());
-				st.setInt(i++, npc.getPoint().getY());
-				st.setInt(i++, npc.getPoint().getZ());
-				st.setDouble(i++, npc.getPoint().getAngle());
-
-				st.setLong(i++, npc.getRespawnInterval());
 			}
 		});
 	}
 
 	@Override
-	public int updateObjects(NPC... npcs) {
-		return database.query(new InsertUpdateQuery<NPC>(npcs) {
+	public int updateObjects(NPC... objects) {
+		return database.query(new UpdateQuery<NPC, QNPC>(QNPC.npc, objects) {
 			@Override
-			protected String query() {
-				return "UPDATE `" + TABLE + "` SET `" + NPC_TEMPLATE_ID
-						+ "` = ?,`" + HP + "` = ?, `" + MP + "` = ?,`"
-						+ POINT_X + "` = ?,`" + POINT_Y + "` = ?,`" + POINT_Z
-						+ "` = ?,`" + POINT_ANGLE + "` = ?, `" + RESPAWN_TIME
-						+ "` = ? WHERE `" + NPC_ID + "` = ?";
+			protected void query(SQLUpdateClause q, NPC o) {
+				q.where(e.npcId.eq(o.getID().getID()));
 			}
 
 			@Override
-			protected void parametize(PreparedStatement st, NPC npc)
-					throws SQLException {
-				int i = 1;
+			protected void map(SQLUpdateClause q, NPC o) {
+				q.set(e.npcId, o.getID().getID())
+						.set(e.npcTemplateId, o.getTemplateID().getID())
+						.set(e.hp, o.getHP())
+						.set(e.mp, o.getMP())
+						.set(e.pointX,
+								(o.getPoint() != null ? o.getPoint().getX()
+										: null))
+						.set(e.pointY,
+								(o.getPoint() != null ? o.getPoint().getY()
+										: null))
+						.set(e.pointZ,
+								(o.getPoint() != null ? o.getPoint().getZ()
+										: null))
+						.set(e.pointAngle,
+								(o.getPoint() != null ? o.getPoint().getAngle()
+										: null))
 
-				// SET
-				st.setInt(i++, npc.getTemplateID().getID());
+						.set(e.respawnTime, o.getRespawnInterval());
 
-				st.setDouble(i++, npc.getHP());
-				st.setDouble(i++, npc.getMP());
-
-				st.setInt(i++, npc.getPoint().getX());
-				st.setInt(i++, npc.getPoint().getY());
-				st.setInt(i++, npc.getPoint().getZ());
-				st.setDouble(i++, npc.getPoint().getAngle());
-
-				st.setLong(i++, npc.getRespawnInterval());
-
-				// WHERE
-				st.setInt(i++, npc.getID().getID());
 			}
 		});
 	}
 
 	@Override
-	public int deleteObjects(NPC... npcs) {
-		return database.query(new InsertUpdateQuery<NPC>(npcs) {
+	public int deleteObjects(NPC... objects) {
+		return database.query(new DeleteQuery<NPC, QNPC>(QNPC.npc, objects) {
 			@Override
-			protected String query() {
-				return "DELETE FROM `" + TABLE + "` WHERE `" + NPC_ID + "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st, NPC npc)
-					throws SQLException {
-				st.setInt(1, npc.getID().getID());
+			protected void query(SQLDeleteClause q, NPC o) {
+				q.where(e.npcId.eq(o.getID().getID()));
 			}
 		});
 	}

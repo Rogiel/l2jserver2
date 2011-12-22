@@ -48,7 +48,6 @@
 			<excludes>
 				<exclude>mysql:*</exclude>
 				<exclude>com.h2database:*</exclude>
-				<exclude>com.orientechnologies:*</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>

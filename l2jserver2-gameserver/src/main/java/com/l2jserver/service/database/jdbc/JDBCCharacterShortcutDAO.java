@@ -16,32 +16,27 @@
  */
 package com.l2jserver.service.database.jdbc;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.dao.CharacterFriendDAO;
 import com.l2jserver.model.dao.CharacterShortcutDAO;
-import com.l2jserver.model.game.CharacterFriend;
 import com.l2jserver.model.game.CharacterShortcut;
-import com.l2jserver.model.game.CharacterShortcut.ShortcutType;
 import com.l2jserver.model.id.CharacterShortcutID;
-import com.l2jserver.model.id.FriendID;
-import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.id.object.ItemID;
-import com.l2jserver.model.id.object.provider.CharacterIDProvider;
-import com.l2jserver.model.id.object.provider.ItemIDProvider;
-import com.l2jserver.model.id.provider.CharacterShortcutIDProvider;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.CachedMapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.InsertUpdateQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.Mapper;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.AbstractJDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
+import com.l2jserver.service.database.mapper.CharacterShortcutMapper;
+import com.l2jserver.service.database.model.QCharacterShortcut;
+import com.mysema.query.sql.AbstractSQLQuery;
+import com.mysema.query.sql.dml.SQLDeleteClause;
+import com.mysema.query.sql.dml.SQLInsertClause;
+import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
  * {@link CharacterFriendDAO} implementation for JDBC
@@ -51,239 +46,114 @@ import com.l2jserver.service.database.DatabaseService;
 public class JDBCCharacterShortcutDAO extends
 		AbstractJDBCDAO<CharacterShortcut, CharacterShortcutID> implements
 		CharacterShortcutDAO {
-	/**
-	 * The {@link CharacterShortcutID} provider
-	 */
-	private final CharacterShortcutIDProvider idProvider;
-	/**
-	 * The {@link CharacterID} provider
-	 */
-	private final CharacterIDProvider charIdProvider;
-	/**
-	 * The {@link ItemID} provider
-	 */
-	private final ItemIDProvider itemIdProvider;
-
-	/**
-	 * Character table name
-	 */
-	public static final String TABLE = "character_shortcut";
-	// FIELDS
-	public static final String SHORTCUT_ID = "shortcut_id";
-	public static final String CHAR_ID = JDBCCharacterDAO.CHAR_ID;
-	public static final String TYPE = "type";
-	public static final String SLOT = "slot";
-	public static final String PAGE = "page";
-
-	// item id, skill id (pretty much anything!)
-	public static final String OBJECT_ID = "object_id";
-	public static final String SKILL_LEVEL = "skill_level";
+	private final CharacterShortcutMapper mapper;
 
 	/**
 	 * @param database
 	 *            the database service
-	 * @param idProvider
-	 *            the frind id provider
-	 * @param charIdProvider
-	 *            the character id provider
-	 * @param itemIdProvider
-	 *            the item id provider
+	 * @param mapper
+	 *            the {@link CharacterShortcut} mapper
 	 */
 	@Inject
 	public JDBCCharacterShortcutDAO(DatabaseService database,
-			final CharacterShortcutIDProvider idProvider,
-			CharacterIDProvider charIdProvider, ItemIDProvider itemIdProvider) {
+			CharacterShortcutMapper mapper) {
 		super(database);
-		this.idProvider = idProvider;
-		this.charIdProvider = charIdProvider;
-		this.itemIdProvider = itemIdProvider;
+		this.mapper = mapper;
 	}
-
-	/**
-	 * The {@link Mapper} for {@link FriendID}
-	 */
-	private final Mapper<CharacterShortcutID> idMapper = new Mapper<CharacterShortcutID>() {
-		@Override
-		public CharacterShortcutID map(ResultSet rs) throws SQLException {
-			return idProvider.resolveID(rs.getInt(SHORTCUT_ID));
-		}
-	};
-
-	/**
-	 * The {@link Mapper} for {@link CharacterFriend}
-	 */
-	private final Mapper<CharacterShortcut> mapper = new CachedMapper<CharacterShortcut, CharacterShortcutID>(
-			database, idMapper) {
-		@Override
-		protected CharacterShortcut map(CharacterShortcutID id, ResultSet rs)
-				throws SQLException {
-			final CharacterShortcut shortcut = new CharacterShortcut();
-			shortcut.setID(id);
-			final CharacterID charId = charIdProvider.resolveID(rs
-					.getInt(CHAR_ID));
-			shortcut.setCharacterID(charId);
-
-			// resolve type
-			final ShortcutType type = ShortcutType.valueOf(rs.getString(TYPE));
-			shortcut.setType(type);
-			switch (type) {
-			case ITEM:
-				final ItemID itemId = itemIdProvider.resolveID(rs
-						.getInt(OBJECT_ID));
-				shortcut.setItemID(itemId);
-				break;
-			}
-
-			shortcut.setPage(rs.getInt(PAGE));
-			shortcut.setSlot(rs.getInt(SLOT));
-
-			return shortcut;
-		}
-	};
 
 	@Override
 	public CharacterShortcut select(final CharacterShortcutID id) {
-		return database.query(new SelectSingleQuery<CharacterShortcut>() {
-			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + SHORTCUT_ID
-						+ "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, id.getID());
-			}
-
-			@Override
-			protected Mapper<CharacterShortcut> mapper() {
-				return mapper;
-			}
-		});
+		return database
+				.query(new SelectSingleQuery<CharacterShortcut, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q,
+							QCharacterShortcut e) {
+						q.where(e.shortcutId.eq(id.getID()));
+					}
+				});
 	}
 
 	@Override
 	public List<CharacterShortcut> selectByCharacter(final L2Character character) {
-		return database.query(new SelectListQuery<CharacterShortcut>() {
-			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "` WHERE `" + CHAR_ID
-						+ "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st) throws SQLException {
-				st.setInt(1, character.getID().getID());
-			}
-
-			@Override
-			protected Mapper<CharacterShortcut> mapper() {
-				return mapper;
-			}
-		});
+		return database
+				.query(new SelectListQuery<CharacterShortcut, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q,
+							QCharacterShortcut e) {
+						q.where(e.characterId.eq(character.getID().getID()));
+					}
+				});
 	}
 
 	@Override
 	public List<CharacterShortcutID> selectIDs() {
-		return database.query(new SelectListQuery<CharacterShortcutID>() {
-			@Override
-			protected String query() {
-				return "SELECT * FROM `" + TABLE + "`";
-			}
-
-			@Override
-			protected Mapper<CharacterShortcutID> mapper() {
-				return idMapper;
-			}
-		});
+		return database
+				.query(new SelectListQuery<CharacterShortcutID, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut, mapper
+								.getIDMapper()) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q,
+							QCharacterShortcut e) {
+					}
+				});
 	}
 
 	@Override
 	public int insertObjects(CharacterShortcut... shortcuts) {
-		return database.query(new InsertUpdateQuery<CharacterShortcut>(
-				shortcuts) {
-			@Override
-			protected String query() {
-				return "INSERT INTO `" + TABLE + "` (`" + CHAR_ID + "`,`"
-						+ TYPE + "`, `" + OBJECT_ID + "`, `" + SLOT + "`, `"
-						+ PAGE + "`) VALUES(?,?,?,?,?)";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st,
-					CharacterShortcut shortcut) throws SQLException {
-				int i = 1;
-				st.setInt(i++, shortcut.getCharacterID().getID());
-				st.setString(i++, shortcut.getType().name());
-				switch (shortcut.getType()) {
-				case ITEM:
-					st.setInt(i++, shortcut.getItemID().getID());
-					break;
-				}
-				st.setInt(i++, shortcut.getSlot());
-				st.setInt(i++, shortcut.getPage());
-			}
-
-			@Override
-			protected Mapper<CharacterShortcutID> keyMapper() {
-				return new Mapper<CharacterShortcutID>() {
+		return database
+				.query(new InsertQuery<CharacterShortcut, QCharacterShortcut, Integer>(
+						QCharacterShortcut.characterShortcut,
+						QCharacterShortcut.characterShortcut.shortcutId,
+						shortcuts) {
 					@Override
-					public CharacterShortcutID map(ResultSet rs)
-							throws SQLException {
-						return idProvider.resolveID(rs.getInt(1));
-					};
-				};
-			}
-		});
+					protected void map(SQLInsertClause q, CharacterShortcut o) {
+						q.set(e.characterId, o.getID().getID())
+								.set(e.type, o.getType())
+								.set(e.objectId, o.getItemID().getID())
+								.set(e.slot, o.getSlot())
+								.set(e.page, o.getPage());
+					}
+
+					@Override
+					protected void key(Integer k, CharacterShortcut o) {
+						// TODO
+					}
+				});
 	}
 
 	@Override
 	public int updateObjects(CharacterShortcut... shortcuts) {
-		return database.query(new InsertUpdateQuery<CharacterShortcut>(
-				shortcuts) {
-			@Override
-			protected String query() {
-				return "UPDATE `" + TABLE + "` SET `" + CHAR_ID + "` = ?,`"
-						+ TYPE + "` = ?, `" + OBJECT_ID + "` = ?, `" + SLOT
-						+ "` = ?, `" + PAGE + "` = ? WHERE `" + SHORTCUT_ID
-						+ "` = ?";
-			}
+		return database
+				.query(new UpdateQuery<CharacterShortcut, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut, shortcuts) {
+					@Override
+					protected void query(SQLUpdateClause q, CharacterShortcut o) {
+						q.where(e.shortcutId.eq(o.getID().getID()));
+					}
 
-			@Override
-			protected void parametize(PreparedStatement st,
-					CharacterShortcut shortcut) throws SQLException {
-				int i = 1;
-				st.setInt(i++, shortcut.getCharacterID().getID());
-				st.setString(i++, shortcut.getType().name());
-				switch (shortcut.getType()) {
-				case ITEM:
-					st.setInt(i++, shortcut.getItemID().getID());
-					break;
-				}
-				st.setInt(i++, shortcut.getSlot());
-				st.setInt(i++, shortcut.getPage());
-
-				st.setInt(i++, shortcut.getID().getID());
-			}
-		});
+					@Override
+					protected void map(SQLUpdateClause q, CharacterShortcut o) {
+						q.set(e.characterId, o.getID().getID())
+								.set(e.type, o.getType())
+								.set(e.objectId, o.getItemID().getID())
+								.set(e.slot, o.getSlot())
+								.set(e.page, o.getPage());
+					}
+				});
 	}
 
 	@Override
 	public int deleteObjects(CharacterShortcut... shortcuts) {
-		return database.query(new InsertUpdateQuery<CharacterShortcut>(
-				shortcuts) {
-			@Override
-			protected String query() {
-				return "DELETE FROM `" + TABLE + "` WHERE `" + SHORTCUT_ID
-						+ "` = ?";
-			}
-
-			@Override
-			protected void parametize(PreparedStatement st,
-					CharacterShortcut shortcut) throws SQLException {
-				st.setInt(1, shortcut.getID().getID());
-			}
-		});
+		return database
+				.query(new DeleteQuery<CharacterShortcut, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut, shortcuts) {
+					@Override
+					protected void query(SQLDeleteClause q, CharacterShortcut o) {
+						q.where(e.shortcutId.eq(o.getID().getID()));
+					}
+				});
 	}
 
 	@Override

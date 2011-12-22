@@ -16,10 +16,10 @@
  */
 package com.l2jserver.db.dao.mysql5;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Test;
 
+import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
@@ -30,17 +30,28 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.mapper.CharacterFriendMapper;
+import com.l2jserver.service.database.mapper.CharacterMapper;
+import com.l2jserver.service.database.mapper.CharacterShortcutMapper;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 
 public class MySQL5CharacterDAOTest {
 	private final Injector injector = Guice.createInjector(Stage.PRODUCTION,
-			new GameServerModule());
+			new GameServerModule(), new AbstractModule() {
+				@Override
+				protected void configure() {
+					bind(CharacterMapper.class);
+					bind(CharacterFriendMapper.class);
+					bind(CharacterShortcutMapper.class);
+				}
+			});
 
 	@Test
 	public void testCachedLoad() throws ServiceStartException {
 		injector.getInstance(ServiceManager.class).start(TemplateService.class);
-		injector.getInstance(ServiceManager.class).start(DatabaseService.class);
+		injector.getInstance(ServiceManager.class).start(
+				DatabaseService.class);
 		injector.getInstance(ServiceManager.class).start(WorldService.class);
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
@@ -49,6 +60,6 @@ public class MySQL5CharacterDAOTest {
 		final L2Character char2 = dao.select(injector.getInstance(
 				CharacterIDProvider.class).resolveID(268437456));
 
-		Assert.assertSame(char1, char2);
+		 Assert.assertSame(char1, char2);
 	}
 }
