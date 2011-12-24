@@ -104,4 +104,11 @@ public class Lineage2Session {
 	public int getLoginKey2() {
 		return loginKey2;
 	}
+
+	@Override
+	public String toString() {
+		return "Lineage2Session [accountID=" + accountID + ", playKey1="
+				+ playKey1 + ", playKey2=" + playKey2 + ", loginKey1="
+				+ loginKey1 + ", loginKey2=" + loginKey2 + "]";
+	}
 }

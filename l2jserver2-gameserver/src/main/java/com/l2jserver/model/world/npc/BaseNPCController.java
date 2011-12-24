@@ -77,10 +77,12 @@ public abstract class BaseNPCController implements NPCController {
 	public void interact(NPC npc, L2Character character, final String... args)
 			throws L2Exception {
 		if (args.length == 2) {
-			if (args[0].equals("Chat")) {
+			switch(args[0]) {
+			case "Chat":
 				if (talk(npc, character,
 						Arrays.copyOfRange(args, 1, args.length)))
 					return;
+				break;
 			}
 		} else if (args.length == 0 || args.length == 1) {
 			// default action is talk

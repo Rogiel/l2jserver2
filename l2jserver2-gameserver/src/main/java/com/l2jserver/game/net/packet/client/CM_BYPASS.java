@@ -87,7 +87,8 @@ public class CM_BYPASS extends AbstractClientPacket {
 		// parse command
 		final StringTokenizer tokenizer = new StringTokenizer(command, "_ ");
 		final String type = tokenizer.nextToken();
-		if (type.equals("npc")) {
+		switch (type) {
+		case "npc":
 			final int objectId = Integer.parseInt(tokenizer.nextToken());
 			final ObjectID<NPC> id = idResolver.resolve(objectId);
 			if (!(id instanceof NPCID)) {
@@ -107,8 +108,12 @@ public class CM_BYPASS extends AbstractClientPacket {
 					conn.sendSystemMessage(e.getSystemMessage());
 				conn.sendActionFailed();
 			}
-		} else {
-			log.warn("Client requested an bypass not supported by server");
+			return;
+		default:
+			log.warn(
+					"Client {} requested an bypass not supported by server: {}",
+					conn, type);
+			return;
 		}
 	}
 

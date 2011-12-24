@@ -46,7 +46,8 @@ public class TeleporterController extends BaseNPCController {
 	public void interact(NPC npc, L2Character character, String... args)
 			throws L2Exception {
 		if (args.length >= 2) {
-			if (args[0].equals("goto")) {
+			switch (args[0]) {
+			case "goto":
 				final TeleportationTemplate tele = teleportationIdProvider
 						.resolveID(Integer.parseInt(args[1])).getTemplate();
 				if (tele == null) {

@@ -150,7 +150,7 @@ public class Lineage2Client {
 	public boolean supports(ProtocolVersion version) {
 		if (version == null)
 			return false;
-		return version.supports(version);
+		return this.version.supports(version);
 	}
 
 	/**
@@ -404,5 +404,11 @@ public class Lineage2Client {
 	public Lineage2PacketWriter getPacketWriter() {
 		return (Lineage2PacketWriter) channel.getPipeline().get(
 				Lineage2PacketWriter.HANDLER_NAME);
+	}
+	@Override
+	public String toString() {
+		return "Lineage2Client [channel=" + channel + ", characterID="
+				+ characterID + ", session=" + session + ", version=" + version
+				+ "]";
 	}
 }
