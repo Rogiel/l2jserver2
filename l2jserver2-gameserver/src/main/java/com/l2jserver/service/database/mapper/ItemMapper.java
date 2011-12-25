@@ -29,8 +29,10 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QItem;
 import com.l2jserver.util.geometry.Coordinate;
 
@@ -38,16 +40,16 @@ import com.l2jserver.util.geometry.Coordinate;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class ItemMapper implements Mapper<Item, QItem> {
+public class ItemMapper extends AbstractMapper<Item, Integer, ItemID, QItem> {
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	private final Mapper<ItemID, QItem> idMapper = new Mapper<ItemID, QItem>() {
+	private final PrimaryKeyMapper<ItemID, Integer> idMapper = new PrimaryKeyMapper<ItemID, Integer>() {
 		@Override
-		public ItemID map(QItem e, DatabaseRow row) {
-			return idProvider.resolveID(row.get(e.itemId));
+		public ItemID createID(Integer raw) {
+			return idProvider.resolveID(raw);
 		}
 	};
 
@@ -83,7 +85,7 @@ public class ItemMapper implements Mapper<Item, QItem> {
 	}
 
 	@Override
-	public Item map(QItem e, DatabaseRow row) {
+	public Item select(QItem e, DatabaseRow row) {
 		final ItemID id = idProvider.resolveID(row.get(e.itemId));
 		final ItemTemplateID templateId = templateIdProvider.resolveID(row
 				.get(e.templateId));
@@ -113,7 +115,34 @@ public class ItemMapper implements Mapper<Item, QItem> {
 		return item;
 	}
 
-	public Mapper<ItemID, QItem> getIDMapper() {
+	@Override
+	public void insert(QItem e, Item object, WritableDatabaseRow row) {
+		update(e, object, row);
+	}
+
+	@Override
+	public void update(QItem e, Item object, WritableDatabaseRow row) {
+		row.set(e.itemId, object.getID().getID())
+				.set(e.templateId, object.getTemplateID().getID())
+				.set(e.characterId,
+						(object.getOwnerID() != null ? object.getOwnerID()
+								.getID() : null))
+				.set(e.location, object.getLocation())
+				.set(e.paperdoll, object.getPaperdoll())
+				.set(e.count, object.getCount())
+				.set(e.coordX,
+						(object.getPoint() != null ? object.getPoint().getX()
+								: null))
+				.set(e.coordY,
+						(object.getPoint() != null ? object.getPoint().getY()
+								: null))
+				.set(e.coordZ,
+						(object.getPoint() != null ? object.getPoint().getZ()
+								: null));
+	}
+
+	@Override
+	public PrimaryKeyMapper<ItemID, Integer> getPrimaryKeyMapper() {
 		return idMapper;
 	}
 }

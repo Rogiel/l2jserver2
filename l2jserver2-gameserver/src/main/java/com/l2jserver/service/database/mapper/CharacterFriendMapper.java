@@ -22,24 +22,41 @@ import com.l2jserver.model.id.FriendID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.provider.FriendIDProvider;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QCharacterFriend;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class CharacterFriendMapper implements
-		Mapper<CharacterFriend, QCharacterFriend> {
-	private final Mapper<FriendID, QCharacterFriend> idMapper = new Mapper<FriendID, QCharacterFriend>() {
-		@Override
-		public FriendID map(QCharacterFriend e, DatabaseRow row) {
-			return idProvider.createID(
-					charIdProvider.resolveID(row.get(e.characterId)),
-					charIdProvider.resolveID(row.get(e.characterIdFriend)));
-		}
-	};
+public class CharacterFriendMapper extends
+		AbstractMapper<CharacterFriend, FriendID, FriendID, QCharacterFriend> {
+	// private final CompoundPrimaryKeyMapper<FriendID, CharacterID,
+	// CharacterID, QCharacterFriend> idMapper = new
+	// CompoundPrimaryKeyMapper<FriendID, CharacterID, CharacterID,
+	// QCharacterFriend>() {
+	// @Override
+	// public AbstractCompoundID<CharacterID, CharacterID> raw(
+	// QCharacterFriend entity, DatabaseRow row) {
+	// return createID(entity, row);
+	// }
+	//
+	// @Override
+	// public FriendID createID(QCharacterFriend entity, DatabaseRow row) {
+	// return idProvider.createID(
+	// charIdProvider.resolveID(row.get(e.characterId)),
+	// charIdProvider.resolveID(row.get(e.characterIdFriend)));
+	// }
+	//
+	// @Override
+	// public FriendID generated(
+	// AbstractCompoundID<CharacterID, CharacterID> raw) {
+	// return null;
+	// }
+	// };
 
 	/**
 	 * The {@link CharacterID} provider
@@ -64,13 +81,26 @@ public class CharacterFriendMapper implements
 	}
 
 	@Override
-	public CharacterFriend map(QCharacterFriend e, DatabaseRow row) {
+	public CharacterFriend select(QCharacterFriend e, DatabaseRow row) {
 		return new CharacterFriend(idProvider.createID(
 				charIdProvider.resolveID(row.get(e.characterId)),
 				charIdProvider.resolveID(row.get(e.characterIdFriend))));
 	}
 
-	public Mapper<FriendID, QCharacterFriend> getIDMapper() {
-		return idMapper;
+	@Override
+	public void insert(QCharacterFriend e, CharacterFriend object,
+			WritableDatabaseRow row) {
+		row.set(e.characterId, object.getCharacterID().getID()).set(
+				e.characterIdFriend, object.getFriendID().getID());
+	}
+
+	@Override
+	public void update(QCharacterFriend e, CharacterFriend object,
+			WritableDatabaseRow row) {
+	}
+
+	@Override
+	public PrimaryKeyMapper<FriendID, FriendID> getPrimaryKeyMapper() {
+		return null;
 	}
 }

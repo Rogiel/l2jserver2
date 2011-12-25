@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql;
+package com.l2jserver.service.database.dao.sql;
 
 import java.util.List;
 
@@ -36,7 +36,6 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingl
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
-import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
@@ -65,126 +64,81 @@ public class SQLCharacterDAO extends AbstractSQLDAO<L2Character, CharacterID>
 
 	@Override
 	public L2Character select(final CharacterID id) {
-		return database.query(new SelectSingleQuery<L2Character, QCharacter>(
-				QCharacter.character, mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QCharacter e) {
-				q.where(e.characterId.eq(id.getID()));
-			}
-		});
+		return database
+				.query(new SelectSingleQuery<L2Character, Integer, CharacterID, QCharacter>(
+						QCharacter.character, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QCharacter e) {
+						q.where(e.characterId.eq(id.getID()));
+					}
+				});
 	}
 
 	@Override
 	public void load(final Clan clan) {
-		clan.getMembers().load(database.query(new SelectListQuery<CharacterID, QCharacter>(
-				QCharacter.character, mapper.getIDMapper()) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QCharacter e) {
-				q.where(e.clanId.eq(clan.getID().getID()));
-			}
-		}));
+		clan.getMembers()
+				.load(database
+						.query(new SelectListQuery<CharacterID, Integer, CharacterID, QCharacter>(
+								QCharacter.character, mapper
+										.getIDMapper(QCharacter.character)) {
+							@Override
+							protected void query(AbstractSQLQuery<?> q,
+									QCharacter e) {
+								q.where(e.clanId.eq(clan.getID().getID()));
+							}
+						}));
 	}
 
 	@Override
 	public L2Character selectByName(final String name) {
-		return database.query(new SelectSingleQuery<L2Character, QCharacter>(
-				QCharacter.character, mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QCharacter e) {
-				q.where(e.name.eq(name));
-			}
-		});
+		return database
+				.query(new SelectSingleQuery<L2Character, Integer, CharacterID, QCharacter>(
+						QCharacter.character, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QCharacter e) {
+						q.where(e.name.eq(name));
+					}
+				});
 	}
 
 	@Override
 	public List<L2Character> selectByAccount(final AccountID account) {
-		return database.query(new SelectListQuery<L2Character, QCharacter>(
-				QCharacter.character, mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QCharacter e) {
-				q.where(e.accountId.eq(account.getID()));
-			}
-		});
+		return database
+				.query(new SelectListQuery<L2Character, Integer, CharacterID, QCharacter>(
+						QCharacter.character, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QCharacter e) {
+						q.where(e.accountId.eq(account.getID()));
+					}
+				});
 	}
 
 	@Override
 	public List<CharacterID> selectIDs() {
-		return database.query(new SelectListQuery<CharacterID, QCharacter>(
-				QCharacter.character, mapper.getIDMapper()) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QCharacter e) {
-			}
-		});
+		return database
+				.query(new SelectListQuery<CharacterID, Integer, CharacterID, QCharacter>(
+						QCharacter.character, mapper
+								.getIDMapper(QCharacter.character)) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QCharacter e) {
+					}
+				});
 	}
 
 	@Override
 	public int insertObjects(L2Character... characters) {
-		return database.query(new InsertQuery<L2Character, QCharacter, Object>(
-				QCharacter.character, characters) {
-			@Override
-			protected void map(SQLInsertClause q, L2Character o) {
-				q.set(e.characterId, o.getID().getID())
-						.set(e.accountId, o.getAccountID().getID())
-						.set(e.clanId,
-								(o.getClanID() != null ? o.getClanID().getID()
-										: null))
-						.set(e.name, o.getName())
-						.set(e.race, o.getRace())
-						.set(e.characterClass, o.getCharacterClass())
-						.set(e.sex, o.getSex())
-						.set(e.level, o.getLevel())
-						.set(e.experience, o.getExperience())
-						.set(e.sp, o.getSP())
-						.set(e.hp, o.getHP())
-						.set(e.mp, o.getMP())
-						.set(e.cp, o.getCP())
-						.set(e.pointX, o.getPoint().getX())
-						.set(e.pointY, o.getPoint().getY())
-						.set(e.pointZ, o.getPoint().getZ())
-						.set(e.pointAngle, o.getPoint().getAngle())
-						.set(e.appearanceHairStyle,
-								o.getAppearance().getHairStyle())
-						.set(e.appearanceHairColor,
-								o.getAppearance().getHairColor())
-						.set(e.apperanceFace, o.getAppearance().getFace());
-			}
-		});
+		return database
+				.query(new InsertQuery<L2Character, Integer, CharacterID, QCharacter>(
+						QCharacter.character, mapper, characters));
 	}
 
 	@Override
 	public int updateObjects(L2Character... characters) {
 		return database.query(new UpdateQuery<L2Character, QCharacter>(
-				QCharacter.character, characters) {
+				QCharacter.character, mapper, characters) {
 			@Override
 			protected void query(SQLUpdateClause q, L2Character o) {
 				q.where(e.characterId.eq(o.getID().getID()));
-			}
-
-			@Override
-			protected void map(SQLUpdateClause q, L2Character o) {
-				q.set(e.accountId, o.getAccountID().getID())
-						.set(e.clanId,
-								(o.getClanID() != null ? o.getClanID().getID()
-										: null))
-						.set(e.name, o.getName())
-						.set(e.race, o.getRace())
-						.set(e.characterClass, o.getCharacterClass())
-						.set(e.sex, o.getSex())
-						.set(e.level, o.getLevel())
-						.set(e.experience, o.getExperience())
-						.set(e.sp, o.getSP())
-						.set(e.hp, o.getHP())
-						.set(e.mp, o.getMP())
-						.set(e.cp, o.getCP())
-						.set(e.pointX, o.getPoint().getX())
-						.set(e.pointY, o.getPoint().getY())
-						.set(e.pointZ, o.getPoint().getZ())
-						.set(e.pointAngle, o.getPoint().getAngle())
-						.set(e.appearanceHairStyle,
-								o.getAppearance().getHairStyle())
-						.set(e.appearanceHairColor,
-								o.getAppearance().getHairColor())
-						.set(e.apperanceFace, o.getAppearance().getFace());
 			}
 		});
 	}

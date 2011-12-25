@@ -28,8 +28,10 @@ import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
 import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.template.character.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QCharacter;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -37,11 +39,12 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class CharacterMapper implements Mapper<L2Character, QCharacter> {
-	private final Mapper<CharacterID, QCharacter> idMapper = new Mapper<CharacterID, QCharacter>() {
+public class CharacterMapper extends
+		AbstractMapper<L2Character, Integer, CharacterID, QCharacter> {
+	private final PrimaryKeyMapper<CharacterID, Integer> pk = new PrimaryKeyMapper<CharacterID, Integer>() {
 		@Override
-		public CharacterID map(QCharacter e, DatabaseRow row) {
-			return idProvider.resolveID(row.get(e.characterId));
+		public CharacterID createID(Integer raw) {
+			return idProvider.resolveID(raw);
 		}
 	};
 
@@ -84,7 +87,7 @@ public class CharacterMapper implements Mapper<L2Character, QCharacter> {
 	}
 
 	@Override
-	public L2Character map(QCharacter e, DatabaseRow row) {
+	public L2Character select(QCharacter e, DatabaseRow row) {
 		final CharacterClass charClass = row.get(e.characterClass);
 		final CharacterTemplateID templateId = templateIdProvider
 				.resolveID(charClass.id);
@@ -122,8 +125,43 @@ public class CharacterMapper implements Mapper<L2Character, QCharacter> {
 
 		return character;
 	}
-	
-	public Mapper<CharacterID, QCharacter> getIDMapper() {
-		return idMapper;
+
+	@Override
+	public void insert(QCharacter e, L2Character object, WritableDatabaseRow row) {
+		// same as update, reuse it
+		update(e, object, row);
+	}
+
+	@Override
+	public void update(QCharacter e, L2Character object, WritableDatabaseRow row) {
+		row.set(e.characterId, object.getID().getID())
+				.set(e.accountId, object.getAccountID().getID())
+				.set(e.clanId,
+						(object.getClanID() != null ? object.getClanID()
+								.getID() : null))
+				.set(e.name, object.getName())
+				.set(e.race, object.getRace())
+				.set(e.characterClass, object.getCharacterClass())
+				.set(e.sex, object.getSex())
+				.set(e.level, object.getLevel())
+				.set(e.experience, object.getExperience())
+				.set(e.sp, object.getSP())
+				.set(e.hp, object.getHP())
+				.set(e.mp, object.getMP())
+				.set(e.cp, object.getCP())
+				.set(e.pointX, object.getPoint().getX())
+				.set(e.pointY, object.getPoint().getY())
+				.set(e.pointZ, object.getPoint().getZ())
+				.set(e.pointAngle, object.getPoint().getAngle())
+				.set(e.appearanceHairStyle,
+						object.getAppearance().getHairStyle())
+				.set(e.appearanceHairColor,
+						object.getAppearance().getHairColor())
+				.set(e.apperanceFace, object.getAppearance().getFace());
+	}
+
+	@Override
+	public PrimaryKeyMapper<CharacterID, Integer> getPrimaryKeyMapper() {
+		return pk;
 	}
 }

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql;
+package com.l2jserver.service.database.dao.sql;
 
 import java.util.Collection;
 import java.util.List;
@@ -37,7 +37,6 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingl
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
-import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
@@ -45,8 +44,7 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements
-		ItemDAO {
+public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements ItemDAO {
 	private final ItemMapper mapper;
 
 	/**
@@ -63,103 +61,66 @@ public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements
 
 	@Override
 	public Item select(final ItemID id) {
-		return database.query(new SelectSingleQuery<Item, QItem>(QItem.item,
-				mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QItem e) {
-				q.where(e.itemId.eq(id.getID()));
-			}
-		});
+		return database
+				.query(new SelectSingleQuery<Item, Integer, ItemID, QItem>(
+						QItem.item, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QItem e) {
+						q.where(e.itemId.eq(id.getID()));
+					}
+				});
 	}
 
 	@Override
 	public List<Item> selectByCharacter(final L2Character character) {
-		return database.query(new SelectListQuery<Item, QItem>(QItem.item,
-				mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QItem e) {
-				q.where(e.characterId.eq(character.getID().getID()));
-			}
-		});
+		return database
+				.query(new SelectListQuery<Item, Integer, ItemID, QItem>(
+						QItem.item, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QItem e) {
+						q.where(e.characterId.eq(character.getID().getID()));
+					}
+				});
 	}
 
 	@Override
 	public List<Item> selectDroppedItems() {
-		return database.query(new SelectListQuery<Item, QItem>(QItem.item,
-				mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QItem e) {
-				q.where(e.location.eq(ItemLocation.GROUND));
-			}
-		});
+		return database
+				.query(new SelectListQuery<Item, Integer, ItemID, QItem>(
+						QItem.item, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QItem e) {
+						q.where(e.location.eq(ItemLocation.GROUND));
+					}
+				});
 	}
 
 	@Override
 	public Collection<ItemID> selectIDs() {
-		return database.query(new SelectListQuery<ItemID, QItem>(QItem.item,
-				mapper.getIDMapper()) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QItem e) {
-			}
-		});
+		return database
+				.query(new SelectListQuery<ItemID, Integer, ItemID, QItem>(
+						QItem.item, mapper.getIDMapper(QItem.item)) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QItem e) {
+					}
+				});
 	}
 
 	@Override
 	public int insertObjects(Item... objects) {
-		return database.query(new InsertQuery<Item, QItem, Object>(QItem.item,
-				objects) {
-			@Override
-			protected void map(SQLInsertClause q, Item o) {
-				q.set(e.itemId, o.getID().getID())
-						.set(e.templateId, o.getTemplateID().getID())
-						.set(e.characterId,
-								(o.getOwnerID() != null ? o.getOwnerID()
-										.getID() : null))
-						.set(e.location, o.getLocation())
-						.set(e.paperdoll, o.getPaperdoll())
-						.set(e.count, o.getCount())
-						.set(e.coordX,
-								(o.getPoint() != null ? o.getPoint().getX()
-										: null))
-						.set(e.coordY,
-								(o.getPoint() != null ? o.getPoint().getY()
-										: null))
-						.set(e.coordZ,
-								(o.getPoint() != null ? o.getPoint().getZ()
-										: null));
-			}
-		});
+		return database.query(new InsertQuery<Item, Integer, ItemID, QItem>(
+				QItem.item, mapper, objects));
 	}
 
 	@Override
 	public int updateObjects(Item... objects) {
-		return database
-				.query(new UpdateQuery<Item, QItem>(QItem.item, objects) {
-					@Override
-					protected void query(SQLUpdateClause q, Item o) {
-						q.where(e.itemId.eq(o.getID().getID()));
-					}
-
-					@Override
-					protected void map(SQLUpdateClause q, Item o) {
-						q.set(e.templateId, o.getTemplateID().getID())
-								.set(e.characterId,
-										(o.getOwnerID() != null ? o
-												.getOwnerID().getID() : null))
-								.set(e.location, o.getLocation())
-								.set(e.paperdoll, o.getPaperdoll())
-								.set(e.count, o.getCount())
-								.set(e.coordX,
-										(o.getPoint() != null ? o.getPoint()
-												.getX() : null))
-								.set(e.coordY,
-										(o.getPoint() != null ? o.getPoint()
-												.getY() : null))
-								.set(e.coordZ,
-										(o.getPoint() != null ? o.getPoint()
-												.getZ() : null));
-					}
-				});
+		return database.query(new UpdateQuery<Item, QItem>(QItem.item, mapper,
+				objects) {
+			@Override
+			protected void query(SQLUpdateClause q, Item o) {
+				q.where(e.itemId.eq(o.getID().getID()));
+			}
+		});
 	}
 
 	@Override

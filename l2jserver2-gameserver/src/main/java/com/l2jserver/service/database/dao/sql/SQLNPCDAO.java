@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql;
+package com.l2jserver.service.database.dao.sql;
 
 import java.util.Collection;
 import java.util.List;
@@ -37,7 +37,6 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingl
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
-import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
@@ -62,18 +61,19 @@ public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 
 	@Override
 	public NPC select(final NPCID id) {
-		return database
-				.query(new SelectSingleQuery<NPC, QNPC>(QNPC.npc, mapper) {
-					@Override
-					protected void query(AbstractSQLQuery<?> q, QNPC e) {
-						q.where(e.npcId.eq(id.getID()));
-					}
-				});
+		return database.query(new SelectSingleQuery<NPC, Integer, NPCID, QNPC>(
+				QNPC.npc, mapper) {
+			@Override
+			protected void query(AbstractSQLQuery<?> q, QNPC e) {
+				q.where(e.npcId.eq(id.getID()));
+			}
+		});
 	}
 
 	@Override
 	public Collection<NPC> loadAll() {
-		return database.query(new SelectListQuery<NPC, QNPC>(QNPC.npc, mapper) {
+		return database.query(new SelectListQuery<NPC, Integer, NPCID, QNPC>(
+				QNPC.npc, mapper) {
 			@Override
 			protected void query(AbstractSQLQuery<?> q, QNPC e) {
 			}
@@ -82,7 +82,8 @@ public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 
 	@Override
 	public List<NPC> selectByTemplate(final NPCTemplateID templateID) {
-		return database.query(new SelectListQuery<NPC, QNPC>(QNPC.npc, mapper) {
+		return database.query(new SelectListQuery<NPC, Integer, NPCID, QNPC>(
+				QNPC.npc, mapper) {
 			@Override
 			protected void query(AbstractSQLQuery<?> q, QNPC e) {
 				q.where(e.npcTemplateId.eq(templateID.getID()));
@@ -92,8 +93,8 @@ public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 
 	@Override
 	public Collection<NPCID> selectIDs() {
-		return database.query(new SelectListQuery<NPCID, QNPC>(QNPC.npc, mapper
-				.getIDMapper()) {
+		return database.query(new SelectListQuery<NPCID, Integer, NPCID, QNPC>(
+				QNPC.npc, mapper.getIDMapper(QNPC.npc)) {
 			@Override
 			protected void query(AbstractSQLQuery<?> q, QNPC e) {
 			}
@@ -102,62 +103,17 @@ public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 
 	@Override
 	public int insertObjects(NPC... objects) {
-		return database.query(new InsertQuery<NPC, QNPC, Object>(QNPC.npc,
-				objects) {
-			@Override
-			protected void map(SQLInsertClause q, NPC o) {
-				q.set(e.npcId, o.getID().getID())
-						.set(e.npcTemplateId, o.getTemplateID().getID())
-						.set(e.hp, o.getHP())
-						.set(e.mp, o.getMP())
-						.set(e.pointX,
-								(o.getPoint() != null ? o.getPoint().getX()
-										: null))
-						.set(e.pointY,
-								(o.getPoint() != null ? o.getPoint().getY()
-										: null))
-						.set(e.pointZ,
-								(o.getPoint() != null ? o.getPoint().getZ()
-										: null))
-						.set(e.pointAngle,
-								(o.getPoint() != null ? o.getPoint().getAngle()
-										: null))
-
-						.set(e.respawnTime, o.getRespawnInterval());
-
-			}
-		});
+		return database.query(new InsertQuery<NPC, Integer, NPCID, QNPC>(
+				QNPC.npc, mapper, objects));
 	}
 
 	@Override
 	public int updateObjects(NPC... objects) {
-		return database.query(new UpdateQuery<NPC, QNPC>(QNPC.npc, objects) {
+		return database.query(new UpdateQuery<NPC, QNPC>(QNPC.npc, mapper,
+				objects) {
 			@Override
 			protected void query(SQLUpdateClause q, NPC o) {
 				q.where(e.npcId.eq(o.getID().getID()));
-			}
-
-			@Override
-			protected void map(SQLUpdateClause q, NPC o) {
-				q.set(e.npcId, o.getID().getID())
-						.set(e.npcTemplateId, o.getTemplateID().getID())
-						.set(e.hp, o.getHP())
-						.set(e.mp, o.getMP())
-						.set(e.pointX,
-								(o.getPoint() != null ? o.getPoint().getX()
-										: null))
-						.set(e.pointY,
-								(o.getPoint() != null ? o.getPoint().getY()
-										: null))
-						.set(e.pointZ,
-								(o.getPoint() != null ? o.getPoint().getZ()
-										: null))
-						.set(e.pointAngle,
-								(o.getPoint() != null ? o.getPoint().getAngle()
-										: null))
-
-						.set(e.respawnTime, o.getRespawnInterval());
-
 			}
 		});
 	}

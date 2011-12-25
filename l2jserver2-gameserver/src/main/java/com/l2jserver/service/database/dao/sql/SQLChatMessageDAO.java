@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql;
+package com.l2jserver.service.database.dao.sql;
 
 import java.util.Collection;
 
@@ -32,11 +32,8 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
-import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
-import com.mysema.query.sql.dml.SQLInsertClause;
-import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
  * {@link CharacterDAO} implementation for JDBC
@@ -61,70 +58,38 @@ public class SQLChatMessageDAO extends
 
 	@Override
 	public ChatMessage select(final ChatMessageID id) {
-		return database.query(new SelectSingleQuery<ChatMessage, QLogChat>(
-				QLogChat.logChat, mapper) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QLogChat e) {
-				q.where(e.messageId.eq(id.getID()));
-			}
-		});
+		return database
+				.query(new SelectSingleQuery<ChatMessage, Integer, ChatMessageID, QLogChat>(
+						QLogChat.logChat, mapper) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QLogChat e) {
+						q.where(e.messageId.eq(id.getID()));
+					}
+				});
 	}
 
 	@Override
 	public Collection<ChatMessageID> selectIDs() {
-		return database.query(new SelectListQuery<ChatMessageID, QLogChat>(
-				QLogChat.logChat, mapper.getIDMapper()) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QLogChat e) {
-			}
-		});
+		return database
+				.query(new SelectListQuery<ChatMessageID, Integer, ChatMessageID, QLogChat>(
+						QLogChat.logChat, mapper.getIDMapper(QLogChat.logChat)) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q, QLogChat e) {
+					}
+				});
 	}
 
 	@Override
 	public int insertObjects(ChatMessage... objects) {
-		return database.query(new InsertQuery<ChatMessage, QLogChat, Integer>(
-				QLogChat.logChat, QLogChat.logChat.messageId, objects) {
-			@Override
-			protected void map(SQLInsertClause q, ChatMessage o) {
-				q.set(e.type, o.getType()).set(e.sender, o.getSender().getID())
-						.set(e.date, o.getDate())
-						.set(e.message, o.getMessage());
-				switch (o.getType()) {
-				case SHOUT:
-					q.set(e.channelId, o.getTarget().getID());
-					break;
-				default:
-					q.set(e.channelId, o.getChannelID());
-					break;
-				}
-			}
-		});
+		return database
+				.query(new InsertQuery<ChatMessage, Integer, ChatMessageID, QLogChat>(
+						QLogChat.logChat, mapper, QLogChat.logChat.messageId,
+						objects));
 	}
 
 	@Override
 	public int updateObjects(ChatMessage... objects) {
-		return database.query(new UpdateQuery<ChatMessage, QLogChat>(
-				QLogChat.logChat, objects) {
-			@Override
-			protected void query(SQLUpdateClause q, ChatMessage o) {
-				q.where(e.messageId.eq(o.getID().getID()));
-			}
-
-			@Override
-			protected void map(SQLUpdateClause q, ChatMessage o) {
-				q.set(e.type, o.getType()).set(e.sender, o.getSender().getID())
-						.set(e.date, o.getDate())
-						.set(e.message, o.getMessage());
-				switch (o.getType()) {
-				case SHOUT:
-					q.set(e.channelId, o.getTarget().getID());
-					break;
-				default:
-					q.set(e.channelId, o.getChannelID());
-					break;
-				}
-			}
-		});
+		return 0;
 	}
 
 	@Override

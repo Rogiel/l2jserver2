@@ -26,13 +26,13 @@ import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.service.database.sql.SQLCharacterDAO;
-import com.l2jserver.service.database.sql.SQLCharacterFriendDAO;
-import com.l2jserver.service.database.sql.SQLCharacterShortcutDAO;
-import com.l2jserver.service.database.sql.SQLChatMessageDAO;
-import com.l2jserver.service.database.sql.SQLClanDAO;
-import com.l2jserver.service.database.sql.SQLItemDAO;
-import com.l2jserver.service.database.sql.SQLNPCDAO;
+import com.l2jserver.service.database.dao.sql.SQLCharacterDAO;
+import com.l2jserver.service.database.dao.sql.SQLCharacterFriendDAO;
+import com.l2jserver.service.database.dao.sql.SQLCharacterShortcutDAO;
+import com.l2jserver.service.database.dao.sql.SQLChatMessageDAO;
+import com.l2jserver.service.database.dao.sql.SQLClanDAO;
+import com.l2jserver.service.database.dao.sql.SQLItemDAO;
+import com.l2jserver.service.database.dao.sql.SQLNPCDAO;
 
 /**
  * Google Guice {@link Module} for JDBC DAOs

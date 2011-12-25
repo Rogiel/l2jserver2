@@ -2,7 +2,6 @@ package com.l2jserver.service.database.model;
 
 import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
-import com.l2jserver.model.game.CharacterShortcut;
 import com.l2jserver.model.game.CharacterShortcut.ShortcutType;
 import com.l2jserver.service.database.sql.ddl.annotation.ColumnAutoIncrement;
 import com.l2jserver.service.database.sql.ddl.annotation.ColumnNullable;
@@ -19,7 +18,7 @@ import com.mysema.query.types.path.NumberPath;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class QCharacterShortcut extends
-		com.mysema.query.sql.RelationalPathBase<CharacterShortcut> {
+		com.mysema.query.sql.RelationalPathBase<Integer> {
 	private static final long serialVersionUID = 1450964558;
 
 	public static final QCharacterShortcut characterShortcut = new QCharacterShortcut(
@@ -52,20 +51,20 @@ public class QCharacterShortcut extends
 	public final EnumPath<ShortcutType> type = createEnum("type",
 			ShortcutType.class);
 
-	public final PrimaryKey<CharacterShortcut> primary = createPrimaryKey(shortcutId);
+	public final PrimaryKey<Integer> primary = createPrimaryKey(shortcutId);
 
 	public QCharacterShortcut(String variable) {
-		super(CharacterShortcut.class, forVariable(variable), "null",
+		super(Integer.class, forVariable(variable), "null",
 				"character_shortcut");
 	}
 
-	public QCharacterShortcut(Path<? extends CharacterShortcut> entity) {
+	public QCharacterShortcut(Path<? extends Integer> entity) {
 		super(entity.getType(), entity.getMetadata(), "null",
 				"character_shortcut");
 	}
 
 	public QCharacterShortcut(PathMetadata<?> metadata) {
-		super(CharacterShortcut.class, metadata, "null", "character_shortcut");
+		super(Integer.class, metadata, "null", "character_shortcut");
 	}
 
 }

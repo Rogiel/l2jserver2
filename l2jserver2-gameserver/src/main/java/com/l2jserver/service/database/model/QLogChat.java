@@ -4,7 +4,6 @@ import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
 import java.util.Date;
 
-import com.l2jserver.model.server.ChatMessage;
 import com.l2jserver.service.database.sql.ddl.annotation.ColumnAutoIncrement;
 import com.l2jserver.service.database.sql.ddl.annotation.ColumnNullable;
 import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
@@ -22,7 +21,7 @@ import com.mysema.query.types.path.StringPath;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class QLogChat extends com.mysema.query.sql.RelationalPathBase<ChatMessage> {
+public class QLogChat extends com.mysema.query.sql.RelationalPathBase<Integer> {
 	private static final long serialVersionUID = -76124357;
 
 	public static final QLogChat logChat = new QLogChat("log_chat");
@@ -31,7 +30,7 @@ public class QLogChat extends com.mysema.query.sql.RelationalPathBase<ChatMessag
 	@ColumnAutoIncrement
 	public final NumberPath<Integer> messageId = createNumber("message_id",
 			Integer.class);
-	
+
 	@ColumnSize(10)
 	@ColumnNullable
 	public final NumberPath<Integer> channelId = createNumber("channel_id",
@@ -49,18 +48,18 @@ public class QLogChat extends com.mysema.query.sql.RelationalPathBase<ChatMessag
 	public final EnumPath<ChatMessageType> type = createEnum("type",
 			ChatMessageType.class);
 
-	public final PrimaryKey<ChatMessage> primary = createPrimaryKey(messageId);
+	public final PrimaryKey<Integer> primary = createPrimaryKey(messageId);
 
 	public QLogChat(String variable) {
-		super(ChatMessage.class, forVariable(variable), "null", "log_chat");
+		super(Integer.class, forVariable(variable), "null", "log_chat");
 	}
 
-	public QLogChat(Path<? extends ChatMessage> entity) {
+	public QLogChat(Path<? extends Integer> entity) {
 		super(entity.getType(), entity.getMetadata(), "null", "log_chat");
 	}
 
 	public QLogChat(PathMetadata<?> metadata) {
-		super(ChatMessage.class, metadata, "null", "log_chat");
+		super(Integer.class, metadata, "null", "log_chat");
 	}
 
 }

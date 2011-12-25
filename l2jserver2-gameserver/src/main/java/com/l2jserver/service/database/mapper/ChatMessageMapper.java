@@ -22,19 +22,22 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.provider.ChatMessageIDProvider;
 import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QLogChat;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class ChatMessageMapper implements Mapper<ChatMessage, QLogChat> {
-	private final Mapper<ChatMessageID, QLogChat> idMapper = new Mapper<ChatMessageID, QLogChat>() {
+public class ChatMessageMapper extends
+		AbstractMapper<ChatMessage, Integer, ChatMessageID, QLogChat> {
+	private final PrimaryKeyMapper<ChatMessageID, Integer> idMapper = new PrimaryKeyMapper<ChatMessageID, Integer>() {
 		@Override
-		public ChatMessageID map(QLogChat e, DatabaseRow row) {
-			return idProvider.resolveID(row.get(e.messageId));
+		public ChatMessageID createID(Integer raw) {
+			return idMapper.createID(raw);
 		}
 	};
 
@@ -63,7 +66,7 @@ public class ChatMessageMapper implements Mapper<ChatMessage, QLogChat> {
 	}
 
 	@Override
-	public ChatMessage map(QLogChat e, DatabaseRow row) {
+	public ChatMessage select(QLogChat e, DatabaseRow row) {
 		final ChatMessage message = new ChatMessage();
 		message.setID(idProvider.resolveID(row.get(e.messageId)));
 
@@ -83,7 +86,28 @@ public class ChatMessageMapper implements Mapper<ChatMessage, QLogChat> {
 		return message;
 	}
 
-	public Mapper<ChatMessageID, QLogChat> getIDMapper() {
+	@Override
+	public void insert(QLogChat e, ChatMessage onject, WritableDatabaseRow row) {
+		row.set(e.type, onject.getType())
+				.set(e.sender, onject.getSender().getID())
+				.set(e.date, onject.getDate())
+				.set(e.message, onject.getMessage());
+		switch (onject.getType()) {
+		case SHOUT:
+			row.set(e.channelId, onject.getTarget().getID());
+			break;
+		default:
+			row.set(e.channelId, onject.getChannelID());
+			break;
+		}
+	}
+
+	@Override
+	public void update(QLogChat e, ChatMessage object, WritableDatabaseRow row) {
+	}
+
+	@Override
+	public PrimaryKeyMapper<ChatMessageID, Integer> getPrimaryKeyMapper() {
 		return idMapper;
 	}
 }

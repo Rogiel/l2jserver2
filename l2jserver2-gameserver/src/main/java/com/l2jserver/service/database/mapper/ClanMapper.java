@@ -22,19 +22,21 @@ import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ClanIDProvider;
 import com.l2jserver.model.world.Clan;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QClan;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class ClanMapper implements Mapper<Clan, QClan> {
-	private final Mapper<ClanID, QClan> idMapper = new Mapper<ClanID, QClan>() {
+public class ClanMapper extends AbstractMapper<Clan, Integer, ClanID, QClan> {
+	private final PrimaryKeyMapper<ClanID, Integer> idMapper = new PrimaryKeyMapper<ClanID, Integer>() {
 		@Override
-		public ClanID map(QClan e, DatabaseRow row) {
-			return idProvider.resolveID(row.get(e.clanId));
+		public ClanID createID(Integer raw) {
+			return idProvider.resolveID(raw);
 		}
 	};
 
@@ -62,14 +64,26 @@ public class ClanMapper implements Mapper<Clan, QClan> {
 	}
 
 	@Override
-	public Clan map(QClan e, DatabaseRow row) {
+	public Clan select(QClan e, DatabaseRow row) {
 		final Clan clan = new Clan();
 		clan.setID(idProvider.resolveID(row.get(e.clanId)));
 		clan.setID(charIdProvider.resolveID(row.get(e.characterIdLeader)));
 		return clan;
 	}
 
-	public Mapper<ClanID, QClan> getIDMapper() {
+	@Override
+	public void insert(QClan e, Clan object, WritableDatabaseRow row) {
+		update(e, object, row);
+	}
+
+	@Override
+	public void update(QClan e, Clan object, WritableDatabaseRow row) {
+		row.set(e.clanId, object.getID().getID()).set(e.characterIdLeader,
+				object.getLeaderID().getID());
+	}
+
+	@Override
+	public PrimaryKeyMapper<ClanID, Integer> getPrimaryKeyMapper() {
 		return idMapper;
 	}
 }

@@ -16,29 +16,29 @@
  */
 package com.l2jserver.service.database.dao;
 
+import com.l2jserver.model.id.ID;
+import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.types.Path;
 
 /**
- * Database column used to read data
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <O>
+ *            the object type
+ * @param <R>
+ *            the raw id type
+ * @param <I>
+ *            the id type
+ * @param <E>
+ *            the table type
+ * 
  */
-public interface DatabaseRow {
-	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return the value associated in the row for the given {@link Path}
-	 */
-	<T> T get(Path<T> path);
-
-	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return <code>true</code> if the path has a <code>null</code> value
-	 */
-	<T> boolean isNull(Path<T> path);
+public abstract class AbstractMapper<O, R, I extends ID<? super R>, E extends RelationalPathBase<R>>
+		implements SelectMapper<O, R, I, E>, UpdateMapper<O, E>,
+		InsertMapper<O, R, I, E> {
+	@Override
+	@SuppressWarnings("unchecked")
+	public SelectMapper<I, R, I, E> getIDMapper(E entity) {
+		return new SelectPrimaryKeyMapper<R, I, E>(getPrimaryKeyMapper(),
+				(Path<R>) entity.getPrimaryKey().getLocalColumns().get(0));
+	}
 }

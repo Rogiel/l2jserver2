@@ -25,20 +25,23 @@ import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.id.provider.CharacterShortcutIDProvider;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QCharacterShortcut;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class CharacterShortcutMapper implements
-		Mapper<CharacterShortcut, QCharacterShortcut> {
-	private final Mapper<CharacterShortcutID, QCharacterShortcut> idMapper = new Mapper<CharacterShortcutID, QCharacterShortcut>() {
+public class CharacterShortcutMapper
+		extends
+		AbstractMapper<CharacterShortcut, Integer, CharacterShortcutID, QCharacterShortcut> {
+	private final PrimaryKeyMapper<CharacterShortcutID, Integer> idMapper = new PrimaryKeyMapper<CharacterShortcutID, Integer>() {
 		@Override
-		public CharacterShortcutID map(QCharacterShortcut e, DatabaseRow row) {
-			return idProvider.resolveID(row.get(e.shortcutId));
+		public CharacterShortcutID createID(Integer raw) {
+			return idProvider.resolveID(raw);
 		}
 	};
 
@@ -75,7 +78,7 @@ public class CharacterShortcutMapper implements
 	}
 
 	@Override
-	public CharacterShortcut map(QCharacterShortcut e, DatabaseRow row) {
+	public CharacterShortcut select(QCharacterShortcut e, DatabaseRow row) {
 		final CharacterShortcut shortcut = new CharacterShortcut();
 		shortcut.setID(idProvider.resolveID(row.get(e.shortcutId)));
 		final CharacterID charId = charIdProvider.resolveID(row
@@ -98,7 +101,23 @@ public class CharacterShortcutMapper implements
 		return shortcut;
 	}
 
-	public Mapper<CharacterShortcutID, QCharacterShortcut> getIDMapper() {
+	@Override
+	public void insert(QCharacterShortcut e, CharacterShortcut object,
+			WritableDatabaseRow row) {
+		update(e, object, row);
+	}
+
+	@Override
+	public void update(QCharacterShortcut e, CharacterShortcut object,
+			WritableDatabaseRow row) {
+		row.set(e.characterId, object.getID().getID())
+				.set(e.type, object.getType())
+				.set(e.objectId, object.getItemID().getID())
+				.set(e.slot, object.getSlot()).set(e.page, object.getPage());
+	}
+
+	@Override
+	public PrimaryKeyMapper<CharacterShortcutID, Integer> getPrimaryKeyMapper() {
 		return idMapper;
 	}
 }

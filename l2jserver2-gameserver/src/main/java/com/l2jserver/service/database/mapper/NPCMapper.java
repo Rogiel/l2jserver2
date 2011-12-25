@@ -26,8 +26,10 @@ import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
 import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.world.NPC;
+import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
-import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.dao.PrimaryKeyMapper;
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
 import com.l2jserver.service.database.model.QNPC;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -35,16 +37,16 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class NPCMapper implements Mapper<NPC, QNPC> {
+public class NPCMapper extends AbstractMapper<NPC, Integer, NPCID, QNPC> {
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	private final Mapper<NPCID, QNPC> idMapper = new Mapper<NPCID, QNPC>() {
+	private final PrimaryKeyMapper<NPCID, Integer> idMapper = new PrimaryKeyMapper<NPCID, Integer>() {
 		@Override
-		public NPCID map(QNPC e, DatabaseRow row) {
-			return idProvider.resolveID(row.get(e.npcId));
+		public NPCID createID(Integer raw) {
+			return idProvider.resolveID(raw);
 		}
 	};
 
@@ -71,7 +73,7 @@ public class NPCMapper implements Mapper<NPC, QNPC> {
 	}
 
 	@Override
-	public NPC map(QNPC e, DatabaseRow row) {
+	public NPC select(QNPC e, DatabaseRow row) {
 		final NPCID id = idProvider.resolveID(row.get(e.npcId));
 		NPCTemplateID templateId = templateIdProvider.resolveID(row
 				.get(e.npcTemplateId));
@@ -99,7 +101,35 @@ public class NPCMapper implements Mapper<NPC, QNPC> {
 		return npc;
 	}
 
-	public Mapper<NPCID, QNPC> getIDMapper() {
+	@Override
+	public void insert(QNPC e, NPC object, WritableDatabaseRow row) {
+		update(e, object, row);
+	}
+
+	@Override
+	public void update(QNPC e, NPC object, WritableDatabaseRow row) {
+		row.set(e.npcId, object.getID().getID())
+				.set(e.npcTemplateId, object.getTemplateID().getID())
+				.set(e.hp, object.getHP())
+				.set(e.mp, object.getMP())
+				.set(e.pointX,
+						(object.getPoint() != null ? object.getPoint().getX()
+								: null))
+				.set(e.pointY,
+						(object.getPoint() != null ? object.getPoint().getY()
+								: null))
+				.set(e.pointZ,
+						(object.getPoint() != null ? object.getPoint().getZ()
+								: null))
+				.set(e.pointAngle,
+						(object.getPoint() != null ? object.getPoint()
+								.getAngle() : null))
+
+				.set(e.respawnTime, object.getRespawnInterval());
+	}
+
+	@Override
+	public PrimaryKeyMapper<NPCID, Integer> getPrimaryKeyMapper() {
 		return idMapper;
 	}
 }

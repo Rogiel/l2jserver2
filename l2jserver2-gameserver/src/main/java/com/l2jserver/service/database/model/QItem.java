@@ -2,7 +2,6 @@ package com.l2jserver.service.database.model;
 
 import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
-import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.service.database.sql.ddl.annotation.ColumnDefault;
@@ -19,7 +18,7 @@ import com.mysema.query.types.path.NumberPath;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class QItem extends com.mysema.query.sql.RelationalPathBase<Item> {
+public class QItem extends com.mysema.query.sql.RelationalPathBase<Integer> {
 	private static final long serialVersionUID = 1592270068;
 
 	public static final QItem item = new QItem("item");
@@ -58,18 +57,18 @@ public class QItem extends com.mysema.query.sql.RelationalPathBase<Item> {
 	public final EnumPath<InventoryPaperdoll> paperdoll = createEnum(
 			"paperdoll", InventoryPaperdoll.class);
 
-	public final PrimaryKey<Item> primary = createPrimaryKey(itemId);
+	public final PrimaryKey<Integer> primary = createPrimaryKey(itemId);
 
 	public QItem(String variable) {
-		super(Item.class, forVariable(variable), "null", "item");
+		super(Integer.class, forVariable(variable), "null", "item");
 	}
 
-	public QItem(Path<? extends Item> entity) {
+	public QItem(Path<? extends Integer> entity) {
 		super(entity.getType(), entity.getMetadata(), "null", "item");
 	}
 
 	public QItem(PathMetadata<?> metadata) {
-		super(Item.class, metadata, "null", "item");
+		super(Integer.class, metadata, "null", "item");
 	}
 
 }

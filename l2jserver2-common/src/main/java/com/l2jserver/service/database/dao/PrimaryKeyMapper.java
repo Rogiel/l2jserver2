@@ -16,29 +16,22 @@
  */
 package com.l2jserver.service.database.dao;
 
-import com.mysema.query.types.Path;
+import com.l2jserver.model.id.ID;
 
 /**
- * Database column used to read data
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <I>
+ *            the object type returned by this mapper
+ * @param <R>
+ *            the ID raw type
  */
-public interface DatabaseRow {
+public interface PrimaryKeyMapper<I extends ID<? super R>, R> {
 	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return the value associated in the row for the given {@link Path}
+	 * Reads the ID as an object
+	 * 
+	 * @param raw
+	 *            the raw id
+	 * @return the {@link ID} object
 	 */
-	<T> T get(Path<T> path);
-
-	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return <code>true</code> if the path has a <code>null</code> value
-	 */
-	<T> boolean isNull(Path<T> path);
+	I createID(R raw);
 }

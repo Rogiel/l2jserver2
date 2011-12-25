@@ -6,7 +6,6 @@ import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.template.character.CharacterRace;
 import com.l2jserver.model.world.Clan;
-import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
@@ -26,7 +25,7 @@ import com.mysema.query.types.path.StringPath;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class QCharacter extends RelationalPathBase<L2Character> {
+public class QCharacter extends RelationalPathBase<Integer> {
 	private static final long serialVersionUID = -59499032;
 
 	public static final QCharacter character = new QCharacter("l2character");
@@ -82,19 +81,19 @@ public class QCharacter extends RelationalPathBase<L2Character> {
 	public final EnumPath<CharacterFace> apperanceFace = createEnum(
 			"apperance_face", CharacterFace.class);
 
-	public final PrimaryKey<L2Character> primary = createPrimaryKey(characterId);
+	public final PrimaryKey<Integer> primary = createPrimaryKey(characterId);
 	public final ForeignKey<Clan> clanIdKey = createForeignKey(clanId, "");
 
 	public QCharacter(String variable) {
-		super(L2Character.class, forVariable(variable), "null", "character");
+		super(Integer.class, forVariable(variable), "null", "character");
 	}
 
-	public QCharacter(Path<? extends L2Character> entity) {
+	public QCharacter(Path<? extends Integer> entity) {
 		super(entity.getType(), entity.getMetadata(), "null", "character");
 	}
 
 	public QCharacter(PathMetadata<?> metadata) {
-		super(L2Character.class, metadata, "null", "character");
+		super(Integer.class, metadata, "null", "character");
 	}
 
 }

@@ -14,31 +14,45 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.dao;
+package com.l2jserver.service.database.sql;
 
+import com.l2jserver.service.database.dao.WritableDatabaseRow;
+import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.types.Path;
 
 /**
- * Database column used to read data
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public interface DatabaseRow {
+public class SQLInsertWritableDatabaseRow implements WritableDatabaseRow {
 	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return the value associated in the row for the given {@link Path}
+	 * The SQL <code>INSERT</code> clause
 	 */
-	<T> T get(Path<T> path);
+	private final SQLInsertClause clause;
 
 	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return <code>true</code> if the path has a <code>null</code> value
+	 * @param clause
+	 *            the insert clause
 	 */
-	<T> boolean isNull(Path<T> path);
+	public SQLInsertWritableDatabaseRow(SQLInsertClause clause) {
+		this.clause = clause;
+	}
+
+	@Override
+	public <T> WritableDatabaseRow set(Path<T> path, T value) {
+		clause.set(path, value);
+		return this;
+	}
+
+	@Override
+	public <T> WritableDatabaseRow setNull(Path<T> path) {
+		return set(path, null);
+	}
+
+	/**
+	 * @return the insert clause
+	 */
+	public SQLInsertClause getClause() {
+		return clause;
+	}
 }

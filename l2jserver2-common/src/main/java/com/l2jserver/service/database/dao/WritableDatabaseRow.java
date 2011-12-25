@@ -16,15 +16,31 @@
  */
 package com.l2jserver.service.database.dao;
 
-import com.mysema.query.sql.RelationalPathBase;
+import com.mysema.query.types.Path;
 
 /**
+ * Database column used to read data
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @param <O>
- *            the object type returned by this mapper
- * @param <E>
- *            the entity type
  */
-public interface Mapper<O, E extends RelationalPathBase<?>> {
-	O map(E entity, DatabaseRow row);
+public interface WritableDatabaseRow {
+	/**
+	 * @param <T>
+	 *            the path type
+	 * @param path
+	 *            the path
+	 * @param value
+	 *            the value to be set
+	 * @return this instance
+	 */
+	<T> WritableDatabaseRow set(Path<T> path, T value);
+
+	/**
+	 * @param <T>
+	 *            the path type
+	 * @param path
+	 *            the path to be setted to <code>null</code>
+	 * @return this instance
+	 */
+	<T> WritableDatabaseRow setNull(Path<T> path);
 }

@@ -16,29 +16,25 @@
  */
 package com.l2jserver.service.database.dao;
 
-import com.mysema.query.types.Path;
+import com.mysema.query.sql.RelationalPathBase;
 
 /**
- * Database column used to read data
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <O>
+ *            the object type returned by this mapper
+ * @param <E>
+ *            the entity type
  */
-public interface DatabaseRow {
+public interface UpdateMapper<O, E extends RelationalPathBase<?>> {
 	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return the value associated in the row for the given {@link Path}
+	 * Maps the update values to the <code>row</code>
+	 * 
+	 * @param e
+	 *            the database table
+	 * @param object
+	 *            the object to be mapped
+	 * @param row
+	 *            the row to be mapped
 	 */
-	<T> T get(Path<T> path);
-
-	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return <code>true</code> if the path has a <code>null</code> value
-	 */
-	<T> boolean isNull(Path<T> path);
+	void update(E e, O object, WritableDatabaseRow row);
 }

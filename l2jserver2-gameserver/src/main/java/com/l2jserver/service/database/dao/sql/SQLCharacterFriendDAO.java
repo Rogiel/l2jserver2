@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql;
+package com.l2jserver.service.database.dao.sql;
 
 import java.util.List;
 
@@ -35,7 +35,6 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQ
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
-import com.mysema.query.sql.dml.SQLInsertClause;
 
 /**
  * {@link CharacterFriendDAO} implementation for JDBC
@@ -43,8 +42,7 @@ import com.mysema.query.sql.dml.SQLInsertClause;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SQLCharacterFriendDAO extends
-		AbstractSQLDAO<CharacterFriend, FriendID> implements
-		CharacterFriendDAO {
+		AbstractSQLDAO<CharacterFriend, FriendID> implements CharacterFriendDAO {
 	/**
 	 * The {@link CharacterFriend} mapper
 	 */
@@ -66,7 +64,7 @@ public class SQLCharacterFriendDAO extends
 	@Override
 	public CharacterFriend select(final FriendID id) {
 		return database
-				.query(new SelectSingleQuery<CharacterFriend, QCharacterFriend>(
+				.query(new SelectSingleQuery<CharacterFriend, FriendID, FriendID, QCharacterFriend>(
 						QCharacterFriend.characterFriend, mapper) {
 					@Override
 					protected void query(AbstractSQLQuery<?> q,
@@ -81,7 +79,7 @@ public class SQLCharacterFriendDAO extends
 	@Override
 	public void load(final L2Character character) {
 		final List<CharacterFriend> list = database
-				.query(new SelectListQuery<CharacterFriend, QCharacterFriend>(
+				.query(new SelectListQuery<CharacterFriend, FriendID, FriendID, QCharacterFriend>(
 						QCharacterFriend.characterFriend, mapper) {
 					@Override
 					protected void query(AbstractSQLQuery<?> q,
@@ -94,25 +92,22 @@ public class SQLCharacterFriendDAO extends
 
 	@Override
 	public List<FriendID> selectIDs() {
-		return database.query(new SelectListQuery<FriendID, QCharacterFriend>(
-				QCharacterFriend.characterFriend, mapper.getIDMapper()) {
-			@Override
-			protected void query(AbstractSQLQuery<?> q, QCharacterFriend e) {
-			}
-		});
+		return database
+				.query(new SelectListQuery<FriendID, FriendID, FriendID, QCharacterFriend>(
+						QCharacterFriend.characterFriend, mapper
+								.getIDMapper(QCharacterFriend.characterFriend)) {
+					@Override
+					protected void query(AbstractSQLQuery<?> q,
+							QCharacterFriend e) {
+					}
+				});
 	}
 
 	@Override
 	public int insertObjects(CharacterFriend... friends) {
 		return database
-				.query(new InsertQuery<CharacterFriend, QCharacterFriend, Object>(
-						QCharacterFriend.characterFriend, friends) {
-					@Override
-					protected void map(SQLInsertClause q, CharacterFriend o) {
-						q.set(e.characterId, o.getCharacterID().getID()).set(
-								e.characterIdFriend, o.getFriendID().getID());
-					}
-				});
+				.query(new InsertQuery<CharacterFriend, FriendID, FriendID, QCharacterFriend>(
+						QCharacterFriend.characterFriend, mapper, friends));
 	}
 
 	@Override

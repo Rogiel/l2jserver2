@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql;
+package com.l2jserver.service.database.dao.sql;
 
 import java.util.List;
 
@@ -36,7 +36,6 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingl
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
-import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.sql.dml.SQLUpdateClause;
 
 /**
@@ -65,7 +64,7 @@ public class SQLCharacterShortcutDAO extends
 	@Override
 	public CharacterShortcut select(final CharacterShortcutID id) {
 		return database
-				.query(new SelectSingleQuery<CharacterShortcut, QCharacterShortcut>(
+				.query(new SelectSingleQuery<CharacterShortcut, Integer, CharacterShortcutID, QCharacterShortcut>(
 						QCharacterShortcut.characterShortcut, mapper) {
 					@Override
 					protected void query(AbstractSQLQuery<?> q,
@@ -78,7 +77,7 @@ public class SQLCharacterShortcutDAO extends
 	@Override
 	public List<CharacterShortcut> selectByCharacter(final L2Character character) {
 		return database
-				.query(new SelectListQuery<CharacterShortcut, QCharacterShortcut>(
+				.query(new SelectListQuery<CharacterShortcut, Integer, CharacterShortcutID, QCharacterShortcut>(
 						QCharacterShortcut.characterShortcut, mapper) {
 					@Override
 					protected void query(AbstractSQLQuery<?> q,
@@ -91,9 +90,9 @@ public class SQLCharacterShortcutDAO extends
 	@Override
 	public List<CharacterShortcutID> selectIDs() {
 		return database
-				.query(new SelectListQuery<CharacterShortcutID, QCharacterShortcut>(
-						QCharacterShortcut.characterShortcut, mapper
-								.getIDMapper()) {
+				.query(new SelectListQuery<CharacterShortcutID, Integer, CharacterShortcutID, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut,
+						mapper.getIDMapper(QCharacterShortcut.characterShortcut)) {
 					@Override
 					protected void query(AbstractSQLQuery<?> q,
 							QCharacterShortcut e) {
@@ -104,43 +103,20 @@ public class SQLCharacterShortcutDAO extends
 	@Override
 	public int insertObjects(CharacterShortcut... shortcuts) {
 		return database
-				.query(new InsertQuery<CharacterShortcut, QCharacterShortcut, Integer>(
-						QCharacterShortcut.characterShortcut,
+				.query(new InsertQuery<CharacterShortcut, Integer, CharacterShortcutID, QCharacterShortcut>(
+						QCharacterShortcut.characterShortcut, mapper,
 						QCharacterShortcut.characterShortcut.shortcutId,
-						shortcuts) {
-					@Override
-					protected void map(SQLInsertClause q, CharacterShortcut o) {
-						q.set(e.characterId, o.getID().getID())
-								.set(e.type, o.getType())
-								.set(e.objectId, o.getItemID().getID())
-								.set(e.slot, o.getSlot())
-								.set(e.page, o.getPage());
-					}
-
-					@Override
-					protected void key(Integer k, CharacterShortcut o) {
-						// TODO
-					}
-				});
+						shortcuts));
 	}
 
 	@Override
 	public int updateObjects(CharacterShortcut... shortcuts) {
 		return database
 				.query(new UpdateQuery<CharacterShortcut, QCharacterShortcut>(
-						QCharacterShortcut.characterShortcut, shortcuts) {
+						QCharacterShortcut.characterShortcut, mapper, shortcuts) {
 					@Override
 					protected void query(SQLUpdateClause q, CharacterShortcut o) {
 						q.where(e.shortcutId.eq(o.getID().getID()));
-					}
-
-					@Override
-					protected void map(SQLUpdateClause q, CharacterShortcut o) {
-						q.set(e.characterId, o.getID().getID())
-								.set(e.type, o.getType())
-								.set(e.objectId, o.getItemID().getID())
-								.set(e.slot, o.getSlot())
-								.set(e.page, o.getPage());
 					}
 				});
 	}

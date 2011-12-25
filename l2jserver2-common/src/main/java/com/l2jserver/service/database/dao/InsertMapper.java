@@ -16,29 +16,36 @@
  */
 package com.l2jserver.service.database.dao;
 
-import com.mysema.query.types.Path;
+import com.l2jserver.model.id.ID;
+import com.mysema.query.sql.RelationalPathBase;
 
 /**
- * Database column used to read data
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * @param <O>
+ *            the object type
+ * @param <R>
+ *            the raw id type
+ * @param <I>
+ *            the id type
+ * @param <E>
+ *            the table type
  */
-public interface DatabaseRow {
+public interface InsertMapper<O, R, I extends ID<? super R>, E extends RelationalPathBase<?>> {
 	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return the value associated in the row for the given {@link Path}
+	 * Maps the insert values to the <code>row</code>
+	 * 
+	 * @param e
+	 *            the database table
+	 * @param object
+	 *            the object to be mapped
+	 * @param row
+	 *            the row to be mapped
 	 */
-	<T> T get(Path<T> path);
+	void insert(E e, O object, WritableDatabaseRow row);
 
 	/**
-	 * @param <T>
-	 *            the path type
-	 * @param path
-	 *            the path
-	 * @return <code>true</code> if the path has a <code>null</code> value
+	 * @return the {@link PrimaryKeyMapper} that maps {@link ID}s that will be
+	 *         used for caches
 	 */
-	<T> boolean isNull(Path<T> path);
+	PrimaryKeyMapper<I, R> getPrimaryKeyMapper();
 }
