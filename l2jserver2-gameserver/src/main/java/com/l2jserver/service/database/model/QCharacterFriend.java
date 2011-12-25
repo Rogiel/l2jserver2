@@ -3,6 +3,7 @@ package com.l2jserver.service.database.model;
 import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
 import com.l2jserver.model.game.CharacterFriend;
+import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
 import com.mysema.query.sql.PrimaryKey;
 import com.mysema.query.types.Path;
 import com.mysema.query.types.PathMetadata;
@@ -20,8 +21,10 @@ public class QCharacterFriend extends
 	public static final QCharacterFriend characterFriend = new QCharacterFriend(
 			"character_friend");
 
+	@ColumnSize(10)
 	public final NumberPath<Integer> characterId = createNumber("character_id",
 			Integer.class);
+	@ColumnSize(10)
 	public final NumberPath<Integer> characterIdFriend = createNumber(
 			"character_id_friend", Integer.class);
 

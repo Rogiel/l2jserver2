@@ -247,16 +247,17 @@ public class XMLConfigurationService extends AbstractService implements
 		 *            the output type
 		 * @return the untransformed value
 		 */
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		private Object untransform(String value, Class<?> type) {
 			if (value == null)
 				return null;
 			if (type == String.class)
 				return value;
-			final Transformer<?> transformer = TransformerFactory
+			final Transformer transformer = TransformerFactory
 					.getTransfromer(type);
 			if (transformer == null)
 				return null;
-			return transformer.untransform(value);
+			return transformer.untransform(type, value);
 		}
 
 		/**
@@ -278,7 +279,7 @@ public class XMLConfigurationService extends AbstractService implements
 					.getTransfromer(type);
 			if (transformer == null)
 				return null;
-			return transformer.transform(value);
+			return transformer.transform(type, value);
 		}
 
 		/**

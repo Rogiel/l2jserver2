@@ -30,12 +30,12 @@ public class FloatTransformer implements Transformer<Float> {
 	public static final FloatTransformer SHARED_INSTANCE = new FloatTransformer();
 
 	@Override
-	public String transform(Float value) {
+	public String transform(Class<? extends Float> type, Float value) {
 		return Double.toString(value);
 	}
 
 	@Override
-	public Float untransform(String value) {
+	public Float untransform(Class<? extends Float> type, String value) {
 		return Float.parseFloat(value);
 	}
 

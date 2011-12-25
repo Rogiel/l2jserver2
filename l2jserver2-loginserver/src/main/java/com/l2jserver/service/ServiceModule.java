@@ -7,7 +7,7 @@ import com.l2jserver.service.configuration.XMLConfigurationService;
 import com.l2jserver.service.core.Log4JLoggingService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.LoginServerJDBCDatabaseService;
+import com.l2jserver.service.database.LoginServerSQLDatabaseService;
 
 public class ServiceModule extends AbstractModule {
 	@Override
@@ -17,7 +17,7 @@ public class ServiceModule extends AbstractModule {
 				Scopes.SINGLETON);
 		bind(ConfigurationService.class).to(XMLConfigurationService.class)
 				.in(Scopes.SINGLETON);
-		bind(DatabaseService.class).to(LoginServerJDBCDatabaseService.class)
+		bind(DatabaseService.class).to(LoginServerSQLDatabaseService.class)
 				.in(Scopes.SINGLETON);
 	}
 }

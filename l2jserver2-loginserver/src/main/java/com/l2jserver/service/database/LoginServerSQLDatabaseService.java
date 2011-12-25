@@ -16,40 +16,44 @@
  */
 package com.l2jserver.service.database;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService;
+import com.l2jserver.service.core.vfs.VFSService;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService;
 
 /**
  * This is an implementation of {@link DatabaseService} that provides an layer
  * to JDBC.
  * 
  * <h1>Internal specification</h1> <h2>The
- * {@link com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.Query
+ * {@link com.l2jserver.service.database.sql.AbstractSQLDatabaseService.Query
  * Query} object</h2>
  * 
  * If you wish to implement a new {@link DataAccessObject} you should try not
  * use
- * {@link com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.Query
+ * {@link com.l2jserver.service.database.sql.AbstractSQLDatabaseService.Query
  * Query} object directly because it only provides low level access to the JDBC
  * architecture. Instead, you could use an specialized class, like
- * {@link com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery
+ * {@link com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery
  * InsertUpdateQuery} ,
- * {@link com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery
+ * {@link com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery
  * SelectListQuery} or
- * {@link com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery
+ * {@link com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery
  * SelectSingleQuery} . If you do need low level access, feel free to use the
- * {@link com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.Query
+ * {@link com.l2jserver.service.database.sql.AbstractSQLDatabaseService.Query
  * Query} class directly.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ LoggingService.class, CacheService.class,
 		ConfigurationService.class, ThreadService.class })
-public class LoginServerJDBCDatabaseService extends AbstractJDBCDatabaseService
+public class LoginServerSQLDatabaseService extends AbstractSQLDatabaseService
 		implements DatabaseService {
 	/**
 	 * @param configService
@@ -58,12 +62,19 @@ public class LoginServerJDBCDatabaseService extends AbstractJDBCDatabaseService
 	 *            the cache service
 	 * @param threadService
 	 *            the thread service
+	 * @param vfsService
+	 *            the vfs service
 	 * @param daoResolver
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
-	public LoginServerJDBCDatabaseService(ConfigurationService configService,
+	public LoginServerSQLDatabaseService(ConfigurationService configService,
 			CacheService cacheService, ThreadService threadService,
-			DAOResolver daoResolver) {
-		super(configService, cacheService, threadService, daoResolver);
+			VFSService vfsService, DAOResolver daoResolver) {
+		super(configService, cacheService, threadService, vfsService,
+				daoResolver);
+	}
+
+	@Override
+	protected void ensureDatabaseSchema(Connection conn) throws SQLException {
 	}
 }

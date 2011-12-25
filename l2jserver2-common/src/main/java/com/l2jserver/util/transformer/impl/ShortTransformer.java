@@ -30,12 +30,12 @@ public class ShortTransformer implements Transformer<Short> {
 	public static final ShortTransformer SHARED_INSTANCE = new ShortTransformer();
 
 	@Override
-	public String transform(Short value) {
+	public String transform(Class<? extends Short> type, Short value) {
 		return Short.toString(value);
 	}
 
 	@Override
-	public Short untransform(String value) {
+	public Short untransform(Class<? extends Short> type, String value) {
 		return Short.decode(value);
 	}
 

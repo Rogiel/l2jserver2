@@ -29,22 +29,30 @@ public interface Transformer<T> {
 	/**
 	 * Transform the object in a string
 	 * 
+	 * @param type
+	 *            the type this transformer transforms. Useful when it can
+	 *            transform several types at once (such as an enum)
 	 * @param value
 	 *            the object
 	 * @return the string of the object
 	 * @throws TransformException
 	 *             if any error occur while transforming
 	 */
-	String transform(T value) throws TransformException;
+	String transform(Class<? extends T> type, T value)
+			throws TransformException;
 
 	/**
 	 * Untransforms the string back to an object
 	 * 
 	 * @param value
 	 *            the string
+	 * @param type
+	 *            the type this transformer transforms. Useful when it can
+	 *            transform several types at once (such as an enum)
 	 * @return the object
 	 * @throws TransformException
 	 *             if any error occur while transforming
 	 */
-	T untransform(String value) throws TransformException;
+	T untransform(Class<? extends T> type, String value)
+			throws TransformException;
 }

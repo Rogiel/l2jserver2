@@ -30,12 +30,12 @@ public class LongTransformer implements Transformer<Long> {
 	public static final LongTransformer SHARED_INSTANCE = new LongTransformer();
 
 	@Override
-	public String transform(Long value) {
+	public String transform(Class<? extends Long> type, Long value) {
 		return Long.toString(value);
 	}
 
 	@Override
-	public Long untransform(String value) {
+	public Long untransform(Class<? extends Long> type, String value) {
 		return Long.decode(value);
 	}
 

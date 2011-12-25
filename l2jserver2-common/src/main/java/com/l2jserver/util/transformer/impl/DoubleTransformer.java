@@ -30,12 +30,12 @@ public class DoubleTransformer implements Transformer<Double> {
 	public static final DoubleTransformer SHARED_INSTANCE = new DoubleTransformer();
 
 	@Override
-	public String transform(Double value) {
+	public String transform(Class<? extends Double> type, Double value) {
 		return Double.toString(value);
 	}
 
 	@Override
-	public Double untransform(String value) {
+	public Double untransform(Class<? extends Double> type, String value) {
 		return Double.parseDouble(value);
 	}
 

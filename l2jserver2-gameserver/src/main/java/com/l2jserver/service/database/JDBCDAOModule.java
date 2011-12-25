@@ -26,13 +26,13 @@ import com.l2jserver.model.dao.ChatMessageDAO;
 import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.service.database.jdbc.JDBCCharacterDAO;
-import com.l2jserver.service.database.jdbc.JDBCCharacterFriendDAO;
-import com.l2jserver.service.database.jdbc.JDBCCharacterShortcutDAO;
-import com.l2jserver.service.database.jdbc.JDBCChatMessageDAO;
-import com.l2jserver.service.database.jdbc.JDBCClanDAO;
-import com.l2jserver.service.database.jdbc.JDBCItemDAO;
-import com.l2jserver.service.database.jdbc.JDBCNPCDAO;
+import com.l2jserver.service.database.sql.SQLCharacterDAO;
+import com.l2jserver.service.database.sql.SQLCharacterFriendDAO;
+import com.l2jserver.service.database.sql.SQLCharacterShortcutDAO;
+import com.l2jserver.service.database.sql.SQLChatMessageDAO;
+import com.l2jserver.service.database.sql.SQLClanDAO;
+import com.l2jserver.service.database.sql.SQLItemDAO;
+import com.l2jserver.service.database.sql.SQLNPCDAO;
 
 /**
  * Google Guice {@link Module} for JDBC DAOs
@@ -42,20 +42,20 @@ import com.l2jserver.service.database.jdbc.JDBCNPCDAO;
 public class JDBCDAOModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(CharacterDAO.class).to(JDBCCharacterDAO.class)
+		bind(CharacterDAO.class).to(SQLCharacterDAO.class)
 				.in(Scopes.SINGLETON);
-		bind(CharacterFriendDAO.class).to(JDBCCharacterFriendDAO.class).in(
+		bind(CharacterFriendDAO.class).to(SQLCharacterFriendDAO.class).in(
 				Scopes.SINGLETON);
-		bind(CharacterShortcutDAO.class).to(JDBCCharacterShortcutDAO.class).in(
+		bind(CharacterShortcutDAO.class).to(SQLCharacterShortcutDAO.class).in(
 				Scopes.SINGLETON);
 
-		bind(NPCDAO.class).to(JDBCNPCDAO.class).in(Scopes.SINGLETON);
+		bind(NPCDAO.class).to(SQLNPCDAO.class).in(Scopes.SINGLETON);
 
-		bind(ItemDAO.class).to(JDBCItemDAO.class).in(Scopes.SINGLETON);
-		bind(ClanDAO.class).to(JDBCClanDAO.class).in(Scopes.SINGLETON);
+		bind(ItemDAO.class).to(SQLItemDAO.class).in(Scopes.SINGLETON);
+		bind(ClanDAO.class).to(SQLClanDAO.class).in(Scopes.SINGLETON);
 
 		// logs
-		bind(ChatMessageDAO.class).to(JDBCChatMessageDAO.class).in(
+		bind(ChatMessageDAO.class).to(SQLChatMessageDAO.class).in(
 				Scopes.SINGLETON);
 
 		// DAO Resolver

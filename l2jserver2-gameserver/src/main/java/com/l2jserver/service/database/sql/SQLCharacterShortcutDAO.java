@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.List;
 
@@ -26,13 +26,14 @@ import com.l2jserver.model.game.CharacterShortcut;
 import com.l2jserver.model.id.CharacterShortcutID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
 import com.l2jserver.service.database.mapper.CharacterShortcutMapper;
 import com.l2jserver.service.database.model.QCharacterShortcut;
+import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
@@ -43,8 +44,8 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCCharacterShortcutDAO extends
-		AbstractJDBCDAO<CharacterShortcut, CharacterShortcutID> implements
+public class SQLCharacterShortcutDAO extends
+		AbstractSQLDAO<CharacterShortcut, CharacterShortcutID> implements
 		CharacterShortcutDAO {
 	private final CharacterShortcutMapper mapper;
 
@@ -55,7 +56,7 @@ public class JDBCCharacterShortcutDAO extends
 	 *            the {@link CharacterShortcut} mapper
 	 */
 	@Inject
-	public JDBCCharacterShortcutDAO(DatabaseService database,
+	public SQLCharacterShortcutDAO(DatabaseService database,
 			CharacterShortcutMapper mapper) {
 		super(database);
 		this.mapper = mapper;

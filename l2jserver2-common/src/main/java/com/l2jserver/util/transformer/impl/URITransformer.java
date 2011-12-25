@@ -32,12 +32,12 @@ public class URITransformer implements Transformer<URI> {
 	public static final URITransformer SHARED_INSTANCE = new URITransformer();
 
 	@Override
-	public String transform(URI value) {
+	public String transform(Class<? extends URI> type, URI value) {
 		return value.toString();
 	}
 
 	@Override
-	public URI untransform(String value) {
+	public URI untransform(Class<? extends URI> type, String value) {
 		return URI.create(value);
 	}
 }

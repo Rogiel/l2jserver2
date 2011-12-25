@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,13 +27,14 @@ import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
 import com.l2jserver.service.database.mapper.NPCMapper;
 import com.l2jserver.service.database.model.QNPC;
+import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
@@ -44,7 +45,7 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements NPCDAO {
+public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 	private final NPCMapper mapper;
 
 	/**
@@ -54,7 +55,7 @@ public class JDBCNPCDAO extends AbstractJDBCDAO<NPC, NPCID> implements NPCDAO {
 	 *            the mapper
 	 */
 	@Inject
-	public JDBCNPCDAO(DatabaseService database, NPCMapper mapper) {
+	public SQLNPCDAO(DatabaseService database, NPCMapper mapper) {
 		super(database);
 		this.mapper = mapper;
 	}

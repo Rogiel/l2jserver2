@@ -5,6 +5,9 @@ import static com.mysema.query.types.PathMetadataFactory.forVariable;
 import java.util.Date;
 
 import com.l2jserver.model.server.ChatMessage;
+import com.l2jserver.service.database.sql.ddl.annotation.ColumnAutoIncrement;
+import com.l2jserver.service.database.sql.ddl.annotation.ColumnNullable;
+import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
 import com.l2jserver.service.game.chat.ChatMessageType;
 import com.mysema.query.sql.PrimaryKey;
 import com.mysema.query.types.Path;
@@ -24,18 +27,24 @@ public class QLogChat extends com.mysema.query.sql.RelationalPathBase<ChatMessag
 
 	public static final QLogChat logChat = new QLogChat("log_chat");
 
+	@ColumnSize(10)
+	@ColumnAutoIncrement
+	public final NumberPath<Integer> messageId = createNumber("message_id",
+			Integer.class);
+	
+	@ColumnSize(10)
+	@ColumnNullable
 	public final NumberPath<Integer> channelId = createNumber("channel_id",
+			Integer.class);
+	@ColumnSize(10)
+	@ColumnNullable
+	public final NumberPath<Integer> sender = createNumber("sender",
 			Integer.class);
 
 	public final DateTimePath<Date> date = createDateTime("date", Date.class);
 
+	@ColumnSize(255)
 	public final StringPath message = createString("message");
-
-	public final NumberPath<Integer> messageId = createNumber("message_id",
-			Integer.class);
-
-	public final NumberPath<Integer> sender = createNumber("sender",
-			Integer.class);
 
 	public final EnumPath<ChatMessageType> type = createEnum("type",
 			ChatMessageType.class);

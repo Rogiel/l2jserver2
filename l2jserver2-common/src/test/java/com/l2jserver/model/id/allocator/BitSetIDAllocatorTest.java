@@ -75,6 +75,7 @@ public class BitSetIDAllocatorTest {
 	public void testRelease() {
 		final int id = allocator.allocate();
 		allocator.release(id);
+		assertEquals(0, allocator.getAllocatedIDs());
 	}
 
 	@Test(expected = IDAllocatorException.class)

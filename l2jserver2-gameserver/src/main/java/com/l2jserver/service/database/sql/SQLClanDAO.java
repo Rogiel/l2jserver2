@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.Collection;
 
@@ -25,13 +25,14 @@ import com.l2jserver.model.dao.ClanDAO;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
 import com.l2jserver.service.database.mapper.ClanMapper;
 import com.l2jserver.service.database.model.QClan;
+import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
@@ -42,7 +43,7 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implements
+public class SQLClanDAO extends AbstractSQLDAO<Clan, ClanID> implements
 		ClanDAO {
 	private final ClanMapper mapper;
 
@@ -53,7 +54,7 @@ public class JDBCClanDAO extends AbstractJDBCDAO<Clan, ClanID> implements
 	 *            the mapper
 	 */
 	@Inject
-	public JDBCClanDAO(DatabaseService database, final ClanMapper mapper) {
+	public SQLClanDAO(DatabaseService database, final ClanMapper mapper) {
 		super(database);
 		this.mapper = mapper;
 	}

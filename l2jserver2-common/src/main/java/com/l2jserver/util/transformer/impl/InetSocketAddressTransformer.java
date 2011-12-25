@@ -34,15 +34,18 @@ public class InetSocketAddressTransformer implements
 	public static final InetSocketAddressTransformer SHARED_INSTANCE = new InetSocketAddressTransformer();
 
 	@Override
-	public String transform(InetSocketAddress value) {
+	public String transform(Class<? extends InetSocketAddress> type,
+			InetSocketAddress value) {
 		return value.getHostName() + ":" + value.getPort();
 	}
 
 	@Override
-	public InetSocketAddress untransform(String value) {
+	public InetSocketAddress untransform(
+			Class<? extends InetSocketAddress> type, String value) {
 		final String[] pieces = value.split(":");
 		if (pieces.length != 2)
-			throw new TransformException("InetSocketAddress must have format ip:port");
+			throw new TransformException(
+					"InetSocketAddress must have format ip:port");
 		return new InetSocketAddress(pieces[0], Integer.parseInt(pieces[1]));
 	}
 

@@ -31,12 +31,12 @@ public class ClassTransformer implements Transformer<Class<?>> {
 	public static final ClassTransformer SHARED_INSTANCE = new ClassTransformer();
 
 	@Override
-	public String transform(Class<?> value) {
+	public String transform(Class<? extends Class<?>> type, Class<?> value) {
 		return value.getName();
 	}
 
 	@Override
-	public Class<?> untransform(String value) {
+	public Class<?> untransform(Class<? extends Class<?>> type, String value) {
 		try {
 			return Class.forName(value);
 		} catch (ClassNotFoundException e) {

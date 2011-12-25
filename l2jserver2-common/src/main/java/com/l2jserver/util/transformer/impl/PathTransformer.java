@@ -33,14 +33,14 @@ public class PathTransformer implements Transformer<Path> {
 	public static final PathTransformer SHARED_INSTANCE = new PathTransformer();
 
 	@Override
-	public String transform(Path value) {
+	public String transform(Class<? extends Path> type, Path value) {
 		if (value == null)
 			return "";
 		return value.toString();
 	}
 
 	@Override
-	public Path untransform(String value) {
+	public Path untransform(Class<? extends Path> type, String value) {
 		return Paths.get(value);
 	}
 }

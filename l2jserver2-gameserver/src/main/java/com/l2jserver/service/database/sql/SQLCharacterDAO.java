@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.List;
 
@@ -26,13 +26,14 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
 import com.l2jserver.service.database.mapper.CharacterMapper;
 import com.l2jserver.service.database.model.QCharacter;
+import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
@@ -43,7 +44,7 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCCharacterDAO extends AbstractJDBCDAO<L2Character, CharacterID>
+public class SQLCharacterDAO extends AbstractSQLDAO<L2Character, CharacterID>
 		implements CharacterDAO {
 	/**
 	 * The {@link L2Character} mapper
@@ -57,7 +58,7 @@ public class JDBCCharacterDAO extends AbstractJDBCDAO<L2Character, CharacterID>
 	 *            the character mapper
 	 */
 	@Inject
-	public JDBCCharacterDAO(DatabaseService database, CharacterMapper mapper) {
+	public SQLCharacterDAO(DatabaseService database, CharacterMapper mapper) {
 		super(database);
 		this.mapper = mapper;
 	}

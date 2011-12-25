@@ -30,12 +30,12 @@ public class IntegerTransformer implements Transformer<Integer> {
 	public static final IntegerTransformer SHARED_INSTANCE = new IntegerTransformer();
 
 	@Override
-	public String transform(Integer value) {
+	public String transform(Class<? extends Integer> type, Integer value) {
 		return Integer.toString(value);
 	}
 
 	@Override
-	public Integer untransform(String value) {
+	public Integer untransform(Class<? extends Integer> type, String value) {
 		return Integer.decode(value);
 	}
 

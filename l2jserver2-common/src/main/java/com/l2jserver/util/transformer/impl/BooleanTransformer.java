@@ -30,12 +30,12 @@ public class BooleanTransformer implements Transformer<Boolean> {
 	public static final BooleanTransformer SHARED_INSTANCE = new BooleanTransformer();
 
 	@Override
-	public String transform(Boolean value) {
+	public String transform(Class<? extends Boolean> type, Boolean value) {
 		return (value ? "true" : "false");
 	}
 
 	@Override
-	public Boolean untransform(String value) {
+	public Boolean untransform(Class<? extends Boolean> type, String value) {
 		return Boolean.parseBoolean(value);
 	}
 

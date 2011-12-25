@@ -37,12 +37,12 @@ public class FileTransformer implements Transformer<File> {
 	private final File root = new File("./");
 
 	@Override
-	public String transform(File value) {
+	public String transform(Class<? extends File> type, File value) {
 		return value.getAbsolutePath();
 	}
 
 	@Override
-	public File untransform(String value) {
+	public File untransform(Class<? extends File> type, String value) {
 		return new File(root, value);
 	}
 

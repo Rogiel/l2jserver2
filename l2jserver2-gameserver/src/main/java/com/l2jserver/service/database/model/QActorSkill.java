@@ -3,6 +3,7 @@ package com.l2jserver.service.database.model;
 import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
 import com.l2jserver.model.game.Skill;
+import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
 import com.mysema.query.sql.PrimaryKey;
 import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.types.Path;
@@ -19,12 +20,15 @@ public class QActorSkill extends RelationalPathBase<Skill> {
 
 	public static final QActorSkill actorSkill = new QActorSkill("actor_skill");
 
+	@ColumnSize(10)
 	public final NumberPath<Integer> actorId = createNumber("actor_id",
 			Integer.class);
 
+	@ColumnSize(4)
 	public final NumberPath<Integer> level = createNumber("level",
 			Integer.class);
 
+	@ColumnSize(6)
 	public final NumberPath<Integer> skillId = createNumber("skill_id",
 			Integer.class);
 

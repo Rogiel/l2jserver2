@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import com.mysema.query.types.Path;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
  */
-public class JDBCDatabaseRow implements DatabaseRow {
+public class SQLDatabaseRow implements DatabaseRow {
 	@SuppressWarnings("unused")
 	private final RelationalPathBase<?> entity;
 	private final List<Path<?>> paths;
@@ -39,7 +39,7 @@ public class JDBCDatabaseRow implements DatabaseRow {
 	 * @param entity
 	 *            the entity
 	 */
-	public JDBCDatabaseRow(Object[] row, RelationalPathBase<?> entity) {
+	public SQLDatabaseRow(Object[] row, RelationalPathBase<?> entity) {
 		this.row = row;
 		this.entity = entity;
 		paths = entity.getColumns();
@@ -49,7 +49,7 @@ public class JDBCDatabaseRow implements DatabaseRow {
 	 * @param entity
 	 *            the entity
 	 */
-	public JDBCDatabaseRow(RelationalPathBase<?> entity) {
+	public SQLDatabaseRow(RelationalPathBase<?> entity) {
 		this.entity = entity;
 		paths = entity.getColumns();
 	}

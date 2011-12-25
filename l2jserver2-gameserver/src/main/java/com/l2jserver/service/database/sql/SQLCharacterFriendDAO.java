@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.List;
 
@@ -26,12 +26,13 @@ import com.l2jserver.model.id.FriendID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
 import com.l2jserver.service.database.mapper.CharacterFriendMapper;
 import com.l2jserver.service.database.model.QCharacterFriend;
+import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
@@ -41,8 +42,8 @@ import com.mysema.query.sql.dml.SQLInsertClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCCharacterFriendDAO extends
-		AbstractJDBCDAO<CharacterFriend, FriendID> implements
+public class SQLCharacterFriendDAO extends
+		AbstractSQLDAO<CharacterFriend, FriendID> implements
 		CharacterFriendDAO {
 	/**
 	 * The {@link CharacterFriend} mapper
@@ -56,7 +57,7 @@ public class JDBCCharacterFriendDAO extends
 	 *            the character friend mapper
 	 */
 	@Inject
-	public JDBCCharacterFriendDAO(DatabaseService database,
+	public SQLCharacterFriendDAO(DatabaseService database,
 			CharacterFriendMapper mapper) {
 		super(database);
 		this.mapper = mapper;

@@ -16,6 +16,8 @@
  */
 package com.l2jserver.util;
 
+import java.lang.reflect.Field;
+
 /**
  * This class contains utilities that are used when we are working with classes
  * 
@@ -89,5 +91,33 @@ public class ClassUtils {
 					className.lastIndexOf('.'));
 			return packageName.equals(classPackage);
 		}
+	}
+
+	/**
+	 * Recursively searches for an {@link Field} within an given {@link Class}
+	 * that is instance of <code>object</code> for an field with the given
+	 * <code>value</code>
+	 * 
+	 * @param object
+	 *            the object to look for the value
+	 * @param value
+	 *            the value to be looked for
+	 * @return the field that has the correct value, if any.
+	 */
+	public static Field getFieldWithValue(Object object, Object value) {
+		final Class<?> clazz = object.getClass();
+		for (final Field field : clazz.getDeclaredFields()) {
+			boolean accessible = field.isAccessible();
+			try {
+				field.setAccessible(true);
+				if (field.get(object) == value)
+					return field;
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				continue;
+			} finally {
+				field.setAccessible(accessible);
+			}
+		}
+		return null;
 	}
 }

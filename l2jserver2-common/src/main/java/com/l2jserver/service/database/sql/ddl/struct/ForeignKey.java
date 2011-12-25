@@ -14,38 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql.ddl.struct;
 
-import com.google.inject.Inject;
-import com.l2jserver.model.Model;
-import com.l2jserver.model.id.ID;
-import com.l2jserver.service.database.AbstractDAO;
-import com.l2jserver.service.database.DatabaseService;
+import java.util.Collections;
+import java.util.List;
 
 /**
- * {@link AbstractDAO} for JDBC DAO implementation
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 
- * @param <T>
- *            the object for the DAO
- * @param <I>
- *            the object ID type
  */
-public abstract class AbstractJDBCDAO<T extends Model<?>, I extends ID<?>>
-		extends AbstractDAO<T, I> {
-	/**
-	 * The JDBC Database Service
-	 */
-	protected final AbstractJDBCDatabaseService database;
+public class ForeignKey {
+	private final String name;
+	private final List<Column> columns;
 
 	/**
-	 * @param database
-	 *            the database service
+	 * @param name
+	 *            the key name
+	 * @param columns
+	 *            the key columns
 	 */
-	@Inject
-	protected AbstractJDBCDAO(DatabaseService database) {
-		super(database);
-		this.database = (AbstractJDBCDatabaseService) database;
+	public ForeignKey(String name, List<Column> columns) {
+		this.name = name;
+		this.columns = columns;
+	}
+
+	/**
+	 * @return the columns
+	 */
+	public List<Column> getColumns() {
+		return Collections.unmodifiableList(columns);
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
 	}
 }

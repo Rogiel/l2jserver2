@@ -25,10 +25,6 @@
 			<directory>${project.basedir}/distribution/global</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
-		<fileSet>
-			<directory>${project.basedir}/distribution/sql</directory>
-			<outputDirectory>/</outputDirectory>
-		</fileSet>
 	</fileSets>
 	<files>
 		<file>

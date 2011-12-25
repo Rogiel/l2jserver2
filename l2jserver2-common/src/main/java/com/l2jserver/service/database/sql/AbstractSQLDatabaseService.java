@@ -14,16 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
-import java.lang.reflect.InvocationTargetException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Provider;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.ConnectionFactory;
@@ -52,18 +55,20 @@ import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.database.DAOResolver;
 import com.l2jserver.service.database.DataAccessObject;
 import com.l2jserver.service.database.DatabaseException;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.dao.DatabaseRow;
 import com.l2jserver.service.database.dao.Mapper;
+import com.l2jserver.service.database.sql.ddl.QueryFactory;
+import com.l2jserver.service.database.sql.ddl.TableFactory;
+import com.l2jserver.service.database.sql.ddl.struct.Table;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.mysema.query.sql.AbstractSQLQuery;
-import com.mysema.query.sql.Configuration;
 import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.sql.SQLQueryFactory;
-import com.mysema.query.sql.SQLTemplates;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.sql.dml.SQLUpdateClause;
@@ -90,7 +95,7 @@ import com.mysema.query.types.Path;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractJDBCDatabaseService extends AbstractService
+public abstract class AbstractSQLDatabaseService extends AbstractService
 		implements DatabaseService {
 	/**
 	 * The configuration object
@@ -100,21 +105,30 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory
-			.getLogger(AbstractJDBCDatabaseService.class);
+			.getLogger(AbstractSQLDatabaseService.class);
 
 	/**
 	 * The cache service
 	 */
-	private final CacheService cacheService;
+	protected final CacheService cacheService;
 	/**
 	 * The thread service
 	 */
-	private final ThreadService threadService;
+	protected final ThreadService threadService;
+	/**
+	 * The VFS Service
+	 */
+	protected final VFSService vfsService;
 	/**
 	 * The {@link DAOResolver} instance
 	 */
 	private final DAOResolver daoResolver;
 
+	/**
+	 * The database engine instance (provides drivers and other factories
+	 * classes)
+	 */
+	private DatabaseEngine engine;
 	/**
 	 * The database connection pool
 	 */
@@ -152,11 +166,8 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 */
 	private final Type<?>[] sqlTypes;
 
-	private SQLTemplates queryTemplates;
-	private Configuration queryConfig;
-
 	/**
-	 * Configuration interface for {@link AbstractJDBCDatabaseService}.
+	 * Configuration interface for {@link AbstractSQLDatabaseService}.
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
@@ -177,50 +188,19 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		void setJdbcUrl(String jdbcUrl);
 
 		/**
-		 * @return the jdbc driver class
+		 * @return the database engine class
 		 */
-		@ConfigurationPropertyGetter(defaultValue = "com.jdbc.jdbc.Driver")
-		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
-		Class<?> getDriver();
+		@ConfigurationPropertyGetter(defaultValue = "com.l2jserver.service.database.sql.MySQLDatabaseEngine")
+		@ConfigurationXPath("/configuration/services/database/jdbc/engine")
+		Class<? extends DatabaseEngine> getDatabaseEngineClass();
 
 		/**
 		 * @param driver
-		 *            the new jdbc driver
+		 *            the new database engine class
 		 */
 		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/driver")
-		void setDriver(Class<?> driver);
-
-		/**
-		 * @return the sql template class
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "com.mysema.query.sql.MySQLTemplates")
-		@ConfigurationXPath("/configuration/services/database/jdbc/templates")
-		Class<? extends SQLTemplates> getSQLTemplatesClass();
-
-		/**
-		 * @param templatesClass
-		 *            the new sql template class
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/templates")
-		void setSQLTemplatesClass(Class<? extends SQLTemplates> templatesClass);
-
-		/**
-		 * @return the sql template class
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "com.mysema.query.sql.mysql.MySQLQueryFactory")
-		@ConfigurationXPath("/configuration/services/database/jdbc/queryFactory")
-		Class<? extends SQLQueryFactory<?, ?, ?, ?, ?, ?>> getSQLQueryFactoryClass();
-
-		/**
-		 * @param factoryClass
-		 *            the new sql query factory class
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/queryFactory")
-		void setSQLQueryFactoryClass(
-				Class<? extends SQLQueryFactory<?, ?, ?, ?, ?, ?>> factoryClass);
+		@ConfigurationXPath("/configuration/services/database/jdbc/engine")
+		void setDatabaseEngineClass(Class<? extends DatabaseEngine> driver);
 
 		/**
 		 * @return the jdbc database username
@@ -251,6 +231,21 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		@ConfigurationPropertySetter
 		@ConfigurationXPath("/configuration/services/database/jdbc/password")
 		void setPassword(String password);
+
+		/**
+		 * @return the update schema state
+		 */
+		@ConfigurationPropertyGetter(defaultValue = "true")
+		@ConfigurationXPath("/configuration/services/database/jdbc/updateSchema")
+		String getUpdateSchema();
+
+		/**
+		 * @param updateSchema
+		 *            the new uodate schema state
+		 */
+		@ConfigurationPropertySetter
+		@ConfigurationXPath("/configuration/services/database/jdbc/updateSchema")
+		void setUpdateSchema(String updateSchema);
 
 		/**
 		 * @return the maximum number of active connections
@@ -305,24 +300,34 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 	 *            the cache service
 	 * @param threadService
 	 *            the thread service
+	 * @param vfsService
+	 *            the vfs service
 	 * @param daoResolver
 	 *            the {@link DataAccessObject DAO} resolver
 	 * @param types
 	 *            the SQL mapping types
 	 */
 	@Inject
-	public AbstractJDBCDatabaseService(ConfigurationService configService,
+	public AbstractSQLDatabaseService(ConfigurationService configService,
 			CacheService cacheService, ThreadService threadService,
-			DAOResolver daoResolver, Type<?>... types) {
+			VFSService vfsService, DAOResolver daoResolver, Type<?>... types) {
 		config = configService.get(JDBCDatabaseConfiguration.class);
 		this.cacheService = cacheService;
 		this.threadService = threadService;
+		this.vfsService = vfsService;
 		this.daoResolver = daoResolver;
 		this.sqlTypes = types;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
+		try {
+			engine = config.getDatabaseEngineClass().newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			throw new ServiceStartException(
+					"DatabaseEngine instance not found", e);
+		}
+
 		connectionPool = new GenericObjectPool(null);
 		connectionPool.setMaxActive(config.getMaxActiveConnections());
 		connectionPool.setMinIdle(config.getMinIdleConnections());
@@ -330,6 +335,8 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 
 		// test if connections are active while idle
 		connectionPool.setTestWhileIdle(true);
+
+		// DriverManager.registerDriver(driver)
 
 		connectionFactory = new DriverManagerConnectionFactory(
 				config.getJdbcUrl(), config.getUsername(), config.getPassword());
@@ -339,16 +346,19 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		dataSource = new PoolingDataSource(connectionPool);
 
 		try {
-			queryTemplates = config.getSQLTemplatesClass()
-					.getConstructor(Boolean.TYPE).newInstance(true);
-		} catch (InstantiationException | IllegalAccessException
-				| IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException e) {
-			throw new ServiceStartException(e);
+			final Connection conn = dataSource.getConnection();
+			try {
+				ensureDatabaseSchema(conn);
+			} finally {
+				conn.close();
+			}
+		} catch (Exception e) {
+			throw new ServiceStartException("Couldn't update database schema",
+					e);
 		}
-		queryConfig = new Configuration(queryTemplates);
+
 		for (final Type<?> type : sqlTypes) {
-			queryConfig.register(type);
+			engine.registerType(type);
 		}
 
 		// cache must be large enough for all world objects, to avoid
@@ -382,6 +392,112 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 						}
 					}
 				});
+	}
+
+	/**
+	 * Makes sure the database schema is up-to-date with the external database
+	 * 
+	 * @param conn
+	 *            the connection to be used
+	 * @throws SQLException
+	 *             if any {@link SQLException} occur
+	 * @throws IOException
+	 *             if any {@link IOException} occur
+	 */
+	protected abstract void ensureDatabaseSchema(Connection conn)
+			throws SQLException, IOException;
+
+	/**
+	 * 
+	 * @param conn
+	 *            the connection to be used
+	 * @param table
+	 *            the {@link RelationalPathBase} table
+	 * @return <code>true</code> if a new table was created, <code>false</code>
+	 *         otherwise.
+	 * @throws SQLException
+	 *             if any {@link SQLException} occur
+	 */
+	protected boolean updateSchema(Connection conn, RelationalPathBase<?> table)
+			throws SQLException {
+		final Table expected = TableFactory.createTable(table);
+		String query = null;
+		boolean create = false;
+		try {
+			final Table current = TableFactory.createTable(conn,
+					engine.getTemplate(), table.getTableName());
+			query = QueryFactory.alterTableQueryUpdate(expected, current,
+					engine.getTemplate());
+		} catch (SQLException e) {
+			// table may not exist
+			query = QueryFactory.createTableQuery(expected,
+					engine.getTemplate());
+			create = true;
+		}
+		if ((engine.getTemplate().supportsAlterTable() && !create) || create)
+			executeSQL(conn, query);
+		return create;
+	}
+
+	/**
+	 * Imports an entire SQL file into the database. If the file consists of
+	 * several SQL statements, they will be splitted and executed separated.
+	 * 
+	 * @param conn
+	 *            the SQL connection
+	 * @param sqlPath
+	 *            the path for the SQL file
+	 * @throws IOException
+	 *             if any error occur while reading the file
+	 * @throws SQLException
+	 *             if any error occur while executing the statements
+	 */
+	protected void importSQL(Connection conn, java.nio.file.Path sqlPath)
+			throws IOException, SQLException {
+		BufferedReader reader = Files.newBufferedReader(sqlPath,
+				Charset.defaultCharset());
+		final StringBuilder builder = new StringBuilder();
+		String line;
+		conn.setAutoCommit(false);
+		try {
+			while ((line = reader.readLine()) != null) {
+				builder.append(line).append("\n");
+				if (line.trim().endsWith(";")) {
+					executeSQL(conn, builder.substring(0, builder.length() - 2));
+					builder.setLength(0);
+				}
+			}
+			conn.commit();
+		} catch (SQLException | IOException e) {
+			conn.rollback();
+			throw e;
+		} finally {
+			conn.setAutoCommit(true);
+		}
+	}
+
+	/**
+	 * Executes the SQL code in the databases
+	 * 
+	 * @param conn
+	 *            the SQL connection
+	 * @param sql
+	 *            the SQL query
+	 * @return (see {@link Statement#execute(String)})
+	 * @throws SQLException
+	 *             if any error occur while executing the sql query
+	 */
+	protected boolean executeSQL(Connection conn, String sql)
+			throws SQLException {
+		final Statement st = conn.createStatement();
+		try {
+			return st.execute(sql);
+		} catch (SQLException e) {
+			log.warn("Error exectuing query {}", sql);
+			throw e;
+		} finally {
+			st.close();
+		}
 	}
 
 	@Override
@@ -442,7 +558,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 			boolean inTransaction = true;
 			Connection conn = transactionalConnection.get();
 			if (conn == null) {
-				System.out.println("new connection!");
 				log.debug(
 						"Transactional connection for {} is not set, creating new connection",
 						query);
@@ -455,14 +570,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 					conn.setAutoCommit(false);
 				}
 				try {
-					final Connection retConn = conn;
-					final SQLQueryFactory<? extends AbstractSQLQuery<?>, ?, ?, ?, ?, ?> factory = createQueryFactory(new Provider<Connection>() {
-						@Override
-						public Connection get() {
-							return retConn;
-						}
-					});
-					return query.query(factory);
+					return query.query(engine.createSQLQueryFactory(conn));
 				} finally {
 					if (!inTransaction) {
 						conn.commit();
@@ -482,21 +590,6 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		} catch (Throwable e) {
 			log.error("Could not open database connection", e);
 			throw new DatabaseException(e);
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private SQLQueryFactory<? extends AbstractSQLQuery<?>, ?, ?, ?, ?, ?> createQueryFactory(
-			Provider<Connection> provider) {
-		try {
-			return (SQLQueryFactory<? extends AbstractSQLQuery<?>, ?, ?, ?, ?, ?>) config
-					.getSQLQueryFactoryClass()
-					.getConstructor(Configuration.class, Provider.class)
-					.newInstance(queryConfig, provider);
-		} catch (InstantiationException | IllegalAccessException
-				| IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException e) {
-			return null;
 		}
 	}
 
@@ -811,7 +904,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		protected final O perform(AbstractSQLQuery<?> select) {
 			final List<Object[]> results = select.limit(1).list(entity.all());
 			if (results.size() == 1) {
-				return mapper.map(entity, new JDBCDatabaseRow(results.get(0),
+				return mapper.map(entity, new SQLDatabaseRow(results.get(0),
 						entity));
 			} else {
 				return null;
@@ -834,7 +927,7 @@ public abstract class AbstractJDBCDatabaseService extends AbstractService
 		@Override
 		protected final List<O> perform(AbstractSQLQuery<?> select) {
 			final List<Object[]> results = select.list(entity.all());
-			final JDBCDatabaseRow row = new JDBCDatabaseRow(entity);
+			final SQLDatabaseRow row = new SQLDatabaseRow(entity);
 			final List<O> objects = CollectionFactory.newList();
 			for (final Object[] data : results) {
 				row.setRow(data);

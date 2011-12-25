@@ -30,12 +30,12 @@ public class ByteTransformer implements Transformer<Byte> {
 	public static final ByteTransformer SHARED_INSTANCE = new ByteTransformer();
 
 	@Override
-	public String transform(Byte value) {
+	public String transform(Class<? extends Byte> type, Byte value) {
 		return Double.toString(value);
 	}
 
 	@Override
-	public Byte untransform(String value) {
+	public Byte untransform(Class<? extends Byte> type, String value) {
 		return Byte.decode(value);
 	}
 

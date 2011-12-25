@@ -62,27 +62,6 @@
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- database -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.18</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.3.162</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>10.8.2.2</version>
-			<scope>runtime</scope>
-		</dependency>
 		<!-- cache -->
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>

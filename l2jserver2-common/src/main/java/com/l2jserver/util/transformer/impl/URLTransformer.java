@@ -35,12 +35,12 @@ public class URLTransformer implements Transformer<URL> {
 	public static final URLTransformer SHARED_INSTANCE = new URLTransformer();
 
 	@Override
-	public String transform(URL value) {
+	public String transform(Class<? extends URL> type, URL value) {
 		return value.toString();
 	}
 
 	@Override
-	public URL untransform(String value) {
+	public URL untransform(Class<? extends URL> type, String value) {
 		try {
 			return new URL(value);
 		} catch (MalformedURLException e) {

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.jdbc;
+package com.l2jserver.service.database.sql;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,13 +27,14 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.DeleteQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.InsertQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectListQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.SelectSingleQuery;
-import com.l2jserver.service.database.jdbc.AbstractJDBCDatabaseService.UpdateQuery;
 import com.l2jserver.service.database.mapper.ItemMapper;
 import com.l2jserver.service.database.model.QItem;
+import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectSingleQuery;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.UpdateQuery;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.dml.SQLDeleteClause;
 import com.mysema.query.sql.dml.SQLInsertClause;
@@ -44,7 +45,7 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID> implements
+public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements
 		ItemDAO {
 	private final ItemMapper mapper;
 
@@ -55,7 +56,7 @@ public class JDBCItemDAO extends AbstractJDBCDAO<Item, ItemID> implements
 	 *            the mapper
 	 */
 	@Inject
-	public JDBCItemDAO(DatabaseService database, ItemMapper mapper) {
+	public SQLItemDAO(DatabaseService database, ItemMapper mapper) {
 		super(database);
 		this.mapper = mapper;
 	}
