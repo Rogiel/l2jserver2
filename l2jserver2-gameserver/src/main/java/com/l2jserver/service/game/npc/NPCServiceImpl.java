@@ -152,6 +152,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 			for (final NPC npc : npcs) {
 				spawnService.spawn(npc, null);
 			}
+			log.info("Loaded {} NPC instances", npcs.size());
 		} catch (SpawnPointNotFoundServiceException e) {
 			throw new ServiceStartException(e);
 		} catch (AlreadySpawnedServiceException e) {

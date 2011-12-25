@@ -16,16 +16,21 @@
  */
 package com.l2jserver.service.database;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.l2jserver.model.Model;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.core.vfs.VFSService;
+import com.l2jserver.service.database.dao.SelectMapper;
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService;
+import com.mysema.query.sql.RelationalPathBase;
 
 /**
  * This is an implementation of {@link DatabaseService} that provides an layer

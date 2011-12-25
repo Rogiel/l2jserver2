@@ -16,12 +16,16 @@
  */
 package com.l2jserver.service.database;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
 import com.l2jserver.service.core.threading.AsyncFuture;
+import com.mysema.query.sql.RelationalPathBase;
 
 /**
  * This service provides access to an database implementation. Each
@@ -100,6 +104,26 @@ public interface DatabaseService extends Service {
 		 */
 		int perform();
 	}
+
+	/**
+	 * Imports an static data file into the database. File must be an CSV file
+	 * with the first row as column names.
+	 * 
+	 * @param <M>
+	 *            the model type
+	 * @param <T>
+	 *            the table type
+	 * 
+	 * @param path
+	 *            the path
+	 * @param entity
+	 *            the table
+	 * @throws IOException
+	 *             if any error occur while reading or parsing the file
+	 */
+	<M extends Model<?>, T extends RelationalPathBase<?>> void importData(
+			Path path, T entity)
+			throws IOException;
 
 	/**
 	 * Checks for the cached version of the object

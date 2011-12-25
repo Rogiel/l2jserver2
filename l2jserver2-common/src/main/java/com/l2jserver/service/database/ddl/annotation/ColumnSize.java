@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.annotation;
+package com.l2jserver.service.database.ddl.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

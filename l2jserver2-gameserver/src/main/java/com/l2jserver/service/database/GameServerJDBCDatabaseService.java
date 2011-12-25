@@ -112,7 +112,8 @@ public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 	}
 
 	@Override
-	protected void ensureDatabaseSchema(Connection conn) throws SQLException, IOException {
+	protected void ensureDatabaseSchema(Connection conn) throws SQLException,
+			IOException {
 		updateSchema(conn, QActorSkill.actorSkill);
 		updateSchema(conn, QCharacter.character);
 		updateSchema(conn, QCharacterFriend.characterFriend);
@@ -121,7 +122,7 @@ public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 		updateSchema(conn, QItem.item);
 		updateSchema(conn, QLogChat.logChat);
 		if (updateSchema(conn, QNPC.npc)) {
-			importSQL(conn, vfsService.resolve("data/sql/npc.sql"));
+			importData(vfsService.resolve("data/static/npc.csv"), QNPC.npc);
 		}
 	}
 }

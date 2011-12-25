@@ -14,41 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.struct;
+package com.l2jserver.service.database.ddl.annotation;
 
-import java.util.Collections;
-import java.util.List;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import com.mysema.query.sql.RelationalPath;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * This annotation defines the attributes for the {@link RelationalPath}
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ForeignKey {
-	private final String name;
-	private final List<Column> columns;
-
-	/**
-	 * @param name
-	 *            the key name
-	 * @param columns
-	 *            the key columns
-	 */
-	public ForeignKey(String name, List<Column> columns) {
-		this.name = name;
-		this.columns = columns;
-	}
-
-	/**
-	 * @return the columns
-	 */
-	public List<Column> getColumns() {
-		return Collections.unmodifiableList(columns);
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface ColumnDefault {
+	String value() default "NULL";
 }

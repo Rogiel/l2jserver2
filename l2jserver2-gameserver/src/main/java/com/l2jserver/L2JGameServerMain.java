@@ -77,6 +77,7 @@ public class L2JGameServerMain {
 					}
 				}
 			}));
+
 		} catch (Exception e) {
 			System.out.println("GameServer could not be started!");
 			e.printStackTrace();

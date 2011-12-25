@@ -23,8 +23,8 @@ import javax.inject.Provider;
 
 import org.h2.Driver;
 
-import com.l2jserver.service.database.sql.ddl.QueryTemplate;
-import com.l2jserver.service.database.sql.ddl.template.H2Template;
+import com.l2jserver.service.database.ddl.QueryTemplate;
+import com.l2jserver.service.database.ddl.template.H2Template;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.Configuration;
 import com.mysema.query.sql.SQLQueryFactory;

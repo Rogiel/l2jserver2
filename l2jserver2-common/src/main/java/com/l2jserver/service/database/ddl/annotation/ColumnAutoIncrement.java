@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.annotation;
+package com.l2jserver.service.database.ddl.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -32,6 +32,5 @@ import com.mysema.query.sql.RelationalPath;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface ColumnDefault {
-	String value() default "NULL";
+public @interface ColumnAutoIncrement {
 }

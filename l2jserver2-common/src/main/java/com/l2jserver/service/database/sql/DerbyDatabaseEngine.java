@@ -24,8 +24,8 @@ import javax.inject.Provider;
 
 import org.apache.derby.jdbc.EmbeddedDriver;
 
-import com.l2jserver.service.database.sql.ddl.QueryTemplate;
-import com.l2jserver.service.database.sql.ddl.template.DerbyTemplate;
+import com.l2jserver.service.database.ddl.QueryTemplate;
+import com.l2jserver.service.database.ddl.template.DerbyTemplate;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.Configuration;
 import com.mysema.query.sql.SQLQueryFactory;

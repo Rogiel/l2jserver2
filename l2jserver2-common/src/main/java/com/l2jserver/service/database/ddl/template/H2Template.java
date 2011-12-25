@@ -14,52 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.template;
+package com.l2jserver.service.database.ddl.template;
 
-import com.l2jserver.service.database.sql.ddl.QueryTemplate;
-import com.l2jserver.service.database.sql.ddl.struct.Column.ColumnType;
-import com.mysema.query.QueryMetadata;
-import com.mysema.query.QueryModifiers;
-import com.mysema.query.sql.support.SerializationContext;
+import com.l2jserver.service.database.ddl.QueryTemplate;
+import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.mysema.query.types.Ops;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class DerbyTemplate extends QueryTemplate {
-	private String limitOffsetTemplate = "\noffset {1s} rows fetch next {0s} rows only";
-
-	private String limitTemplate = "\nfetch first {0s} rows only";
-
-	private String offsetTemplate = "\noffset {0s} rows";
-
-	public DerbyTemplate() {
+public class H2Template extends QueryTemplate {
+	public H2Template() {
 		super("\"", '\\', true);
-		addClass2TypeMappings("smallint", Byte.class);
-		setAutoIncrement(" generated always as identity");
-
-		add(Ops.CONCAT, "varchar({0} || {1})");
-		add(Ops.MathOps.ROUND, "floor({0})");
-		add(Ops.DateTimeOps.DAY_OF_MONTH, "day({0})");
-
-		add(NEXTVAL, "next value for {0s}");
-
-		// case for eq
-		add(Ops.CASE_EQ, "case {1} end");
-		add(Ops.CASE_EQ_WHEN, "when {0} = {1} then {2} {3}");
-		add(Ops.CASE_EQ_ELSE, "else {0}");
-	}
-
-	protected void serializeModifiers(QueryMetadata metadata,
-			SerializationContext context) {
-		QueryModifiers mod = metadata.getModifiers();
-		if (mod.getLimit() == null) {
-			context.handle(offsetTemplate, mod.getOffset());
-		} else if (mod.getOffset() == null) {
-			context.handle(limitTemplate, mod.getLimit());
-		} else {
-			context.handle(limitOffsetTemplate, mod.getLimit(), mod.getOffset());
-		}
+		setNativeMerge(true);
+		add(Ops.MathOps.ROUND, "round({0},0)");
+		add(Ops.TRIM, "trim(both from {0})");
+		add(Ops.CONCAT, "concat({0},{1})");
 	}
 
 	@Override
@@ -70,7 +40,7 @@ public class DerbyTemplate extends QueryTemplate {
 		case DOUBLE:
 			return "double";
 		case INTEGER:
-			return "int";
+			return "integer";
 		case STRING:
 			return "varchar";
 		case TIMESTAMP:
@@ -85,9 +55,9 @@ public class DerbyTemplate extends QueryTemplate {
 		switch (type) {
 		case DOUBLE:
 		case TIMESTAMP:
-		case INTEGER:
 			return false;
 		case ENUM:
+		case INTEGER:
 		case STRING:
 			return true;
 		default:
@@ -112,7 +82,7 @@ public class DerbyTemplate extends QueryTemplate {
 
 	@Override
 	public boolean supportsColumnChangeTypes() {
-		return false;
+		return true;
 	}
 
 	@Override

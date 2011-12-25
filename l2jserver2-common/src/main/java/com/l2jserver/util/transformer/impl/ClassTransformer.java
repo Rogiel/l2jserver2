@@ -38,7 +38,7 @@ public class ClassTransformer implements Transformer<Class<?>> {
 	@Override
 	public Class<?> untransform(Class<? extends Class<?>> type, String value) {
 		try {
-			return Class.forName(value);
+			return Class.forName(value.trim());
 		} catch (ClassNotFoundException e) {
 			throw new TransformException(e);
 		}

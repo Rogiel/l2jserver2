@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.template;
+package com.l2jserver.service.database.ddl.template;
 
 import java.math.BigDecimal;
 
-import com.l2jserver.service.database.sql.ddl.QueryTemplate;
-import com.l2jserver.service.database.sql.ddl.struct.Column.ColumnType;
+import com.l2jserver.service.database.ddl.QueryTemplate;
+import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.mysema.query.types.Ops;
 
 /**

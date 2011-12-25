@@ -20,7 +20,7 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.SQLException;
 
-import com.l2jserver.service.database.sql.ddl.QueryTemplate;
+import com.l2jserver.service.database.ddl.QueryTemplate;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.SQLQueryFactory;
 import com.mysema.query.sql.types.Type;

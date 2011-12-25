@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl;
+package com.l2jserver.service.database.ddl;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -27,15 +27,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnAutoIncrement;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnDefault;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnNullable;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
-import com.l2jserver.service.database.sql.ddl.struct.Column;
-import com.l2jserver.service.database.sql.ddl.struct.Column.ColumnType;
-import com.l2jserver.service.database.sql.ddl.struct.ForeignKey;
-import com.l2jserver.service.database.sql.ddl.struct.PrimaryKey;
-import com.l2jserver.service.database.sql.ddl.struct.Table;
+import com.l2jserver.service.database.ddl.annotation.ColumnAutoIncrement;
+import com.l2jserver.service.database.ddl.annotation.ColumnDefault;
+import com.l2jserver.service.database.ddl.annotation.ColumnNullable;
+import com.l2jserver.service.database.ddl.annotation.ColumnSize;
+import com.l2jserver.service.database.ddl.struct.Column;
+import com.l2jserver.service.database.ddl.struct.ForeignKey;
+import com.l2jserver.service.database.ddl.struct.PrimaryKey;
+import com.l2jserver.service.database.ddl.struct.Table;
+import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.mysema.query.sql.RelationalPathBase;

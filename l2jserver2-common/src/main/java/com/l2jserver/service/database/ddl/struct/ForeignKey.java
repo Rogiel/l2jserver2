@@ -14,27 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.struct;
+package com.l2jserver.service.database.ddl.struct;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * 
  */
-public class PrimaryKey {
-	private final Column column;
+public class ForeignKey {
+	private final String name;
+	private final List<Column> columns;
 
 	/**
-	 * @param column
-	 *            the primary key column
+	 * @param name
+	 *            the key name
+	 * @param columns
+	 *            the key columns
 	 */
-	public PrimaryKey(Column column) {
-		super();
-		this.column = column;
+	public ForeignKey(String name, List<Column> columns) {
+		this.name = name;
+		this.columns = columns;
 	}
 
 	/**
-	 * @return the column
+	 * @return the columns
 	 */
-	public Column getColumn() {
-		return column;
+	public List<Column> getColumns() {
+		return Collections.unmodifiableList(columns);
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
 	}
 }

@@ -14,20 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.tool.ddl;
+package com.l2jserver.service.database.ddl.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import com.mysema.query.sql.RelationalPath;
 
 /**
+ * This annotation defines the attributes for the {@link RelationalPath}
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- *
  */
-public class GenerateSQLFiles {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface ColumnNullable {
 }

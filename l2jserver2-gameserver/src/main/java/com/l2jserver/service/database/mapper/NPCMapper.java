@@ -75,6 +75,7 @@ public class NPCMapper extends AbstractMapper<NPC, Integer, NPCID, QNPC> {
 	@Override
 	public NPC select(QNPC e, DatabaseRow row) {
 		final NPCID id = idProvider.resolveID(row.get(e.npcId));
+
 		NPCTemplateID templateId = templateIdProvider.resolveID(row
 				.get(e.npcTemplateId));
 		NPCTemplate template = templateId.getTemplate();

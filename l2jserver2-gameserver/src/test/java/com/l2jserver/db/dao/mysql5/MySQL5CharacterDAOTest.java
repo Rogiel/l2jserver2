@@ -50,8 +50,7 @@ public class MySQL5CharacterDAOTest {
 	@Test
 	public void testCachedLoad() throws ServiceStartException {
 		injector.getInstance(ServiceManager.class).start(TemplateService.class);
-		injector.getInstance(ServiceManager.class).start(
-				DatabaseService.class);
+		injector.getInstance(ServiceManager.class).start(DatabaseService.class);
 		injector.getInstance(ServiceManager.class).start(WorldService.class);
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
@@ -60,6 +59,6 @@ public class MySQL5CharacterDAOTest {
 		final L2Character char2 = dao.select(injector.getInstance(
 				CharacterIDProvider.class).resolveID(268437456));
 
-		 Assert.assertSame(char1, char2);
+		Assert.assertSame(char1, char2);
 	}
 }

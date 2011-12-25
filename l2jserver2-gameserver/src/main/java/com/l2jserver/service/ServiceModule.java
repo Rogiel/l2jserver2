@@ -89,8 +89,8 @@ public class ServiceModule extends AbstractModule {
 		bind(CacheService.class).to(SoftCacheService.class)
 				.in(Scopes.SINGLETON);
 
-		bind(DatabaseService.class).to(GameServerJDBCDatabaseService.class).in(
-				Scopes.SINGLETON);
+		bind(DatabaseService.class).to(GameServerJDBCDatabaseService.class)
+				.in(Scopes.SINGLETON);
 		bind(WorldIDService.class).to(CachedWorldIDService.class).in(
 				Scopes.SINGLETON);
 

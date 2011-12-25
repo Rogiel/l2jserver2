@@ -22,8 +22,8 @@ import java.sql.SQLException;
 
 import javax.inject.Provider;
 
-import com.l2jserver.service.database.sql.ddl.QueryTemplate;
-import com.l2jserver.service.database.sql.ddl.template.MySQLTemplate;
+import com.l2jserver.service.database.ddl.QueryTemplate;
+import com.l2jserver.service.database.ddl.template.MySQLTemplate;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.Configuration;
 import com.mysema.query.sql.SQLQueryFactory;

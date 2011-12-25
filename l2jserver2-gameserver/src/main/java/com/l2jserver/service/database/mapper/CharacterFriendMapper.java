@@ -34,30 +34,6 @@ import com.l2jserver.service.database.model.QCharacterFriend;
  */
 public class CharacterFriendMapper extends
 		AbstractMapper<CharacterFriend, FriendID, FriendID, QCharacterFriend> {
-	// private final CompoundPrimaryKeyMapper<FriendID, CharacterID,
-	// CharacterID, QCharacterFriend> idMapper = new
-	// CompoundPrimaryKeyMapper<FriendID, CharacterID, CharacterID,
-	// QCharacterFriend>() {
-	// @Override
-	// public AbstractCompoundID<CharacterID, CharacterID> raw(
-	// QCharacterFriend entity, DatabaseRow row) {
-	// return createID(entity, row);
-	// }
-	//
-	// @Override
-	// public FriendID createID(QCharacterFriend entity, DatabaseRow row) {
-	// return idProvider.createID(
-	// charIdProvider.resolveID(row.get(e.characterId)),
-	// charIdProvider.resolveID(row.get(e.characterIdFriend)));
-	// }
-	//
-	// @Override
-	// public FriendID generated(
-	// AbstractCompoundID<CharacterID, CharacterID> raw) {
-	// return null;
-	// }
-	// };
-
 	/**
 	 * The {@link CharacterID} provider
 	 */

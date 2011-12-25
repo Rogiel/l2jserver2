@@ -14,23 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.database.sql.ddl.annotation;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-import com.mysema.query.sql.RelationalPath;
+package com.l2jserver.service.database.ddl.struct;
 
 /**
- * This annotation defines the attributes for the {@link RelationalPath}
- * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface ColumnNullable {
+public class PrimaryKey {
+	private final Column column;
+
+	/**
+	 * @param column
+	 *            the primary key column
+	 */
+	public PrimaryKey(Column column) {
+		super();
+		this.column = column;
+	}
+
+	/**
+	 * @return the column
+	 */
+	public Column getColumn() {
+		return column;
+	}
 }

@@ -25,6 +25,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javax.sql.DataSource;
@@ -64,14 +65,17 @@ import com.l2jserver.service.database.dao.DatabaseRow;
 import com.l2jserver.service.database.dao.InsertMapper;
 import com.l2jserver.service.database.dao.SelectMapper;
 import com.l2jserver.service.database.dao.UpdateMapper;
-import com.l2jserver.service.database.sql.ddl.QueryFactory;
-import com.l2jserver.service.database.sql.ddl.TableFactory;
-import com.l2jserver.service.database.sql.ddl.struct.Table;
+import com.l2jserver.service.database.ddl.QueryFactory;
+import com.l2jserver.service.database.ddl.TableFactory;
+import com.l2jserver.service.database.ddl.struct.Table;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.mysema.query.sql.AbstractSQLQuery;
+import com.mysema.query.sql.RelationalPath;
 import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.sql.SQLQueryFactory;
+import com.mysema.query.sql.dml.Mapper;
 import com.mysema.query.sql.dml.SQLDeleteClause;
+import com.mysema.query.sql.dml.SQLInsertClause;
 import com.mysema.query.sql.dml.SQLUpdateClause;
 import com.mysema.query.sql.types.Type;
 import com.mysema.query.types.Path;
@@ -443,43 +447,6 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 	}
 
 	/**
-	 * Imports an entire SQL file into the database. If the file consists of
-	 * several SQL statements, they will be splitted and executed separated.
-	 * 
-	 * @param conn
-	 *            the SQL connection
-	 * @param sqlPath
-	 *            the path for the SQL file
-	 * @throws IOException
-	 *             if any error occur while reading the file
-	 * @throws SQLException
-	 *             if any error occur while executing the statements
-	 */
-	protected void importSQL(Connection conn, java.nio.file.Path sqlPath)
-			throws IOException, SQLException {
-		BufferedReader reader = Files.newBufferedReader(sqlPath,
-				Charset.defaultCharset());
-		final StringBuilder builder = new StringBuilder();
-		String line;
-		conn.setAutoCommit(false);
-		try {
-			while ((line = reader.readLine()) != null) {
-				builder.append(line).append("\n");
-				if (line.trim().endsWith(";")) {
-					executeSQL(conn, builder.substring(0, builder.length() - 2));
-					builder.setLength(0);
-				}
-			}
-			conn.commit();
-		} catch (SQLException | IOException e) {
-			conn.rollback();
-			throw e;
-		} finally {
-			conn.setAutoCommit(true);
-		}
-	}
-
-	/**
 	 * Executes the SQL code in the databases
 	 * 
 	 * @param conn
@@ -500,6 +467,56 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 			throw e;
 		} finally {
 			st.close();
+		}
+	}
+
+	@Override
+	public <M extends Model<?>, T extends RelationalPathBase<?>> void importData(
+			java.nio.file.Path path, T entity) throws IOException {
+		Connection conn;
+		try {
+			conn = dataSource.getConnection();
+		} catch (SQLException e) {
+			return;
+		}
+		log.info("Importing {} to {}", path, entity);
+		try {
+			BufferedReader reader = Files.newBufferedReader(path,
+					Charset.defaultCharset());
+			final String header[] = reader.readLine().split(",");
+			String line;
+			while ((line = reader.readLine()) != null) {
+				final String data[] = line.split(",");
+				SQLInsertClause insert = engine.createSQLQueryFactory(conn)
+						.insert(entity);
+				insert.populate(data, new Mapper<Object[]>() {
+					@Override
+					public Map<Path<?>, Object> createMap(
+							RelationalPath<?> relationalPath, Object[] object) {
+						final Map<Path<?>, Object> values = CollectionFactory
+								.newMap();
+						pathFor: for (final Path<?> path : relationalPath
+								.getColumns()) {
+							int i = 0;
+							for (final String headerName : header) {
+								if (path.getMetadata().getExpression()
+										.toString().equals(headerName)) {
+									values.put(path, object[i]);
+									continue pathFor;
+								}
+								i++;
+							}
+						}
+						return values;
+					}
+				});
+				insert.execute();
+			}
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
 		}
 	}
 

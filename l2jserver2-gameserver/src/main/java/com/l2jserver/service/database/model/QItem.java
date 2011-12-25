@@ -4,9 +4,9 @@ import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnDefault;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnNullable;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
+import com.l2jserver.service.database.ddl.annotation.ColumnDefault;
+import com.l2jserver.service.database.ddl.annotation.ColumnNullable;
+import com.l2jserver.service.database.ddl.annotation.ColumnSize;
 import com.mysema.query.sql.PrimaryKey;
 import com.mysema.query.types.Path;
 import com.mysema.query.types.PathMetadata;

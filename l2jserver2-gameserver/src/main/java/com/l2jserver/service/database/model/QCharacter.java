@@ -5,13 +5,11 @@ import static com.mysema.query.types.PathMetadataFactory.forVariable;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.template.character.CharacterRace;
-import com.l2jserver.model.world.Clan;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnNullable;
-import com.l2jserver.service.database.sql.ddl.annotation.ColumnSize;
-import com.mysema.query.sql.ForeignKey;
+import com.l2jserver.service.database.ddl.annotation.ColumnNullable;
+import com.l2jserver.service.database.ddl.annotation.ColumnSize;
 import com.mysema.query.sql.PrimaryKey;
 import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.types.Path;
@@ -82,7 +80,7 @@ public class QCharacter extends RelationalPathBase<Integer> {
 			"apperance_face", CharacterFace.class);
 
 	public final PrimaryKey<Integer> primary = createPrimaryKey(characterId);
-	public final ForeignKey<Clan> clanIdKey = createForeignKey(clanId, "");
+	//public final ForeignKey<Clan> clanIdKey = createForeignKey(clanId, "");
 
 	public QCharacter(String variable) {
 		super(Integer.class, forVariable(variable), "null", "character");

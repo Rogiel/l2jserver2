@@ -19,12 +19,18 @@
 			not sure on the usage of any parameter, read the "Configuration" section 
 			in wiki article about DatabaseService. -->
 		<database>
+			<orientdb>
+				<url>local:data/database</url>
+				<username>admin</username>
+				<password>admin</password>
+			</orientdb>
 			<jdbc>
 				<!-- Defines the connection URL used by JDBC to connect to the database. -->
 				<url>jdbc:mysql://localhost/l2jserver2</url>
 
 				<!-- The engine used to connect to the database. -->
-				<engine>com.l2jserver.service.database.sql.MySQLDatabaseEngine</engine>
+				<engine>com.l2jserver.service.database.sql.MySQLDatabaseEngine
+				</engine>
 
 				<!-- Whether or not the service should try to update and create missing 
 					tables at startup. This should be disabled after the first server start as 
