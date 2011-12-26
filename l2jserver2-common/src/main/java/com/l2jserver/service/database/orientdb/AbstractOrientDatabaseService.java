@@ -17,6 +17,7 @@
 package com.l2jserver.service.database.orientdb;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +56,7 @@ import com.l2jserver.service.database.dao.SelectMapper;
 import com.l2jserver.service.database.dao.UpdateMapper;
 import com.l2jserver.util.CSVUtils;
 import com.l2jserver.util.CSVUtils.CSVMapProcessor;
+import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.QPathUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.mysema.query.sql.ForeignKey;
@@ -369,19 +371,12 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				final String name = path.getMetadata().getExpression()
 						.toString();
 				OProperty property = schema.getProperty(name);
+				final OType type = getType(path.getType());
 				if (property == null)
-					property = schema.createProperty(
-							path.getMetadata().getExpression().toString(),
-							(path.getType().isEnum() ? OType.STRING : OType
-									.getTypeByClass(path.getType())));
-				if (path.getType().isEnum()) {
-					if (property.getType() != OType.STRING)
-						property.setType(OType.STRING);
-				} else {
-					if (property.getType() != OType.getTypeByClass(path
-							.getType()))
-						property.setType(OType.getTypeByClass(path.getType()));
-				}
+					property = schema.createProperty(path.getMetadata()
+							.getExpression().toString(), type);
+				if (property.getType() != type)
+					property.setType(type);
 				final boolean nullable = QPathUtils.isNullable(path);
 				final boolean autoIncrement = QPathUtils
 						.isAutoIncrementable(path);
@@ -420,6 +415,24 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			database.close();
 		}
 		return newSchema;
+	}
+
+	/**
+	 * Returns the {@link OType} representing the type represented by
+	 * {@link Class}
+	 * 
+	 * @param cls
+	 *            the class
+	 * @return the {@link OType}. Never null.
+	 */
+	private OType getType(Class<?> cls) {
+		if (cls.isEnum()) {
+			return OType.STRING;
+		} else if (ClassUtils.isSubclass(cls, Date.class)) {
+			return OType.DATETIME;
+		} else {
+			return OType.getTypeByClass(cls);
+		}
 	}
 
 	@Override
