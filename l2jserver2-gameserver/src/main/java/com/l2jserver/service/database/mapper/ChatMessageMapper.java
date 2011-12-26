@@ -87,17 +87,17 @@ public class ChatMessageMapper extends
 	}
 
 	@Override
-	public void insert(QLogChat e, ChatMessage onject, WritableDatabaseRow row) {
-		row.set(e.type, onject.getType())
-				.set(e.sender, onject.getSender().getID())
-				.set(e.date, onject.getDate())
-				.set(e.message, onject.getMessage());
-		switch (onject.getType()) {
+	public void insert(QLogChat e, ChatMessage object, WritableDatabaseRow row) {
+		row.set(e.type, object.getType())
+				.set(e.sender, object.getSender().getID())
+				.set(e.date, object.getDate())
+				.set(e.message, object.getMessage());
+		switch (object.getType()) {
 		case SHOUT:
-			row.set(e.channelId, onject.getTarget().getID());
+			row.set(e.channelId, object.getTarget().getID());
 			break;
 		default:
-			row.set(e.channelId, onject.getChannelID());
+			row.set(e.channelId, object.getChannelID());
 			break;
 		}
 	}

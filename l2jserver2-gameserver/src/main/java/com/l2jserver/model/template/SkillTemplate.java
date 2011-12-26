@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.template;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -33,7 +33,6 @@ import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.template.effect.EffectTemplate;
 import com.l2jserver.model.template.effect.TeleportEffectTemplate;
-import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 
 /**
@@ -61,7 +60,7 @@ public class SkillTemplate extends AbstractTemplate {
 	protected int maximumLevel = 1;
 
 	@XmlElements({ @XmlElement(name = "teleport", type = TeleportEffectTemplate.class) })
-	protected List<EffectTemplate> effects = CollectionFactory.newList();
+	protected EffectTemplate[] effects;
 
 	/**
 	 * Create a new {@link Skill}
@@ -127,7 +126,7 @@ public class SkillTemplate extends AbstractTemplate {
 	 * @return the effects
 	 */
 	public List<EffectTemplate> getEffects() {
-		return Collections.unmodifiableList(effects);
+		return Arrays.asList(effects);
 	}
 
 	/**

@@ -217,6 +217,10 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 			}
 		}
+		// database.getStorage().addUser();
+		database.getLevel1Cache().setEnable(false);
+		database.getLevel2Cache().setEnable(false);
+
 		database.close();
 
 		// check if automatic schema update is enabled
@@ -349,7 +353,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		final ODatabaseDocumentTx database = ODatabaseDocumentPool.global()
 				.acquire(config.getUrl(), config.getUsername(),
 						config.getPassword());
-
 		log.info("Updating {} schema definition", table);
 
 		boolean newSchema = false;
@@ -490,7 +493,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			extends AbstractQuery<Integer> {
 		private final InsertMapper<O, RI, I, E> mapper;
 		private final Iterator<O> iterator;
-		@SuppressWarnings("unused")
 		private final Path<RI> primaryKey;
 
 		protected final E e;
@@ -559,6 +561,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		}
 
 		@Override
+		@SuppressWarnings("unchecked")
 		public final Integer query(ODatabaseDocumentTx database,
 				DatabaseService service) {
 			int rows = 0;
@@ -569,8 +572,14 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 				mapper.insert(e, object, row);
 
-				// TODO generate unique id
 				row.getDocument().save();
+				if (primaryKey != null && object instanceof Model) {
+					final Long rawID = row.getDocument().getIdentity()
+							.getClusterPosition();
+					final ID<? super RI> id = mapper.getPrimaryKeyMapper()
+							.createID((RI) rawID);
+					((Model<ID<? super RI>>) object).setID(id);
+				}
 				rows++;
 
 				updateDesire(object, ObjectDesire.INSERT);

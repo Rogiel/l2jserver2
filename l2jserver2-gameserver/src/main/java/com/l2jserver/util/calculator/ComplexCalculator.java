@@ -17,13 +17,12 @@
 package com.l2jserver.util.calculator;
 
 import java.io.Serializable;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map.Entry;
 
-import com.l2jserver.util.factory.CollectionFactory;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * An calculator is used to compute data and outputs its result. Note also, that
@@ -41,7 +40,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	/**
 	 * List of operations in this calculator
 	 */
-	private EnumMap<V, List<Function<T, V>>> functions;
+	private EnumMap<V, Function<T, V>[]> functions;
 
 	/**
 	 * Creates a new empty calculator. Functions can be add using
@@ -52,7 +51,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 */
 	public ComplexCalculator(Class<V> type) {
 		super(0x00, null);
-		functions = new EnumMap<V, List<Function<T, V>>>(type);
+		functions = new EnumMap<V, Function<T, V>[]>(type);
 	}
 
 	/**
@@ -84,7 +83,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	@SafeVarargs
 	public ComplexCalculator(V value, Function<T, V>... functions) {
 		super(0x00, value);
-		this.functions = new EnumMap<V, List<Function<T, V>>>(
+		this.functions = new EnumMap<V, Function<T, V>[]>(
 				value.getDeclaringClass());
 		add(functions);
 	}
@@ -103,10 +102,13 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		this(type);
 		add(functions);
 		for (final Function<T, V> func : functions) {
-			getList(func.type()).add(func);
+			Function<T, V>[] funcs = getList(func.type());
+			funcs = Arrays.copyOf(funcs, funcs.length + 1);
+			funcs[funcs.length - 1] = func;
+			setList(func.type(), funcs);
 		}
-		for (final List<Function<T, V>> funcs : this.functions.values()) {
-			Collections.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
+		for (final Function<T, V>[] funcs : this.functions.values()) {
+			Arrays.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
 		}
 	}
 
@@ -120,10 +122,11 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 *            the operation
 	 */
 	public void add(Function<T, V> function) {
-		getList(function.type()).add(function);
-		for (final List<Function<T, V>> funcs : functions.values()) {
-			Collections.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
-		}
+		Function<T, V>[] funcs = getList(function.type());
+		funcs = Arrays.copyOf(funcs, funcs.length + 1);
+		funcs[funcs.length - 1] = function;
+		setList(function.type(), funcs);
+		Arrays.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
 	}
 
 	/**
@@ -138,7 +141,10 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	@SafeVarargs
 	public final void add(Function<T, V>... functions) {
 		for (final Function<T, V> func : functions) {
-			getList(func.type()).add(func);
+			Function<T, V>[] funcs = getList(func.type());
+			funcs = Arrays.copyOf(funcs, funcs.length + 1);
+			funcs[funcs.length - 1] = func;
+			setList(func.type(), funcs);
 		}
 		sort();
 	}
@@ -155,7 +161,10 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	@SafeVarargs
 	public final void addNoSort(Function<T, V>... functions) {
 		for (final Function<T, V> func : functions) {
-			getList(func.type()).add(func);
+			Function<T, V>[] funcs = getList(func.type());
+			funcs = Arrays.copyOf(funcs, funcs.length + 1);
+			funcs[funcs.length - 1] = func;
+			setList(func.type(), funcs);
 		}
 	}
 
@@ -166,15 +175,22 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	 *            the operation
 	 */
 	public void remove(Function<T, V> function) {
-		getList(function.type()).remove(function);
+		Function<T, V>[] funcs = getList(function.type());
+		int index = Arrays.binarySearch(funcs, function);
+		if (index >= 0) {
+			funcs = ArrayUtils.remove(funcs, index);
+		}
+		setList(function.type(), funcs);
 	}
-	
+
 	/**
 	 * Removes all functions from <code>type</code>
-	 * @param type the type
+	 * 
+	 * @param type
+	 *            the type
 	 */
 	public void remove(V type) {
-		getList(type).clear();
+		setList(type, null);
 	}
 
 	/**
@@ -199,7 +215,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 					}
 				}
 			} else if (calculator instanceof ComplexCalculator) {
-				for (final Entry<V, List<Function<T, V>>> e : ((ComplexCalculator<T, V>) calculator).functions
+				for (final Entry<V, Function<T, V>[]> e : ((ComplexCalculator<T, V>) calculator).functions
 						.entrySet()) {
 					for (final Function<T, V> function : e.getValue()) {
 						if (function instanceof Calculator) {
@@ -233,7 +249,7 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 					}
 				}
 			} else if (calculator instanceof ComplexCalculator) {
-				for (final Entry<V, List<Function<T, V>>> e : ((ComplexCalculator<T, V>) calculator).functions
+				for (final Entry<V, Function<T, V>[]> e : ((ComplexCalculator<T, V>) calculator).functions
 						.entrySet()) {
 					for (final Function<T, V> function : e.getValue()) {
 						if (function instanceof Calculator) {
@@ -248,8 +264,8 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 	}
 
 	public void sort() {
-		for (final List<Function<T, V>> funcs : functions.values()) {
-			Collections.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
+		for (final Function<T, V>[] funcs : functions.values()) {
+			Arrays.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
 		}
 	}
 
@@ -275,13 +291,18 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		return calculate(v, ctx, 0);
 	}
 
-	private List<Function<T, V>> getList(V value) {
-		List<Function<T, V>> list = functions.get(value);
+	@SuppressWarnings("unchecked")
+	private Function<T, V>[] getList(V value) {
+		Function<T, V>[] list = functions.get(value);
 		if (list == null) {
-			list = CollectionFactory.newList();
+			list = new Function[0];
 			functions.put(value, list);
 		}
 		return list;
+	}
+
+	private void setList(V value, Function<T, V>[] func) {
+		functions.put(value, func);
 	}
 
 	public static class FunctionOrderComparator implements

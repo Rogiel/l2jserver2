@@ -207,7 +207,7 @@ public class NPCStats extends ActorStats<NPCCalculatorContext> {
 	/**
 	 * The NPC calculator
 	 */
-	private static final NPCCalculator calculator = new NPCCalculator();
+	private final NPCCalculator calculator = new NPCCalculator();
 
 	/**
 	 * Creates a new {@link NPCStats} and adds default calculators

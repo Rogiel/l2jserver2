@@ -21,6 +21,7 @@
 				<configuration>
 					<descriptors>
 						<descriptor>src/main/assembly/distribution-mysql5-bin.xml</descriptor>
+						<descriptor>src/main/assembly/distribution-orientdb-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-h2-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-derby-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-src.xml</descriptor>

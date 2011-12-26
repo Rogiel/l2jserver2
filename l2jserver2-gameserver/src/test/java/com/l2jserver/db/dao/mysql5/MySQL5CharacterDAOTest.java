@@ -54,6 +54,7 @@ public class MySQL5CharacterDAOTest {
 		injector.getInstance(ServiceManager.class).start(WorldService.class);
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
+		
 		final L2Character char1 = dao.select(injector.getInstance(
 				CharacterIDProvider.class).resolveID(268437456));
 		final L2Character char2 = dao.select(injector.getInstance(

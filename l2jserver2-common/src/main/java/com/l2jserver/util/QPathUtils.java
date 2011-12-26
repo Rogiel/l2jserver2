@@ -116,7 +116,7 @@ public class QPathUtils {
 			return false;
 		final ColumnNullable nullable = field
 				.getAnnotation(ColumnNullable.class);
-		if (nullable == null) {
+		if (nullable != null) {
 			return true;
 		} else {
 			return false;
