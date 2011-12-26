@@ -35,6 +35,7 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
+import com.l2jserver.service.database.DataAccessObject;
 import com.l2jserver.service.database.DatabaseService;
 
 /**
@@ -118,9 +119,9 @@ public class CachedWorldIDService extends AbstractService implements
 	public void load() {
 		log.debug("Loading IDs from database");
 
-		load(characterDao.selectIDs());
-		load(itemDao.selectIDs());
-		load(npcDao.selectIDs());
+		load(characterDao);
+		load(itemDao);
+		load(npcDao);
 
 		loaded = true;
 	}
@@ -134,12 +135,15 @@ public class CachedWorldIDService extends AbstractService implements
 	/**
 	 * Load the pre-existing ids
 	 * 
-	 * @param ids
-	 *            an collection of ids
+	 * @param dao
+	 *            the {@link DataAccessObject} that gives access to the IDs
 	 */
-	private void load(Collection<? extends ObjectID<?>> ids) {
-		Preconditions.checkNotNull(ids, "ids");
-		log.info("Loading {} IDs", ids.size());
+	private void load(DataAccessObject<?, ? extends ObjectID<?>> dao) {
+		Preconditions.checkNotNull(dao, "dao");
+
+		final Collection<? extends ObjectID<?>> ids = dao.selectIDs();
+		log.info("Loaded {} IDs from {}", ids.size(), dao);
+
 		for (final ObjectID<?> id : ids) {
 			log.debug("Loading {}", id);
 			allocator.allocate(id.getID());

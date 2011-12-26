@@ -205,5 +205,17 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 		return database;
 	}
 
+	/**
+	 * Wraps the {@link Model}<?> array into an more specific array
+	 * 
+	 * @param objects
+	 *            the arrays of objects to be "casted"
+	 * @return the wrapped array
+	 */
 	protected abstract T[] wrap(Model<?>... objects);
+
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName();
+	}
 }
