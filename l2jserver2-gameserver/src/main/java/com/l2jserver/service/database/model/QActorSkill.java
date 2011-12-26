@@ -23,13 +23,12 @@ public class QActorSkill extends RelationalPathBase<Skill> {
 	@ColumnSize(10)
 	public final NumberPath<Integer> actorId = createNumber("actor_id",
 			Integer.class);
+	@ColumnSize(6)
+	public final NumberPath<Integer> skillId = createNumber("skill_id",
+			Integer.class);
 
 	@ColumnSize(4)
 	public final NumberPath<Integer> level = createNumber("level",
-			Integer.class);
-
-	@ColumnSize(6)
-	public final NumberPath<Integer> skillId = createNumber("skill_id",
 			Integer.class);
 
 	public final PrimaryKey<Skill> primary = createPrimaryKey(actorId, skillId);

@@ -17,8 +17,6 @@
 package com.l2jserver.service.database;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.game.CharacterShortcut.ShortcutType;
@@ -112,17 +110,20 @@ public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 	}
 
 	@Override
-	protected void ensureDatabaseSchema(Connection conn) throws SQLException,
-			IOException {
-		updateSchema(conn, QActorSkill.actorSkill);
-		updateSchema(conn, QCharacter.character);
-		updateSchema(conn, QCharacterFriend.characterFriend);
-		updateSchema(conn, QCharacterShortcut.characterShortcut);
-		updateSchema(conn, QClan.clan);
-		updateSchema(conn, QItem.item);
-		updateSchema(conn, QLogChat.logChat);
-		if (updateSchema(conn, QNPC.npc)) {
-			importData(vfsService.resolve("data/static/npc.csv"), QNPC.npc);
+	public void updateSchemas() {
+		updateSchema(QActorSkill.actorSkill);
+		updateSchema(QCharacter.character);
+		updateSchema(QCharacterFriend.characterFriend);
+		updateSchema(QCharacterShortcut.characterShortcut);
+		updateSchema(QClan.clan);
+		updateSchema(QItem.item);
+		updateSchema(QLogChat.logChat);
+		if (updateSchema(QNPC.npc)) {
+			try {
+				importData(vfsService.resolve("data/static/npc.csv"), QNPC.npc);
+			} catch (IOException e) {
+				throw new DatabaseException(e);
+			}
 		}
 	}
 }

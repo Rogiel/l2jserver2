@@ -24,7 +24,9 @@ import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.configuration.Configuration;
+import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.threading.AsyncFuture;
+import com.mysema.query.sql.RelationalPath;
 import com.mysema.query.sql.RelationalPathBase;
 
 /**
@@ -50,6 +52,20 @@ public interface DatabaseService extends Service {
 	 * @see Configuration
 	 */
 	public interface DatabaseConfiguration extends ServiceConfiguration {
+		/**
+		 * @return the update schema state
+		 */
+		@ConfigurationPropertyGetter(defaultValue = "true")
+		@ConfigurationXPath("/configuration/services/database/automaticSchemaUpdate")
+		boolean isAutomaticSchemaUpdateEnabled();
+
+		/**
+		 * @param updateSchema
+		 *            the new uodate schema state
+		 */
+		@ConfigurationPropertySetter
+		@ConfigurationXPath("/configuration/services/database/automaticSchemaUpdate")
+		void setUpdateSchema(boolean updateSchema);
 	}
 
 	/**
@@ -122,8 +138,22 @@ public interface DatabaseService extends Service {
 	 *             if any error occur while reading or parsing the file
 	 */
 	<M extends Model<?>, T extends RelationalPathBase<?>> void importData(
-			Path path, T entity)
-			throws IOException;
+			Path path, T entity) throws IOException;
+
+	/**
+	 * Updates the given <code>schema</code> in the underlying storage engine.
+	 * 
+	 * @param schema
+	 *            the schema specification
+	 * @return true if the schema did not existed and was created (i.e. is empty
+	 *         and ready to receive default data)
+	 */
+	boolean updateSchema(RelationalPath<?> schema);
+
+	/**
+	 * Updates all schemas in the underlying storage engine.
+	 */
+	void updateSchemas();
 
 	/**
 	 * Checks for the cached version of the object

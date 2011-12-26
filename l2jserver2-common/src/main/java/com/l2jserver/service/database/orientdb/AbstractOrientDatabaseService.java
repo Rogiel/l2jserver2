@@ -16,12 +16,11 @@
  */
 package com.l2jserver.service.database.orientdb;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
@@ -48,13 +47,18 @@ import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.database.DAOResolver;
 import com.l2jserver.service.database.DataAccessObject;
+import com.l2jserver.service.database.DatabaseException;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.dao.DatabaseRow;
 import com.l2jserver.service.database.dao.InsertMapper;
 import com.l2jserver.service.database.dao.SelectMapper;
 import com.l2jserver.service.database.dao.UpdateMapper;
+import com.l2jserver.util.CSVUtils;
+import com.l2jserver.util.CSVUtils.CSVMapProcessor;
+import com.l2jserver.util.QPathUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.mysema.query.sql.ForeignKey;
+import com.mysema.query.sql.RelationalPath;
 import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.types.Path;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentPool;
@@ -67,6 +71,7 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 import com.orientechnologies.orient.core.query.nativ.ONativeSynchQuery;
 import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 import com.orientechnologies.orient.core.record.impl.ODocument;
+import com.orientechnologies.orient.core.tx.OTransaction;
 
 /**
  * This is an implementation of {@link DatabaseService} that provides an layer
@@ -122,6 +127,10 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 	 * every 1 minute.
 	 */
 	private ScheduledAsyncFuture autoSaveFuture;
+	/**
+	 * The transactioned database connection, if any.
+	 */
+	private final ThreadLocal<ODatabaseDocumentTx> transaction = new ThreadLocal<ODatabaseDocumentTx>();
 
 	/**
 	 * Configuration interface for {@link AbstractOrientDatabaseService}.
@@ -208,10 +217,12 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 			}
 		}
-
-		ensureDatabaseSchema();
-
 		database.close();
+
+		// check if automatic schema update is enabled
+		if (config.isAutomaticSchemaUpdateEnabled()) {
+			updateSchemas();
+		}
 
 		// cache must be large enough for all world objects, to avoid
 		// duplication... this would endanger non-persistent states
@@ -242,7 +253,25 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 	@Override
 	public int transaction(TransactionExecutor executor) {
-		return executor.perform();
+		final ODatabaseDocumentTx database = ODatabaseDocumentPool.global()
+				.acquire(config.getUrl(), config.getUsername(),
+						config.getPassword());
+		transaction.set(database);
+		try {
+			database.begin(OTransaction.TXTYPE.OPTIMISTIC);
+			int returnValue = executor.perform();
+			database.commit();
+			return returnValue;
+		} catch (DatabaseException e) {
+			database.rollback();
+			throw e;
+		} catch (Exception e) {
+			database.rollback();
+			throw new DatabaseException(e);
+		} finally {
+			transaction.set(null);
+			database.close();
+		}
 	}
 
 	@Override
@@ -267,56 +296,62 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 	 */
 	public <T> T query(Query<T> query) {
 		Preconditions.checkNotNull(query, "query");
-		final ODatabaseDocumentTx database = ODatabaseDocumentPool.global()
-				.acquire(config.getUrl(), config.getUsername(),
-						config.getPassword());
-
+		ODatabaseDocumentTx database = transaction.get();
+		if (database == null)
+			database = ODatabaseDocumentPool.global().acquire(config.getUrl(),
+					config.getUsername(), config.getPassword());
 		log.debug("Executing query {} with {}", query, database);
 		try {
 			return query.query(database, this);
 		} finally {
-			database.commit();
+			if (transaction.get() == null)
+				database.close();
 		}
 	}
 
 	@Override
 	public <M extends Model<?>, T extends RelationalPathBase<?>> void importData(
-			java.nio.file.Path path, T entity) throws IOException {
+			java.nio.file.Path path, final T entity) throws IOException {
 		final ODatabaseDocumentTx database = ODatabaseDocumentPool.global()
 				.acquire(config.getUrl(), config.getUsername(),
 						config.getPassword());
-
 		log.info("Importing {} to {}", path, entity);
 
-		BufferedReader reader = Files.newBufferedReader(path,
-				Charset.defaultCharset());
-		final String header[] = reader.readLine().split(",");
-		String line;
-		while ((line = reader.readLine()) != null) {
-			final String data[] = line.split(",");
-			final ODocument document = new ODocument(database,
-					entity.getTableName());
-			for (int i = 0; i < data.length; i++) {
-				document.field(header[i], data[i]);
-			}
-			database.save(document);
+		try {
+			database.begin(OTransaction.TXTYPE.OPTIMISTIC);
+			CSVUtils.parseCSV(path, new CSVMapProcessor<Object>() {
+				@Override
+				public Object process(Map<String, String> map) {
+					final ODocument document = new ODocument(database, entity
+							.getTableName());
+					for (final Entry<String, String> entry : map.entrySet()) {
+						document.field(entry.getKey(), entry.getValue());
+					}
+					database.save(document);
+					return null;
+				}
+			});
+			database.commit();
+		} catch (IOException | RuntimeException e) {
+			database.rollback();
+			throw e;
+		} catch (Exception e) {
+			database.rollback();
+			throw new DatabaseException(e);
+		} finally {
+			transaction.set(null);
+			database.close();
 		}
 	}
 
-	/**
-	 * Makes sure the database schema is up-to-date with the external database
-	 */
-	protected abstract void ensureDatabaseSchema();
-
-	/**
-	 * @param table
-	 *            the {@link RelationalPathBase} table
-	 * @return true if a new schema was created
-	 */
-	protected boolean createSchema(RelationalPathBase<?> table) {
+	@Override
+	public boolean updateSchema(RelationalPath<?> table) {
 		final ODatabaseDocumentTx database = ODatabaseDocumentPool.global()
 				.acquire(config.getUrl(), config.getUsername(),
 						config.getPassword());
+
+		log.info("Updating {} schema definition", table);
+
 		boolean newSchema = false;
 		try {
 			final OSchema schemas = database.getMetadata().getSchema();
@@ -325,7 +360,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				schema = schemas.createClass(table.getTableName());
 				newSchema = true;
 			}
-			for (final Path<?> path : table.all()) {
+			for (final Path<?> path : table.getColumns()) {
 				final String name = path.getMetadata().getExpression()
 						.toString();
 				OProperty property = schema.getProperty(name);
@@ -335,10 +370,18 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 							(path.getType().isEnum() ? OType.STRING : OType
 									.getTypeByClass(path.getType())));
 				if (path.getType().isEnum()) {
-					property.setType(OType.STRING);
+					if (property.getType() != OType.STRING)
+						property.setType(OType.STRING);
 				} else {
-					property.setType(OType.getTypeByClass(path.getType()));
+					if (property.getType() != OType.getTypeByClass(path
+							.getType()))
+						property.setType(OType.getTypeByClass(path.getType()));
 				}
+				final boolean nullable = QPathUtils.isNullable(path);
+				if (property.isNotNull() != !nullable)
+					property.setNotNull(!nullable);
+				if (property.isMandatory() != !nullable)
+					property.setMandatory(!nullable);
 			}
 			for (final ForeignKey<?> fk : table.getForeignKeys()) {
 				final String[] columns = new String[fk.getLocalColumns().size()];
@@ -347,8 +390,9 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 					columns[i++] = keyPath.getMetadata().getExpression()
 							.toString();
 				}
-				schema.createIndex(StringUtils.join(columns, "-"),
-						INDEX_TYPE.NOTUNIQUE, columns);
+				if (!schema.areIndexed(columns))
+					schema.createIndex(StringUtils.join(columns, "-"),
+							INDEX_TYPE.NOTUNIQUE, columns);
 			}
 			final String[] pkColumns = new String[table.getPrimaryKey()
 					.getLocalColumns().size()];
@@ -358,7 +402,8 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				pkColumns[i++] = keyPath.getMetadata().getExpression()
 						.toString();
 			}
-			schema.createIndex("PRIMARY", INDEX_TYPE.UNIQUE, pkColumns);
+			if (!schema.areIndexed(pkColumns))
+				schema.createIndex("PRIMARY", INDEX_TYPE.UNIQUE, pkColumns);
 			schemas.save();
 		} finally {
 			database.close();
@@ -446,7 +491,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		private final InsertMapper<O, RI, I, E> mapper;
 		private final Iterator<O> iterator;
 		@SuppressWarnings("unused")
-		// FIXME implement id generation
 		private final Path<RI> primaryKey;
 
 		protected final E e;
@@ -525,7 +569,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 				mapper.insert(e, object, row);
 
-				// TODO generate ids
+				// TODO generate unique id
 				row.getDocument().save();
 				rows++;
 

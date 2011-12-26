@@ -32,13 +32,13 @@ import com.l2jserver.service.database.ddl.annotation.ColumnDefault;
 import com.l2jserver.service.database.ddl.annotation.ColumnNullable;
 import com.l2jserver.service.database.ddl.annotation.ColumnSize;
 import com.l2jserver.service.database.ddl.struct.Column;
+import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.l2jserver.service.database.ddl.struct.ForeignKey;
 import com.l2jserver.service.database.ddl.struct.PrimaryKey;
 import com.l2jserver.service.database.ddl.struct.Table;
-import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
-import com.mysema.query.sql.RelationalPathBase;
+import com.mysema.query.sql.RelationalPath;
 import com.mysema.query.types.Path;
 
 /**
@@ -47,15 +47,15 @@ import com.mysema.query.types.Path;
  */
 public class TableFactory {
 	/**
-	 * Creates an {@link Table} object from an {@link RelationalPathBase}
+	 * Creates an {@link Table} object from an {@link RelationalPath}
 	 * 
 	 * @param tablePath
 	 *            the table path
 	 * @return the {@link Table} object
 	 */
-	public static Table createTable(RelationalPathBase<?> tablePath) {
+	public static Table createTable(RelationalPath<?> tablePath) {
 		final Map<String, Column> columns = CollectionFactory.newMap();
-		for (final Path<?> path : tablePath.all()) {
+		for (final Path<?> path : tablePath.getColumns()) {
 			final Column col = createColumn(tablePath, path);
 			columns.put(col.getName(), col);
 		}
@@ -72,7 +72,8 @@ public class TableFactory {
 	 * 
 	 * @param conn
 	 *            the JDBC {@link Connection}
-	 * @param template the query template
+	 * @param template
+	 *            the query template
 	 * @param tableName
 	 *            the table name
 	 * @return the parsed table
@@ -112,7 +113,7 @@ public class TableFactory {
 	 *            the columns
 	 * @return the foreign key list
 	 */
-	private static List<ForeignKey> createFKs(RelationalPathBase<?> tablePath,
+	private static List<ForeignKey> createFKs(RelationalPath<?> tablePath,
 			Map<String, Column> columns) {
 		final List<ForeignKey> fks = CollectionFactory.newList();
 		for (final com.mysema.query.sql.ForeignKey<?> fk : tablePath
@@ -130,15 +131,14 @@ public class TableFactory {
 		return fks;
 	}
 
-	private static PrimaryKey createPK(RelationalPathBase<?> tablePath,
+	private static PrimaryKey createPK(RelationalPath<?> tablePath,
 			Map<String, Column> columns) {
 		return new PrimaryKey(columns.get(tablePath.getPrimaryKey()
 				.getLocalColumns().get(0).getMetadata().getExpression()
 				.toString()));
 	}
 
-	private static Column createColumn(RelationalPathBase<?> tablePath,
-			Path<?> path) {
+	private static Column createColumn(RelationalPath<?> tablePath, Path<?> path) {
 		final String columnName = path.getMetadata().getExpression().toString();
 		final ColumnType columnType = getColumnType(path.getType());
 		final Field field = ClassUtils.getFieldWithValue(tablePath, path);

@@ -30,7 +30,7 @@ import com.l2jserver.service.core.threading.ThreadServiceImpl;
 import com.l2jserver.service.core.vfs.Java7VFSService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.database.DatabaseService;
-import com.l2jserver.service.database.GameServerJDBCDatabaseService;
+import com.l2jserver.service.database.GameServerOrientDatabaseService;
 import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.AttackServiceImpl;
 import com.l2jserver.service.game.admin.AdministratorService;
@@ -89,7 +89,7 @@ public class ServiceModule extends AbstractModule {
 		bind(CacheService.class).to(SoftCacheService.class)
 				.in(Scopes.SINGLETON);
 
-		bind(DatabaseService.class).to(GameServerJDBCDatabaseService.class)
+		bind(DatabaseService.class).to(GameServerOrientDatabaseService.class)
 				.in(Scopes.SINGLETON);
 		bind(WorldIDService.class).to(CachedWorldIDService.class).in(
 				Scopes.SINGLETON);

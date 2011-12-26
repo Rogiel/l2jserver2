@@ -16,16 +16,14 @@
  */
 package com.l2jserver.service.database.sql;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
 import javax.sql.DataSource;
@@ -68,6 +66,9 @@ import com.l2jserver.service.database.dao.UpdateMapper;
 import com.l2jserver.service.database.ddl.QueryFactory;
 import com.l2jserver.service.database.ddl.TableFactory;
 import com.l2jserver.service.database.ddl.struct.Table;
+import com.l2jserver.util.CSVUtils;
+import com.l2jserver.util.CSVUtils.CSVMapProcessor;
+import com.l2jserver.util.QPathUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.mysema.query.sql.AbstractSQLQuery;
 import com.mysema.query.sql.RelationalPath;
@@ -238,21 +239,6 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 		void setPassword(String password);
 
 		/**
-		 * @return the update schema state
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "true")
-		@ConfigurationXPath("/configuration/services/database/jdbc/updateSchema")
-		boolean getUpdateSchema();
-
-		/**
-		 * @param updateSchema
-		 *            the new uodate schema state
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/updateSchema")
-		void setUpdateSchema(boolean updateSchema);
-
-		/**
 		 * @return the maximum number of active connections
 		 */
 		@ConfigurationPropertyGetter(defaultValue = "20")
@@ -350,18 +336,8 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 				true);
 		dataSource = new PoolingDataSource(connectionPool);
 
-		if (config.getUpdateSchema()) {
-			try {
-				final Connection conn = dataSource.getConnection();
-				try {
-					ensureDatabaseSchema(conn);
-				} finally {
-					conn.close();
-				}
-			} catch (Exception e) {
-				throw new ServiceStartException(
-						"Couldn't update database schema", e);
-			}
+		if (config.isAutomaticSchemaUpdateEnabled()) {
+			updateSchemas();
 		}
 
 		for (final Type<?> type : sqlTypes) {
@@ -402,51 +378,6 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 	}
 
 	/**
-	 * Makes sure the database schema is up-to-date with the external database
-	 * 
-	 * @param conn
-	 *            the connection to be used
-	 * @throws SQLException
-	 *             if any {@link SQLException} occur
-	 * @throws IOException
-	 *             if any {@link IOException} occur
-	 */
-	protected abstract void ensureDatabaseSchema(Connection conn)
-			throws SQLException, IOException;
-
-	/**
-	 * 
-	 * @param conn
-	 *            the connection to be used
-	 * @param table
-	 *            the {@link RelationalPathBase} table
-	 * @return <code>true</code> if a new table was created, <code>false</code>
-	 *         otherwise.
-	 * @throws SQLException
-	 *             if any {@link SQLException} occur
-	 */
-	protected boolean updateSchema(Connection conn, RelationalPathBase<?> table)
-			throws SQLException {
-		final Table expected = TableFactory.createTable(table);
-		String query = null;
-		boolean create = false;
-		try {
-			final Table current = TableFactory.createTable(conn,
-					engine.getTemplate(), table.getTableName());
-			query = QueryFactory.alterTableQueryUpdate(expected, current,
-					engine.getTemplate());
-		} catch (SQLException e) {
-			// table may not exist
-			query = QueryFactory.createTableQuery(expected,
-					engine.getTemplate());
-			create = true;
-		}
-		if ((engine.getTemplate().supportsAlterTable() && !create) || create)
-			executeSQL(conn, query);
-		return create;
-	}
-
-	/**
 	 * Executes the SQL code in the databases
 	 * 
 	 * @param conn
@@ -462,9 +393,6 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 		final Statement st = conn.createStatement();
 		try {
 			return st.execute(sql);
-		} catch (SQLException e) {
-			log.warn("Error exectuing query {}", sql);
-			throw e;
 		} finally {
 			st.close();
 		}
@@ -472,8 +400,8 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 
 	@Override
 	public <M extends Model<?>, T extends RelationalPathBase<?>> void importData(
-			java.nio.file.Path path, T entity) throws IOException {
-		Connection conn;
+			java.nio.file.Path path, final T entity) throws IOException {
+		final Connection conn;
 		try {
 			conn = dataSource.getConnection();
 		} catch (SQLException e) {
@@ -481,42 +409,75 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 		}
 		log.info("Importing {} to {}", path, entity);
 		try {
-			BufferedReader reader = Files.newBufferedReader(path,
-					Charset.defaultCharset());
-			final String header[] = reader.readLine().split(",");
-			String line;
-			while ((line = reader.readLine()) != null) {
-				final String data[] = line.split(",");
-				SQLInsertClause insert = engine.createSQLQueryFactory(conn)
-						.insert(entity);
-				insert.populate(data, new Mapper<Object[]>() {
-					@Override
-					public Map<Path<?>, Object> createMap(
-							RelationalPath<?> relationalPath, Object[] object) {
-						final Map<Path<?>, Object> values = CollectionFactory
-								.newMap();
-						pathFor: for (final Path<?> path : relationalPath
-								.getColumns()) {
-							int i = 0;
-							for (final String headerName : header) {
-								if (path.getMetadata().getExpression()
-										.toString().equals(headerName)) {
-									values.put(path, object[i]);
-									continue pathFor;
-								}
-								i++;
+			CSVUtils.parseCSV(path, new CSVMapProcessor<Long>() {
+				@Override
+				public Long process(final Map<String, String> map) {
+					SQLInsertClause insert = engine.createSQLQueryFactory(conn)
+							.insert(entity);
+					insert.populate(map, new Mapper<Map<String, String>>() {
+						@Override
+						public Map<Path<?>, Object> createMap(
+								RelationalPath<?> relationalPath,
+								Map<String, String> map) {
+							final Map<Path<?>, Object> values = CollectionFactory
+									.newMap();
+							for (final Entry<String, String> entry : map
+									.entrySet()) {
+								final Path<?> path = QPathUtils.getPath(entity,
+										entry.getKey());
+								values.put(path, entry.getValue());
 							}
+							return values;
 						}
-						return values;
-					}
-				});
-				insert.execute();
-			}
+					});
+					return insert.execute();
+				}
+			});
 		} finally {
 			try {
 				conn.close();
 			} catch (SQLException e) {
 			}
+		}
+	}
+
+	@Override
+	public boolean updateSchema(RelationalPath<?> table) {
+		final Table expected = TableFactory.createTable(table);
+
+		log.info("Updating {} schema definition", table);
+
+		try {
+			final Connection conn = dataSource.getConnection();
+			try {
+				String query = null;
+				boolean create = false;
+				try {
+					final Table current = TableFactory.createTable(conn,
+							engine.getTemplate(), table.getTableName());
+					query = QueryFactory.alterTableQueryUpdate(expected,
+							current, engine.getTemplate());
+				} catch (SQLException e) {
+					// table may not exist
+					query = QueryFactory.createTableQuery(expected,
+							engine.getTemplate());
+					create = true;
+				}
+				if ((engine.getTemplate().supportsAlterTable() && !create)
+						|| create)
+					executeSQL(conn, query);
+				return create;
+			} catch (SQLException e) {
+				throw new DatabaseException(e);
+			} finally {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					throw new DatabaseException(e);
+				}
+			}
+		} catch (SQLException e) {
+			throw new DatabaseException(e);
 		}
 	}
 

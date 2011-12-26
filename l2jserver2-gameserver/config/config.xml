@@ -19,11 +19,22 @@
 			not sure on the usage of any parameter, read the "Configuration" section 
 			in wiki article about DatabaseService. -->
 		<database>
+			<!-- Whether or not the service should try to update and create missing 
+				tables at startup. This should be disabled after the first server start as 
+				it could cause data corruption. -->
+			<automaticSchemaUpdate>true</automaticSchemaUpdate>
+
+			<!-- Configures OrientDB engine - plug-and-play -->
 			<orientdb>
+				<!-- The OrientDB storage location -->
 				<url>local:data/database</url>
+				<!-- The OrientDB username (local storage must use "admin") -->
 				<username>admin</username>
+				<!-- The OrientDB password (local storage must use "admin") -->
 				<password>admin</password>
 			</orientdb>
+
+			<!-- Configures JDBC engine - requires database server configuration -->
 			<jdbc>
 				<!-- Defines the connection URL used by JDBC to connect to the database. -->
 				<url>jdbc:mysql://localhost/l2jserver2</url>
@@ -31,11 +42,6 @@
 				<!-- The engine used to connect to the database. -->
 				<engine>com.l2jserver.service.database.sql.MySQLDatabaseEngine
 				</engine>
-
-				<!-- Whether or not the service should try to update and create missing 
-					tables at startup. This should be disabled after the first server start as 
-					it could cause data corruption. -->
-				<updateSchema>true</updateSchema>
 
 				<!-- The username used to login into the database. NOTE: Try not use 
 					"root" in production servers for security reasons. -->

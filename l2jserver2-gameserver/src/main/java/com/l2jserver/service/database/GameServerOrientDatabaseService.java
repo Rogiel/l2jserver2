@@ -82,20 +82,19 @@ public class GameServerOrientDatabaseService extends
 	}
 
 	@Override
-	protected void ensureDatabaseSchema() {
-		createSchema(QActorSkill.actorSkill);
-		createSchema(QCharacter.character);
-		createSchema(QCharacterFriend.characterFriend);
-		createSchema(QCharacterShortcut.characterShortcut);
-		createSchema(QClan.clan);
-		createSchema(QItem.item);
-		createSchema(QLogChat.logChat);
-		if (createSchema(QNPC.npc)) {
+	public void updateSchemas() {
+		updateSchema(QActorSkill.actorSkill);
+		updateSchema(QCharacter.character);
+		updateSchema(QCharacterFriend.characterFriend);
+		updateSchema(QCharacterShortcut.characterShortcut);
+		updateSchema(QClan.clan);
+		updateSchema(QItem.item);
+		updateSchema(QLogChat.logChat);
+		if (updateSchema(QNPC.npc)) {
 			try {
 				importData(Paths.get("data/static/npc.csv"), QNPC.npc);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new DatabaseException(e);
 			}
 		}
 	}

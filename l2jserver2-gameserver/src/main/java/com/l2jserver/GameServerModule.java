@@ -20,7 +20,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Module;
 import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.service.ServiceModule;
-import com.l2jserver.service.database.JDBCDAOModule;
+import com.l2jserver.service.database.OrientDBDAOModule;
 
 /**
  * The game server Google Guice {@link Module}.
@@ -32,6 +32,6 @@ public class GameServerModule extends AbstractModule {
 	protected void configure() {
 		install(new ServiceModule());
 		install(new IDProviderModule());
-		install(new JDBCDAOModule());
+		install(new OrientDBDAOModule());
 	}
 }
