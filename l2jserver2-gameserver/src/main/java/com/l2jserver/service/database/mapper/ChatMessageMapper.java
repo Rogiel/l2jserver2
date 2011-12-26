@@ -37,7 +37,7 @@ public class ChatMessageMapper extends
 	private final PrimaryKeyMapper<ChatMessageID, Integer> idMapper = new PrimaryKeyMapper<ChatMessageID, Integer>() {
 		@Override
 		public ChatMessageID createID(Integer raw) {
-			return idMapper.createID(raw);
+			return idProvider.resolveID(raw);
 		}
 	};
 

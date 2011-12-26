@@ -122,7 +122,6 @@ public class CachedWorldIDService extends AbstractService implements
 		load(itemDao.selectIDs());
 		load(npcDao.selectIDs());
 
-		log.info("{} IDs loaded from database");
 		loaded = true;
 	}
 

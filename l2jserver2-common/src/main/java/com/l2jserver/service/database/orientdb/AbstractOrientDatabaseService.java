@@ -383,9 +383,15 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 						property.setType(OType.getTypeByClass(path.getType()));
 				}
 				final boolean nullable = QPathUtils.isNullable(path);
-				if (property.isNotNull() != !nullable)
+				final boolean autoIncrement = QPathUtils
+						.isAutoIncrementable(path);
+				if (property.isNotNull() && autoIncrement)
+					property.setNotNull(false);
+				else if (property.isNotNull() != !nullable && !autoIncrement)
 					property.setNotNull(!nullable);
-				if (property.isMandatory() != !nullable)
+				if (property.isMandatory() && autoIncrement)
+					property.setMandatory(false);
+				else if (property.isMandatory() != !nullable && !autoIncrement)
 					property.setMandatory(!nullable);
 			}
 			for (final ForeignKey<?> fk : table.getForeignKeys()) {
@@ -578,8 +584,13 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				if (primaryKey != null && object instanceof Model) {
 					final Long rawID = row.getDocument().getIdentity()
 							.getClusterPosition();
+					row.getDocument()
+							.field(primaryKey.getMetadata().getExpression()
+									.toString(), rawID.intValue());
+					row.getDocument().save(); // save, again!
+
 					final ID<? super RI> id = mapper.getPrimaryKeyMapper()
-							.createID((RI) rawID);
+							.createID((RI) (Integer) rawID.intValue());
 					((Model<ID<? super RI>>) object).setID(id);
 				}
 				rows++;
