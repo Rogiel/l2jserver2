@@ -63,6 +63,7 @@ import com.mysema.query.sql.RelationalPathBase;
 import com.mysema.query.types.Path;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentPool;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
+import com.orientechnologies.orient.core.intent.OIntentMassiveInsert;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
 import com.orientechnologies.orient.core.metadata.schema.OClass.INDEX_TYPE;
 import com.orientechnologies.orient.core.metadata.schema.OProperty;
@@ -214,7 +215,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			database = new ODatabaseDocumentTx(config.getUrl());
 			if (!database.exists()) {
 				database.create();
-
 			}
 		}
 		// database.getStorage().addUser();
@@ -260,6 +260,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		final ODatabaseDocumentTx database = ODatabaseDocumentPool.global()
 				.acquire(config.getUrl(), config.getUsername(),
 						config.getPassword());
+		database.declareIntent(new OIntentMassiveInsert());
 		transaction.set(database);
 		try {
 			database.begin(OTransaction.TXTYPE.OPTIMISTIC);
@@ -274,6 +275,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			throw new DatabaseException(e);
 		} finally {
 			transaction.set(null);
+			database.declareIntent(null);
 			database.close();
 		}
 	}

@@ -72,7 +72,7 @@ public class BitSetIDAllocator implements IDAllocator {
 	@Override
 	public void allocate(int id) {
 		if (ids.get(id - FIRST_ID))
-			throw new IDAllocatorException("ID not allocated");
+			throw new IDAllocatorException("ID already allocated");
 		log.debug("Allocating ID {}", id);
 		lock.lock();
 		try {

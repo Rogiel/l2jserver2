@@ -24,6 +24,7 @@ import com.google.inject.Inject;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.dao.CharacterShortcutDAO;
 import com.l2jserver.model.dao.ItemDAO;
+import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
@@ -169,7 +170,7 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
-	public L2Character create(String name, ActorSex sex,
+	public L2Character create(String name, AccountID accountID, ActorSex sex,
 			CharacterClass characterClass, CharacterHairStyle hairStyle,
 			CharacterHairColor hairColor, CharacterFace face)
 			throws CharacterInvalidNameException,
@@ -212,8 +213,10 @@ public class CharacterServiceImpl extends AbstractService implements
 		// set parameters
 		character.setID(id);
 		character.setName(name);
+		character.setAccountID(accountID);
 
 		character.setSex(sex);
+		character.setPoint(Point3D.fromXYZA(146783, 25808, -2008, 0));
 
 		character.getAppearance().setHairStyle(hairStyle);
 		character.getAppearance().setHairColor(hairColor);

@@ -152,8 +152,9 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	@Override
 	public void process(final Lineage2Client conn) {
 		try {
-			final L2Character character = characterService.create(name, sex,
-					characterClass, hairStyle, hairColor, face);
+			final L2Character character = characterService.create(name, conn
+					.getSession().getAccountID(), sex, characterClass,
+					hairStyle, hairColor, face);
 
 			if (character != null)
 				conn.write(SM_CHAR_CREATE_OK.INSTANCE);

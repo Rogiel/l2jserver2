@@ -76,7 +76,7 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID> implement
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, QClan e) {
-						return record;
+						return null;
 					}
 				});
 	}

@@ -107,7 +107,7 @@ public class OrientDBItemDAO extends AbstractOrientDBDAO<Item, ItemID>
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, QItem e) {
-						return record;
+						return null;
 					}
 				});
 	}

@@ -101,7 +101,7 @@ public class OrientDBCharacterFriendDAO extends
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, QCharacterFriend e) {
-						return record;
+						return null;
 					}
 				});
 	}

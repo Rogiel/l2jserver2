@@ -122,7 +122,7 @@ public class CachedWorldIDService extends AbstractService implements
 		load(itemDao.selectIDs());
 		load(npcDao.selectIDs());
 
-		log.debug("IDs loaded from database");
+		log.info("{} IDs loaded from database");
 		loaded = true;
 	}
 
@@ -140,7 +140,7 @@ public class CachedWorldIDService extends AbstractService implements
 	 */
 	private void load(Collection<? extends ObjectID<?>> ids) {
 		Preconditions.checkNotNull(ids, "ids");
-		log.debug("Loading {} IDs", ids.size());
+		log.info("Loading {} IDs", ids.size());
 		for (final ObjectID<?> id : ids) {
 			log.debug("Loading {}", id);
 			allocator.allocate(id.getID());

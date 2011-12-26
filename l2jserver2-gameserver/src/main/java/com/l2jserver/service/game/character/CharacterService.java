@@ -17,6 +17,7 @@
 package com.l2jserver.service.game.character;
 
 import com.l2jserver.model.game.CharacterFriend;
+import com.l2jserver.model.id.AccountID;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.world.Actor;
@@ -49,6 +50,8 @@ public interface CharacterService extends Service {
 	 * 
 	 * @param name
 	 *            The name of the new character
+	 * @param accountID
+	 *            the account ID to be used
 	 * @param sex
 	 *            The sex of the new character
 	 * @param characterClass
@@ -68,7 +71,7 @@ public interface CharacterService extends Service {
 	 * @throws CharacterNameAlreadyExistsException
 	 *             the character name is already being used
 	 */
-	L2Character create(String name, ActorSex sex,
+	L2Character create(String name, AccountID accountID, ActorSex sex,
 			CharacterClass characterClass, CharacterHairStyle hairStyle,
 			CharacterHairColor hairColor, CharacterFace face)
 			throws CharacterInvalidNameException,

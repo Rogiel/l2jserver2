@@ -102,7 +102,7 @@ public class OrientDBNPCDAO extends AbstractOrientDBDAO<NPC, NPCID> implements
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					QNPC e) {
-				return record;
+				return null;
 			}
 		});
 	}

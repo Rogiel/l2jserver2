@@ -169,7 +169,10 @@ public class CharacterTemplate extends ActorTemplate<L2Character> {
 
 	@Override
 	protected L2Character createInstance() {
-		return new L2Character(id);
+		final L2Character character = new L2Character(id);
+		character.setCharacterClass(getCharacterClass());
+		character.setRace(getRace());
+		return character;
 		// character.setPosition(null); // TODO spawn location
 		// return null;
 	}

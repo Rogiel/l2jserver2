@@ -95,7 +95,7 @@ public class OrientDBCharacterShortcutDAO extends
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, QCharacterShortcut e) {
-						return record;
+						return null;
 					}
 				});
 	}

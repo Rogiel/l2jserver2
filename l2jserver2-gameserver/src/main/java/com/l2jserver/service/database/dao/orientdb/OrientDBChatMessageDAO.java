@@ -78,7 +78,7 @@ public class OrientDBChatMessageDAO extends
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, QLogChat e) {
-						return record;
+						return null;
 					}
 				});
 	}
