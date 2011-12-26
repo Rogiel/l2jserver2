@@ -103,6 +103,24 @@ public interface CharacterService extends Service {
 	void leaveWorld(L2Character character) throws NotSpawnedServiceException;
 
 	/**
+	 * Checks whether the character is currently online or not
+	 * 
+	 * @param character
+	 *            the character
+	 * @return <code>true</code> if the character is online right now
+	 */
+	boolean isOnline(L2Character character);
+
+	/**
+	 * Checks if this account has an character that is currently online
+	 * 
+	 * @param accountID
+	 *            the account id
+	 * @return <code>true</code> if the account is online right now
+	 */
+	boolean isOnline(AccountID accountID);
+
+	/**
 	 * Set the target of this <tt>character</tt>
 	 * 
 	 * @param character

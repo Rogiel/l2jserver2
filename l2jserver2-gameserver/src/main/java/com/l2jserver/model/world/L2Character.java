@@ -95,10 +95,6 @@ public class L2Character extends Player {
 	private double CP;
 
 	/**
-	 * The character's status
-	 */
-	private boolean online;
-	/**
 	 * Date of character's last access
 	 */
 	private Date lastAccess;
@@ -324,22 +320,6 @@ public class L2Character extends Player {
 	public void setCP(double CP) {
 		desireUpdate();
 		this.CP = CP;
-	}
-
-	/**
-	 * @return the online
-	 */
-	public boolean isOnline() {
-		return online;
-	}
-
-	/**
-	 * @param online
-	 *            the online to set
-	 */
-	public void setOnline(boolean online) {
-		desireUpdate();
-		this.online = online;
 	}
 
 	/**

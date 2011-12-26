@@ -32,6 +32,7 @@ import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.gameguard.GameGuardService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
 
 /**
@@ -40,13 +41,18 @@ import com.l2jserver.service.network.keygen.BlowfishKeygenService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2JGameServerMain {
-	public static final Class<?>[] SERVICES = { CacheService.class,
-			ConfigurationService.class, DatabaseService.class,
-			WorldIDService.class, ScriptingService.class,
-			TemplateService.class, ChatService.class, NPCService.class,
-			ItemService.class, CharacterService.class, ShortcutService.class,
-			PathingService.class, BlowfishKeygenService.class,
-			NetworkService.class };
+	public static final Class<?>[][] SERVICES = {
+			// core services
+			{ CacheService.class, ConfigurationService.class,
+					DatabaseService.class, WorldIDService.class,
+					ScriptingService.class, TemplateService.class },
+			// game services
+			{ ChatService.class, NPCService.class, ItemService.class,
+					CharacterService.class, ShortcutService.class,
+					PathingService.class },
+			// network services - should be started at last!
+			{ BlowfishKeygenService.class, GameGuardService.class,
+					NetworkService.class } };
 
 	/**
 	 * Main method
@@ -61,18 +67,22 @@ public class L2JGameServerMain {
 			final ServiceManager serviceManager = server.getInjector()
 					.getInstance(ServiceManager.class);
 
-			for (final Class<?> service : SERVICES) {
-				serviceManager.start((Class<? extends Service>) service);
+			for (final Class<?>[] category : SERVICES) {
+				for (final Class<?> service : category) {
+					serviceManager.start((Class<? extends Service>) service);
+				}
 			}
 
 			Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 				@Override
 				public void run() {
-					for (final Class<?> service : SERVICES) {
-						try {
-							serviceManager
-									.stop((Class<? extends Service>) service);
-						} catch (ServiceStopException e) {
+					for (final Class<?>[] category : SERVICES) {
+						for (final Class<?> service : category) {
+							try {
+								serviceManager
+										.stop((Class<? extends Service>) service);
+							} catch (ServiceStopException e) {
+							}
 						}
 					}
 				}
@@ -84,44 +94,4 @@ public class L2JGameServerMain {
 			System.exit(0);
 		}
 	}
-	//
-	// /**
-	// * This method does an static spawn for an object
-	// *
-	// * @throws AlreadySpawnedServiceException
-	// * @throws SpawnPointNotFoundServiceException
-	// */
-	// private static void staticSpawn(Injector injector)
-	// throws SpawnPointNotFoundServiceException,
-	// AlreadySpawnedServiceException {
-	// final NPCTemplateIDProvider templateProvider = injector
-	// .getInstance(NPCTemplateIDProvider.class);
-	// final NPCIDProvider provider = injector
-	// .getInstance(NPCIDProvider.class);
-	// final SpawnService spawnService = injector
-	// .getInstance(SpawnService.class);
-	//
-	// final NPCTemplateID id = templateProvider.createID(12077);
-	// final NPC npc = id.getTemplate().create();
-	//
-	// npc.setID(provider.createID());
-	// // close to char spawn
-	// npc.setPoint(Point.fromXYZ(-71301, 258259, -3134));
-	//
-	// spawnService.spawn(npc, null);
-	//
-	// // close spawn gatekepper
-	// final NPCTemplateID gid = templateProvider.createID(30006);
-	// final NPC gatekeeper = gid.getTemplate().create();
-	// gatekeeper.setID(provider.createID());
-	// gatekeeper.setPoint(Point.fromXYZ(-71301, 258559, -3134));
-	// spawnService.spawn(gatekeeper, null);
-	//
-	// // spawn tamil - orc village
-	// final NPCTemplateID tamilId = templateProvider.createID(30576);
-	// final NPC tamil = tamilId.getTemplate().create();
-	// tamil.setID(provider.createID());
-	// tamil.setPoint(Point.fromXYZ(-45264, -112512, -240));
-	// spawnService.spawn(tamil, null);
-	// }
 }

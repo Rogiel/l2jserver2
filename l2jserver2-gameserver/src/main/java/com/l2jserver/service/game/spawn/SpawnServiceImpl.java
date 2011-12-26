@@ -41,7 +41,6 @@ import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
-import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -50,7 +49,7 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ WorldService.class, NetworkService.class, ThreadService.class })
+@Depends({ WorldService.class, ThreadService.class })
 public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	/**
 	 * The logger

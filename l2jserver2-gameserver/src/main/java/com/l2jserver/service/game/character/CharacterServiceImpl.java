@@ -16,6 +16,8 @@
  */
 package com.l2jserver.service.game.character;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,6 +63,7 @@ import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.broadcast.BroadcastService;
 import com.l2jserver.service.network.gameguard.GameGuardService;
+import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -69,8 +72,7 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ WorldService.class, SpawnService.class, AttackService.class,
-		GameGuardService.class, BroadcastService.class })
+@Depends({ WorldService.class, SpawnService.class, AttackService.class })
 public class CharacterServiceImpl extends AbstractService implements
 		CharacterService {
 	/**
@@ -121,6 +123,12 @@ public class CharacterServiceImpl extends AbstractService implements
 	 * The character template ID provider
 	 */
 	private final CharacterTemplateIDProvider charTemplateIdProvider;
+
+	/**
+	 * An map containing all currently online characters
+	 */
+	private final Map<CharacterID, L2Character> onlineCharacters = CollectionFactory
+			.newMap();
 
 	// /**
 	// * The {@link AIService}
@@ -239,7 +247,7 @@ public class CharacterServiceImpl extends AbstractService implements
 		character.getInventory().load(itemDao.selectByCharacter(character));
 		character.getShortcuts().load(shortcutDao.selectByCharacter(character));
 
-		character.setOnline(true);
+		onlineCharacters.put(character.getID(), character);
 		// inventory interfere on calculators
 		character.getStats().updateCalculator();
 
@@ -276,9 +284,23 @@ public class CharacterServiceImpl extends AbstractService implements
 
 		spawnService.unspawn(character);
 		eventDispatcher.dispatch(new CharacterLeaveWorldEvent(character));
-		character.setOnline(false);
+		onlineCharacters.remove(character.getID());
 
 		characterDao.saveObjectsAsync(character);
+	}
+
+	@Override
+	public boolean isOnline(L2Character character) {
+		return onlineCharacters.containsKey(character.getID());
+	}
+
+	@Override
+	public boolean isOnline(AccountID accountID) {
+		for (final L2Character character : onlineCharacters.values()) {
+			if (character.getAccountID().equals(accountID))
+				return true;
+		}
+		return false;
 	}
 
 	@Override
