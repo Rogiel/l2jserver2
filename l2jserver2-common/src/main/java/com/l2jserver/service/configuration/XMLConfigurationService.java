@@ -78,6 +78,9 @@ public class XMLConfigurationService extends AbstractService implements
 	 */
 	private DocumentBuilder builder;
 
+	/**
+	 * The XML {@link Document} containing configuration data
+	 */
 	private Document properties;
 
 	/**
@@ -85,8 +88,16 @@ public class XMLConfigurationService extends AbstractService implements
 	 */
 	private Map<Class<?>, Object> cache = CollectionFactory.newWeakMap();
 
+	/**
+	 * Defines the XPath for the configuration parameter
+	 * 
+	 * @author Rogiel
+	 */
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface ConfigurationXPath {
+		/**
+		 * @return the xml path for the configuration
+		 */
 		String value();
 	}
 

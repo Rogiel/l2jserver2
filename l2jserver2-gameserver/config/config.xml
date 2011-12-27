@@ -73,7 +73,11 @@
 			sure on the usage of any parameter, read the "Configuration" section in wiki 
 			article about VFSService. -->
 		<vfs>
+			<!-- The root of the filesystem -->
 			<root></root>
+
+			<!-- The data folder. Relative to the root. Can be a ZIP file. -->
+			<data>./data</data>
 		</vfs>
 
 		<!-- Parameters in this section are used by VFSService. If you are not 

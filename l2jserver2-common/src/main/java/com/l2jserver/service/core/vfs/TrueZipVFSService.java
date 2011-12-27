@@ -27,12 +27,15 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.configuration.ConfigurationService;
 
+import de.schlichtherle.truezip.fs.FsSyncException;
+import de.schlichtherle.truezip.nio.file.TPath;
+
 /**
  * Implementation of {@link VFSService} using default Java7 APIs.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Java7VFSService extends AbstractService implements VFSService {
+public class TrueZipVFSService extends AbstractService implements VFSService {
 	/**
 	 * The logger
 	 */
@@ -41,23 +44,23 @@ public class Java7VFSService extends AbstractService implements VFSService {
 	/**
 	 * The Java 7 vfs configuration
 	 */
-	private final Java7VFSConfiguration config;
+	private final TrueZipVFSConfiguration config;
 
 	/**
 	 * The root {@link Path} of the server data
 	 */
-	private Path root;
+	private TPath root;
 	/**
 	 * The root for the "data" folder
 	 */
-	private Path dataRoot;
+	private TPath dataRoot;
 
 	/**
-	 * Configuration interface for {@link Java7VFSService}.
+	 * Configuration interface for {@link TrueZipVFSService}.
 	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
-	public interface Java7VFSConfiguration extends VFSConfiguration {
+	public interface TrueZipVFSConfiguration extends VFSConfiguration {
 	}
 
 	/**
@@ -65,13 +68,13 @@ public class Java7VFSService extends AbstractService implements VFSService {
 	 *            the configuration service
 	 */
 	@Inject
-	protected Java7VFSService(final ConfigurationService configService) {
-		this.config = configService.get(Java7VFSConfiguration.class);
+	protected TrueZipVFSService(final ConfigurationService configService) {
+		this.config = configService.get(TrueZipVFSConfiguration.class);
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		root = config.getRoot().toAbsolutePath();
+		root = new TPath(config.getRoot().toAbsolutePath());
 		log.debug("Root path is {}", root);
 
 		dataRoot = root.resolve(config.getDataPath());
@@ -92,7 +95,13 @@ public class Java7VFSService extends AbstractService implements VFSService {
 
 	@Override
 	protected void doStop() throws ServiceStopException {
-		root = null;
-		dataRoot = null;
+		try {
+			root.getFileSystem().close();
+		} catch (FsSyncException e) {
+			throw new ServiceStopException(e);
+		} finally {
+			root = null;
+			dataRoot = null;
+		}
 	}
 }

@@ -25,9 +25,21 @@ package com.l2jserver.util.calculator;
  */
 public abstract class AbstractDoubleFunction<T extends CalculatorContext, V extends Enum<V>>
 		implements Function<T, V> {
+	/**
+	 * The execution order
+	 */
 	private final int order;
+	/**
+	 * The parameter type
+	 */
 	private final V type;
 
+	/**
+	 * @param order
+	 *            the execution order
+	 * @param type
+	 *            the parameter type
+	 */
 	public AbstractDoubleFunction(int order, V type) {
 		this.order = order;
 		this.type = type;

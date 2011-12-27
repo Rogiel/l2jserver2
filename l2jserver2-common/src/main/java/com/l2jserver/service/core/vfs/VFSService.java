@@ -52,12 +52,27 @@ public interface VFSService extends Service {
 		@ConfigurationPropertySetter
 		@ConfigurationXPath("/configuration/services/vfs/root")
 		void setRoot(Path root);
+		
+		/**
+		 * @return the VFS root {@link URI}
+		 */
+		@ConfigurationPropertyGetter(defaultValue = "")
+		@ConfigurationXPath("/configuration/services/vfs/data")
+		String getDataPath();
+
+		/**
+		 * @param data
+		 *            the new data root {@link URI}
+		 */
+		@ConfigurationPropertySetter
+		@ConfigurationXPath("/configuration/services/vfs/data")
+		void setDataPath(String data);
 	}
 
 	/**
 	 * Resolves an file. If the file cannot be resolved, null will be returned.
 	 * <p>
-	 * Please note that event if the file DOES NOT exists a valid object will be
+	 * Please note that even if the file DOES NOT exists a valid object will be
 	 * returned.
 	 * 
 	 * @param path
@@ -65,4 +80,17 @@ public interface VFSService extends Service {
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
 	Path resolve(String path);
+
+	/**
+	 * Resolves an file inside the data storage file system. If the file cannot
+	 * be resolved, null will be returned.
+	 * <p>
+	 * Please note that, differently from {@link #resolve(String)}, if the file
+	 * does not exists, <code>null</code> is returned.
+	 * 
+	 * @param path
+	 *            the file path as an string
+	 * @return the resolved file. Will return null if could not resolve.
+	 */
+	Path resolveDataFile(String path);
 }

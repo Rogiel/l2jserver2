@@ -49,6 +49,9 @@ public enum ThreadPoolPriority {
 	 */
 	public final int threadPriority;
 
+	/**
+	 * @param threadPriority the {@link Thread} priority {@link Integer} index
+	 */
 	ThreadPoolPriority(int threadPriority) {
 		this.threadPriority = threadPriority;
 	}

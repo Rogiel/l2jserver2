@@ -17,7 +17,6 @@
 package com.l2jserver.service.database;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService.Depends;
@@ -25,6 +24,7 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
+import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.database.model.QActorSkill;
 import com.l2jserver.service.database.model.QCharacter;
 import com.l2jserver.service.database.model.QCharacterFriend;
@@ -64,6 +64,8 @@ import com.l2jserver.service.game.template.TemplateService;
 		ConfigurationService.class, TemplateService.class, ThreadService.class })
 public class GameServerOrientDatabaseService extends
 		AbstractOrientDatabaseService implements DatabaseService {
+	private final VFSService vfsService;
+
 	/**
 	 * @param configService
 	 *            the config service
@@ -77,8 +79,9 @@ public class GameServerOrientDatabaseService extends
 	@Inject
 	public GameServerOrientDatabaseService(ConfigurationService configService,
 			CacheService cacheService, ThreadService threadService,
-			DAOResolver daoResolver) {
+			final VFSService vfsService, DAOResolver daoResolver) {
 		super(configService, cacheService, threadService, daoResolver);
+		this.vfsService = vfsService;
 	}
 
 	@Override
@@ -92,7 +95,7 @@ public class GameServerOrientDatabaseService extends
 		updateSchema(QLogChat.logChat);
 		if (updateSchema(QNPC.npc)) {
 			try {
-				importData(Paths.get("data/static/npc.csv"), QNPC.npc);
+				importData(vfsService.resolve("data/static/npc.csv"), QNPC.npc);
 			} catch (IOException e) {
 				throw new DatabaseException(e);
 			}

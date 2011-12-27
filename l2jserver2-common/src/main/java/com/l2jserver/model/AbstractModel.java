@@ -32,6 +32,9 @@ import com.l2jserver.model.id.ID;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
+	/**
+	 * The logger instance
+	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
@@ -73,7 +76,6 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 * {@link ObjectDesire#INSERT} or {@link ObjectDesire#DELETE} the desire
 	 * will not be changed.
 	 */
-	@SuppressWarnings("javadoc")
 	protected void desireUpdate() {
 		if (this.desire != ObjectDesire.INSERT
 				&& this.desire != ObjectDesire.DELETE) {
@@ -86,7 +88,6 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 * Set this object desire to {@link ObjectDesire#INSERT}. If the desire is
 	 * {@link ObjectDesire#DELETE} the desire will not be changed.
 	 */
-	@SuppressWarnings("javadoc")
 	protected void desireInsert() {
 		if (this.desire != ObjectDesire.DELETE) {
 			log.debug("{} desires an insert", this);
