@@ -25,16 +25,16 @@
 			<uniqueVersion>false</uniqueVersion>
 			<id>l2jserver2-repository</id>
 			<name>L2JServer 2 Maven Repository</name>
-			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/maven.l2jserver2.com</url>
+			<url>file://C:\Users\Rogiel\Documents\Test\repo</url>
 			<layout>default</layout>
 		</repository>
-		<snapshotRepository>
-			<uniqueVersion>true</uniqueVersion>
-			<id>l2jserver2-repository-snapshot</id>
-			<name>L2JServer 2 Maven Repository</name>
-			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/snapshot.l2jserver2.com</url>
-			<layout>default</layout>
-		</snapshotRepository>
+<!-- 		<snapshotRepository> -->
+<!-- 			<uniqueVersion>true</uniqueVersion> -->
+<!-- 			<id>l2jserver2-repository-snapshot</id> -->
+<!-- 			<name>L2JServer 2 Maven Repository</name> -->
+<!-- 			<url>scp://l2jserver2@l2jserver2.com/home/l2jserver2/snapshot.l2jserver2.com</url> -->
+<!-- 			<layout>default</layout> -->
+<!-- 		</snapshotRepository> -->
 		<site>
 			<id>l2jserver2-site</id>
 			<name>l2jserver2</name>

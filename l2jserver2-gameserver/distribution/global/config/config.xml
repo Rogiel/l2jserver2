@@ -73,15 +73,19 @@
 			sure on the usage of any parameter, read the "Configuration" section in wiki 
 			article about VFSService. -->
 		<vfs>
+			<!-- The root of the filesystem -->
 			<root></root>
+
+			<!-- The data folder. Relative to the root. Can be a ZIP file. -->
+			<data>data.zip</data>
 		</vfs>
 
 		<!-- Parameters in this section are used by VFSService. If you are not 
 			sure on the usage of any parameter, read the "Configuration" section in wiki 
 			article about VFSService. -->
 		<template>
-			<!-- The directory in which templates are stored -->
-			<directory>data/template</directory>
+			<!-- The directory in which templates are stored. Relative to "vfs.data" -->
+			<directory>template/</directory>
 		</template>
 	</services>
 	<!-- /Services configuration section -->

@@ -120,7 +120,7 @@ public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 		updateSchema(QLogChat.logChat);
 		if (updateSchema(QNPC.npc)) {
 			try {
-				importData(vfsService.resolve("data/static/npc.csv"), QNPC.npc);
+				importData(vfsService.resolveDataFile("static/npc.csv"), QNPC.npc);
 			} catch (IOException e) {
 				throw new DatabaseException(e);
 			}

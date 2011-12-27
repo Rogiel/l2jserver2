@@ -9,19 +9,6 @@
 	<baseDirectory></baseDirectory>
 	<fileSets>
 		<fileSet>
-			<directory>${project.basedir}</directory>
-			<outputDirectory>/</outputDirectory>
-			<includes>
-				<include>data/**</include>
-			</includes>
-			<excludes>
-				<exclude>.gitignore</exclude>
-				<exclude>data/cache/**</exclude>
-				<exclude>data/pathing.db</exclude>
-				<exclude>data/database/**</exclude>
-			</excludes>
-		</fileSet>
-		<fileSet>
 			<directory>${project.basedir}/distribution/global</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
@@ -32,6 +19,11 @@
 			<outputDirectory>/</outputDirectory>
 			<destName>l2jserver2.jar</destName>
 			<fileMode>0755</fileMode>
+		</file>
+		<file>
+			<source>${project.build.directory}/${project.artifactId}-${project.version}-data.zip</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>data.zip</destName>
 		</file>
 	</files>
 	<dependencySets>

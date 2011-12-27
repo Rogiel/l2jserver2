@@ -20,12 +20,37 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptors>
+						<descriptor>src/main/assembly/distribution-data.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-mysql5-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-orientdb-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-h2-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-derby-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-src.xml</descriptor>
 					</descriptors>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<files>${project.artifactId}</files>
+					<classifiers>mysql5-bin</classifiers>
+					<types>zip</types>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>libs/</classpathPrefix>
+							<mainClass>com.l2jserver.L2JGameServerMain</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>

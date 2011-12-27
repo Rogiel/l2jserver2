@@ -18,7 +18,6 @@ package com.l2jserver.service.game.template;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -143,9 +142,9 @@ public class XMLTemplateService extends AbstractService implements
 		/**
 		 * @return the directory in which templates are stored
 		 */
-		@ConfigurationPropertyGetter(defaultValue = "data/template")
+		@ConfigurationPropertyGetter(defaultValue = "template/")
 		@ConfigurationXPath("/configuration/services/template/directory")
-		URI getTemplateDirectory();
+		String getTemplateDirectory();
 
 		/**
 		 * @param file
@@ -153,7 +152,7 @@ public class XMLTemplateService extends AbstractService implements
 		 */
 		@ConfigurationPropertySetter
 		@ConfigurationXPath("/configuration/services/template/directory")
-		void setTemplateDirectory(URI file);
+		void setTemplateDirectory(String file);
 	}
 
 	/**
@@ -215,8 +214,8 @@ public class XMLTemplateService extends AbstractService implements
 			unmarshaller.setAdapter(effectIdTemplateAdapter);
 			unmarshaller.setAdapter(teleportationIdTemplateAdapter);
 
-			final Path templatePath = vfsService.resolve(config
-					.getTemplateDirectory().toString());
+			final Path templatePath = vfsService.resolveDataFile(config
+					.getTemplateDirectory());
 
 			log.info("Scanning {} for XML templates", templatePath);
 
