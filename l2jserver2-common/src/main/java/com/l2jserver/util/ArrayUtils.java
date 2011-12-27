@@ -27,6 +27,17 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  */
 public class ArrayUtils {
+	/**
+	 * Copy an entire array except objects in <code>except</code> array.
+	 * 
+	 * @param type
+	 *            the array type
+	 * @param array
+	 *            the source array
+	 * @param except
+	 *            the objects to not be copied
+	 * @return the copied array
+	 */
 	@SafeVarargs
 	public final static <T> T[] copyArrayExcept(Class<T[]> type, T[] array,
 			T... except) {

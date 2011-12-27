@@ -40,10 +40,19 @@ public class CM_CHAR_POSITION extends AbstractClientPacket {
 	 */
 	private final CharacterService charService;
 
+	/**
+	 * The current position point
+	 */
 	private Point3D point;
+	/**
+	 * Extra data -> vehicle id
+	 */
 	@SuppressWarnings("unused")
 	private int extra; // vehicle id
 
+	/**
+	 * @param charService the character service
+	 */
 	@Inject
 	public CM_CHAR_POSITION(CharacterService charService) {
 		this.charService = charService;

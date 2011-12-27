@@ -28,7 +28,15 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
 
+/**
+ * Test for {@link ScriptingService}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class ScriptingServiceImplTest {
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector = Guice
 			.createInjector(new AbstractModule() {
 				@Override
@@ -37,9 +45,16 @@ public class ScriptingServiceImplTest {
 							.in(Scopes.SINGLETON);
 				}
 			});
+	/**
+	 * The scripting service
+	 */
 	private final ScriptingService service = injector
 			.getInstance(ScriptingService.class);
 
+	/**
+	 * Tests script loading
+	 * @throws Exception
+	 */
 	@Test
 	public void testLoading() throws Exception {
 		final List<ScriptContext> contexts = service.load(new File(
@@ -47,6 +62,10 @@ public class ScriptingServiceImplTest {
 		Assert.assertEquals(1, contexts.size());
 	}
 
+	/**
+	 * Tests script instantiation
+	 * @throws Exception
+	 */
 	@Test
 	public void testCreatingInstance() throws Exception {
 		final List<ScriptContext> contexts = service.load(new File(

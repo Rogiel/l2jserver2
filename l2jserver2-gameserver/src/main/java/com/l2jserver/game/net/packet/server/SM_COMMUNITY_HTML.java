@@ -41,16 +41,25 @@ public class SM_COMMUNITY_HTML extends AbstractServerPacket {
 	 */
 	private final String html;
 
+	/**
+	 * @param html the html
+	 */
 	public SM_COMMUNITY_HTML(String html) {
 		super(OPCODE);
 		this.html = html;
 	}
 
+	/**
+	 * @param html the html
+	 */
 	public SM_COMMUNITY_HTML(Html html) {
 		super(OPCODE);
 		this.html = html.toHtml();
 	}
 
+	/**
+	 * @param template the html template
+	 */
 	public SM_COMMUNITY_HTML(HtmlTemplate template) {
 		super(OPCODE);
 		this.html = template.toHtmlString();

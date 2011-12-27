@@ -56,6 +56,9 @@ public class SimpleEffectService extends AbstractService implements
 	 */
 	private List<Actor> actors;
 
+	/**
+	 * @param threadService the thread service
+	 */
 	@Inject
 	private SimpleEffectService(ThreadService threadService) {
 		this.threadService = threadService;

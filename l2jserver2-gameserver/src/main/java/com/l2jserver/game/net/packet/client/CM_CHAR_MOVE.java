@@ -50,20 +50,50 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 	private final CharacterService charService;
 
 	// packet
+	/**
+	 * The movement target
+	 */
 	private Coordinate target;
+	/**
+	 * The movement origin
+	 */
 	private Coordinate origin;
+	/**
+	 * The movement type
+	 */
 	@SuppressWarnings("unused")
 	private MovementType type;
 
+	/**
+	 * Defines the movement action type
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum MovementType {
-		MOUSE(0x01), KEYBOARD(0x00);
+		/**
+		 * The move action was issued by the mouse
+		 */
+		MOUSE(0x01),
+		/**
+		 * The move action was issued by the keyboard
+		 */
+		KEYBOARD(0x00);
 
+		/**
+		 * The type id
+		 */
 		public final int id;
 
+		/**
+		 * @param id the type id
+		 */
 		MovementType(int id) {
 			this.id = id;
 		}
 
+		/**
+		 * @param id the type id
+		 * @return the {@link MovementType} represented by <code>id</code>
+		 */
 		public static MovementType fromID(int id) {
 			for (final MovementType type : values()) {
 				if (type.id == id)
@@ -73,6 +103,9 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 		}
 	}
 
+	/**
+	 * @param charService the character service
+	 */
 	@Inject
 	public CM_CHAR_MOVE(CharacterService charService) {
 		this.charService = charService;

@@ -30,6 +30,15 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  */
 public class QueryFactory {
+	/**
+	 * Creates an <code>CREATE TABLE</code> query from an {@link Table} object
+	 * 
+	 * @param table
+	 *            the table object
+	 * @param template
+	 *            the query template
+	 * @return the <code>CREATE TABLE</code> query as string
+	 */
 	public static String createTableQuery(Table table, QueryTemplate template) {
 		final StringBuilder builder = new StringBuilder();
 		builder.append(template.getCreateTable())
@@ -59,6 +68,18 @@ public class QueryFactory {
 		return builder.toString();
 	}
 
+	/**
+	 * Creates an <code>ALTER TABLE</code> query from the difference between two
+	 * {@link Table} objects
+	 * 
+	 * @param expected
+	 *            the desired table model
+	 * @param current
+	 *            the current table model
+	 * @param template
+	 *            the query template
+	 * @return the <code>ALTER TABLE</code> query as string
+	 */
 	public static String alterTableQueryDelta(Table expected, Table current,
 			QueryTemplate template) {
 		// detect missing columns
@@ -108,6 +129,20 @@ public class QueryFactory {
 		return builder.toString();
 	}
 
+	/**
+	 * Creates an <code>ALTER TABLE</code> query from the difference between two
+	 * {@link Table} objects.
+	 * <p>
+	 * This method does not delete any column.
+	 * 
+	 * @param expected
+	 *            the desired table model
+	 * @param current
+	 *            the current table model
+	 * @param template
+	 *            the query template
+	 * @return the <code>ALTER TABLE</code> query as string
+	 */
 	public static String alterTableQueryUpdate(Table expected, Table current,
 			QueryTemplate template) {
 		// detect missing columns
@@ -144,6 +179,19 @@ public class QueryFactory {
 		return builder.toString();
 	}
 
+	/**
+	 * Creates an <code>ALTER TABLE</code> query from the difference between two
+	 * {@link Table} objects. Note that this method will only add missing
+	 * columns, but won't update their types.
+	 * 
+	 * @param expected
+	 *            the desired table model
+	 * @param current
+	 *            the current table model
+	 * @param template
+	 *            the query template
+	 * @return the <code>ALTER TABLE</code> query as string
+	 */
 	public static String alterTableQueryMissing(Table expected, Table current,
 			QueryTemplate template) {
 		// detect missing columns
@@ -172,6 +220,16 @@ public class QueryFactory {
 		return builder.toString();
 	}
 
+	/**
+	 * @param builder
+	 *            the {@link StringBuilder}
+	 * @param template
+	 *            the query template
+	 * @param column
+	 *            the column
+	 * @param alter
+	 *            whether it is an alter table or create table
+	 */
 	private static void createColumnDefinition(StringBuilder builder,
 			QueryTemplate template, Column column, boolean alter) {
 		builder.append(template.quoteIdentifier(column.getName())).append(" ");
@@ -215,6 +273,16 @@ public class QueryFactory {
 		}
 	}
 
+	/**
+	 * @param builder
+	 *            the {@link StringBuilder}
+	 * @param template
+	 *            the query template
+	 * @param table
+	 *            the table
+	 * @param pk
+	 *            the primary key
+	 */
 	private static void generatePrimaryKeyDefinition(StringBuilder builder,
 			QueryTemplate template, Table table, PrimaryKey pk) {
 		builder.append("CONSTRAINT ")
@@ -227,6 +295,14 @@ public class QueryFactory {
 		// .append(")");
 	}
 
+	/**
+	 * @param builder
+	 *            the {@link StringBuilder}
+	 * @param template
+	 *            the query template
+	 * @param fk
+	 *            the foreign key
+	 */
 	private static void generateForeignKeyDefinition(StringBuilder builder,
 			QueryTemplate template, ForeignKey fk) {
 		builder.append("CONSTRAINT ")

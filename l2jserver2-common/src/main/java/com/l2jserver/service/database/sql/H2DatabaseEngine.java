@@ -37,7 +37,13 @@ import com.mysema.query.sql.types.Type;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class H2DatabaseEngine implements DatabaseEngine {
+	/**
+	 * The {@link H2Template} instance
+	 */
 	private final H2Template template = new H2Template();
+	/**
+	 * The querydsl configuration
+	 */
 	private final Configuration configuration = new Configuration(template);
 
 	@Override

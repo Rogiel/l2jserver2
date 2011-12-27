@@ -43,6 +43,9 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SQLClanDAO extends AbstractSQLDAO<Clan, ClanID> implements ClanDAO {
+	/**
+	 * The {@link Clan} mapper
+	 */
 	private final ClanMapper mapper;
 
 	/**
@@ -92,7 +95,7 @@ public class SQLClanDAO extends AbstractSQLDAO<Clan, ClanID> implements ClanDAO 
 				objects) {
 			@Override
 			protected void query(SQLUpdateClause q, Clan o) {
-				q.where(e.clanId.eq(o.getID().getID()));
+				q.where(entity.clanId.eq(o.getID().getID()));
 			}
 		});
 	}
@@ -103,7 +106,7 @@ public class SQLClanDAO extends AbstractSQLDAO<Clan, ClanID> implements ClanDAO 
 				.query(new DeleteQuery<Clan, QClan>(QClan.clan, objects) {
 					@Override
 					protected void query(SQLDeleteClause q, Clan o) {
-						q.where(e.clanId.eq(o.getID().getID()));
+						q.where(entity.clanId.eq(o.getID().getID()));
 					}
 				});
 	}

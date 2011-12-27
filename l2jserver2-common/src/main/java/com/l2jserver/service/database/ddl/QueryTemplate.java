@@ -44,39 +44,85 @@ public abstract class QueryTemplate extends SQLTemplates {
 	// String getColumnDefinition(String name, ColumnType type, int size,
 	// boolean nullable);
 
+	/**
+	 * @param type
+	 *            the column type
+	 * @return the database specific type
+	 */
 	public abstract String getDatabaseType(ColumnType type);
 
+	/**
+	 * @param type
+	 *            the column type
+	 * @return true if the database requires an size parameter for the column
+	 *         type
+	 */
 	public abstract boolean getTypeSizeRequirement(ColumnType type);
 
+	/**
+	 * @return true if the database supports enums
+	 */
 	public abstract boolean supportsEnum();
 
+	/**
+	 * @return true if the database supports auto increment
+	 */
 	public abstract boolean supportsAutoIncrement();
 
+	/**
+	 * @return true if the database supports foreign keys
+	 */
 	public abstract boolean supportsForeignKeys();
 
+	/**
+	 * @return true if the database supports changing column types
+	 */
 	public abstract boolean supportsColumnChangeTypes();
 
+	/**
+	 * @return true if the database supports renaming columns
+	 */
 	public abstract boolean supportsColumnRename();
 
+	/**
+	 * @return true if the database supports altering tables
+	 */
 	public abstract boolean supportsAlterTable();
 
+	/**
+	 * @param defaultValue
+	 *            the value
+	 * @return the quoted value
+	 */
 	public String quoteValue(String defaultValue) {
 		return new StringBuilder("'").append(defaultValue).append("'")
 				.toString();
 	}
 
+	/**
+	 * @return the <code>ALTER TABLE</code> statement
+	 */
 	public String getAlterTable() {
 		return "alter table ";
 	}
 
+	/**
+	 * @return the <code>ADD COLUMN</code> statement
+	 */
 	public String getAddColumn() {
 		return "add column ";
 	}
 
+	/**
+	 * @return the <code>DROP COLUMN</code> statement
+	 */
 	public String getDropColumn() {
 		return "drop column ";
 	}
 
+	/**
+	 * @return the <code>ALTER COLUMN</code> statement
+	 */
 	public String getAlterColumn() {
 		return "alter column ";
 	}

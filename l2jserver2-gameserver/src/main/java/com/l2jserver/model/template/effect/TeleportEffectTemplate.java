@@ -39,12 +39,34 @@ import com.l2jserver.util.jaxb.CoordinateAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TeleportEffect")
 public class TeleportEffectTemplate extends EffectTemplate {
+	/**
+	 * The teleportation type
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum SkillTeleportEffectLocation {
-		TARGET, OFFSET_FROM_TARGET, POINT;
+		/**
+		 * Teleports the caster to the current target
+		 */
+		TARGET,
+		/**
+		 * Teleports the caster to an offset from the target
+		 */
+		OFFSET_FROM_TARGET,
+		/**
+		 * Teleports the caster to an fixed point
+		 */
+		POINT;
 	}
 
+	/**
+	 * The type of teleportation
+	 */
 	@XmlAttribute(name = "type", required = false)
 	private SkillTeleportEffectLocation type = SkillTeleportEffectLocation.TARGET;
+	/**
+	 * The point (only of <code>type</code> is {@link SkillTeleportEffectLocation#POINT})
+	 */
 	@XmlElement(name = "point")
 	@XmlJavaTypeAdapter(CoordinateAdapter.class)
 	private Coordinate coordinate;

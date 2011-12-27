@@ -31,7 +31,13 @@ import com.mysema.query.types.Path;
  */
 public class SelectPrimaryKeyMapper<R, I extends ID<? super R>, E extends RelationalPathBase<R>>
 		implements SelectMapper<I, R, I, E> {
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<I, R> mapper;
+	/**
+	 * The primary key path
+	 */
 	private final Path<R> path;
 
 	/**

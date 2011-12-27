@@ -30,13 +30,22 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
+import com.l2jserver.service.database.dao.sql.SQLCharacterDAO;
 import com.l2jserver.service.database.mapper.CharacterFriendMapper;
 import com.l2jserver.service.database.mapper.CharacterMapper;
 import com.l2jserver.service.database.mapper.CharacterShortcutMapper;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 
+/**
+ * Test for {@link SQLCharacterDAO}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class MySQL5CharacterDAOTest {
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector = Guice.createInjector(Stage.PRODUCTION,
 			new GameServerModule(), new AbstractModule() {
 				@Override
@@ -47,6 +56,11 @@ public class MySQL5CharacterDAOTest {
 				}
 			});
 
+	/**
+	 * Test cached object loading
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testCachedLoad() throws ServiceStartException {
 		injector.getInstance(ServiceManager.class).start(TemplateService.class);
@@ -54,7 +68,7 @@ public class MySQL5CharacterDAOTest {
 		injector.getInstance(ServiceManager.class).start(WorldService.class);
 
 		final CharacterDAO dao = injector.getInstance(CharacterDAO.class);
-		
+
 		final L2Character char1 = dao.select(injector.getInstance(
 				CharacterIDProvider.class).resolveID(268437456));
 		final L2Character char2 = dao.select(injector.getInstance(

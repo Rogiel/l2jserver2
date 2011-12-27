@@ -27,8 +27,9 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Tests for {@link XMLConfigurationService}
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class XMLConfigurationServiceTest {
 	/**
@@ -36,6 +37,11 @@ public class XMLConfigurationServiceTest {
 	 */
 	private TestConfig config;
 
+	/**
+	 * Preparation for tests
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Before
 	public void tearUp() throws ServiceStartException {
 		final XMLConfigurationService service = new XMLConfigurationService(
@@ -44,27 +50,52 @@ public class XMLConfigurationServiceTest {
 		config = service.get(TestConfig.class);
 	}
 
+	/**
+	 * Test config string
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testString() throws ServiceStartException {
 		Assert.assertEquals("test", config.getTestString());
 	}
 
+	/**
+	 * Test default value
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testDefaultValue() throws ServiceStartException {
 		Assert.assertEquals("default", config.getDefaultTestString());
 	}
 
+	/**
+	 * Test integer
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testInteger() throws ServiceStartException {
 		Assert.assertEquals(256, config.getTestInteger());
 	}
 
+	/**
+	 * Test setter
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testSetter() throws ServiceStartException {
 		config.setTestString("new-value");
 		Assert.assertEquals("new-value", config.getTestString());
 	}
 
+	/**
+	 * Test null setter
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testNullSetter() throws ServiceStartException {
 		config.setTestString(null);
@@ -77,22 +108,39 @@ public class XMLConfigurationServiceTest {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public interface TestConfig extends Configuration {
+		/**
+		 * @return an configuration string
+		 */
 		@ConfigurationPropertyGetter(defaultValue = "test-default")
 		@ConfigurationXPath("/configuration/test/testvalue")
 		String getTestString();
 
+		/**
+		 * @param value
+		 *            any string
+		 */
 		@ConfigurationPropertySetter
 		@ConfigurationXPath("/configuration/test/testvalue")
 		void setTestString(String value);
 
+		/**
+		 * @return an configuration string
+		 */
 		@ConfigurationPropertyGetter(defaultValue = "default")
 		@ConfigurationXPath("/configuration/test/nonexistentkey")
 		String getDefaultTestString();
 
+		/**
+		 * @return an configuration integer
+		 */
 		@ConfigurationPropertyGetter(defaultValue = "0")
 		@ConfigurationXPath("/configuration/test/integer")
 		int getTestInteger();
 
+		/**
+		 * @param n
+		 *            any integer
+		 */
 		@ConfigurationPropertySetter
 		@ConfigurationXPath("/configuration/test/integer")
 		void setTestInteger(Integer n);

@@ -128,9 +128,9 @@ public class OrientDBCharacterFriendDAO extends
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, CharacterFriend friend) {
-						return record.field(name(e.characterId))
+						return record.field(name(entity.characterId))
 								.eq(friend.getID().getCharacterID().getID())
-								.field(name(e.characterIdFriend))
+								.field(name(entity.characterIdFriend))
 								.eq(friend.getID().getFriendID());
 					}
 				});

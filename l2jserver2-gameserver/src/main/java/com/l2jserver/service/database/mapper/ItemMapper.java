@@ -46,6 +46,9 @@ public class ItemMapper extends AbstractMapper<Item, Integer, ItemID, QItem> {
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<ItemID, Integer> idMapper = new PrimaryKeyMapper<ItemID, Integer>() {
 		@Override
 		public ItemID createID(Integer raw) {

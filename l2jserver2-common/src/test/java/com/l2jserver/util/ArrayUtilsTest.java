@@ -23,10 +23,14 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 /**
- * @author <a href="http://www.rogiel.com">Rogiel</a>
+ * Tests for {@link ArrayUtils}
  * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class ArrayUtilsTest extends ArrayUtils {
+	/**
+	 * Test for {@link ArrayUtils#copyArrayExcept(Class, Object[], Object...)}
+	 */
 	@Test
 	public void testCopyArrayExcept() {
 		final TestClass objA = new TestClass("a");
@@ -34,17 +38,26 @@ public class ArrayUtilsTest extends ArrayUtils {
 		final TestClass objC = new TestClass("c");
 
 		TestClass[] arr = new TestClass[] { objA, objB, objC };
-		TestClass[] selected = ArrayUtils.copyArrayExcept(TestClass[].class,
-				arr, objB);
+		TestClass[] selected = copyArrayExcept(TestClass[].class, arr, objB);
 
 		System.out.println(Arrays.toString(selected));
 		Assert.assertTrue(Arrays.equals(new TestClass[] { objA, objC },
 				selected));
 	}
 
+	/**
+	 * Simple test class
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	private static class TestClass {
+		/**
+		 * The name
+		 */
 		private String name;
 
+		/**
+		 * @param string the name
+		 */
 		public TestClass(String string) {
 			this.name = string;
 		}

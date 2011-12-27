@@ -34,6 +34,9 @@ import com.l2jserver.service.database.model.QLogChat;
  */
 public class ChatMessageMapper extends
 		AbstractMapper<ChatMessage, Integer, ChatMessageID, QLogChat> {
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<ChatMessageID, Integer> idMapper = new PrimaryKeyMapper<ChatMessageID, Integer>() {
 		@Override
 		public ChatMessageID createID(Integer raw) {

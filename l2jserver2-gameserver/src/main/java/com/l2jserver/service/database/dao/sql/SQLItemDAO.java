@@ -45,6 +45,9 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements ItemDAO {
+	/**
+	 * The {@link Item} mapper
+	 */
 	private final ItemMapper mapper;
 
 	/**
@@ -118,7 +121,7 @@ public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements ItemDAO 
 				objects) {
 			@Override
 			protected void query(SQLUpdateClause q, Item o) {
-				q.where(e.itemId.eq(o.getID().getID()));
+				q.where(entity.itemId.eq(o.getID().getID()));
 			}
 		});
 	}
@@ -129,7 +132,7 @@ public class SQLItemDAO extends AbstractSQLDAO<Item, ItemID> implements ItemDAO 
 				.query(new DeleteQuery<Item, QItem>(QItem.item, objects) {
 					@Override
 					protected void query(SQLDeleteClause q, Item o) {
-						q.where(e.itemId.eq(o.getID().getID()));
+						q.where(entity.itemId.eq(o.getID().getID()));
 					}
 				});
 	}

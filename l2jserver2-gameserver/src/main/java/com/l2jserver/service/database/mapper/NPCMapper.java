@@ -43,6 +43,9 @@ public class NPCMapper extends AbstractMapper<NPC, Integer, NPCID, QNPC> {
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<NPCID, Integer> idMapper = new PrimaryKeyMapper<NPCID, Integer>() {
 		@Override
 		public NPCID createID(Integer raw) {

@@ -25,14 +25,30 @@ import org.junit.Test;
 
 import com.l2jserver.service.ServiceStartException;
 
+/**
+ * Tests for {@link EhCacheService}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class SimpleCacheServiceTest {
+	/**
+	 * The cache service
+	 */
 	private final EhCacheService cacheService = new EhCacheService();
 
+	/**
+	 * Prepation for tests
+	 * 
+	 * @throws ServiceStartException
+	 */
 	@Before
 	public void tearUp() throws ServiceStartException {
 		cacheService.start();
 	}
 
+	/**
+	 * Test proxy cache without arguments
+	 */
 	@Test
 	public void testNoArgs() {
 		final TestCacheable cached = cacheService.decorate(TestCacheable.class,
@@ -42,6 +58,9 @@ public class SimpleCacheServiceTest {
 		Assert.assertEquals(output1, output2);
 	}
 
+	/**
+	 * Test proxy cache with same arguments
+	 */
 	@Test
 	public void testSameArgs() {
 		final TestCacheable cached = cacheService.decorate(TestCacheable.class,
@@ -51,6 +70,9 @@ public class SimpleCacheServiceTest {
 		Assert.assertEquals(output1, output2);
 	}
 
+	/**
+	 * Test proxy cache with different arguments
+	 */
 	@Test
 	public void testDifferentArgs() {
 		final TestCacheable cached = cacheService.decorate(TestCacheable.class,
@@ -60,6 +82,9 @@ public class SimpleCacheServiceTest {
 		Assert.assertFalse(output1 == output2);
 	}
 
+	/**
+	 * Test proxy cache with ignore caching
+	 */
 	@Test
 	public void testIgnoreCaching() {
 		final TestCacheable cached = cacheService.decorate(TestCacheable.class,
@@ -69,16 +94,41 @@ public class SimpleCacheServiceTest {
 		Assert.assertFalse(output1 == output2);
 	}
 
+	/**
+	 * Simple cache interface
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 */
 	public interface TestCacheable extends Cacheable {
+		/**
+		 * @return a random number
+		 */
 		public int random();
 
+		/**
+		 * @param arg
+		 *            any argument
+		 * @return an random number
+		 */
 		public int random(int arg);
 
+		/**
+		 * @return an random number
+		 */
 		@IgnoreCaching
 		public int notCached();
 	}
 
+	/**
+	 * Simple {@link TestCacheable} implementation
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public static class TestCacheableInstance implements TestCacheable {
+		/**
+		 * Random number generator
+		 */
 		private final Random random = new Random();
 
 		@Override

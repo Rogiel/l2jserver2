@@ -40,7 +40,11 @@ import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID> implements ClanDAO {
+public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID>
+		implements ClanDAO {
+	/**
+	 * The {@link Clan} mapper
+	 */
 	private final ClanMapper mapper;
 
 	/**
@@ -94,7 +98,7 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID> implement
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					Clan o) {
-				return record.field(name(e.clanId)).eq(o.getID().getID());
+				return record.field(name(entity.clanId)).eq(o.getID().getID());
 			}
 		});
 	}
@@ -106,7 +110,8 @@ public class OrientDBClanDAO extends AbstractOrientDBDAO<Clan, ClanID> implement
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, Clan o) {
-						return record.field(name(e.clanId)).eq(o.getID().getID());
+						return record.field(name(entity.clanId)).eq(
+								o.getID().getID());
 					}
 				});
 	}

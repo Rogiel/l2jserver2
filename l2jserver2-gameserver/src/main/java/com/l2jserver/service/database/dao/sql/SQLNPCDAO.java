@@ -45,6 +45,9 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
+	/**
+	 * The {@link NPC} mapper
+	 */
 	private final NPCMapper mapper;
 
 	/**
@@ -113,7 +116,7 @@ public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 				objects) {
 			@Override
 			protected void query(SQLUpdateClause q, NPC o) {
-				q.where(e.npcId.eq(o.getID().getID()));
+				q.where(entity.npcId.eq(o.getID().getID()));
 			}
 		});
 	}
@@ -123,7 +126,7 @@ public class SQLNPCDAO extends AbstractSQLDAO<NPC, NPCID> implements NPCDAO {
 		return database.query(new DeleteQuery<NPC, QNPC>(QNPC.npc, objects) {
 			@Override
 			protected void query(SQLDeleteClause q, NPC o) {
-				q.where(e.npcId.eq(o.getID().getID()));
+				q.where(entity.npcId.eq(o.getID().getID()));
 			}
 		});
 	}

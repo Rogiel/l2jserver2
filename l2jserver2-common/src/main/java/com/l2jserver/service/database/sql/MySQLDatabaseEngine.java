@@ -36,7 +36,13 @@ import com.mysema.query.sql.types.Type;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MySQLDatabaseEngine implements DatabaseEngine {
+	/**
+	 * The {@link MySQLTemplate} instance
+	 */
 	private final QueryTemplate template = new MySQLTemplate();
+	/**
+	 * The querydsl configuration
+	 */
 	private final Configuration configuration = new Configuration(template);
 
 	@Override

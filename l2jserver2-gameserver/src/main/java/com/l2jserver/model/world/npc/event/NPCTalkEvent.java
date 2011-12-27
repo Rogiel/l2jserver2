@@ -27,8 +27,17 @@ import com.l2jserver.model.world.WorldObject;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class NPCTalkEvent implements NPCEvent {
+	/**
+	 * The NPC that is sending the HTML content
+	 */
 	private final NPC npc;
+	/**
+	 * The character instance that is receiving the HTML content
+	 */
 	private final L2Character character;
+	/**
+	 * The html message
+	 */
 	private final String html;
 
 	/**

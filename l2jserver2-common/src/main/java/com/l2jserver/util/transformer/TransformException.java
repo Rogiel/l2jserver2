@@ -21,8 +21,14 @@ package com.l2jserver.util.transformer;
  * 
  */
 public class TransformException extends RuntimeException {
+	/**
+	 * The Java Serialization API ID
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instane
+	 */
 	public TransformException() {
 	}
 

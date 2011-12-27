@@ -33,5 +33,8 @@ import com.mysema.query.sql.RelationalPath;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface ColumnDefault {
+	/**
+	 * @return the default column value
+	 */
 	String value() default "NULL";
 }

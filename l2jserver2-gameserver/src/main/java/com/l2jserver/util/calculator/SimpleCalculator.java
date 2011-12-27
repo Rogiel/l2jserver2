@@ -16,9 +16,9 @@
  */
 package com.l2jserver.util.calculator;
 
-import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Comparator;
+
+import com.l2jserver.util.calculator.ComplexCalculator.FunctionOrderComparator;
 
 /**
  * An calculator is used to compute data and outputs its result. Note also, that
@@ -33,6 +33,9 @@ import java.util.Comparator;
  */
 public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 		extends AbstractDoubleFunction<T, V> implements Calculator<T, V> {
+	/**
+	 * The value
+	 */
 	protected final V value;
 	/**
 	 * List of operations in this calculator
@@ -74,17 +77,5 @@ public class SimpleCalculator<T extends CalculatorContext, V extends Enum<V>>
 	@Override
 	public double calculate(T ctx, double value) {
 		return 0;
-	}
-
-	public static class FunctionOrderComparator implements
-			Comparator<Function<?, ?>>, Serializable {
-		private static final long serialVersionUID = 1L;
-
-		public static final FunctionOrderComparator SHARED_INSTANCE = new FunctionOrderComparator();
-
-		@Override
-		public int compare(Function<?, ?> func1, Function<?, ?> func2) {
-			return (func1.order() - func2.order());
-		}
 	}
 }

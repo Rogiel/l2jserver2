@@ -48,6 +48,10 @@ public class CM_RESTART extends AbstractClientPacket {
 	 */
 	private final CharacterDAO charDao;
 
+	/**
+	 * @param charService the character service
+	 * @param charDao the character dao
+	 */
 	@Inject
 	public CM_RESTART(CharacterService charService, CharacterDAO charDao) {
 		this.charService = charService;

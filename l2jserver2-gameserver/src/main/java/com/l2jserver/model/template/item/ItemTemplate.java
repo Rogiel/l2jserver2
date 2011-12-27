@@ -50,63 +50,148 @@ public class ItemTemplate extends AbstractTemplate {
 	private static final Logger log = LoggerFactory
 			.getLogger(ItemTemplate.class);
 
+	/**
+	 * The Item Template ID
+	 */
 	@XmlAttribute(name = "id", required = true)
 	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
 	protected ItemTemplateID id;
 
+	/**
+	 * The item name
+	 */
 	@XmlAttribute(name = "name", required = true)
 	protected String name;
+	/**
+	 * The item weight
+	 */
 	@XmlElement(name = "weight", required = true)
 	protected int weight = 0;
+	/**
+	 * The item price
+	 */
 	@XmlElement(name = "price", required = true)
 	protected int price = 0;
+	/**
+	 * The item icon
+	 */
 	@XmlElement(name = "icon", required = false)
 	protected String icon;
+	/**
+	 * The item effects
+	 */
 	@XmlElement(name = "effect", required = false)
 	protected EffectContainer effect;
 
+	/**
+	 * Effect container for items
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "ItemEffectsType")
 	private static class EffectContainer {
+		/**
+		 * The effect type
+		 */
 		@XmlAttribute(name = "type", required = true)
 		protected EffectType effect;
 	}
 
+	/**
+	 * The item stats container
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "ItemStatsType")
 	protected static class StatsContainer {
+		/**
+		 * The weapon's physical damage
+		 */
 		@XmlElement(name = "physicalDamage", required = false)
 		protected StatAttribute physicalDamage;
+		/**
+		 * The weapons's magical damage
+		 */
 		@XmlElement(name = "magicalDamage", required = false)
 		protected StatAttribute magicalDamage;
+		/**
+		 * The weapon's critical chance
+		 */
 		@XmlElement(name = "criticalChance", required = false)
 		protected StatAttribute criticalChance;
+		/**
+		 * The weapon's physical attack speed
+		 */
 		@XmlElement(name = "physicalAttackSpeed", required = false)
 		protected StatAttribute physicalAttackSpeed;
 	}
 
+	/**
+	 * The item stats
+	 */
 	@XmlElement(name = "stats", required = false)
 	protected StatsContainer stats;
 
+	/**
+	 * The item material
+	 */
 	@XmlElement(name = "material", required = true)
 	protected ItemMaterial material;
 
+	/**
+	 * The item effect type
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "ItemEffectType")
 	public enum EffectType {
+		/**
+		 * The effect is applied immediately once used
+		 */
 		IMMEDIATE;
 	}
 
+	/**
+	 * The item type
+	 */
 	protected ItemType itemType = ItemType.NONE;
+	/**
+	 * The weapon type
+	 */
 	protected WeaponType weaponType = WeaponType.NONE;
+	/**
+	 * The armor type
+	 */
 	protected ArmorType armorType = ArmorType.NONE;
 
+	/**
+	 * An item stat attribute
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "ItemAttributeType")
 	public static class StatAttribute {
+		/**
+		 * The set
+		 */
 		@XmlElement(name = "set", required = true)
 		protected StatSet set;
 
+		/**
+		 * Defines an SET calculator function
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "")
 		public static class StatSet {
+			/**
+			 * The execution order
+			 */
 			@XmlAttribute(name = "order", required = true)
 			protected int order;
+			/**
+			 * The value to be set
+			 */
 			@XmlValue
 			protected double value;
 

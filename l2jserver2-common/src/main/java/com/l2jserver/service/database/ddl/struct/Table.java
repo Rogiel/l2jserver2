@@ -28,12 +28,30 @@ import com.l2jserver.util.factory.CollectionFactory;
  * 
  */
 public class Table {
+	/**
+	 * The table name
+	 */
 	private final String name;
 
+	/**
+	 * The columns
+	 */
 	private final Map<String, Column> columns = CollectionFactory.newMap();
+	/**
+	 * The primary key
+	 */
 	private final PrimaryKey primaryKey;
+	/**
+	 * The foreign keys
+	 */
 	private final List<ForeignKey> foreignKeys = CollectionFactory.newList();
 
+	/**
+	 * @param name the table name
+	 * @param columns the column
+	 * @param primaryKey the primary key
+	 * @param foreignKeys the foreign keys
+	 */
 	public Table(String name, Map<String, Column> columns,
 			PrimaryKey primaryKey, List<ForeignKey> foreignKeys) {
 		this.name = name;
@@ -43,6 +61,10 @@ public class Table {
 			this.foreignKeys.addAll(foreignKeys);
 	}
 
+	/**
+	 * @param name the table name
+	 * @param primaryKey the primary key
+	 */
 	public Table(String name, PrimaryKey primaryKey) {
 		this.name = name;
 		this.primaryKey = primaryKey;
@@ -81,6 +103,10 @@ public class Table {
 		return column;
 	}
 
+	/**
+	 * @param name the column name
+	 * @return the column represented by <code>name</code>
+	 */
 	public Column getColumn(String name) {
 		for (final Column column : columns.values()) {
 			if (name.equals(column.getName()))

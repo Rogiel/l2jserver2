@@ -41,14 +41,36 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
 
+/**
+ * Test for {@link WorldEventDispatcherImpl}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class WorldEventDispatcherImplTest {
+	/**
+	 * The world service
+	 */
 	private WorldService world;
+	/**
+	 * The dispatcher
+	 */
 	private WorldEventDispatcher dispatcher;
 
+	/**
+	 * The character id provider
+	 */
 	private CharacterIDProvider cidFactory;
+	/**
+	 * The item id provider
+	 */
 	private ItemIDProvider iidFactory;
 
+	/**
+	 * Prepares the tests
+	 * @throws ServiceStartException
+	 */
 	@Before
 	public void tearUp() throws ServiceStartException {
 		Injector injector = Guice.createInjector(Stage.PRODUCTION,
@@ -66,6 +88,10 @@ public class WorldEventDispatcherImplTest {
 		world.start();
 	}
 
+	/**
+	 * Test listenteners - mode 1
+	 * @throws InterruptedException
+	 */
 	@Test
 	public void testListeners1() throws InterruptedException {
 		final L2Character character1 = new L2Character(null);
@@ -107,6 +133,10 @@ public class WorldEventDispatcherImplTest {
 		Assert.assertFalse(bool.get());
 	}
 
+	/**
+	 * Test listeners - mode 2
+	 * @throws InterruptedException
+	 */
 	@Test
 	public void testListeners2() throws InterruptedException {
 		final L2Character character1 = new L2Character(null);

@@ -27,10 +27,18 @@ import com.mysema.query.types.Path;
  * 
  */
 public class SQLDatabaseRow implements DatabaseRow {
+	/**
+	 * The query entity
+	 */
 	@SuppressWarnings("unused")
 	private final RelationalPathBase<?> entity;
+	/**
+	 * The cached list of paths
+	 */
 	private final List<Path<?>> paths;
-
+	/**
+	 * The database data row
+	 */
 	private Object[] row;
 
 	/**
@@ -66,10 +74,19 @@ public class SQLDatabaseRow implements DatabaseRow {
 		return row[indexOf(path)] == null;
 	}
 
+	/**
+	 * @param path
+	 *            the path
+	 * @return the index of <code>path</code>
+	 */
 	private int indexOf(Path<?> path) {
 		return paths.indexOf(path);
 	}
 
+	/**
+	 * @param row
+	 *            the new row data
+	 */
 	public void setRow(Object[] row) {
 		this.row = row;
 	}

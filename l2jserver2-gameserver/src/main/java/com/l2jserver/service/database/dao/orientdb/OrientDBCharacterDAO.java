@@ -145,7 +145,7 @@ public class OrientDBCharacterDAO extends
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					L2Character o) {
-				return record.field(name(e.characterId)).eq(o.getID().getID());
+				return record.field(name(entity.characterId)).eq(o.getID().getID());
 			}
 		});
 	}
@@ -157,7 +157,7 @@ public class OrientDBCharacterDAO extends
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					L2Character o) {
-				return record.field(name(e.characterId)).eq(o.getID().getID());
+				return record.field(name(entity.characterId)).eq(o.getID().getID());
 			}
 		});
 	}

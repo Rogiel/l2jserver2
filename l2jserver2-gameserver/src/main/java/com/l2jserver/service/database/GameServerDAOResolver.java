@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.database;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.model.Model;
@@ -42,8 +43,15 @@ import com.l2jserver.util.ClassUtils;
  * 
  */
 public class GameServerDAOResolver implements DAOResolver {
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector;
 
+	/**
+	 * @param injector
+	 *            the {@link Guice} {@link Injector}
+	 */
 	@Inject
 	private GameServerDAOResolver(Injector injector) {
 		this.injector = injector;

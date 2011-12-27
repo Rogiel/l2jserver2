@@ -24,7 +24,13 @@ import java.util.List;
  * 
  */
 public class ForeignKey {
+	/**
+	 * The key name
+	 */
 	private final String name;
+	/**
+	 * The key columns
+	 */
 	private final List<Column> columns;
 
 	/**

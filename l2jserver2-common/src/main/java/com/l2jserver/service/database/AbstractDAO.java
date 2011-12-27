@@ -45,10 +45,10 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	 */
 	protected final DatabaseService database;
 
-	@Inject
 	/**
 	 * The ThreadService used to execute operations asynchronously.
 	 */
+	@Inject
 	protected ThreadService threadService;
 
 	/**

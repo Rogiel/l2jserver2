@@ -23,6 +23,7 @@ import com.l2jserver.model.world.Actor;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@SuppressWarnings("javadoc")
 public enum ActorExperience {
 	/**
 	 * This is an unreachable level!

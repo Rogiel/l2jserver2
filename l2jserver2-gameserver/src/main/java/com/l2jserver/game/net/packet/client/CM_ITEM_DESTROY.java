@@ -43,6 +43,9 @@ public class CM_ITEM_DESTROY extends AbstractClientPacket {
 	 * The {@link ItemService}
 	 */
 	private final ItemService itemService;
+	/**
+	 * The {@link ItemID} provider
+	 */
 	private final ItemIDProvider itemIdProvider;
 
 	/**

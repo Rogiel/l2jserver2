@@ -33,5 +33,8 @@ import com.mysema.query.sql.RelationalPath;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface ColumnSize {
+	/**
+	 * @return the maximum column value
+	 */
 	int value();
 }

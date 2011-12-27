@@ -5,6 +5,7 @@ package com.l2jserver.model.world.actor.stat;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
+@SuppressWarnings("javadoc")
 public enum StatType {
 	MAX_HP, MAX_MP, MAX_CP, REGENERATE_HP_RATE, REGENERATE_CP_RATE, REGENERATE_MP_RATE, RECHARGE_MP_RATE, HEAL_EFFECTIVNESS, HEAL_PROFICIENCY, HEAL_STATIC_BONUS,
 

@@ -45,6 +45,10 @@ public class SM_ACTOR_MOVE extends AbstractServerPacket {
 	 */
 	private Coordinate target;
 
+	/**
+	 * @param actor the actor
+	 * @param target the target
+	 */
 	public SM_ACTOR_MOVE(Actor actor, Coordinate target) {
 		super(OPCODE);
 		this.actor = actor;

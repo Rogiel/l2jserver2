@@ -38,6 +38,9 @@ public class SM_CHAR_INFO_EXTRA extends AbstractServerPacket {
 	 */
 	private L2Character character;
 
+	/**
+	 * @param character the character
+	 */
 	public SM_CHAR_INFO_EXTRA(L2Character character) {
 		super(OPCODE);
 		this.character = character;

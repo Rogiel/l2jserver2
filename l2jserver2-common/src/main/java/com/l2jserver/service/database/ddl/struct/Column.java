@@ -16,6 +16,7 @@
  */
 package com.l2jserver.service.database.ddl.struct;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.l2jserver.util.factory.CollectionFactory;
@@ -24,18 +25,67 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class Column {
+	/**
+	 * The column name
+	 */
 	private final String name;
+	/**
+	 * The column type
+	 */
 	private final ColumnType type;
 
+	/**
+	 * Define the supported column types
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 */
 	public enum ColumnType {
-		STRING, ENUM, INTEGER, DOUBLE, TIMESTAMP;
+		/**
+		 * {@link String} type
+		 */
+		STRING,
+		/**
+		 * {@link Enum} type
+		 */
+		ENUM,
+		/**
+		 * {@link Integer} type
+		 */
+		INTEGER,
+		/**
+		 * {@link Double} type
+		 */
+		DOUBLE,
+		/**
+		 * {@link Date} type
+		 */
+		TIMESTAMP;
 	}
 
+	/**
+	 * Whether the column is nullable or not
+	 */
 	private boolean nullable = true;
+	/**
+	 * The maximum size of the column
+	 */
 	private int size = 0;
+	/**
+	 * Whether the column has a default value
+	 */
 	private boolean hasDefaultValue = false;
+	/**
+	 * The column default value
+	 */
 	private String defaultValue = null;
+	/**
+	 * The enum values
+	 */
 	private List<String> enumValues = CollectionFactory.newList();
+	/**
+	 * Whether the column requires ID generation
+	 */
 	private boolean autoIncrement;
 
 	/**

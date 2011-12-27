@@ -37,15 +37,25 @@ public class SM_CHAR_RESTART extends AbstractServerPacket {
 	 */
 	private boolean state;
 
+	/**
+	 * @param state
+	 *            the state
+	 */
 	public SM_CHAR_RESTART(boolean state) {
 		super(OPCODE);
 		this.state = state;
 	}
 
+	/**
+	 * @return an OK instance of this packet
+	 */
 	public static SM_CHAR_RESTART ok() {
 		return new SM_CHAR_RESTART(true);
 	}
 
+	/**
+	 * @return an FAILED instance of this packet
+	 */
 	public static SM_CHAR_RESTART denied() {
 		return new SM_CHAR_RESTART(false);
 	}

@@ -38,6 +38,9 @@ public class SM_MANOR_LIST extends AbstractServerPacket {
 	 */
 	private String[] manors;
 
+	/**
+	 * @param manors the manors
+	 */
 	public SM_MANOR_LIST(String... manors) {
 		super(OPCODE);
 		this.manors = manors;

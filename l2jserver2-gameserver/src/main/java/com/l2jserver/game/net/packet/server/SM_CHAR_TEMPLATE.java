@@ -38,6 +38,9 @@ public class SM_CHAR_TEMPLATE extends AbstractServerPacket {
 	 */
 	private CharacterTemplate[] templates;
 
+	/**
+	 * @param templates the character templates
+	 */
 	public SM_CHAR_TEMPLATE(CharacterTemplate... templates) {
 		super(OPCODE);
 		this.templates = templates;

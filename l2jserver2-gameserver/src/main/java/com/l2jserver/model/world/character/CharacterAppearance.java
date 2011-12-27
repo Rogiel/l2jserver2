@@ -41,18 +41,39 @@ public class CharacterAppearance {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterFace {
+		/**
+		 * Face type A
+		 */
 		FACE_A(0x00),
 
+		/**
+		 * Face type B
+		 */
 		FACE_B(0x01),
 
+		/**
+		 * Face type C
+		 */
 		FACE_C(0x02);
 
+		/**
+		 * The option id
+		 */
 		public final int option;
 
+		/**
+		 * @param option
+		 *            the option id
+		 */
 		CharacterFace(int option) {
 			this.option = option;
 		}
 
+		/**
+		 * @param option
+		 *            the option id
+		 * @return the {@link CharacterFace} represented by <code>option</code>
+		 */
 		public static CharacterFace fromOption(int option) {
 			for (CharacterFace face : values()) {
 				if (face.option == option)
@@ -73,20 +94,45 @@ public class CharacterAppearance {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterHairColor {
+		/**
+		 * The hair color A
+		 */
 		COLOR_A(0x00),
 
+		/**
+		 * The hair color B
+		 */
 		COLOR_B(0x01),
 
+		/**
+		 * The hair color C
+		 */
 		COLOR_C(0x02),
 
+		/**
+		 * The hair color D
+		 */
 		COLOR_D(0x03);
 
+		/**
+		 * The hair color id
+		 */
 		public final int option;
 
+		/**
+		 * @param option
+		 *            the hair color id
+		 */
 		CharacterHairColor(int option) {
 			this.option = option;
 		}
 
+		/**
+		 * @param option
+		 *            the hair color id
+		 * @return the {@link CharacterHairColor} from the given
+		 *         <code>option</code>
+		 */
 		public static CharacterHairColor fromOption(int option) {
 			for (CharacterHairColor color : values()) {
 				if (color.option == option)
@@ -107,22 +153,46 @@ public class CharacterAppearance {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum CharacterHairStyle {
+		/**
+		 * The hair style A
+		 */
 		STYLE_A(0x00),
-
+		/**
+		 * The hair style B
+		 */
 		STYLE_B(0x01),
-
+		/**
+		 * The hair style C
+		 */
 		STYLE_C(0x02),
-
+		/**
+		 * The hair style D
+		 */
 		STYLE_D(0x03),
-
+		/**
+		 * The hair style E
+		 */
 		STYLE_E(0x04);
 
+		/**
+		 * The hair style id
+		 */
 		public final int option;
 
+		/**
+		 * @param option
+		 *            the hair style id
+		 */
 		CharacterHairStyle(int option) {
 			this.option = option;
 		}
 
+		/**
+		 * @param option
+		 *            the hair style id
+		 * @return the {@link CharacterHairStyle} represented by
+		 *         <code>option</code>
+		 */
 		public static CharacterHairStyle fromOption(int option) {
 			for (CharacterHairStyle style : values()) {
 				if (style.option == option)
@@ -162,6 +232,10 @@ public class CharacterAppearance {
 	 */
 	private boolean visible;
 
+	/**
+	 * @param character
+	 *            the parent character
+	 */
 	public CharacterAppearance(L2Character character) {
 		this.character = character;
 	}

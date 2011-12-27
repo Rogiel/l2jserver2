@@ -31,8 +31,17 @@ import com.l2jserver.util.exception.L2Exception;
  */
 public abstract class AbstractTemporalEffect<T extends EffectTemplate> extends
 		AbstractEffect<T> implements TemporalEffect {
+	/**
+	 * The last time the effect ticked
+	 */
 	protected long lastCallTime;
 
+	/**
+	 * @param template
+	 *            the effect template
+	 * @param actor
+	 *            the actor that the effect is applied to
+	 */
 	public AbstractTemporalEffect(T template, Actor actor) {
 		super(template, actor);
 	}

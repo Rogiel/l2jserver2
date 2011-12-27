@@ -76,6 +76,9 @@ public class SM_CHAR_INFO extends AbstractServerPacket {
 	 */
 	private L2Character character;
 
+	/**
+	 * @param character the character
+	 */
 	public SM_CHAR_INFO(L2Character character) {
 		super(OPCODE);
 		this.character = character;
@@ -338,6 +341,16 @@ public class SM_CHAR_INFO extends AbstractServerPacket {
 		buffer.writeInt(0x00); // special effects
 	}
 
+	/**
+	 * Writes the paperdoll object id
+	 * 
+	 * @param buffer
+	 *            the buffer
+	 * @param character
+	 *            the character
+	 * @param paperdoll
+	 *            the slot
+	 */
 	private void writePaperdollObjectID(ChannelBuffer buffer,
 			L2Character character, InventoryPaperdoll paperdoll) {
 		final Item item = character.getInventory().getItem(paperdoll);
@@ -347,6 +360,16 @@ public class SM_CHAR_INFO extends AbstractServerPacket {
 		buffer.writeInt(id);
 	}
 
+	/**
+	 * Writes the paperdoll item id
+	 * 
+	 * @param buffer
+	 *            the buffer
+	 * @param character
+	 *            the character
+	 * @param paperdoll
+	 *            the slot
+	 */
 	private void writePaperdollItemID(ChannelBuffer buffer,
 			L2Character character, InventoryPaperdoll paperdoll) {
 		final Item item = character.getInventory().getItem(paperdoll);
@@ -356,6 +379,16 @@ public class SM_CHAR_INFO extends AbstractServerPacket {
 		buffer.writeInt(id);
 	}
 
+	/**
+	 * Writes the paperdoll augument id
+	 * 
+	 * @param buffer
+	 *            the buffer
+	 * @param character
+	 *            the character
+	 * @param paperdoll
+	 *            the slot
+	 */
 	private void writePaperdollAugumentID(ChannelBuffer buffer,
 			L2Character character, InventoryPaperdoll paperdoll) {
 		buffer.writeInt(0x00);

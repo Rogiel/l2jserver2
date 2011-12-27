@@ -38,6 +38,9 @@ import com.l2jserver.service.database.model.QCharacterShortcut;
 public class CharacterShortcutMapper
 		extends
 		AbstractMapper<CharacterShortcut, Integer, CharacterShortcutID, QCharacterShortcut> {
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<CharacterShortcutID, Integer> idMapper = new PrimaryKeyMapper<CharacterShortcutID, Integer>() {
 		@Override
 		public CharacterShortcutID createID(Integer raw) {

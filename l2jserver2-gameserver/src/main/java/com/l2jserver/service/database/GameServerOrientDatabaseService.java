@@ -64,6 +64,9 @@ import com.l2jserver.service.game.template.TemplateService;
 		ConfigurationService.class, TemplateService.class, ThreadService.class })
 public class GameServerOrientDatabaseService extends
 		AbstractOrientDatabaseService implements DatabaseService {
+	/**
+	 * The VFS service
+	 */
 	private final VFSService vfsService;
 
 	/**
@@ -73,6 +76,8 @@ public class GameServerOrientDatabaseService extends
 	 *            the cache service
 	 * @param threadService
 	 *            the thread service
+	 * @param vfsService
+	 *            the VFS service
 	 * @param daoResolver
 	 *            the {@link DataAccessObject DAO} resolver
 	 */

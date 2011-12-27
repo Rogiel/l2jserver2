@@ -26,6 +26,9 @@ import com.mysema.query.types.Ops;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class MySQLTemplate extends QueryTemplate {
+	/**
+	 * Creates a new instance
+	 */
 	public MySQLTemplate() {
 		super("`", '\\', true);
 		addClass2TypeMappings("bool", Boolean.class);

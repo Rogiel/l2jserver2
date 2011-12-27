@@ -44,6 +44,9 @@ import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
  */
 public class OrientDBNPCDAO extends AbstractOrientDBDAO<NPC, NPCID> implements
 		NPCDAO {
+	/**
+	 * The {@link NPC} mapper
+	 */
 	private final NPCMapper mapper;
 
 	/**
@@ -120,7 +123,7 @@ public class OrientDBNPCDAO extends AbstractOrientDBDAO<NPC, NPCID> implements
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					NPC o) {
-				return record.field(name(e.npcId)).eq(o.getID().getID());
+				return record.field(name(entity.npcId)).eq(o.getID().getID());
 			}
 		});
 	}
@@ -131,7 +134,7 @@ public class OrientDBNPCDAO extends AbstractOrientDBDAO<NPC, NPCID> implements
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					NPC o) {
-				return record.field(name(e.npcId)).eq(o.getID().getID());
+				return record.field(name(entity.npcId)).eq(o.getID().getID());
 			}
 		});
 	}

@@ -38,14 +38,27 @@ public class SM_CHAR_TARGET extends AbstractServerPacket {
 	 * The selected character
 	 */
 	private final Actor object;
+	/**
+	 * The name color
+	 */
 	private int color;
 
+	/**
+	 * @param object
+	 *            the target
+	 * @param color
+	 *            the name color
+	 */
 	public SM_CHAR_TARGET(Actor object, int color) {
 		super(OPCODE);
 		this.object = object;
 		this.color = color;
 	}
 
+	/**
+	 * @param object
+	 *            the target
+	 */
 	public SM_CHAR_TARGET(Actor object) {
 		this(object, 0);
 	}

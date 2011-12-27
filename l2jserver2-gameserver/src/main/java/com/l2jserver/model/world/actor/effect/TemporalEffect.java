@@ -36,7 +36,14 @@ public interface TemporalEffect extends Effect {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum TemporalEffectAction {
-		CANCEL, CONTINUE;
+		/**
+		 * Cancels the effect after this tick
+		 */
+		CANCEL,
+		/**
+		 * Continues this effect for at least one more tick
+		 */
+		CONTINUE;
 	}
 
 	/**

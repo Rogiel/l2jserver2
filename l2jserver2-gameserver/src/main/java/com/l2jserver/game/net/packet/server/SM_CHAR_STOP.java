@@ -33,8 +33,14 @@ public class SM_CHAR_STOP extends AbstractServerPacket {
 	 */
 	public static final int OPCODE = 0x47;
 
+	/**
+	 * The character
+	 */
 	private L2Character character;
 
+	/**
+	 * @param character the character
+	 */
 	public SM_CHAR_STOP(L2Character character) {
 		super(OPCODE);
 		this.character = character;

@@ -124,9 +124,9 @@ public class SQLCharacterFriendDAO extends
 						QCharacterFriend.characterFriend, friends) {
 					@Override
 					protected void query(SQLDeleteClause q, CharacterFriend o) {
-						q.where(e.characterId.eq(
+						q.where(entity.characterId.eq(
 								o.getID().getCharacterID().getID()).and(
-								e.characterIdFriend.eq(o.getID().getFriendID()
+								entity.characterIdFriend.eq(o.getID().getFriendID()
 										.getID())));
 					}
 				});

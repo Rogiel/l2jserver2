@@ -36,10 +36,16 @@ import com.l2jserver.util.jaxb.EffectTemplateIDAdapter;
 @XmlType(name = "Effect")
 @XmlSeeAlso({ TeleportEffectTemplate.class })
 public abstract class EffectTemplate implements Template {
+	/**
+	 * The effect template ID
+	 */
 	@XmlAttribute(name = "id")
 	@XmlJavaTypeAdapter(EffectTemplateIDAdapter.class)
 	protected EffectTemplateID id;
 
+	/**
+	 * Creates a new instance
+	 */
 	protected EffectTemplate() {
 		this.id = null;
 	}

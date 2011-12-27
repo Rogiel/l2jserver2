@@ -20,8 +20,14 @@ package com.l2jserver.service.database;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DatabaseException extends RuntimeException {
+	/**
+	 * The Java Serialization API ID
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates a new instane
+	 */
 	public DatabaseException() {
 		super();
 	}

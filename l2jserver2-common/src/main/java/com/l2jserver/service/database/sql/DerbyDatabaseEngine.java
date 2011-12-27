@@ -38,18 +38,25 @@ import com.mysema.query.sql.types.Type;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DerbyDatabaseEngine implements DatabaseEngine {
+	/**
+	 * The {@link DerbyTemplate} instance
+	 */
 	private final DerbyTemplate template = new DerbyTemplate();
+	/**
+	 * The querydsl configuration
+	 */
 	private final Configuration configuration = new Configuration(template);
 
 	@Override
 	public SQLQueryFactory<? extends AbstractSQLQuery<?>, ?, ?, ?, ?, ?> createSQLQueryFactory(
 			final Connection conn) {
-		return new SQLQueryFactoryImpl(configuration, new Provider<Connection>() {
-			@Override
-			public Connection get() {
-				return conn;
-			}
-		});
+		return new SQLQueryFactoryImpl(configuration,
+				new Provider<Connection>() {
+					@Override
+					public Connection get() {
+						return conn;
+					}
+				});
 	}
 
 	@Override

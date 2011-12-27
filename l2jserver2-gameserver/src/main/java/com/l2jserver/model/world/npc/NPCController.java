@@ -52,6 +52,9 @@ public interface NPCController {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public static class NPCControllerException extends L2Exception {
+		/**
+		 * Serialization ID
+		 */
 		private static final long serialVersionUID = 1L;
 
 		/**

@@ -33,9 +33,15 @@ public class SM_GG_QUERY extends AbstractServerPacket {
 	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x74;
-
+	/**
+	 * The GG key
+	 */
 	private final int[] key;
 
+	/**
+	 * @param key
+	 *            the game guard key
+	 */
 	public SM_GG_QUERY(int[] key) {
 		super(OPCODE);
 		Preconditions.checkArgument(key.length == 4,
@@ -43,6 +49,16 @@ public class SM_GG_QUERY extends AbstractServerPacket {
 		this.key = key;
 	}
 
+	/**
+	 * @param key1
+	 *            the game guard key 1
+	 * @param key2
+	 *            the game guard key 2
+	 * @param key3
+	 *            the game guard key 3
+	 * @param key4
+	 *            the game guard key 4
+	 */
 	public SM_GG_QUERY(int key1, int key2, int key3, int key4) {
 		super(OPCODE);
 		this.key = new int[4];

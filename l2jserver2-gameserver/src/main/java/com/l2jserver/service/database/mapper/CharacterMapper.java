@@ -41,6 +41,9 @@ import com.l2jserver.util.geometry.Point3D;
  */
 public class CharacterMapper extends
 		AbstractMapper<L2Character, Integer, CharacterID, QCharacter> {
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<CharacterID, Integer> pk = new PrimaryKeyMapper<CharacterID, Integer>() {
 		@Override
 		public CharacterID createID(Integer raw) {

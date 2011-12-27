@@ -45,32 +45,62 @@ public class SM_HTML extends AbstractServerPacket {
 	 */
 	private final String html;
 
+	/**
+	 * @param npc
+	 *            the npc instance
+	 * @param html
+	 *            the html
+	 */
 	public SM_HTML(NPC npc, String html) {
 		super(OPCODE);
 		this.npc = npc;
 		this.html = html;
 	}
 
+	/**
+	 * @param npc
+	 *            the npc instance
+	 * @param html
+	 *            the html
+	 */
 	public SM_HTML(NPC npc, Html html) {
 		super(OPCODE);
 		this.npc = npc;
 		this.html = html.toHtml();
 	}
 
+	/**
+	 * @param npc
+	 *            the npc instance
+	 * @param template
+	 *            the html template
+	 */
 	public SM_HTML(NPC npc, HtmlTemplate template) {
 		super(OPCODE);
 		this.npc = npc;
 		this.html = template.toHtmlString();
 	}
 
+	/**
+	 * @param html
+	 *            the html
+	 */
 	public SM_HTML(String html) {
 		this(null, html);
 	}
 
+	/**
+	 * @param html
+	 *            the html
+	 */
 	public SM_HTML(Html html) {
 		this(null, html);
 	}
 
+	/**
+	 * @param template
+	 *            the html template
+	 */
 	public SM_HTML(HtmlTemplate template) {
 		this(null, template);
 	}

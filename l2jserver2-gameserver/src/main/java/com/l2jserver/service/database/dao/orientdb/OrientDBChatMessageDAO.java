@@ -42,6 +42,9 @@ import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 public class OrientDBChatMessageDAO extends
 		AbstractOrientDBDAO<ChatMessage, ChatMessageID> implements
 		ChatMessageDAO {
+	/**
+	 * The {@link ChatMessage} mapper
+	 */
 	private final ChatMessageMapper mapper;
 
 	/**
@@ -103,7 +106,8 @@ public class OrientDBChatMessageDAO extends
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					ChatMessage o) {
-				return record.field(name(e.messageId)).eq(o.getID().getID());
+				return record.field(name(entity.messageId)).eq(
+						o.getID().getID());
 			}
 		});
 	}

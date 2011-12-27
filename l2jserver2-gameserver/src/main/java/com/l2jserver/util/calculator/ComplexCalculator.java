@@ -263,12 +263,18 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		}
 	}
 
+	/**
+	 * Sorts the function accordingly to their execution order
+	 */
 	public void sort() {
 		for (final Function<T, V>[] funcs : functions.values()) {
 			Arrays.sort(funcs, FunctionOrderComparator.SHARED_INSTANCE);
 		}
 	}
 
+	/**
+	 * Clears the functions on this calculator
+	 */
 	public void clear() {
 		functions.clear();
 	}
@@ -291,6 +297,13 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		return calculate(v, ctx, 0);
 	}
 
+	/**
+	 * Get the List of functions for the given <code>value</code>
+	 * 
+	 * @param value
+	 *            the value
+	 * @return the list
+	 */
 	@SuppressWarnings("unchecked")
 	private Function<T, V>[] getList(V value) {
 		Function<T, V>[] list = functions.get(value);
@@ -301,14 +314,31 @@ public class ComplexCalculator<T extends CalculatorContext, V extends Enum<V>>
 		return list;
 	}
 
+	/**
+	 * 
+	 * @param value
+	 * @param func
+	 */
 	private void setList(V value, Function<T, V>[] func) {
 		functions.put(value, func);
 	}
 
+	/**
+	 * This comparator compares two {@link Function}s based on its execution
+	 * oder
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public static class FunctionOrderComparator implements
 			Comparator<Function<?, ?>>, Serializable {
+		/**
+		 * Java Serialization UID
+		 */
 		private static final long serialVersionUID = 1L;
 
+		/**
+		 * Shared instance (recommeded)
+		 */
 		public static final FunctionOrderComparator SHARED_INSTANCE = new FunctionOrderComparator();
 
 		@Override

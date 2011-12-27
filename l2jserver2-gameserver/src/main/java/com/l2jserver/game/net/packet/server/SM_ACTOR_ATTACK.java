@@ -48,12 +48,22 @@ public class SM_ACTOR_ATTACK extends AbstractServerPacket {
 	 */
 	private final List<AttackHit> hits = CollectionFactory.newList();
 
+	/**
+	 * @param attacker
+	 *            the attacked
+	 * @param hits
+	 *            the hits
+	 */
 	public SM_ACTOR_ATTACK(Actor attacker, AttackHit... hits) {
 		super(OPCODE);
 		this.attacker = attacker;
 		Collections.addAll(this.hits, hits);
 	}
 
+	/**
+	 * @param hits
+	 *            the hits
+	 */
 	public SM_ACTOR_ATTACK(AttackHit... hits) {
 		this(hits[0].getAttacker(), hits);
 	}
@@ -90,6 +100,13 @@ public class SM_ACTOR_ATTACK extends AbstractServerPacket {
 		buffer.writeInt(first.getTarget().getPoint().getZ());
 	}
 
+	/**
+	 * Adds a new hit
+	 * 
+	 * @param hit
+	 *            the hit
+	 * @return this instance
+	 */
 	public SM_ACTOR_ATTACK add(AttackHit hit) {
 		hits.add(hit);
 		return this;

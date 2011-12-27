@@ -51,241 +51,539 @@ import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 @XmlType(namespace = "http://schemas.l2jserver2.com/npc", name = "NPCType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NPCTemplate extends ActorTemplate<NPC> {
+	/**
+	 * The template ID
+	 */
 	@XmlAttribute(name = "id", required = true)
 	@XmlJavaTypeAdapter(value = NPCTemplateIDAdapter.class)
 	protected NPCTemplateID id = null;
+	/**
+	 * The {@link NPC} controller class
+	 */
 	@XmlAttribute(name = "controller", required = true)
 	protected Class<? extends NPCController> controller;
 
+	/**
+	 * The {@link NPC} information metadata
+	 */
 	@XmlElement(name = "info", required = true)
 	protected NPCInformationMetadata info = null;
 
+	/**
+	 * The {@link NPC} information metadata model
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "NPCInfoType")
 	protected static class NPCInformationMetadata {
+		/**
+		 * The {@link NPC} name metadata
+		 */
 		@XmlElement(name = "name", required = false)
 		public NPCNameMetadata nameMetadata = null;
 
+		/**
+		 * Defines the {@link NPC}'s name information
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "NPCNameType")
 		protected static class NPCNameMetadata {
+			/**
+			 * The {@link NPC} name
+			 */
 			@XmlValue
 			protected String name = null;
+			/**
+			 * Whether the {@link NPC} name should be sent to the client or not
+			 */
 			@XmlAttribute(name = "send")
 			protected Boolean send = false;
+			/**
+			 * Whether the name should be displayed on the client or not
+			 */
 			@XmlAttribute(name = "display")
 			protected Boolean display = false;
 		}
 
+		/**
+		 * The {@link NPC} title metadata
+		 */
 		@XmlElement(name = "title", required = false)
 		protected NPCTitleMetadata titleMetadata = null;
 
+		/**
+		 * Defines the {@link NPC}'s title information
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "NPCTitleType")
 		protected static class NPCTitleMetadata {
+			/**
+			 * The {@link NPC} title
+			 */
 			@XmlValue
 			protected String title = null;
+			/**
+			 * Whether the {@link NPC} title should be sent to the client or not
+			 */
 			@XmlAttribute(name = "send")
 			protected Boolean send = false;
 		}
 
+		/**
+		 * The {@link NPC} level
+		 */
 		@XmlElement(name = "level", required = true)
 		protected int level = 0;
+		/**
+		 * The {@link NPC} race
+		 */
 		@XmlElement(name = "race", required = false)
 		protected NPCRace race = NPCRace.NONE;
+		/**
+		 * The {@link NPC} sex
+		 */
 		@XmlElement(name = "sex", required = false)
 		protected ActorSex sex = null;
 
+		/**
+		 * Whether this {@link NPC} can be attacked or not
+		 */
 		@XmlAttribute(name = "attackable", required = false)
 		protected boolean attackable = false;
+		/**
+		 * Whether this {@link NPC} can be targeted or not
+		 */
 		@XmlAttribute(name = "targetable", required = false)
 		protected boolean targetable = false;
+		/**
+		 * Whether this {@link NPC} is aggressive
+		 */
 		@XmlAttribute(name = "aggressive", required = false)
 		protected boolean aggressive = false;
 
+		/**
+		 * The {@link NPC} stats metadata, such as hp and mp
+		 */
 		@XmlElement(name = "stats", required = true)
 		protected NPCStatsMetadata stats = null;
 
+		/**
+		 * Defines {@link NPC}'s stats, such as HP and MP
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 * 
+		 */
 		@XmlType(name = "NPCStatsType")
 		protected static class NPCStatsMetadata {
+			/**
+			 * The {@link NPC} maximum HP
+			 */
 			@XmlElement(name = "hp", required = true)
 			protected Stat hp = null;
+			/**
+			 * The {@link NPC} maximum MP
+			 */
 			@XmlElement(name = "mp", required = true)
 			protected Stat mp = null;
 
+			/**
+			 * Defines an stat (HP or MP)
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "")
 			protected static class Stat {
+				/**
+				 * The maximum value
+				 */
 				@XmlAttribute(name = "max", required = true)
 				protected double max = 0;
+				/**
+				 * The regeneration speed
+				 */
 				@XmlAttribute(name = "regen", required = true)
 				protected double regen = 0;
 			}
 
+			/**
+			 * The {@link NPC} attack metadata
+			 */
 			@XmlElement(name = "attack", required = false)
 			protected AttackMetadata attack = null;
 
+			/**
+			 * Defines {@link NPC}'s attacking metadata
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "NPCAttackType")
 			protected static class AttackMetadata {
+				/**
+				 * The {@link NPC}'s attack range
+				 */
 				@XmlAttribute(name = "range", required = true)
 				protected int range = 0;
+				/**
+				 * The {@link NPC}'s evasion
+				 */
 				@XmlAttribute(name = "evasion", required = true)
 				protected int evasion = 0;
+				/**
+				 * The {@link NPC}'s attack critical chance
+				 */
 				@XmlAttribute(name = "critical", required = true)
 				protected int critical = 0;
 
+				/**
+				 * The {@link NPC}'s attack physical damage
+				 */
 				@XmlElement(name = "physical", required = true)
 				protected AttackValueMetadata physical = null;
+				/**
+				 * The {@link NPC}'s attack magical damage
+				 */
 				@XmlElement(name = "magical", required = true)
 				protected AttackValueMetadata magical = null;
 
+				/**
+				 * Defines an attack value
+				 * 
+				 * @author <a href="http://www.rogiel.com">Rogiel</a>
+				 */
 				@XmlType(name = "")
 				protected static class AttackValueMetadata {
+					/**
+					 * The damage dealt
+					 */
 					@XmlAttribute(name = "damage", required = true)
 					protected double damage = 0;
+					/**
+					 * The attacking speed
+					 */
 					@XmlAttribute(name = "speed", required = true)
 					protected double speed = 0;
 				}
 			}
 
+			/**
+			 * The {@link NPC} defense metadata
+			 */
 			@XmlElement(name = "defense", required = false)
 			protected DefenseMetadata defense = null;
 
+			/**
+			 * Defines {@link NPC}'s defensive metadata
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "NPCDefenseType")
 			protected static class DefenseMetadata {
+				/**
+				 * The {@link NPC}'s physical defense
+				 */
 				@XmlElement(name = "physical", required = true)
 				protected DefenseValueMetadata physical = null;
+				/**
+				 * The {@link NPC}'s magical defense
+				 */
 				@XmlElement(name = "magical", required = true)
 				protected DefenseValueMetadata magical = null;
 
+				/**
+				 * Defines an defense value
+				 * 
+				 * @author <a href="http://www.rogiel.com">Rogiel</a>
+				 */
 				@XmlType(name = "")
 				protected static class DefenseValueMetadata {
+					/**
+					 * The defense value
+					 */
 					@XmlAttribute(name = "value", required = true)
 					protected double value = 0;
 				}
 			}
 
+			/**
+			 * The {@link NPC} movement data
+			 */
 			@XmlElement(name = "move", required = false)
 			protected MoveMetadata move = null;
 
+			/**
+			 * Defines {@link NPC} movement data
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "NPCMovementType")
 			protected static class MoveMetadata {
+				/**
+				 * The run speed
+				 */
 				@XmlAttribute(name = "run", required = true)
 				protected double run = 0;
+				/**
+				 * The walk speed
+				 */
 				@XmlAttribute(name = "walk", required = true)
 				protected double walk = 0;
 			}
 
+			/**
+			 * The {@link NPC} base stats
+			 */
 			@XmlElement(name = "base", required = true)
 			public BaseMetadata base = null;
 
+			/**
+			 * Defines all base stats for {@link NPC} instances
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "NPCBaseStatsType")
 			protected static class BaseMetadata {
+				/**
+				 * The {@link NPC} intelligence
+				 */
 				@XmlAttribute(name = "int", required = true)
 				protected int intelligence = 0;
+				/**
+				 * The {@link NPC} strength
+				 */
 				@XmlAttribute(name = "str", required = true)
 				protected int strength = 0;
+				/**
+				 * The {@link NPC} concentration
+				 */
 				@XmlAttribute(name = "con", required = true)
 				protected int concentration = 0;
+				/**
+				 * The {@link NPC} mentality
+				 */
 				@XmlAttribute(name = "men", required = true)
 				protected int mentality = 0;
+				/**
+				 * The {@link NPC} dexterity
+				 */
 				@XmlAttribute(name = "dex", required = true)
 				protected int dexterity = 0;
+				/**
+				 * The {@link NPC} witness
+				 */
 				@XmlAttribute(name = "wit", required = true)
 				protected int witness = 0;
 			}
 		}
 
+		/**
+		 * The {@link NPC} experience
+		 */
 		@XmlElement(name = "experience", required = true)
 		protected long experience = 0;
+		/**
+		 * The {@link NPC} SP
+		 */
 		@XmlElement(name = "sp", required = true)
 		protected int sp = 0;
 
+		/**
+		 * The {@link NPC} holding items
+		 */
 		@XmlElement(name = "item", required = false)
 		protected ItemMetadata item = null;
 
+		/**
+		 * Describes what items the {@link NPC} is holding on its hand
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "NPCItemsType")
 		protected static class ItemMetadata {
+			/**
+			 * The {@link ItemTemplateID} on {@link NPC}'s right hand
+			 */
 			@XmlAttribute(name = "righthand", required = false)
 			@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
 			protected ItemTemplateID rightHand = null;
+			/**
+			 * The {@link ItemTemplateID} on {@link NPC}'s left hand
+			 */
 			@XmlAttribute(name = "lefthand", required = false)
 			@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
 			protected ItemTemplateID leftHand = null;
 		}
 
+		/**
+		 * The {@link NPC} collision data
+		 */
 		@XmlElement(name = "collision", required = false)
 		protected CollisionMetadata collision = null;
 
+		/**
+		 * Defines the {@link NPC} dimensions used for collisions
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "NPCCollisionType")
 		protected static class CollisionMetadata {
+			/**
+			 * The {@link NPC} radius
+			 */
 			@XmlAttribute(name = "radius", required = true)
 			protected double radius = 0;
+			/**
+			 * The {@link NPC} height
+			 */
 			@XmlAttribute(name = "heigth", required = true)
 			protected double height = 0;
 		}
 	}
 
+	/**
+	 * The {@link NPC} AI data
+	 */
 	@XmlElement(name = "ai", required = false)
 	protected AIMetadata ai = null;
 
+	/**
+	 * Describes the {@link NPC} ai data
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "NPCAIType")
 	protected static class AIMetadata {
+		/**
+		 * The ai script to be used
+		 */
 		@XmlAttribute(name = "script", required = true)
 		protected String script = null;
 	}
 
+	/**
+	 * Contains all {@link NPC} conversation HTML messages
+	 */
 	@XmlElement(name = "talk", required = false)
 	protected TalkMetadata talk = null;
 
+	/**
+	 * Describes {@link NPC} talking capability as HTML messages
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "NPCTalkType")
 	protected static class TalkMetadata {
+		/**
+		 * The default chat message
+		 */
 		@XmlAttribute(name = "default", required = true)
 		protected String defaultChat = null;
 
+		/**
+		 * The list of {@link Chat} available
+		 */
 		@XmlElement(name = "chat", required = true)
 		protected List<Chat> chats = null;
 
+		/**
+		 * Describes an "chat" message (an HTML page)
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "")
 		public static class Chat {
+			/**
+			 * The chat ID
+			 */
 			@XmlAttribute(name = "id", required = true)
 			protected String id = null;
+			/**
+			 * The message content
+			 */
 			@XmlValue
 			protected String html = null;
 		}
 	}
 
+	/**
+	 * The {@link NPC} drop list
+	 */
 	@XmlElementWrapper(name = "droplist", required = false)
 	@XmlElement(name = "item", required = true)
 	protected List<DropItemMetadata> droplist = null;
 
+	/**
+	 * Describes {@link NPC} dropping when it is killed
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "NPCDropType")
 	protected static class DropItemMetadata {
+		/**
+		 * The item dropped
+		 */
 		@XmlAttribute(name = "id", required = true)
 		@XmlJavaTypeAdapter(value = ItemTemplateIDAdapter.class)
 		protected ItemTemplateID item = null;
+		/**
+		 * The minimum amount of items dropped
+		 */
 		@XmlAttribute(name = "min", required = true)
 		protected int min = 0;
+		/**
+		 * The maximum amount of item dropped
+		 */
 		@XmlAttribute(name = "max", required = true)
 		protected int max = 0;
 
+		/**
+		 * The drop category
+		 */
 		@XmlAttribute(name = "category", required = true)
 		protected DropCategory category = null;
 
+		/**
+		 * The drop category
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
+		@SuppressWarnings("javadoc")
 		@XmlType(name = "NPCDropCategoryType")
 		public enum DropCategory {
 			DROP, SPOIL, UNK_1, UNK_2, UNK_3, UNK_4, UNK_5, UNK_6, UNK_7, UNK_8, UNK_9, UNK_10, UNK_11, UNK_12, UNK_13, UNK_14, UNK_15, UNK_16, UNK_17, UNK_18, UNK_19, UNK_20, UNK_21, UNK_22, UNK_23, UNK_24, UNK_25, UNK_26, UNK_27, UNK_28, UNK_29, UNK_30, UNK_31, UNK_32, UNK_33, UNK_34, UNK_35, UNK_36, UNK_100, UNK_101, UNK_102, UNK_200;
 		}
 
+		/**
+		 * The drop chance
+		 */
 		@XmlAttribute(name = "chance", required = true)
 		protected int chance = 0;
 	}
 
+	/**
+	 * List of all available {@link NPC} skills
+	 */
 	@XmlElementWrapper(name = "skills", required = false)
 	@XmlElement(name = "skill", required = true)
 	protected List<SkillMetadata> skills = null;
 
+	/**
+	 * Describes an {@link NPC} skill
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "NPCSkillType")
 	protected static class SkillMetadata {
+		/**
+		 * The skill ID
+		 */
 		@XmlAttribute(name = "id", required = true)
 		@XmlJavaTypeAdapter(value = SkillTemplateIDAdapter.class)
 		protected SkillTemplateID skill = null;
+		/**
+		 * The skill level
+		 */
 		@XmlAttribute(name = "level", required = true)
 		protected int level = 0;
 	}
@@ -321,6 +619,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return controller;
 	}
 
+	/**
+	 * @return the {@link NPC} name
+	 */
 	public String getName() {
 		if (info == null)
 			return null;
@@ -329,6 +630,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.nameMetadata.name;
 	}
 
+	/**
+	 * @return true if the {@link NPC} name should be sent to the client
+	 */
 	public boolean getSendName() {
 		if (info == null)
 			return false;
@@ -337,6 +641,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.nameMetadata.send;
 	}
 
+	/**
+	 * @return true if the {@link NPC} name should be displayed on the client
+	 */
 	public boolean getDisplayName() {
 		if (info == null)
 			return false;
@@ -345,6 +652,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.nameMetadata.display;
 	}
 
+	/**
+	 * @return the npc title (if any)
+	 */
 	public String getTitle() {
 		if (info == null)
 			return null;
@@ -353,6 +663,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.titleMetadata.title;
 	}
 
+	/**
+	 * @return if the {@link NPC} title should be sent to the client
+	 */
 	public boolean getSendTitle() {
 		if (info == null)
 			return false;
@@ -433,6 +746,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.sp;
 	}
 
+	/**
+	 * @return the {@link NPC}'s maximum HP
+	 */
 	public double getMaximumHP() {
 		if (info == null)
 			return 0;
@@ -443,6 +759,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.stats.hp.max;
 	}
 
+	/**
+	 * @return the {@link NPC}'s maximum HP regeneration
+	 */
 	public double getHPRegeneration() {
 		if (info == null)
 			return 0;
@@ -453,6 +772,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.stats.hp.regen;
 	}
 
+	/**
+	 * @return the {@link NPC}'s maximum MP
+	 */
 	public double getMaximumMP() {
 		if (info == null)
 			return 0;
@@ -463,6 +785,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.stats.mp.max;
 	}
 
+	/**
+	 * @return the {@link NPC}'s maximum MP regeneration
+	 */
 	public double getMPRegeneration() {
 		if (info == null)
 			return 0;
@@ -602,6 +927,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.stats.attack.magical.speed;
 	}
 
+	/**
+	 * @return the {@link NPC}'s run speed
+	 */
 	public double getRunSpeed() {
 		if (info == null)
 			return 0;
@@ -612,6 +940,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.stats.move.run;
 	}
 
+	/**
+	 * @return the {@link NPC}'s walk speed
+	 */
 	public double getWalkSpeed() {
 		if (info == null)
 			return 0;
@@ -700,6 +1031,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.stats.base.witness;
 	}
 
+	/**
+	 * @return the item on {@link NPC}'s right hand
+	 */
 	public ItemTemplateID getRightHand() {
 		if (info == null)
 			return null;
@@ -708,6 +1042,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.item.rightHand;
 	}
 
+	/**
+	 * @return the item on {@link NPC}'s left hand
+	 */
 	public ItemTemplateID getLeftHand() {
 		if (info == null)
 			return null;
@@ -716,6 +1053,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.item.leftHand;
 	}
 
+	/**
+	 * @return the {@link NPC}'s collision radius
+	 */
 	public double getCollisionRadius() {
 		if (info == null)
 			return 0;
@@ -724,6 +1064,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.collision.radius;
 	}
 
+	/**
+	 * @return the {@link NPC}'s collision height
+	 */
 	public double getCollisionHeight() {
 		if (info == null)
 			return 0;
@@ -732,12 +1075,20 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return info.collision.height;
 	}
 
+	/**
+	 * @return the {@link NPC}'s AI script name
+	 */
 	public String getAIScriptName() {
 		if (ai == null)
 			return null;
 		return ai.script;
 	}
 
+	/**
+	 * @param id
+	 *            the chat ID
+	 * @return the {@link NPC}'s HTML chat by ID
+	 */
 	public String getHTML(String id) {
 		if (talk == null)
 			return null;
@@ -750,6 +1101,9 @@ public class NPCTemplate extends ActorTemplate<NPC> {
 		return null;
 	}
 
+	/**
+	 * @return the {@link NPC}'s default chat, if any.
+	 */
 	public String getDefaultHTML() {
 		if (talk == null)
 			return null;

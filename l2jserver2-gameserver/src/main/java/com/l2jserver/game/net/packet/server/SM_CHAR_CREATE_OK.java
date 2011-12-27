@@ -37,6 +37,9 @@ public class SM_CHAR_CREATE_OK extends AbstractServerPacket {
 	 */
 	public static final SM_CHAR_CREATE_OK INSTANCE = new SM_CHAR_CREATE_OK();
 
+	/**
+	 * Creates a new instance
+	 */
 	public SM_CHAR_CREATE_OK() {
 		super(OPCODE);
 	}

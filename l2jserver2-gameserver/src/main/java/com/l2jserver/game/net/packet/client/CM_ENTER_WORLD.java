@@ -40,6 +40,9 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 	 */
 	public static final int OPCODE = 0x11;
 
+	/**
+	 * The logger
+	 */
 	private final Logger log = LoggerFactory.getLogger(CM_ENTER_WORLD.class);
 
 	/**
@@ -47,6 +50,9 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 	 */
 	private final CharacterService characterService;
 
+	/**
+	 * @param characterService the character service
+	 */
 	@Inject
 	public CM_ENTER_WORLD(CharacterService characterService) {
 		this.characterService = characterService;

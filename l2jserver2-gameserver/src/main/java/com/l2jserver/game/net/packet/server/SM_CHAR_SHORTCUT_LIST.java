@@ -39,6 +39,10 @@ public class SM_CHAR_SHORTCUT_LIST extends AbstractServerPacket {
 	 */
 	private final CharacterShortcutContainer shortcuts;
 
+	/**
+	 * @param shortcuts
+	 *            the shortcuts container
+	 */
 	public SM_CHAR_SHORTCUT_LIST(CharacterShortcutContainer shortcuts) {
 		super(OPCODE);
 		this.shortcuts = shortcuts;

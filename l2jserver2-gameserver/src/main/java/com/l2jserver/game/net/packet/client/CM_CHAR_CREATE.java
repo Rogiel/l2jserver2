@@ -125,6 +125,9 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	 */
 	private CharacterFace face;
 
+	/**
+	 * @param characterService the character service
+	 */
 	@Inject
 	public CM_CHAR_CREATE(CharacterService characterService) {
 		this.characterService = characterService;

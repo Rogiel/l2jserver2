@@ -3,6 +3,12 @@ package com.l2jserver.service.database;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 
+/**
+ * The {@link DAOResolver} resolves the {@link DataAccessObject} that provides
+ * database operations for an given {@link Model} instance
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public interface DAOResolver {
 	/**
 	 * Returns the {@link DataAccessObject} used to retrieve and save objects of

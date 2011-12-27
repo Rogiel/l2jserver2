@@ -41,6 +41,9 @@ import com.l2jserver.service.network.keygen.BlowfishKeygenService;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class L2JGameServerMain {
+	/**
+	 * List of start services
+	 */
 	public static final Class<?>[][] SERVICES = {
 			// core services
 			{ CacheService.class, ConfigurationService.class,

@@ -65,6 +65,9 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	 * The object id
 	 */
 	private int objectId;
+	/**
+	 * The action origin
+	 */
 	@SuppressWarnings("unused")
 	private Coordinate origin;
 	/**
@@ -72,6 +75,11 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	 */
 	private CharacterAction action;
 
+	/**
+	 * The character action type
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public enum CharacterAction {
 		/**
 		 * If the player has clicked with the left mouse button.
@@ -82,12 +90,24 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 		 */
 		RIGHT_CLICK(1);
 
+		/**
+		 * The action id
+		 */
 		public final int id;
 
+		/**
+		 * @param id
+		 *            the action id
+		 */
 		CharacterAction(int id) {
 			this.id = id;
 		}
 
+		/**
+		 * @param id
+		 *            the action id
+		 * @return the {@link CharacterAction} represented by <code>id</code>
+		 */
 		public static CharacterAction fromID(int id) {
 			for (final CharacterAction action : values())
 				if (action.id == id)
@@ -96,6 +116,11 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 		}
 	}
 
+	/**
+	 * @param idResolver the id resolver
+	 * @param npcService the npc service
+	 * @param itemService the item service
+	 */
 	@Inject
 	public CM_CHAR_ACTION(ObjectIDResolver idResolver, NPCService npcService,
 			ItemService itemService) {
@@ -119,8 +144,8 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 			final NPC npc = ((NPCID) id).getObject();
 			try {
 				npcService.action(npc, conn.getCharacter(), action);
-			} catch(NPCControllerException e) {
-				if(e.getSystemMessage() != null)
+			} catch (NPCControllerException e) {
+				if (e.getSystemMessage() != null)
 					conn.sendSystemMessage(e.getSystemMessage());
 				conn.sendActionFailed();
 			} catch (ActionServiceException | CannotSetTargetServiceException e) {

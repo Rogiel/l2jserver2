@@ -34,9 +34,14 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x0c;
-
+	/**
+	 * The {@link NPC}
+	 */
 	private final NPC npc;
 
+	/**
+	 * @param npc the npc
+	 */
 	public SM_NPC_INFO(NPC npc) {
 		super(OPCODE);
 		this.npc = npc;

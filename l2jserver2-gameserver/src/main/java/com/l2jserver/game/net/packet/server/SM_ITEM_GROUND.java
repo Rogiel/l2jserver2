@@ -32,9 +32,14 @@ public class SM_ITEM_GROUND extends AbstractServerPacket {
 	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x16;
-
+	/**
+	 * The item that is on the ground
+	 */
 	private final Item item;
 
+	/**
+	 * @param item the item that is on the ground
+	 */
 	public SM_ITEM_GROUND(Item item) {
 		super(OPCODE);
 		this.item = item;

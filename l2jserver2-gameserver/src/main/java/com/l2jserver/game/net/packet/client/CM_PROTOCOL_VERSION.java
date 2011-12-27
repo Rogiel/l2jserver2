@@ -64,6 +64,9 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 	 */
 	private ProtocolVersion version;
 
+	/**
+	 * @param keygen the keygen service
+	 */
 	@Inject
 	public CM_PROTOCOL_VERSION(BlowfishKeygenService keygen) {
 		this.keygen = keygen;
@@ -114,9 +117,5 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 						conn.getEncrypter().setEnabled(true);
 					}
 				});
-	}
-
-	public ProtocolVersion getVersion() {
-		return version;
 	}
 }

@@ -69,9 +69,47 @@ public enum ChatMessageType {
 	/**
 	 * Boat
 	 */
-	BOAT(11), L2FRIEND(12), MSNCHAT(13), PARTYMATCH_ROOM(14), PARTYROOM_COMMANDER(
-			15), PARTYROOM_ALL(16), HERO_VOICE(17), CRITICAL_ANNOUNCE(18), SCREEN_ANNOUNCE(
-			19), BATTLEFIELD(20), MPCC_ROOM(21);
+	BOAT(11),
+	/**
+	 * Message sent to an Lineage II friend
+	 */
+	L2FRIEND(12),
+	/**
+	 * MSN Chat log
+	 */
+	MSNCHAT(13),
+	/**
+	 * PartyMatching room
+	 */
+	PARTYMATCH_ROOM(14),
+	/**
+	 * The party room command
+	 */
+	PARTYROOM_COMMANDER(15),
+	/**
+	 * Party room all
+	 */
+	PARTYROOM_ALL(16),
+	/**
+	 * Hero chat
+	 */
+	HERO_VOICE(17),
+	/**
+	 * Critical announcement
+	 */
+	CRITICAL_ANNOUNCE(18),
+	/**
+	 * Screen announce
+	 */
+	SCREEN_ANNOUNCE(19),
+	/**
+	 * Battlefield
+	 */
+	BATTLEFIELD(20),
+	/**
+	 * UNKNOWN
+	 */
+	MPCC_ROOM(21);
 
 	/**
 	 * The numeric id representing this message type

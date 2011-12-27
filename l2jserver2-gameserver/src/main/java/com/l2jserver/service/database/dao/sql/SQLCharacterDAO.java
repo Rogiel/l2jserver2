@@ -138,7 +138,7 @@ public class SQLCharacterDAO extends AbstractSQLDAO<L2Character, CharacterID>
 				QCharacter.character, mapper, characters) {
 			@Override
 			protected void query(SQLUpdateClause q, L2Character o) {
-				q.where(e.characterId.eq(o.getID().getID()));
+				q.where(entity.characterId.eq(o.getID().getID()));
 			}
 		});
 	}
@@ -149,7 +149,7 @@ public class SQLCharacterDAO extends AbstractSQLDAO<L2Character, CharacterID>
 				QCharacter.character, characters) {
 			@Override
 			protected void query(SQLDeleteClause q, L2Character o) {
-				q.where(e.characterId.eq(o.getID().getID()));
+				q.where(entity.characterId.eq(o.getID().getID()));
 			}
 		});
 	}

@@ -39,6 +39,10 @@ public class SM_OBJECT_REMOVE extends AbstractServerPacket {
 	 */
 	private final PositionableObject object;
 
+	/**
+	 * @param object
+	 *            the object to be removed
+	 */
 	public SM_OBJECT_REMOVE(PositionableObject object) {
 		super(OPCODE);
 		this.object = object;

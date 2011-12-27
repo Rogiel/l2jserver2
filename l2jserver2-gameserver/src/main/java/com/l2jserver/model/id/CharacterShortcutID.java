@@ -32,6 +32,9 @@ import com.l2jserver.model.id.provider.IDProvider;
  */
 public class CharacterShortcutID extends
 		AbstractModelID<Integer, CharacterShortcut> {
+	/**
+	 * The {@link CharacterShortcutDAO} instance
+	 */
 	private final CharacterShortcutDAO shortcutDao;
 	
 	/**

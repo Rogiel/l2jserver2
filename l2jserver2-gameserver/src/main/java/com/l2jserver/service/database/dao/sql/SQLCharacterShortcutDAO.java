@@ -46,6 +46,9 @@ import com.mysema.query.sql.dml.SQLUpdateClause;
 public class SQLCharacterShortcutDAO extends
 		AbstractSQLDAO<CharacterShortcut, CharacterShortcutID> implements
 		CharacterShortcutDAO {
+	/**
+	 * The {@link CharacterShortcut} mapper
+	 */
 	private final CharacterShortcutMapper mapper;
 
 	/**
@@ -116,7 +119,7 @@ public class SQLCharacterShortcutDAO extends
 						QCharacterShortcut.characterShortcut, mapper, shortcuts) {
 					@Override
 					protected void query(SQLUpdateClause q, CharacterShortcut o) {
-						q.where(e.shortcutId.eq(o.getID().getID()));
+						q.where(entity.shortcutId.eq(o.getID().getID()));
 					}
 				});
 	}
@@ -128,7 +131,7 @@ public class SQLCharacterShortcutDAO extends
 						QCharacterShortcut.characterShortcut, shortcuts) {
 					@Override
 					protected void query(SQLDeleteClause q, CharacterShortcut o) {
-						q.where(e.shortcutId.eq(o.getID().getID()));
+						q.where(entity.shortcutId.eq(o.getID().getID()));
 					}
 				});
 	}

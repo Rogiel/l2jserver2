@@ -27,12 +27,24 @@ import com.mysema.query.types.Ops;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class DerbyTemplate extends QueryTemplate {
+	/**
+	 * The limit offset template string
+	 */
 	private String limitOffsetTemplate = "\noffset {1s} rows fetch next {0s} rows only";
 
+	/**
+	 * The limit template string
+	 */
 	private String limitTemplate = "\nfetch first {0s} rows only";
 
+	/**
+	 * The offset template string
+	 */
 	private String offsetTemplate = "\noffset {0s} rows";
 
+	/**
+	 * Creates a new instance
+	 */
 	public DerbyTemplate() {
 		super("\"", '\\', true);
 		addClass2TypeMappings("smallint", Byte.class);

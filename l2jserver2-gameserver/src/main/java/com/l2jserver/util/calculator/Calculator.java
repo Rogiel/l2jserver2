@@ -25,7 +25,29 @@ package com.l2jserver.util.calculator;
  */
 public interface Calculator<T extends CalculatorContext, V extends Enum<V>>
 		extends Function<T, V> {
-	double calculate(V v, T ctx, double value);
+	/**
+	 * Calculates the result for the given <code>ctx</code> and
+	 * <code>variable</code> and <code>value</code>.
+	 * 
+	 * @param variable
+	 *            the variable
+	 * @param ctx
+	 *            the context
+	 * @param value
+	 *            the value
+	 * @return the calculated value
+	 */
+	double calculate(V variable, T ctx, double value);
 
-	double calculate(V v, T ctx);
+	/**
+	 * Calculates the result for the given <code>ctx</code> and
+	 * <code>variable</code>. Original value is <code>0</code>.
+	 * 
+	 * @param variable
+	 *            the variable
+	 * @param ctx
+	 *            the context
+	 * @return the calculated value
+	 */
+	double calculate(V variable, T ctx);
 }

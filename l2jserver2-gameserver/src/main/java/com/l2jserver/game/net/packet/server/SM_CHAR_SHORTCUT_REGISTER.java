@@ -38,6 +38,10 @@ public class SM_CHAR_SHORTCUT_REGISTER extends AbstractServerPacket {
 	 */
 	private final CharacterShortcut shortcut;
 
+	/**
+	 * @param shortcut
+	 *            the shortcut registered
+	 */
 	public SM_CHAR_SHORTCUT_REGISTER(CharacterShortcut shortcut) {
 		super(OPCODE);
 		this.shortcut = shortcut;

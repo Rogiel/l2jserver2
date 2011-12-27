@@ -128,8 +128,31 @@ public enum ItemType {
 	/**
 	 * Bolt? unk.
 	 */
-	BOLT(26), SCRL_INC_ENCHANT_PROP_WP(27), SCRL_INC_ENCHANT_PROP_AM(28), ANCIENT_CRYSTAL_ENCHANT_WP(
-			29), ANCIENT_CRYSTAL_ENCHANT_AM(30), RUNE_SELECT(31), RUNE(32);
+	BOLT(26),
+	/**
+	 * Scoll
+	 */
+	SCRL_INC_ENCHANT_PROP_WP(27),
+	/**
+	 * Scroll
+	 */
+	SCRL_INC_ENCHANT_PROP_AM(28),
+	/**
+	 * Ancient crystal enchant weapon
+	 */
+	ANCIENT_CRYSTAL_ENCHANT_WP(29),
+	/**
+	 * Ancient crystal enchant armor
+	 */
+	ANCIENT_CRYSTAL_ENCHANT_AM(30),
+	/**
+	 * Rune select
+	 */
+	RUNE_SELECT(31),
+	/**
+	 * Rune
+	 */
+	RUNE(32);
 
 	/**
 	 * The packet id for this item type

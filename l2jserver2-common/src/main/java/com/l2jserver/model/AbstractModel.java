@@ -16,7 +16,6 @@
  */
 package com.l2jserver.model;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,9 +71,9 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	}
 
 	/**
-	 * Set this object desire to {@link ObjectDesire#UPDATE}. If the desire is
-	 * {@link ObjectDesire#INSERT} or {@link ObjectDesire#DELETE} the desire
-	 * will not be changed.
+	 * Set this object desire to {@link Model.ObjectDesire#UPDATE}. If the
+	 * desire is {@link Model.ObjectDesire#INSERT} or
+	 * {@link Model.ObjectDesire#DELETE} the desire will not be changed.
 	 */
 	protected void desireUpdate() {
 		if (this.desire != ObjectDesire.INSERT
@@ -85,8 +84,8 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	}
 
 	/**
-	 * Set this object desire to {@link ObjectDesire#INSERT}. If the desire is
-	 * {@link ObjectDesire#DELETE} the desire will not be changed.
+	 * Set this object desire to {@link Model.ObjectDesire#INSERT}. If the desire is
+	 * {@link Model.ObjectDesire#DELETE} the desire will not be changed.
 	 */
 	protected void desireInsert() {
 		if (this.desire != ObjectDesire.DELETE) {

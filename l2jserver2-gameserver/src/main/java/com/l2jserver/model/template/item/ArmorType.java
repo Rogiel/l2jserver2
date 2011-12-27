@@ -25,5 +25,24 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlType(name = "ArmorType")
 public enum ArmorType {
-	NONE, LIGHT, HEAVY, MAGIC, SIGILO;
+	/**
+	 * No armor type
+	 */
+	NONE,
+	/**
+	 * Light armor type
+	 */
+	LIGHT,
+	/**
+	 * Heavy armor type
+	 */
+	HEAVY,
+	/**
+	 * Magic armor type
+	 */
+	MAGIC,
+	/**
+	 * Unknown
+	 */
+	SIGILO;
 }

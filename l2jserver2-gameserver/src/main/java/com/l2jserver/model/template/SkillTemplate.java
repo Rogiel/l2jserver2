@@ -44,13 +44,25 @@ import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
 @XmlType(namespace = "http://schemas.l2jserver2.com/skill", name = "SkillType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillTemplate extends AbstractTemplate {
+	/**
+	 * The skill id
+	 */
 	@XmlAttribute(name = "id", required = true)
 	@XmlJavaTypeAdapter(value = SkillTemplateIDAdapter.class)
 	protected SkillTemplateID id;
+	/**
+	 * The skill name
+	 */
 	@XmlAttribute(name = "name", required = true)
 	protected String name;
+	/**
+	 * The skill delay
+	 */
 	@XmlAttribute(name = "delay")
 	protected int delay;
+	/**
+	 * The skill cooldown
+	 */
 	@XmlAttribute(name = "cooldown")
 	protected int cooldown;
 
@@ -59,6 +71,9 @@ public class SkillTemplate extends AbstractTemplate {
 	 */
 	protected int maximumLevel = 1;
 
+	/**
+	 * The skill effects
+	 */
 	@XmlElements({ @XmlElement(name = "teleport", type = TeleportEffectTemplate.class) })
 	protected EffectTemplate[] effects;
 

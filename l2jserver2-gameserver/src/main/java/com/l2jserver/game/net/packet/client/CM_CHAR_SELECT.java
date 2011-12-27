@@ -50,6 +50,9 @@ public class CM_CHAR_SELECT extends AbstractClientPacket {
 	 */
 	private int slot;
 
+	/**
+	 * @param characterDao the character dao
+	 */
 	@Inject
 	public CM_CHAR_SELECT(CharacterDAO characterDao) {
 		this.characterDao = characterDao;

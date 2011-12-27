@@ -496,7 +496,24 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		R query(ODatabaseDocumentTx database, DatabaseService service);
 	}
 
-	public static abstract class AbstractQuery<R> implements Query<R> {
+	/**
+	 * An base abstract query. For internal use only.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <R>
+	 *            the query return type
+	 */
+	private static abstract class AbstractQuery<R> implements Query<R> {
+		/**
+		 * Tries to update the object desire if it currently is equal to
+		 * <code>expected</code>
+		 * 
+		 * @param object
+		 *            the object to update desire
+		 * @param expected
+		 *            the expected desire
+		 */
 		protected void updateDesire(Object object, ObjectDesire expected) {
 			if (object instanceof Model) {
 				if (((Model<?>) object).getObjectDesire() == expected) {
@@ -505,18 +522,53 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			}
 		}
 
+		/**
+		 * Returns the parameter name for the given <code>path</code>
+		 * 
+		 * @param path
+		 *            the path
+		 * @return the parameter name
+		 */
 		protected String name(Path<?> path) {
 			return path.getMetadata().getExpression().toString();
 		}
 	}
 
+	/**
+	 * An query implementation designed to insert new objects into the database.
+	 * Optionally, it can use an pseudo primary key generator that maps the
+	 * OrientDB document id as the generated ID.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <O>
+	 *            the object type used in this query
+	 * @param <RI>
+	 *            the raw ID type
+	 * @param <I>
+	 *            the ID type
+	 * @param <E>
+	 *            the entity type
+	 */
 	public static class InsertQuery<O, RI, I extends ID<? super RI>, E extends RelationalPathBase<?>>
 			extends AbstractQuery<Integer> {
+		/**
+		 * The row mapper
+		 */
 		private final InsertMapper<O, RI, I, E> mapper;
+		/**
+		 * The query object iterator
+		 */
 		private final Iterator<O> iterator;
+		/**
+		 * The query primary key column. Only set if want auto generated IDs
+		 */
 		private final Path<RI> primaryKey;
 
-		protected final E e;
+		/**
+		 * The query entity
+		 */
+		protected final E entity;
 
 		/**
 		 * @param entity
@@ -533,7 +585,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				Path<RI> primaryKey, Iterator<O> iterator) {
 			this.iterator = iterator;
 			this.mapper = mapper;
-			this.e = entity;
+			this.entity = entity;
 			this.primaryKey = primaryKey;
 		}
 
@@ -589,9 +641,9 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			final DocumentDatabaseRow row = new DocumentDatabaseRow();
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
-				row.setDocument(new ODocument(database, e.getTableName()));
+				row.setDocument(new ODocument(database, entity.getTableName()));
 
-				mapper.insert(e, object, row);
+				mapper.insert(entity, object, row);
 
 				row.getDocument().save();
 				if (primaryKey != null && object instanceof Model) {
@@ -614,11 +666,30 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		}
 	}
 
+	/**
+	 * An query implementation designed to update objects in the database
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <O>
+	 *            the query object type
+	 * @param <E>
+	 *            the query entity type
+	 */
 	public static abstract class UpdateQuery<O, E extends RelationalPathBase<?>>
 			extends AbstractQuery<Integer> {
+		/**
+		 * The row mapper
+		 */
 		private final UpdateMapper<O, E> mapper;
+		/**
+		 * The object iterator for this query
+		 */
 		private final Iterator<O> iterator;
-		protected final E e;
+		/**
+		 * The query entity
+		 */
+		protected final E entity;
 
 		/**
 		 * @param entity
@@ -632,7 +703,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				Iterator<O> iterator) {
 			this.iterator = iterator;
 			this.mapper = mapper;
-			this.e = entity;
+			this.entity = entity;
 		}
 
 		/**
@@ -658,7 +729,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 				List<ODocument> documents = database
 						.query(new ONativeSynchQuery<OQueryContextNative>(
-								database, e.getTableName(),
+								database, entity.getTableName(),
 								new OQueryContextNative()) {
 							private static final long serialVersionUID = 1L;
 
@@ -670,7 +741,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 				if (documents.size() < 1)
 					continue;
 				row.setDocument(documents.get(0));
-				mapper.update(e, object, row);
+				mapper.update(entity, object, row);
 
 				row.getDocument().save();
 				rows++;
@@ -680,14 +751,40 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			return rows;
 		}
 
+		/**
+		 * Performs the OrientDB document filtering. If all results are wanted,
+		 * <code>null</code> should be returned.
+		 * 
+		 * @param record
+		 *            the document record
+		 * @param o
+		 *            the object instance
+		 * @return the record instance or <code>null</code>
+		 */
 		protected abstract OQueryContextNative query(
 				OQueryContextNative record, O o);
 	}
 
+	/**
+	 * An query implementation designed for deleting objects in the database.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <O>
+	 *            the query object type
+	 * @param <E>
+	 *            the query entity type
+	 */
 	public static abstract class DeleteQuery<O, E extends RelationalPathBase<?>>
 			extends AbstractQuery<Integer> {
+		/**
+		 * The object iterator for this query
+		 */
 		private final Iterator<O> iterator;
-		protected final E e;
+		/**
+		 * This query entity
+		 */
+		protected final E entity;
 
 		/**
 		 * @param entity
@@ -697,7 +794,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		 */
 		public DeleteQuery(E entity, Iterator<O> iterator) {
 			this.iterator = iterator;
-			this.e = entity;
+			this.entity = entity;
 		}
 
 		/**
@@ -720,7 +817,7 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 
 				List<ODocument> documents = database
 						.query(new ONativeSynchQuery<OQueryContextNative>(
-								database, e.getTableName(),
+								database, entity.getTableName(),
 								new OQueryContextNative()) {
 							private static final long serialVersionUID = 1L;
 
@@ -739,13 +836,46 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			return rows;
 		}
 
+		/**
+		 * Performs the OrientDB document filtering. If all results are wanted,
+		 * <code>null</code> should be returned.
+		 * 
+		 * @param record
+		 *            the document record
+		 * @param o
+		 *            the object instance
+		 * @return the record instance or <code>null</code>
+		 */
 		protected abstract OQueryContextNative query(
 				OQueryContextNative record, O o);
 	}
 
-	public static abstract class AbstractSelectQuery<R, O, RI, I extends ID<? super RI>, E extends RelationalPathBase<RI>>
+	/**
+	 * Abstract query implementation designed for selecting database objects.
+	 * Internal use only.
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <R>
+	 *            the query return type
+	 * @param <O>
+	 *            the query object type
+	 * @param <RI>
+	 *            the raw ID type
+	 * @param <I>
+	 *            the ID type
+	 * @param <E>
+	 *            the query entity type
+	 */
+	private static abstract class AbstractSelectQuery<R, O, RI, I extends ID<? super RI>, E extends RelationalPathBase<RI>>
 			extends AbstractQuery<R> {
+		/**
+		 * This query entity type
+		 */
 		protected final E entity;
+		/**
+		 * The row mapper
+		 */
 		protected final SelectMapper<O, RI, I, E> mapper;
 
 		/**
@@ -778,12 +908,41 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			return perform(documents, service);
 		}
 
+		/**
+		 * Performs the OrientDB document filtering. If all results are wanted,
+		 * <code>null</code> should be returned.
+		 * 
+		 * @param record
+		 *            the document record
+		 * @param e
+		 *            the query entity
+		 * @return the record instance or <code>null</code>
+		 */
 		protected abstract OQueryContextNative query(
 				OQueryContextNative record, E e);
 
+		/**
+		 * Effectively performs the query executing and mapping process
+		 * 
+		 * @param documents
+		 *            the list of documens returned
+		 * @param service
+		 *            the database service
+		 * @return the query result, returned directly to the user
+		 */
 		protected abstract R perform(List<ODocument> documents,
 				DatabaseService service);
 
+		/**
+		 * Checks if the object is on the cache. Returns it if available,
+		 * <code>null</code> otherwise.
+		 * 
+		 * @param row
+		 *            the row
+		 * @param database
+		 *            the database service
+		 * @return the object on cache, if exists.
+		 */
 		@SuppressWarnings("unchecked")
 		protected O lookupCache(DatabaseRow row, DatabaseService database) {
 			final I id = mapper.getPrimaryKeyMapper().createID(
@@ -797,6 +956,14 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 			return null;
 		}
 
+		/**
+		 * Updates the cache instance
+		 * 
+		 * @param instance
+		 *            the object instance
+		 * @param database
+		 *            the database service
+		 */
 		protected void updateCache(O instance, DatabaseService database) {
 			if (instance == null)
 				return;
@@ -806,6 +973,21 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		}
 	}
 
+	/**
+	 * An query implementation designed for selecting a single object in the
+	 * database
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <O>
+	 *            the object type
+	 * @param <RI>
+	 *            the raw ID type
+	 * @param <I>
+	 *            the ID type
+	 * @param <E>
+	 *            the query entity type
+	 */
 	public static abstract class SelectSingleQuery<O, RI, I extends ID<? super RI>, E extends RelationalPathBase<RI>>
 			extends AbstractSelectQuery<O, O, RI, I, E> {
 		/**
@@ -838,6 +1020,21 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 		}
 	}
 
+	/**
+	 * An query implementation designed for selecting several objects in the
+	 * database
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <O>
+	 *            the object type
+	 * @param <RI>
+	 *            the raw ID type
+	 * @param <I>
+	 *            the ID type
+	 * @param <E>
+	 *            the query entity type
+	 */
 	public static abstract class SelectListQuery<O, RI, I extends ID<? super RI>, E extends RelationalPathBase<RI>>
 			extends AbstractSelectQuery<List<O>, O, RI, I, E> {
 		/**

@@ -209,12 +209,124 @@ public class CharacterInventory implements Iterable<Item> {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum InventoryPaperdoll {
-		UNDERWEAR(0), HEAD(1), HAIR1(2), HAIR2(3), NECK(4), RIGHT_HAND(5), CHEST(
-				6), LEFT_HAND(7), RIGHT_EAR(8), LEFT_EAR(9), GLOVES(10), LEGS(
-				11), FEET(12), RIGHT_FINGER(13), LEFT_FINGER(14), LEFT_BRACELET(
-				15), RIGHT_BRACELET(16), DECORATION_1(17), DECORATION_2(18), DECORATION_3(
-				19), DECORATION_4(20), DECORATION_5(21), DECORATION_6(22), CLOAK(
-				23), BELT(24);
+		/**
+		 * Underwear
+		 */
+		UNDERWEAR(0),
+
+		/**
+		 * Head
+		 */
+		HEAD(1),
+
+		/**
+		 * Hair, slot 1
+		 */
+		HAIR1(2),
+
+		/**
+		 * Hair slot 2
+		 */
+		HAIR2(3),
+
+		/**
+		 * Neck
+		 */
+		NECK(4),
+
+		/**
+		 * Right hant
+		 */
+		RIGHT_HAND(5),
+
+		/**
+		 * Chest
+		 */
+		CHEST(6),
+
+		/**
+		 * Left hand
+		 */
+		LEFT_HAND(7),
+
+		/**
+		 * Right ear
+		 */
+		RIGHT_EAR(8),
+
+		/**
+		 * Left ear
+		 */
+		LEFT_EAR(9),
+
+		/**
+		 * Gloves
+		 */
+		GLOVES(10),
+
+		/**
+		 * Legs
+		 */
+		LEGS(11),
+
+		/**
+		 * Feet
+		 */
+		FEET(12),
+
+		/**
+		 * Right finger
+		 */
+		RIGHT_FINGER(13),
+
+		/**
+		 * Left finger
+		 */
+		LEFT_FINGER(14),
+
+		/**
+		 * Left bracelet
+		 */
+		LEFT_BRACELET(15),
+
+		/**
+		 * Right bracelet
+		 */
+		RIGHT_BRACELET(16),
+
+		/**
+		 * Decoration, slot 1
+		 */
+		DECORATION_1(17),
+
+		/**
+		 * Decoration slot 2
+		 */
+		DECORATION_2(18),
+		/**
+		 * Decoration slot 3
+		 */
+		DECORATION_3(19),
+		/**
+		 * Decoration slot 4
+		 */
+		DECORATION_4(20),
+		/**
+		 * Decoration slot 5
+		 */
+		DECORATION_5(21),
+		/**
+		 * Decoration slot 6
+		 */
+		DECORATION_6(22),
+		/**
+		 * Cloak
+		 */
+		CLOAK(23),
+		/**
+		 * Belt
+		 */
+		BELT(24);
 
 		/**
 		 * The inventory paperdoll slot id

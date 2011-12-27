@@ -49,11 +49,22 @@ public class CM_CHAR_CHAT extends AbstractClientPacket {
 	 */
 	private final ChatService chatService;
 
+	/**
+	 * The message
+	 */
 	private String message;
+	/**
+	 * The message destination
+	 */
 	private ChatMessageType destination;
-
+	/**
+	 * The message target
+	 */
 	private String target;
 
+	/**
+	 * @param chatService the chat service
+	 */
 	@Inject
 	public CM_CHAR_CHAT(ChatService chatService) {
 		this.chatService = chatService;

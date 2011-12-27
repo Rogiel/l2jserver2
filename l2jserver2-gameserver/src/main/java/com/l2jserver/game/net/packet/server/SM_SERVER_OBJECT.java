@@ -35,9 +35,15 @@ public class SM_SERVER_OBJECT extends AbstractServerPacket {
 	 * The packet OPCODE
 	 */
 	public static final int OPCODE = 0x92;
-
+	/**
+	 * The {@link NPC}
+	 */
 	private final NPC npc;
 
+	/**
+	 * @param npc
+	 *            the npc
+	 */
 	public SM_SERVER_OBJECT(NPC npc) {
 		super(OPCODE);
 		this.npc = npc;

@@ -44,6 +44,9 @@ import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
 public class OrientDBCharacterShortcutDAO extends
 		AbstractOrientDBDAO<CharacterShortcut, CharacterShortcutID> implements
 		CharacterShortcutDAO {
+	/**
+	 * The {@link CharacterShortcut} mapper
+	 */
 	private final CharacterShortcutMapper mapper;
 
 	/**
@@ -117,7 +120,7 @@ public class OrientDBCharacterShortcutDAO extends
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, CharacterShortcut o) {
-						return record.field(name(e.shortcutId)).eq(
+						return record.field(name(entity.shortcutId)).eq(
 								o.getID().getID());
 					}
 				});
@@ -131,7 +134,7 @@ public class OrientDBCharacterShortcutDAO extends
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, CharacterShortcut o) {
-						return record.field(name(e.shortcutId)).eq(
+						return record.field(name(entity.shortcutId)).eq(
 								o.getID().getID());
 					}
 				});

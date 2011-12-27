@@ -23,12 +23,14 @@ import org.jboss.netty.buffer.ChannelBuffer;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.SystemMessage;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
+import com.l2jserver.model.game.Castle;
 import com.l2jserver.model.game.Fort;
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.BufferUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -54,22 +56,69 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	private List<SystemMessagePacketParameter> params = CollectionFactory
 			.newList();
 
+	/**
+	 * System message parameter IDs
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	public interface SystemMessagePacketParameter {
+		/**
+		 * String parameter
+		 */
 		public static final byte TYPE_SYSTEM_STRING = 13;
+		/**
+		 * Player name parameter
+		 */
 		public static final byte TYPE_PLAYER_NAME = 12;
 		// id 11 - unknown
+		/**
+		 * Instance name parameter
+		 */
 		public static final byte TYPE_INSTANCE_NAME = 10;
+		/**
+		 * Element name parameter
+		 */
 		public static final byte TYPE_ELEMENT_NAME = 9;
 		// id 8 - same as 3
+		/**
+		 * Zone name parameter
+		 */
 		public static final byte TYPE_ZONE_NAME = 7;
+		/**
+		 * {@link Item} number parameter
+		 */
 		public static final byte TYPE_ITEM_NUMBER = 6;
+		/**
+		 * {@link Castle} name parameter
+		 */
 		public static final byte TYPE_CASTLE_NAME = 5;
+		/**
+		 * {@link Skill} name parameter
+		 */
 		public static final byte TYPE_SKILL_NAME = 4;
+		/**
+		 * {@link Item} name parameter
+		 */
 		public static final byte TYPE_ITEM_NAME = 3;
+		/**
+		 * {@link NPC} name parameter
+		 */
 		public static final byte TYPE_NPC_NAME = 2;
+		/**
+		 * Number parameter
+		 */
 		public static final byte TYPE_NUMBER = 1;
+		/**
+		 * Text parameter
+		 */
 		public static final byte TYPE_TEXT = 0;
 
+		/**
+		 * @param conn
+		 *            the connection
+		 * @param buffer
+		 *            the buffer
+		 */
 		void write(Lineage2Client conn, ChannelBuffer buffer);
 	}
 
@@ -93,6 +142,13 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		}
 	}
 
+	/**
+	 * Adds an string parameter
+	 * 
+	 * @param text
+	 *            the text
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addString(final String text) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
@@ -126,6 +182,13 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * Adds an number parameter
+	 * 
+	 * @param number
+	 *            the number
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addNumber(final int number) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
@@ -137,6 +200,13 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * Adds an item count parameter
+	 * 
+	 * @param number
+	 *            the number
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addItemCount(final long number) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
@@ -148,6 +218,13 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * Adds an the actor name
+	 * 
+	 * @param actor
+	 *            the actor
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addActorName(final Actor actor) {
 		// params.add(new SystemMessagePacketParameter() {
 		// @Override
@@ -160,6 +237,13 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * Adds the item name
+	 * 
+	 * @param item
+	 *            the item
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addItem(final ItemTemplate item) {
 		params.add(new SystemMessagePacketParameter() {
 			@Override
@@ -171,10 +255,29 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * Adds the item name
+	 * 
+	 * @param item
+	 *            the item
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addItem(final Item item) {
 		return addItem(item.getTemplateID().getTemplate());
 	}
 
+	/**
+	 * Adds the zone name
+	 * 
+	 * @param x
+	 *            the x
+	 * @param y
+	 *            the y
+	 * @param z
+	 *            the z
+	 * 
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addZoneName(final int x, final int y,
 			final int z) {
 		params.add(new SystemMessagePacketParameter() {
@@ -189,6 +292,13 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * @param skill
+	 *            the skill template
+	 * @param level
+	 *            the skill level
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addSkill(final SkillTemplate skill,
 			final int level) {
 		params.add(new SystemMessagePacketParameter() {
@@ -202,6 +312,11 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 		return this;
 	}
 
+	/**
+	 * @param skill
+	 *            the skill
+	 * @return this instance
+	 */
 	public final SM_SYSTEM_MESSAGE addSkill(final Skill skill) {
 		return addSkill(skill.getTemplate(), skill.getLevel());
 	}

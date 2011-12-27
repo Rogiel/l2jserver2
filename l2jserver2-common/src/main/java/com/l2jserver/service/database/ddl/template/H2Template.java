@@ -24,6 +24,9 @@ import com.mysema.query.types.Ops;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class H2Template extends QueryTemplate {
+	/**
+	 * Creates a new instance
+	 */
 	public H2Template() {
 		super("\"", '\\', true);
 		setNativeMerge(true);

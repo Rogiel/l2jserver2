@@ -46,5 +46,8 @@ public interface Function<C extends CalculatorContext, V extends Enum<V>> {
 	 */
 	int order();
 
+	/**
+	 * @return function type
+	 */
 	V type();
 }

@@ -35,11 +35,26 @@ import com.l2jserver.service.database.JDBCDAOModule;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
 
+/**
+ * Test for {@link CharacterIDProvider}
+ * 
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class CharacterIDProviderTest {
+	/**
+	 * The {@link Guice} {@link Injector}
+	 */
 	private final Injector injector = Guice.createInjector(new ServiceModule(),
 			new JDBCDAOModule(), new IDProviderModule());
+	/**
+	 * The character id provider
+	 */
 	private CharacterIDProvider charIdFactory;
 
+	/**
+	 * Prepares the test
+	 * @throws ServiceStartException
+	 */
 	@Before
 	public void tearUp() throws ServiceStartException {
 		injector.getInstance(ServiceManager.class).start(TemplateService.class);
@@ -48,6 +63,9 @@ public class CharacterIDProviderTest {
 		charIdFactory = injector.getInstance(CharacterIDProvider.class);
 	}
 
+	/**
+	 * Tests ID creation
+	 */
 	@Test
 	public void testCreateID() {
 		final ID<Integer> id1 = charIdFactory.createID();
@@ -56,6 +74,9 @@ public class CharacterIDProviderTest {
 		Assert.assertFalse(id1.equals(id2));
 	}
 
+	/**
+	 * Tests ID destroying
+	 */
 	@Test
 	public void testDestroy() {
 		final CharacterID id1 = charIdFactory.createID();
@@ -63,6 +84,10 @@ public class CharacterIDProviderTest {
 		charIdFactory.destroy(id1);
 	}
 
+	/**
+	 * Tests DAO aware ids
+	 * @throws ServiceStartException
+	 */
 	@Test
 	public void testGetObject() throws ServiceStartException {
 		final CharacterID id = charIdFactory.resolveID(268437456);

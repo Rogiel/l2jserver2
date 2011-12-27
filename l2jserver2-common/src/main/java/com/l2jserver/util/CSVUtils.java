@@ -197,6 +197,11 @@ public class CSVUtils {
 			return process(map);
 		}
 
+		/**
+		 * @param map
+		 *            the CSV row mapped into an {@link Map}
+		 * @return the row processed object
+		 */
 		public abstract R process(Map<String, String> map);
 	}
 }

@@ -31,12 +31,27 @@ import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.service.game.world.WorldServiceImpl;
 import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
 
+/**
+ * Tests for {@link WorldServiceImpl}
+ * @author <a href="http://www.rogiel.com">Rogiel</a>
+ */
 public class WorldServiceImplTest {
+	/**
+	 * The world service
+	 */
 	private WorldService world;
+	/**
+	 * The character id provider
+	 */
 	private CharacterIDProvider provider;
 
+	/**
+	 * Preparation for tests
+	 * @throws ServiceStartException
+	 */
 	@Before
 	public void tearUp() throws ServiceStartException {
 		Injector injector = Guice.createInjector(new GameServerModule());
@@ -46,6 +61,9 @@ public class WorldServiceImplTest {
 		provider = injector.getInstance(CharacterIDProvider.class);
 	}
 
+	/**
+	 * Test adding object to world
+	 */
 	@Test
 	public void testAdd() {
 		final L2Character character = new L2Character(null);
@@ -53,12 +71,18 @@ public class WorldServiceImplTest {
 		Assert.assertTrue(world.add(character));
 	}
 
+	/**
+	 * Test adding <code>null</code> object to world
+	 */
 	@Test(expected = NullPointerException.class)
 	public void testAddNullId() {
 		final L2Character character = new L2Character(null);
 		world.add(character);
 	}
 
+	/**
+	 * Test removing object from world
+	 */
 	@Test
 	public void testRemove() {
 		final L2Character character = new L2Character(null);
@@ -67,6 +91,9 @@ public class WorldServiceImplTest {
 		Assert.assertTrue(world.remove(character));
 	}
 
+	/**
+	 * Test removing 2 objects from world
+	 */
 	@Test
 	public void testRemoveOther() {
 		final L2Character character1 = new L2Character(null);
@@ -79,6 +106,9 @@ public class WorldServiceImplTest {
 		Assert.assertFalse(world.remove(character2));
 	}
 
+	/**
+	 * Test removing <code>null</code> id
+	 */
 	@Test(expected = NullPointerException.class)
 	public void testRemoveNullId() {
 		final L2Character character = new L2Character(null);
@@ -86,6 +116,9 @@ public class WorldServiceImplTest {
 		world.remove(character);
 	}
 
+	/**
+	 * Test if the object exists
+	 */
 	@Test
 	public void testContains() {
 		final L2Character character = new L2Character(null);
@@ -94,6 +127,9 @@ public class WorldServiceImplTest {
 		Assert.assertTrue(world.contains(character));
 	}
 
+	/**
+	 * Test if the an <code>null</code> object exists
+	 */
 	@Test(expected = NullPointerException.class)
 	public void testContainsNullId() {
 		final L2Character character = new L2Character(null);
@@ -101,6 +137,9 @@ public class WorldServiceImplTest {
 		Assert.assertTrue(world.contains(character));
 	}
 
+	/**
+	 * Test the world iterator
+	 */
 	@Test
 	public void testIterator() {
 		final L2Character character1 = new L2Character(null);

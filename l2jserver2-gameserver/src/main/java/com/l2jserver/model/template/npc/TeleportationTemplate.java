@@ -44,28 +44,54 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(namespace = "http://schemas.l2jserver2.com/teleport", name = "TeleportType")
 public class TeleportationTemplate extends AbstractTemplate {
+	/**
+	 * The teleportation template ID
+	 */
 	@XmlAttribute(name = "id")
 	@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
 	protected TeleportationTemplateID id;
+	/**
+	 * The teleportation name
+	 */
 	@XmlAttribute(name = "name")
 	protected String name;
 
+	/**
+	 * The teleportation cost item id
+	 */
 	@XmlAttribute(name = "item", required = false)
 	@XmlJavaTypeAdapter(ItemTemplateIDAdapter.class)
 	protected ItemTemplateID itemTemplateID;
+	/**
+	 * The amount of items decreased
+	 */
 	@XmlAttribute(name = "price", required = true)
 	protected int price;
 
+	/**
+	 * The teleportation point
+	 */
 	@XmlElement(name = "point", required = false)
 	@XmlJavaTypeAdapter(CoordinateAdapter.class)
 	protected Coordinate coordinate;
 
+	/**
+	 * The teleportation restrictions
+	 */
 	@XmlElementWrapper(name = "restrictions", required = false)
 	@XmlElement(name = "restriction", required = true)
 	protected List<TeleportRestriction> restrictions;
 
+	/**
+	 * Defines an teleport restriction
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "TeleportRestrictionType")
 	public enum TeleportRestriction {
+		/**
+		 * Only nobles can use this teleport
+		 */
 		NOBLE;
 	}
 

@@ -31,9 +31,21 @@ import com.l2jserver.model.world.Actor;
  */
 public abstract class AbstractEffect<T extends EffectTemplate> implements
 		Effect {
+	/**
+	 * The effect template
+	 */
 	protected final T template;
+	/**
+	 * The actor that the effect is applied to
+	 */
 	protected final Actor actor;
 
+	/**
+	 * @param template
+	 *            the effect template
+	 * @param actor
+	 *            the actor that the effect is applied to
+	 */
 	public AbstractEffect(T template, Actor actor) {
 		this.template = template;
 		this.actor = actor;

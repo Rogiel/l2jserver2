@@ -33,6 +33,9 @@ import com.l2jserver.service.database.model.QClan;
  * 
  */
 public class ClanMapper extends AbstractMapper<Clan, Integer, ClanID, QClan> {
+	/**
+	 * The primary key mapper
+	 */
 	private final PrimaryKeyMapper<ClanID, Integer> idMapper = new PrimaryKeyMapper<ClanID, Integer>() {
 		@Override
 		public ClanID createID(Integer raw) {

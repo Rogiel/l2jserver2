@@ -33,6 +33,9 @@ public class SM_FORT_INFO extends AbstractServerPacket {
 	 */
 	public static final int OPCODE = 0xfe;
 
+	/**
+	 * Creates a new instance
+	 */
 	public SM_FORT_INFO() {
 		super(OPCODE);
 	}

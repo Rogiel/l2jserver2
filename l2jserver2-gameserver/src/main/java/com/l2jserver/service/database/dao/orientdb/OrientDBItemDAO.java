@@ -44,6 +44,9 @@ import com.orientechnologies.orient.core.query.nativ.OQueryContextNative;
  */
 public class OrientDBItemDAO extends AbstractOrientDBDAO<Item, ItemID>
 		implements ItemDAO {
+	/**
+	 * The {@link Item} mapper
+	 */
 	private final ItemMapper mapper;
 
 	/**
@@ -125,7 +128,7 @@ public class OrientDBItemDAO extends AbstractOrientDBDAO<Item, ItemID>
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					Item o) {
-				return record.field(name(e.itemId)).eq(o.getID().getID());
+				return record.field(name(entity.itemId)).eq(o.getID().getID());
 			}
 		});
 	}
@@ -137,7 +140,7 @@ public class OrientDBItemDAO extends AbstractOrientDBDAO<Item, ItemID>
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, Item o) {
-						return record.field(name(e.itemId)).eq(o.getID().getID());
+						return record.field(name(entity.itemId)).eq(o.getID().getID());
 					}
 				});
 	}

@@ -131,6 +131,13 @@ public class TableFactory {
 		return fks;
 	}
 
+	/**
+	 * @param tablePath
+	 *            the query entity
+	 * @param columns
+	 *            the columns
+	 * @return the primary key object
+	 */
 	private static PrimaryKey createPK(RelationalPath<?> tablePath,
 			Map<String, Column> columns) {
 		return new PrimaryKey(columns.get(tablePath.getPrimaryKey()
@@ -138,6 +145,13 @@ public class TableFactory {
 				.toString()));
 	}
 
+	/**
+	 * @param tablePath
+	 *            the query entity
+	 * @param path
+	 *            the path
+	 * @return the column object
+	 */
 	private static Column createColumn(RelationalPath<?> tablePath, Path<?> path) {
 		final String columnName = path.getMetadata().getExpression().toString();
 		final ColumnType columnType = getColumnType(path.getType());
@@ -197,6 +211,11 @@ public class TableFactory {
 				hasDefaultValue, defaultValue);
 	}
 
+	/**
+	 * @param type
+	 *            the java type
+	 * @return the database column type
+	 */
 	private static ColumnType getColumnType(Class<?> type) {
 		if (ClassUtils.isSubclass(type, String.class))
 			return ColumnType.STRING;
@@ -215,6 +234,11 @@ public class TableFactory {
 		return null;
 	}
 
+	/**
+	 * @param jdbcType
+	 *            the JDBC type
+	 * @return the database column type
+	 */
 	private static ColumnType getColumnType(int jdbcType) {
 		switch (jdbcType) {
 		case Types.INTEGER:

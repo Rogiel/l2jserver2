@@ -44,29 +44,151 @@ public class SM_ACTOR_STATUS_UPDATE extends AbstractServerPacket {
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum Stat {
-		LEVEL(0x01), EXPERIENCE(0x02), STR(0x03), DEX(0x04), CON(0x05), INT(
-				0x06), WIT(0x07), MEN(0x08),
+		/**
+		 * Updates the character level
+		 */
+		LEVEL(0x01),
+		/**
+		 * Updates the character experience
+		 */
+		EXPERIENCE(0x02),
+		/**
+		 * Updates the character strength
+		 */
+		STR(0x03),
+		/**
+		 * Updates the character dexterity
+		 */
+		DEX(0x04),
 
-		HP(0x09), MAX_HP(0x0a), MP(0x0b), MAX_MP(0x0c),
+		/**
+		 * Updates the character concentration
+		 */
+		CON(0x05),
+		/**
+		 * Updates the character intelligence
+		 */
+		INT(0x06),
+		/**
+		 * Updates the character witness
+		 */
+		WIT(0x07),
+		/**
+		 * Updates the character mentality
+		 */
+		MEN(0x08),
+		/**
+		 * Updates the character hp
+		 */
+		HP(0x09),
+		/**
+		 * Updates the character maximum hp
+		 */
+		MAX_HP(0x0a),
+		/**
+		 * Updates the character hp
+		 */
+		MP(0x0b),
+		/**
+		 * Updates the character maximum mp
+		 */
+		MAX_MP(0x0c),
+		/**
+		 * Updates the character sp
+		 */
+		SP(0x0d),
+		/**
+		 * Updates the character load
+		 */
+		LOAD(0x0e),
+		/**
+		 * Updates the character maximum load
+		 */
+		MAX_LOAD(0x0f),
+		/**
+		 * Updates the character physical attack
+		 */
+		PHYSICAL_ATK(0x11),
+		/**
+		 * Updates the character attack speed
+		 */
+		ATTACK_SPEED(0x12),
+		/**
+		 * Updates the character physical defense
+		 */
+		PHYSICAL_DEFENSE(0x13),
+		/**
+		 * Updates the character evasion
+		 */
+		EVASION(0x14),
+		/**
+		 * Updates the character accuracy
+		 */
+		ACCURACY(0x15),
+		/**
+		 * Updates the character critical
+		 */
+		CRITICAL(0x16),
+		/**
+		 * Updates the character magical attack
+		 */
+		MAGICAL_ATTACK(0x17),
+		/**
+		 * Updates the character cast speed
+		 */
+		CAST_SPEED(0x18),
+		/**
+		 * Updates the character magical defense
+		 */
+		MAGICAL_DEFENSE(0x19),
 
-		SP(0x0d), LOAD(0x0e), MAX_LOAD(0x0f),
+		/**
+		 * Updates the character pvp flag
+		 */
+		PVP_FLAG(0x1a),
 
-		PHYSICAL_ATK(0x11), ATTACK_SPEED(0x12), PHYSICAL_DEFENSE(0x13), EVASION(
-				0x14), ACCURACY(0x15), CRITICAL(0x16), MAGICAL_ATTACK(0x17), CAST_SPEED(
-				0x18), MAGICAL_DEFENSE(0x19), PVP_FLAG(0x1a), KARMA(0x1b),
+		/**
+		 * Updates the character karma
+		 */
+		KARMA(0x1b),
 
-		CP(0x21), MAX_CP(0x22);
+		/**
+		 * Updates the character cp
+		 */
+		CP(0x21),
 
+		/**
+		 * Updates the character max cp
+		 */
+		MAX_CP(0x22);
+
+		/**
+		 * The stat id
+		 */
 		public final int id;
 
+		/**
+		 * @param id
+		 *            the stat id
+		 */
 		Stat(int id) {
 			this.id = id;
 		}
 	}
 
+	/**
+	 * The set of updates to be sent
+	 */
 	private final Map<Stat, Integer> update = CollectionFactory.newMap();
+	/**
+	 * The actor to be updated
+	 */
 	private final Actor actor;
 
+	/**
+	 * @param actor
+	 *            the actor
+	 */
 	public SM_ACTOR_STATUS_UPDATE(Actor actor) {
 		super(OPCODE);
 		this.actor = actor;
@@ -83,6 +205,13 @@ public class SM_ACTOR_STATUS_UPDATE extends AbstractServerPacket {
 		}
 	}
 
+	/**
+	 * @param stat
+	 *            the stat
+	 * @param value
+	 *            the stat value
+	 * @return this instances
+	 */
 	public SM_ACTOR_STATUS_UPDATE add(Stat stat, int value) {
 		update.put(stat, value);
 		return this;

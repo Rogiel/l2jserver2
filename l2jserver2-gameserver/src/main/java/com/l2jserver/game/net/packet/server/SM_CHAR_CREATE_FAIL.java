@@ -83,11 +83,17 @@ public class SM_CHAR_CREATE_FAIL extends AbstractServerPacket {
 		 */
 		public final int id;
 
+		/**
+		 * @param id the reason id
+		 */
 		Reason(int id) {
 			this.id = id;
 		}
 	}
 
+	/**
+	 * @param reason the reason
+	 */
 	public SM_CHAR_CREATE_FAIL(Reason reason) {
 		super(OPCODE);
 		this.reason = reason;

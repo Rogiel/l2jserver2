@@ -39,129 +39,291 @@ import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 @XmlType(namespace = "http://schemas.l2jserver2.com/character", name = "CharacterType")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CharacterTemplate extends ActorTemplate<L2Character> {
+	/**
+	 * The character templat eid
+	 */
 	@XmlJavaTypeAdapter(CharacterTemplateIDAdapter.class)
 	@XmlAttribute(name = "class", required = true)
 	protected CharacterTemplateID id = null;
 
+	/**
+	 * The character stats
+	 */
 	@XmlElement(name = "stats", required = true)
 	protected CharacterStatsMetadata stats = null;
 
+	/**
+	 * Defines the character stats
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "CharacterStatsType")
 	protected static class CharacterStatsMetadata {
+		/**
+		 * The character level
+		 */
 		@XmlAttribute(name = "level", required = true)
 		protected int level = 0;
+		/**
+		 * Whether the character is an crafter or not
+		 */
 		@XmlAttribute(name = "crafter", required = false)
 		protected boolean crafter = false;
 
+		/**
+		 * The character HP descriptor
+		 */
 		@XmlElement(name = "hp", required = true)
 		protected Stat hp = null;
+		/**
+		 * The character MP descriptor
+		 */
 		@XmlElement(name = "mp", required = true)
 		protected Stat mp = null;
+		/**
+		 * The character CP descriptor
+		 */
 		@XmlElement(name = "cp", required = true)
 		protected Stat cp = null;
 
+		/**
+		 * Describes an character stat (HP, MP or CP)
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "")
 		protected static class Stat {
+			/**
+			 * The base value
+			 */
 			@XmlAttribute(name = "base", required = true)
 			protected double base = 0;
+			/**
+			 * The value modified
+			 */
 			@XmlAttribute(name = "modifier", required = true)
 			protected double modifier = 0;
+			/**
+			 * The value add
+			 */
 			@XmlAttribute(name = "add", required = true)
 			protected double add = 0;
 		}
 
+		/**
+		 * The character attack data
+		 */
 		@XmlElement(name = "attack", required = true)
 		protected AttackMetadata attack = null;
 
+		/**
+		 * Defines the character attack data
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "CharacterAttackType")
 		protected static class AttackMetadata {
+			/**
+			 * The character evasion
+			 */
 			@XmlAttribute(name = "evasion", required = true)
 			protected int evasion = 0;
+			/**
+			 * The character critical chance
+			 */
 			@XmlAttribute(name = "critical", required = true)
 			protected int critical = 0;
+			/**
+			 * The character accuracy
+			 */
 			@XmlAttribute(name = "accuracy", required = true)
 			protected int accuracy = 0;
 
+			/**
+			 * The character physical attack data
+			 */
 			@XmlElement(name = "physical", required = true)
 			protected AttackValueMetadata physical = null;
+			/**
+			 * The character magical attack data
+			 */
 			@XmlElement(name = "magical", required = true)
 			protected AttackValueMetadata magical = null;
 
+			/**
+			 * Defines an attack attribute
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "")
 			protected static class AttackValueMetadata {
+				/**
+				 * The damage dealt
+				 */
 				@XmlAttribute(name = "damage", required = true)
 				protected double damage = 0;
+				/**
+				 * The attack speed
+				 */
 				@XmlAttribute(name = "speed", required = true)
 				protected double speed = 0;
 			}
 		}
 
+		/**
+		 * The character defense data
+		 */
 		@XmlElement(name = "defense", required = true)
 		protected DefenseMetadata defense = null;
 
+		/**
+		 * Defines the character defense data
+		 * 
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "CharacterDefenseType")
 		protected static class DefenseMetadata {
+			/**
+			 * The character physical defense
+			 */
 			@XmlElement(name = "physical", required = true)
 			protected DefenseValueMetadata physical = null;
+			/**
+			 * The character magical defense
+			 */
 			@XmlElement(name = "magical", required = true)
 			protected DefenseValueMetadata magical = null;
 
+			/**
+			 * Defines an defense attribute
+			 * 
+			 * @author <a href="http://www.rogiel.com">Rogiel</a>
+			 */
 			@XmlType(name = "")
 			protected static class DefenseValueMetadata {
+				/**
+				 * The defense value
+				 */
 				@XmlAttribute(name = "value", required = true)
 				protected double value = 0;
 			}
 		}
 
+		/**
+		 * The charatcer movement medatata
+		 */
 		@XmlElement(name = "move", required = true)
 		protected MoveMetadata move = null;
 
+		/**
+		 * Defines the character movement
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 *
+		 */
 		@XmlType(name = "CharacterMovementType")
 		protected static class MoveMetadata {
+			/**
+			 * The run speed
+			 */
 			@XmlAttribute(name = "run", required = true)
 			protected double run = 0;
+			/**
+			 * The walk speed
+			 */
 			@XmlAttribute(name = "walk", required = true)
 			protected double walk = 0;
 		}
 
+		/**
+		 * The character base stats
+		 */
 		@XmlElement(name = "base", required = true)
 		protected BaseMetadata base = null;
 
+		/**
+		 * Defines an character base stats
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 */
 		@XmlType(name = "CharacterBaseStatsType")
 		protected static class BaseMetadata {
+			/**
+			 * The intelligence
+			 */
 			@XmlAttribute(name = "int", required = true)
 			protected int intelligence = 0;
+			/**
+			 * The strength
+			 */
 			@XmlAttribute(name = "str", required = true)
 			protected int strength = 0;
+			/**
+			 * The concentration
+			 */
 			@XmlAttribute(name = "con", required = true)
 			protected int concentration = 0;
+			/**
+			 * The mentality
+			 */
 			@XmlAttribute(name = "men", required = true)
 			protected int mentality = 0;
+			/**
+			 * The dexterity
+			 */
 			@XmlAttribute(name = "dex", required = true)
 			protected int dexterity = 0;
+			/**
+			 * The witness
+			 */
 			@XmlAttribute(name = "wit", required = true)
 			protected int witness = 0;
 		}
 
+		/**
+		 * The character maximum load
+		 */
 		@XmlElement(name = "maxload", required = true)
 		protected int maximumLoad = 0;
 	}
 
+	/**
+	 * The character collision data
+	 */
 	@XmlElement(name = "collision", required = true)
 	protected CollitionMetadataContainer collision = null;
 
+	/**
+	 * Defines the character collision data
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 */
 	@XmlType(name = "CharacterCollisionType")
 	protected static class CollitionMetadataContainer {
+		/**
+		 * Collision data for male characters
+		 */
 		@XmlElement(name = "male", required = true)
 		protected CollisionMetadata male = null;
 
+		/**
+		 * Collision data for female characters
+		 */
 		@XmlElement(name = "female", required = true)
 		protected CollisionMetadata female = null;
 
+		/**
+		 * Defines an collision data
+		 * @author <a href="http://www.rogiel.com">Rogiel</a>
+		 *
+		 */
 		@XmlType(name = "")
 		protected static class CollisionMetadata {
+			/**
+			 * The character radius
+			 */
 			@XmlAttribute(name = "radius", required = true)
 			protected double radius = 0;
+			/**
+			 * The character height
+			 */
 			@XmlAttribute(name = "heigth", required = true)
 			protected double height = 0;
 		}

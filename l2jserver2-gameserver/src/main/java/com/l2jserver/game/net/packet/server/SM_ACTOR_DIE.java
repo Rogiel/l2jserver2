@@ -40,6 +40,10 @@ public class SM_ACTOR_DIE extends AbstractServerPacket {
 	 */
 	private final Actor actor;
 
+	/**
+	 * @param actor
+	 *            the actor
+	 */
 	public SM_ACTOR_DIE(Actor actor) {
 		super(OPCODE);
 		this.actor = actor;

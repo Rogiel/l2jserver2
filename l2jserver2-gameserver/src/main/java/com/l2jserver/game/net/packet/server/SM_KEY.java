@@ -49,6 +49,12 @@ public class SM_KEY extends AbstractServerPacket {
 	 */
 	private boolean status;
 
+	/**
+	 * @param key
+	 *            the cryptography key
+	 * @param status
+	 *            the status
+	 */
 	public SM_KEY(Lineage2CryptographyKey key, boolean status) {
 		super(OPCODE);
 		this.key = Arrays.copyOfRange(key.key, 0, 8);

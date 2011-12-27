@@ -20,6 +20,9 @@ package com.l2jserver.service.database.ddl.struct;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class PrimaryKey {
+	/**
+	 * The primary key column
+	 */
 	private final Column column;
 
 	/**

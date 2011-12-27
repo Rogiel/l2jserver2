@@ -79,6 +79,16 @@ public class SM_CHAR_LIST extends AbstractServerPacket {
 	 */
 	private final L2Character[] characters;
 
+	/**
+	 * @param loginName
+	 *            the account id
+	 * @param sessionId
+	 *            the session id
+	 * @param lastCharacterId
+	 *            the last character used
+	 * @param characters
+	 *            the characters
+	 */
 	public SM_CHAR_LIST(String loginName, int sessionId, int lastCharacterId,
 			L2Character... characters) {
 		super(OPCODE);
@@ -88,12 +98,26 @@ public class SM_CHAR_LIST extends AbstractServerPacket {
 		this.characters = characters;
 	}
 
+	/**
+	 * @param session
+	 *            the session
+	 * @param characters
+	 *            the characters
+	 * @return an {@link SM_CHAR_LIST} instance
+	 */
 	public static SM_CHAR_LIST fromL2Session(Lineage2Session session,
 			L2Character... characters) {
 		return new SM_CHAR_LIST(session.getAccountID().getID(),
 				session.getPlayKey2(), -1, characters);
 	}
 
+	/**
+	 * @param session
+	 *            the session
+	 * @param characters
+	 *            the characters
+	 * @return an {@link SM_CHAR_LIST} instance
+	 */
 	public static SM_CHAR_LIST fromL2Session(Lineage2Session session,
 			Collection<L2Character> characters) {
 		return fromL2Session(session,
@@ -220,6 +244,16 @@ public class SM_CHAR_LIST extends AbstractServerPacket {
 		}
 	}
 
+	/**
+	 * Writes the paperdoll item id
+	 * 
+	 * @param buffer
+	 *            the buffer
+	 * @param character
+	 *            the character
+	 * @param paperdoll
+	 *            the slot
+	 */
 	private void writePaperdollItemID(ChannelBuffer buffer,
 			L2Character character, InventoryPaperdoll paperdoll) {
 		final Item item = character.getInventory().getItem(paperdoll);

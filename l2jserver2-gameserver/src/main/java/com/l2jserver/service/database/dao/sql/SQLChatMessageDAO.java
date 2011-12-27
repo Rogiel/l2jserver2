@@ -42,6 +42,9 @@ import com.mysema.query.sql.dml.SQLDeleteClause;
  */
 public class SQLChatMessageDAO extends
 		AbstractSQLDAO<ChatMessage, ChatMessageID> implements ChatMessageDAO {
+	/**
+	 * The {@link ChatMessage} mapper
+	 */
 	private final ChatMessageMapper mapper;
 
 	/**
@@ -98,7 +101,7 @@ public class SQLChatMessageDAO extends
 				QLogChat.logChat, objects) {
 			@Override
 			protected void query(SQLDeleteClause q, ChatMessage o) {
-				q.where(e.messageId.eq(o.getID().getID()));
+				q.where(entity.messageId.eq(o.getID().getID()));
 			}
 		});
 	}

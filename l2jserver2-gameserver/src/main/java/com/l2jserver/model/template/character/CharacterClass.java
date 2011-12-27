@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @XmlType(name = "CharacterClassType")
+@SuppressWarnings("javadoc")
 public enum CharacterClass {
 	/**
 	 * Human fighter

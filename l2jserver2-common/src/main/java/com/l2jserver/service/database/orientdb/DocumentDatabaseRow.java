@@ -26,6 +26,9 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
  * 
  */
 public class DocumentDatabaseRow implements DatabaseRow, WritableDatabaseRow {
+	/**
+	 * The OrientDB {@link ODocument} instance
+	 */
 	private ODocument document;
 
 	/**
@@ -36,6 +39,9 @@ public class DocumentDatabaseRow implements DatabaseRow, WritableDatabaseRow {
 		this.document = document;
 	}
 
+	/**
+	 * Creates a new instance
+	 */
 	public DocumentDatabaseRow() {
 	}
 
