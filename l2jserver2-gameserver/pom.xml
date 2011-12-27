@@ -72,29 +72,7 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- netty -->
-		<dependency>
-			<groupId>org.jboss.netty</groupId>
-			<artifactId>netty</artifactId>
-			<version>3.2.7.Final</version>
-		</dependency>
-		<!-- google guice -->
-		<!-- logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.4</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- cache -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-core</artifactId>
-			<version>2.5.0</version>
-			<type>jar</type>
-		</dependency>
+		
 		<!-- html parser/generator -->
 		<dependency>
 			<groupId>org.htmlparser</groupId>
@@ -107,12 +85,14 @@
 					<artifactId>tools</artifactId>
 				</exclusion>
 			</exclusions>
+			<scope>runtime</scope>
 		</dependency>
 		<!-- utils -->
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
 			<version>3.7.1</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 </project>
