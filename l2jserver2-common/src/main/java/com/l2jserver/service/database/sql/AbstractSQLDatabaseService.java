@@ -999,6 +999,7 @@ public abstract class AbstractSQLDatabaseService extends
 					object = mapper.select(entity,
 							new SQLDatabaseRow(results.get(0), entity));
 					updateCache(object, database);
+					updateDesire(object, ObjectDesire.INSERT);
 				}
 				return object;
 			} else {
@@ -1047,6 +1048,7 @@ public abstract class AbstractSQLDatabaseService extends
 				if (object == null) {
 					object = mapper.select(entity, row);
 					updateCache(object, database);
+					updateDesire(object, ObjectDesire.INSERT);
 				}
 				if (object != null)
 					objects.add(object);

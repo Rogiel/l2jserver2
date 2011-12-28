@@ -77,6 +77,9 @@ public class ServiceManager {
 			.newMap();
 
 	/**
+	 * Loads an service descriptor XML file in order to bind XML services to the
+	 * server runtime.
+	 * 
 	 * @param file
 	 *            the XML file
 	 * @throws SAXException
@@ -121,7 +124,7 @@ public class ServiceManager {
 	 * Initializes the service manager
 	 * 
 	 * @param injector
-	 *            the injector instance
+	 *            the {@link Injector} instance
 	 * @throws ServiceStartException
 	 *             if any error occur while starting logging or configuration
 	 *             service
@@ -150,6 +153,10 @@ public class ServiceManager {
 	}
 
 	/**
+	 * Returns the ServiceDescriptor binded to <code>serviceClass</code>. If no
+	 * implementation of <code>serviceClass</code>, <code>null</code> is
+	 * returned.
+	 * 
 	 * @param serviceClass
 	 *            the service class
 	 * @return the {@link ServiceDescriptor} for the requested service
@@ -273,13 +280,13 @@ public class ServiceManager {
 	}
 
 	/**
-	 * Creates a {@link Set} of all dependecies to be stopped
+	 * Creates a {@link Set} of all dependencies to be stopped
 	 * 
 	 * @param depends
 	 *            the service
 	 * @param serviceClass
 	 *            the service class
-	 * @return the {@link Set} of all depedendecies to be stopped
+	 * @return the {@link Set} of all dependencies to be stopped
 	 */
 	private Set<Class<? extends Service>> createStopDependencies(
 			Set<Class<? extends Service>> depends, Service serviceClass) {
