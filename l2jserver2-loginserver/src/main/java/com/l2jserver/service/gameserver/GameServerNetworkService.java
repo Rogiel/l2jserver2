@@ -16,12 +16,8 @@
  */
 package com.l2jserver.service.gameserver;
 
-import java.net.InetSocketAddress;
 
 import com.l2jserver.service.Service;
-import com.l2jserver.service.ServiceConfiguration;
-import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
  * TODO
@@ -29,29 +25,4 @@ import com.l2jserver.service.configuration.XMLConfigurationService.Configuration
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface GameServerNetworkService extends Service {
-	/**
-	 * The network {@link Configuration}
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface NetworkConfiguration extends ServiceConfiguration {
-		/**
-		 * Get the server listen address
-		 * 
-		 * @return the listen address
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "0.0.0.0:2104")
-		@ConfigurationXPath("/configuration/services/network/listen")
-		InetSocketAddress getListenAddress();
-
-		/**
-		 * Set the server listen address
-		 * 
-		 * @param addr
-		 *            the listen address
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/network/listen")
-		void setListenAddress(InetSocketAddress addr);
-	}
 }

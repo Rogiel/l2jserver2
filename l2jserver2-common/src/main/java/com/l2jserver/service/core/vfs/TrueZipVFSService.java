@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.configuration.ConfigurationService;
@@ -35,16 +35,13 @@ import de.schlichtherle.truezip.nio.file.TPath;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class TrueZipVFSService extends AbstractService implements VFSService {
+public class TrueZipVFSService extends
+		AbstractConfigurableService<TrueZipVFSConfiguration> implements
+		VFSService {
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-	/**
-	 * The Java 7 vfs configuration
-	 */
-	private final TrueZipVFSConfiguration config;
 
 	/**
 	 * The root {@link Path} of the server data
@@ -56,20 +53,12 @@ public class TrueZipVFSService extends AbstractService implements VFSService {
 	private TPath dataRoot;
 
 	/**
-	 * Configuration interface for {@link TrueZipVFSService}.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface TrueZipVFSConfiguration extends VFSConfiguration {
-	}
-
-	/**
 	 * @param configService
 	 *            the configuration service
 	 */
 	@Inject
 	protected TrueZipVFSService(final ConfigurationService configService) {
-		this.config = configService.get(TrueZipVFSConfiguration.class);
+		super(TrueZipVFSConfiguration.class);
 	}
 
 	@Override

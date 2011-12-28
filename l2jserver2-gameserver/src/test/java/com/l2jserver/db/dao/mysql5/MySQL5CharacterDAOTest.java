@@ -23,7 +23,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
-import com.l2jserver.GameServerModule;
 import com.l2jserver.model.dao.CharacterDAO;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.world.L2Character;
@@ -47,7 +46,7 @@ public class MySQL5CharacterDAOTest {
 	 * The {@link Guice} {@link Injector}
 	 */
 	private final Injector injector = Guice.createInjector(Stage.PRODUCTION,
-			new GameServerModule(), new AbstractModule() {
+			new AbstractModule() {
 				@Override
 				protected void configure() {
 					bind(CharacterMapper.class);

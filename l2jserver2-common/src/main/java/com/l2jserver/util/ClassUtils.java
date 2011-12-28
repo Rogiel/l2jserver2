@@ -16,6 +16,7 @@
  */
 package com.l2jserver.util;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 /**
@@ -59,6 +60,39 @@ public class ClassUtils {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Recursively searches for an annotation <h1>Search order</h1>
+	 * <p>
+	 * <ol>
+	 * <li><code>cls</code> class</li>
+	 * <li><code>cls</code> implementing interfaces</code></li>
+	 * <li><code>cls</code> super class</code></li>
+	 * </ol>
+	 * If after all those steps, no annotation is found, <code>null</code> is
+	 * returned.
+	 * 
+	 * @param annotationClass
+	 *            the annotation class
+	 * @param cls
+	 *            the class to start searching
+	 * @return the annotation, if found.
+	 */
+	public static <T extends Annotation> T getAnnotation(
+			Class<T> annotationClass, Class<?> cls) {
+		T annotation = cls.getAnnotation(annotationClass);
+		if (annotation == null) {
+			for (final Class<?> interfaceCls : cls.getInterfaces()) {
+				annotation = getAnnotation(annotationClass, interfaceCls);
+				if (annotation != null)
+					break;
+			}
+		}
+		if (annotation == null && cls.getSuperclass() != null
+				&& cls.getSuperclass() != Object.class)
+			annotation = getAnnotation(annotationClass, cls.getSuperclass());
+		return annotation;
 	}
 
 	/**

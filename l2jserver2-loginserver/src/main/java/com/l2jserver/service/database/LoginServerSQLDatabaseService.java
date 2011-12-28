@@ -53,8 +53,6 @@ import com.l2jserver.service.database.sql.AbstractSQLDatabaseService;
 public class LoginServerSQLDatabaseService extends AbstractSQLDatabaseService
 		implements DatabaseService {
 	/**
-	 * @param configService
-	 *            the config service
 	 * @param cacheService
 	 *            the cache service
 	 * @param threadService
@@ -64,11 +62,10 @@ public class LoginServerSQLDatabaseService extends AbstractSQLDatabaseService
 	 * @param daoResolver
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
-	public LoginServerSQLDatabaseService(ConfigurationService configService,
-			CacheService cacheService, ThreadService threadService,
-			VFSService vfsService, DAOResolver daoResolver) {
-		super(configService, cacheService, threadService, vfsService,
-				daoResolver);
+	public LoginServerSQLDatabaseService(CacheService cacheService,
+			ThreadService threadService, VFSService vfsService,
+			DAOResolver daoResolver) {
+		super(cacheService, threadService, vfsService, daoResolver);
 	}
 
 	@Override

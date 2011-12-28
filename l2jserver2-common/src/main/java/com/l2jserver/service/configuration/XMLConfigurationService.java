@@ -16,8 +16,6 @@
  */
 package com.l2jserver.service.configuration;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -26,23 +24,23 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
+import com.l2jserver.service.ConfigurableService;
+import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceConfiguration;
+import com.l2jserver.service.ServiceDescriptor;
+import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertyGetter;
@@ -61,32 +59,15 @@ import com.l2jserver.util.transformer.TransformerFactory;
 public class XMLConfigurationService extends AbstractService implements
 		ConfigurationService {
 	/**
-	 * The directory in which configuration files are stored
-	 */
-	private File file = new File("./config/config.xml");
-	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
-	 * The DOM {@link DocumentBuilderFactory}
+	 * The service manager. Will provide XML nodes for service configuration
+	 * interfaces
 	 */
-	private DocumentBuilderFactory factory;
-	/**
-	 * The DOM {@link DocumentBuilder}
-	 */
-	private DocumentBuilder builder;
-
-	/**
-	 * The XML {@link Document} containing configuration data
-	 */
-	private Document properties;
-
-	/**
-	 * The cache of configuration objects
-	 */
-	private Map<Class<?>, Object> cache = CollectionFactory.newWeakMap();
+	private final ServiceManager serviceManager;
 
 	/**
 	 * Defines the XPath for the configuration parameter
@@ -103,50 +84,29 @@ public class XMLConfigurationService extends AbstractService implements
 
 	/**
 	 * Creates a new empty instance
+	 * 
+	 * @param serviceManager
+	 *            the service manager
 	 */
 	@Inject
-	protected XMLConfigurationService() {
-	}
-
-	/**
-	 * Creates a new service instance. <b>This is used for tests</b>
-	 * 
-	 * @param file
-	 *            the configuration file
-	 */
-	protected XMLConfigurationService(File file) {
-		this.file = file;
+	protected XMLConfigurationService(ServiceManager serviceManager) {
+		this.serviceManager = serviceManager;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		factory = DocumentBuilderFactory.newInstance();
-		try {
-			builder = factory.newDocumentBuilder();
-			properties = builder.parse(file);
-		} catch (ParserConfigurationException e) {
-			throw new ServiceStartException(e);
-		} catch (SAXException e) {
-			throw new ServiceStartException(e);
-		} catch (IOException e) {
-			throw new ServiceStartException(e);
-		}
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <C extends Configuration> C get(Class<C> config) {
-		Preconditions.checkNotNull(config, "config");
-
-		if (cache.containsKey(config))
-			return (C) cache.get(config);
-		log.debug("Trying to create {} proxy", config);
-
-		C proxy = (C) Proxy.newProxyInstance(this.getClass().getClassLoader(),
-				new Class<?>[] { config }, new ConfigInvocationHandler(
-						properties));
-		cache.put(config, proxy);
-		return proxy;
+	public <C extends ServiceConfiguration> C getServiceConfiguration(
+			ConfigurableService<?> service,
+			Class<? extends Service> serviceInterface) {
+		final ServiceDescriptor<?> serviceDescriptor = serviceManager
+				.getServiceDescriptor(serviceInterface);
+		return (C) Proxy.newProxyInstance(this.getClass().getClassLoader(),
+				new Class<?>[] { service.getConfigurationInterface() },
+				new ConfigInvocationHandler(serviceDescriptor.getNode()));
 	}
 
 	/**
@@ -158,7 +118,7 @@ public class XMLConfigurationService extends AbstractService implements
 		/**
 		 * The invocation handler properties
 		 */
-		private final Document properties;
+		private final Node properties;
 		/**
 		 * The invocation cache
 		 */
@@ -168,7 +128,7 @@ public class XMLConfigurationService extends AbstractService implements
 		 * @param properties
 		 *            the properties
 		 */
-		public ConfigInvocationHandler(Document properties) {
+		public ConfigInvocationHandler(Node properties) {
 			this.properties = properties;
 		}
 
@@ -344,12 +304,5 @@ public class XMLConfigurationService extends AbstractService implements
 				return ann;
 		}
 		return null;
-	}
-
-	/**
-	 * @return the configuration store directory
-	 */
-	public File getFile() {
-		return file;
 	}
 }

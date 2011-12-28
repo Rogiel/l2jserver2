@@ -47,14 +47,13 @@ import com.l2jserver.model.template.character.CharacterTemplate;
 import com.l2jserver.model.template.item.ItemTemplate;
 import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.template.npc.TeleportationTemplate;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
@@ -72,7 +71,8 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
  */
 @Depends({ LoggingService.class, VFSService.class, CacheService.class,
 		ConfigurationService.class })
-public class XMLTemplateService extends AbstractService implements
+public class XMLTemplateService extends
+		AbstractConfigurableService<XMLTemplateServiceConfiguration> implements
 		TemplateService {
 	/**
 	 * The logger
@@ -88,10 +88,6 @@ public class XMLTemplateService extends AbstractService implements
 	 */
 	private final CacheService cacheService;
 
-	/**
-	 * The XML template service configuration
-	 */
-	private final XMLTemplateServiceConfiguration config;
 	/**
 	 * The npc template id adapter
 	 */
@@ -133,35 +129,10 @@ public class XMLTemplateService extends AbstractService implements
 	private Cache<TemplateID, Template> templates;
 
 	/**
-	 * XML {@link TemplateService} configuration interface
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface XMLTemplateServiceConfiguration extends
-			TemplateServiceConfiguration {
-		/**
-		 * @return the directory in which templates are stored
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "template/")
-		@ConfigurationXPath("/configuration/services/template/directory")
-		String getTemplateDirectory();
-
-		/**
-		 * @param file
-		 *            the directory in which templates are stored
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/template/directory")
-		void setTemplateDirectory(String file);
-	}
-
-	/**
 	 * @param vfsService
 	 *            the vfs service
 	 * @param cacheService
-	 *            the cache service
-	 * @param configService
-	 *            the configuration service
+	 *            the cache servicef
 	 * @param npcTemplateIdAdapter
 	 *            the npc template id adapter
 	 * @param itemTemplateIdAdapter
@@ -177,16 +148,16 @@ public class XMLTemplateService extends AbstractService implements
 	 */
 	@Inject
 	public XMLTemplateService(final VFSService vfsService,
-			CacheService cacheService, ConfigurationService configService,
+			CacheService cacheService, 
 			NPCTemplateIDAdapter npcTemplateIdAdapter,
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
 			SkillTemplateIDAdapter skillTemplateIdAdapter,
 			CharacterTemplateIDAdapter charIdTemplateAdapter,
 			EffectTemplateIDAdapter effectIdTemplateAdapter,
 			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
+		super(XMLTemplateServiceConfiguration.class);
 		this.vfsService = vfsService;
 		this.cacheService = cacheService;
-		this.config = configService.get(XMLTemplateServiceConfiguration.class);
 		this.npcTemplateIdAdapter = npcTemplateIdAdapter;
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
 		this.skillTemplateIdAdapter = skillTemplateIdAdapter;

@@ -16,7 +16,9 @@
  */
 package com.l2jserver.service.configuration;
 
+import com.l2jserver.service.ConfigurableService;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceConfiguration;
 
 /**
  * The configuration service is responsible for reading and writing in
@@ -27,13 +29,15 @@ import com.l2jserver.service.Service;
  */
 public interface ConfigurationService extends Service {
 	/**
-	 * Get the configuration object for <tt>config</tt>
+	 * Get the configuration for the given service
 	 * 
-	 * @param <C>
-	 *            the configuration type
-	 * @param config
-	 *            the configuration interface class
+	 * @param service
+	 *            the service
+	 * @param serviceInterface
+	 *            the service interface
 	 * @return the configuration object
 	 */
-	<C extends Configuration> C get(Class<C> config);
+	<C extends ServiceConfiguration> C getServiceConfiguration(
+			ConfigurableService<?> service,
+			Class<? extends Service> serviceInterface);
 }

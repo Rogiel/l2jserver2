@@ -9,7 +9,7 @@
 	<baseDirectory></baseDirectory>
 	<fileSets>
 		<fileSet>
-			<directory>${project.basedir}/distribution/global</directory>
+			<directory>${project.basedir}/distribution</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
 	</fileSets>

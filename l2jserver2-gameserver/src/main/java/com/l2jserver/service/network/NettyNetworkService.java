@@ -39,9 +39,8 @@ import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
 import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
-import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.core.threading.ThreadPool;
 import com.l2jserver.service.core.threading.ThreadPoolPriority;
@@ -58,7 +57,8 @@ import com.l2jserver.util.factory.CollectionFactory;
  */
 @Depends({ LoggingService.class, ThreadService.class,
 		BlowfishKeygenService.class, WorldService.class })
-public class NettyNetworkService extends AbstractService implements
+public class NettyNetworkService extends
+		AbstractConfigurableService<NetworkServiceConfiguration> implements
 		NetworkService {
 	/**
 	 * The logger
@@ -70,10 +70,6 @@ public class NettyNetworkService extends AbstractService implements
 	 */
 	private final ThreadService threadService;
 
-	/**
-	 * The network configuration object
-	 */
-	private final NetworkConfiguration config;
 	/**
 	 * The Google Guice {@link Injector}
 	 */
@@ -101,18 +97,15 @@ public class NettyNetworkService extends AbstractService implements
 	private Set<Lineage2Client> clients = CollectionFactory.newSet();
 
 	/**
-	 * @param configService
-	 *            the configuration service
 	 * @param injector
 	 *            the {@link Guice} {@link Injector}
 	 * @param threadService
 	 *            the {@link ThreadService}
 	 */
 	@Inject
-	public NettyNetworkService(ConfigurationService configService,
-			Injector injector, ThreadService threadService) {
+	public NettyNetworkService(Injector injector, ThreadService threadService) {
+		super(NetworkServiceConfiguration.class);
 		this.threadService = threadService;
-		this.config = configService.get(NetworkConfiguration.class);
 		this.injector = injector;
 		InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory());
 	}

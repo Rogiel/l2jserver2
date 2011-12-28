@@ -23,7 +23,7 @@ import com.l2jserver.util.exception.L2Exception;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class ServiceException extends L2Exception {
+public class ServiceException extends L2Exception {
 	/**
 	 * The Java Serialization API serial
 	 */

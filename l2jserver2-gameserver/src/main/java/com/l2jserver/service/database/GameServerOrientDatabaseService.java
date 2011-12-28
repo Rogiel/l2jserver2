@@ -70,8 +70,6 @@ public class GameServerOrientDatabaseService extends
 	private final VFSService vfsService;
 
 	/**
-	 * @param configService
-	 *            the config service
 	 * @param cacheService
 	 *            the cache service
 	 * @param threadService
@@ -82,10 +80,10 @@ public class GameServerOrientDatabaseService extends
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
 	@Inject
-	public GameServerOrientDatabaseService(ConfigurationService configService,
-			CacheService cacheService, ThreadService threadService,
-			final VFSService vfsService, DAOResolver daoResolver) {
-		super(configService, cacheService, threadService, daoResolver);
+	public GameServerOrientDatabaseService(CacheService cacheService,
+			ThreadService threadService, final VFSService vfsService,
+			DAOResolver daoResolver) {
+		super(cacheService, threadService, daoResolver);
 		this.vfsService = vfsService;
 	}
 
@@ -100,7 +98,8 @@ public class GameServerOrientDatabaseService extends
 		updateSchema(QLogChat.logChat);
 		if (updateSchema(QNPC.npc)) {
 			try {
-				importData(vfsService.resolveDataFile("static/npc.csv"), QNPC.npc);
+				importData(vfsService.resolveDataFile("static/npc.csv"),
+						QNPC.npc);
 			} catch (IOException e) {
 				throw new DatabaseException(e);
 			}

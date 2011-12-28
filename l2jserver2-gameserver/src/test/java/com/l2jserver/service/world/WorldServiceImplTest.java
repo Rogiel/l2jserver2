@@ -23,8 +23,8 @@ import org.junit.Test;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.l2jserver.GameServerModule;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
+import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.WorldObject;
@@ -36,6 +36,7 @@ import com.l2jserver.service.game.world.filter.impl.InstanceFilter;
 
 /**
  * Tests for {@link WorldServiceImpl}
+ * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public class WorldServiceImplTest {
@@ -50,11 +51,12 @@ public class WorldServiceImplTest {
 
 	/**
 	 * Preparation for tests
+	 * 
 	 * @throws ServiceStartException
 	 */
 	@Before
 	public void tearUp() throws ServiceStartException {
-		Injector injector = Guice.createInjector(new GameServerModule());
+		Injector injector = Guice.createInjector(new IDProviderModule());
 
 		world = injector.getInstance(ServiceManager.class).start(
 				WorldService.class);

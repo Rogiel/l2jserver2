@@ -22,26 +22,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
-import com.l2jserver.service.configuration.ConfigurationService;
 
 /**
  * Implementation of {@link VFSService} using default Java7 APIs.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Java7VFSService extends AbstractService implements VFSService {
+public class Java7VFSService extends
+		AbstractConfigurableService<Java7VFSConfiguration> implements
+		VFSService {
 	/**
 	 * The logger
 	 */
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-	/**
-	 * The Java 7 vfs configuration
-	 */
-	private final Java7VFSConfiguration config;
 
 	/**
 	 * The root {@link Path} of the server data
@@ -53,20 +49,11 @@ public class Java7VFSService extends AbstractService implements VFSService {
 	private Path dataRoot;
 
 	/**
-	 * Configuration interface for {@link Java7VFSService}.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface Java7VFSConfiguration extends VFSConfiguration {
-	}
-
-	/**
-	 * @param configService
-	 *            the configuration service
+	 * Creates a new instance
 	 */
 	@Inject
-	protected Java7VFSService(final ConfigurationService configService) {
-		this.config = configService.get(Java7VFSConfiguration.class);
+	public Java7VFSService() {
+		super(Java7VFSConfiguration.class);
 	}
 
 	@Override

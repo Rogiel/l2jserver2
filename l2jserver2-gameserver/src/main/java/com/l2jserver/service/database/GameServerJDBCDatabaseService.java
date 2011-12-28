@@ -76,8 +76,6 @@ import com.mysema.query.sql.types.EnumByNameType;
 public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 		implements DatabaseService {
 	/**
-	 * @param configService
-	 *            the config service
 	 * @param cacheService
 	 *            the cache service
 	 * @param threadService
@@ -88,11 +86,10 @@ public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
 	@Inject
-	public GameServerJDBCDatabaseService(ConfigurationService configService,
-			CacheService cacheService, ThreadService threadService,
-			VFSService vfsService, DAOResolver daoResolver) {
+	public GameServerJDBCDatabaseService(CacheService cacheService,
+			ThreadService threadService, VFSService vfsService,
+			DAOResolver daoResolver) {
 		super(
-				configService,
 				cacheService,
 				threadService,
 				vfsService,
@@ -120,7 +117,8 @@ public class GameServerJDBCDatabaseService extends AbstractSQLDatabaseService
 		updateSchema(QLogChat.logChat);
 		if (updateSchema(QNPC.npc)) {
 			try {
-				importData(vfsService.resolveDataFile("static/npc.csv"), QNPC.npc);
+				importData(vfsService.resolveDataFile("static/npc.csv"),
+						QNPC.npc);
 			} catch (IOException e) {
 				throw new DatabaseException(e);
 			}

@@ -16,8 +16,20 @@
  */
 package com.l2jserver;
 
+import java.io.IOException;
+import java.nio.file.Paths;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.DOMException;
+import org.xml.sax.SAXException;
+
+import com.google.inject.Guice;
+import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.ServiceException;
 import com.l2jserver.service.ServiceManager;
+import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
@@ -65,17 +77,38 @@ public class L2JGameServerMain {
 	 */
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		final L2JGameServer server = new L2JGameServer();
+		final ServiceManager serviceManager = new ServiceManager();
 		try {
-			final ServiceManager serviceManager = server.getInjector()
-					.getInstance(ServiceManager.class);
+			serviceManager.load(Paths.get("services.xml"));
+		} catch (ClassNotFoundException e) {
+			System.out.println("Service class not found: " + e.getMessage());
+			e.printStackTrace();
+			return;
+		} catch (SAXException | DOMException | IOException
+				| ParserConfigurationException e) {
+			System.out.println("Error parsing XML service descriptor");
+			e.printStackTrace();
+			return;
+		} catch (ServiceException e) {
+			System.out.println("Error loading XML service descriptor");
+			e.printStackTrace();
+			return;
+		}
+		try {
+			serviceManager.init(Guice.createInjector(new IDProviderModule(),
+					serviceManager.newGuiceModule()));
+		} catch (ServiceStartException e) {
+			System.out.println("Error stating basic services");
+			e.printStackTrace();
+			return;
+		}
 
+		try {
 			for (final Class<?>[] category : SERVICES) {
 				for (final Class<?> service : category) {
 					serviceManager.start((Class<? extends Service>) service);
 				}
 			}
-
 			Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 				@Override
 				public void run() {

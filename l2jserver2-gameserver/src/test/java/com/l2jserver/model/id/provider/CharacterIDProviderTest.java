@@ -28,7 +28,6 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.ServiceManager;
-import com.l2jserver.service.ServiceModule;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.JDBCDAOModule;
@@ -44,8 +43,8 @@ public class CharacterIDProviderTest {
 	/**
 	 * The {@link Guice} {@link Injector}
 	 */
-	private final Injector injector = Guice.createInjector(new ServiceModule(),
-			new JDBCDAOModule(), new IDProviderModule());
+	private final Injector injector = Guice.createInjector(new JDBCDAOModule(),
+			new IDProviderModule());
 	/**
 	 * The character id provider
 	 */
@@ -53,6 +52,7 @@ public class CharacterIDProviderTest {
 
 	/**
 	 * Prepares the test
+	 * 
 	 * @throws ServiceStartException
 	 */
 	@Before
@@ -86,6 +86,7 @@ public class CharacterIDProviderTest {
 
 	/**
 	 * Tests DAO aware ids
+	 * 
 	 * @throws ServiceStartException
 	 */
 	@Test

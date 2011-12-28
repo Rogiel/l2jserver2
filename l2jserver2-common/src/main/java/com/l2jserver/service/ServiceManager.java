@@ -16,14 +16,29 @@
  */
 package com.l2jserver.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Map;
 import java.util.Set;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.DOMException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
-import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Module;
+import com.google.inject.Scopes;
+import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
@@ -37,31 +52,89 @@ public class ServiceManager {
 	/**
 	 * The logger
 	 */
-	private final Logger logger;
+	private Logger logger;
 	/**
 	 * The Guice Injector
 	 */
-	private final Injector injector;
+	private Injector injector;
+	/**
+	 * The configuration service
+	 */
+	private ConfigurationService configurationService;
+	/**
+	 * The DAO module
+	 */
+	private Class<? extends Module> daoModule;
+
 	/**
 	 * List of all known services by this manager
 	 */
 	private final Set<Service> knownServices = CollectionFactory.newSet();
+	/**
+	 * The service descriptors
+	 */
+	private final Map<Class<? extends Service>, ServiceDescriptor<?>> descriptors = CollectionFactory
+			.newMap();
 
 	/**
-	 * @param injector
-	 *            the {@link Guice} {@link Injector}
+	 * @param file
+	 *            the XML file
+	 * @throws SAXException
+	 *             if any XML parsing error occur
+	 * @throws IOException
+	 *             if any error occur while reading the file
+	 * @throws ParserConfigurationException
+	 *             if any XML parsing error occur
+	 * @throws ClassNotFoundException
+	 *             if the service class could not be found
+	 * @throws DOMException
+	 *             if any XML parsing error occur
+	 * @throws ServiceException
+	 *             if any service error occur
 	 */
-	@Inject
-	public ServiceManager(Injector injector) {
+	@SuppressWarnings("unchecked")
+	public void load(Path file) throws SAXException, IOException,
+			ParserConfigurationException, ClassNotFoundException, DOMException,
+			ServiceException {
+		Document document = DocumentBuilderFactory.newInstance()
+				.newDocumentBuilder().parse(Files.newInputStream(file));
+
+		final Map<Class<? extends Service>, ServiceDescriptor<?>> descriptors = CollectionFactory
+				.newMap();
+		final NodeList nodeList = document.getElementsByTagName("service");
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			final Node node = nodeList.item(i);
+			final ServiceDescriptor<?> descriptor = ServiceDescriptor
+					.fromNode(node);
+			descriptors.put(descriptor.getServiceInterface(), descriptor);
+		}
+		final Node node = document.getElementsByTagName("dao").item(0);
+		if (node == null)
+			throw new ServiceException("DAO module declaration not found");
+		daoModule = (Class<? extends Module>) Class.forName(node
+				.getAttributes().getNamedItem("module").getNodeValue());
+
+		this.descriptors.putAll(descriptors);
+	}
+
+	/**
+	 * Initializes the service manager
+	 * 
+	 * @param injector
+	 *            the injector instance
+	 * @throws ServiceStartException
+	 *             if any error occur while starting logging or configuration
+	 *             service
+	 */
+	public void init(Injector injector) throws ServiceStartException {
 		this.injector = injector;
 		final LoggingService service = injector
 				.getInstance(LoggingService.class);
 		knownServices.add(service);
-		try {
-			service.start();
-		} catch (ServiceStartException e) {
-			throw new RuntimeException(e);
-		}
+		service.start();
+		configurationService = injector.getInstance(ConfigurationService.class);
+		knownServices.add(configurationService);
+		configurationService.start();
 		logger = LoggerFactory.getLogger(ServiceManager.class);
 	}
 
@@ -77,6 +150,17 @@ public class ServiceManager {
 	}
 
 	/**
+	 * @param serviceClass
+	 *            the service class
+	 * @return the {@link ServiceDescriptor} for the requested service
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends Service> ServiceDescriptor<T> getServiceDescriptor(
+			Class<T> serviceClass) {
+		return (ServiceDescriptor<T>) descriptors.get(serviceClass);
+	}
+
+	/**
 	 * Starts the given service implementation
 	 * 
 	 * @param <T>
@@ -87,6 +171,7 @@ public class ServiceManager {
 	 * @throws ServiceStartException
 	 *             if any error occur while starting service
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public <T extends Service> T start(Class<T> serviceClass)
 			throws ServiceStartException {
 		final T service = injector.getInstance(serviceClass);
@@ -99,6 +184,13 @@ public class ServiceManager {
 			startDependencies(service.getDependencies());
 			logger.debug("{}: Starting service...",
 					serviceClass.getSimpleName());
+			if (service instanceof ConfigurableService) {
+				final ServiceConfiguration config = configurationService
+						.getServiceConfiguration(
+								(ConfigurableService<?>) service,
+								(Class<? extends Service>) serviceClass);
+				((ConfigurableService) service).setConfiguration(config);
+			}
 			service.start();
 			logger.info("{} started", serviceClass.getSimpleName());
 			return service;
@@ -152,6 +244,9 @@ public class ServiceManager {
 			logger.debug("{0}: Stopping service...",
 					serviceClass.getSimpleName());
 			stopDependencies(service);
+			if (service instanceof ConfigurableService) {
+				((ConfigurableService<?>) service).setConfiguration(null);
+			}
 			service.stop();
 			logger.info("{0}: Service stopped!", serviceClass.getSimpleName());
 		} catch (ServiceStopException e) {
@@ -244,5 +339,30 @@ public class ServiceManager {
 					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		}
+	}
+
+	/**
+	 * @return a newly created {@link Guice} {@link Module} with all loaded
+	 *         services
+	 */
+	public Module newGuiceModule() {
+		return new AbstractModule() {
+			@Override
+			@SuppressWarnings("unchecked")
+			protected void configure() {
+				bind(ServiceManager.class).toInstance(ServiceManager.this);
+				try {
+					install(daoModule.newInstance());
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+				for (@SuppressWarnings("rawtypes")
+				final ServiceDescriptor descriptor : descriptors.values()) {
+					bind(descriptor.getServiceInterface()).to(
+							descriptor.getServiceImplementation()).in(
+							Scopes.SINGLETON);
+				}
+			}
+		};
 	}
 }

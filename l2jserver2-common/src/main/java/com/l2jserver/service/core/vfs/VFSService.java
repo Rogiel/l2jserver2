@@ -16,13 +16,9 @@
  */
 package com.l2jserver.service.core.vfs;
 
-import java.net.URI;
 import java.nio.file.Path;
 
 import com.l2jserver.service.Service;
-import com.l2jserver.service.ServiceConfiguration;
-import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
  * The VFS service is responsible for creating a Virtual File System that is
@@ -31,44 +27,6 @@ import com.l2jserver.service.configuration.XMLConfigurationService.Configuration
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface VFSService extends Service {
-	/**
-	 * VFS service configuration
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 * @see Configuration
-	 */
-	public interface VFSConfiguration extends ServiceConfiguration {
-		/**
-		 * @return the VFS root {@link URI}
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "")
-		@ConfigurationXPath("/configuration/services/vfs/root")
-		Path getRoot();
-
-		/**
-		 * @param root
-		 *            the new VFS root {@link URI}
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/vfs/root")
-		void setRoot(Path root);
-		
-		/**
-		 * @return the VFS root {@link URI}
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "")
-		@ConfigurationXPath("/configuration/services/vfs/data")
-		String getDataPath();
-
-		/**
-		 * @param data
-		 *            the new data root {@link URI}
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/vfs/data")
-		void setDataPath(String data);
-	}
-
 	/**
 	 * Resolves an file. If the file cannot be resolved, null will be returned.
 	 * <p>

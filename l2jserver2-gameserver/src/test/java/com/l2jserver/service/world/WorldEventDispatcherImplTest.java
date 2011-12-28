@@ -25,9 +25,9 @@ import org.junit.Test;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
-import com.l2jserver.GameServerModule;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
+import com.l2jserver.model.id.provider.IDProviderModule;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.item.ItemDropEvent;
@@ -74,7 +74,7 @@ public class WorldEventDispatcherImplTest {
 	@Before
 	public void tearUp() throws ServiceStartException {
 		Injector injector = Guice.createInjector(Stage.PRODUCTION,
-				new GameServerModule());
+				new IDProviderModule());
 
 		injector.getInstance(ServiceManager.class).start(WorldIDService.class);
 

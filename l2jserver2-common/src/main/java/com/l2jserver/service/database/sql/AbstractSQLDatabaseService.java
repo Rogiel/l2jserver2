@@ -43,13 +43,11 @@ import com.l2jserver.model.Model;
 import com.l2jserver.model.Model.ObjectDesire;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
-import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
@@ -101,12 +99,9 @@ import com.mysema.query.types.Path;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractSQLDatabaseService extends AbstractService
-		implements DatabaseService {
-	/**
-	 * The configuration object
-	 */
-	private final JDBCDatabaseConfiguration config;
+public abstract class AbstractSQLDatabaseService extends
+		AbstractConfigurableService<JDBCDatabaseConfiguration> implements
+		DatabaseService {
 	/**
 	 * The logger
 	 */
@@ -173,120 +168,6 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 	private final Type<?>[] sqlTypes;
 
 	/**
-	 * Configuration interface for {@link AbstractSQLDatabaseService}.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface JDBCDatabaseConfiguration extends DatabaseConfiguration {
-		/**
-		 * @return the jdbc url
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "jdbc:mysql://localhost/l2jserver2")
-		@ConfigurationXPath("/configuration/services/database/jdbc/url")
-		String getJdbcUrl();
-
-		/**
-		 * @param jdbcUrl
-		 *            the new jdbc url
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/url")
-		void setJdbcUrl(String jdbcUrl);
-
-		/**
-		 * @return the database engine class
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "com.l2jserver.service.database.sql.MySQLDatabaseEngine")
-		@ConfigurationXPath("/configuration/services/database/jdbc/engine")
-		Class<? extends DatabaseEngine> getDatabaseEngineClass();
-
-		/**
-		 * @param driver
-		 *            the new database engine class
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/engine")
-		void setDatabaseEngineClass(Class<? extends DatabaseEngine> driver);
-
-		/**
-		 * @return the jdbc database username
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "l2j")
-		@ConfigurationXPath("/configuration/services/database/jdbc/username")
-		String getUsername();
-
-		/**
-		 * @param username
-		 *            the jdbc database username
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/username")
-		void setUsername(String username);
-
-		/**
-		 * @return the jdbc database password
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "changeme")
-		@ConfigurationXPath("/configuration/services/database/jdbc/password")
-		String getPassword();
-
-		/**
-		 * @param password
-		 *            the jdbc database password
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/password")
-		void setPassword(String password);
-
-		/**
-		 * @return the maximum number of active connections
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "20")
-		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
-		int getMaxActiveConnections();
-
-		/**
-		 * @param password
-		 *            the maximum number of active connections
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/connections/active-maximum")
-		void setMaxActiveConnections(int password);
-
-		/**
-		 * @return the maximum number of idle connections
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "20")
-		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
-		int getMaxIdleConnections();
-
-		/**
-		 * @param password
-		 *            the maximum number of idle connections
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/connections/idle-maximum")
-		void setMaxIdleConnections(int password);
-
-		/**
-		 * @return the minimum number of idle connections
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "5")
-		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
-		int getMinIdleConnections();
-
-		/**
-		 * @param password
-		 *            the minimum number of idle connections
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/connections/idle-minimum")
-		void setMinIdleConnections(int password);
-	}
-
-	/**
-	 * @param configService
-	 *            the configuration service
 	 * @param cacheService
 	 *            the cache service
 	 * @param threadService
@@ -299,10 +180,10 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 	 *            the SQL mapping types
 	 */
 	@Inject
-	public AbstractSQLDatabaseService(ConfigurationService configService,
-			CacheService cacheService, ThreadService threadService,
-			VFSService vfsService, DAOResolver daoResolver, Type<?>... types) {
-		config = configService.get(JDBCDatabaseConfiguration.class);
+	public AbstractSQLDatabaseService(CacheService cacheService,
+			ThreadService threadService, VFSService vfsService,
+			DAOResolver daoResolver, Type<?>... types) {
+		super(JDBCDatabaseConfiguration.class);
 		this.cacheService = cacheService;
 		this.threadService = threadService;
 		this.vfsService = vfsService;
@@ -409,6 +290,7 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 		}
 		log.info("Importing {} to {}", path, entity);
 		try {
+			conn.setAutoCommit(false);
 			CSVUtils.parseCSV(path, new CSVMapProcessor<Long>() {
 				@Override
 				public Long process(final Map<String, String> map) {
@@ -433,8 +315,15 @@ public abstract class AbstractSQLDatabaseService extends AbstractService
 					return insert.execute();
 				}
 			});
+			conn.commit();
+		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+			}
 		} finally {
 			try {
+				conn.setAutoCommit(true);
 				conn.close();
 			} catch (SQLException e) {
 			}

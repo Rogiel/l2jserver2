@@ -22,9 +22,6 @@ import java.nio.file.Path;
 import com.l2jserver.model.Model;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.service.Service;
-import com.l2jserver.service.ServiceConfiguration;
-import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.mysema.query.sql.RelationalPath;
 import com.mysema.query.sql.RelationalPathBase;
@@ -45,29 +42,6 @@ import com.mysema.query.sql.RelationalPathBase;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface DatabaseService extends Service {
-	/**
-	 * Database service configuration
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 * @see Configuration
-	 */
-	public interface DatabaseConfiguration extends ServiceConfiguration {
-		/**
-		 * @return the update schema state
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "true")
-		@ConfigurationXPath("/configuration/services/database/automaticSchemaUpdate")
-		boolean isAutomaticSchemaUpdateEnabled();
-
-		/**
-		 * @param updateSchema
-		 *            the new uodate schema state
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/automaticSchemaUpdate")
-		void setUpdateSchema(boolean updateSchema);
-	}
-
 	/**
 	 * Executes several operations inside a single database transaction.
 	 * <p>

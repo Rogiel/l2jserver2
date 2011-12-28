@@ -35,13 +35,11 @@ import com.l2jserver.model.Model;
 import com.l2jserver.model.Model.ObjectDesire;
 import com.l2jserver.model.id.ID;
 import com.l2jserver.model.id.object.allocator.IDAllocator;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
-import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ScheduledAsyncFuture;
@@ -96,12 +94,9 @@ import com.orientechnologies.orient.core.tx.OTransaction;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public abstract class AbstractOrientDatabaseService extends AbstractService
-		implements DatabaseService {
-	/**
-	 * The configuration object
-	 */
-	private final OrientDatabaseConfiguration config;
+public abstract class AbstractOrientDatabaseService extends
+		AbstractConfigurableService<OrientDatabaseConfiguration> implements
+		DatabaseService {
 	/**
 	 * The logger
 	 */
@@ -136,60 +131,6 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 	private final ThreadLocal<ODatabaseDocumentTx> transaction = new ThreadLocal<ODatabaseDocumentTx>();
 
 	/**
-	 * Configuration interface for {@link AbstractOrientDatabaseService}.
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface OrientDatabaseConfiguration extends DatabaseConfiguration {
-		/**
-		 * @return the orientdb url
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "local:data/database")
-		@ConfigurationXPath("/configuration/services/database/orientdb/url")
-		String getUrl();
-
-		/**
-		 * @param url
-		 *            the new orientdb url
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/orientdb/url")
-		void setUrl(String url);
-
-		/**
-		 * @return the orientdb database username
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "admin")
-		@ConfigurationXPath("/configuration/services/database/orientdb/username")
-		String getUsername();
-
-		/**
-		 * @param username
-		 *            the orientdb database username
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/orientdb/username")
-		void setUsername(String username);
-
-		/**
-		 * @return the orientdb database password
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "admin")
-		@ConfigurationXPath("/configuration/services/database/orientdb/password")
-		String getPassword();
-
-		/**
-		 * @param password
-		 *            the jdbc database password
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/database/jdbc/password")
-		void setPassword(String password);
-	}
-
-	/**
-	 * @param configService
-	 *            the configuration service
 	 * @param cacheService
 	 *            the cache service
 	 * @param threadService
@@ -198,10 +139,10 @@ public abstract class AbstractOrientDatabaseService extends AbstractService
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
 	@Inject
-	public AbstractOrientDatabaseService(ConfigurationService configService,
+	public AbstractOrientDatabaseService(
 			CacheService cacheService, ThreadService threadService,
 			DAOResolver daoResolver) {
-		config = configService.get(OrientDatabaseConfiguration.class);
+		super(OrientDatabaseConfiguration.class);
 		this.cacheService = cacheService;
 		this.threadService = threadService;
 		this.daoResolver = daoResolver;

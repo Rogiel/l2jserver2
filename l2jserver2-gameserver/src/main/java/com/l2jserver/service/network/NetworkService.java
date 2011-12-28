@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.network;
 
-import java.net.InetSocketAddress;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.Lineage2Session;
@@ -25,9 +24,6 @@ import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
-import com.l2jserver.service.ServiceConfiguration;
-import com.l2jserver.service.configuration.Configuration;
-import com.l2jserver.service.configuration.XMLConfigurationService.ConfigurationXPath;
 
 /**
  * The network service is responsible for communicating the server with the game
@@ -66,32 +62,6 @@ import com.l2jserver.service.configuration.XMLConfigurationService.Configuration
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface NetworkService extends Service {
-	/**
-	 * The network {@link Configuration}
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	public interface NetworkConfiguration extends ServiceConfiguration {
-		/**
-		 * Get the server listen address
-		 * 
-		 * @return the listen address
-		 */
-		@ConfigurationPropertyGetter(defaultValue = "0.0.0.0:7777")
-		@ConfigurationXPath("/configuration/services/network/listen")
-		InetSocketAddress getListenAddress();
-
-		/**
-		 * Set the server listen address
-		 * 
-		 * @param addr
-		 *            the listen address
-		 */
-		@ConfigurationPropertySetter
-		@ConfigurationXPath("/configuration/services/network/listen")
-		void setListenAddress(InetSocketAddress addr);
-	}
-
 	/**
 	 * Registers a new client
 	 * 
