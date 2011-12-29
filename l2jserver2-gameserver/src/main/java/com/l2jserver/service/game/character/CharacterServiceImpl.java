@@ -199,7 +199,7 @@ public class CharacterServiceImpl extends
 			CharacterInvalidSexException, TooManyCharactersException {
 		if (!config.isCharacterCreationAllowed())
 			throw new CharacteCreationNotAllowedException();
-		if (characterDao.countByAccount(accountID) < config
+		if (characterDao.countByAccount(accountID) >= config
 				.getMaxCharactersPerAccount())
 			throw new TooManyCharactersException();
 
