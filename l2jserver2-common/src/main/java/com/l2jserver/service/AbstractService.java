@@ -21,12 +21,20 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * An abstract service implementing basic life-cycle methods.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public abstract class AbstractService implements Service {
+	/**
+	 * The service logger
+	 */
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	/**
 	 * Running state of a service
 	 */

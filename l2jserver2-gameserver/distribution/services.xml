@@ -96,7 +96,13 @@
 	<service interface="com.l2jserver.service.game.npc.NPCService"
 		implementation="com.l2jserver.service.game.npc.NPCServiceImpl" />
 	<service interface="com.l2jserver.service.game.item.ItemService"
-		implementation="com.l2jserver.service.game.item.ItemServiceImpl" />
+		implementation="com.l2jserver.service.game.item.ItemServiceImpl">
+		<!-- Whether drops are persisted in the database. Valid modes are: -->
+		<!-- ALL - All types of drops are stored into the database -->
+		<!-- CHARACTER_ONLY - Only items dropped by characters are stored in the database -->
+		<!-- NONE - None of the dropped items are saved into the database -->
+		<drop persistent="ALL" />
+	</service>
 	<service interface="com.l2jserver.service.game.world.WorldService"
 		implementation="com.l2jserver.service.game.world.WorldServiceImpl" />
 	<service interface="com.l2jserver.service.game.world.event.WorldEventDispatcher"

@@ -26,6 +26,7 @@ import com.l2jserver.util.transformer.impl.BooleanTransformer;
 import com.l2jserver.util.transformer.impl.ByteTransformer;
 import com.l2jserver.util.transformer.impl.ClassTransformer;
 import com.l2jserver.util.transformer.impl.DoubleTransformer;
+import com.l2jserver.util.transformer.impl.EnumTransformer;
 import com.l2jserver.util.transformer.impl.FileTransformer;
 import com.l2jserver.util.transformer.impl.FloatTransformer;
 import com.l2jserver.util.transformer.impl.InetSocketAddressTransformer;
@@ -77,6 +78,8 @@ public class TransformerFactory {
 			return URLTransformer.SHARED_INSTANCE;
 		} else if (type == Path.class) {
 			return PathTransformer.SHARED_INSTANCE;
+		} else if(type.isEnum()) {
+			return EnumTransformer.SHARED_INSTANCE;
 		}
 		return null;
 	}

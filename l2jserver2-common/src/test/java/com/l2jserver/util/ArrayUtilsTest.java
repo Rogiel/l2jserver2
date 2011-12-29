@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class ArrayUtilsTest extends ArrayUtils {
 	/**
-	 * Test for {@link ArrayUtils#copyArrayExcept(Class, Object[], Object...)}
+	 * Test for {@link ArrayUtils#copyArrayExcept(Object[], Object...)}
 	 */
 	@Test
 	public void testCopyArrayExcept() {
@@ -38,7 +38,7 @@ public class ArrayUtilsTest extends ArrayUtils {
 		final TestClass objC = new TestClass("c");
 
 		TestClass[] arr = new TestClass[] { objA, objB, objC };
-		TestClass[] selected = copyArrayExcept(TestClass[].class, arr, objB);
+		TestClass[] selected = copyArrayExcept(arr, objB);
 
 		System.out.println(Arrays.toString(selected));
 		Assert.assertTrue(Arrays.equals(new TestClass[] { objA, objC },

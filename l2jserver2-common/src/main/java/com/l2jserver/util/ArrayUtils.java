@@ -30,8 +30,6 @@ public class ArrayUtils {
 	/**
 	 * Copy an entire array except objects in <code>except</code> array.
 	 * 
-	 * @param type
-	 *            the array type
 	 * @param array
 	 *            the source array
 	 * @param except
@@ -39,8 +37,8 @@ public class ArrayUtils {
 	 * @return the copied array
 	 */
 	@SafeVarargs
-	public final static <T> T[] copyArrayExcept(Class<T[]> type, T[] array,
-			T... except) {
+	@SuppressWarnings("unchecked")
+	public final static <T> T[] copyArrayExcept(T[] array, T... except) {
 		final List<T> values = CollectionFactory.newList();
 		for (final T item : array) {
 			if (Arrays.binarySearch(except, item, new Comparator<T>() {
@@ -52,6 +50,6 @@ public class ArrayUtils {
 				values.add(item);
 			}
 		}
-		return Arrays.copyOf(values.toArray(), values.size(), type);
+		return (T[]) Arrays.copyOf(values.toArray(), values.size(), array.getClass());
 	}
 }

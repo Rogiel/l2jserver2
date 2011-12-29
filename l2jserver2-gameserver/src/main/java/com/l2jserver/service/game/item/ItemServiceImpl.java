@@ -33,7 +33,7 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 import com.l2jserver.model.world.item.ItemDropEvent;
 import com.l2jserver.model.world.item.ItemPickEvent;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
@@ -52,7 +52,9 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ SpawnService.class, DatabaseService.class })
-public class ItemServiceImpl extends AbstractService implements ItemService {
+public class ItemServiceImpl extends
+		AbstractConfigurableService<ItemServiceConfiguration> implements
+		ItemService {
 	/**
 	 * The item DAO
 	 */
@@ -88,6 +90,7 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 	@Inject
 	private ItemServiceImpl(ItemDAO itemDao, SpawnService spawnService,
 			WorldEventDispatcher eventDispatcher, ItemIDProvider itemIdProvider) {
+		super(ItemServiceConfiguration.class);
 		this.itemDao = itemDao;
 		this.spawnService = spawnService;
 		this.eventDispatcher = eventDispatcher;
@@ -96,6 +99,7 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 
 	@Override
 	protected void doStart() throws ServiceStartException {
+		logger.info("ItemService drop mode is {}", config.getItemDropMode());
 		items = itemDao.selectDroppedItems();
 		try {
 			for (final Item item : items) {
@@ -204,8 +208,8 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 				stackItems[items.length] = item;
 				try {
 					item = stack(stackItems);
-					Item[] deleteItems = ArrayUtils.copyArrayExcept(
-							Item[].class, stackItems, item);
+					Item[] deleteItems = ArrayUtils.copyArrayExcept(stackItems,
+							item);
 					destroy(deleteItems);
 					character.getInventory().add(item);
 				} catch (NonStackableItemsServiceException e) {
@@ -217,6 +221,11 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 
 			character.getInventory().add(item);
 			this.items.remove(item);
+
+			// removes transient state
+			if (item.equals(originalItem)
+					&& item.getObjectDesire() == ObjectDesire.TRANSIENT)
+				item.setObjectDesire(ObjectDesire.UPDATE);
 
 			itemDao.saveObjectsAsync(item);
 			if (!item.equals(originalItem)) {
@@ -254,9 +263,29 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
 				}
 			}
 
-			itemDao.saveObjectsAsync(item);
-			if (!item.equals(sourceItem)) {
-				itemDao.saveObjectsAsync(sourceItem);
+			boolean persist = true;
+			switch (config.getItemDropMode()) {
+			case ALL:
+				persist = true;
+				break;
+			case CHARACTER_ONLY:
+				persist = (actor instanceof L2Character);
+				break;
+			case NONE:
+				persist = false;
+				break;
+			}
+
+			if (persist) {
+				itemDao.saveObjectsAsync(item);
+				if (!item.equals(sourceItem)) {
+					itemDao.saveObjectsAsync(sourceItem);
+				}
+			} else {
+				if (item.equals(sourceItem)) {
+					itemDao.delete(item);
+					item.setObjectDesire(ObjectDesire.TRANSIENT);
+				}
 			}
 			items.add(item);
 
