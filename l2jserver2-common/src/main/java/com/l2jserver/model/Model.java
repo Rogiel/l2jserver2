@@ -99,6 +99,11 @@ public interface Model<T extends ID<?>> {
 		 * <p>
 		 * If tge object is not in the database nothing will happen.
 		 */
-		DELETE;
+		DELETE,
+		/**
+		 * The object is transient and is not meant to be inserted into the
+		 * database
+		 */
+		TRANSIENT;
 	}
 }

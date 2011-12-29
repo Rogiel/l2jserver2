@@ -24,7 +24,6 @@ import com.l2jserver.model.id.ID;
 import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
-import com.l2jserver.service.database.DatabaseService.TransactionExecutor;
 
 /**
  * Abstract DAO implementations. Store an instance of {@link DatabaseService}.
@@ -94,16 +93,11 @@ public abstract class AbstractDAO<T extends Model<?>, I extends ID<?>>
 	@Override
 	@SafeVarargs
 	public final int saveObjects(final T... objects) {
-		return database.transaction(new TransactionExecutor() {
-			@Override
-			public int perform() {
-				int rows = 0;
-				for (final T object : objects) {
-					rows += save(object);
-				}
-				return rows;
-			}
-		});
+		int rows = 0;
+		for (final T object : objects) {
+			rows += save(object);
+		}
+		return rows;
 	}
 
 	@Override

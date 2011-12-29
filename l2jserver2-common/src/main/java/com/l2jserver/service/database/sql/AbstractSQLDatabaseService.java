@@ -161,7 +161,7 @@ public abstract class AbstractSQLDatabaseService extends
 	/**
 	 * The connection used inside a transaction from multiple DAOs.
 	 */
-	private ThreadLocal<Connection> transactionalConnection = new ThreadLocal<>();
+	private ThreadLocal<Connection> transaction = new ThreadLocal<>();
 	/**
 	 * The {@link Type} that will be mapped by the querydsl.
 	 */
@@ -281,7 +281,7 @@ public abstract class AbstractSQLDatabaseService extends
 
 	@Override
 	public <M extends Model<?>, T extends RelationalPathBase<?>> void importData(
-			java.nio.file.Path path, final T entity) throws IOException {
+			final java.nio.file.Path path, final T entity) throws IOException {
 		final Connection conn;
 		try {
 			conn = dataSource.getConnection();
@@ -379,7 +379,7 @@ public abstract class AbstractSQLDatabaseService extends
 			try {
 				conn.setAutoCommit(false);
 
-				transactionalConnection.set(conn);
+				transaction.set(new TransactionIsolatedConnection(conn));
 				final int rows = executor.perform();
 
 				conn.commit();
@@ -388,8 +388,8 @@ public abstract class AbstractSQLDatabaseService extends
 				conn.rollback();
 				throw e;
 			} finally {
-				transactionalConnection.set(null);
-				transactionalConnection.remove();
+				transaction.set(null);
+				transaction.remove();
 				conn.setAutoCommit(true);
 				conn.close();
 			}
@@ -425,38 +425,20 @@ public abstract class AbstractSQLDatabaseService extends
 	public <T> T query(Query<T> query) throws DatabaseException {
 		Preconditions.checkNotNull(query, "query");
 		try {
-			boolean inTransaction = true;
-			Connection conn = transactionalConnection.get();
+			Connection conn = transaction.get();
 			if (conn == null) {
 				log.debug(
 						"Transactional connection for {} is not set, creating new connection",
 						query);
-				inTransaction = false;
 				conn = dataSource.getConnection();
 			}
 			log.debug("Executing query {} with {}", query, conn);
 			try {
-				if (!inTransaction) {
-					conn.setAutoCommit(false);
-				}
-				try {
-					return query
-							.query(engine.createSQLQueryFactory(conn), this);
-				} finally {
-					if (!inTransaction) {
-						conn.commit();
-					}
-				}
-			} catch (Exception e) {
-				if (!inTransaction) {
-					conn.rollback();
-				}
-				throw e;
+				return query.query(engine.createSQLQueryFactory(conn), this);
 			} finally {
-				if (!inTransaction) {
-					conn.setAutoCommit(true);
-					conn.close();
-				}
+				// transaction wrappers does not allow closing, so this is safe
+				// to do
+				conn.close();
 			}
 		} catch (Throwable e) {
 			log.error("Could not open database connection", e);
@@ -558,10 +540,28 @@ public abstract class AbstractSQLDatabaseService extends
 		 */
 		protected void updateDesire(Object object, ObjectDesire expected) {
 			if (object instanceof Model) {
-				if (((Model<?>) object).getObjectDesire() == expected) {
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-				}
+				if (((Model<?>) object).getObjectDesire() == ObjectDesire.TRANSIENT)
+					return;
+				if (((Model<?>) object).getObjectDesire() != expected)
+					return;
+				((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 			}
+		}
+
+		/**
+		 * Tests if the object desire is not {@link ObjectDesire#TRANSIENT}
+		 * 
+		 * @param object
+		 *            the object
+		 * @return true if the object desire is {@link ObjectDesire#TRANSIENT}
+		 */
+		protected boolean testDesire(Object object) {
+			if (object instanceof Model) {
+				if (((Model<?>) object).getObjectDesire() == ObjectDesire.TRANSIENT)
+					return true;
+				return false;
+			}
+			return false;
 		}
 	}
 
@@ -670,6 +670,9 @@ public abstract class AbstractSQLDatabaseService extends
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
+				if (testDesire(object))
+					continue;
+
 				final SQLInsertWritableDatabaseRow row = new SQLInsertWritableDatabaseRow(
 						factory.insert(entity));
 				mapper.insert(entity, object, row);
@@ -751,6 +754,9 @@ public abstract class AbstractSQLDatabaseService extends
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
+				if (testDesire(object))
+					continue;
+
 				final SQLUpdateWritableDatabaseRow row = new SQLUpdateWritableDatabaseRow(
 						factory.update(entity));
 				// maps query to the values
@@ -825,6 +831,9 @@ public abstract class AbstractSQLDatabaseService extends
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
+				if (testDesire(object))
+					continue;
+
 				final SQLDeleteClause delete = factory.delete(entity);
 				// maps query to the values
 				query(delete, object);

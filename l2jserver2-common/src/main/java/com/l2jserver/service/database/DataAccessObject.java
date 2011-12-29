@@ -142,8 +142,12 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int save(O object);
 
 	/**
-	 * Save several instances to the database using a transaction (if possible).
-	 * This method will only save if the object has changed.
+	 * Save several instances to the database. This method will only save if the
+	 * object has changed.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -152,8 +156,14 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int saveObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
-	 * Asynchronously save several instances to the database using a transaction
-	 * (if possible). This method will only save if the object has changed.
+	 * Asynchronously save several instances to the database. This method will
+	 * only save if the object has changed.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
+	 * Also note that this method should not be used inside transactions,
+	 * instead use {@link #saveObjects(Model...)}.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -185,8 +195,11 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int insert(O object);
 
 	/**
-	 * Inserts several instances in the database using a transaction (if
-	 * possible).
+	 * Inserts several instances in the database.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -195,8 +208,13 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int insertObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
-	 * Asynchronously insert several instances in the database using a
-	 * transaction (if possible).
+	 * Asynchronously insert several instances in the database.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
+	 * Also note that this method should not be used inside transactions,
+	 * instead use {@link #insertObjects(Model...)}.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -216,8 +234,11 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int update(O object);
 
 	/**
-	 * Updates several instances in the database using a transaction (if
-	 * possible).
+	 * Updates several instances in the database.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -226,8 +247,13 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int updateObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
-	 * Asynchronously update several instances in the database using a
-	 * transaction (if possible).
+	 * Asynchronously update several instances in the database.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
+	 * Also note that this method should not be used inside transactions,
+	 * instead use {@link #updateObjects(Model...)}.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -246,8 +272,11 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	void delete(O object);
 
 	/**
-	 * Deletes several instances in the database using an transaction (if
-	 * possible).
+	 * Deletes several instances in the database.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
 	 * 
 	 * @param objects
 	 *            the objects
@@ -256,8 +285,13 @@ public interface DataAccessObject<O extends Model<?>, I extends ID<?>> extends
 	int deleteObjects(@SuppressWarnings("unchecked") O... objects);
 
 	/**
-	 * Asynchronously delete several instances in the database using a
-	 * transaction (if possible).
+	 * Asynchronously delete several instances in the database.
+	 * <p>
+	 * <b>Important note</b>: operations are not performed inside an
+	 * transaction. If transactions are desired,
+	 * {@link DatabaseService#transaction(TransactionExecutor)} should be used.
+	 * Also note that this method should not be used inside transactions,
+	 * instead use {@link #deleteObjects(Model...)}.
 	 * 
 	 * @param objects
 	 *            the objects

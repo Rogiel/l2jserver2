@@ -77,18 +77,21 @@ public abstract class AbstractModel<T extends ID<?>> implements Model<T> {
 	 */
 	protected void desireUpdate() {
 		if (this.desire != ObjectDesire.INSERT
-				&& this.desire != ObjectDesire.DELETE) {
+				&& this.desire != ObjectDesire.DELETE
+				&& this.desire != ObjectDesire.TRANSIENT) {
 			log.debug("{} desires an update", this);
 			this.desire = ObjectDesire.UPDATE;
 		}
 	}
 
 	/**
-	 * Set this object desire to {@link Model.ObjectDesire#INSERT}. If the desire is
-	 * {@link Model.ObjectDesire#DELETE} the desire will not be changed.
+	 * Set this object desire to {@link Model.ObjectDesire#INSERT}. If the
+	 * desire is {@link Model.ObjectDesire#DELETE} the desire will not be
+	 * changed.
 	 */
 	protected void desireInsert() {
-		if (this.desire != ObjectDesire.DELETE) {
+		if (this.desire != ObjectDesire.DELETE
+				&& this.desire != ObjectDesire.TRANSIENT) {
 			log.debug("{} desires an insert", this);
 			this.desire = ObjectDesire.INSERT;
 		}

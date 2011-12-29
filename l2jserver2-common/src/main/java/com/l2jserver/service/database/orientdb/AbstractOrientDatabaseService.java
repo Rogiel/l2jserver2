@@ -139,9 +139,8 @@ public abstract class AbstractOrientDatabaseService extends
 	 *            the {@link DataAccessObject DAO} resolver
 	 */
 	@Inject
-	public AbstractOrientDatabaseService(
-			CacheService cacheService, ThreadService threadService,
-			DAOResolver daoResolver) {
+	public AbstractOrientDatabaseService(CacheService cacheService,
+			ThreadService threadService, DAOResolver daoResolver) {
 		super(OrientDatabaseConfiguration.class);
 		this.cacheService = cacheService;
 		this.threadService = threadService;
@@ -457,10 +456,28 @@ public abstract class AbstractOrientDatabaseService extends
 		 */
 		protected void updateDesire(Object object, ObjectDesire expected) {
 			if (object instanceof Model) {
-				if (((Model<?>) object).getObjectDesire() == expected) {
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-				}
+				if (((Model<?>) object).getObjectDesire() == ObjectDesire.TRANSIENT)
+					return;
+				if (((Model<?>) object).getObjectDesire() != expected)
+					return;
+				((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 			}
+		}
+		
+		/**
+		 * Tests if the object desire is not {@link ObjectDesire#TRANSIENT}
+		 * 
+		 * @param object
+		 *            the object
+		 * @return true if the object desire is {@link ObjectDesire#TRANSIENT}
+		 */
+		protected boolean testDesire(Object object) {
+			if (object instanceof Model) {
+				if (((Model<?>) object).getObjectDesire() == ObjectDesire.TRANSIENT)
+					return true;
+				return false;
+			}
+			return false;
 		}
 
 		/**
@@ -582,6 +599,9 @@ public abstract class AbstractOrientDatabaseService extends
 			final DocumentDatabaseRow row = new DocumentDatabaseRow();
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
+				if(testDesire(object))
+					continue;
+				
 				row.setDocument(new ODocument(database, entity.getTableName()));
 
 				mapper.insert(entity, object, row);
@@ -667,6 +687,8 @@ public abstract class AbstractOrientDatabaseService extends
 			final DocumentDatabaseRow row = new DocumentDatabaseRow();
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
+				if(testDesire(object))
+					continue;
 
 				List<ODocument> documents = database
 						.query(new ONativeSynchQuery<OQueryContextNative>(
@@ -755,6 +777,8 @@ public abstract class AbstractOrientDatabaseService extends
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
+				if(testDesire(object))
+					continue;
 
 				List<ODocument> documents = database
 						.query(new ONativeSynchQuery<OQueryContextNative>(
@@ -953,9 +977,7 @@ public abstract class AbstractOrientDatabaseService extends
 			if (object == null) {
 				object = mapper.select(entity, row);
 				updateCache(object, service);
-				if (object instanceof Model) {
-					((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-				}
+				updateDesire(object, ObjectDesire.INSERT);
 			}
 			return object;
 		}
@@ -999,9 +1021,7 @@ public abstract class AbstractOrientDatabaseService extends
 				if (object == null) {
 					object = mapper.select(entity, row);
 					updateCache(object, service);
-					if (object instanceof Model) {
-						((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
-					}
+					updateDesire(object, ObjectDesire.INSERT);
 				}
 				if (object != null)
 					results.add(object);
