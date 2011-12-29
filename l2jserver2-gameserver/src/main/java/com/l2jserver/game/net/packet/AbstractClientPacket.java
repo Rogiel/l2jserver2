@@ -16,6 +16,9 @@
  */
 package com.l2jserver.game.net.packet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * An abstract {@link ClientPacket}
  * 
@@ -23,4 +26,8 @@ package com.l2jserver.game.net.packet;
  * @see ClientPacket
  */
 public abstract class AbstractClientPacket implements ClientPacket {
+	/**
+	 * The packet {@link Logger} instance
+	 */
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 }

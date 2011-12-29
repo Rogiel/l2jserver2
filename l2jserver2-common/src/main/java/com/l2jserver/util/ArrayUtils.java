@@ -50,6 +50,22 @@ public class ArrayUtils {
 				values.add(item);
 			}
 		}
-		return (T[]) Arrays.copyOf(values.toArray(), values.size(), array.getClass());
+		return (T[]) Arrays.copyOf(values.toArray(), values.size(),
+				array.getClass());
+	}
+
+	/**
+	 * Searches for the <code>expected</code> item to be in the
+	 * <code>array</code>.
+	 * 
+	 * @param array
+	 *            the array to search in
+	 * @param expected
+	 *            the item to be looked in the array
+	 * @return <code>true</code> if the item exists, <code>false</code>
+	 *         otherwise
+	 */
+	public final static <T> boolean contains(T[] array, T expected) {
+		return Arrays.binarySearch(array, expected) >= 0;
 	}
 }

@@ -14,40 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet;
+package com.l2jserver.util.transformer.impl;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.l2jserver.util.transformer.Transformer;
 
 /**
- * An abstract {@link ServerPacket}
+ * This tranformer does nothing!
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see ServerPacket
  */
-public abstract class AbstractServerPacket implements ServerPacket {
+public class StringTransformer implements Transformer<String> {
 	/**
-	 * The packet {@link Logger} instance
+	 * This transformer shared instance
 	 */
-	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+	public static final StringTransformer SHARED_INSTANCE = new StringTransformer();
 
-	/**
-	 * The packet OPCODE
-	 */
-	private final int opcode;
-
-	/**
-	 * Creates a new instance of the packet
-	 * 
-	 * @param opcode
-	 *            the packet opcode
-	 */
-	public AbstractServerPacket(int opcode) {
-		this.opcode = opcode;
+	@Override
+	public String transform(Class<? extends String> type, String value) {
+		return value;
 	}
 
 	@Override
-	public int getOpcode() {
-		return opcode;
+	public String untransform(Class<? extends String> type, String value) {
+		return value;
 	}
+
 }

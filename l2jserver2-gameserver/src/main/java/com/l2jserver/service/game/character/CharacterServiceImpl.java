@@ -50,7 +50,7 @@ import com.l2jserver.model.world.character.event.CharacterStartMovingEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.game.AttackService;
 import com.l2jserver.service.game.npc.NPCService;
@@ -63,6 +63,7 @@ import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.WorldEventDispatcher;
 import com.l2jserver.service.network.broadcast.BroadcastService;
 import com.l2jserver.service.network.gameguard.GameGuardService;
+import com.l2jserver.util.ArrayUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
@@ -73,7 +74,8 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ WorldService.class, SpawnService.class, AttackService.class })
-public class CharacterServiceImpl extends AbstractService implements
+public class CharacterServiceImpl extends
+		AbstractConfigurableService<CharacterServiceConfiguration> implements
 		CharacterService {
 	/**
 	 * The logger
@@ -165,6 +167,7 @@ public class CharacterServiceImpl extends AbstractService implements
 			CharacterShortcutDAO shortcutDao,
 			CharacterTemplateIDProvider charTemplateIdProvider,
 			CharacterIDProvider charIdProvider) {
+		super(CharacterServiceConfiguration.class);
 		this.broadcastService = broadcastService;
 		this.eventDispatcher = eventDispatcher;
 		this.spawnService = spawnService;
@@ -178,12 +181,28 @@ public class CharacterServiceImpl extends AbstractService implements
 	}
 
 	@Override
+	public boolean canCreate(AccountID accountID) {
+		if (!config.isCharacterCreationAllowed())
+			return false;
+		return characterDao.selectByAccount(accountID).size() < config
+				.getMaxCharactersPerAccount();
+	}
+
+	@Override
 	public L2Character create(String name, AccountID accountID, ActorSex sex,
 			CharacterClass characterClass, CharacterHairStyle hairStyle,
 			CharacterHairColor hairColor, CharacterFace face)
 			throws CharacterInvalidNameException,
 			CharacterInvalidAppearanceException,
-			CharacterNameAlreadyExistsException {
+			CharacterNameAlreadyExistsException,
+			CharacteCreationNotAllowedException, CharacterInvalidRaceException,
+			CharacterInvalidSexException, TooManyCharactersException {
+		if (!config.isCharacterCreationAllowed())
+			throw new CharacteCreationNotAllowedException();
+		if(characterDao.selectByAccount(accountID).size() < config
+				.getMaxCharactersPerAccount())
+			throw new TooManyCharactersException();
+
 		log.debug(
 				"Requested creation of new character (name={}, sex={}, class={}, hairStyle={}, hairColor={}, face={})",
 				new Object[] { name, sex, characterClass, hairStyle, hairColor,
@@ -209,6 +228,13 @@ public class CharacterServiceImpl extends AbstractService implements
 		final CharacterTemplateID templateId = charTemplateIdProvider
 				.resolveID(characterClass.id);
 		final CharacterTemplate template = templateId.getTemplate();
+
+		if (!ArrayUtils.contains(config.getAllowedNewCharacterRaces(),
+				template.getRace()))
+			throw new CharacterInvalidRaceException();
+		if (!ArrayUtils.contains(config.getAllowedNewCharacterGenders(), sex))
+			throw new CharacterInvalidSexException();
+
 		log.debug("Creating character with template {}", template);
 
 		// everything is fine, allocate a new ID

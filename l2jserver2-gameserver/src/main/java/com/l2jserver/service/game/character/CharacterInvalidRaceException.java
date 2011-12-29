@@ -14,40 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.game.net.packet;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.l2jserver.service.game.character;
 
 /**
- * An abstract {@link ServerPacket}
+ * Exception thrown when the character creation does not allows the requested
+ * race
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
- * @see ServerPacket
  */
-public abstract class AbstractServerPacket implements ServerPacket {
+public class CharacterInvalidRaceException extends CharacterServiceException {
 	/**
-	 * The packet {@link Logger} instance
+	 * The Java Serialization API serial
 	 */
-	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	/**
-	 * The packet OPCODE
-	 */
-	private final int opcode;
-
-	/**
-	 * Creates a new instance of the packet
-	 * 
-	 * @param opcode
-	 *            the packet opcode
-	 */
-	public AbstractServerPacket(int opcode) {
-		this.opcode = opcode;
-	}
-
-	@Override
-	public int getOpcode() {
-		return opcode;
-	}
+	private static final long serialVersionUID = 1L;
 }

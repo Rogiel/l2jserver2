@@ -84,15 +84,25 @@ public class SM_CHAR_CREATE_FAIL extends AbstractServerPacket {
 		public final int id;
 
 		/**
-		 * @param id the reason id
+		 * @param id
+		 *            the reason id
 		 */
 		Reason(int id) {
 			this.id = id;
 		}
+
+		/**
+		 * @return an {@link SM_CHAR_CREATE_FAIL} instance for this enum
+		 *         constant
+		 */
+		public SM_CHAR_CREATE_FAIL newInstance() {
+			return new SM_CHAR_CREATE_FAIL(this);
+		}
 	}
 
 	/**
-	 * @param reason the reason
+	 * @param reason
+	 *            the reason
 	 */
 	public SM_CHAR_CREATE_FAIL(Reason reason) {
 		super(OPCODE);

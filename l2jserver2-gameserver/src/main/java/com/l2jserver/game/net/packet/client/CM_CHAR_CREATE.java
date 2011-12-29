@@ -16,12 +16,17 @@
  */
 package com.l2jserver.game.net.packet.client;
 
+import static com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason.REASON_16_ENG_CHARS;
+import static com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason.REASON_CHOOSE_ANOTHER_SVR;
+import static com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason.REASON_CREATION_FAILED;
+import static com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason.REASON_NAME_ALREADY_EXISTS;
+import static com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL.Reason.REASON_TOO_MANY_CHARACTERS;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.google.inject.Inject;
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractClientPacket;
-import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_FAIL;
 import com.l2jserver.game.net.packet.server.SM_CHAR_CREATE_OK;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.character.CharacterClass;
@@ -30,10 +35,14 @@ import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterFace;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairColor;
 import com.l2jserver.model.world.character.CharacterAppearance.CharacterHairStyle;
+import com.l2jserver.service.game.character.CharacteCreationNotAllowedException;
 import com.l2jserver.service.game.character.CharacterInvalidAppearanceException;
 import com.l2jserver.service.game.character.CharacterInvalidNameException;
+import com.l2jserver.service.game.character.CharacterInvalidRaceException;
+import com.l2jserver.service.game.character.CharacterInvalidSexException;
 import com.l2jserver.service.game.character.CharacterNameAlreadyExistsException;
 import com.l2jserver.service.game.character.CharacterService;
+import com.l2jserver.service.game.character.TooManyCharactersException;
 import com.l2jserver.util.BufferUtils;
 
 /**
@@ -126,7 +135,8 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 	private CharacterFace face;
 
 	/**
-	 * @param characterService the character service
+	 * @param characterService
+	 *            the character service
 	 */
 	@Inject
 	public CM_CHAR_CREATE(CharacterService characterService) {
@@ -162,17 +172,19 @@ public class CM_CHAR_CREATE extends AbstractClientPacket {
 			if (character != null)
 				conn.write(SM_CHAR_CREATE_OK.INSTANCE);
 			else
-				conn.write(new SM_CHAR_CREATE_FAIL(
-						SM_CHAR_CREATE_FAIL.Reason.REASON_CREATION_FAILED));
+				conn.write(REASON_CREATION_FAILED.newInstance());
 		} catch (CharacterInvalidNameException e) {
-			conn.write(new SM_CHAR_CREATE_FAIL(
-					SM_CHAR_CREATE_FAIL.Reason.REASON_16_ENG_CHARS));
+			conn.write(REASON_16_ENG_CHARS.newInstance());
 		} catch (CharacterInvalidAppearanceException e) {
-			conn.write(new SM_CHAR_CREATE_FAIL(
-					SM_CHAR_CREATE_FAIL.Reason.REASON_CREATION_FAILED));
+			conn.write(REASON_CREATION_FAILED.newInstance());
 		} catch (CharacterNameAlreadyExistsException e) {
-			conn.write(new SM_CHAR_CREATE_FAIL(
-					SM_CHAR_CREATE_FAIL.Reason.REASON_NAME_ALREADY_EXISTS));
+			conn.write(REASON_NAME_ALREADY_EXISTS.newInstance());
+		} catch (CharacteCreationNotAllowedException e) {
+			conn.write(REASON_CREATION_FAILED.newInstance());
+		} catch (CharacterInvalidRaceException | CharacterInvalidSexException e) {
+			conn.write(REASON_CHOOSE_ANOTHER_SVR.newInstance());
+		} catch (TooManyCharactersException e) {
+			conn.write(REASON_TOO_MANY_CHARACTERS.newInstance());
 		}
 	}
 }

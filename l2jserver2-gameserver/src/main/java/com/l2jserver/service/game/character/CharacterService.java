@@ -47,6 +47,16 @@ import com.l2jserver.util.geometry.Point3D;
  */
 public interface CharacterService extends Service {
 	/**
+	 * Checks whether the service and the given account can create new
+	 * characters on this server.
+	 * 
+	 * @param accountID
+	 *            the account ID
+	 * @return <code>true</code> if new characters are permitted
+	 */
+	boolean canCreate(AccountID accountID);
+
+	/**
 	 * 
 	 * @param name
 	 *            The name of the new character
@@ -70,13 +80,27 @@ public interface CharacterService extends Service {
 	 *             if the appearance sent by the client is not valid
 	 * @throws CharacterNameAlreadyExistsException
 	 *             the character name is already being used
+	 * @throws CharacteCreationNotAllowedException
+	 *             if the character creation is disabled or not allowed for the
+	 *             account
+	 * @throws CharacterInvalidRaceException
+	 *             if the service does not allow the creation of characters in
+	 *             the requested race
+	 * @throws CharacterInvalidSexException
+	 *             if the service does not allow the creation of characters in
+	 *             the requested sex
+	 * @throws TooManyCharactersException
+	 *             if the character limit has been exceeded and no more
+	 *             characters can be created on this account
 	 */
 	L2Character create(String name, AccountID accountID, ActorSex sex,
 			CharacterClass characterClass, CharacterHairStyle hairStyle,
 			CharacterHairColor hairColor, CharacterFace face)
 			throws CharacterInvalidNameException,
 			CharacterInvalidAppearanceException,
-			CharacterNameAlreadyExistsException;
+			CharacterNameAlreadyExistsException,
+			CharacteCreationNotAllowedException, CharacterInvalidRaceException,
+			CharacterInvalidSexException, TooManyCharactersException;
 
 	/**
 	 * Perform all operations required to this character join the world

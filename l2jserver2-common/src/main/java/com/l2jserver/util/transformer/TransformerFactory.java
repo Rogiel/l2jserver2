@@ -22,6 +22,7 @@ import java.net.URI;
 import java.net.URL;
 import java.nio.file.Path;
 
+import com.l2jserver.util.transformer.impl.ArrayTransformer;
 import com.l2jserver.util.transformer.impl.BooleanTransformer;
 import com.l2jserver.util.transformer.impl.ByteTransformer;
 import com.l2jserver.util.transformer.impl.ClassTransformer;
@@ -34,6 +35,7 @@ import com.l2jserver.util.transformer.impl.IntegerTransformer;
 import com.l2jserver.util.transformer.impl.LongTransformer;
 import com.l2jserver.util.transformer.impl.PathTransformer;
 import com.l2jserver.util.transformer.impl.ShortTransformer;
+import com.l2jserver.util.transformer.impl.StringTransformer;
 import com.l2jserver.util.transformer.impl.URITransformer;
 import com.l2jserver.util.transformer.impl.URLTransformer;
 
@@ -78,9 +80,12 @@ public class TransformerFactory {
 			return URLTransformer.SHARED_INSTANCE;
 		} else if (type == Path.class) {
 			return PathTransformer.SHARED_INSTANCE;
-		} else if(type.isEnum()) {
+		} else if (type.isEnum()) {
 			return EnumTransformer.SHARED_INSTANCE;
-		}
+		} else if(type.isArray()) {
+			return ArrayTransformer.SHARED_INSTANCE;
+		} else if (type == String.class)
+			return StringTransformer.SHARED_INSTANCE;
 		return null;
 	}
 }
