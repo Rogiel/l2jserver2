@@ -10,7 +10,11 @@
 	<!-- DAO Module configuration -->
 	<dao module="com.l2jserver.service.database.JDBCDAOModule" />
 
-	<!-- JDBC database service -->
+	<!-- ###################################################################### -->
+	<!-- ########################### CORE SERVICES ############################ -->
+	<!-- ###################################################################### -->
+	<!-- Those services provide basic core features and are required for server 
+		startup process -->
 	<service interface="com.l2jserver.service.database.DatabaseService"
 		implementation="com.l2jserver.service.database.GameServerJDBCDatabaseService">
 		<!-- Whether the database schema should be updated at startup -->
@@ -28,8 +32,6 @@
 			<pool max-active="20" max-idle="20" min-idle="5" />
 		</connection>
 	</service>
-
-	<!-- Virtual file system service -->
 	<service interface="com.l2jserver.service.core.vfs.VFSService"
 		implementation="com.l2jserver.service.core.vfs.TrueZipVFSService">
 		<!-- Configures the root of the server data. Where all the files are placed. -->
@@ -40,26 +42,12 @@
 			<data root="data/" />
 		</fileSystem>
 	</service>
-
-	<!-- Template service configuration -->
-	<service interface="com.l2jserver.service.game.template.TemplateService"
-		implementation="com.l2jserver.service.game.template.XMLTemplateService">
-		<!-- The root where template data is located. Relative to the "data file 
-			system" -->
-		<templates root="template/" />
-	</service>
-
-	<!-- Network service -->
-	<service interface="com.l2jserver.service.network.NetworkService"
-		implementation="com.l2jserver.service.network.NettyNetworkService">
-		<!-- The port in which the server should listen for incoming connections -->
-		<!-- NOTE: this port must be open manually on any firewall or router that 
-			is between you and other players. If you wish to play on the same machine 
-			you normally don't need to change anything here nor in the firewall. -->
-		<server listen="0.0.0.0:7777" />
-	</service>
-
-	<!-- Logging service -->
+	<service interface="com.l2jserver.service.core.threading.ThreadService"
+		implementation="com.l2jserver.service.core.threading.ThreadServiceImpl" />
+	<service interface="com.l2jserver.service.configuration.ConfigurationService"
+		implementation="com.l2jserver.service.configuration.XMLConfigurationService" />
+	<service interface="com.l2jserver.service.cache.CacheService"
+		implementation="com.l2jserver.service.cache.SoftCacheService" />
 	<service interface="com.l2jserver.service.core.LoggingService"
 		implementation="com.l2jserver.service.core.Log4JLoggingService">
 		<logger name="" level="ERROR" />
@@ -75,19 +63,6 @@
 		<logger name="com.l2jserver.model.id.object.allocator.BitSetIDAllocator"
 			level="INFO" />
 	</service>
-
-	<!-- ###################################################################### -->
-	<!-- ########################### CORE SERVICES ############################ -->
-	<!-- ###################################################################### -->
-	<!-- Those services provide basic core features and are required for server 
-		startup process -->
-	<service interface="com.l2jserver.service.core.threading.ThreadService"
-		implementation="com.l2jserver.service.core.threading.ThreadServiceImpl" />
-	<service interface="com.l2jserver.service.configuration.ConfigurationService"
-		implementation="com.l2jserver.service.configuration.XMLConfigurationService" />
-	<service interface="com.l2jserver.service.cache.CacheService"
-		implementation="com.l2jserver.service.cache.SoftCacheService" />
-
 
 	<!-- ###################################################################### -->
 	<!-- ########################### GAME SERVICES ############################ -->
@@ -144,7 +119,12 @@
 			in the system and configure the system accordingly, set it to 0 -->
 		<threading count="0" />
 	</service>
-
+	<service interface="com.l2jserver.service.game.template.TemplateService"
+		implementation="com.l2jserver.service.game.template.XMLTemplateService">
+		<!-- The root where template data is located. Relative to the "data file 
+			system" -->
+		<templates root="template/" />
+	</service>
 
 	<!-- ####################################################################### -->
 	<!-- ########################## NETWORK SERVICES ########################### -->
@@ -153,6 +133,14 @@
 		server software to the player computer running the game client. Although 
 		not required, without them, becomes impossible to connect to the server in 
 		order to play the game. -->
+	<service interface="com.l2jserver.service.network.NetworkService"
+		implementation="com.l2jserver.service.network.NettyNetworkService">
+		<!-- The port in which the server should listen for incoming connections -->
+		<!-- NOTE: this port must be open manually on any firewall or router that 
+			is between you and other players. If you wish to play on the same machine 
+			you normally don't need to change anything here nor in the firewall. -->
+		<server listen="0.0.0.0:7777" />
+	</service>
 	<service interface="com.l2jserver.service.network.keygen.BlowfishKeygenService"
 		implementation="com.l2jserver.service.network.keygen.SecureBlowfishKeygenService" />
 	<service interface="com.l2jserver.service.network.gameguard.GameGuardService"
