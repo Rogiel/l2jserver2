@@ -1069,7 +1069,7 @@ public abstract class AbstractOrientDatabaseService extends
 
 						@Override
 						public boolean filter(OQueryContextNative record) {
-							record = query(record);
+							record = query(record, entity);
 							if (record == null)
 								return true;
 							return record.go();
@@ -1084,8 +1084,11 @@ public abstract class AbstractOrientDatabaseService extends
 		 * 
 		 * @param record
 		 *            the document record
+		 * @param e
+		 *            the entity
 		 * @return the record instance or <code>null</code>
 		 */
-		protected abstract OQueryContextNative query(OQueryContextNative record);
+		protected abstract OQueryContextNative query(
+				OQueryContextNative record, E e);
 	}
 }

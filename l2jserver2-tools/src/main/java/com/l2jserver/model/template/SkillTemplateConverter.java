@@ -47,7 +47,6 @@ import com.l2jserver.util.factory.CollectionFactory;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
-@SuppressWarnings("restriction")
 public class SkillTemplateConverter {
 	private static final String JDBC_URL = "jdbc:mysql://localhost/l2jlegacy";
 	private static final String JDBC_USERNAME = "l2j";

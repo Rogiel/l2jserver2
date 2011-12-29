@@ -29,6 +29,7 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.mapper.CharacterMapper;
 import com.l2jserver.service.database.model.QCharacter;
 import com.l2jserver.service.database.orientdb.AbstractOrientDBDAO;
+import com.l2jserver.service.database.orientdb.AbstractOrientDatabaseService.CountQuery;
 import com.l2jserver.service.database.orientdb.AbstractOrientDatabaseService.DeleteQuery;
 import com.l2jserver.service.database.orientdb.AbstractOrientDatabaseService.InsertQuery;
 import com.l2jserver.service.database.orientdb.AbstractOrientDatabaseService.SelectListQuery;
@@ -118,6 +119,17 @@ public class OrientDBCharacterDAO extends
 	}
 
 	@Override
+	public int countByAccount(final AccountID account) {
+		return database.query(new CountQuery<QCharacter>(QCharacter.character) {
+			@Override
+			protected OQueryContextNative query(OQueryContextNative record,
+					QCharacter e) {
+				return record.field(name(e.accountId)).eq(account.getID());
+			}
+		});
+	}
+
+	@Override
 	public List<CharacterID> selectIDs() {
 		return database
 				.query(new SelectListQuery<CharacterID, Integer, CharacterID, QCharacter>(
@@ -145,7 +157,8 @@ public class OrientDBCharacterDAO extends
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					L2Character o) {
-				return record.field(name(entity.characterId)).eq(o.getID().getID());
+				return record.field(name(entity.characterId)).eq(
+						o.getID().getID());
 			}
 		});
 	}
@@ -157,7 +170,8 @@ public class OrientDBCharacterDAO extends
 			@Override
 			protected OQueryContextNative query(OQueryContextNative record,
 					L2Character o) {
-				return record.field(name(entity.characterId)).eq(o.getID().getID());
+				return record.field(name(entity.characterId)).eq(
+						o.getID().getID());
 			}
 		});
 	}

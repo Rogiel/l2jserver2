@@ -161,10 +161,10 @@ public class CharacterServiceImpl extends
 	 */
 	@Inject
 	public CharacterServiceImpl(BroadcastService broadcastService,
-			WorldEventDispatcherService eventDispatcher, SpawnService spawnService,
-			NPCService npcService, GameGuardService ggService,
-			CharacterDAO characterDao, ItemDAO itemDao,
-			CharacterShortcutDAO shortcutDao,
+			WorldEventDispatcherService eventDispatcher,
+			SpawnService spawnService, NPCService npcService,
+			GameGuardService ggService, CharacterDAO characterDao,
+			ItemDAO itemDao, CharacterShortcutDAO shortcutDao,
 			CharacterTemplateIDProvider charTemplateIdProvider,
 			CharacterIDProvider charIdProvider) {
 		super(CharacterServiceConfiguration.class);
@@ -184,7 +184,7 @@ public class CharacterServiceImpl extends
 	public boolean canCreate(AccountID accountID) {
 		if (!config.isCharacterCreationAllowed())
 			return false;
-		return characterDao.selectByAccount(accountID).size() < config
+		return characterDao.countByAccount(accountID) < config
 				.getMaxCharactersPerAccount();
 	}
 
@@ -199,7 +199,7 @@ public class CharacterServiceImpl extends
 			CharacterInvalidSexException, TooManyCharactersException {
 		if (!config.isCharacterCreationAllowed())
 			throw new CharacteCreationNotAllowedException();
-		if(characterDao.selectByAccount(accountID).size() < config
+		if (characterDao.countByAccount(accountID) < config
 				.getMaxCharactersPerAccount())
 			throw new TooManyCharactersException();
 

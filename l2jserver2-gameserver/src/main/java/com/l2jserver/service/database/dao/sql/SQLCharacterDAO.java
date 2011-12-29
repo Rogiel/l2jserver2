@@ -29,6 +29,7 @@ import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.database.mapper.CharacterMapper;
 import com.l2jserver.service.database.model.QCharacter;
 import com.l2jserver.service.database.sql.AbstractSQLDAO;
+import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.CountQuery;
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.DeleteQuery;
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.InsertQuery;
 import com.l2jserver.service.database.sql.AbstractSQLDatabaseService.SelectListQuery;
@@ -111,6 +112,16 @@ public class SQLCharacterDAO extends AbstractSQLDAO<L2Character, CharacterID>
 						q.where(e.accountId.eq(account.getID()));
 					}
 				});
+	}
+
+	@Override
+	public int countByAccount(final AccountID account) {
+		return database.query(new CountQuery<QCharacter>(QCharacter.character) {
+			@Override
+			protected void query(AbstractSQLQuery<?> q, QCharacter e) {
+				q.where(e.accountId.eq(account.getID()));
+			}
+		});
 	}
 
 	@Override

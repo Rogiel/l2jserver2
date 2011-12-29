@@ -58,4 +58,13 @@ public interface CharacterDAO extends
 	 *         characters.
 	 */
 	List<L2Character> selectByAccount(AccountID account);
+
+	/**
+	 * Counts the amount of characters for an given <code>account</code>.
+	 * 
+	 * @param account
+	 *            the account id
+	 * @return the number of characters for that <code>account</code>
+	 */
+	int countByAccount(AccountID account);
 }
