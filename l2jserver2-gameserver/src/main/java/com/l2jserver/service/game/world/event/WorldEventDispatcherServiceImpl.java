@@ -23,30 +23,26 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.common.base.Preconditions;
 import com.google.common.util.concurrent.AbstractFuture;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.service.AbstractConfigurableService;
+import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.threading.ThreadPool;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
- * Default {@link WorldEventDispatcher} implementation
+ * Default {@link WorldEventDispatcherService} implementation
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class WorldEventDispatcherImpl implements WorldEventDispatcher {
-	/**
-	 * The logger
-	 */
-	private static final Logger log = LoggerFactory
-			.getLogger(WorldEventDispatcherImpl.class);
-
+@Depends(ThreadService.class)
+public class WorldEventDispatcherServiceImpl extends
+		AbstractConfigurableService<WorldEventDispatcherServiceConfiguration>
+		implements WorldEventDispatcherService {
 	/**
 	 * The thread service
 	 */
@@ -77,15 +73,20 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	 *            the thread service
 	 */
 	@Inject
-	public WorldEventDispatcherImpl(ThreadService threadService) {
+	public WorldEventDispatcherServiceImpl(ThreadService threadService) {
+		super(WorldEventDispatcherServiceConfiguration.class);
 		this.threadService = threadService;
 	}
 
 	/**
 	 * Stats the world event dispatcher
 	 */
-	public void start() {
-		final int threads = Runtime.getRuntime().availableProcessors();
+	@Override
+	public void doStart() {
+		int threads = config.getDispatcherThreadCount();
+		if (threads <= 0)
+			threads = Runtime.getRuntime().availableProcessors();
+
 		threadPool = threadService
 				.createThreadPool("event-dispatcher", threads);
 		for (int i = 0; i < threads; i++) {
@@ -99,7 +100,8 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 								if (event.future.isCancelled())
 									continue;
 
-								log.debug("Dispatching event {}", event.event);
+								logger.debug("Dispatching event {}",
+										event.event);
 
 								// set state
 								event.future.running = true;
@@ -111,7 +113,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 								event.future.set(event.event);
 							} catch (Throwable t) {
 								event.future.setException(t);
-								log.warn(
+								logger.warn(
 										"Exception in WorldEventDispatcher thread",
 										t);
 							}
@@ -125,7 +127,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	@Override
 	public <E extends WorldEvent> WorldEventFuture<E> dispatch(final E event) {
 		Preconditions.checkNotNull(event, "event");
-		log.debug("Queing dispatch for event {}", event);
+		logger.debug("Queing dispatch for event {}", event);
 
 		final WorldEventFutureImpl<E> future = new WorldEventFutureImpl<E>();
 		events.add(new EventContainer(event, future));
@@ -149,7 +151,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 						// remove listener if return value is false
 						globalListeners.remove(listener);
 				} catch (Throwable t) {
-					log.warn("Exception in listener", t);
+					logger.warn("Exception in listener", t);
 					// always remove any listener that throws an exception
 					globalListeners.remove(listener);
 				}
@@ -161,7 +163,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 						// remove listener if return value is false
 						listeners.remove(listener);
 				} catch (Throwable t) {
-					log.warn("Exception in listener", t);
+					logger.warn("Exception in listener", t);
 					// always remove any listener that throws an exception
 					listeners.remove(listener);
 				}
@@ -172,7 +174,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	@Override
 	public void addListener(WorldListener listener) {
 		Preconditions.checkNotNull(listener, "listener");
-		log.debug("Adding new listener global {}", listener);
+		logger.debug("Adding new listener global {}", listener);
 		globalListeners.add(listener);
 	}
 
@@ -187,7 +189,7 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	public void addListener(ObjectID<?> id, WorldListener listener) {
 		Preconditions.checkNotNull(id, "id");
 		Preconditions.checkNotNull(listener, "listener");
-		log.debug("Adding new listener {} to {}", listener, id);
+		logger.debug("Adding new listener {} to {}", listener, id);
 		getListeners(id).add(listener);
 	}
 
@@ -208,16 +210,11 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	public void removeListener(ObjectID<?> id, WorldListener listener) {
 		Preconditions.checkNotNull(id, "id");
 		Preconditions.checkNotNull(listener, "listener");
-		log.debug("Removing new listener {} from {}", listener, id);
+		logger.debug("Removing new listener {} from {}", listener, id);
 		getListeners(id).remove(listener);
 	}
 
-	/**
-	 * Removes all listeners from a given object
-	 * 
-	 * @param id
-	 *            the object id
-	 */
+	@Override
 	public void clear(ObjectID<?> id) {
 		Preconditions.checkNotNull(id, "id");
 		listeners.remove(id);
@@ -244,7 +241,8 @@ public class WorldEventDispatcherImpl implements WorldEventDispatcher {
 	/**
 	 * Stops the world event dispatcher
 	 */
-	public void stop() {
+	@Override
+	public void doStop() {
 		threadService.dispose(threadPool);
 		threadPool = null;
 	}

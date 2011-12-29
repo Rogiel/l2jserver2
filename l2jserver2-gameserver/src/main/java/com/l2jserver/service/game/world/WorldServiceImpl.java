@@ -36,8 +36,7 @@ import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
-import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.service.game.world.filter.FilterIterator;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 import com.l2jserver.service.game.world.filter.impl.IDFilter;
@@ -51,7 +50,8 @@ import com.l2jserver.util.factory.CollectionFactory;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 @Depends({ LoggingService.class, TemplateService.class, ScriptingService.class,
-		DatabaseService.class, WorldIDService.class })
+		DatabaseService.class, WorldIDService.class,
+		WorldEventDispatcherService.class })
 public class WorldServiceImpl extends AbstractService implements WorldService {
 	/**
 	 * The logger
@@ -66,7 +66,7 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	/**
 	 * The world event dispatcher
 	 */
-	private final WorldEventDispatcherImpl dispatcher;
+	private final WorldEventDispatcherService dispatcher;
 	/**
 	 * The {@link WorldIDService}
 	 */
@@ -79,9 +79,9 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	 *            the world id service
 	 */
 	@Inject
-	public WorldServiceImpl(WorldEventDispatcher dispatcher,
+	public WorldServiceImpl(WorldEventDispatcherService dispatcher,
 			WorldIDService idService) {
-		this.dispatcher = (WorldEventDispatcherImpl) dispatcher;
+		this.dispatcher = dispatcher;
 		this.idService = idService;
 	}
 
@@ -89,7 +89,6 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	protected void doStart() throws ServiceStartException {
 		objects.clear();
 		idService.load();
-		dispatcher.start();
 	}
 
 	@Override
@@ -140,11 +139,6 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	}
 
 	@Override
-	public WorldEventDispatcher getEventDispatcher() {
-		return dispatcher;
-	}
-
-	@Override
 	public <T extends WorldObject> List<T> list(WorldObjectFilter<T> filter) {
 		Preconditions.checkNotNull(filter, "filter");
 		log.debug("Listing objects with filter {}", filter);
@@ -190,6 +184,5 @@ public class WorldServiceImpl extends AbstractService implements WorldService {
 	protected void doStop() throws ServiceStopException {
 		objects.clear();
 		idService.unload();
-		dispatcher.stop();
 	}
 }

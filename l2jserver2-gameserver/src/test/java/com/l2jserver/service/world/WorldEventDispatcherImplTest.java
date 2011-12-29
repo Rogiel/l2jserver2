@@ -40,11 +40,11 @@ import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.game.world.WorldIDService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
-import com.l2jserver.service.game.world.event.WorldEventDispatcherImpl;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherServiceImpl;
 
 /**
- * Test for {@link WorldEventDispatcherImpl}
+ * Test for {@link WorldEventDispatcherServiceImpl}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
@@ -56,7 +56,7 @@ public class WorldEventDispatcherImplTest {
 	/**
 	 * The dispatcher
 	 */
-	private WorldEventDispatcher dispatcher;
+	private WorldEventDispatcherService dispatcher;
 
 	/**
 	 * The character id provider
@@ -82,7 +82,7 @@ public class WorldEventDispatcherImplTest {
 		iidFactory = injector.getInstance(ItemIDProvider.class);
 
 		world = injector.getInstance(WorldService.class);
-		dispatcher = injector.getInstance(WorldEventDispatcher.class);
+		dispatcher = injector.getInstance(WorldEventDispatcherService.class);
 		Assert.assertNotNull(world);
 		Assert.assertNotNull(dispatcher);
 		world.start();

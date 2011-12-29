@@ -44,7 +44,7 @@ import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.util.ArrayUtils;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -66,7 +66,7 @@ public class ItemServiceImpl extends
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 	/**
 	 * The {@link ItemID} provider
 	 */
@@ -89,7 +89,7 @@ public class ItemServiceImpl extends
 	 */
 	@Inject
 	private ItemServiceImpl(ItemDAO itemDao, SpawnService spawnService,
-			WorldEventDispatcher eventDispatcher, ItemIDProvider itemIdProvider) {
+			WorldEventDispatcherService eventDispatcher, ItemIDProvider itemIdProvider) {
 		super(ItemServiceConfiguration.class);
 		this.itemDao = itemDao;
 		this.spawnService = spawnService;

@@ -40,7 +40,7 @@ import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -63,7 +63,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 	/**
 	 * The {@link ThreadService}
 	 */
@@ -79,7 +79,7 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	 */
 	@Inject
 	public SpawnServiceImpl(WorldService worldService,
-			WorldEventDispatcher eventDispatcher, ThreadService threadService) {
+			WorldEventDispatcherService eventDispatcher, ThreadService threadService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.threadService = threadService;

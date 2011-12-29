@@ -18,6 +18,7 @@ package com.l2jserver.service.game.world.event;
 
 import com.l2jserver.model.id.ObjectID;
 import com.l2jserver.model.world.WorldObject;
+import com.l2jserver.service.Service;
 
 /**
  * This event dispatcher notify listeners that an certain event occured in their
@@ -25,7 +26,7 @@ import com.l2jserver.model.world.WorldObject;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface WorldEventDispatcher {
+public interface WorldEventDispatcherService extends Service {
 	/**
 	 * Notify listeners of the <tt>event</tt>. Note that not all implementation
 	 * need to invoke listeners immediately. Dispatching <b>can</b> occur
@@ -95,4 +96,12 @@ public interface WorldEventDispatcher {
 	 *            the listener
 	 */
 	void removeListener(ObjectID<?> id, WorldListener listener);
+	
+	/**
+	 * Removes all listeners from a given object
+	 * 
+	 * @param id
+	 *            the object id
+	 */
+	public void clear(ObjectID<?> id);
 }

@@ -60,7 +60,7 @@ import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.service.network.broadcast.BroadcastService;
 import com.l2jserver.service.network.gameguard.GameGuardService;
 import com.l2jserver.util.ArrayUtils;
@@ -90,7 +90,7 @@ public class CharacterServiceImpl extends
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 	/**
 	 * The {@link SpawnService}
 	 */
@@ -161,7 +161,7 @@ public class CharacterServiceImpl extends
 	 */
 	@Inject
 	public CharacterServiceImpl(BroadcastService broadcastService,
-			WorldEventDispatcher eventDispatcher, SpawnService spawnService,
+			WorldEventDispatcherService eventDispatcher, SpawnService spawnService,
 			NPCService npcService, GameGuardService ggService,
 			CharacterDAO characterDao, ItemDAO itemDao,
 			CharacterShortcutDAO shortcutDao,

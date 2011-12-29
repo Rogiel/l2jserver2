@@ -53,7 +53,7 @@ import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.util.exception.L2Exception;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.geometry.Point3D;
@@ -93,7 +93,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 	/**
 	 * The {@link NPCDAO}
 	 */
@@ -134,7 +134,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
 			CharacterService characterService, ThreadService threadService,
-			AttackService attackService, WorldEventDispatcher eventDispatcher,
+			AttackService attackService, WorldEventDispatcherService eventDispatcher,
 			NPCDAO npcDao, Injector injector) {
 		this.spawnService = spawnService;
 		this.characterService = characterService;

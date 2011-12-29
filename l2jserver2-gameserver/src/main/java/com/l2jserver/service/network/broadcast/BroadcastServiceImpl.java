@@ -81,7 +81,7 @@ import com.l2jserver.service.game.chat.ChatService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.FilteredWorldListener;
 import com.l2jserver.service.game.world.event.WorldEvent;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.service.game.world.event.WorldListener;
 import com.l2jserver.service.game.world.filter.impl.KnownListFilter;
 import com.l2jserver.service.game.world.filter.impl.KnownListUpdateFilter;
@@ -115,7 +115,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 	/**
 	 * The world service event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 
 	/**
 	 * @param worldService
@@ -130,7 +130,7 @@ public class BroadcastServiceImpl extends AbstractService implements
 	@Inject
 	public BroadcastServiceImpl(WorldService worldService,
 			ChatService chatService, NetworkService networkService,
-			WorldEventDispatcher eventDispatcher) {
+			WorldEventDispatcherService eventDispatcher) {
 		this.worldService = worldService;
 		this.chatService = chatService;
 		this.networkService = networkService;

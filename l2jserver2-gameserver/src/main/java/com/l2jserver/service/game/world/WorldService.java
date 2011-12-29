@@ -25,7 +25,7 @@ import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.PositionableObject;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.Service;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.service.game.world.filter.WorldObjectFilter;
 import com.l2jserver.service.network.broadcast.BroadcastService;
 
@@ -38,7 +38,7 @@ import com.l2jserver.service.network.broadcast.BroadcastService;
  * this service and it can be broadcasted (using {@link BroadcastService}) to
  * all nearby clients (see {@link Lineage2Client}).
  * <h1>Other tasks</h1> World event dispatching is handled by
- * {@link WorldEventDispatcher}.
+ * {@link WorldEventDispatcherService}.
  * <p>
  * {@link ObjectID} object management is done through {@link WorldIDService}
  * that can be used to cache those IDs.
@@ -111,13 +111,6 @@ public interface WorldService extends Service, Iterable<WorldObject> {
 		 */
 		void knownObject(WorldObject object);
 	}
-
-	/**
-	 * Get the event dispatcher
-	 * 
-	 * @return the event dispatcher
-	 */
-	WorldEventDispatcher getEventDispatcher();
 
 	/**
 	 * Creates a list of all objects matching <tt>filter</tt>

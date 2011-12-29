@@ -21,7 +21,7 @@ import com.l2jserver.game.ai.desires.Desire;
 import com.l2jserver.game.ai.desires.DesireQueue;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -42,7 +42,7 @@ public abstract class AI<T extends Actor> {
 	 * The {@link WorldService} event dispatcher
 	 */
 	@Inject
-	protected WorldEventDispatcher eventDispatcher;
+	protected WorldEventDispatcherService eventDispatcher;
 
 	/**
 	 * Creates a new AI

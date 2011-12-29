@@ -113,8 +113,16 @@
 	</service>
 	<service interface="com.l2jserver.service.game.world.WorldService"
 		implementation="com.l2jserver.service.game.world.WorldServiceImpl" />
-	<service interface="com.l2jserver.service.game.world.event.WorldEventDispatcher"
-		implementation="com.l2jserver.service.game.world.event.WorldEventDispatcherImpl" />
+	<service
+		interface="com.l2jserver.service.game.world.event.WorldEventDispatcherService"
+		implementation="com.l2jserver.service.game.world.event.WorldEventDispatcherServiceImpl">
+		<!-- The amount of dispatching threads to use. You should not set it to 
+			a value higher than the number of processor cores on your system. Doing so, 
+			might result in performance loss instead of increase. -->
+		<!-- If you wish the system to automatically determine the number of cores 
+			in the system and configure the system accordingly, set it to 0 -->
+		<threading count="0" />
+	</service>
 
 
 	<!-- ####################################################################### -->

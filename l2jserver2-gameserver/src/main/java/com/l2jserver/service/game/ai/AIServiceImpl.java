@@ -28,7 +28,7 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.service.network.NetworkService;
 import com.l2jserver.util.geometry.Coordinate;
 
@@ -55,7 +55,7 @@ public class AIServiceImpl extends AbstractService implements AIService {
 	 * The {@link WorldService} event dispatcher
 	 */
 	@SuppressWarnings("unused")
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 	/**
 	 * The {@link ThreadService}
 	 */
@@ -79,7 +79,7 @@ public class AIServiceImpl extends AbstractService implements AIService {
 	 */
 	@Inject
 	public AIServiceImpl(WorldService worldService,
-			WorldEventDispatcher eventDispatcher, ThreadService threadService,
+			WorldEventDispatcherService eventDispatcher, ThreadService threadService,
 			NetworkService networkService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;

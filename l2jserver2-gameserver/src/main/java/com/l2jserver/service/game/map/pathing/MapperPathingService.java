@@ -38,7 +38,7 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.TypedWorldListener;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 import com.l2jserver.util.geometry.Coordinate;
 import com.l2jserver.util.geometry.Point3D;
 
@@ -69,7 +69,7 @@ public class MapperPathingService extends AbstractService implements
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 
 	/**
 	 * The database channel, will remain open until service is stopped.
@@ -83,7 +83,7 @@ public class MapperPathingService extends AbstractService implements
 	 *            the world event dispatcher
 	 */
 	@Inject
-	public MapperPathingService(WorldEventDispatcher eventDispatcher) {
+	public MapperPathingService(WorldEventDispatcherService eventDispatcher) {
 		this.eventDispatcher = eventDispatcher;
 	}
 

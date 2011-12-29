@@ -37,7 +37,7 @@ import com.l2jserver.service.core.threading.AbstractTask;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.npc.NPCService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -64,10 +64,10 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	private final NPCService npcService;
 
 	/**
-	 * The {@link WorldEventDispatcher} is used to dispatch attack events to the
+	 * The {@link WorldEventDispatcherService} is used to dispatch attack events to the
 	 * world
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 
 	/**
 	 * @param threadService
@@ -79,7 +79,7 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	 */
 	@Inject
 	public AttackServiceImpl(ThreadService threadService,
-			NPCService npcService, WorldEventDispatcher eventDispatcher) {
+			NPCService npcService, WorldEventDispatcherService eventDispatcher) {
 		this.threadService = threadService;
 		this.npcService = npcService;
 		this.eventDispatcher = eventDispatcher;

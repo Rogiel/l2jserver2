@@ -27,7 +27,7 @@ import com.l2jserver.model.world.character.event.CharacterCreateShortcutEvent;
 import com.l2jserver.model.world.character.event.CharacterDeleteShortcutEvent;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.game.world.WorldService;
-import com.l2jserver.service.game.world.event.WorldEventDispatcher;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherService;
 
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
@@ -37,7 +37,7 @@ public class ShortcutServiceImpl extends AbstractService implements
 	/**
 	 * The {@link WorldService} event dispatcher
 	 */
-	private final WorldEventDispatcher eventDispatcher;
+	private final WorldEventDispatcherService eventDispatcher;
 	/**
 	 * The {@link CharacterShortcut} DAO
 	 */
@@ -50,7 +50,7 @@ public class ShortcutServiceImpl extends AbstractService implements
 	 *            the shortcut DAO
 	 */
 	@Inject
-	private ShortcutServiceImpl(WorldEventDispatcher eventDispatcher,
+	private ShortcutServiceImpl(WorldEventDispatcherService eventDispatcher,
 			CharacterShortcutDAO shortcutDao) {
 		this.eventDispatcher = eventDispatcher;
 		this.shortcutDao = shortcutDao;
