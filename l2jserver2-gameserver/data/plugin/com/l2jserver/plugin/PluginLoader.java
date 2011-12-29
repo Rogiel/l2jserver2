@@ -48,9 +48,9 @@ public class PluginLoader implements Loader, Unloader {
 	 * @return list of Template classes to load/unload
 	 */
 	@SuppressWarnings({ "unchecked", "unused" })
-	private static Set<Class<? extends Template<?>>> getSuitableClasses(
+	private static Set<Class<? extends Template>> getSuitableClasses(
 			Class<?>[] classes) {
-		final Set<Class<? extends Template<?>>> suitable = CollectionFactory
+		final Set<Class<? extends Template>> suitable = CollectionFactory
 				.newSet();
 		for (Class<?> clazz : classes) {
 			if (!ClassUtils.isSubclass(clazz, Template.class))
@@ -63,7 +63,7 @@ public class PluginLoader implements Loader, Unloader {
 			if (clazz.isAnnotationPresent(DisabledPlugin.class))
 				continue;
 
-			suitable.add((Class<? extends Template<?>>) clazz);
+			suitable.add((Class<? extends Template>) clazz);
 		}
 
 		return suitable;

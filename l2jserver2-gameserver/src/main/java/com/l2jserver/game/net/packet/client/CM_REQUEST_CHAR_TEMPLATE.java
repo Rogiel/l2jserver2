@@ -45,7 +45,7 @@ public class CM_REQUEST_CHAR_TEMPLATE extends AbstractClientPacket {
 	/**
 	 * List of {@link CharacterClass} templates sent to the client
 	 */
-	protected static final CharacterClass[] TEMPLATE_CLASSES = {
+	private static final CharacterClass[] TEMPLATE_CLASSES = {
 			CharacterClass.HUMAN_FIGHTER, CharacterClass.HUMAN_MYSTIC,
 			CharacterClass.ELVEN_FIGHTER, CharacterClass.ELVEN_MYSTIC,
 			CharacterClass.DARK_FIGHTER, CharacterClass.DARK_MYSTIC,

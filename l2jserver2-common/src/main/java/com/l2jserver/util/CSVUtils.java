@@ -63,8 +63,10 @@ public class CSVUtils {
 	public static <R> List<R> parseCSV(BufferedReader reader,
 			CSVProcessor<R> processor) throws IOException {
 		final List<R> results = CollectionFactory.newList();
-		final String header[] = reader.readLine().split(",");
-		String line;
+		String line = reader.readLine();
+		if (line == null)
+			return results;
+		final String header[] = line.split(",");
 		while ((line = reader.readLine()) != null) {
 			results.add(processor.process(header, line.split(",")));
 		}

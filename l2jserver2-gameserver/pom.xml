@@ -72,7 +72,7 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- html parser/generator -->
 		<dependency>
 			<groupId>org.htmlparser</groupId>

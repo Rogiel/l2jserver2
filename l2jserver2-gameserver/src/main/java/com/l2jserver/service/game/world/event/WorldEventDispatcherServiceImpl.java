@@ -284,7 +284,7 @@ public class WorldEventDispatcherServiceImpl extends
 				return false;
 			if (complete)
 				return false;
-			return cancel(mayInterruptIfRunning);
+			return super.cancel(mayInterruptIfRunning);
 		}
 
 		@Override

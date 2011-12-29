@@ -57,7 +57,7 @@ public class L2JGameServerMain {
 	/**
 	 * List of start services
 	 */
-	public static final Class<?>[][] SERVICES = {
+	private static final Class<?>[][] SERVICES = {
 			// core services
 			{ CacheService.class, ConfigurationService.class,
 					DatabaseService.class, WorldIDService.class,

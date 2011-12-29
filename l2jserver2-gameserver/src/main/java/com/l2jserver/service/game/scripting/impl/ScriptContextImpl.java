@@ -340,7 +340,7 @@ public class ScriptContextImpl implements ScriptContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void finalize() throws Throwable {
+	protected void finalize() throws Throwable {
 		if (compilationResult != null) {
 			log.error("Finalization of initialized ScriptContext. Forcing context shutdown.");
 			shutdown();

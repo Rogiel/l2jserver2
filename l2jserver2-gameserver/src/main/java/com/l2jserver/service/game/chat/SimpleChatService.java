@@ -37,7 +37,6 @@ import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.database.DataAccessObject;
 import com.l2jserver.service.game.region.Region;
-import com.l2jserver.service.game.region.RegionService;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**
@@ -56,10 +55,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 * The {@link ChatLoggingService} implementation
 	 */
 	private final ChatLoggingService chatLoggingService;
-	/**
-	 * The {@link RegionService}
-	 */
-	private final RegionService regionService;
+//	/**
+//	 * The {@link RegionService}
+//	 */
+//	private final RegionService regionService;
 	/**
 	 * The {@link L2Character} DAO
 	 */
@@ -90,6 +89,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	/**
 	 * The list of regional chat channels
 	 */
+	@SuppressWarnings("unused")
 	private Map<Region, RegionChatChannelImpl> regionChannels;
 
 	/**
@@ -105,7 +105,6 @@ public class SimpleChatService extends AbstractService implements ChatService {
 			CharacterDAO charDao) {
 		this.chatLoggingService = chatLogService;
 		// this.regionService = regionService;
-		this.regionService = null;
 		this.charDao = charDao;
 	}
 
@@ -178,13 +177,14 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	@Override
 	public PublicChatChannel getRegionChannel(L2Character character) {
 		Preconditions.checkNotNull(character, "character");
-		final Region region = regionService.getRegion(character);
-		RegionChatChannelImpl channel = regionChannels.get(region);
-		if (channel == null) {
-			channel = new RegionChatChannelImpl(region);
-			regionChannels.put(region, channel);
-		}
-		return channel;
+//		final Region region = regionService.getRegion(character);
+//		RegionChatChannelImpl channel = regionChannels.get(region);
+//		if (channel == null) {
+//			channel = new RegionChatChannelImpl(region);
+//			regionChannels.put(region, channel);
+//		}
+//		return channel;
+		return null;
 	}
 
 	@Override
@@ -468,6 +468,7 @@ public class SimpleChatService extends AbstractService implements ChatService {
 		 * @param region
 		 *            the region represented in this channel
 		 */
+		@SuppressWarnings("unused")
 		public RegionChatChannelImpl(Region region) {
 			Preconditions.checkNotNull(region, "region");
 			this.region = region;
