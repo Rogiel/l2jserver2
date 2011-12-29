@@ -65,7 +65,7 @@
 		implementation="com.l2jserver.service.game.spawn.SpawnServiceImpl" />
 	<service interface="com.l2jserver.service.game.character.CharacterService"
 		implementation="com.l2jserver.service.game.character.CharacterServiceImpl">
-		<!-- Defines the restrictions for account creation -->
+		<!-- Defines the restrictions for character creation -->
 		<creation allow="true" allowed-races="HUMAN|ELF|DARK_ELF|ORC|DWARF|KAMAEL"
 			allowed-genders="MALE|FEMALE">
 			<!-- The maximum amount of characters per account -->
