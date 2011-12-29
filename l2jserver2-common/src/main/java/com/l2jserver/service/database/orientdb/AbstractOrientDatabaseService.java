@@ -463,7 +463,7 @@ public abstract class AbstractOrientDatabaseService extends
 				((Model<?>) object).setObjectDesire(ObjectDesire.NONE);
 			}
 		}
-		
+
 		/**
 		 * Tests if the object desire is not {@link ObjectDesire#TRANSIENT}
 		 * 
@@ -599,9 +599,9 @@ public abstract class AbstractOrientDatabaseService extends
 			final DocumentDatabaseRow row = new DocumentDatabaseRow();
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
-				if(testDesire(object))
+				if (testDesire(object))
 					continue;
-				
+
 				row.setDocument(new ODocument(database, entity.getTableName()));
 
 				mapper.insert(entity, object, row);
@@ -687,7 +687,7 @@ public abstract class AbstractOrientDatabaseService extends
 			final DocumentDatabaseRow row = new DocumentDatabaseRow();
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
-				if(testDesire(object))
+				if (testDesire(object))
 					continue;
 
 				List<ODocument> documents = database
@@ -698,7 +698,10 @@ public abstract class AbstractOrientDatabaseService extends
 
 							@Override
 							public boolean filter(OQueryContextNative record) {
-								return query(record, object).go();
+								record = query(record, object);
+								if (record == null)
+									return true;
+								return record.go();
 							};
 						});
 				if (documents.size() < 1)
@@ -777,7 +780,7 @@ public abstract class AbstractOrientDatabaseService extends
 			int rows = 0;
 			while (iterator.hasNext()) {
 				final O object = iterator.next();
-				if(testDesire(object))
+				if (testDesire(object))
 					continue;
 
 				List<ODocument> documents = database
@@ -788,7 +791,10 @@ public abstract class AbstractOrientDatabaseService extends
 
 							@Override
 							public boolean filter(OQueryContextNative record) {
-								return query(record, object).go();
+								record = query(record, object);
+								if (record == null)
+									return true;
+								return record.go();
 							};
 						});
 				for (final ODocument document : documents) {
@@ -1028,5 +1034,58 @@ public abstract class AbstractOrientDatabaseService extends
 			}
 			return results;
 		}
+	}
+
+	/**
+	 * An query implementation designed to count objects in the database
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <E>
+	 *            the query entity type
+	 */
+	public static abstract class CountQuery<E extends RelationalPathBase<?>>
+			extends AbstractQuery<Integer> {
+		/**
+		 * The query entity
+		 */
+		protected final E entity;
+
+		/**
+		 * @param entity
+		 *            the entity type
+		 */
+		public CountQuery(E entity) {
+			this.entity = entity;
+		}
+
+		@Override
+		public final Integer query(ODatabaseDocumentTx database,
+				DatabaseService service) {
+			List<ODocument> documents = database
+					.query(new ONativeSynchQuery<OQueryContextNative>(database,
+							entity.getTableName(), new OQueryContextNative()) {
+						private static final long serialVersionUID = 1L;
+
+						@Override
+						public boolean filter(OQueryContextNative record) {
+							record = query(record);
+							if (record == null)
+								return true;
+							return record.go();
+						};
+					});
+			return documents.size();
+		}
+
+		/**
+		 * Performs the OrientDB document filtering. If all results are wanted,
+		 * <code>null</code> should be returned.
+		 * 
+		 * @param record
+		 *            the document record
+		 * @return the record instance or <code>null</code>
+		 */
+		protected abstract OQueryContextNative query(OQueryContextNative record);
 	}
 }

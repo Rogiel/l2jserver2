@@ -1065,4 +1065,45 @@ public abstract class AbstractSQLDatabaseService extends
 			return objects;
 		}
 	}
+
+	/**
+	 * An query implementation designed to count objects in the database
+	 * 
+	 * @author <a href="http://www.rogiel.com">Rogiel</a>
+	 * 
+	 * @param <E>
+	 *            the query entity type
+	 */
+	public static abstract class CountQuery<E extends RelationalPathBase<?>>
+			extends AbstractQuery<Integer> {
+		/**
+		 * The query entity
+		 */
+		protected final E entity;
+
+		/**
+		 * @param entity
+		 *            the entity typeO
+		 */
+		public CountQuery(E entity) {
+			this.entity = entity;
+		}
+
+		@Override
+		public final Integer query(
+				SQLQueryFactory<? extends AbstractSQLQuery<?>, ?, ?, ?, ?, ?> factory,
+				DatabaseService database) {
+			final AbstractSQLQuery<?> count = factory.query().from(entity);
+			query(count);
+			return (int) count.count();
+		}
+
+		/**
+		 * Performs the query filtering
+		 * 
+		 * @param q
+		 *            the query clause
+		 */
+		protected abstract void query(AbstractSQLQuery<?> q);
+	}
 }
