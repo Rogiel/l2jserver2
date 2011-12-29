@@ -39,7 +39,6 @@ import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.Scopes;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.util.ClassUtils;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -52,7 +51,7 @@ public class ServiceManager {
 	/**
 	 * The logger
 	 */
-	private Logger logger;
+	private final Logger logger = LoggerFactory.getLogger(ServiceManager.class);
 	/**
 	 * The Guice Injector
 	 */
@@ -131,14 +130,15 @@ public class ServiceManager {
 	 */
 	public void init(Injector injector) throws ServiceStartException {
 		this.injector = injector;
-		final LoggingService service = injector
-				.getInstance(LoggingService.class);
-		knownServices.add(service);
-		service.start();
-		configurationService = injector.getInstance(ConfigurationService.class);
-		knownServices.add(configurationService);
-		configurationService.start();
-		logger = LoggerFactory.getLogger(ServiceManager.class);
+//		final LoggingService service = injector
+//				.getInstance(LoggingService.class);
+//		knownServices.add(service);
+//		service.start();
+		configurationService = start(ConfigurationService.class);
+		//start(LoggingService.class);
+		//knownServices.add(configurationService);
+		//start(ConfigurationService.class);
+		//configurationService.start();
 	}
 
 	/**

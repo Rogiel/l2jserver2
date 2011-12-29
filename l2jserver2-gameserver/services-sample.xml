@@ -58,14 +58,24 @@
 			you normally don't need to change anything here nor in the firewall. -->
 		<server listen="0.0.0.0:7777" />
 	</service>
+	
+	<!-- Logging service -->
+	<service interface="com.l2jserver.service.core.LoggingService"
+		implementation="com.l2jserver.service.core.Log4JLoggingService">
+		<logger name="" level="ERROR" />
+		<logger name="com.l2jserver" level="INFO" />
+		<logger name="com.l2jserver.service.game.template.XMLTemplateService" level="INFO" />
+		<logger name="com.l2jserver.service.cache" level="INFO" />
+		<logger name="com.l2jserver.service.database.sql.AbstractSQLDatabaseService" level="INFO" />
+		<logger name="com.l2jserver.service.game.world.CachedWorldIDService" level="INFO" />
+		<logger name="com.l2jserver.model.id.object.allocator.BitSetIDAllocator" level="INFO" />
+	</service>
 
 	<!-- ###################################################################### -->
 	<!-- ########################### CORE SERVICES ############################ -->
 	<!-- ###################################################################### -->
 	<!-- Those services provide basic core features and are required for server 
 		startup process -->
-	<service interface="com.l2jserver.service.core.LoggingService"
-		implementation="com.l2jserver.service.core.Log4JLoggingService" />
 	<service interface="com.l2jserver.service.core.threading.ThreadService"
 		implementation="com.l2jserver.service.core.threading.ThreadServiceImpl" />
 	<service interface="com.l2jserver.service.configuration.ConfigurationService"

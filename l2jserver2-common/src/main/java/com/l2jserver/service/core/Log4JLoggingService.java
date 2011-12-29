@@ -22,8 +22,11 @@ import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
-import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
 
@@ -32,39 +35,42 @@ import com.l2jserver.service.ServiceStopException;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class Log4JLoggingService extends AbstractService implements
+public class Log4JLoggingService extends
+		AbstractConfigurableService<LoggingServiceConfiguration> implements
 		LoggingService {
 	/**
 	 * The root logger
 	 */
 	private Logger rootLogger;
+
 	/**
-	 * The l2j logger
+	 * Creates a new instance
 	 */
-	private Logger l2jLogger;
-	/**
-	 * The netty logger
-	 */
-	private Logger nettyLogger;
+	public Log4JLoggingService() {
+		super(LoggingServiceConfiguration.class);
+	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
 		final Layout layout = new PatternLayout(
-				"[%p %d{yyyy-MM-dd HH-mm-ss}] %c:%L - %m%n");
-
-		BasicConfigurator.configure();
+				"[%p %d] %c{1} - %m%n");
 		rootLogger = Logger.getRootLogger();
-		l2jLogger = Logger.getLogger("com.l2jserver");
-		nettyLogger = Logger.getLogger("org.jboss.netty");
 
 		rootLogger.removeAllAppenders();
-		rootLogger.setLevel(Level.WARN);
+		// rootLogger.setLevel(config.getLoggersNode().);
 		rootLogger.addAppender(new ConsoleAppender(layout, "System.err"));
 
-		l2jLogger.setLevel(Level.INFO);
-		nettyLogger.setLevel(Level.DEBUG);
-		Logger.getLogger("com.l2jserver.model.id.object.allocator").setLevel(
-				Level.WARN);
+		final NodeList nodes = config.getLoggersNode().getChildNodes();
+		for (int i = 0; i < nodes.getLength(); i++) {
+			final Node node = nodes.item(i);
+			if (!"logger".equals(node.getNodeName()))
+				continue;
+			final NamedNodeMap attributes = node.getAttributes();
+			final Logger logger = Logger.getLogger(attributes.getNamedItem(
+					"name").getNodeValue());
+			logger.setLevel(Level.toLevel(attributes.getNamedItem("level")
+					.getNodeValue()));
+		}
 	}
 
 	@Override

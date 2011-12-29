@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.log4j.BasicConfigurator;
 import org.w3c.dom.DOMException;
 import org.xml.sax.SAXException;
 
@@ -77,6 +78,8 @@ public class L2JGameServerMain {
 	 */
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
+		BasicConfigurator.configure();
+		
 		final ServiceManager serviceManager = new ServiceManager();
 		try {
 			serviceManager.load(Paths.get("services.xml"));

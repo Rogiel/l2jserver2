@@ -35,16 +35,13 @@ import org.w3c.dom.Node;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService;
-import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ConfigurableService;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.ServiceConfiguration;
 import com.l2jserver.service.ServiceDescriptor;
 import com.l2jserver.service.ServiceManager;
 import com.l2jserver.service.ServiceStartException;
-import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.Configuration.ConfigurationPropertyGetter;
-import com.l2jserver.service.core.LoggingService;
 import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.transformer.Transformer;
 import com.l2jserver.util.transformer.TransformerFactory;
@@ -55,7 +52,6 @@ import com.l2jserver.util.transformer.TransformerFactory;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ LoggingService.class, CacheService.class })
 public class XMLConfigurationService extends AbstractService implements
 		ConfigurationService {
 	/**
@@ -174,12 +170,16 @@ public class XMLConfigurationService extends AbstractService implements
 				return cache.get(xpath.value());
 			Object o;
 			try {
-				o = untransform(getRaw(xpath.value(), getter.defaultValue()),
-						type);
+				if (type == Node.class) {
+					o = getNode(xpath.value());
+				} else {
+					o = untransform(
+							getRaw(xpath.value(), getter.defaultValue()), type);
+					cache.put(xpath.value(), o);
+				}
 			} catch (XPathExpressionException e) {
 				return null;
 			}
-			cache.put(xpath.value(), o);
 			return o;
 		}
 
@@ -201,8 +201,12 @@ public class XMLConfigurationService extends AbstractService implements
 					.compile(xpath.value())
 					.evaluate(properties, XPathConstants.NODE);
 			if (value != null) {
-				node.setNodeValue(transform(value.toString(), type));
-				cache.put(xpath.value(), value);
+				if (type == Node.class) {
+					node.getParentNode().replaceChild(node, (Node) value);
+				} else {
+					node.setNodeValue(transform(value.toString(), type));
+					cache.put(xpath.value(), value);
+				}
 			} else {
 				node.getParentNode().removeChild(node);
 				cache.remove(xpath.value());
@@ -273,6 +277,20 @@ public class XMLConfigurationService extends AbstractService implements
 			if (value == null || value.length() == 0)
 				return defaultValue;
 			return value;
+		}
+
+		/**
+		 * Retrieve the node object from the property file
+		 * 
+		 * @param key
+		 *            the key
+		 * @return the node returned by the xpath query
+		 * @throws XPathExpressionException
+		 *             if any XPath exception occur
+		 */
+		private Node getNode(String key) throws XPathExpressionException {
+			return (Node) XPathFactory.newInstance().newXPath().compile(key)
+					.evaluate(properties, XPathConstants.NODE);
 		}
 	}
 
