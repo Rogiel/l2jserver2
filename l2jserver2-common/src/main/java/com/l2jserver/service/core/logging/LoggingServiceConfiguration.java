@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.service.core;
+package com.l2jserver.service.core.logging;
 
 import org.w3c.dom.Node;
 

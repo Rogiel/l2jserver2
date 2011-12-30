@@ -41,7 +41,7 @@ import com.l2jserver.game.net.packet.ServerPacket;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
-import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.logging.LoggingService;
 import com.l2jserver.service.core.threading.ThreadPool;
 import com.l2jserver.service.core.threading.ThreadPoolPriority;
 import com.l2jserver.service.core.threading.ThreadService;

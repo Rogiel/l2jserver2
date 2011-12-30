@@ -48,8 +48,8 @@
 		implementation="com.l2jserver.service.configuration.XMLConfigurationService" />
 	<service interface="com.l2jserver.service.cache.CacheService"
 		implementation="com.l2jserver.service.cache.SoftCacheService" />
-	<service interface="com.l2jserver.service.core.LoggingService"
-		implementation="com.l2jserver.service.core.Log4JLoggingService">
+	<service interface="com.l2jserver.service.core.logging.LoggingService"
+		implementation="com.l2jserver.service.core.logging.Log4JLoggingService">
 		<logger name="" level="ERROR" />
 		<logger name="com.l2jserver" level="INFO" />
 		<logger name="com.l2jserver.service.game.template.XMLTemplateService"

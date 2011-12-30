@@ -32,7 +32,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
-import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.logging.LoggingService;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.scripting.ScriptingService;
 import com.l2jserver.service.game.template.TemplateService;

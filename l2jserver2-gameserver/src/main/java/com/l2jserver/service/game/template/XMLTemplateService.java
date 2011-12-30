@@ -54,7 +54,7 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.cache.Cache;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.logging.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
 import com.l2jserver.util.jaxb.EffectTemplateIDAdapter;

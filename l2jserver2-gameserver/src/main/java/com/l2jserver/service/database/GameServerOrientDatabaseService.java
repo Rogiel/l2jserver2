@@ -22,7 +22,7 @@ import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
-import com.l2jserver.service.core.LoggingService;
+import com.l2jserver.service.core.logging.LoggingService;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.database.model.QActorSkill;
