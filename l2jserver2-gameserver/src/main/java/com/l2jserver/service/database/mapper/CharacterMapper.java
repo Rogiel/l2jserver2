@@ -25,8 +25,8 @@ import com.l2jserver.model.id.object.provider.ClanIDProvider;
 import com.l2jserver.model.id.provider.AccountIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.character.CharacterClass;
-import com.l2jserver.model.template.character.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
@@ -96,7 +96,7 @@ public class CharacterMapper extends
 				.resolveID(charClass.id);
 		final CharacterTemplate template = templateId.getTemplate();
 
-		final L2Character character = template.create();
+		final L2Character character = new L2Character(template);
 
 		character.setID(idProvider.resolveID(row.get(e.characterId)));
 		character

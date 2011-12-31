@@ -1,37 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/teleport" xmlns:tns="http://schemas.l2jserver2.com/teleport" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ths="http://schemas.l2jserver2.com/teleport" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	targetNamespace="http://schemas.l2jserver2.com/teleport" jaxb:version="2.1"
+	jaxb:extensionBindingPrefixes="xjc">
+	<xs:import schemaLocation="l2jserver2.xsd" />
 
-  <xs:import schemaLocation="l2jserver2.xsd"/>
+	<xs:simpleType name="TeleportationTemplateID">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType
+					adapter="com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter"
+					name="com.l2jserver.model.id.template.TeleportationTemplateID" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="TemplateID" />
+	</xs:simpleType>
 
-  <xs:element name="teleport" type="tns:TeleportType"/>
-
-  <xs:element name="teleports" type="tns:TeleportsType"/>
-
-  <xs:complexType name="TeleportsType">
-    <xs:sequence>
-      <xs:element ref="tns:teleport" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="TeleportType">
-    <xs:complexContent>
-      <xs:extension base="AbstractTemplateType">
-        <xs:sequence>
-          <xs:element name="point" type="CoordinateType" minOccurs="0"/>
-          <xs:element name="restrictions" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="restriction" type="TeleportRestrictionType" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:int"/>
-        <xs:attribute name="name" type="xs:string"/>
-        <xs:attribute name="item" type="xs:int"/>
-        <xs:attribute name="price" type="xs:int" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:element name="teleports">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="teleport" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="AbstractTemplate">
+								<xs:sequence>
+									<xs:element name="point" type="Coordinate"
+										minOccurs="0" />
+									<xs:element name="restrictions" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="restriction" maxOccurs="unbounded">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="NOBLE" />
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="id" type="ths:TeleportationTemplateID"
+									use="required">
+									<xs:annotation>
+										<xs:appinfo>
+											<jaxb:property name="iD"  />
+										</xs:appinfo>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="name" type="xs:string" />
+								<xs:attribute name="item" type="xs:int" />
+								<xs:attribute name="price" type="xs:int" use="required" />
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>
 

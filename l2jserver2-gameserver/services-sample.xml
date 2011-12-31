@@ -124,6 +124,10 @@
 		<!-- The root where template data is located. Relative to the "data file 
 			system" -->
 		<templates root="template/" />
+
+		<!-- Whether the templates XML schemas should be validated before loading. 
+			This should be on, unless you know what you are doing! -->
+		<schema validation="true" />
 	</service>
 
 	<!-- ####################################################################### -->

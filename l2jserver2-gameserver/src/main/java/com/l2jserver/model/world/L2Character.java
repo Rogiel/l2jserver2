@@ -24,9 +24,9 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ClanID;
 import com.l2jserver.model.id.object.PetID;
 import com.l2jserver.model.id.template.CharacterTemplateID;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.model.template.character.CharacterRace;
-import com.l2jserver.model.template.character.CharacterTemplate;
 import com.l2jserver.model.world.character.CharacterAppearance;
 import com.l2jserver.model.world.character.CharacterFriendList;
 import com.l2jserver.model.world.character.CharacterInventory;
@@ -169,11 +169,13 @@ public class L2Character extends Player {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param templateID
+	 * @param template
 	 *            the {@link CharacterTemplateID}
 	 */
-	public L2Character(CharacterTemplateID templateID) {
-		super(templateID);
+	public L2Character(CharacterTemplate template) {
+		super(template.getID());
+		this.characterClass = template.getID().getCharacterClass();
+		this.race = this.characterClass.race;
 	}
 
 	/**

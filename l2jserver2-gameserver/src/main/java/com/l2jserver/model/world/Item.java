@@ -19,7 +19,7 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.template.ItemTemplateID;
-import com.l2jserver.model.template.item.ItemTemplate;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.character.CharacterInventory.InventoryPaperdoll;
 import com.l2jserver.model.world.character.CharacterInventory.ItemLocation;
 
@@ -71,11 +71,11 @@ public class Item extends PositionableObject {
 	private long count = 1;
 
 	/**
-	 * @param templateID
-	 *            the item template id
+	 * @param template
+	 *            the item template
 	 */
-	public Item(ItemTemplateID templateID) {
-		this.templateID = templateID;
+	public Item(ItemTemplate template) {
+		this.templateID = template.getID();
 	}
 
 	/**

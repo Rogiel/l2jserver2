@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.npc.calculator.base;
 
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.npc.calculator.NPCFormula;
@@ -51,6 +51,6 @@ public class NPCBaseMagicalDefenseCalculator extends NPCFormula {
 
 	@Override
 	protected double calculate(NPC c, NPCTemplate t, double value) {
-		return t.getMagicalDefense();
+		return t.getInfo().getStats().getDefense().getMagical().getValue();
 	}
 }

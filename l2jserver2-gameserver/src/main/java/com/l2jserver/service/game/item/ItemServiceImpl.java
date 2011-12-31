@@ -27,6 +27,7 @@ import com.l2jserver.model.dao.ItemDAO;
 import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.id.template.ItemTemplateID;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
@@ -89,7 +90,8 @@ public class ItemServiceImpl extends
 	 */
 	@Inject
 	private ItemServiceImpl(ItemDAO itemDao, SpawnService spawnService,
-			WorldEventDispatcherService eventDispatcher, ItemIDProvider itemIdProvider) {
+			WorldEventDispatcherService eventDispatcher,
+			ItemIDProvider itemIdProvider) {
 		super(ItemServiceConfiguration.class);
 		this.itemDao = itemDao;
 		this.spawnService = spawnService;
@@ -113,6 +115,27 @@ public class ItemServiceImpl extends
 	}
 
 	@Override
+	public Item create(ItemTemplate template) {
+		try {
+			return create(template, 1);
+		} catch (NonStackableItemsServiceException e) {
+			// this should never happen!
+			logger.warn(
+					"Issue creating 1 item {}. This is possibly be a ItemService bug!",
+					template.getName());
+			return null;
+		}
+	}
+
+	@Override
+	public Item create(ItemTemplate template, long count)
+			throws NonStackableItemsServiceException {
+		final Item item = new Item(template);
+		item.setCount(count);
+		return item;
+	}
+
+	@Override
 	public Item action(Item item, L2Character character, CharacterAction action)
 			throws ItemNotOnGroundServiceException, NotSpawnedServiceException {
 		switch (action) {
@@ -126,13 +149,13 @@ public class ItemServiceImpl extends
 
 	@Override
 	public Item split(Item item, long count)
-			throws NotEnoughItemsServiceException {
+			throws NotEnoughItemsServiceException, NonStackableItemsServiceException {
 		if (item.getCount() < count)
 			throw new NotEnoughItemsServiceException();
 		if (item.getCount() == count)
 			return item;
 
-		final Item splitItem = item.getTemplate().create();
+		final Item splitItem = create(item.getTemplate(), count);
 		splitItem.setID(itemIdProvider.createID());
 		splitItem.setCount(count);
 		item.setCount(item.getCount() - count);
@@ -164,7 +187,7 @@ public class ItemServiceImpl extends
 
 	@Override
 	public boolean destroy(Item item, long count)
-			throws NotEnoughItemsServiceException {
+			throws NotEnoughItemsServiceException, NonStackableItemsServiceException {
 		synchronized (item) {
 			Item destroyItem = split(item, count);
 			itemDao.deleteObjectsAsync(destroyItem);
@@ -243,7 +266,7 @@ public class ItemServiceImpl extends
 	public Item drop(Item item, long count, Point3D point, Actor actor)
 			throws SpawnPointNotFoundServiceException,
 			ItemAlreadyOnGroundServiceException,
-			AlreadySpawnedServiceException, NotEnoughItemsServiceException {
+			AlreadySpawnedServiceException, NotEnoughItemsServiceException, NonStackableItemsServiceException {
 		synchronized (item) {
 			if (item.getLocation() == ItemLocation.GROUND)
 				throw new AlreadySpawnedServiceException();
@@ -297,7 +320,7 @@ public class ItemServiceImpl extends
 	public void drop(Item item, Point3D point, Actor actor)
 			throws SpawnPointNotFoundServiceException,
 			ItemAlreadyOnGroundServiceException,
-			AlreadySpawnedServiceException, NotEnoughItemsServiceException {
+			AlreadySpawnedServiceException, NotEnoughItemsServiceException, NonStackableItemsServiceException {
 		drop(item, item.getCount(), point, actor);
 	}
 

@@ -31,9 +31,9 @@ import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.actor.ActorSex;
 import com.l2jserver.model.template.character.CharacterClass;
-import com.l2jserver.model.template.character.CharacterTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
@@ -230,7 +230,7 @@ public class CharacterServiceImpl extends
 		final CharacterTemplate template = templateId.getTemplate();
 
 		if (!ArrayUtils.contains(config.getAllowedNewCharacterRaces(),
-				template.getRace()))
+				templateId.getCharacterClass().race))
 			throw new CharacterInvalidRaceException();
 		if (!ArrayUtils.contains(config.getAllowedNewCharacterGenders(), sex))
 			throw new CharacterInvalidSexException();
@@ -240,7 +240,7 @@ public class CharacterServiceImpl extends
 		// everything is fine, allocate a new ID
 		final CharacterID id = charIdProvider.createID();
 		// create the instance from the template
-		final L2Character character = template.create();
+		final L2Character character = new L2Character(template);
 
 		log.debug("Character object created, ID: {}, Object: {}", id, character);
 

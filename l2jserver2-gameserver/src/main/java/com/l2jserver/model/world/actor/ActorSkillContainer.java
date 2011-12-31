@@ -22,7 +22,6 @@ import java.util.List;
 
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.template.SkillTemplateID;
-import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -50,69 +49,6 @@ public class ActorSkillContainer implements Iterable<Skill> {
 	 */
 	public ActorSkillContainer(Actor actor) {
 		this.actor = actor;
-	}
-
-	/**
-	 * Learns a new skill
-	 * 
-	 * @param template
-	 *            the skill to be learned
-	 * @param level
-	 *            the skill level
-	 * @return the created skill object, null if skill existed or could not be
-	 *         learned.
-	 */
-	public Skill learn(SkillTemplate template, int level) {
-		if (hasSkill(template.getID()) != null)
-			return null;
-		if (level > template.getMaximumLevel())
-			level = template.getMaximumLevel();
-		final Skill newSkill = template.create();
-		newSkill.setLevel(level);
-		if (skills.add(newSkill))
-			return newSkill;
-		return null;
-	}
-
-	/**
-	 * Learns a new skill. The skill <tt>level</tt> will be 1.
-	 * 
-	 * @param template
-	 *            the skill to be learned
-	 * @return the created skill object, null if skill existed or could not be
-	 *         learned.
-	 * @see ActorSkillContainer#learn(SkillTemplate, int)
-	 */
-	public Skill learn(SkillTemplate template) {
-		return learn(template, 1);
-	}
-
-	/**
-	 * Learns a new skill
-	 * 
-	 * @param skill
-	 *            the skill to be learned
-	 * @param level
-	 *            the skill level
-	 * @return the created skill object, null if skill existed or could not be
-	 *         learned.
-	 * @see ActorSkillContainer#learn(SkillTemplate, int)
-	 */
-	public Skill learn(SkillTemplateID skill, int level) {
-		return learn(skill.getTemplate(), level);
-	}
-
-	/**
-	 * Learns a new skill. The skill <tt>level</tt> will be 1.
-	 * 
-	 * @param skill
-	 *            the skill to be learned
-	 * @return the created skill object, null if skill existed or could not be
-	 *         learned.
-	 * @see ActorSkillContainer#learn(SkillTemplate, int)
-	 */
-	public Skill learn(SkillTemplateID skill) {
-		return learn(skill, 1);
 	}
 
 	/**

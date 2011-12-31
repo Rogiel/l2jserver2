@@ -27,8 +27,8 @@ import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
-import com.l2jserver.service.game.character.ShortcutSlotNotFreeServiceException;
 import com.l2jserver.service.game.character.ShortcutService;
+import com.l2jserver.service.game.character.ShortcutSlotNotFreeServiceException;
 
 /**
  * Completes the creation of an character. Creates the object, inserts into the

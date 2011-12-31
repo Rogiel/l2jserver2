@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.util.calculator.AbstractDoubleFunction;
@@ -52,6 +52,6 @@ public abstract class ActorCalculatorFunction extends
 	 *            the original value
 	 * @return the calculated value
 	 */
-	protected abstract double calculate(Actor a, ActorTemplate<?> t,
+	protected abstract double calculate(Actor a, ActorTemplate t,
 			double value);
 }

@@ -20,7 +20,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.BufferUtils;
 
@@ -55,19 +55,19 @@ public class SM_SERVER_OBJECT extends AbstractServerPacket {
 
 		buffer.writeInt(npc.getID().getID()); // obj id
 		buffer.writeInt(npc.getTemplateID().getID() + 1000000); // template id
-		BufferUtils.writeString(buffer, template.getName()); // name
-		buffer.writeInt((template.isAttackable() ? 0x01 : 0x00)); // attackable
+		BufferUtils.writeString(buffer, template.getInfo().getName().getValue()); // name
+		buffer.writeInt((template.getInfo().isAttackable() ? 0x01 : 0x00)); // attackable
 		buffer.writeInt(npc.getPoint().getX()); // x
 		buffer.writeInt(npc.getPoint().getY()); // y
 		buffer.writeInt(npc.getPoint().getZ()); // z
 		buffer.writeInt((int) npc.getPoint().getAngle()); // angle
 		buffer.writeDouble(0x01); // move mult
 		buffer.writeDouble(0x01); // attack spd mult
-		buffer.writeDouble(template.getCollisionRadius());
-		buffer.writeDouble(template.getCollisionHeight());
-		buffer.writeInt((int) (template.isAttackable() ? npc.getHP() : 0x00));
-		buffer.writeInt((int) (template.isAttackable() ? template
-				.getMaximumHP() : 0x00));
+		buffer.writeDouble(template.getInfo().getCollision().getRadius());
+		buffer.writeDouble(template.getInfo().getCollision().getHeigth());
+		buffer.writeInt((int) (template.getInfo().isAttackable() ? npc.getHP() : 0x00));
+		buffer.writeInt((int) (template.getInfo().isAttackable() ? template
+				.getInfo().getStats().getHp() : 0x00));
 		buffer.writeInt(0x01); // object type
 		buffer.writeInt(0x00); // special effects
 	}

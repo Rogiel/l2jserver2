@@ -239,13 +239,15 @@ public class SM_CHAR_INFO extends AbstractServerPacket {
 		// writeF(_activeChar.getCollisionHeight());
 		// }
 		if (character.getSex() == ActorSex.MALE) {
-			buffer.writeDouble(character.getTemplate().getMaleCollisionRadius());
-			buffer.writeDouble(character.getTemplate().getMaleCollisionHeight());
+			buffer.writeDouble(character.getTemplate().getCollision().getMale()
+					.getRadius());
+			buffer.writeDouble(character.getTemplate().getCollision().getMale()
+					.getHeigth());
 		} else {
-			buffer.writeDouble(character.getTemplate()
-					.getFemaleCollisionRadius());
-			buffer.writeDouble(character.getTemplate()
-					.getFemaleCollisionHeight());
+			buffer.writeDouble(character.getTemplate().getCollision()
+					.getFemale().getRadius());
+			buffer.writeDouble(character.getTemplate().getCollision()
+					.getFemale().getHeigth());
 		}
 
 		buffer.writeInt(character.getAppearance().getHairStyle().option);

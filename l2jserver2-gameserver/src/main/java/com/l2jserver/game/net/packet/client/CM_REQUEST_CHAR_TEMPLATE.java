@@ -26,8 +26,8 @@ import com.l2jserver.game.net.packet.AbstractClientPacket;
 import com.l2jserver.game.net.packet.server.SM_CHAR_TEMPLATE;
 import com.l2jserver.model.id.template.CharacterTemplateID;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.template.character.CharacterClass;
-import com.l2jserver.model.template.character.CharacterTemplate;
 
 /**
  * Requests the creation of a new Character. The list of character templates is

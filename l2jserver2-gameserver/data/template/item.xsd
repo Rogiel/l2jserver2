@@ -1,81 +1,242 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/item"
-	xmlns:tns="http://schemas.l2jserver2.com/item" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ths="http://schemas.l2jserver2.com/item" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	targetNamespace="http://schemas.l2jserver2.com/item" jaxb:version="2.1"
+	jaxb:extensionBindingPrefixes="xjc">
 	<xs:import schemaLocation="l2jserver2.xsd" />
 
-	<xs:element name="item" type="tns:ItemType" />
+	<xs:simpleType name="ItemTemplateID">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.ItemTemplateIDAdapter"
+					name="com.l2jserver.model.id.template.ItemTemplateID" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="TemplateID" />
+	</xs:simpleType>
 
-	<xs:complexType name="ItemType">
-		<xs:complexContent>
-			<xs:extension base="AbstractTemplateType">
-				<xs:all>
-					<xs:element name="attributes">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="cost">
-									<xs:complexType>
-										<xs:attribute name="adena" />
-									</xs:complexType>
-								</xs:element>
-								<xs:element name="equipment">
-									<xs:complexType>
-										<xs:attribute name="part" />
-									</xs:complexType>
-								</xs:element>
-							</xs:sequence>
-							<xs:attribute name="weigth" />
-							<xs:attribute name="type" />
-							<xs:attribute name="material" />
-						</xs:complexType>
-					</xs:element>
-
-					<xs:element name="controller">
-						<xs:complexType>
-							<xs:attribute name="defaultAction" />
-						</xs:complexType>
-					</xs:element>
-
-					<xs:element name="effect">
-						<xs:complexType>
-							<xs:attribute name="type" />
-						</xs:complexType>
-					</xs:element>
-
-					<xs:choice>
-						<xs:element name="weapon">
-							<xs:complexType>
-								<xs:attribute name="part" />
-							
-							</xs:complexType>
-						</xs:element>
-						
-						<xs:element name="armor">
+	<xs:element name="item">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ItemTemplate" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="AbstractTemplate">
+					<xs:sequence>
+						<xs:element name="attributes">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="cost">
 										<xs:complexType>
-											<xs:attribute name="adena" />
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="equipment">
-										<xs:complexType>
-											<xs:attribute name="part" />
+											<xs:attribute name="adena" type="xs:int" />
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
-								<xs:attribute name="weigth" />
-								<xs:attribute name="type" />
-								<xs:attribute name="material" />
+								<xs:attribute name="weigth" type="xs:int" />
+								<xs:attribute name="material" type="ths:ItemMaterial" />
 							</xs:complexType>
 						</xs:element>
-					</xs:choice>
-				</xs:all>
-				<xs:attribute name="id" type="xs:int" use="required" />
-				<xs:attribute name="name" type="xs:string" use="required" />
-				<xs:attribute name="icon" type="xs:string"></xs:attribute>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
+
+						<xs:element name="controller">
+							<xs:complexType>
+								<xs:attribute name="defaultAction" />
+							</xs:complexType>
+						</xs:element>
+
+						<xs:element name="effect">
+							<xs:complexType>
+								<xs:attribute name="type">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="IMMEDIATE" />
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+
+						<xs:choice minOccurs="0">
+							<xs:element name="etcItem">
+								<xs:complexType>
+									<xs:attribute name="type" type="ths:ItemType" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="weapon">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="physicalDamage" type="CalculatorFunction" />
+										<xs:element name="magicalDamage" type="CalculatorFunction" />
+										<xs:element name="criticalChance" type="CalculatorFunction" />
+										<xs:element name="physicalAttackSpeed" type="CalculatorFunction" />
+									</xs:sequence>
+									<xs:attribute name="part" />
+									<xs:attribute name="type" type="ths:WeaponType" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="armor">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="cost">
+											<xs:complexType>
+												<xs:attribute name="adena" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="equipment">
+											<xs:complexType>
+												<xs:attribute name="part" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="weigth" />
+									<xs:attribute name="type" type="ths:ArmorType" />
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="id" type="ths:ItemTemplateID"
+						use="required">
+						<xs:annotation>
+							<xs:appinfo>
+								<jaxb:property name="iD"  />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="name" type="xs:string" use="required" />
+					<xs:attribute name="icon" type="xs:string" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="ItemMaterial">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.ItemMaterialAdapter"
+					name="com.l2jserver.model.template.item.ItemMaterial" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COTTON" />
+			<xs:enumeration value="WOOD" />
+			<xs:enumeration value="PAPER" />
+			<xs:enumeration value="FISH" />
+			<xs:enumeration value="ORIHARUKON" />
+			<xs:enumeration value="HORN" />
+			<xs:enumeration value="ADAMANTAITE" />
+			<xs:enumeration value="CHRYSOLITE" />
+			<xs:enumeration value="MITHRIL" />
+			<xs:enumeration value="COBWEB" />
+			<xs:enumeration value="RUNE_XP" />
+			<xs:enumeration value="CLOTH" />
+			<xs:enumeration value="SCALE_OF_DRAGON" />
+			<xs:enumeration value="BONE" />
+			<xs:enumeration value="GOLD" />
+			<xs:enumeration value="LEATHER" />
+			<xs:enumeration value="FINE_STEEL" />
+			<xs:enumeration value="SILVER" />
+			<xs:enumeration value="DYESTUFF" />
+			<xs:enumeration value="CRYSTAL" />
+			<xs:enumeration value="RUNE_REMOVE_PENALTY" />
+			<xs:enumeration value="STEEL" />
+			<xs:enumeration value="BRONZE" />
+			<xs:enumeration value="RUNE_SP" />
+			<xs:enumeration value="LIQUID" />
+			<xs:enumeration value="BLOOD_STEEL" />
+			<xs:enumeration value="DAMASCUS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ItemType">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.ItemTypeAdapter"
+					name="com.l2jserver.model.template.item.ItemType" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="ARROW" />
+			<xs:enumeration value="POTION" />
+			<xs:enumeration value="WEAPON_ENCHANT_SCROLL" />
+			<xs:enumeration value="ARMOR_ENCHANT_SCROLL" />
+			<xs:enumeration value="SCROLL" />
+			<xs:enumeration value="RECIPE" />
+			<xs:enumeration value="MATERIAL" />
+			<xs:enumeration value="PET_COLLAR" />
+			<xs:enumeration value="CASTLE_GUARD" />
+			<xs:enumeration value="LOTTERY_TICKET" />
+			<xs:enumeration value="RACE_TICKET" />
+			<xs:enumeration value="DYE" />
+			<xs:enumeration value="SEED" />
+			<xs:enumeration value="CROP" />
+			<xs:enumeration value="MATURECROP" />
+			<xs:enumeration value="HARVEST" />
+			<xs:enumeration value="SEED2" />
+			<xs:enumeration value="TICKET_OF_LORD" />
+			<xs:enumeration value="LURE" />
+			<xs:enumeration value="BLESSED_WEAPON_ENCHANT_SCROLL" />
+			<xs:enumeration value="BLESSED_ARMOR_ENCHANT_SCROLL" />
+			<xs:enumeration value="COUPON" />
+			<xs:enumeration value="ELIXIR" />
+			<xs:enumeration value="ATTRIBUTE_ENCHANT_SCROLL" />
+			<xs:enumeration value="BOLT" />
+			<xs:enumeration value="SCRL_INC_ENCHANT_PROP_WP" />
+			<xs:enumeration value="SCRL_INC_ENCHANT_PROP_AM" />
+			<xs:enumeration value="ANCIENT_CRYSTAL_ENCHANT_WP" />
+			<xs:enumeration value="ANCIENT_CRYSTAL_ENCHANT_AM" />
+			<xs:enumeration value="RUNE_SELECT" />
+			<xs:enumeration value="RUNE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="WeaponType">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.WeaponTypeAdapter"
+					name="com.l2jserver.model.template.item.WeaponType" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SWORD" />
+			<xs:enumeration value="BLUNT" />
+			<xs:enumeration value="DAGGER" />
+			<xs:enumeration value="BOW" />
+			<xs:enumeration value="POLE" />
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="DUAL" />
+			<xs:enumeration value="ETC" />
+			<xs:enumeration value="FIST" />
+			<xs:enumeration value="DUALFIST" />
+			<xs:enumeration value="FISHINGROD" />
+			<xs:enumeration value="RAPIER" />
+			<xs:enumeration value="ANCIENTSWORD" />
+			<xs:enumeration value="CROSSBOW" />
+			<xs:enumeration value="FLAG" />
+			<xs:enumeration value="OWNTHING" />
+			<xs:enumeration value="DUALDAGGER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ArmorType">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.ArmorTypeAdapter"
+					name="com.l2jserver.model.template.item.ArmorType" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="LIGHT" />
+			<xs:enumeration value="HEAVY" />
+			<xs:enumeration value="MAGIC" />
+			<xs:enumeration value="SIGILO" />
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 

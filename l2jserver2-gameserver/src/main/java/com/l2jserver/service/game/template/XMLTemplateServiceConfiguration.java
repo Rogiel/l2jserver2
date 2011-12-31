@@ -40,4 +40,19 @@ public interface XMLTemplateServiceConfiguration extends
 	@ConfigurationPropertySetter
 	@ConfigurationXPath("templates/@root")
 	void setTemplateDirectory(String file);
+
+	/**
+	 * @return true if service must validade template schemas before loading
+	 */
+	@ConfigurationPropertyGetter(defaultValue = "true")
+	@ConfigurationXPath("schema/@validation")
+	boolean isSchemaValidationEnabled();
+
+	/**
+	 * @param validation
+	 *            true if service must validade template schemas before loadinsg
+	 */
+	@ConfigurationPropertySetter
+	@ConfigurationXPath("schema/@validation")
+	void setSchemaValidationEnabled(boolean validation);
 }

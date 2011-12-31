@@ -16,11 +16,11 @@
  */
 package com.l2jserver.model.world;
 
-import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.template.NPCTemplateID;
+import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.Template;
 import com.l2jserver.model.template.actor.ActorSex;
-import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.world.npc.NPCStats;
 import com.l2jserver.service.game.ai.AIScript;
 
@@ -44,11 +44,11 @@ public class NPC extends Actor {
 	/**
 	 * Creates a new instance
 	 * 
-	 * @param templateID
-	 *            the {@link NPC} {@link TemplateID}
+	 * @param template
+	 *            the {@link NPC} {@link Template}
 	 */
-	public NPC(NPCTemplateID templateID) {
-		super(templateID);
+	public NPC(NPCTemplate template) {
+		super(template.getID());
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class NPC extends Actor {
 	// TEMPLATE WRAPPERS
 	@Override
 	public ActorSex getSex() {
-		return this.getTemplate().getSex();
+		return this.getTemplate().getInfo().getSex();
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class NPC extends Actor {
 
 	@Override
 	public int getLevel() {
-		return this.getTemplate().getLevel();
+		return this.getTemplate().getInfo().getLevel();
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public class NPC extends Actor {
 	 * @return the maximum HP
 	 */
 	public double getMaxHP() {
-		return this.getTemplate().getMaximumHP();
+		return this.getTemplate().getInfo().getStats().getHp().getMax();
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class NPC extends Actor {
 	 * @return the maximum MP
 	 */
 	public double getMaxMP() {
-		return this.getTemplate().getMaximumMP();
+		return this.getTemplate().getInfo().getStats().getMp().getMax();
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class NPC extends Actor {
 
 	@Override
 	public long getExperience() {
-		return this.getTemplate().getExperience();
+		return this.getTemplate().getInfo().getExperience();
 	}
 
 	@Override
@@ -139,7 +139,7 @@ public class NPC extends Actor {
 
 	@Override
 	public int getSP() {
-		return this.getTemplate().getSP();
+		return this.getTemplate().getInfo().getSp();
 	}
 
 	@Override

@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.character;
 
-import com.l2jserver.model.template.item.ItemTemplate;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.calculator.ActorCalculator;
 import com.l2jserver.model.world.actor.calculator.ActorCalculatorContext;
@@ -300,7 +300,7 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	public void addMaxCP(Calculator<ActorCalculatorContext, StatType> formula) {
 		calculator.add(formula);
 	}
-	
+
 	/**
 	 * Reset the calculator to its default state
 	 */
@@ -315,17 +315,18 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	public int getMaximumLoad() {
 		return (int) calc(StatType.MAX_LOAD);
 	}
-	
+
 	/**
 	 * Adds an formula to the character calculator
 	 * 
 	 * @param formula
 	 *            the formula
 	 */
-	public void addMaximumLoad(Calculator<ActorCalculatorContext, StatType> formula) {
+	public void addMaximumLoad(
+			Calculator<ActorCalculatorContext, StatType> formula) {
 		calculator.add(formula);
 	}
-	
+
 	/**
 	 * Reset the calculator to its default state
 	 */
@@ -387,10 +388,10 @@ public class CharacterStats extends ActorStats<CharacterCalculatorContext> {
 	private void addItem(InventoryPaperdoll paperdoll) {
 		if (!character.getInventory().has(paperdoll))
 			return;
+		@SuppressWarnings("unused")
 		final ItemTemplate item = character.getInventory().getItem(paperdoll)
 				.getTemplate();
-		calculator.add(item.getPhysicalDamage());
-		calculator.add(item.getMagicalDamage());
+		// TODO add item calculator
 	}
 
 	@Override

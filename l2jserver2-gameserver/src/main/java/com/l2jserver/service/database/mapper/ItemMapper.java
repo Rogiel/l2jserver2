@@ -27,7 +27,7 @@ import com.l2jserver.model.id.object.provider.CharacterIDProvider;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
-import com.l2jserver.model.template.item.ItemTemplate;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
@@ -98,7 +98,7 @@ public class ItemMapper extends AbstractMapper<Item, Integer, ItemID, QItem> {
 					id);
 			return null;
 		}
-		final Item item = template.create();
+		final Item item = new Item(template);
 
 		item.setID(id);
 		if (!row.isNull(e.characterId))

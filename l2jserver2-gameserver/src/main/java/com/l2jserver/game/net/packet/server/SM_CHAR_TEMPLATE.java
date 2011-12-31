@@ -20,7 +20,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.CharacterTemplate;
 
 /**
  * An packet that sends all character templates to the client.
@@ -39,7 +39,8 @@ public class SM_CHAR_TEMPLATE extends AbstractServerPacket {
 	private CharacterTemplate[] templates;
 
 	/**
-	 * @param templates the character templates
+	 * @param templates
+	 *            the character templates
 	 */
 	public SM_CHAR_TEMPLATE(CharacterTemplate... templates) {
 		super(OPCODE);
@@ -50,25 +51,25 @@ public class SM_CHAR_TEMPLATE extends AbstractServerPacket {
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
 		buffer.writeInt(templates.length);
 		for (final CharacterTemplate template : templates) {
-			buffer.writeInt(template.getRace().id);
-			buffer.writeInt(template.getCharacterClass().id);
+			buffer.writeInt(template.getID().getCharacterClass().race.id);
+			buffer.writeInt(template.getID().getCharacterClass().id);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseStrength());
+			buffer.writeInt(template.getStats().getBase().getStr());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseDexterity());
+			buffer.writeInt(template.getStats().getBase().getDex());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseConcentration());
+			buffer.writeInt(template.getStats().getBase().getDex());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseIntelligence());
+			buffer.writeInt(template.getStats().getBase().getInt());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseWitness());
+			buffer.writeInt(template.getStats().getBase().getWit());
 			buffer.writeInt(0x0a);
 			buffer.writeInt(0x46);
-			buffer.writeInt(template.getBaseMentality());
+			buffer.writeInt(template.getStats().getBase().getMen());
 			buffer.writeInt(0x0a);
 		}
 	}

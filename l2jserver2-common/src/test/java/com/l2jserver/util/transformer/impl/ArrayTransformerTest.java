@@ -83,9 +83,10 @@ public class ArrayTransformerTest {
 	@Test
 	@SuppressWarnings("unchecked")
 	public void testClassTransforming() {
-		final ArrayTransformer<Class<?>> transformer = new ArrayTransformer<Class<?>>();
+		@SuppressWarnings("rawtypes")
+		final ArrayTransformer<Class> transformer = new ArrayTransformer<Class>();
 		Assert.assertEquals(CLASS_ARRAY_STRING, transformer.transform(
-				(Class<? extends Class<?>[]>) Class[].class, CLASS_ARRAY));
+				Class[].class, CLASS_ARRAY));
 		Assert.assertArrayEquals(CLASS_ARRAY, transformer
 				.untransform((Class<? extends Class<?>[]>) Class[].class,
 						CLASS_ARRAY_STRING));

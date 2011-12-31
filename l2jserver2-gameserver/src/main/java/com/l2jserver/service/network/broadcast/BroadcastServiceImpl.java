@@ -215,8 +215,9 @@ public class BroadcastServiceImpl extends AbstractService implements
 						final NPC mob = (NPC) target;
 						conn.write(new SM_ACTOR_STATUS_UPDATE(mob).add(
 								Stat.MAX_HP,
-								(int) mob.getTemplate().getMaximumHP()).add(
-								Stat.HP, (int) mob.getHP()));
+								(int) mob.getTemplate().getInfo().getStats()
+										.getHp().getMax()).add(Stat.HP,
+								(int) mob.getHP()));
 					}
 				} else if (e instanceof CharacterTargetDeselectedEvent) {
 					conn.write(new SM_CHAR_TARGET_UNSELECT(

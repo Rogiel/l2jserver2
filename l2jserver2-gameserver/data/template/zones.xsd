@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	elementFormDefault="qualified" targetNamespace="zones" xmlns="zones">
+	targetNamespace="zones" xmlns="zones">
 	<xs:element name="zones">
 		<xs:complexType>
 			<xs:sequence>
@@ -25,7 +25,7 @@
 
 	<xs:complexType name="ZoneType">
 		<xs:sequence>
-			<xs:element name="point">
+			<xs:element name="point" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence></xs:sequence>
 					<xs:attribute name="x" type="xs:int" use="required">

@@ -17,6 +17,8 @@
 package com.l2jserver.service.game.item;
 
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
+import com.l2jserver.model.dao.ItemDAO;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
@@ -34,6 +36,35 @@ import com.l2jserver.util.geometry.Point3D;
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
 public interface ItemService extends Service {
+	/**
+	 * Creates a new item with the given <code>template</code>.
+	 * <p>
+	 * Instances created by this method are not stored in the database yet. But
+	 * they can be stored using {@link ItemDAO#insert(Item)}
+	 * 
+	 * @param template
+	 *            the item template
+	 * @return a new item instance
+	 */
+	Item create(ItemTemplate template);
+
+	/**
+	 * Creates a new item with the given <code>template</code>.
+	 * <p>
+	 * Instances created by this method are not stored in the database yet. But
+	 * they can be stored using {@link ItemDAO#insert(Item)}
+	 * 
+	 * @param template
+	 *            the item template
+	 * @param count
+	 *            the amount of items to be created
+	 * @return a new item instance
+	 * @throws NonStackableItemsServiceException
+	 *             this item cannot be stacked
+	 */
+	Item create(ItemTemplate template, long count)
+			throws NonStackableItemsServiceException;
+
 	/**
 	 * Executes an action for an Item.
 	 * 
@@ -63,8 +94,11 @@ public interface ItemService extends Service {
 	 * @return the splitted item
 	 * @throws NotEnoughItemsServiceException
 	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 * @throws NonStackableItemsServiceException
+	 *             if the items are not stackable and thus indivisible
 	 */
-	Item split(Item item, long count) throws NotEnoughItemsServiceException;
+	Item split(Item item, long count) throws NotEnoughItemsServiceException,
+			NonStackableItemsServiceException;
 
 	/**
 	 * Stacks several items into a single one. Items must be provided by the
@@ -90,9 +124,13 @@ public interface ItemService extends Service {
 	 *         <code>false</code> only if it was partially destroyed.
 	 * @throws NotEnoughItemsServiceException
 	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 * @throws NonStackableItemsServiceException
+	 *             if the item could not be destroyed because it was not
+	 *             possible to split it
 	 */
 	boolean destroy(Item item, long count)
-			throws NotEnoughItemsServiceException;
+			throws NotEnoughItemsServiceException,
+			NonStackableItemsServiceException;
 
 	/**
 	 * Destroys several items
@@ -141,11 +179,13 @@ public interface ItemService extends Service {
 	 *             {@link Item#getPoint()} was not set.
 	 * @throws NotEnoughItemsServiceException
 	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 * @throws NonStackableItemsServiceException
+	 *             if the item could not be splitted
 	 */
 	Item drop(Item item, long count, Point3D point, Actor actor)
 			throws ItemAlreadyOnGroundServiceException,
 			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException,
-			NotEnoughItemsServiceException;
+			NotEnoughItemsServiceException, NonStackableItemsServiceException;
 
 	/**
 	 * Drops an item on the ground. If <code>actor</code> is not
@@ -167,9 +207,11 @@ public interface ItemService extends Service {
 	 *             {@link Item#getPoint()} was not set.
 	 * @throws NotEnoughItemsServiceException
 	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
+	 * @throws NonStackableItemsServiceException
+	 *             if the item could not be splitted
 	 */
 	void drop(Item item, Point3D point, Actor actor)
 			throws ItemAlreadyOnGroundServiceException,
 			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException,
-			NotEnoughItemsServiceException;
+			NotEnoughItemsServiceException, NonStackableItemsServiceException;
 }

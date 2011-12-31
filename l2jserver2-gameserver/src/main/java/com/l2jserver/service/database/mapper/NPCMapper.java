@@ -24,7 +24,7 @@ import com.l2jserver.model.id.object.NPCID;
 import com.l2jserver.model.id.object.provider.NPCIDProvider;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.database.dao.AbstractMapper;
 import com.l2jserver.service.database.dao.DatabaseRow;
@@ -87,7 +87,7 @@ public class NPCMapper extends AbstractMapper<NPC, Integer, NPCID, QNPC> {
 			return null;
 		}
 
-		final NPC npc = template.create();
+		final NPC npc = new NPC(template);
 		npc.setID(id);
 
 		if (!row.isNull(e.hp))

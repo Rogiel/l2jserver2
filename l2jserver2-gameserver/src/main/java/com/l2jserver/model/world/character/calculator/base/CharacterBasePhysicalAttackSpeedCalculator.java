@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.character.calculator.base;
 
-import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.StatType;
 import com.l2jserver.model.world.character.calculator.CharacterFormula;
@@ -42,6 +42,6 @@ public class CharacterBasePhysicalAttackSpeedCalculator extends
 
 	@Override
 	protected double calculate(L2Character c, CharacterTemplate t, double value) {
-		return t.getBasePhysicalAttackSpeed();
+		return t.getStats().getAttack().getPhysical().getSpeed();
 	}
 }

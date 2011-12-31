@@ -16,8 +16,8 @@
  */
 package com.l2jserver.model.world.character.calculator;
 
-import com.l2jserver.model.template.actor.ActorTemplate;
-import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.ActorTemplate;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.calculator.ActorCalculatorFunction;
@@ -41,7 +41,7 @@ public abstract class CharacterCalculatorFunction extends
 	}
 
 	@Override
-	protected final double calculate(Actor a, ActorTemplate<?> actorTemplate,
+	protected final double calculate(Actor a, ActorTemplate actorTemplate,
 			double value) {
 		return calculate((L2Character) a, (CharacterTemplate) actorTemplate,
 				value);

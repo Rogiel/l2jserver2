@@ -21,7 +21,7 @@
 		</stats>
 		<experience>0</experience>
 		<sp>0</sp>
-		<item righthand="10" lefthand="20" />
+		<item rightHand="10" leftHand="20" />
 		<collision radius="" height="" />
 	</info>
 	<ai script="com.l2jserver.ai.TeleporterAI" />

@@ -46,27 +46,14 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
+import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate.Droplist;
+import com.l2jserver.model.template.NPCTemplate.Droplist.Item.DropCategory;
+import com.l2jserver.model.template.NPCTemplate.Skills;
+import com.l2jserver.model.template.NPCTemplate.Talk;
+import com.l2jserver.model.template.NPCTemplate.Talk.Chat;
+import com.l2jserver.model.template.ObjectFactory;
 import com.l2jserver.model.template.actor.ActorSex;
-import com.l2jserver.model.template.npc.NPCRace;
-import com.l2jserver.model.template.npc.NPCTemplate;
-import com.l2jserver.model.template.npc.NPCTemplate.DropItemMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.SkillMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.DropItemMetadata.DropCategory;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.CollisionMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.ItemMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCNameMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCTitleMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.AttackMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.BaseMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.MoveMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.Stat;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.AttackMetadata.AttackValueMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.NPCInformationMetadata.NPCStatsMetadata.DefenseMetadata.DefenseValueMetadata;
-import com.l2jserver.model.template.npc.NPCTemplate.TalkMetadata.Chat;
 import com.l2jserver.model.template.npc.TeleportationTemplate.TeleportRestriction;
 import com.l2jserver.model.world.npc.BaseNPCController;
 import com.l2jserver.model.world.npc.NPCController;
@@ -81,11 +68,11 @@ import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 @SuppressWarnings("restriction")
 public class NPCTemplateConverter {
-	private static final String JDBC_URL = "jdbc:mysql://localhost/l2jlegacy";
-	private static final String JDBC_USERNAME = "l2j";
-	private static final String JDBC_PASSWORD = "changeme";
+	private static final String JDBC_URL = "jdbc:mysql://localhost/l2jserver_legacy";
+	private static final String JDBC_USERNAME = "root";
+	private static final String JDBC_PASSWORD = "";
 	private static final File L2J_HTML_FOLDER = new File(
-			"../L2J_DataPack_BETA/data/html");
+			"../../L2J_DataPack_BETA/dist/game/data/html");
 
 	private static final Map<String, Class<? extends NPCController>> controllers = CollectionFactory
 			.newMap();
@@ -104,7 +91,7 @@ public class NPCTemplateConverter {
 		Class.forName("com.mysql.jdbc.Driver");
 
 		final File target = new File("generated/template/npc");
-
+	
 		System.out.println("Scaning legacy HTML files...");
 		htmlScannedFiles = FileUtils.listFiles(L2J_HTML_FOLDER, new String[] {
 				"html", "htm" }, true);
@@ -147,15 +134,15 @@ public class NPCTemplateConverter {
 		}
 
 		System.out.println("Generating template XML files...");
-		c.generateSchema(new SchemaOutputResolver() {
-			@Override
-			public Result createOutput(String namespaceUri,
-					String suggestedFileName) throws IOException {
-				// System.out.println(new File(target, suggestedFileName));
-				// return null;
-				return new StreamResult(new File(target, suggestedFileName));
-			}
-		});
+//		c.generateSchema(new SchemaOutputResolver() {
+//			@Override
+//			public Result createOutput(String namespaceUri,
+//					String suggestedFileName) throws IOException {
+//				// System.out.println(new File(target, suggestedFileName));
+//				// return null;
+//				return new StreamResult(new File(target, suggestedFileName));
+//			}
+//		});
 
 		try {
 			final Marshaller m = c.createMarshaller();
@@ -186,10 +173,10 @@ public class NPCTemplateConverter {
 				final File file = new File(target, "npc/"
 						+ folder
 						+ "/"
-						+ t.id.getID()
-						+ (t.info.nameMetadata != null ? "-"
-								+ camelCase(t.info.nameMetadata.name) : "")
-						+ ".xml");
+						+ t.getID().getID()
+						+ (t.getInfo().getName() != null ? "-"
+								+ camelCase(t.getInfo().getName().getValue())
+								: "") + ".xml");
 				file.getParentFile().mkdirs();
 				templates.add(t);
 
@@ -198,7 +185,9 @@ public class NPCTemplateConverter {
 				} catch (MarshalException e) {
 					System.err
 							.println("Could not generate XML template file for "
-									+ t.getName() + " - " + t.getID());
+									+ t.getInfo().getName().getValue()
+									+ " - "
+									+ t.getID());
 					file.delete();
 				}
 			}
@@ -227,105 +216,136 @@ public class NPCTemplateConverter {
 
 	private static Object[] fillNPC(ResultSet rs) throws SQLException,
 			IOException {
-		final NPCTemplate template = new NPCTemplate();
-		template.id = new NPCTemplateID(rs.getInt("idTemplate"), null);
+		final ObjectFactory factory = new ObjectFactory();
 
-		template.controller = controllers.get(rs.getString("type"));
-		if (template.controller == null)
-			template.controller = NotImplementedNPCController.class;
-		template.info = new NPCInformationMetadata();
+		final NPCTemplate template = factory.createNPCTemplate();
+		template.setID(new NPCTemplateID(rs.getInt("idTemplate"), null));
 
-		template.info.nameMetadata = new NPCNameMetadata();
-		template.info.nameMetadata.name = rs.getString("name");
-		template.info.nameMetadata.display = rs.getBoolean("show_name");
-		template.info.nameMetadata.send = rs.getBoolean("serverSideName");
+		template.setController(controllers.get(rs.getString("type")));
+		if (template.getController() == null)
+			template.setController(NotImplementedNPCController.class);
+		template.setInfo(factory.createNPCTemplateInfo());
 
-		template.info.titleMetadata = new NPCTitleMetadata();
-		template.info.titleMetadata.title = rs.getString("title");
-		template.info.titleMetadata.send = rs.getBoolean("serverSideTitle");
+		template.getInfo().setName(factory.createNPCTemplateInfoName());
+		template.getInfo().getName().setValue(rs.getString("name"));
+		//template.getInfo().getName().setDisplay(rs.getBoolean("show_name"));
+		template.getInfo().getName().setSend(rs.getBoolean("serverSideName"));
 
-		if (template.info.titleMetadata.title.length() == 0)
-			template.info.titleMetadata = null;
-		if (template.info.nameMetadata.name.length() == 0)
-			template.info.nameMetadata = null;
+		template.getInfo().setTitle(factory.createNPCTemplateInfoTitle());
+		template.getInfo().getTitle().setValue(rs.getString("title"));
+		template.getInfo().getTitle().setSend(rs.getBoolean("serverSideTitle"));
 
-		template.info.level = rs.getInt("level");
-		template.info.race = getRace(rs.getInt("race"));
+		if (template.getInfo().getName().getValue().length() == 0)
+			template.getInfo().setName(null);
+		if (template.getInfo().getTitle().getValue().length() == 0)
+			template.getInfo().setTitle(null);
+
+		template.getInfo().setLevel(rs.getInt("level"));
+		template.getInfo().setRace(getRace(rs.getInt("race")));
 		if (!rs.getString("sex").equals("etc"))
-			template.info.sex = ActorSex.valueOf(rs.getString("sex")
-					.toUpperCase());
+			template.getInfo().setSex(
+					ActorSex.valueOf(rs.getString("sex").toUpperCase()));
 		// template.info.attackable = rs.getBoolean("attackable");
-		template.info.targetable = rs.getBoolean("targetable");
-		template.info.aggressive = rs.getBoolean("aggro");
-		template.info.attackable = true; // FIXME
+		//template.getInfo().setTargetable(rs.getBoolean("targetable"));
+		template.getInfo().setTargetable(true);
+		//template.getInfo().setAggressive(rs.getBoolean("aggro"));
+		template.getInfo().setAggressive(true);
+		template.getInfo().setAttackable(true); // FIXME
 
-		template.info.stats = new NPCStatsMetadata();
+		template.getInfo().setStats(factory.createNPCTemplateInfoStats());
 
-		template.info.stats.hp = new Stat();
-		template.info.stats.hp.max = rs.getDouble("hp");
-		template.info.stats.hp.regen = rs.getDouble("hpreg");
+		template.getInfo().getStats()
+				.setHp(factory.createNPCTemplateInfoStatsHp());
+		template.getInfo().getStats().getHp().setMax(rs.getDouble("hp"));
+		template.getInfo().getStats().getHp().setRegen(rs.getDouble("hpreg"));
 
-		template.info.stats.mp = new Stat();
-		template.info.stats.mp.max = rs.getDouble("mp");
-		template.info.stats.mp.regen = rs.getDouble("mpreg");
+		template.getInfo().getStats()
+				.setMp(factory.createNPCTemplateInfoStatsMp());
+		template.getInfo().getStats().getMp().setMax(rs.getDouble("mp"));
+		template.getInfo().getStats().getMp().setRegen(rs.getDouble("mpreg"));
 
-		template.info.stats.attack = new AttackMetadata();
-		template.info.stats.attack.range = rs.getInt("attackrange");
-		template.info.stats.attack.critical = rs.getInt("critical");
+		template.getInfo().getStats()
+				.setAttack(factory.createNPCTemplateInfoStatsAttack());
+		template.getInfo().getStats().getAttack()
+				.setRange(rs.getInt("attackrange"));
+		template.getInfo().getStats().getAttack()
+				.setCritical(rs.getInt("critical"));
 
-		template.info.stats.attack.physical = new AttackValueMetadata();
-		template.info.stats.attack.physical.damage = rs.getDouble("patk");
-		template.info.stats.attack.physical.speed = rs.getDouble("atkspd");
+		template.getInfo()
+				.getStats()
+				.getAttack()
+				.setPhysical(factory.createNPCTemplateInfoStatsAttackPhysical());
+		template.getInfo().getStats().getAttack().getPhysical()
+				.setDamage(rs.getDouble("patk"));
+		template.getInfo().getStats().getAttack().getPhysical()
+				.setSpeed(rs.getDouble("atkspd"));
 
-		template.info.stats.attack.magical = new AttackValueMetadata();
-		template.info.stats.attack.magical.damage = rs.getDouble("matk");
-		template.info.stats.attack.magical.speed = rs.getDouble("matkspd");
+		template.getInfo().getStats().getAttack()
+				.setMagical(factory.createNPCTemplateInfoStatsAttackMagical());
+		template.getInfo().getStats().getAttack().getMagical()
+				.setDamage(rs.getDouble("matk"));
+		template.getInfo().getStats().getAttack().getMagical()
+				.setSpeed(rs.getDouble("matkspd"));
 
-		template.info.stats.defense = new DefenseMetadata();
-		template.info.stats.defense.physical = new DefenseValueMetadata();
-		template.info.stats.defense.physical.value = rs.getDouble("pdef");
-		template.info.stats.defense.magical = new DefenseValueMetadata();
-		template.info.stats.defense.magical.value = rs.getDouble("mdef");
+		template.getInfo().getStats()
+				.setDefense(factory.createNPCTemplateInfoStatsDefense());
+		template.getInfo()
+				.getStats()
+				.getDefense()
+				.setPhysical(
+						factory.createNPCTemplateInfoStatsDefensePhysical());
+		template.getInfo().getStats().getDefense().getPhysical()
+				.setValue(rs.getDouble("pdef"));
+		template.getInfo().getStats().getDefense()
+				.setMagical(factory.createNPCTemplateInfoStatsDefenseMagical());
+		template.getInfo().getStats().getDefense().getMagical()
+				.setValue(rs.getDouble("mdef"));
 
-		template.info.stats.move = new MoveMetadata();
-		template.info.stats.move.run = rs.getDouble("runspd");
-		template.info.stats.move.walk = rs.getDouble("walkspd");
+		template.getInfo().getStats()
+				.setMove(factory.createNPCTemplateInfoStatsMove());
+		template.getInfo().getStats().getMove().setRun(rs.getDouble("runspd"));
+		template.getInfo().getStats().getMove()
+				.setWalk(rs.getDouble("walkspd"));
 
-		template.info.stats.base = new BaseMetadata();
-		template.info.stats.base.intelligence = rs.getInt("int");
-		template.info.stats.base.strength = rs.getInt("str");
-		template.info.stats.base.concentration = rs.getInt("con");
-		template.info.stats.base.dexterity = rs.getInt("dex");
-		template.info.stats.base.witness = rs.getInt("wit");
-		template.info.stats.base.mentality = rs.getInt("men");
+		template.getInfo().getStats()
+				.setBase(factory.createNPCTemplateInfoStatsBase());
+		template.getInfo().getStats().getBase().setInt(rs.getInt("int"));
+		template.getInfo().getStats().getBase().setStr(rs.getInt("str"));
+		template.getInfo().getStats().getBase().setCon(rs.getInt("con"));
+		template.getInfo().getStats().getBase().setDex(rs.getInt("dex"));
+		template.getInfo().getStats().getBase().setWit(rs.getInt("wit"));
+		template.getInfo().getStats().getBase().setMen(rs.getInt("men"));
 
-		template.info.experience = rs.getLong("exp");
-		template.info.sp = rs.getInt("sp");
+		template.getInfo().setExperience(rs.getLong("exp"));
+		template.getInfo().setSp(rs.getInt("sp"));
 
 		if (rs.getInt("rhand") > 0 || rs.getInt("lhand") > 0)
-			template.info.item = new ItemMetadata();
+			template.getInfo().setItem(factory.createNPCTemplateInfoItem());
 		if (rs.getInt("rhand") > 0)
-			template.info.item.rightHand = new ItemTemplateID(
-					rs.getInt("rhand"), null);
+			template.getInfo().getItem()
+					.setRightHand(new ItemTemplateID(rs.getInt("rhand"), null));
 		if (rs.getInt("lhand") > 0)
-			template.info.item.leftHand = new ItemTemplateID(
-					rs.getInt("lhand"), null);
+			template.getInfo().getItem()
+					.setLeftHand(new ItemTemplateID(rs.getInt("lhand"), null));
 
-		template.info.collision = new CollisionMetadata();
-		template.info.collision.radius = rs.getDouble("collision_radius");
-		template.info.collision.height = rs.getDouble("collision_height");
+		template.getInfo().setCollision(
+				factory.createNPCTemplateInfoCollision());
+		template.getInfo().getCollision()
+				.setRadius(rs.getDouble("collision_radius"));
+		template.getInfo().getCollision()
+				.setHeigth(rs.getDouble("collision_height"));
 
-		template.droplist = fillDropList(rs, template.id.getID());
-		template.skills = fillSkillList(rs, template.id.getID());
-		template.talk = fillHtmlChat(template.id.getID());
+		template.setDroplist(fillDropList(factory, rs, template.getID().getID()));
+		template.setSkills(fillSkillList(factory, rs, template.getID().getID()));
+		template.setTalk(fillHtmlChat(factory, template.getID().getID()));
 
 		return new Object[] { template, createParentType(rs.getString("type")) };
 	}
 
-	private static List<DropItemMetadata> fillDropList(ResultSet npcRs,
-			int npcId) throws SQLException {
+	private static Droplist fillDropList(final ObjectFactory factory,
+			ResultSet npcRs, int npcId) throws SQLException {
 		final Connection conn = npcRs.getStatement().getConnection();
-		final List<DropItemMetadata> drops = CollectionFactory.newList();
+		final Droplist drops = factory.createNPCTemplateDroplist();
 
 		final PreparedStatement st = conn
 				.prepareStatement("SELECT * FROM droplist WHERE mobId = ?");
@@ -333,23 +353,22 @@ public class NPCTemplateConverter {
 		st.execute();
 		final ResultSet rs = st.getResultSet();
 		while (rs.next()) {
-			DropItemMetadata m = new DropItemMetadata();
-			m.item = new ItemTemplateID(rs.getInt("itemId"), null);
-			m.min = rs.getInt("min");
-			m.max = rs.getInt("max");
-			m.chance = rs.getInt("chance");
-			m.category = getCategory(rs.getInt("category"));
-			drops.add(m);
+			final Droplist.Item item = factory.createNPCTemplateDroplistItem();
+			item.setId( new ItemTemplateID(rs.getInt("itemId"), null));
+			item.setMin(rs.getInt("min"));
+			item.setMax( rs.getInt("max"));
+			item.setChance(rs.getInt("chance"));
+			item.setCategory(getCategory(rs.getInt("category")));
+			drops.getItem().add(item);
 		}
-		if (drops.size() == 0)
+		if (drops.getItem().size() == 0)
 			return null;
 		return drops;
 	}
 
-	private static TalkMetadata fillHtmlChat(int npcId) throws IOException {
-		final TalkMetadata talk = new TalkMetadata();
-		talk.defaultChat = "default";
-		talk.chats = CollectionFactory.newList();
+	private static Talk fillHtmlChat(final ObjectFactory factory, int npcId) throws IOException {
+		final Talk talk = factory.createNPCTemplateTalk();
+		talk.setDefault("default");
 		for (final File file : htmlScannedFiles) {
 			String id = null;
 			if (file.getName().startsWith(npcId + "-")) {
@@ -362,21 +381,21 @@ public class NPCTemplateConverter {
 			if (id != null && !file.getAbsolutePath().contains("/half/")
 					&& !file.getAbsolutePath().contains("/free/")) {
 				Chat chat = new Chat();
-				chat.id = id;
-				chat.html = FileUtils.readFileToString(file);
-				talk.chats.add(chat);
+				chat.setId(id);
+				chat.setValue(FileUtils.readFileToString(file));
+				talk.getChat().add(chat);
 			}
 		}
 
-		if (talk.chats.size() == 0)
+		if (talk.getChat().size() == 0)
 			return null;
 		return talk;
 	}
 
-	private static List<SkillMetadata> fillSkillList(ResultSet npcRs, int npcId)
+	private static Skills fillSkillList(final ObjectFactory factory, ResultSet npcRs, int npcId)
 			throws SQLException {
 		final Connection conn = npcRs.getStatement().getConnection();
-		final List<SkillMetadata> skills = CollectionFactory.newList();
+		final Skills skills = factory.createNPCTemplateSkills();
 
 		final PreparedStatement st = conn
 				.prepareStatement("SELECT * FROM npcskills WHERE npcid = ?");
@@ -384,12 +403,12 @@ public class NPCTemplateConverter {
 		st.execute();
 		final ResultSet rs = st.getResultSet();
 		while (rs.next()) {
-			SkillMetadata m = new SkillMetadata();
-			m.skill = new SkillTemplateID(rs.getInt("skillid"), null);
-			m.level = rs.getInt("level");
-			skills.add(m);
+			Skills.Skill s = factory.createNPCTemplateSkillsSkill();
+			s.setId(new SkillTemplateID(rs.getInt("skillid"), null));
+			s.setLevel(rs.getInt("level"));
+			skills.getSkill().add(s);
 		}
-		if (skills.size() == 0)
+		if (skills.getSkill().size() == 0)
 			return null;
 		return skills;
 	}

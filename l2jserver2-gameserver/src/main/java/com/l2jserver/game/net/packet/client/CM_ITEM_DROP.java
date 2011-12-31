@@ -27,6 +27,7 @@ import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.service.game.item.ItemAlreadyOnGroundServiceException;
 import com.l2jserver.service.game.item.ItemService;
+import com.l2jserver.service.game.item.NonStackableItemsServiceException;
 import com.l2jserver.service.game.item.NotEnoughItemsServiceException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -118,7 +119,7 @@ public class CM_ITEM_DROP extends AbstractClientPacket {
 		} catch (ItemAlreadyOnGroundServiceException
 				| AlreadySpawnedServiceException
 				| SpawnPointNotFoundServiceException
-				| NotEnoughItemsServiceException e) {
+				| NotEnoughItemsServiceException | NonStackableItemsServiceException e) {
 			conn.sendActionFailed();
 		}
 	}

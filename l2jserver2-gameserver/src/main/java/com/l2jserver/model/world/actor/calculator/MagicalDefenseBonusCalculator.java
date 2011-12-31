@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.model.world.actor.stat.StatType;
@@ -50,7 +50,7 @@ public class MagicalDefenseBonusCalculator extends ActorFormula {
 	}
 
 	@Override
-	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+	protected double calculate(Actor a, ActorTemplate t, double value) {
 		// final CharacterInventory inv = c.getInventory();
 
 		// if (inv.has(LEFT_FINGER))

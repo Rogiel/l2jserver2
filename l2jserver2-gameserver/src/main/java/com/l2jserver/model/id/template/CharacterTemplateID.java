@@ -19,7 +19,8 @@ package com.l2jserver.model.id.template;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.TemplateID;
-import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.template.character.CharacterClass;
 import com.l2jserver.service.game.template.TemplateService;
 
 /**
@@ -38,5 +39,12 @@ public class CharacterTemplateID extends ActorTemplateID<CharacterTemplate> {
 	@Inject
 	public CharacterTemplateID(@Assisted int id, TemplateService templateService) {
 		super(id, templateService);
+	}
+
+	/**
+	 * @return the character class
+	 */
+	public CharacterClass getCharacterClass() {
+		return CharacterClass.fromID(id);
 	}
 }

@@ -30,7 +30,7 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.packet.client.CM_CHAR_ACTION.CharacterAction;
 import com.l2jserver.model.dao.NPCDAO;
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Actor.ActorState;
 import com.l2jserver.model.world.L2Character;
@@ -134,8 +134,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	@Inject
 	public NPCServiceImpl(SpawnService spawnService,
 			CharacterService characterService, ThreadService threadService,
-			AttackService attackService, WorldEventDispatcherService eventDispatcher,
-			NPCDAO npcDao, Injector injector) {
+			AttackService attackService,
+			WorldEventDispatcherService eventDispatcher, NPCDAO npcDao,
+			Injector injector) {
 		this.spawnService = spawnService;
 		this.characterService = characterService;
 		this.threadService = threadService;
@@ -183,14 +184,15 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 
 	@Override
 	public void action(NPC npc, L2Character character, String... args)
-			throws ActionServiceException, CannotSetTargetServiceException, NPCControllerException {
+			throws ActionServiceException, CannotSetTargetServiceException,
+			NPCControllerException {
 		Preconditions.checkNotNull(npc, "npc");
 		Preconditions.checkNotNull(character, "character");
 		if (args == null)
 			args = new String[0];
 
-		log.debug("{} interacting with {} (args={})", new Object[] {
-				character, npc, Arrays.toString(args) });
+		log.debug("{} interacting with {} (args={})", new Object[] { character,
+				npc, Arrays.toString(args) });
 
 		try {
 			final NPCController controller = getController(npc);
@@ -252,7 +254,8 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		// calculate walking time
 		final Point3D start = npc.getPoint();
 		final double distance = start.getDistance(point);
-		final double seconds = distance / npc.getTemplate().getRunSpeed();
+		final double seconds = distance
+				/ npc.getTemplate().getInfo().getStats().getMove().getRun();
 		// TODO this is an dirty implementation!
 		return threadService.async((int) (seconds * 1000),
 				TimeUnit.MILLISECONDS, new AbstractTask<Boolean>() {
@@ -274,7 +277,7 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 		log.debug("{} is being attacked by {}", npc, attacker);
 
 		final NPCTemplate template = npc.getTemplate();
-		if (!template.isAttackable()) {
+		if (!template.getInfo().isAttackable()) {
 			throw new NotAttackableNPCServiceException();
 		}
 
@@ -289,8 +292,9 @@ public class NPCServiceImpl extends AbstractService implements NPCService {
 	private NPCController getController(NPC npc) {
 		// make sure everything's synchronized-no duplicated instances
 		synchronized (controllers) {
-			final Class<? extends NPCController> controllerClass = npc
-					.getTemplate().getControllerClass();
+			@SuppressWarnings("unchecked")
+			final Class<? extends NPCController> controllerClass = (Class<? extends NPCController>) npc
+					.getTemplate().getController();
 			NPCController controller = controllers.get(controllerClass);
 			if (controller == null) {
 				controller = injector.getInstance(controllerClass);

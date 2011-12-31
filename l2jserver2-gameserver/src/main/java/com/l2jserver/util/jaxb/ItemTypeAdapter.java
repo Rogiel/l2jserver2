@@ -14,15 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.id.template.provider;
+package com.l2jserver.util.jaxb;
 
-import com.l2jserver.model.id.template.EffectTemplateID;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+
+import com.l2jserver.model.template.item.ItemType;
 
 /**
- * Creates new {@link EffectTemplateID} instances
+ * This class is an JAXB Adapter for {@link ItemType}
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public interface EffectTemplateIDProvider extends
-		TemplateIDProvider<Integer, EffectTemplateID> {
+public class ItemTypeAdapter extends XmlAdapter<String, ItemType> {
+	@Override
+	public ItemType unmarshal(String v) throws Exception {
+		return ItemType.valueOf(v);
+	}
+
+	@Override
+	public String marshal(ItemType v) throws Exception {
+		if (v == null)
+			return null;
+		return v.name();
+	}
 }

@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.TemplateID;
-import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.service.game.template.TemplateService;
 
 /**
@@ -32,7 +32,7 @@ import com.l2jserver.service.game.template.TemplateService;
  *            represents
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class ActorTemplateID<T extends ActorTemplate<?>> extends
+public class ActorTemplateID<T extends ActorTemplate> extends
 		TemplateID<T, Integer> {
 	/**
 	 * The template service

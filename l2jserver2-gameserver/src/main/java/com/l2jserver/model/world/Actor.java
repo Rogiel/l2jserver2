@@ -19,9 +19,8 @@ package com.l2jserver.model.world;
 import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.id.object.ActorID;
 import com.l2jserver.model.id.template.ActorTemplateID;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.template.actor.ActorSex;
-import com.l2jserver.model.template.actor.ActorTemplate;
-import com.l2jserver.model.world.actor.ActorEffectContainer;
 import com.l2jserver.model.world.actor.ActorSkillContainer;
 import com.l2jserver.model.world.actor.stat.ActorStats;
 
@@ -96,10 +95,10 @@ public abstract class Actor extends PositionableObject {
 		DEAD;
 	}
 
-	/**
-	 * The currently effects active on the actor
-	 */
-	protected final ActorEffectContainer effects = new ActorEffectContainer(this);
+//	/**
+//	 * The currently effects active on the actor
+//	 */
+//	protected final ActorEffectContainer effects = new ActorEffectContainer(this);
 	/**
 	 * The skills learned by this actor
 	 */
@@ -271,12 +270,12 @@ public abstract class Actor extends PositionableObject {
 		return state == ActorState.ATTACKING;
 	}
 
-	/**
-	 * @return the active effects on this actor
-	 */
-	public ActorEffectContainer getEffects() {
-		return effects;
-	}
+//	/**
+//	 * @return the active effects on this actor
+//	 */
+//	public ActorEffectContainer getEffects() {
+//		return effects;
+//	}
 
 	/**
 	 * @return the actor skills
@@ -295,7 +294,7 @@ public abstract class Actor extends PositionableObject {
 	/**
 	 * @return the template
 	 */
-	public ActorTemplate<?> getTemplate() {
+	public ActorTemplate getTemplate() {
 		return templateID.getTemplate();
 	}
 

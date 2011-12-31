@@ -36,8 +36,7 @@ public class ArrayTransformer<T> implements Transformer<T[]> {
 	/**
 	 * This transformer shared instance
 	 */
-	@SuppressWarnings("rawtypes")
-	public static final ArrayTransformer<?> SHARED_INSTANCE = new ArrayTransformer();
+	public static final ArrayTransformer<?> SHARED_INSTANCE = new ArrayTransformer<>();
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -48,7 +47,7 @@ public class ArrayTransformer<T> implements Transformer<T[]> {
 		int i = 0;
 		for (final T item : value) {
 			values[i++] = transformer.transform(
-					(Class<? extends T>) type.getComponentType(), item);
+					(Class<T>) type.getComponentType(), item);
 		}
 		return StringUtils.join(values, '|');
 	}
@@ -59,14 +58,14 @@ public class ArrayTransformer<T> implements Transformer<T[]> {
 		final Transformer<T> transformer = (Transformer<T>) TransformerFactory
 				.getTransfromer(type.getComponentType());
 		final String[] stringValues = StringUtils.split(stringValue, '|');
-		final T[] values = (T[]) Array.newInstance(type.getComponentType(),
+		final Object values = Array.newInstance(type.getComponentType(),
 				stringValues.length);
 		int i = 0;
 		for (final String value : stringValues) {
-			values[i++] = transformer.untransform(
-					(Class<? extends T>) type.getComponentType(), value);
+			Array.set(values, i++, transformer.untransform(
+					(Class<T>) type.getComponentType(), value));
 		}
 
-		return values;
+		return type.cast(values);
 	}
 }

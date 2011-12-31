@@ -26,6 +26,7 @@ import com.l2jserver.model.id.object.ItemID;
 import com.l2jserver.model.id.object.provider.ItemIDProvider;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.service.game.item.ItemService;
+import com.l2jserver.service.game.item.NonStackableItemsServiceException;
 import com.l2jserver.service.game.item.NotEnoughItemsServiceException;
 
 /**
@@ -96,7 +97,7 @@ public class CM_ITEM_DESTROY extends AbstractClientPacket {
 			} else {
 				conn.updateInventoryItems(item);
 			}
-		} catch (NotEnoughItemsServiceException e) {
+		} catch (NotEnoughItemsServiceException | NonStackableItemsServiceException e) {
 			conn.sendSystemMessage(SystemMessage.CANNOT_DISCARD_THIS_ITEM);
 		}
 	}

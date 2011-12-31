@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.BaseStats;
 import com.l2jserver.model.world.actor.stat.StatType;
@@ -40,7 +40,7 @@ public class MagicalAttackBonusCalculator extends ActorFormula {
 	}
 
 	@Override
-	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+	protected double calculate(Actor a, ActorTemplate t, double value) {
 		return value
 				* Math.pow(((100.0 - 11 + a.getLevel()) / 100.0), 2)
 				* Math.pow(BaseStats.INT.calculateBonus(a.getStats()

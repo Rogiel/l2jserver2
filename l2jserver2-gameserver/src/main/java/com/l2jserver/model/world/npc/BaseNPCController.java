@@ -17,12 +17,14 @@
 package com.l2jserver.model.world.npc;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.htmlparser.Parser;
 import org.htmlparser.util.ParserException;
 
 import com.google.inject.Inject;
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate.Talk.Chat;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.game.character.CharacterService;
@@ -77,7 +79,7 @@ public abstract class BaseNPCController implements NPCController {
 	public void interact(NPC npc, L2Character character, final String... args)
 			throws L2Exception {
 		if (args.length == 2) {
-			switch(args[0]) {
+			switch (args[0]) {
 			case "Chat":
 				if (talk(npc, character,
 						Arrays.copyOfRange(args, 1, args.length)))
@@ -138,14 +140,21 @@ public abstract class BaseNPCController implements NPCController {
 	 * @return the html code
 	 */
 	protected String getHTML(NPC npc, String id) {
-		// id correction - on l2j default chat is also "0".
-		if ("0".equals(id)) // avoid NullPointerException
-			id = null;
-
 		final NPCTemplate template = npc.getTemplate();
-		String html = template.getHTML(id);
-		if (html == null)
+		// id correction - on l2j default chat is also "0".
+		if ("0".equals(id) || id == null) // avoid NullPointerException
+			id = template.getTalk().getDefault();
+		final List<Chat> chats = template.getTalk().getChat();
+		String html = null;
+		for (final Chat chat : chats) {
+			if (chat.getId().equals(id)) {
+				html = chat.getValue();
+				break;
+			}
+		}
+		if(html == null)
 			return null;
+
 		// TODO use an decent template engine
 		return html.replaceAll("%objectId%", npc.getID().getID().toString());
 	}

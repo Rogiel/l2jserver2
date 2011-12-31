@@ -3,25 +3,24 @@
 	xsi:schemaLocation="http://schemas.l2jserver2.com/item ../item.xsd"
 	xmlns:template="http://schemas.l2jserver2.com/item" id="1"
 	icon="icon.weapon_small_sword_i00" name="Short Sword">
-	<attributes weigth="1600" type="SWORD" material="STEEL">
+	<attributes weigth="1600" material="STEEL">
 		<cost adena="590" />
-		<equipment part="RIGHT_HAND" />
 	</attributes>
 	<controller defaultAction="EQUIP" />
 	<effect type="IMMEDIATE" />
-	<weapon part="RIGHT_HAND">
+	<weapon part="RIGHT_HAND" type="SWORD">
 		<physicalDamage>
-			<set order="128">8</set>
-			<random order="127">10</random>
+			<set order="128" value="8" />
+			<random order="127" value="10" />
 		</physicalDamage>
 		<magicalDamage>
-			<set order="128">6</set>
+			<set order="128" value="6" />
 		</magicalDamage>
 		<criticalChance>
-			<set order="128">8</set>
+			<set order="128" value="8" />
 		</criticalChance>
 		<physicalAttackSpeed>
-			<set order="128">379</set>
+			<set order="128" value="379" />
 		</physicalAttackSpeed>
 	</weapon>
 </template:item>

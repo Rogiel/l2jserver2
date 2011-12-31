@@ -20,7 +20,7 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptors>
-						<descriptor>src/main/assembly/distribution-data.xml</descriptor>
+						<descriptor>src/main/assembly/distribution-pack-data.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-mysql5-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-orientdb-bin.xml</descriptor>
 						<descriptor>src/main/assembly/distribution-h2-bin.xml</descriptor>
@@ -52,6 +52,58 @@
 						</manifest>
 					</archive>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/generated</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<plugins>
+								<plugin>
+									<groupId>org.jvnet.jaxb2_commons</groupId>
+									<artifactId>jaxb2-basics</artifactId>
+									<version>0.5.3</version>
+								</plugin>
+							</plugins>
+							<!-- <removeOldOutput>true</removeOldOutput> -->
+							<args>
+								<arg>-extension</arg>
+								<arg>-Xinheritance</arg>
+							</args>
+							<schemaDirectory>data/template</schemaDirectory>
+							<schemaIncludes>
+								<include>*.xsd</include>
+							</schemaIncludes>
+							<generateDirectory>src/main/generated</generateDirectory>
+							<generatePackage>com.l2jserver.model.template</generatePackage>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -85,14 +137,14 @@
 					<artifactId>tools</artifactId>
 				</exclusion>
 			</exclusions>
-			<scope>runtime</scope>
+			<scope>compile</scope>
 		</dependency>
 		<!-- utils -->
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
 			<version>3.7.1</version>
-			<scope>runtime</scope>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>

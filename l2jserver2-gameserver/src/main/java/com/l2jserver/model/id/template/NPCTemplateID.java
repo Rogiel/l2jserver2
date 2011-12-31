@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.TemplateID;
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 

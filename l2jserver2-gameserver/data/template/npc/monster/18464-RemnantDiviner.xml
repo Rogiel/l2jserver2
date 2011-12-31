@@ -24,7 +24,7 @@
         </stats>
         <experience>254867</experience>
         <sp>27524</sp>
-        <item lefthand="0" righthand="8532"/>
+        <item leftHand="0" rightHand="8532"/>
         <collision heigth="23.0" radius="8.0"/>
     </info>
     <skills>

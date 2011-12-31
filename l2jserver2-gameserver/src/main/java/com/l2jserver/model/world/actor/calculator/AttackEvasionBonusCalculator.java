@@ -18,7 +18,7 @@ package com.l2jserver.model.world.actor.calculator;
 
 import org.apache.commons.math.util.FastMath;
 
-import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.StatType;
 
@@ -46,7 +46,7 @@ public class AttackEvasionBonusCalculator extends ActorFormula {
 	}
 
 	@Override
-	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+	protected double calculate(Actor a, ActorTemplate t, double value) {
 		final int level = a.getLevel();
 
 		value += FastMath.sqrt(a.getStats().getDexterity()) * 6;

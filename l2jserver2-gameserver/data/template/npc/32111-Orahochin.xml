@@ -24,7 +24,7 @@
         </stats>
         <experience>0</experience>
         <sp>0</sp>
-        <item lefthand="0" righthand="8217"/>
+        <item leftHand="0" rightHand="8217"/>
         <collision heigth="33.0" radius="25.0"/>
     </info>
     <talk default="default">

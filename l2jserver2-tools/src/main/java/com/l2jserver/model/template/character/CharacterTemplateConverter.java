@@ -34,17 +34,8 @@ import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
 
 import com.l2jserver.model.id.template.CharacterTemplateID;
-import com.l2jserver.model.template.character.CharacterTemplate;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CollitionMetadataContainer;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.AttackMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.BaseMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.DefenseMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.MoveMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.Stat;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.AttackMetadata.AttackValueMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CharacterStatsMetadata.DefenseMetadata.DefenseValueMetadata;
-import com.l2jserver.model.template.character.CharacterTemplate.CollitionMetadataContainer.CollisionMetadata;
+import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.template.ObjectFactory;
 
 /**
  * The need to use this package to get access to protected fields.
@@ -88,7 +79,8 @@ public class CharacterTemplateConverter {
 					CharacterTemplate t = fillTemplate(rs);
 
 					final File file = new File(target, "character/"
-							+ camelCase(t.getCharacterClass().name()) + ".xml");
+							+ camelCase(t.getID().getCharacterClass().name())
+							+ ".xml");
 					file.getParentFile().mkdirs();
 
 					m.marshal(t, file);
@@ -106,68 +98,83 @@ public class CharacterTemplateConverter {
 
 	private static CharacterTemplate fillTemplate(ResultSet rs)
 			throws SQLException {
-		final CharacterTemplate t = new CharacterTemplate();
-		
-		t.id = new CharacterTemplateID(rs.getInt("Classid"), null);
+		final ObjectFactory factory = new ObjectFactory();
 
-		t.stats = new CharacterStatsMetadata();
-		t.stats.hp = new Stat();
-		t.stats.hp.base = rs.getDouble("defaulthpbase");
-		t.stats.hp.modifier = rs.getDouble("defaulthpmod");
-		t.stats.hp.add = rs.getDouble("defaulthpadd");
+		final CharacterTemplate t = factory.createCharacterTemplate();
+		t.setID(new CharacterTemplateID(rs.getInt("Classid"), null));
+		t.setStats(factory.createCharacterTemplateStats());
 
-		t.stats.mp = new Stat();
-		t.stats.mp.base = rs.getDouble("defaultmpbase");
-		t.stats.mp.modifier = rs.getDouble("defaultmpmod");
-		t.stats.mp.add = rs.getDouble("defaultmpadd");
+		t.getStats().setHp(factory.createCharacterTemplateStatsHp());
+		t.getStats().getHp().setBase(rs.getDouble("defaulthpbase"));
+		t.getStats().getHp().setModifier(rs.getDouble("defaulthpmod"));
+		t.getStats().getHp().setAdd(rs.getDouble("defaulthpadd"));
 
-		t.stats.cp = new Stat();
-		t.stats.cp.base = rs.getDouble("defaultcpbase");
-		t.stats.cp.modifier = rs.getDouble("defaultcpmod");
-		t.stats.cp.add = rs.getDouble("defaultcpadd");
+		t.getStats().setMp(factory.createCharacterTemplateStatsMp());
+		t.getStats().getMp().setBase(rs.getDouble("defaultmpbase"));
+		t.getStats().getMp().setModifier(rs.getDouble("defaultmpmod"));
+		t.getStats().getMp().setAdd(rs.getDouble("defaultmpadd"));
 
-		t.stats.base = new BaseMetadata();
-		t.stats.base.intelligence = rs.getInt("_INT");
-		t.stats.base.strength = rs.getInt("STR");
-		t.stats.base.concentration = rs.getInt("CON");
-		t.stats.base.mentality = rs.getInt("MEN");
-		t.stats.base.dexterity = rs.getInt("DEX");
-		t.stats.base.witness = rs.getInt("WIT");
+		t.getStats().setCp(factory.createCharacterTemplateStatsCp());
+		t.getStats().getCp().setBase(rs.getDouble("defaultcpbase"));
+		t.getStats().getCp().setModifier(rs.getDouble("defaultcpmod"));
+		t.getStats().getCp().setAdd(rs.getDouble("defaultcpadd"));
 
-		t.stats.attack = new AttackMetadata();
-		t.stats.attack.critical = rs.getInt("CRITICAL");
-		t.stats.attack.evasion = rs.getInt("EVASION");
-		t.stats.attack.accuracy = rs.getInt("ACC");
+		t.getStats().setBase(factory.createCharacterTemplateStatsBase());
+		t.getStats().getBase().setInt(rs.getInt("_INT"));
+		t.getStats().getBase().setStr(rs.getInt("STR"));
+		t.getStats().getBase().setCon(rs.getInt("CON"));
+		t.getStats().getBase().setMen(rs.getInt("MEN"));
+		t.getStats().getBase().setDex(rs.getInt("DEX"));
+		t.getStats().getBase().setWit(rs.getInt("WIT"));
 
-		t.stats.attack.physical = new AttackValueMetadata();
-		t.stats.attack.physical.damage = rs.getDouble("P_ATK");
-		t.stats.attack.physical.speed = rs.getDouble("P_SPD");
-		t.stats.attack.magical = new AttackValueMetadata();
-		t.stats.attack.magical.damage = rs.getDouble("M_ATK");
-		t.stats.attack.magical.speed = rs.getDouble("M_SPD");
+		t.getStats().setAttack(factory.createCharacterTemplateStatsAttack());
+		t.getStats().getAttack().setCritical(rs.getInt("CRITICAL"));
+		t.getStats().getAttack().setEvasion(rs.getInt("EVASION"));
+		t.getStats().getAttack().setAccuracy(rs.getInt("ACC"));
 
-		t.stats.defense = new DefenseMetadata();
-		t.stats.defense.physical = new DefenseValueMetadata();
-		t.stats.defense.physical.value = rs.getDouble("P_DEF");
-		t.stats.defense.magical = new DefenseValueMetadata();
-		t.stats.defense.magical.value = rs.getDouble("M_DEF");
+		t.getStats()
+				.getAttack()
+				.setPhysical(
+						factory.createCharacterTemplateStatsAttackPhysical());
+		t.getStats().getAttack().getPhysical().setDamage(rs.getDouble("P_ATK"));
+		t.getStats().getAttack().getPhysical().setSpeed(rs.getDouble("P_SPD"));
+		t.getStats()
+				.getAttack()
+				.setMagical(factory.createCharacterTemplateStatsAttackMagical());
+		t.getStats().getAttack().getMagical().setDamage(rs.getDouble("M_ATK"));
+		t.getStats().getAttack().getMagical().setSpeed(rs.getDouble("M_SPD"));
 
-		t.stats.move = new MoveMetadata();
-		t.stats.move.run = rs.getInt("MOVE_SPD");
+		t.getStats().setDefense(factory.createCharacterTemplateStatsDefense());
+		t.getStats()
+				.getDefense()
+				.setPhysical(
+						factory.createCharacterTemplateStatsDefensePhysical());
+		t.getStats().getDefense().getPhysical().setValue(rs.getDouble("P_DEF"));
+		t.getStats()
+				.getDefense()
+				.setMagical(
+						factory.createCharacterTemplateStatsDefenseMagical());
+		t.getStats().getDefense().getMagical().setValue(rs.getDouble("M_DEF"));
+
+		t.getStats().setMove(factory.createCharacterTemplateStatsMove());
+		t.getStats().getMove().setRun(rs.getInt("MOVE_SPD"));
 		// TODO this is not really the same
-		t.stats.move.walk = rs.getInt("MOVE_SPD");
+		t.getStats().getMove().setWalk(rs.getInt("MOVE_SPD"));
+		// TODO this is not really the same
 
-		t.stats.level = rs.getInt("class_lvl");
-		t.stats.maximumLoad = rs.getInt("_LOAD");
-		t.stats.crafter = rs.getBoolean("canCraft");
+		t.getStats().setLevel(rs.getInt("class_lvl"));
+		t.getStats().setMaxload(rs.getInt("_LOAD"));
+		t.getStats().setCrafter(rs.getBoolean("canCraft"));
 
-		t.collision = new CollitionMetadataContainer();
-		t.collision.male = new CollisionMetadata();
-		t.collision.male.radius = rs.getDouble("M_COL_R");
-		t.collision.male.height = rs.getDouble("M_COL_H");
-		t.collision.female = new CollisionMetadata();
-		t.collision.female.radius = rs.getDouble("F_COL_R");
-		t.collision.female.height = rs.getDouble("F_COL_H");
+		t.setCollision(factory.createCharacterTemplateCollision());
+		t.getCollision()
+				.setMale(factory.createCharacterTemplateCollisionMale());
+		t.getCollision().getMale().setRadius(rs.getDouble("M_COL_R"));
+		t.getCollision().getMale().setHeigth(rs.getDouble("M_COL_R"));
+		t.getCollision().setFemale(
+				factory.createCharacterTemplateCollisionFemale());
+		t.getCollision().getMale().setRadius(rs.getDouble("F_COL_R"));
+		t.getCollision().getMale().setHeigth(rs.getDouble("F_COL_R"));
 
 		return t;
 	}

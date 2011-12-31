@@ -25,7 +25,7 @@
         </stats>
         <experience>2308288</experience>
         <sp>111484</sp>
-        <item lefthand="0" righthand="8528"/>
+        <item leftHand="0" rightHand="8528"/>
         <collision heigth="23.6" radius="11.0"/>
     </info>
     <droplist>

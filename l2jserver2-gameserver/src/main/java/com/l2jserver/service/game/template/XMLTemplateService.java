@@ -25,6 +25,7 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
+import javax.xml.XMLConstants;
 import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -34,18 +35,23 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
 
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.model.id.TemplateID;
+import com.l2jserver.model.template.CharacterTemplate;
+import com.l2jserver.model.template.ItemTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.template.SkillTemplate;
+import com.l2jserver.model.template.Teleports;
 import com.l2jserver.model.template.Template;
-import com.l2jserver.model.template.character.CharacterTemplate;
-import com.l2jserver.model.template.item.ItemTemplate;
-import com.l2jserver.model.template.npc.NPCTemplate;
 import com.l2jserver.model.template.npc.TeleportationTemplate;
 import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
@@ -56,8 +62,8 @@ import com.l2jserver.service.cache.CacheService;
 import com.l2jserver.service.configuration.ConfigurationService;
 import com.l2jserver.service.core.logging.LoggingService;
 import com.l2jserver.service.core.vfs.VFSService;
+import com.l2jserver.util.factory.CollectionFactory;
 import com.l2jserver.util.jaxb.CharacterTemplateIDAdapter;
-import com.l2jserver.util.jaxb.EffectTemplateIDAdapter;
 import com.l2jserver.util.jaxb.ItemTemplateIDAdapter;
 import com.l2jserver.util.jaxb.NPCTemplateIDAdapter;
 import com.l2jserver.util.jaxb.SkillTemplateIDAdapter;
@@ -105,10 +111,6 @@ public class XMLTemplateService extends
 	 */
 	private final CharacterTemplateIDAdapter charIdTemplateAdapter;
 	/**
-	 * The effect template id adapter
-	 */
-	private final EffectTemplateIDAdapter effectIdTemplateAdapter;
-	/**
 	 * The teleportation template id adapter
 	 */
 	private final TeleportationTemplateIDAdapter teleportationIdTemplateAdapter;
@@ -141,19 +143,16 @@ public class XMLTemplateService extends
 	 *            the skill template id adapter
 	 * @param charIdTemplateAdapter
 	 *            the character id template adapter
-	 * @param effectIdTemplateAdapter
-	 *            the effect id template adapter
 	 * @param teleportationIdTemplateAdapter
 	 *            the teleportation template id adapter
 	 */
 	@Inject
 	public XMLTemplateService(final VFSService vfsService,
-			CacheService cacheService, 
+			CacheService cacheService,
 			NPCTemplateIDAdapter npcTemplateIdAdapter,
 			ItemTemplateIDAdapter itemTemplateIdAdapter,
 			SkillTemplateIDAdapter skillTemplateIdAdapter,
 			CharacterTemplateIDAdapter charIdTemplateAdapter,
-			EffectTemplateIDAdapter effectIdTemplateAdapter,
 			TeleportationTemplateIDAdapter teleportationIdTemplateAdapter) {
 		super(XMLTemplateServiceConfiguration.class);
 		this.vfsService = vfsService;
@@ -162,7 +161,6 @@ public class XMLTemplateService extends
 		this.itemTemplateIdAdapter = itemTemplateIdAdapter;
 		this.skillTemplateIdAdapter = skillTemplateIdAdapter;
 		this.charIdTemplateAdapter = charIdTemplateAdapter;
-		this.effectIdTemplateAdapter = effectIdTemplateAdapter;
 		this.teleportationIdTemplateAdapter = teleportationIdTemplateAdapter;
 	}
 
@@ -173,49 +171,56 @@ public class XMLTemplateService extends
 			log.debug("Creating JAXBContext instance");
 			context = JAXBContext.newInstance(CharacterTemplate.class,
 					NPCTemplate.class, ItemTemplate.class, SkillTemplate.class,
-					TeleportationTemplateContainer.class);
+					Teleports.class);
 
 			log.debug("Creating Unmarshaller instance");
 			unmarshaller = context.createUnmarshaller();
-
-			unmarshaller.setAdapter(npcTemplateIdAdapter);
-			unmarshaller.setAdapter(itemTemplateIdAdapter);
-			unmarshaller.setAdapter(skillTemplateIdAdapter);
-			unmarshaller.setAdapter(charIdTemplateAdapter);
-			unmarshaller.setAdapter(effectIdTemplateAdapter);
-			unmarshaller.setAdapter(teleportationIdTemplateAdapter);
-
 			final Path templatePath = vfsService.resolveDataFile(config
 					.getTemplateDirectory());
 
 			log.info("Scanning {} for XML templates", templatePath);
 
+			final List<Source> schemas = CollectionFactory.newList();
+			final List<Path> templateList = CollectionFactory.newList();
+			final boolean includeSchemas = config.isSchemaValidationEnabled();
 			Files.walkFileTree(templatePath, new SimpleFileVisitor<Path>() {
-				@Override
-				public FileVisitResult preVisitDirectory(Path dir,
-						BasicFileAttributes attrs) throws IOException {
-					return FileVisitResult.CONTINUE;
-				}
-
 				@Override
 				public FileVisitResult visitFile(Path file,
 						BasicFileAttributes attrs) throws IOException {
-					if (!file.toString().endsWith(".xml"))
-						return FileVisitResult.CONTINUE;
-					// FIXME remove hard coded skip of zone template loading
-					if (file.toString().contains("zones.xml"))
-						return FileVisitResult.CONTINUE;
-					try {
-						loadTemplate(file);
-						return FileVisitResult.CONTINUE;
-					} catch (JAXBException e) {
-						throw new IOException(e);
+					final String name = file.getFileName().toString();
+					if (name.endsWith(".xsd") && includeSchemas) {
+						schemas.add(new StreamSource(file.toFile()));
+					} else if (name.endsWith(".xml")) {
+						if (name.endsWith("zones.xml"))
+							return FileVisitResult.CONTINUE;
+						templateList.add(file);
 					}
+					return FileVisitResult.CONTINUE;
 				}
 			});
+			log.info("Found {} XML templates", templateList.size());
+			if (includeSchemas) {
+				unmarshaller.setSchema(SchemaFactory.newInstance(
+						XMLConstants.W3C_XML_SCHEMA_NS_URI).newSchema(
+						schemas.toArray(new Source[schemas.size()])));
+			} else {
+				log.warn("Template schema validation is disabled. This is not recommended for live servers.");
+			}
+
+			unmarshaller.setAdapter(npcTemplateIdAdapter);
+			unmarshaller.setAdapter(itemTemplateIdAdapter);
+			unmarshaller.setAdapter(skillTemplateIdAdapter);
+			unmarshaller.setAdapter(charIdTemplateAdapter);
+			unmarshaller.setAdapter(teleportationIdTemplateAdapter);
+
+			for (final Path path : templateList) {
+				loadTemplate(path);
+			}
 		} catch (JAXBException e) {
 			throw new ServiceStartException(e);
 		} catch (IOException e) {
+			throw new ServiceStartException(e);
+		} catch (SAXException e) {
 			throw new ServiceStartException(e);
 		}
 	}

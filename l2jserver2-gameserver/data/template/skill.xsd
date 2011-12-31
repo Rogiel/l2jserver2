@@ -1,22 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/skill" xmlns:tns="http://schemas.l2jserver2.com/skill" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ths="http://schemas.l2jserver2.com/skill" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	targetNamespace="http://schemas.l2jserver2.com/skill" jaxb:version="2.1"
+	jaxb:extensionBindingPrefixes="xjc">
+	<xs:import schemaLocation="l2jserver2.xsd" />
 
-  <xs:import schemaLocation="l2jserver2.xsd"/>
+	<xs:simpleType name="SkillTemplateID">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.SkillTemplateIDAdapter"
+					name="com.l2jserver.model.id.template.SkillTemplateID" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="TemplateID" />
+	</xs:simpleType>
 
-  <xs:element name="skill" type="tns:SkillType"/>
-
-  <xs:complexType name="SkillType">
-    <xs:complexContent>
-      <xs:extension base="AbstractTemplateType">
-        <xs:sequence>
-          <xs:element name="maximumLevel" type="xs:int"/>
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:int" use="required"/>
-        <xs:attribute name="name" type="xs:string" use="required"/>
-        <xs:attribute name="delay" type="xs:int" use="required"/>
-        <xs:attribute name="cooldown" type="xs:int" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:element name="skill">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SkillTemplate" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="AbstractTemplate">
+					<xs:sequence>
+						<xs:element name="maximumLevel" type="xs:int" />
+					</xs:sequence>
+					<xs:attribute name="id" type="ths:SkillTemplateID" use="required">
+						<xs:annotation>
+							<xs:appinfo>
+								<jaxb:property name="iD"  />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="name" type="xs:string" use="required" />
+					<xs:attribute name="delay" type="xs:int" use="required" />
+					<xs:attribute name="cooldown" type="xs:int" use="required" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>
 

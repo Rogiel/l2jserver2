@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.character.calculator;
 
-import com.l2jserver.model.template.character.CharacterTemplate;
+import com.l2jserver.model.template.CharacterTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.actor.stat.StatType;
 
@@ -43,10 +43,10 @@ public class MaximumHPAddCalculator extends CharacterFormula {
 
 	@Override
 	public double calculate(L2Character c, CharacterTemplate t, double value) {
-		int lvl = c.getLevel() - t.getMinimumLevel();
-		double mod = t.getBaseHPModifier() * lvl;
-		double max = (t.getBaseHPAdd() + mod) * lvl;
-		double min = (t.getBaseHPAdd() * lvl) + mod;
+		int lvl = c.getLevel() -  t.getStats().getLevel();
+		double mod = t.getStats().getHp().getModifier() * lvl;
+		double max = (t.getStats().getHp().getAdd() + mod) * lvl;
+		double min = ( t.getStats().getHp().getAdd() * lvl) + mod;
 
 		return value + (max + min) / 2;
 	}

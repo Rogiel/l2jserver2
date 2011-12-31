@@ -1,36 +1,347 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://schemas.l2jserver2.com/npc" xmlns:tns="http://schemas.l2jserver2.com/npc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ths="http://schemas.l2jserver2.com/npc" xmlns:item="http://schemas.l2jserver2.com/item"
+	xmlns:skill="http://schemas.l2jserver2.com/skill" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	targetNamespace="http://schemas.l2jserver2.com/npc" jaxb:version="2.1"
+	jaxb:extensionBindingPrefixes="xjc">
+	<xs:import schemaLocation="l2jserver2.xsd" />
+	<xs:import schemaLocation="item.xsd"
+		namespace="http://schemas.l2jserver2.com/item" />
+	<xs:import schemaLocation="skill.xsd"
+		namespace="http://schemas.l2jserver2.com/skill" />
 
-  <xs:import schemaLocation="l2jserver2.xsd"/>
+	<xs:simpleType name="NPCTemplateID">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.NPCTemplateIDAdapter"
+					name="com.l2jserver.model.id.template.NPCTemplateID" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="TemplateID" />
+	</xs:simpleType>
 
-  <xs:element name="npc" type="tns:NPCType"/>
+	<xs:element name="npc">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="NPCTemplate" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ActorTemplate">
+					<xs:sequence>
+						<xs:element name="info">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="name" minOccurs="0">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="send" type="xs:boolean" />
+													<xs:attribute name="display" type="xs:boolean" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="title" minOccurs="0">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="send" type="xs:boolean" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="level" type="xs:int" />
+									<xs:element name="race" type="ths:NPCRace"
+										minOccurs="0" />
+									<xs:element name="sex" type="ActorSexType"
+										minOccurs="0" />
+									<xs:element name="stats">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="hp">
+													<xs:complexType>
+														<xs:sequence />
+														<xs:attribute name="max" type="xs:double"
+															use="required" />
+														<xs:attribute name="regen" type="xs:double"
+															use="required" />
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="mp">
+													<xs:complexType>
+														<xs:sequence />
+														<xs:attribute name="max" type="xs:double"
+															use="required" />
+														<xs:attribute name="regen" type="xs:double"
+															use="required" />
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="attack" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="physical">
+																<xs:complexType>
+																	<xs:sequence />
+																	<xs:attribute name="damage" type="xs:double"
+																		use="required" />
+																	<xs:attribute name="speed" type="xs:double"
+																		use="required" />
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="magical">
+																<xs:complexType>
+																	<xs:sequence />
+																	<xs:attribute name="damage" type="xs:double"
+																		use="required" />
+																	<xs:attribute name="speed" type="xs:double"
+																		use="required" />
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="range" type="xs:int" use="required" />
+														<xs:attribute name="evasion" type="xs:int"
+															use="required" />
+														<xs:attribute name="critical" type="xs:int"
+															use="required" />
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="defense" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="physical">
+																<xs:complexType>
+																	<xs:sequence />
+																	<xs:attribute name="value" type="xs:double"
+																		use="required" />
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="magical">
+																<xs:complexType>
+																	<xs:sequence />
+																	<xs:attribute name="value" type="xs:double"
+																		use="required" />
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="move" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence />
+														<xs:attribute name="run" type="xs:double"
+															use="required" />
+														<xs:attribute name="walk" type="xs:double"
+															use="required" />
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="base">
+													<xs:complexType>
+														<xs:sequence />
+														<xs:attribute name="int" type="xs:int" use="required" />
+														<xs:attribute name="str" type="xs:int" use="required" />
+														<xs:attribute name="con" type="xs:int" use="required" />
+														<xs:attribute name="men" type="xs:int" use="required" />
+														<xs:attribute name="dex" type="xs:int" use="required" />
+														<xs:attribute name="wit" type="xs:int" use="required" />
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="experience" type="xs:long" />
+									<xs:element name="sp" type="xs:int" />
+									<xs:element name="item" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="rightHand" type="item:ItemTemplateID" />
+											<xs:attribute name="leftHand" type="item:ItemTemplateID" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="collision" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="radius" type="xs:double"
+												use="required" />
+											<xs:attribute name="heigth" type="xs:double"
+												use="required" />
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="attackable" type="xs:boolean"
+									use="required" />
+								<xs:attribute name="targetable" type="xs:boolean"
+									use="required" />
+								<xs:attribute name="aggressive" type="xs:boolean"
+									use="required" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ai" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence />
+								<xs:attribute name="script" type="xs:string" use="required" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="talk" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="chat" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="id" type="xs:string" use="required" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="default" type="xs:string" use="required" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="droplist" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="item" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="id" type="item:ItemTemplateID"
+												use="required" />
+											<xs:attribute name="min" type="xs:int" use="required" />
+											<xs:attribute name="max" type="xs:int" use="required" />
+											<xs:attribute name="category" use="required">
+												<xs:simpleType>
+													<xs:annotation>
+														<xs:appinfo>
+															<jaxb:typesafeEnumClass name="DropCategory" />
+														</xs:appinfo>
+													</xs:annotation>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="DROP" />
+														<xs:enumeration value="SPOIL" />
+														<xs:enumeration value="UNK_1" />
+														<xs:enumeration value="UNK_2" />
+														<xs:enumeration value="UNK_3" />
+														<xs:enumeration value="UNK_4" />
+														<xs:enumeration value="UNK_5" />
+														<xs:enumeration value="UNK_6" />
+														<xs:enumeration value="UNK_7" />
+														<xs:enumeration value="UNK_8" />
+														<xs:enumeration value="UNK_9" />
+														<xs:enumeration value="UNK_10" />
+														<xs:enumeration value="UNK_11" />
+														<xs:enumeration value="UNK_12" />
+														<xs:enumeration value="UNK_13" />
+														<xs:enumeration value="UNK_14" />
+														<xs:enumeration value="UNK_15" />
+														<xs:enumeration value="UNK_16" />
+														<xs:enumeration value="UNK_17" />
+														<xs:enumeration value="UNK_18" />
+														<xs:enumeration value="UNK_19" />
+														<xs:enumeration value="UNK_20" />
+														<xs:enumeration value="UNK_21" />
+														<xs:enumeration value="UNK_22" />
+														<xs:enumeration value="UNK_23" />
+														<xs:enumeration value="UNK_24" />
+														<xs:enumeration value="UNK_25" />
+														<xs:enumeration value="UNK_26" />
+														<xs:enumeration value="UNK_27" />
+														<xs:enumeration value="UNK_28" />
+														<xs:enumeration value="UNK_29" />
+														<xs:enumeration value="UNK_30" />
+														<xs:enumeration value="UNK_31" />
+														<xs:enumeration value="UNK_32" />
+														<xs:enumeration value="UNK_33" />
+														<xs:enumeration value="UNK_34" />
+														<xs:enumeration value="UNK_35" />
+														<xs:enumeration value="UNK_36" />
+														<xs:enumeration value="UNK_100" />
+														<xs:enumeration value="UNK_101" />
+														<xs:enumeration value="UNK_102" />
+														<xs:enumeration value="UNK_200" />
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+											<xs:attribute name="chance" type="xs:int" use="required" />
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="skills" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="skill" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="id" type="skill:SkillTemplateID" use="required" />
+											<xs:attribute name="level" type="xs:int" use="required" />
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="id" type="ths:NPCTemplateID" use="required">
+						<xs:annotation>
+							<xs:appinfo>
+								<jaxb:property name="iD" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="controller" use="required">
+						<xs:simpleType>
+							<xs:annotation>
+								<xs:appinfo>
+									<xjc:javaType name="java.lang.Class"
+										adapter="com.l2jserver.util.jaxb.ClassAdapter" />
+								</xs:appinfo>
+							</xs:annotation>
+							<xs:restriction base="xs:string" />
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
 
-  <xs:complexType name="NPCType">
-    <xs:complexContent>
-      <xs:extension base="AbstractActorType">
-        <xs:sequence>
-          <xs:element name="info" type="NPCInfoType"/>
-          <xs:element name="ai" type="NPCAIType" minOccurs="0"/>
-          <xs:element name="talk" type="NPCTalkType" minOccurs="0"/>
-          <xs:element name="droplist" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="item" type="NPCDropType" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="skills" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="skill" type="NPCSkillType" maxOccurs="unbounded"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:int" use="required"/>
-        <xs:attribute name="controller" type="xs:string" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:simpleType name="NPCRace">
+		<xs:annotation>
+			<xs:appinfo>
+				<xjc:javaType adapter="com.l2jserver.util.jaxb.NPCRaceAdapter"
+					name="com.l2jserver.model.template.npc.NPCRace" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HUMAN" />
+			<xs:enumeration value="ELVEN" />
+			<xs:enumeration value="DARKELVEN" />
+			<xs:enumeration value="ORC" />
+			<xs:enumeration value="DWARVEN" />
+			<xs:enumeration value="KAMAEL" />
+			<xs:enumeration value="UNDEAD" />
+			<xs:enumeration value="MAGIC_CREATURE" />
+			<xs:enumeration value="BEAST" />
+			<xs:enumeration value="ANIMAL" />
+			<xs:enumeration value="PLANT" />
+			<xs:enumeration value="HUMANOID" />
+			<xs:enumeration value="SPIRIT" />
+			<xs:enumeration value="ANGEL" />
+			<xs:enumeration value="DEMON" />
+			<xs:enumeration value="DRAGON" />
+			<xs:enumeration value="GIANT" />
+			<xs:enumeration value="BUG" />
+			<xs:enumeration value="FAIRIE" />
+			<xs:enumeration value="OTHER" />
+			<xs:enumeration value="NON_LIVING" />
+			<xs:enumeration value="SIEGE_WEAPON" />
+			<xs:enumeration value="DEFENDING_ARMY" />
+			<xs:enumeration value="MERCENARIE" />
+			<xs:enumeration value="UNKNOWN" />
+			<xs:enumeration value="NONE" />
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 

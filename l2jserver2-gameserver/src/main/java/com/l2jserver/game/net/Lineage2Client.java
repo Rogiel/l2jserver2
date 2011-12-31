@@ -34,7 +34,7 @@ import com.l2jserver.game.net.packet.server.SM_SYSTEM_MESSAGE;
 import com.l2jserver.model.game.Fort;
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.model.template.item.ItemTemplate;
+import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.util.html.markup.HtmlTemplate;

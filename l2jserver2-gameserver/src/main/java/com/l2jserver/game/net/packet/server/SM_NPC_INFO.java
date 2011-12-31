@@ -20,7 +20,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.l2jserver.game.net.Lineage2Client;
 import com.l2jserver.game.net.packet.AbstractServerPacket;
-import com.l2jserver.model.template.npc.NPCTemplate;
+import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.util.BufferUtils;
 
@@ -40,7 +40,8 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 	private final NPC npc;
 
 	/**
-	 * @param npc the npc
+	 * @param npc
+	 *            the npc
 	 */
 	public SM_NPC_INFO(NPC npc) {
 		super(OPCODE);
@@ -52,9 +53,11 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		final NPCTemplate template = npc.getTemplate();
 
 		buffer.writeInt(npc.getID().getID());
-		buffer.writeInt(template.getID().getID() + 1000000); // npctype id
-		//buffer.writeInt((template.isAttackable() ? 0x01 : 0x00)); // attackable
-		//FIXME unhard code it
+		buffer.writeInt(template.getID().getID() + 1000000); // npctype
+																		// id
+		// buffer.writeInt((template.isAttackable() ? 0x01 : 0x00)); //
+		// attackable
+		// FIXME unhard code it
 		buffer.writeInt(0x00); // attackable
 		buffer.writeInt(npc.getPoint().getX());
 		buffer.writeInt(npc.getPoint().getY());
@@ -73,20 +76,22 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeInt(npc.getStats().getWalkSpeed()); // fly run speed
 		buffer.writeDouble(0x01); // TODO
 		buffer.writeDouble(0x01);// TODO
-		buffer.writeDouble(template.getCollisionRadius());
-		buffer.writeDouble(template.getCollisionHeight());
-		buffer.writeInt((template.getRightHand() != null ? template
-				.getRightHand().getID() : 0x00));
+		buffer.writeDouble(template.getInfo().getCollision().getRadius());
+		buffer.writeDouble(template.getInfo().getCollision().getHeigth());
+		buffer.writeInt((template.getInfo().getItem().getRightHand() != null ? template
+				.getInfo().getItem().getRightHand().getID()
+				: 0x00));
 		buffer.writeInt(0x00); // chest
-		buffer.writeInt((template.getLeftHand() != null ? template
-				.getLeftHand().getID() : 0x00));
+		buffer.writeInt((template.getInfo().getItem().getLeftHand() != null ? template
+				.getInfo().getItem().getLeftHand().getID()
+				: 0x00));
 		buffer.writeByte(1); // name above char 1=true ... ??
 		buffer.writeByte(0x00); // is running
 		buffer.writeByte((npc.isAttacking() ? 0x01 : 0x00)); // is in combat
 		buffer.writeByte((npc.isDead() ? 0x01 : 0x00)); // is like dead (faking)
 		buffer.writeByte(0x00); // 0=teleported 1=default 2=summoned
-		BufferUtils.writeString(buffer, template.getName());
-		BufferUtils.writeString(buffer, template.getTitle());
+		BufferUtils.writeString(buffer, template.getInfo().getName().getValue());
+		BufferUtils.writeString(buffer, template.getInfo().getTitle().getValue());
 		buffer.writeInt(0x00); // Title color 0=client default
 		buffer.writeInt(0x00); // pvp flag
 		buffer.writeInt(0x00); // karma
@@ -99,15 +104,15 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeByte(0x00); // C2 - is flying
 		buffer.writeByte(0x00); // title color 0=client
 
-		buffer.writeDouble(template.getCollisionRadius());
-		buffer.writeDouble(template.getCollisionHeight());
+		buffer.writeDouble(template.getInfo().getCollision().getRadius());
+		buffer.writeDouble(template.getInfo().getCollision().getHeigth());
 		buffer.writeInt(0x00); // C4 - enchant effect
 		buffer.writeInt(0x00); // C6 -- is flying
 		buffer.writeInt(0x00); // unk
 		buffer.writeInt(0x00);// CT1.5 Pet form and skills, Color effect
-		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide
+		buffer.writeByte((template.getInfo().getName().isDisplay() ? 0x01 : 0x00)); // hide
 																		// name
-		buffer.writeByte((template.getDisplayName() ? 0x01 : 0x00)); // hide
+		buffer.writeByte((template.getInfo().getName().isDisplay() ? 0x01 : 0x00)); // hide
 																		// name,
 																		// again
 

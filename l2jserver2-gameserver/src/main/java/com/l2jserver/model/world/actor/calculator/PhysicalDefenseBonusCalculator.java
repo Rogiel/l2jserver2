@@ -16,7 +16,7 @@
  */
 package com.l2jserver.model.world.actor.calculator;
 
-import com.l2jserver.model.template.actor.ActorTemplate;
+import com.l2jserver.model.template.ActorTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.actor.stat.StatType;
 
@@ -51,7 +51,7 @@ public class PhysicalDefenseBonusCalculator extends ActorFormula {
 	}
 
 	@Override
-	protected double calculate(Actor a, ActorTemplate<?> t, double value) {
+	protected double calculate(Actor a, ActorTemplate t, double value) {
 		// final CharacterInventory inv = c.getInventory();
 		//
 		// // orc mystics are a special case

@@ -32,7 +32,6 @@ import com.l2jserver.model.id.object.provider.NPCIDProvider;
 import com.l2jserver.model.id.object.provider.NPCIDProvider.NPCIDGuiceFactory;
 import com.l2jserver.model.id.object.provider.ObjectIDResolver;
 import com.l2jserver.model.id.template.provider.CharacterTemplateIDProvider;
-import com.l2jserver.model.id.template.provider.EffectTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.NPCTemplateIDProvider;
 import com.l2jserver.model.id.template.provider.SkillTemplateIDProvider;
@@ -77,8 +76,6 @@ public class IDProviderModule extends AbstractModule {
 
 		// TEMPLATE IDS
 		install(new FactoryModuleBuilder().build(ItemTemplateIDProvider.class));
-		install(new FactoryModuleBuilder()
-				.build(EffectTemplateIDProvider.class));
 		install(new FactoryModuleBuilder().build(SkillTemplateIDProvider.class));
 		install(new FactoryModuleBuilder()
 				.build(CharacterTemplateIDProvider.class));
