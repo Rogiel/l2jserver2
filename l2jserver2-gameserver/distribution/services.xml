@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- DAO Module configuration -->
-	<dao module="com.l2jserver.service.database.JDBCDAOModule" />
+	<dao module="com.l2jserver.service.database.OrientDBDAOModule" />
 
 	<!-- ###################################################################### -->
 	<!-- ########################### CORE SERVICES ############################ -->
