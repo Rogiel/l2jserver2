@@ -30,6 +30,9 @@ public class ArrayUtils {
 	/**
 	 * Copy an entire array except objects in <code>except</code> array.
 	 * 
+	 * @param <T>
+	 *            the array component type
+	 * 
 	 * @param array
 	 *            the source array
 	 * @param except
@@ -57,6 +60,9 @@ public class ArrayUtils {
 	/**
 	 * Searches for the <code>expected</code> item to be in the
 	 * <code>array</code>.
+	 * 
+	 * @param <T>
+	 *            the array component type
 	 * 
 	 * @param array
 	 *            the array to search in

@@ -54,7 +54,7 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 
 		buffer.writeInt(npc.getID().getID());
 		buffer.writeInt(template.getID().getID() + 1000000); // npctype
-																		// id
+																// id
 		// buffer.writeInt((template.isAttackable() ? 0x01 : 0x00)); //
 		// attackable
 		// FIXME unhard code it
@@ -78,20 +78,32 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeDouble(0x01);// TODO
 		buffer.writeDouble(template.getInfo().getCollision().getRadius());
 		buffer.writeDouble(template.getInfo().getCollision().getHeigth());
-		buffer.writeInt((template.getInfo().getItem().getRightHand() != null ? template
-				.getInfo().getItem().getRightHand().getID()
-				: 0x00));
+		if (template.getInfo().getItem() != null) {
+			buffer.writeInt((template.getInfo().getItem().getRightHand() != null ? template
+					.getInfo().getItem().getRightHand().getID()
+					: 0x00));
+		} else {
+			buffer.writeInt(0x00);
+		}
 		buffer.writeInt(0x00); // chest
-		buffer.writeInt((template.getInfo().getItem().getLeftHand() != null ? template
-				.getInfo().getItem().getLeftHand().getID()
-				: 0x00));
+		if (template.getInfo().getItem() != null) {
+			buffer.writeInt((template.getInfo().getItem().getLeftHand() != null ? template
+					.getInfo().getItem().getLeftHand().getID()
+					: 0x00));
+		} else {
+			buffer.writeInt(0x00);
+		}
 		buffer.writeByte(1); // name above char 1=true ... ??
 		buffer.writeByte(0x00); // is running
 		buffer.writeByte((npc.isAttacking() ? 0x01 : 0x00)); // is in combat
 		buffer.writeByte((npc.isDead() ? 0x01 : 0x00)); // is like dead (faking)
 		buffer.writeByte(0x00); // 0=teleported 1=default 2=summoned
-		BufferUtils.writeString(buffer, template.getInfo().getName().getValue());
-		BufferUtils.writeString(buffer, template.getInfo().getTitle().getValue());
+		BufferUtils.writeString(buffer,
+				(template.getInfo().getName() != null ? template.getInfo()
+						.getName().getValue() : null));
+		BufferUtils.writeString(buffer,
+				(template.getInfo().getTitle() != null ? template.getInfo()
+						.getTitle().getValue() : null));
 		buffer.writeInt(0x00); // Title color 0=client default
 		buffer.writeInt(0x00); // pvp flag
 		buffer.writeInt(0x00); // karma
@@ -110,11 +122,13 @@ public class SM_NPC_INFO extends AbstractServerPacket {
 		buffer.writeInt(0x00); // C6 -- is flying
 		buffer.writeInt(0x00); // unk
 		buffer.writeInt(0x00);// CT1.5 Pet form and skills, Color effect
-		buffer.writeByte((template.getInfo().getName().isDisplay() ? 0x01 : 0x00)); // hide
-																		// name
-		buffer.writeByte((template.getInfo().getName().isDisplay() ? 0x01 : 0x00)); // hide
-																		// name,
-																		// again
+		buffer.writeByte((template.getInfo().getName() != null
+				&& template.getInfo().getName().isDisplay() ? 0x01 : 0x00)); // hide
+		// name
+		buffer.writeByte((template.getInfo().getName() != null
+				&& template.getInfo().getName().isDisplay() ? 0x01 : 0x00)); // hide
+		// name,
+		// again
 
 		buffer.writeInt(0x00); // special effects
 		buffer.writeInt(0x00); // display effect

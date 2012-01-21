@@ -31,6 +31,9 @@ public interface ConfigurationService extends Service {
 	/**
 	 * Get the configuration for the given service
 	 * 
+	 * @param <C>
+	 *            the service configuration instance type
+	 * 
 	 * @param service
 	 *            the service
 	 * @param serviceInterface

@@ -16,12 +16,14 @@
  */
 package com.l2jserver.service.game.template;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
@@ -181,6 +183,22 @@ public class XMLTemplateService extends
 			log.info("Scanning {} for XML templates", templatePath);
 
 			final List<Source> schemas = CollectionFactory.newList();
+
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("l2jserver2.xsd")))));
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("item.xsd")))));
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("skill.xsd")))));
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("character.xsd")))));
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("npc.xsd")))));
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("teleport.xsd")))));
+			schemas.add(new StreamSource(new ByteArrayInputStream(Files
+					.readAllBytes(templatePath.resolve("zones.xsd")))));
+
 			final List<Path> templateList = CollectionFactory.newList();
 			final boolean includeSchemas = config.isSchemaValidationEnabled();
 			Files.walkFileTree(templatePath, new SimpleFileVisitor<Path>() {
@@ -188,9 +206,7 @@ public class XMLTemplateService extends
 				public FileVisitResult visitFile(Path file,
 						BasicFileAttributes attrs) throws IOException {
 					final String name = file.getFileName().toString();
-					if (name.endsWith(".xsd") && includeSchemas) {
-						schemas.add(new StreamSource(file.toFile()));
-					} else if (name.endsWith(".xml")) {
+					if (name.endsWith(".xml")) {
 						if (name.endsWith("zones.xml"))
 							return FileVisitResult.CONTINUE;
 						templateList.add(file);
@@ -245,7 +261,8 @@ public class XMLTemplateService extends
 	public void loadTemplate(Path path) throws JAXBException, IOException {
 		Preconditions.checkNotNull(path, "path");
 		log.debug("Loading template {}", path);
-		final InputStream in = Files.newInputStream(path);
+		final InputStream in = Files.newInputStream(path,
+				StandardOpenOption.READ);
 		try {
 			Object obj = unmarshaller.unmarshal(in);
 			if (obj instanceof Template) {

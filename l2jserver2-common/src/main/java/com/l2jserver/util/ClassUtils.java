@@ -73,6 +73,9 @@ public class ClassUtils {
 	 * If after all those steps, no annotation is found, <code>null</code> is
 	 * returned.
 	 * 
+	 * @param <T>
+	 *            the annotation type
+	 * 
 	 * @param annotationClass
 	 *            the annotation class
 	 * @param cls

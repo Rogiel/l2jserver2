@@ -130,15 +130,15 @@ public class ServiceManager {
 	 */
 	public void init(Injector injector) throws ServiceStartException {
 		this.injector = injector;
-//		final LoggingService service = injector
-//				.getInstance(LoggingService.class);
-//		knownServices.add(service);
-//		service.start();
+		// final LoggingService service = injector
+		// .getInstance(LoggingService.class);
+		// knownServices.add(service);
+		// service.start();
 		configurationService = start(ConfigurationService.class);
-		//start(LoggingService.class);
-		//knownServices.add(configurationService);
-		//start(ConfigurationService.class);
-		//configurationService.start();
+		// start(LoggingService.class);
+		// knownServices.add(configurationService);
+		// start(ConfigurationService.class);
+		// configurationService.start();
 	}
 
 	/**
@@ -156,6 +156,9 @@ public class ServiceManager {
 	 * Returns the ServiceDescriptor binded to <code>serviceClass</code>. If no
 	 * implementation of <code>serviceClass</code>, <code>null</code> is
 	 * returned.
+	 * 
+	 * @param <T>
+	 *            the service type
 	 * 
 	 * @param serviceClass
 	 *            the service class
