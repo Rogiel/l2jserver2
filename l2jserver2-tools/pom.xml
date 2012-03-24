@@ -21,7 +21,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.l2jserver</groupId>
-			<artifactId>l2jserver2-gameserver</artifactId>
+			<artifactId>l2jserver2-gameserver-core</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

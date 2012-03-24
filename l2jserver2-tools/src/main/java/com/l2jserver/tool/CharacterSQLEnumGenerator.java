@@ -18,6 +18,7 @@ package com.l2jserver.tool;
 
 import com.l2jserver.model.template.character.CharacterClass;
 
+
 public class CharacterSQLEnumGenerator {
 	public static void main(String[] args) {
 		System.out.println("== 'Character' SQL STATEMENT ==");

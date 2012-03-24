@@ -8,11 +8,17 @@
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>l2jserver2-gameserver</artifactId>
+	<packaging>pom</packaging>
 
 	<name>L2JServer 2 game server</name>
 	<description>This game server is responsible for communicating the game client with the game virtual world. It provides data storage and processing along with broadcasting positioning data to other connected clients.</description>
 	<inceptionYear>2011</inceptionYear>
-
+	
+	<modules>
+		<module>l2jserver2-gameserver-core</module>
+		<module>l2jserver2-gameserver-freya</module>
+	</modules>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -21,89 +27,8 @@
 				<configuration>
 					<descriptors>
 						<descriptor>src/main/assembly/distribution-pack-data.xml</descriptor>
-						<descriptor>src/main/assembly/distribution-mysql5-bin.xml</descriptor>
-						<descriptor>src/main/assembly/distribution-orientdb-bin.xml</descriptor>
-						<descriptor>src/main/assembly/distribution-h2-bin.xml</descriptor>
-						<descriptor>src/main/assembly/distribution-derby-bin.xml</descriptor>
-						<descriptor>src/main/assembly/distribution-src.xml</descriptor>
 					</descriptors>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<configuration>
-					<files>${project.artifactId}</files>
-					<classifiers>mysql5-bin</classifiers>
-					<types>zip</types>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>libs/</classpathPrefix>
-							<mainClass>com.l2jserver.L2JGameServerMain</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/main/generated</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<plugins>
-								<plugin>
-									<groupId>org.jvnet.jaxb2_commons</groupId>
-									<artifactId>jaxb2-basics</artifactId>
-									<version>0.5.3</version>
-								</plugin>
-							</plugins>
-							<!-- <removeOldOutput>true</removeOldOutput> -->
-							<args>
-								<arg>-extension</arg>
-								<arg>-Xinheritance</arg>
-							</args>
-							<schemaDirectory>data/template</schemaDirectory>
-							<schemaIncludes>
-								<include>*.xsd</include>
-							</schemaIncludes>
-							<generateDirectory>src/main/generated</generateDirectory>
-							<generatePackage>com.l2jserver.model.template</generatePackage>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

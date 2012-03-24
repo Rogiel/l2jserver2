@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import com.l2jserver.game.net.SystemMessage;
+import com.l2jserver.service.network.model.SystemMessage;
 
 public class PacketSamuraiSystemMessageEnumGenerator {
 	public static void main(String[] args) throws IOException {
