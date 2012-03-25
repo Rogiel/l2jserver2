@@ -7,6 +7,10 @@
 			<directory>${project.parent.basedir}/distribution</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
+		<fileSet>
+			<directory>${project.parent.basedir}/distribution</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
 	</fileSets>
 	<files>
 		<file>

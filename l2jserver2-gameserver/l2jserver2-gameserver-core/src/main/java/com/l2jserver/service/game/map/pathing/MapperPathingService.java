@@ -16,10 +16,14 @@
  */
 package com.l2jserver.service.game.map.pathing;
 
-import java.io.File;
+import static java.nio.file.StandardOpenOption.APPEND;
+import static java.nio.file.StandardOpenOption.CREATE;
+import static java.nio.file.StandardOpenOption.WRITE;
+
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
+import java.nio.channels.SeekableByteChannel;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -35,6 +39,7 @@ import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
+import com.l2jserver.service.core.vfs.VFSService;
 import com.l2jserver.service.game.character.CharacterService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.game.world.event.TypedWorldListener;
@@ -53,13 +58,13 @@ import com.l2jserver.util.geometry.Point3D;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-@Depends({ CharacterService.class, WorldService.class })
+@Depends({ VFSService.class, CharacterService.class, WorldService.class })
 public class MapperPathingService extends AbstractService implements
 		PathingService {
 	/**
 	 * The database file for the pathing engine
 	 */
-	private static final File file = new File("data/pathing.db");
+	private static final java.nio.file.Path file = Paths.get("pathing.db");
 
 	/**
 	 * The logger
@@ -70,28 +75,35 @@ public class MapperPathingService extends AbstractService implements
 	 * The {@link WorldService} event dispatcher
 	 */
 	private final WorldEventDispatcherService eventDispatcher;
+	/**
+	 * The {@link VFSService} implementation
+	 */
+	private final VFSService vfsService;
 
 	/**
 	 * The database channel, will remain open until service is stopped.
 	 */
-	private FileChannel channel;
+	private SeekableByteChannel channel;
 
 	/**
 	 * Creates a new instance
 	 * 
 	 * @param eventDispatcher
 	 *            the world event dispatcher
+	 * @param vfsService the VFS service implementation
 	 */
 	@Inject
-	public MapperPathingService(WorldEventDispatcherService eventDispatcher) {
+	public MapperPathingService(WorldEventDispatcherService eventDispatcher,
+			VFSService vfsService) {
 		this.eventDispatcher = eventDispatcher;
+		this.vfsService = vfsService;
 	}
 
 	@Override
 	protected void doStart() throws ServiceStartException {
 		try {
-			this.channel = new RandomAccessFile(file, "rw").getChannel();
-			this.channel.position(file.length());
+			final java.nio.file.Path dbFile = vfsService.resolveDataFile(file);
+			this.channel = Files.newByteChannel(dbFile, CREATE, APPEND, WRITE);
 		} catch (IOException e) {
 			throw new ServiceStartException(
 					"Could not open pathing database file", e);
@@ -105,7 +117,7 @@ public class MapperPathingService extends AbstractService implements
 						.fromCoordinate(point.getCoordinate());
 				try {
 					channel.write(struct.getByteBuffer());
-					channel.force(true);
+					//channel.force(true);
 				} catch (IOException e1) {
 					log.warn("Error writing pathing file!", e1);
 				}

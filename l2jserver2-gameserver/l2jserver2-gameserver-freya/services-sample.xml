@@ -35,7 +35,7 @@
 	<service interface="com.l2jserver.service.core.vfs.VFSService"
 		implementation="com.l2jserver.service.core.vfs.TrueZipVFSService">
 		<!-- Configures the root of the server data. Where all the files are placed. -->
-		<fileSystem root="./">
+		<fileSystem root="../">
 			<!-- The "data file system" location. There, templates, static data and 
 				several other important files are located. This can be a zip or a directory. -->
 			<!-- The "data file system" is relative to the file system root. -->

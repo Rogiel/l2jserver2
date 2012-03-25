@@ -17,6 +17,7 @@
 package com.l2jserver.service.core.vfs;
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,7 +64,7 @@ public class TrueZipVFSService extends
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		root = new TPath(config.getRoot().toAbsolutePath());
+		root = new TPath(config.getRoot().normalize());
 		log.debug("Root path is {}", root);
 
 		dataRoot = root.resolve(config.getDataPath());
@@ -72,12 +73,22 @@ public class TrueZipVFSService extends
 
 	@Override
 	public Path resolve(String path) {
+		return resolve(Paths.get(path));
+	}
+	
+	@Override
+	public Path resolve(Path path) {
 		log.debug("Resolving file {}", path);
 		return root.resolve(path);
 	}
 
 	@Override
 	public Path resolveDataFile(String path) {
+		return resolveDataFile(Paths.get(path));
+	}
+	
+	@Override
+	public Path resolveDataFile(Path path) {
 		log.debug("Resolving data file {}", path);
 		return dataRoot.resolve(path);
 	}

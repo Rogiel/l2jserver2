@@ -38,6 +38,18 @@ public interface VFSService extends Service {
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
 	Path resolve(String path);
+	
+	/**
+	 * Resolves an file. If the file cannot be resolved, null will be returned.
+	 * <p>
+	 * Please note that even if the file DOES NOT exists a valid object will be
+	 * returned.
+	 * 
+	 * @param path
+	 *            the file path
+	 * @return the resolved file. Will return null if could not resolve.
+	 */
+	Path resolve(Path path);
 
 	/**
 	 * Resolves an file inside the data storage file system. If the file cannot
@@ -51,4 +63,17 @@ public interface VFSService extends Service {
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
 	Path resolveDataFile(String path);
+	
+	/**
+	 * Resolves an file inside the data storage file system. If the file cannot
+	 * be resolved, null will be returned.
+	 * <p>
+	 * Please note that, differently from {@link #resolve(String)}, if the file
+	 * does not exists, <code>null</code> is returned.
+	 * 
+	 * @param path
+	 *            the file path
+	 * @return the resolved file. Will return null if could not resolve.
+	 */
+	Path resolveDataFile(Path path);
 }
