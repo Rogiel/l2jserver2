@@ -59,7 +59,7 @@
 								<arg>-extension</arg>
 								<arg>-Xinheritance</arg>
 							</args>
-							<schemaDirectory>${project.parent.basedir}/data/template</schemaDirectory>
+							<schemaDirectory>../data/template</schemaDirectory>
 							<schemaIncludes>
 								<include>*.xsd</include>
 							</schemaIncludes>

@@ -8,7 +8,7 @@
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
 		<fileSet>
-			<directory>${project.parent.basedir}/distribution</directory>
+			<directory>${project.basedir}/distribution</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
 	</fileSets>

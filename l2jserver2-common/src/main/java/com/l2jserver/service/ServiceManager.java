@@ -251,16 +251,16 @@ public class ServiceManager {
 			return;
 		knownServices.add(service);
 		try {
-			logger.debug("{0}: Stopping service...",
+			logger.debug("{}: Stopping service...",
 					serviceClass.getSimpleName());
 			stopDependencies(service);
 			if (service instanceof ConfigurableService) {
 				((ConfigurableService<?>) service).setConfiguration(null);
 			}
 			service.stop();
-			logger.info("{0}: Service stopped!", serviceClass.getSimpleName());
+			logger.info("{}: Service stopped!", serviceClass.getSimpleName());
 		} catch (ServiceStopException e) {
-			logger.error("{0}: Error stopping service: {1}",
+			logger.error("{}: Error stopping service: {}",
 					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		}
@@ -331,21 +331,21 @@ public class ServiceManager {
 			throw new ServiceStopException("Service is already stopped");
 		knownServices.add(service);
 		try {
-			logger.debug("{0}: Restaring service...",
+			logger.debug("{}: Restaring service...",
 					serviceClass.getSimpleName());
 			service.restart();
-			logger.info("{0}: Service restarted!", serviceClass.getSimpleName());
+			logger.info("{}: Service restarted!", serviceClass.getSimpleName());
 			return service;
 		} catch (ServiceStartException e) {
-			logger.error("{0}: Error starting service: {1}",
+			logger.error("{}: Error starting service: {}",
 					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		} catch (ServiceStopException e) {
-			logger.error("{0}: Error stopping service: {1}",
+			logger.error("{}: Error stopping service: {}",
 					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		} catch (ServiceException e) {
-			logger.error("{0}: Error restarting service: {1}",
+			logger.error("{}: Error restarting service: {}",
 					serviceClass.getSimpleName(), e.getCause());
 			throw e;
 		}

@@ -16,13 +16,36 @@
  */
 package com.l2jserver.service.network.broadcast;
 
+import com.l2jserver.model.template.NPCTemplate.Droplist.Item;
 import com.l2jserver.model.world.L2Character;
+import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.WorldObject;
 import com.l2jserver.service.Service;
+import com.l2jserver.service.game.world.WorldService;
+import com.l2jserver.service.game.world.event.WorldEvent;
+import com.l2jserver.service.game.world.event.WorldEventDispatcherServiceImpl;
+import com.l2jserver.service.network.NetworkService;
+import com.l2jserver.service.network.model.packet.ServerPacket;
 
 /**
- * This service is responsible for sending neighbor {@link WorldObject} packets.
- * This service also sends some packets that are bounded to an event.
+ * This service hooks to the {@link WorldEventDispatcherServiceImpl} from
+ * {@link WorldService} and captures world events near the character requesting
+ * broadcast messages. It will capture server-side world events and convert them
+ * into an network packet and send them though {@link NetworkService}.
+ * <p>
+ * It can broadcast several types of {@link WorldObject} types, including, but
+ * not restricted to:
+ * 
+ * <ul>
+ * <li> {@link L2Character} - user playable character</li>
+ * <li> {@link NPC} - not playable characters and monsters</li>
+ * <li> {@link Item} - dropped items</li>
+ * </ul>
+ * 
+ * This service main purpose is to keep server modularity. No other service
+ * should be aware of network packets. Services, instead of generating an
+ * {@link ServerPacket packet}, generate an {@link WorldEvent packet}, which
+ * gets converted into an {@link ServerPacket packet} by this service.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
