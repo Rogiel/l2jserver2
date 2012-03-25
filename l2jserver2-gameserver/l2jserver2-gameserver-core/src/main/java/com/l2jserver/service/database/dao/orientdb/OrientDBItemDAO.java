@@ -140,7 +140,8 @@ public class OrientDBItemDAO extends AbstractOrientDBDAO<Item, ItemID>
 					@Override
 					protected OQueryContextNative query(
 							OQueryContextNative record, Item o) {
-						return record.field(name(entity.itemId)).eq(o.getID().getID());
+						return record.field(name(entity.itemId)).eq(
+								o.getID().getID());
 					}
 				});
 	}

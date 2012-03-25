@@ -22,8 +22,7 @@ package com.l2jserver.service.game.character;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class TooManyCharactersException extends
-		CharacterServiceException {
+public class TooManyCharactersException extends CharacterServiceException {
 	/**
 	 * The Java Serialization API serial
 	 */

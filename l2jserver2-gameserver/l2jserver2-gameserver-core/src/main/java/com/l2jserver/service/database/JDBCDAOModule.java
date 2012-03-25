@@ -42,8 +42,7 @@ import com.l2jserver.service.database.dao.sql.SQLNPCDAO;
 public class JDBCDAOModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(CharacterDAO.class).to(SQLCharacterDAO.class)
-				.in(Scopes.SINGLETON);
+		bind(CharacterDAO.class).to(SQLCharacterDAO.class).in(Scopes.SINGLETON);
 		bind(CharacterFriendDAO.class).to(SQLCharacterFriendDAO.class).in(
 				Scopes.SINGLETON);
 		bind(CharacterShortcutDAO.class).to(SQLCharacterShortcutDAO.class).in(

@@ -82,7 +82,7 @@ public class TransformerFactory {
 			return PathTransformer.SHARED_INSTANCE;
 		} else if (type.isEnum()) {
 			return EnumTransformer.SHARED_INSTANCE;
-		} else if(type.isArray()) {
+		} else if (type.isArray()) {
 			return ArrayTransformer.SHARED_INSTANCE;
 		} else if (type == String.class)
 			return StringTransformer.SHARED_INSTANCE;

@@ -42,7 +42,8 @@ public class SM_COMMUNITY_HTML extends AbstractServerPacket {
 	private final String html;
 
 	/**
-	 * @param html the html
+	 * @param html
+	 *            the html
 	 */
 	public SM_COMMUNITY_HTML(String html) {
 		super(OPCODE);
@@ -50,7 +51,8 @@ public class SM_COMMUNITY_HTML extends AbstractServerPacket {
 	}
 
 	/**
-	 * @param html the html
+	 * @param html
+	 *            the html
 	 */
 	public SM_COMMUNITY_HTML(Html html) {
 		super(OPCODE);
@@ -58,7 +60,8 @@ public class SM_COMMUNITY_HTML extends AbstractServerPacket {
 	}
 
 	/**
-	 * @param template the html template
+	 * @param template
+	 *            the html template
 	 */
 	public SM_COMMUNITY_HTML(HtmlTemplate template) {
 		super(OPCODE);

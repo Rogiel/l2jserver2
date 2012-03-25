@@ -127,7 +127,8 @@ public class CM_CHAR_ATTACK extends AbstractClientPacket {
 	 *            the object id resolver
 	 */
 	@Inject
-	public CM_CHAR_ATTACK(CharacterService charService, ObjectIDResolver idResolver) {
+	public CM_CHAR_ATTACK(CharacterService charService,
+			ObjectIDResolver idResolver) {
 		this.charService = charService;
 		this.idResolver = idResolver;
 	}

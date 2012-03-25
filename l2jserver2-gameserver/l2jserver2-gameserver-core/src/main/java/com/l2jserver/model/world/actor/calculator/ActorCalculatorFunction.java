@@ -52,6 +52,5 @@ public abstract class ActorCalculatorFunction extends
 	 *            the original value
 	 * @return the calculated value
 	 */
-	protected abstract double calculate(Actor a, ActorTemplate t,
-			double value);
+	protected abstract double calculate(Actor a, ActorTemplate t, double value);
 }

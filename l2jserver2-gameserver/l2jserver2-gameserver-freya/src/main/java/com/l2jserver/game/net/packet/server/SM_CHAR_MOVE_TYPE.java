@@ -39,7 +39,8 @@ public class SM_CHAR_MOVE_TYPE extends AbstractServerPacket {
 	private final L2Character character;
 
 	/**
-	 * @param character the character
+	 * @param character
+	 *            the character
 	 */
 	public SM_CHAR_MOVE_TYPE(L2Character character) {
 		super(OPCODE);

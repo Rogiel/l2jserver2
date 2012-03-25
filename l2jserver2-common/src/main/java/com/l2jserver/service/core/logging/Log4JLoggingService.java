@@ -52,8 +52,7 @@ public class Log4JLoggingService extends
 
 	@Override
 	protected void doStart() throws ServiceStartException {
-		final Layout layout = new PatternLayout(
-				"[%p %d] %c{1} - %m%n");
+		final Layout layout = new PatternLayout("[%p %d] %c{1} - %m%n");
 		rootLogger = Logger.getRootLogger();
 
 		rootLogger.removeAllAppenders();

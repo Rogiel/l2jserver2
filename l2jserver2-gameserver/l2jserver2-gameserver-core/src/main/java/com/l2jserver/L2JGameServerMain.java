@@ -79,7 +79,7 @@ public class L2JGameServerMain {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		BasicConfigurator.configure();
-		
+
 		final ServiceManager serviceManager = new ServiceManager();
 		try {
 			serviceManager.load(Paths.get("services.xml"));

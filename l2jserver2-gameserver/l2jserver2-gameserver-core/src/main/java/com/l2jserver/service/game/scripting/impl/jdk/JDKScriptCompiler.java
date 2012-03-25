@@ -189,7 +189,8 @@ public class JDKScriptCompiler implements ScriptCompiler {
 			Iterable<JavaFileObject> compilationUnits) {
 		List<String> options = Arrays.asList("-encoding", "UTF-8", "-g");
 		DiagnosticListener<JavaFileObject> listener = new ErrorListener();
-		JDKClassFileManager manager = new JDKClassFileManager(javaCompiler, listener);
+		JDKClassFileManager manager = new JDKClassFileManager(javaCompiler,
+				listener);
 		manager.setParentClassLoader(parentClassLoader);
 
 		if (libraries != null) {

@@ -90,7 +90,8 @@ public class MapperPathingService extends AbstractService implements
 	 * 
 	 * @param eventDispatcher
 	 *            the world event dispatcher
-	 * @param vfsService the VFS service implementation
+	 * @param vfsService
+	 *            the VFS service implementation
 	 */
 	@Inject
 	public MapperPathingService(WorldEventDispatcherService eventDispatcher,
@@ -117,7 +118,7 @@ public class MapperPathingService extends AbstractService implements
 						.fromCoordinate(point.getCoordinate());
 				try {
 					channel.write(struct.getByteBuffer());
-					//channel.force(true);
+					// channel.force(true);
 				} catch (IOException e1) {
 					log.warn("Error writing pathing file!", e1);
 				}

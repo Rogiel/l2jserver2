@@ -5,7 +5,6 @@
 // Generated on: 2012.03.25 at 01:03:28 PM BRT 
 //
 
-
 package com.l2jserver.model.template;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for AbstractTemplate complex type.
+ * <p>
+ * Java class for AbstractTemplate complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="AbstractTemplate">
@@ -34,15 +35,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractTemplate")
-@XmlSeeAlso({
-    ItemTemplate.class,
-    ActorTemplate.class,
-    SkillTemplate.class,
-    com.l2jserver.model.template.Teleports.Teleport.class
-})
-public abstract class AbstractTemplate
-    implements Template
-{
-
+@XmlSeeAlso({ ItemTemplate.class, ActorTemplate.class, SkillTemplate.class,
+		com.l2jserver.model.template.Teleports.Teleport.class })
+public abstract class AbstractTemplate implements Template {
 
 }

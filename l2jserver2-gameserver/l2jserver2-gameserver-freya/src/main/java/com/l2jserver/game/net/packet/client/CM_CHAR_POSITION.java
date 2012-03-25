@@ -51,7 +51,8 @@ public class CM_CHAR_POSITION extends AbstractClientPacket {
 	private int extra; // vehicle id
 
 	/**
-	 * @param charService the character service
+	 * @param charService
+	 *            the character service
 	 */
 	@Inject
 	public CM_CHAR_POSITION(CharacterService charService) {

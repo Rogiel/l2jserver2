@@ -38,7 +38,8 @@ public class SM_CHAR_OPEN_MAP extends AbstractServerPacket {
 	private final int mapID;
 
 	/**
-	 * @param mapID the map id
+	 * @param mapID
+	 *            the map id
 	 */
 	public SM_CHAR_OPEN_MAP(int mapID) {
 		super(OPCODE);

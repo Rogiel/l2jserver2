@@ -39,7 +39,8 @@ public class SM_CHAR_STOP extends AbstractServerPacket {
 	private L2Character character;
 
 	/**
-	 * @param character the character
+	 * @param character
+	 *            the character
 	 */
 	public SM_CHAR_STOP(L2Character character) {
 		super(OPCODE);

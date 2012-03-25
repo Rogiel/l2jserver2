@@ -94,7 +94,8 @@ public class JDKScriptClassLoader extends ScriptClassLoader {
 	 * @param parent
 	 *            parent classLoader
 	 */
-	JDKScriptClassLoader(JDKClassFileManager classFileManager, ClassLoader parent) {
+	JDKScriptClassLoader(JDKClassFileManager classFileManager,
+			ClassLoader parent) {
 		super(new URL[] {}, parent);
 		this.classFileManager = classFileManager;
 	}

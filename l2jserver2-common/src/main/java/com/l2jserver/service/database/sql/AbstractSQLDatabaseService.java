@@ -1103,7 +1103,8 @@ public abstract class AbstractSQLDatabaseService extends
 		 * 
 		 * @param q
 		 *            the query clause
-		 * @param e the entity
+		 * @param e
+		 *            the entity
 		 */
 		protected abstract void query(AbstractSQLQuery<?> q, E e);
 	}

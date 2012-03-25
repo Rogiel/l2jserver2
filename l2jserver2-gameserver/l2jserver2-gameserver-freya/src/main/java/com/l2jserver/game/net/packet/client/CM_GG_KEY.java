@@ -53,7 +53,8 @@ public class CM_GG_KEY extends AbstractClientPacket {
 	private byte[] key = new byte[8];
 
 	/**
-	 * @param ggService the gameguard service
+	 * @param ggService
+	 *            the gameguard service
 	 */
 	@Inject
 	public CM_GG_KEY(GameGuardService ggService) {

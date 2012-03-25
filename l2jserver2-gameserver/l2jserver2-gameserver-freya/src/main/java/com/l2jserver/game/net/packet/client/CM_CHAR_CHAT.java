@@ -63,7 +63,8 @@ public class CM_CHAR_CHAT extends AbstractClientPacket {
 	private String target;
 
 	/**
-	 * @param chatService the chat service
+	 * @param chatService
+	 *            the chat service
 	 */
 	@Inject
 	public CM_CHAR_CHAT(ChatService chatService) {

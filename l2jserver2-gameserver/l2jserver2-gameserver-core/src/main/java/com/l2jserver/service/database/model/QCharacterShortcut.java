@@ -23,7 +23,7 @@ public class QCharacterShortcut extends
 	 * The Java Serialization UID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Default entity for {@link QCharacterShortcut}
 	 */
@@ -88,7 +88,9 @@ public class QCharacterShortcut extends
 
 	/**
 	 * Creates a new instance
-	 * @param variable the query variable
+	 * 
+	 * @param variable
+	 *            the query variable
 	 */
 	public QCharacterShortcut(String variable) {
 		super(Integer.class, forVariable(variable), "null",

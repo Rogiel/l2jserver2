@@ -55,11 +55,15 @@ public class SM_ACTOR_CHAT extends AbstractServerPacket {
 	private int messageID = 0;
 
 	/**
-	 * @param character the actor
-	 * @param destination the destination
-	 * @param message the message
+	 * @param character
+	 *            the actor
+	 * @param destination
+	 *            the destination
+	 * @param message
+	 *            the message
 	 */
-	public SM_ACTOR_CHAT(Actor character, ChatMessageType destination, String message) {
+	public SM_ACTOR_CHAT(Actor character, ChatMessageType destination,
+			String message) {
 		super(OPCODE);
 		this.actor = character;
 		this.destination = destination;
@@ -67,9 +71,12 @@ public class SM_ACTOR_CHAT extends AbstractServerPacket {
 	}
 
 	/**
-	 * @param actor the actor
-	 * @param destination the destination
-	 * @param messageID the message id
+	 * @param actor
+	 *            the actor
+	 * @param destination
+	 *            the destination
+	 * @param messageID
+	 *            the message id
 	 */
 	public SM_ACTOR_CHAT(Actor actor, ChatMessageType destination, int messageID) {
 		super(OPCODE);

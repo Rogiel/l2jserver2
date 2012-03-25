@@ -52,8 +52,8 @@ import com.l2jserver.service.Service;
  * {@link ChatBanActiveChatServiceException} will be thrown.
  * 
  * <h1>Packets</h1>
- * Messages are received (from the clients) with <code>CM_CHAR_CHAT</code> and sent (to
- * the clients) with <code>SM_ACTOR_CHAT</code>.
+ * Messages are received (from the clients) with <code>CM_CHAR_CHAT</code> and
+ * sent (to the clients) with <code>SM_ACTOR_CHAT</code>.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */

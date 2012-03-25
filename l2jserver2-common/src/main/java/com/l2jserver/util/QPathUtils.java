@@ -57,7 +57,8 @@ public class QPathUtils {
 	 * @return the {@link Field} holding <code>path</code>
 	 */
 	public static Field getReflectionField(Path<?> path) {
-		return ClassUtils.getFieldWithValue(path.getMetadata().getParent(), path);
+		return ClassUtils.getFieldWithValue(path.getMetadata().getParent(),
+				path);
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class QPathUtils {
 	 */
 	public static int getColumnSize(Path<?> path) {
 		final Field field = getReflectionField(path);
-		if(field == null)
+		if (field == null)
 			return 0;
 		final ColumnSize size = field.getAnnotation(ColumnSize.class);
 		if (size != null)
@@ -96,7 +97,7 @@ public class QPathUtils {
 	 */
 	public static boolean isAutoIncrementable(Path<?> path) {
 		final Field field = getReflectionField(path);
-		if(field == null)
+		if (field == null)
 			return false;
 		final ColumnAutoIncrement autoInc = field
 				.getAnnotation(ColumnAutoIncrement.class);
@@ -112,7 +113,7 @@ public class QPathUtils {
 	 */
 	public static boolean isNullable(Path<?> path) {
 		final Field field = getReflectionField(path);
-		if(field == null)
+		if (field == null)
 			return false;
 		final ColumnNullable nullable = field
 				.getAnnotation(ColumnNullable.class);
@@ -130,7 +131,7 @@ public class QPathUtils {
 	 */
 	public static boolean hasDefaultValue(Path<?> path) {
 		final Field field = getReflectionField(path);
-		if(field == null)
+		if (field == null)
 			return false;
 		final ColumnDefault def = field.getAnnotation(ColumnDefault.class);
 		if (def == null) {
@@ -147,7 +148,7 @@ public class QPathUtils {
 	 */
 	public static String getDefaultUntransformedValue(Path<?> path) {
 		final Field field = getReflectionField(path);
-		if(field == null)
+		if (field == null)
 			return null;
 		final ColumnDefault def = field.getAnnotation(ColumnDefault.class);
 		if (def != null)

@@ -25,7 +25,8 @@ import com.l2jserver.service.network.model.SystemMessage;
 public class PacketSamuraiSystemMessageEnumGenerator {
 	public static void main(String[] args) throws IOException {
 		System.out.println(createClassStatement());
-		Files.write(Paths.get("generated", "SystemMessageEnum.txt"), createClassStatement().getBytes());
+		Files.write(Paths.get("generated", "SystemMessageEnum.txt"),
+				createClassStatement().getBytes());
 	}
 
 	private static String createClassStatement() {

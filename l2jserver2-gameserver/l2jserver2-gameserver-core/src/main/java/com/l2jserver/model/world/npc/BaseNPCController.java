@@ -152,7 +152,7 @@ public abstract class BaseNPCController implements NPCController {
 				break;
 			}
 		}
-		if(html == null)
+		if (html == null)
 			return null;
 
 		// TODO use an decent template engine

@@ -47,6 +47,7 @@ public class ArrayUtilsTest extends ArrayUtils {
 
 	/**
 	 * Simple test class
+	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	private static class TestClass {
@@ -56,7 +57,8 @@ public class ArrayUtilsTest extends ArrayUtils {
 		private String name;
 
 		/**
-		 * @param string the name
+		 * @param string
+		 *            the name
 		 */
 		public TestClass(String string) {
 			this.name = string;

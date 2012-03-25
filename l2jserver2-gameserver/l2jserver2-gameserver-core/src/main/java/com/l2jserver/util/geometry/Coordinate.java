@@ -18,7 +18,6 @@ package com.l2jserver.util.geometry;
 
 import org.apache.commons.math.geometry.Vector3D;
 
-
 /**
  * Represents an coordinate in the game world.
  * <p>

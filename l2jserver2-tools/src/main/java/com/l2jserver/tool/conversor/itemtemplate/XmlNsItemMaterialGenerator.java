@@ -18,7 +18,6 @@ package com.l2jserver.tool.conversor.itemtemplate;
 
 import com.l2jserver.model.template.item.ItemMaterial;
 
-
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 

@@ -55,7 +55,8 @@ public class SM_SERVER_OBJECT extends AbstractServerPacket {
 
 		buffer.writeInt(npc.getID().getID()); // obj id
 		buffer.writeInt(npc.getTemplateID().getID() + 1000000); // template id
-		BufferUtils.writeString(buffer, template.getInfo().getName().getValue()); // name
+		BufferUtils
+				.writeString(buffer, template.getInfo().getName().getValue()); // name
 		buffer.writeInt((template.getInfo().isAttackable() ? 0x01 : 0x00)); // attackable
 		buffer.writeInt(npc.getPoint().getX()); // x
 		buffer.writeInt(npc.getPoint().getY()); // y
@@ -65,7 +66,8 @@ public class SM_SERVER_OBJECT extends AbstractServerPacket {
 		buffer.writeDouble(0x01); // attack spd mult
 		buffer.writeDouble(template.getInfo().getCollision().getRadius());
 		buffer.writeDouble(template.getInfo().getCollision().getHeigth());
-		buffer.writeInt((int) (template.getInfo().isAttackable() ? npc.getHP() : 0x00));
+		buffer.writeInt((int) (template.getInfo().isAttackable() ? npc.getHP()
+				: 0x00));
 		buffer.writeInt((int) (template.getInfo().isAttackable() ? template
 				.getInfo().getStats().getHp() : 0x00));
 		buffer.writeInt(0x01); // object type

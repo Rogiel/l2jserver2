@@ -84,7 +84,9 @@ public class QNPC extends com.mysema.query.sql.RelationalPathBase<Integer> {
 
 	/**
 	 * Creates a new instance
-	 * @param variable the query variable
+	 * 
+	 * @param variable
+	 *            the query variable
 	 */
 	public QNPC(String variable) {
 		super(Integer.class, forVariable(variable), "null", "npc");

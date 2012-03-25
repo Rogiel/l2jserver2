@@ -27,7 +27,8 @@ import java.net.URLStreamHandler;
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class EclipseCompilerVirtualClassURLStreamHandler extends URLStreamHandler {
+public class EclipseCompilerVirtualClassURLStreamHandler extends
+		URLStreamHandler {
 
 	/**
 	 * Script Handler protocol for classes compiled from source
@@ -45,7 +46,8 @@ public class EclipseCompilerVirtualClassURLStreamHandler extends URLStreamHandle
 	 * @param cl
 	 *            ScriptClassLoaderImpl that was used to load compiled class
 	 */
-	public EclipseCompilerVirtualClassURLStreamHandler(EclipseCompilerScriptClassLoader cl) {
+	public EclipseCompilerVirtualClassURLStreamHandler(
+			EclipseCompilerScriptClassLoader cl) {
 		this.cl = cl;
 	}
 

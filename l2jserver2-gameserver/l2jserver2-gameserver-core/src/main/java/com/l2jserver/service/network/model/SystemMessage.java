@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.network.model;
 
-
 /**
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  * 

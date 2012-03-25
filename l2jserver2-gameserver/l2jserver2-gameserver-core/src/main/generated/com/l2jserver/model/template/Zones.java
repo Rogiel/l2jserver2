@@ -5,7 +5,6 @@
 // Generated on: 2012.03.25 at 01:03:28 PM BRT 
 //
 
-
 package com.l2jserver.model.template;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,11 +13,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -55,157 +56,146 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "castle"
-})
+@XmlType(name = "", propOrder = { "castle" })
 @XmlRootElement(name = "zones", namespace = "zones")
 public class Zones {
 
-    @XmlElement(required = true)
-    protected Zones.Castle castle;
+	@XmlElement(required = true)
+	protected Zones.Castle castle;
 
-    /**
-     * Gets the value of the castle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Zones.Castle }
-     *     
-     */
-    public Zones.Castle getCastle() {
-        return castle;
-    }
+	/**
+	 * Gets the value of the castle property.
+	 * 
+	 * @return possible object is {@link Zones.Castle }
+	 * 
+	 */
+	public Zones.Castle getCastle() {
+		return castle;
+	}
 
-    /**
-     * Sets the value of the castle property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Zones.Castle }
-     *     
-     */
-    public void setCastle(Zones.Castle value) {
-        this.castle = value;
-    }
+	/**
+	 * Sets the value of the castle property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Zones.Castle }
+	 * 
+	 */
+	public void setCastle(Zones.Castle value) {
+		this.castle = value;
+	}
 
+	/**
+	 * <p>
+	 * Java class for anonymous complex type.
+	 * 
+	 * <p>
+	 * The following schema fragment specifies the expected content contained
+	 * within this class.
+	 * 
+	 * <pre>
+	 * &lt;complexType>
+	 *   &lt;complexContent>
+	 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+	 *       &lt;sequence>
+	 *         &lt;element name="siege">
+	 *           &lt;complexType>
+	 *             &lt;complexContent>
+	 *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+	 *                 &lt;sequence>
+	 *                   &lt;element name="zone" type="{zones}ZoneType"/>
+	 *                 &lt;/sequence>
+	 *               &lt;/restriction>
+	 *             &lt;/complexContent>
+	 *           &lt;/complexType>
+	 *         &lt;/element>
+	 *       &lt;/sequence>
+	 *     &lt;/restriction>
+	 *   &lt;/complexContent>
+	 * &lt;/complexType>
+	 * </pre>
+	 * 
+	 * 
+	 */
+	@XmlAccessorType(XmlAccessType.FIELD)
+	@XmlType(name = "", propOrder = { "siege" })
+	public static class Castle {
 
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;sequence>
-     *         &lt;element name="siege">
-     *           &lt;complexType>
-     *             &lt;complexContent>
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *                 &lt;sequence>
-     *                   &lt;element name="zone" type="{zones}ZoneType"/>
-     *                 &lt;/sequence>
-     *               &lt;/restriction>
-     *             &lt;/complexContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *       &lt;/sequence>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "siege"
-    })
-    public static class Castle {
+		@XmlElement(required = true)
+		protected Zones.Castle.Siege siege;
 
-        @XmlElement(required = true)
-        protected Zones.Castle.Siege siege;
+		/**
+		 * Gets the value of the siege property.
+		 * 
+		 * @return possible object is {@link Zones.Castle.Siege }
+		 * 
+		 */
+		public Zones.Castle.Siege getSiege() {
+			return siege;
+		}
 
-        /**
-         * Gets the value of the siege property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Zones.Castle.Siege }
-         *     
-         */
-        public Zones.Castle.Siege getSiege() {
-            return siege;
-        }
+		/**
+		 * Sets the value of the siege property.
+		 * 
+		 * @param value
+		 *            allowed object is {@link Zones.Castle.Siege }
+		 * 
+		 */
+		public void setSiege(Zones.Castle.Siege value) {
+			this.siege = value;
+		}
 
-        /**
-         * Sets the value of the siege property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Zones.Castle.Siege }
-         *     
-         */
-        public void setSiege(Zones.Castle.Siege value) {
-            this.siege = value;
-        }
+		/**
+		 * <p>
+		 * Java class for anonymous complex type.
+		 * 
+		 * <p>
+		 * The following schema fragment specifies the expected content
+		 * contained within this class.
+		 * 
+		 * <pre>
+		 * &lt;complexType>
+		 *   &lt;complexContent>
+		 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+		 *       &lt;sequence>
+		 *         &lt;element name="zone" type="{zones}ZoneType"/>
+		 *       &lt;/sequence>
+		 *     &lt;/restriction>
+		 *   &lt;/complexContent>
+		 * &lt;/complexType>
+		 * </pre>
+		 * 
+		 * 
+		 */
+		@XmlAccessorType(XmlAccessType.FIELD)
+		@XmlType(name = "", propOrder = { "zone" })
+		public static class Siege {
 
+			@XmlElement(required = true)
+			protected ZoneType zone;
 
-        /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
-         * <pre>
-         * &lt;complexType>
-         *   &lt;complexContent>
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-         *       &lt;sequence>
-         *         &lt;element name="zone" type="{zones}ZoneType"/>
-         *       &lt;/sequence>
-         *     &lt;/restriction>
-         *   &lt;/complexContent>
-         * &lt;/complexType>
-         * </pre>
-         * 
-         * 
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "zone"
-        })
-        public static class Siege {
+			/**
+			 * Gets the value of the zone property.
+			 * 
+			 * @return possible object is {@link ZoneType }
+			 * 
+			 */
+			public ZoneType getZone() {
+				return zone;
+			}
 
-            @XmlElement(required = true)
-            protected ZoneType zone;
+			/**
+			 * Sets the value of the zone property.
+			 * 
+			 * @param value
+			 *            allowed object is {@link ZoneType }
+			 * 
+			 */
+			public void setZone(ZoneType value) {
+				this.zone = value;
+			}
 
-            /**
-             * Gets the value of the zone property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link ZoneType }
-             *     
-             */
-            public ZoneType getZone() {
-                return zone;
-            }
+		}
 
-            /**
-             * Sets the value of the zone property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link ZoneType }
-             *     
-             */
-            public void setZone(ZoneType value) {
-                this.zone = value;
-            }
-
-        }
-
-    }
+	}
 
 }

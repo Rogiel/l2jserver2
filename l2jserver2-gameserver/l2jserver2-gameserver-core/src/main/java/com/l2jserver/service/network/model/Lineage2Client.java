@@ -39,16 +39,16 @@ public interface Lineage2Client {
 	 * @return the character
 	 */
 	boolean hasCharacter();
-	
+
 	/**
 	 * @return the character ID
 	 */
 	CharacterID getCharacterID();
-	
+
 	/**
 	 * @return the character
 	 */
-	L2Character getCharacter() ;
+	L2Character getCharacter();
 
 	/**
 	 * @param characterID
@@ -149,7 +149,7 @@ public interface Lineage2Client {
 	 *         has been written.
 	 */
 	ChannelFuture sendSystemMessage(SystemMessage message);
-	
+
 	/**
 	 * Sends a {@link SystemMessage} to this client
 	 * 
@@ -157,15 +157,14 @@ public interface Lineage2Client {
 	 *            the {@link SystemMessage}
 	 * @param args
 	 *            the arguments of the message, they will be automatically
-	 *            detected and inserted. See <code>SM_SYSTEM_MESSAGE</code> for more
-	 *            about supported formats.
+	 *            detected and inserted. See <code>SM_SYSTEM_MESSAGE</code> for
+	 *            more about supported formats.
 	 * @return the {@link ChannelFuture} that will be notified once the packet
 	 *         has been written.
 	 * @see SystemMessage
 	 */
-	ChannelFuture sendSystemMessage(SystemMessage message,
-			Object... args);
-	
+	ChannelFuture sendSystemMessage(SystemMessage message, Object... args);
+
 	/**
 	 * Sends a <code>SM_ACTION_FAILED</code> to the client.
 	 * <p>
@@ -178,9 +177,9 @@ public interface Lineage2Client {
 	ChannelFuture sendActionFailed();
 
 	/**
-	 * Sends a <code>SM_HTML</code> packet to the client. In the packet, the NPC will
-	 * be null. If you wish to send the HTML with an NPC, you should send the
-	 * packet directly.
+	 * Sends a <code>SM_HTML</code> packet to the client. In the packet, the NPC
+	 * will be null. If you wish to send the HTML with an NPC, you should send
+	 * the packet directly.
 	 * <p>
 	 * This is an convenience method for <blockquote><code>
 	 * conn.write(new SM_HTML(null, template));</code></blockquote>
@@ -193,8 +192,9 @@ public interface Lineage2Client {
 	ChannelFuture sendHTML(HtmlTemplate template);
 
 	/**
-	 * Sends a <code>SM_COMMUNITY_HTML</code> packet to the client. HTML code is not
-	 * displayed in the regular chat window, they will appear in a large one.
+	 * Sends a <code>SM_COMMUNITY_HTML</code> packet to the client. HTML code is
+	 * not displayed in the regular chat window, they will appear in a large
+	 * one.
 	 * <p>
 	 * This is an convenience method for <blockquote><code>
 	 * conn.write(new SM_COMMUNITY_HTML(template));</code></blockquote>
@@ -258,7 +258,7 @@ public interface Lineage2Client {
 	 * @return the {@link ChannelFuture}
 	 */
 	ChannelFuture close();
-	
+
 	@Override
 	String toString();
 }

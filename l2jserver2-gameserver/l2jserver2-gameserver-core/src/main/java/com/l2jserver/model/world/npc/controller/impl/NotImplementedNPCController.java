@@ -33,8 +33,8 @@ import com.l2jserver.util.html.markup.MarkupTag;
  */
 public class NotImplementedNPCController extends BaseNPCController {
 	@Override
-	public void interact(NPC npc, L2Character character,
-			final String... args) throws L2Exception {
+	public void interact(NPC npc, L2Character character, final String... args)
+			throws L2Exception {
 		// action not handled
 		final HtmlTemplate template = new HtmlTemplate() {
 			@Override

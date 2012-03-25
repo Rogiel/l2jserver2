@@ -66,6 +66,7 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 
 	/**
 	 * Defines the movement action type
+	 * 
 	 * @author <a href="http://www.rogiel.com">Rogiel</a>
 	 */
 	public enum MovementType {
@@ -84,14 +85,16 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 		public final int id;
 
 		/**
-		 * @param id the type id
+		 * @param id
+		 *            the type id
 		 */
 		MovementType(int id) {
 			this.id = id;
 		}
 
 		/**
-		 * @param id the type id
+		 * @param id
+		 *            the type id
 		 * @return the {@link MovementType} represented by <code>id</code>
 		 */
 		public static MovementType fromID(int id) {
@@ -104,7 +107,8 @@ public class CM_CHAR_MOVE extends AbstractClientPacket {
 	}
 
 	/**
-	 * @param charService the character service
+	 * @param charService
+	 *            the character service
 	 */
 	@Inject
 	public CM_CHAR_MOVE(CharacterService charService) {

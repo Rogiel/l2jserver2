@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.network;
 
-
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;

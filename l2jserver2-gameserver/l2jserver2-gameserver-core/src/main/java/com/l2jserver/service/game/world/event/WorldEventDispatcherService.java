@@ -96,7 +96,7 @@ public interface WorldEventDispatcherService extends Service {
 	 *            the listener
 	 */
 	void removeListener(ObjectID<?> id, WorldListener listener);
-	
+
 	/**
 	 * Removes all listeners from a given object
 	 * 

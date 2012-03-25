@@ -5,7 +5,6 @@
 // Generated on: 2012.03.25 at 01:03:28 PM BRT 
 //
 
-
 package com.l2jserver.model.template;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for Coordinate complex type.
+ * <p>
+ * Java class for Coordinate complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="Coordinate">
@@ -39,59 +40,59 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Coordinate")
 public class Coordinate {
 
-    @XmlAttribute(name = "x", required = true)
-    protected int x;
-    @XmlAttribute(name = "y", required = true)
-    protected int y;
-    @XmlAttribute(name = "z", required = true)
-    protected int z;
+	@XmlAttribute(name = "x", required = true)
+	protected int x;
+	@XmlAttribute(name = "y", required = true)
+	protected int y;
+	@XmlAttribute(name = "z", required = true)
+	protected int z;
 
-    /**
-     * Gets the value of the x property.
-     * 
-     */
-    public int getX() {
-        return x;
-    }
+	/**
+	 * Gets the value of the x property.
+	 * 
+	 */
+	public int getX() {
+		return x;
+	}
 
-    /**
-     * Sets the value of the x property.
-     * 
-     */
-    public void setX(int value) {
-        this.x = value;
-    }
+	/**
+	 * Sets the value of the x property.
+	 * 
+	 */
+	public void setX(int value) {
+		this.x = value;
+	}
 
-    /**
-     * Gets the value of the y property.
-     * 
-     */
-    public int getY() {
-        return y;
-    }
+	/**
+	 * Gets the value of the y property.
+	 * 
+	 */
+	public int getY() {
+		return y;
+	}
 
-    /**
-     * Sets the value of the y property.
-     * 
-     */
-    public void setY(int value) {
-        this.y = value;
-    }
+	/**
+	 * Sets the value of the y property.
+	 * 
+	 */
+	public void setY(int value) {
+		this.y = value;
+	}
 
-    /**
-     * Gets the value of the z property.
-     * 
-     */
-    public int getZ() {
-        return z;
-    }
+	/**
+	 * Gets the value of the z property.
+	 * 
+	 */
+	public int getZ() {
+		return z;
+	}
 
-    /**
-     * Sets the value of the z property.
-     * 
-     */
-    public void setZ(int value) {
-        this.z = value;
-    }
+	/**
+	 * Sets the value of the z property.
+	 * 
+	 */
+	public void setZ(int value) {
+		this.z = value;
+	}
 
 }

@@ -48,7 +48,9 @@ public class QCharacterFriend extends
 
 	/**
 	 * Creates a new instance
-	 * @param variable the query variable
+	 * 
+	 * @param variable
+	 *            the query variable
 	 */
 	public QCharacterFriend(String variable) {
 		super(FriendID.class, forVariable(variable), "null", "character_friend");

@@ -126,8 +126,8 @@ public class SQLCharacterFriendDAO extends
 					protected void query(SQLDeleteClause q, CharacterFriend o) {
 						q.where(entity.characterId.eq(
 								o.getID().getCharacterID().getID()).and(
-								entity.characterIdFriend.eq(o.getID().getFriendID()
-										.getID())));
+								entity.characterIdFriend.eq(o.getID()
+										.getFriendID().getID())));
 					}
 				});
 	}

@@ -5,20 +5,22 @@
 // Generated on: 2012.03.25 at 01:03:28 PM BRT 
 //
 
-
 package com.l2jserver.model.template;
 
 import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for CalculatorFunctionOperation complex type.
+ * <p>
+ * Java class for CalculatorFunctionOperation complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="CalculatorFunctionOperation">
@@ -37,49 +39,46 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "CalculatorFunctionOperation")
 public class CalculatorFunctionOperation {
 
-    @XmlAttribute(name = "order", required = true)
-    protected BigInteger order;
-    @XmlAttribute(name = "value", required = true)
-    protected double value;
+	@XmlAttribute(name = "order", required = true)
+	protected BigInteger order;
+	@XmlAttribute(name = "value", required = true)
+	protected double value;
 
-    /**
-     * Gets the value of the order property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getOrder() {
-        return order;
-    }
+	/**
+	 * Gets the value of the order property.
+	 * 
+	 * @return possible object is {@link BigInteger }
+	 * 
+	 */
+	public BigInteger getOrder() {
+		return order;
+	}
 
-    /**
-     * Sets the value of the order property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setOrder(BigInteger value) {
-        this.order = value;
-    }
+	/**
+	 * Sets the value of the order property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigInteger }
+	 * 
+	 */
+	public void setOrder(BigInteger value) {
+		this.order = value;
+	}
 
-    /**
-     * Gets the value of the value property.
-     * 
-     */
-    public double getValue() {
-        return value;
-    }
+	/**
+	 * Gets the value of the value property.
+	 * 
+	 */
+	public double getValue() {
+		return value;
+	}
 
-    /**
-     * Sets the value of the value property.
-     * 
-     */
-    public void setValue(double value) {
-        this.value = value;
-    }
+	/**
+	 * Sets the value of the value property.
+	 * 
+	 */
+	public void setValue(double value) {
+		this.value = value;
+	}
 
 }

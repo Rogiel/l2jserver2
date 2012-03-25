@@ -186,7 +186,8 @@ public class SoftCacheService extends AbstractService implements CacheService {
 			while ((en = (SoftEntry) refQueue.poll()) != null) {
 				K key = en.getKey();
 				if (log.isDebugEnabled())
-					log.debug("{} : cleaned up value for key: {}", cacheName, key);
+					log.debug("{} : cleaned up value for key: {}", cacheName,
+							key);
 				cacheMap.remove(key);
 			}
 		}

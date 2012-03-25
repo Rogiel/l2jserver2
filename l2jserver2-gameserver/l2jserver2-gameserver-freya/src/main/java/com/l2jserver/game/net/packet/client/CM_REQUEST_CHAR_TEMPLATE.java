@@ -65,7 +65,8 @@ public class CM_REQUEST_CHAR_TEMPLATE extends AbstractClientPacket {
 	private final CharacterTemplateIDProvider idFactory;
 
 	/**
-	 * @param idFactory the character template id provider
+	 * @param idFactory
+	 *            the character template id provider
 	 */
 	@Inject
 	public CM_REQUEST_CHAR_TEMPLATE(CharacterTemplateIDProvider idFactory) {

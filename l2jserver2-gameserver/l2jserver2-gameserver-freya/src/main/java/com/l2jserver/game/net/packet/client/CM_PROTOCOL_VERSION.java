@@ -66,7 +66,8 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 	private ProtocolVersion version;
 
 	/**
-	 * @param keygen the keygen service
+	 * @param keygen
+	 *            the keygen service
 	 */
 	@Inject
 	public CM_PROTOCOL_VERSION(BlowfishKeygenService keygen) {
@@ -84,7 +85,7 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 		// generate a new key
 		final Lineage2CryptographyKey inKey = new Lineage2CryptographyKey(
 				keygen.generate());
-		
+
 		final FreyaLineage2Client client = (FreyaLineage2Client) conn;
 
 		client.getDecrypter().enable(inKey);

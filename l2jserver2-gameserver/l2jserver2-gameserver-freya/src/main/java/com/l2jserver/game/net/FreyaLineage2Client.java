@@ -409,6 +409,7 @@ public class FreyaLineage2Client implements Lineage2Client {
 		return (Lineage2PacketWriter) channel.getPipeline().get(
 				Lineage2PacketWriter.HANDLER_NAME);
 	}
+
 	@Override
 	public String toString() {
 		return "Lineage2Client [channel=" + channel + ", characterID="

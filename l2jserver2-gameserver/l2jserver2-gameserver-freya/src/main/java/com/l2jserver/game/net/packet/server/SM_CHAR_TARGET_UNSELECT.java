@@ -40,7 +40,8 @@ public class SM_CHAR_TARGET_UNSELECT extends AbstractServerPacket {
 	private final L2Character character;
 
 	/**
-	 * @param character the character
+	 * @param character
+	 *            the character
 	 */
 	public SM_CHAR_TARGET_UNSELECT(L2Character character) {
 		super(OPCODE);

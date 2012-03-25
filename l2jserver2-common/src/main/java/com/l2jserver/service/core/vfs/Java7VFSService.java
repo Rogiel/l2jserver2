@@ -70,7 +70,7 @@ public class Java7VFSService extends
 	public Path resolve(String path) {
 		return resolve(Paths.get(path));
 	}
-	
+
 	@Override
 	public Path resolve(Path path) {
 		log.debug("Resolving file {}", path);
@@ -81,13 +81,12 @@ public class Java7VFSService extends
 	public Path resolveDataFile(String path) {
 		return resolveDataFile(Paths.get(path));
 	}
-	
+
 	@Override
 	public Path resolveDataFile(Path path) {
 		log.debug("Resolving data file {}", path);
 		return dataRoot.resolve(path);
 	}
-
 
 	@Override
 	protected void doStop() throws ServiceStopException {

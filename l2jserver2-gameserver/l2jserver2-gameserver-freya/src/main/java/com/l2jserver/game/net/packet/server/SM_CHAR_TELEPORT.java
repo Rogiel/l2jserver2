@@ -45,8 +45,10 @@ public class SM_CHAR_TELEPORT extends AbstractServerPacket {
 	private final Point3D point;
 
 	/**
-	 * @param character the character
-	 * @param point the teleport point
+	 * @param character
+	 *            the character
+	 * @param point
+	 *            the teleport point
 	 */
 	public SM_CHAR_TELEPORT(L2Character character, Point3D point) {
 		super(OPCODE);

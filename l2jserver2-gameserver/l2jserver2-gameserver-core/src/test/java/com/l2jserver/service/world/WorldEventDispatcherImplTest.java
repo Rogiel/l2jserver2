@@ -69,6 +69,7 @@ public class WorldEventDispatcherImplTest {
 
 	/**
 	 * Prepares the tests
+	 * 
 	 * @throws ServiceStartException
 	 */
 	@Before
@@ -90,6 +91,7 @@ public class WorldEventDispatcherImplTest {
 
 	/**
 	 * Test listenteners - mode 1
+	 * 
 	 * @throws InterruptedException
 	 */
 	@Test
@@ -135,6 +137,7 @@ public class WorldEventDispatcherImplTest {
 
 	/**
 	 * Test listeners - mode 2
+	 * 
 	 * @throws InterruptedException
 	 */
 	@Test

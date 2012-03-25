@@ -19,10 +19,10 @@ package com.l2jserver.service.database.ddl;
 import java.util.List;
 
 import com.l2jserver.service.database.ddl.struct.Column;
+import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.l2jserver.service.database.ddl.struct.ForeignKey;
 import com.l2jserver.service.database.ddl.struct.PrimaryKey;
 import com.l2jserver.service.database.ddl.struct.Table;
-import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.l2jserver.util.factory.CollectionFactory;
 
 /**

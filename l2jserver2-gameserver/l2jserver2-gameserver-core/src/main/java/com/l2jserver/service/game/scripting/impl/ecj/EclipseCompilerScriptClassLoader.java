@@ -80,7 +80,8 @@ public class EclipseCompilerScriptClassLoader extends ScriptClassLoader {
 	 * @param classFileManager
 	 *            classFileManager of this classLoader
 	 */
-	EclipseCompilerScriptClassLoader(EclipseCompilerClassFileManager classFileManager) {
+	EclipseCompilerScriptClassLoader(
+			EclipseCompilerClassFileManager classFileManager) {
 		super(new URL[] {});
 		this.classFileManager = classFileManager;
 	}
@@ -94,7 +95,8 @@ public class EclipseCompilerScriptClassLoader extends ScriptClassLoader {
 	 * @param parent
 	 *            parent classLoader
 	 */
-	EclipseCompilerScriptClassLoader(EclipseCompilerClassFileManager classFileManager, ClassLoader parent) {
+	EclipseCompilerScriptClassLoader(
+			EclipseCompilerClassFileManager classFileManager, ClassLoader parent) {
 		super(new URL[] {}, parent);
 		this.classFileManager = classFileManager;
 	}
@@ -176,7 +178,8 @@ public class EclipseCompilerScriptClassLoader extends ScriptClassLoader {
 			newName = newName.replace('/', '.');
 			if (classFileManager.getCompiledClasses().containsKey(newName)) {
 				try {
-					return new URL(null,
+					return new URL(
+							null,
 							EclipseCompilerVirtualClassURLStreamHandler.HANDLER_PROTOCOL
 									+ newName, urlStreamHandler);
 				} catch (MalformedURLException e) {

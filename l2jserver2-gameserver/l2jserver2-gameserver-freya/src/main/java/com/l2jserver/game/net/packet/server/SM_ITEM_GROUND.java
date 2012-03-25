@@ -38,7 +38,8 @@ public class SM_ITEM_GROUND extends AbstractServerPacket {
 	private final Item item;
 
 	/**
-	 * @param item the item that is on the ground
+	 * @param item
+	 *            the item that is on the ground
 	 */
 	public SM_ITEM_GROUND(Item item) {
 		super(OPCODE);
@@ -47,7 +48,8 @@ public class SM_ITEM_GROUND extends AbstractServerPacket {
 
 	@Override
 	public void write(Lineage2Client conn, ChannelBuffer buffer) {
-		buffer.writeInt((item.getOwnerID() != null ? item.getOwnerID().getID() : 0)); // char who dropped
+		buffer.writeInt((item.getOwnerID() != null ? item.getOwnerID().getID()
+				: 0)); // char who dropped
 		buffer.writeInt(item.getID().getID()); // item obj id
 		buffer.writeInt(item.getTemplateID().getID()); // item template id
 

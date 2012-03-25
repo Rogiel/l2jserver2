@@ -77,9 +77,12 @@ public class CM_CHAR_ACTION extends AbstractClientPacket {
 	private CharacterAction action;
 
 	/**
-	 * @param idResolver the id resolver
-	 * @param npcService the npc service
-	 * @param itemService the item service
+	 * @param idResolver
+	 *            the id resolver
+	 * @param npcService
+	 *            the npc service
+	 * @param itemService
+	 *            the item service
 	 */
 	@Inject
 	public CM_CHAR_ACTION(ObjectIDResolver idResolver, NPCService npcService,

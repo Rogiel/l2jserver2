@@ -79,7 +79,8 @@ public class SpawnServiceImpl extends AbstractService implements SpawnService {
 	 */
 	@Inject
 	public SpawnServiceImpl(WorldService worldService,
-			WorldEventDispatcherService eventDispatcher, ThreadService threadService) {
+			WorldEventDispatcherService eventDispatcher,
+			ThreadService threadService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.threadService = threadService;

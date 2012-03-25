@@ -149,7 +149,8 @@ public class ItemServiceImpl extends
 
 	@Override
 	public Item split(Item item, long count)
-			throws NotEnoughItemsServiceException, NonStackableItemsServiceException {
+			throws NotEnoughItemsServiceException,
+			NonStackableItemsServiceException {
 		if (item.getCount() < count)
 			throw new NotEnoughItemsServiceException();
 		if (item.getCount() == count)
@@ -187,7 +188,8 @@ public class ItemServiceImpl extends
 
 	@Override
 	public boolean destroy(Item item, long count)
-			throws NotEnoughItemsServiceException, NonStackableItemsServiceException {
+			throws NotEnoughItemsServiceException,
+			NonStackableItemsServiceException {
 		synchronized (item) {
 			Item destroyItem = split(item, count);
 			itemDao.deleteObjectsAsync(destroyItem);
@@ -266,7 +268,8 @@ public class ItemServiceImpl extends
 	public Item drop(Item item, long count, Point3D point, Actor actor)
 			throws SpawnPointNotFoundServiceException,
 			ItemAlreadyOnGroundServiceException,
-			AlreadySpawnedServiceException, NotEnoughItemsServiceException, NonStackableItemsServiceException {
+			AlreadySpawnedServiceException, NotEnoughItemsServiceException,
+			NonStackableItemsServiceException {
 		synchronized (item) {
 			if (item.getLocation() == ItemLocation.GROUND)
 				throw new AlreadySpawnedServiceException();
@@ -320,7 +323,8 @@ public class ItemServiceImpl extends
 	public void drop(Item item, Point3D point, Actor actor)
 			throws SpawnPointNotFoundServiceException,
 			ItemAlreadyOnGroundServiceException,
-			AlreadySpawnedServiceException, NotEnoughItemsServiceException, NonStackableItemsServiceException {
+			AlreadySpawnedServiceException, NotEnoughItemsServiceException,
+			NonStackableItemsServiceException {
 		drop(item, item.getCount(), point, actor);
 	}
 

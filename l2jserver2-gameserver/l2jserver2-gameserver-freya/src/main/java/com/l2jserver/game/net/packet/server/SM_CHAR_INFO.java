@@ -77,7 +77,8 @@ public class SM_CHAR_INFO extends AbstractServerPacket {
 	private L2Character character;
 
 	/**
-	 * @param character the character
+	 * @param character
+	 *            the character
 	 */
 	public SM_CHAR_INFO(L2Character character) {
 		super(OPCODE);

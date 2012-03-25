@@ -119,7 +119,8 @@ public class CM_ITEM_DROP extends AbstractClientPacket {
 		} catch (ItemAlreadyOnGroundServiceException
 				| AlreadySpawnedServiceException
 				| SpawnPointNotFoundServiceException
-				| NotEnoughItemsServiceException | NonStackableItemsServiceException e) {
+				| NotEnoughItemsServiceException
+				| NonStackableItemsServiceException e) {
 			conn.sendActionFailed();
 		}
 	}

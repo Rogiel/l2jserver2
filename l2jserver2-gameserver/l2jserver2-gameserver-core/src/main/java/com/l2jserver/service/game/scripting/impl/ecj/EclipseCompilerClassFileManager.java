@@ -108,7 +108,8 @@ public class EclipseCompilerClassFileManager extends
 	 * @return classLoader of this ClassFileManager
 	 */
 	@Override
-	public synchronized EclipseCompilerScriptClassLoader getClassLoader(Location location) {
+	public synchronized EclipseCompilerScriptClassLoader getClassLoader(
+			Location location) {
 		if (loader == null) {
 			loader = AccessController
 					.doPrivileged(new PrivilegedAction<EclipseCompilerScriptClassLoader>() {

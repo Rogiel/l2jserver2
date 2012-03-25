@@ -53,6 +53,7 @@ public class ScriptingServiceImplTest {
 
 	/**
 	 * Tests script loading
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -64,6 +65,7 @@ public class ScriptingServiceImplTest {
 
 	/**
 	 * Tests script instantiation
+	 * 
 	 * @throws Exception
 	 */
 	@Test

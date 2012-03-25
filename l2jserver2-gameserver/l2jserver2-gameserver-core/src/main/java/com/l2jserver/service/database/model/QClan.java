@@ -18,7 +18,7 @@ public class QClan extends com.mysema.query.sql.RelationalPathBase<Integer> {
 	 * The Java Serialization UID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Default entity for {@link QClan}
 	 */
@@ -44,7 +44,9 @@ public class QClan extends com.mysema.query.sql.RelationalPathBase<Integer> {
 
 	/**
 	 * Creates a new instance
-	 * @param variable the query variable
+	 * 
+	 * @param variable
+	 *            the query variable
 	 */
 	public QClan(String variable) {
 		super(Integer.class, forVariable(variable), "null", "clan");

@@ -97,7 +97,8 @@ public class CM_ITEM_DESTROY extends AbstractClientPacket {
 			} else {
 				conn.updateInventoryItems(item);
 			}
-		} catch (NotEnoughItemsServiceException | NonStackableItemsServiceException e) {
+		} catch (NotEnoughItemsServiceException
+				| NonStackableItemsServiceException e) {
 			conn.sendSystemMessage(SystemMessage.CANNOT_DISCARD_THIS_ITEM);
 		}
 	}

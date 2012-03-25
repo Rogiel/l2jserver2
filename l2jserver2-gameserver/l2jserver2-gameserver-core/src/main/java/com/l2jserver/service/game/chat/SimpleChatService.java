@@ -55,10 +55,10 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	 * The {@link ChatLoggingService} implementation
 	 */
 	private final ChatLoggingService chatLoggingService;
-//	/**
-//	 * The {@link RegionService}
-//	 */
-//	private final RegionService regionService;
+	// /**
+	// * The {@link RegionService}
+	// */
+	// private final RegionService regionService;
 	/**
 	 * The {@link L2Character} DAO
 	 */
@@ -177,13 +177,13 @@ public class SimpleChatService extends AbstractService implements ChatService {
 	@Override
 	public PublicChatChannel getRegionChannel(L2Character character) {
 		Preconditions.checkNotNull(character, "character");
-//		final Region region = regionService.getRegion(character);
-//		RegionChatChannelImpl channel = regionChannels.get(region);
-//		if (channel == null) {
-//			channel = new RegionChatChannelImpl(region);
-//			regionChannels.put(region, channel);
-//		}
-//		return channel;
+		// final Region region = regionService.getRegion(character);
+		// RegionChatChannelImpl channel = regionChannels.get(region);
+		// if (channel == null) {
+		// channel = new RegionChatChannelImpl(region);
+		// regionChannels.put(region, channel);
+		// }
+		// return channel;
 		return null;
 	}
 

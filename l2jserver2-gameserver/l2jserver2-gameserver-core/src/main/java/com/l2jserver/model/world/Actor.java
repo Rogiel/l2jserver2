@@ -95,10 +95,11 @@ public abstract class Actor extends PositionableObject {
 		DEAD;
 	}
 
-//	/**
-//	 * The currently effects active on the actor
-//	 */
-//	protected final ActorEffectContainer effects = new ActorEffectContainer(this);
+	// /**
+	// * The currently effects active on the actor
+	// */
+	// protected final ActorEffectContainer effects = new
+	// ActorEffectContainer(this);
 	/**
 	 * The skills learned by this actor
 	 */
@@ -270,12 +271,12 @@ public abstract class Actor extends PositionableObject {
 		return state == ActorState.ATTACKING;
 	}
 
-//	/**
-//	 * @return the active effects on this actor
-//	 */
-//	public ActorEffectContainer getEffects() {
-//		return effects;
-//	}
+	// /**
+	// * @return the active effects on this actor
+	// */
+	// public ActorEffectContainer getEffects() {
+	// return effects;
+	// }
 
 	/**
 	 * @return the actor skills

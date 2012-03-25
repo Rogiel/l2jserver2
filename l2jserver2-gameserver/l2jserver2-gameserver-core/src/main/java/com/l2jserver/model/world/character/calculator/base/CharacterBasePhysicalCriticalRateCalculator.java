@@ -43,6 +43,6 @@ public class CharacterBasePhysicalCriticalRateCalculator extends
 
 	@Override
 	protected double calculate(L2Character c, CharacterTemplate t, double value) {
-		return  t.getStats().getAttack().getCritical();
+		return t.getStats().getAttack().getCritical();
 	}
 }

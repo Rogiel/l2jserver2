@@ -38,7 +38,7 @@ public interface VFSService extends Service {
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
 	Path resolve(String path);
-	
+
 	/**
 	 * Resolves an file. If the file cannot be resolved, null will be returned.
 	 * <p>
@@ -63,7 +63,7 @@ public interface VFSService extends Service {
 	 * @return the resolved file. Will return null if could not resolve.
 	 */
 	Path resolveDataFile(String path);
-	
+
 	/**
 	 * Resolves an file inside the data storage file system. If the file cannot
 	 * be resolved, null will be returned.

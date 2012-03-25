@@ -5,11 +5,11 @@
 // Generated on: 2012.03.25 at 01:03:28 PM BRT 
 //
 
-
 package com.l2jserver.model.template;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -17,14 +17,17 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import com.l2jserver.model.id.template.TeleportationTemplateID;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 
-
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -72,308 +75,290 @@ import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "teleport"
-})
+@XmlType(name = "", propOrder = { "teleport" })
 @XmlRootElement(name = "teleports", namespace = "http://schemas.l2jserver2.com/teleport")
 public class Teleports {
 
-    @XmlElement(required = true)
-    protected List<Teleports.Teleport> teleport;
+	@XmlElement(required = true)
+	protected List<Teleports.Teleport> teleport;
 
-    /**
-     * Gets the value of the teleport property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the teleport property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTeleport().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Teleports.Teleport }
-     * 
-     * 
-     */
-    public List<Teleports.Teleport> getTeleport() {
-        if (teleport == null) {
-            teleport = new ArrayList<Teleports.Teleport>();
-        }
-        return this.teleport;
-    }
+	/**
+	 * Gets the value of the teleport property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the teleport property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getTeleport().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link Teleports.Teleport }
+	 * 
+	 * 
+	 */
+	public List<Teleports.Teleport> getTeleport() {
+		if (teleport == null) {
+			teleport = new ArrayList<Teleports.Teleport>();
+		}
+		return this.teleport;
+	}
 
+	/**
+	 * <p>
+	 * Java class for anonymous complex type.
+	 * 
+	 * <p>
+	 * The following schema fragment specifies the expected content contained
+	 * within this class.
+	 * 
+	 * <pre>
+	 * &lt;complexType>
+	 *   &lt;complexContent>
+	 *     &lt;extension base="{}AbstractTemplate">
+	 *       &lt;sequence>
+	 *         &lt;element name="point" type="{}Coordinate" minOccurs="0"/>
+	 *         &lt;element name="restrictions" minOccurs="0">
+	 *           &lt;complexType>
+	 *             &lt;complexContent>
+	 *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+	 *                 &lt;sequence>
+	 *                   &lt;element name="restriction" maxOccurs="unbounded">
+	 *                     &lt;simpleType>
+	 *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+	 *                         &lt;enumeration value="NOBLE"/>
+	 *                       &lt;/restriction>
+	 *                     &lt;/simpleType>
+	 *                   &lt;/element>
+	 *                 &lt;/sequence>
+	 *               &lt;/restriction>
+	 *             &lt;/complexContent>
+	 *           &lt;/complexType>
+	 *         &lt;/element>
+	 *       &lt;/sequence>
+	 *       &lt;attribute name="id" use="required" type="{http://schemas.l2jserver2.com/teleport}TeleportationTemplateID" />
+	 *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
+	 *       &lt;attribute name="item" type="{http://www.w3.org/2001/XMLSchema}int" />
+	 *       &lt;attribute name="price" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
+	 *     &lt;/extension>
+	 *   &lt;/complexContent>
+	 * &lt;/complexType>
+	 * </pre>
+	 * 
+	 * 
+	 */
+	@XmlAccessorType(XmlAccessType.FIELD)
+	@XmlType(name = "", propOrder = { "point", "restrictions" })
+	public static class Teleport extends AbstractTemplate {
 
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;extension base="{}AbstractTemplate">
-     *       &lt;sequence>
-     *         &lt;element name="point" type="{}Coordinate" minOccurs="0"/>
-     *         &lt;element name="restrictions" minOccurs="0">
-     *           &lt;complexType>
-     *             &lt;complexContent>
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *                 &lt;sequence>
-     *                   &lt;element name="restriction" maxOccurs="unbounded">
-     *                     &lt;simpleType>
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
-     *                         &lt;enumeration value="NOBLE"/>
-     *                       &lt;/restriction>
-     *                     &lt;/simpleType>
-     *                   &lt;/element>
-     *                 &lt;/sequence>
-     *               &lt;/restriction>
-     *             &lt;/complexContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *       &lt;/sequence>
-     *       &lt;attribute name="id" use="required" type="{http://schemas.l2jserver2.com/teleport}TeleportationTemplateID" />
-     *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *       &lt;attribute name="item" type="{http://www.w3.org/2001/XMLSchema}int" />
-     *       &lt;attribute name="price" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
-     *     &lt;/extension>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "point",
-        "restrictions"
-    })
-    public static class Teleport
-        extends AbstractTemplate
-    {
+		protected Coordinate point;
+		protected Teleports.Teleport.Restrictions restrictions;
+		@XmlAttribute(name = "id", required = true)
+		@XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
+		protected TeleportationTemplateID id;
+		@XmlAttribute(name = "name")
+		protected String name;
+		@XmlAttribute(name = "item")
+		protected Integer item;
+		@XmlAttribute(name = "price", required = true)
+		protected int price;
 
-        protected Coordinate point;
-        protected Teleports.Teleport.Restrictions restrictions;
-        @XmlAttribute(name = "id", required = true)
-        @XmlJavaTypeAdapter(TeleportationTemplateIDAdapter.class)
-        protected TeleportationTemplateID id;
-        @XmlAttribute(name = "name")
-        protected String name;
-        @XmlAttribute(name = "item")
-        protected Integer item;
-        @XmlAttribute(name = "price", required = true)
-        protected int price;
+		/**
+		 * Gets the value of the point property.
+		 * 
+		 * @return possible object is {@link Coordinate }
+		 * 
+		 */
+		public Coordinate getPoint() {
+			return point;
+		}
 
-        /**
-         * Gets the value of the point property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Coordinate }
-         *     
-         */
-        public Coordinate getPoint() {
-            return point;
-        }
+		/**
+		 * Sets the value of the point property.
+		 * 
+		 * @param value
+		 *            allowed object is {@link Coordinate }
+		 * 
+		 */
+		public void setPoint(Coordinate value) {
+			this.point = value;
+		}
 
-        /**
-         * Sets the value of the point property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Coordinate }
-         *     
-         */
-        public void setPoint(Coordinate value) {
-            this.point = value;
-        }
+		/**
+		 * Gets the value of the restrictions property.
+		 * 
+		 * @return possible object is {@link Teleports.Teleport.Restrictions }
+		 * 
+		 */
+		public Teleports.Teleport.Restrictions getRestrictions() {
+			return restrictions;
+		}
 
-        /**
-         * Gets the value of the restrictions property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Teleports.Teleport.Restrictions }
-         *     
-         */
-        public Teleports.Teleport.Restrictions getRestrictions() {
-            return restrictions;
-        }
+		/**
+		 * Sets the value of the restrictions property.
+		 * 
+		 * @param value
+		 *            allowed object is {@link Teleports.Teleport.Restrictions }
+		 * 
+		 */
+		public void setRestrictions(Teleports.Teleport.Restrictions value) {
+			this.restrictions = value;
+		}
 
-        /**
-         * Sets the value of the restrictions property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Teleports.Teleport.Restrictions }
-         *     
-         */
-        public void setRestrictions(Teleports.Teleport.Restrictions value) {
-            this.restrictions = value;
-        }
+		/**
+		 * Gets the value of the id property.
+		 * 
+		 * @return possible object is {@link String }
+		 * 
+		 */
+		public TeleportationTemplateID getID() {
+			return id;
+		}
 
-        /**
-         * Gets the value of the id property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public TeleportationTemplateID getID() {
-            return id;
-        }
+		/**
+		 * Sets the value of the id property.
+		 * 
+		 * @param value
+		 *            allowed object is {@link String }
+		 * 
+		 */
+		public void setID(TeleportationTemplateID value) {
+			this.id = value;
+		}
 
-        /**
-         * Sets the value of the id property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setID(TeleportationTemplateID value) {
-            this.id = value;
-        }
+		/**
+		 * Gets the value of the name property.
+		 * 
+		 * @return possible object is {@link String }
+		 * 
+		 */
+		public String getName() {
+			return name;
+		}
 
-        /**
-         * Gets the value of the name property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getName() {
-            return name;
-        }
+		/**
+		 * Sets the value of the name property.
+		 * 
+		 * @param value
+		 *            allowed object is {@link String }
+		 * 
+		 */
+		public void setName(String value) {
+			this.name = value;
+		}
 
-        /**
-         * Sets the value of the name property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setName(String value) {
-            this.name = value;
-        }
+		/**
+		 * Gets the value of the item property.
+		 * 
+		 * @return possible object is {@link Integer }
+		 * 
+		 */
+		public Integer getItem() {
+			return item;
+		}
 
-        /**
-         * Gets the value of the item property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Integer }
-         *     
-         */
-        public Integer getItem() {
-            return item;
-        }
+		/**
+		 * Sets the value of the item property.
+		 * 
+		 * @param value
+		 *            allowed object is {@link Integer }
+		 * 
+		 */
+		public void setItem(Integer value) {
+			this.item = value;
+		}
 
-        /**
-         * Sets the value of the item property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Integer }
-         *     
-         */
-        public void setItem(Integer value) {
-            this.item = value;
-        }
+		/**
+		 * Gets the value of the price property.
+		 * 
+		 */
+		public int getPrice() {
+			return price;
+		}
 
-        /**
-         * Gets the value of the price property.
-         * 
-         */
-        public int getPrice() {
-            return price;
-        }
+		/**
+		 * Sets the value of the price property.
+		 * 
+		 */
+		public void setPrice(int value) {
+			this.price = value;
+		}
 
-        /**
-         * Sets the value of the price property.
-         * 
-         */
-        public void setPrice(int value) {
-            this.price = value;
-        }
+		/**
+		 * <p>
+		 * Java class for anonymous complex type.
+		 * 
+		 * <p>
+		 * The following schema fragment specifies the expected content
+		 * contained within this class.
+		 * 
+		 * <pre>
+		 * &lt;complexType>
+		 *   &lt;complexContent>
+		 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+		 *       &lt;sequence>
+		 *         &lt;element name="restriction" maxOccurs="unbounded">
+		 *           &lt;simpleType>
+		 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+		 *               &lt;enumeration value="NOBLE"/>
+		 *             &lt;/restriction>
+		 *           &lt;/simpleType>
+		 *         &lt;/element>
+		 *       &lt;/sequence>
+		 *     &lt;/restriction>
+		 *   &lt;/complexContent>
+		 * &lt;/complexType>
+		 * </pre>
+		 * 
+		 * 
+		 */
+		@XmlAccessorType(XmlAccessType.FIELD)
+		@XmlType(name = "", propOrder = { "restriction" })
+		public static class Restrictions {
 
+			@XmlElement(required = true)
+			protected List<String> restriction;
 
-        /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
-         * <pre>
-         * &lt;complexType>
-         *   &lt;complexContent>
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-         *       &lt;sequence>
-         *         &lt;element name="restriction" maxOccurs="unbounded">
-         *           &lt;simpleType>
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
-         *               &lt;enumeration value="NOBLE"/>
-         *             &lt;/restriction>
-         *           &lt;/simpleType>
-         *         &lt;/element>
-         *       &lt;/sequence>
-         *     &lt;/restriction>
-         *   &lt;/complexContent>
-         * &lt;/complexType>
-         * </pre>
-         * 
-         * 
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "restriction"
-        })
-        public static class Restrictions {
+			/**
+			 * Gets the value of the restriction property.
+			 * 
+			 * <p>
+			 * This accessor method returns a reference to the live list, not a
+			 * snapshot. Therefore any modification you make to the returned
+			 * list will be present inside the JAXB object. This is why there is
+			 * not a <CODE>set</CODE> method for the restriction property.
+			 * 
+			 * <p>
+			 * For example, to add a new item, do as follows:
+			 * 
+			 * <pre>
+			 * getRestriction().add(newItem);
+			 * </pre>
+			 * 
+			 * 
+			 * <p>
+			 * Objects of the following type(s) are allowed in the list
+			 * {@link String }
+			 * 
+			 * 
+			 */
+			public List<String> getRestriction() {
+				if (restriction == null) {
+					restriction = new ArrayList<String>();
+				}
+				return this.restriction;
+			}
 
-            @XmlElement(required = true)
-            protected List<String> restriction;
+		}
 
-            /**
-             * Gets the value of the restriction property.
-             * 
-             * <p>
-             * This accessor method returns a reference to the live list,
-             * not a snapshot. Therefore any modification you make to the
-             * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the restriction property.
-             * 
-             * <p>
-             * For example, to add a new item, do as follows:
-             * <pre>
-             *    getRestriction().add(newItem);
-             * </pre>
-             * 
-             * 
-             * <p>
-             * Objects of the following type(s) are allowed in the list
-             * {@link String }
-             * 
-             * 
-             */
-            public List<String> getRestriction() {
-                if (restriction == null) {
-                    restriction = new ArrayList<String>();
-                }
-                return this.restriction;
-            }
-
-        }
-
-    }
+	}
 
 }

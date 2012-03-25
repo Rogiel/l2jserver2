@@ -47,10 +47,14 @@ public class Table {
 	private final List<ForeignKey> foreignKeys = CollectionFactory.newList();
 
 	/**
-	 * @param name the table name
-	 * @param columns the column
-	 * @param primaryKey the primary key
-	 * @param foreignKeys the foreign keys
+	 * @param name
+	 *            the table name
+	 * @param columns
+	 *            the column
+	 * @param primaryKey
+	 *            the primary key
+	 * @param foreignKeys
+	 *            the foreign keys
 	 */
 	public Table(String name, Map<String, Column> columns,
 			PrimaryKey primaryKey, List<ForeignKey> foreignKeys) {
@@ -62,8 +66,10 @@ public class Table {
 	}
 
 	/**
-	 * @param name the table name
-	 * @param primaryKey the primary key
+	 * @param name
+	 *            the table name
+	 * @param primaryKey
+	 *            the primary key
 	 */
 	public Table(String name, PrimaryKey primaryKey) {
 		this.name = name;
@@ -104,7 +110,8 @@ public class Table {
 	}
 
 	/**
-	 * @param name the column name
+	 * @param name
+	 *            the column name
 	 * @return the column represented by <code>name</code>
 	 */
 	public Column getColumn(String name) {

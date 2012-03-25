@@ -88,7 +88,7 @@ public class NPCTemplateConverter {
 		Class.forName("com.mysql.jdbc.Driver");
 
 		final File target = new File("generated/template/npc");
-	
+
 		System.out.println("Scaning legacy HTML files...");
 		htmlScannedFiles = FileUtils.listFiles(L2J_HTML_FOLDER, new String[] {
 				"html", "htm" }, true);
@@ -131,15 +131,15 @@ public class NPCTemplateConverter {
 		}
 
 		System.out.println("Generating template XML files...");
-//		c.generateSchema(new SchemaOutputResolver() {
-//			@Override
-//			public Result createOutput(String namespaceUri,
-//					String suggestedFileName) throws IOException {
-//				// System.out.println(new File(target, suggestedFileName));
-//				// return null;
-//				return new StreamResult(new File(target, suggestedFileName));
-//			}
-//		});
+		// c.generateSchema(new SchemaOutputResolver() {
+		// @Override
+		// public Result createOutput(String namespaceUri,
+		// String suggestedFileName) throws IOException {
+		// // System.out.println(new File(target, suggestedFileName));
+		// // return null;
+		// return new StreamResult(new File(target, suggestedFileName));
+		// }
+		// });
 
 		try {
 			final Marshaller m = c.createMarshaller();
@@ -225,7 +225,7 @@ public class NPCTemplateConverter {
 
 		template.getInfo().setName(factory.createNPCTemplateInfoName());
 		template.getInfo().getName().setValue(rs.getString("name"));
-		//template.getInfo().getName().setDisplay(rs.getBoolean("show_name"));
+		// template.getInfo().getName().setDisplay(rs.getBoolean("show_name"));
 		template.getInfo().getName().setSend(rs.getBoolean("serverSideName"));
 
 		template.getInfo().setTitle(factory.createNPCTemplateInfoTitle());
@@ -243,9 +243,9 @@ public class NPCTemplateConverter {
 			template.getInfo().setSex(
 					ActorSex.valueOf(rs.getString("sex").toUpperCase()));
 		// template.info.attackable = rs.getBoolean("attackable");
-		//template.getInfo().setTargetable(rs.getBoolean("targetable"));
+		// template.getInfo().setTargetable(rs.getBoolean("targetable"));
 		template.getInfo().setTargetable(true);
-		//template.getInfo().setAggressive(rs.getBoolean("aggro"));
+		// template.getInfo().setAggressive(rs.getBoolean("aggro"));
 		template.getInfo().setAggressive(true);
 		template.getInfo().setAttackable(true); // FIXME
 
@@ -351,9 +351,9 @@ public class NPCTemplateConverter {
 		final ResultSet rs = st.getResultSet();
 		while (rs.next()) {
 			final Droplist.Item item = factory.createNPCTemplateDroplistItem();
-			item.setId( new ItemTemplateID(rs.getInt("itemId"), null));
+			item.setId(new ItemTemplateID(rs.getInt("itemId"), null));
 			item.setMin(rs.getInt("min"));
-			item.setMax( rs.getInt("max"));
+			item.setMax(rs.getInt("max"));
 			item.setChance(rs.getInt("chance"));
 			item.setCategory(getCategory(rs.getInt("category")));
 			drops.getItem().add(item);
@@ -363,7 +363,8 @@ public class NPCTemplateConverter {
 		return drops;
 	}
 
-	private static Talk fillHtmlChat(final ObjectFactory factory, int npcId) throws IOException {
+	private static Talk fillHtmlChat(final ObjectFactory factory, int npcId)
+			throws IOException {
 		final Talk talk = factory.createNPCTemplateTalk();
 		talk.setDefault("default");
 		for (final File file : htmlScannedFiles) {
@@ -389,8 +390,8 @@ public class NPCTemplateConverter {
 		return talk;
 	}
 
-	private static Skills fillSkillList(final ObjectFactory factory, ResultSet npcRs, int npcId)
-			throws SQLException {
+	private static Skills fillSkillList(final ObjectFactory factory,
+			ResultSet npcRs, int npcId) throws SQLException {
 		final Connection conn = npcRs.getStatement().getConnection();
 		final Skills skills = factory.createNPCTemplateSkills();
 

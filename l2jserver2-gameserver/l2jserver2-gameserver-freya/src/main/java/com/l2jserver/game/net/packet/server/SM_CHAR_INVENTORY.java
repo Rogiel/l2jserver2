@@ -45,7 +45,8 @@ public class SM_CHAR_INVENTORY extends AbstractServerPacket {
 	private boolean showWindow = false;
 
 	/**
-	 * @param inventory the inventory
+	 * @param inventory
+	 *            the inventory
 	 */
 	public SM_CHAR_INVENTORY(CharacterInventory inventory) {
 		super(OPCODE);

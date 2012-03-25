@@ -50,7 +50,8 @@ public class ItemPickEvent implements ItemEvent, CharacterEvent {
 	 *            the picking up character
 	 * @param item
 	 *            the picked up item
-	 * @param newItem the new {@link Item}
+	 * @param newItem
+	 *            the new {@link Item}
 	 */
 	public ItemPickEvent(L2Character character, Item item, Item newItem) {
 		this.character = character;

@@ -36,16 +36,18 @@ public class CharacterShortcutID extends
 	 * The {@link CharacterShortcutDAO} instance
 	 */
 	private final CharacterShortcutDAO shortcutDao;
-	
+
 	/**
 	 * Creates a new instance
 	 * 
 	 * @param id
 	 *            the id
-	 * @param shortcutDao the shortcut DAO
+	 * @param shortcutDao
+	 *            the shortcut DAO
 	 */
 	@Inject
-	public CharacterShortcutID(@Assisted int id, CharacterShortcutDAO shortcutDao) {
+	public CharacterShortcutID(@Assisted int id,
+			CharacterShortcutDAO shortcutDao) {
 		super(id);
 		this.shortcutDao = shortcutDao;
 	}

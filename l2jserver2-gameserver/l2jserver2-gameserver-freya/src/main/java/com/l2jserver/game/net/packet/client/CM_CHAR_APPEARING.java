@@ -42,7 +42,8 @@ public class CM_CHAR_APPEARING extends AbstractClientPacket {
 	private final SpawnService spawnService;
 
 	/**
-	 * @param spawnService the spawn service
+	 * @param spawnService
+	 *            the spawn service
 	 */
 	@Inject
 	public CM_CHAR_APPEARING(SpawnService spawnService) {

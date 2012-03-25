@@ -51,7 +51,8 @@ public class CM_ENTER_WORLD extends AbstractClientPacket {
 	private final CharacterService characterService;
 
 	/**
-	 * @param characterService the character service
+	 * @param characterService
+	 *            the character service
 	 */
 	@Inject
 	public CM_ENTER_WORLD(CharacterService characterService) {

@@ -64,8 +64,8 @@ public class AttackServiceImpl extends AbstractService implements AttackService 
 	private final NPCService npcService;
 
 	/**
-	 * The {@link WorldEventDispatcherService} is used to dispatch attack events to the
-	 * world
+	 * The {@link WorldEventDispatcherService} is used to dispatch attack events
+	 * to the world
 	 */
 	private final WorldEventDispatcherService eventDispatcher;
 

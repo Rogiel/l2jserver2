@@ -190,7 +190,8 @@ public class EclipseScriptCompiler implements ScriptCompiler {
 			Iterable<JavaFileObject> compilationUnits) {
 		List<String> options = Arrays.asList("-encoding", "UTF-8", "-g");
 		DiagnosticListener<JavaFileObject> listener = new ErrorListener();
-		EclipseCompilerClassFileManager manager = new EclipseCompilerClassFileManager(javaCompiler, listener);
+		EclipseCompilerClassFileManager manager = new EclipseCompilerClassFileManager(
+				javaCompiler, listener);
 		manager.setParentClassLoader(parentClassLoader);
 
 		if (libraries != null) {

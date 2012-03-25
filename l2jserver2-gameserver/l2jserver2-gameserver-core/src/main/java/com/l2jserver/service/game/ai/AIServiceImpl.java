@@ -79,8 +79,8 @@ public class AIServiceImpl extends AbstractService implements AIService {
 	 */
 	@Inject
 	public AIServiceImpl(WorldService worldService,
-			WorldEventDispatcherService eventDispatcher, ThreadService threadService,
-			NetworkService networkService) {
+			WorldEventDispatcherService eventDispatcher,
+			ThreadService threadService, NetworkService networkService) {
 		this.worldService = worldService;
 		this.eventDispatcher = eventDispatcher;
 		this.threadService = threadService;

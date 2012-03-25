@@ -49,7 +49,8 @@ public class CM_GOTO_LOBBY extends AbstractClientPacket {
 	private final CharacterDAO characterDao;
 
 	/**
-	 * @param characterDao the character dao
+	 * @param characterDao
+	 *            the character dao
 	 */
 	@Inject
 	public CM_GOTO_LOBBY(CharacterDAO characterDao) {

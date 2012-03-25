@@ -18,7 +18,6 @@ package com.l2jserver;
 
 import com.l2jserver.service.network.model.ProtocolVersion;
 
-
 /**
  * Constant values for this L2J compilation
  * 

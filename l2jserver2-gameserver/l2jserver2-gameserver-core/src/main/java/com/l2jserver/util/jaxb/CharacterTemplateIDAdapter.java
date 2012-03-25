@@ -34,7 +34,7 @@ public class CharacterTemplateIDAdapter extends
 	 * The character template id provider
 	 */
 	private final CharacterTemplateIDProvider provider;
-	
+
 	/**
 	 * Used for template generator
 	 */

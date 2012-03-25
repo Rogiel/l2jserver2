@@ -48,7 +48,8 @@ public class EclipseCompilerVirtualClassURLConnection extends URLConnection {
 	 * @param cl
 	 *            classloader
 	 */
-	protected EclipseCompilerVirtualClassURLConnection(URL url, EclipseCompilerScriptClassLoader cl) {
+	protected EclipseCompilerVirtualClassURLConnection(URL url,
+			EclipseCompilerScriptClassLoader cl) {
 		super(url);
 		BinaryClass bc = cl.getClassFileManager().getCompiledClasses()
 				.get(url.getHost());
