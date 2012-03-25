@@ -270,7 +270,7 @@ public abstract class AbstractOrientDatabaseService extends
 			CSVUtils.parseCSV(path, new CSVMapProcessor<Object>() {
 				@Override
 				public Object process(Map<String, String> map) {
-					final ODocument document = new ODocument(database, entity
+					final ODocument document = new ODocument(entity
 							.getTableName());
 					for (final Entry<String, String> entry : map.entrySet()) {
 						document.field(entry.getKey(), entry.getValue());
@@ -602,7 +602,7 @@ public abstract class AbstractOrientDatabaseService extends
 				if (testDesire(object))
 					continue;
 
-				row.setDocument(new ODocument(database, entity.getTableName()));
+				row.setDocument(new ODocument(entity.getTableName()));
 
 				mapper.insert(entity, object, row);
 

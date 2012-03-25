@@ -55,12 +55,11 @@
 									<version>0.5.3</version>
 								</plugin>
 							</plugins>
-							<!-- <removeOldOutput>true</removeOldOutput> -->
 							<args>
 								<arg>-extension</arg>
 								<arg>-Xinheritance</arg>
 							</args>
-							<schemaDirectory>data/template</schemaDirectory>
+							<schemaDirectory>${project.parent.basedir}/data/template</schemaDirectory>
 							<schemaIncludes>
 								<include>*.xsd</include>
 							</schemaIncludes>

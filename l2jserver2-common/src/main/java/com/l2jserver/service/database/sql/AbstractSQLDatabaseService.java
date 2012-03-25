@@ -133,7 +133,7 @@ public abstract class AbstractSQLDatabaseService extends
 	/**
 	 * The database connection pool
 	 */
-	private GenericObjectPool connectionPool;
+	private GenericObjectPool<Connection> connectionPool;
 	/**
 	 * The dayabase connection factory
 	 */
@@ -200,7 +200,7 @@ public abstract class AbstractSQLDatabaseService extends
 					"DatabaseEngine instance not found", e);
 		}
 
-		connectionPool = new GenericObjectPool(null);
+		connectionPool = new GenericObjectPool<Connection>(null);
 		connectionPool.setMaxActive(config.getMaxActiveConnections());
 		connectionPool.setMinIdle(config.getMinIdleConnections());
 		connectionPool.setMaxIdle(config.getMaxIdleConnections());

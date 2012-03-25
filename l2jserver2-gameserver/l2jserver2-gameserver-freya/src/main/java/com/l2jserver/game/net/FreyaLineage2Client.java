@@ -149,7 +149,7 @@ public class FreyaLineage2Client implements Lineage2Client {
 	 * @param version
 	 *            the protocol version to test for support
 	 * @return true if version is supported by the client
-	 * @see com.l2jserver.service.network.model.net.ProtocolVersion#supports(com.l2jserver.service.network.model.net.ProtocolVersion)
+	 * @see ProtocolVersion#supports(ProtocolVersion)
 	 */
 	public boolean supports(ProtocolVersion version) {
 		if (version == null)

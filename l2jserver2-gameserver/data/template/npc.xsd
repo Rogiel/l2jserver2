@@ -276,7 +276,8 @@
 									<xs:element name="skill" maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:sequence />
-											<xs:attribute name="id" type="skill:SkillTemplateID" use="required" />
+											<xs:attribute name="id" type="skill:SkillTemplateID"
+												use="required" />
 											<xs:attribute name="level" type="xs:int" use="required" />
 										</xs:complexType>
 									</xs:element>
