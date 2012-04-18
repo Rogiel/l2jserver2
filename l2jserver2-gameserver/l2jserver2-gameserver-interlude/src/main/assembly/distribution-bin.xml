@@ -1,0 +1,42 @@
+<component
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/component/1.1.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/component/1.1.2 http://maven.apache.org/xsd/component-1.1.2.xsd">
+	<fileSets>
+		<fileSet>
+			<directory>${project.parent.basedir}/distribution</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/distribution</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+	<files>
+		<file>
+			<source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>l2jserver2.jar</destName>
+			<fileMode>0755</fileMode>
+		</file>
+		<file>
+			<source>${project.parent.build.directory}/${project.parent.artifactId}-${project.version}-data.zip</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>data.zip</destName>
+		</file>
+	</files>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>/libs</outputDirectory>
+			<useProjectArtifact>false</useProjectArtifact>
+			<unpack>false</unpack>
+			<scope>runtime</scope>
+			<excludes>
+				<exclude>mysql:*</exclude>
+				<exclude>com.orientechnologies:*</exclude>
+				<exclude>com.h2database:*</exclude>
+				<exclude>org.apache.derby:*</exclude>
+			</excludes>
+		</dependencySet>
+	</dependencySets>
+</component>

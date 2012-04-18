@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- DAO Module configuration -->
+	<dao module="com.l2jserver.service.database.OrientDBDAOModule" />
+
+	<!-- ###################################################################### -->
+	<!-- ########################### CORE SERVICES ############################ -->
+	<!-- ###################################################################### -->
+	<!-- Those services provide basic core features and are required for server 
+		startup process -->
+	<service interface="com.l2jserver.service.database.DatabaseService"
+		implementation="com.l2jserver.service.database.GameServerOrientDatabaseService">
+		<!-- Whether the database schema should be updated at startup -->
+		<!-- Slows down a bit at start time, but guarantees consistency -->
+		<!-- Recommended to only be enabled after an server update -->
+		<schema automaticUpdate="true" />
+		<!-- The connection URL defines where the database data is stored -->
+		<connection url="local:data/database">
+			<!-- Database authentication. Should not be touched unless you know what 
+				you are doing! -->
+			<authentication username="admin" password="admin" />
+		</connection>
+	</service>
+	<service interface="com.l2jserver.service.core.vfs.VFSService"
+		implementation="com.l2jserver.service.core.vfs.TrueZipVFSService">
+		<!-- Configures the root of the server data. Where all the files are placed. -->
+		<fileSystem root="./">
+			<!-- The "data file system" location. There, templates, static data and 
+				several other important files are located. This can be a zip or a directory. -->
+			<!-- The "data file system" is relative to the file system root. -->
+			<data root="data.zip" />
+		</fileSystem>
+	</service>
+	<service interface="com.l2jserver.service.core.threading.ThreadService"
+		implementation="com.l2jserver.service.core.threading.ThreadServiceImpl" />
+	<service interface="com.l2jserver.service.configuration.ConfigurationService"
+		implementation="com.l2jserver.service.configuration.XMLConfigurationService" />
+	<service interface="com.l2jserver.service.cache.CacheService"
+		implementation="com.l2jserver.service.cache.SoftCacheService" />
+	<service interface="com.l2jserver.service.core.logging.LoggingService"
+		implementation="com.l2jserver.service.core.logging.Log4JLoggingService">
+		<logger name="" level="ERROR" />
+		<logger name="com.l2jserver" level="INFO" />
+	</service>
+
+
+	<!-- ###################################################################### -->
+	<!-- ########################### GAME SERVICES ############################ -->
+	<!-- ###################################################################### -->
+	<!-- Those services provide all the in-game features and most of them are 
+		required for players to be able to login in the server -->
+	<service interface="com.l2jserver.service.game.world.WorldIDService"
+		implementation="com.l2jserver.service.game.world.CachedWorldIDService" />
+	<service interface="com.l2jserver.service.game.map.pathing.PathingService"
+		implementation="com.l2jserver.service.game.map.pathing.MapperPathingService" />
+	<service interface="com.l2jserver.service.game.scripting.ScriptingService"
+		implementation="com.l2jserver.service.game.scripting.ScriptingServiceImpl" />
+	<service interface="com.l2jserver.service.game.chat.ChatService"
+		implementation="com.l2jserver.service.game.chat.SimpleChatService" />
+	<service interface="com.l2jserver.service.game.chat.ChatLoggingService"
+		implementation="com.l2jserver.service.game.chat.DatabaseChatLoggingService" />
+	<service interface="com.l2jserver.service.game.admin.AdministratorService"
+		implementation="com.l2jserver.service.game.admin.AdministratorServiceImpl" />
+	<service interface="com.l2jserver.service.game.spawn.SpawnService"
+		implementation="com.l2jserver.service.game.spawn.SpawnServiceImpl" />
+	<service interface="com.l2jserver.service.game.character.CharacterService"
+		implementation="com.l2jserver.service.game.character.CharacterServiceImpl">
+		<!-- Defines the restrictions for character creation -->
+		<creation allow="true" allowed-races="HUMAN|ELF|DARK_ELF|ORC|DWARF"
+			allowed-genders="MALE|FEMALE">
+			<!-- The maximum amount of characters per account -->
+			<limits max-per-account="8" />
+		</creation>
+	</service>
+	<service interface="com.l2jserver.service.game.character.ShortcutService"
+		implementation="com.l2jserver.service.game.character.ShortcutServiceImpl" />
+	<service interface="com.l2jserver.service.game.AttackService"
+		implementation="com.l2jserver.service.game.AttackServiceImpl" />
+	<service interface="com.l2jserver.service.game.npc.NPCService"
+		implementation="com.l2jserver.service.game.npc.NPCServiceImpl" />
+	<service interface="com.l2jserver.service.game.item.ItemService"
+		implementation="com.l2jserver.service.game.item.ItemServiceImpl">
+		<!-- Whether drops are persisted in the database. Valid modes are: -->
+		<!-- ALL - All types of drops are stored into the database -->
+		<!-- CHARACTER_ONLY - Only items dropped by characters are stored in the 
+			database -->
+		<!-- NONE - None of the dropped items are saved into the database -->
+		<drop persistent="ALL" />
+	</service>
+	<service interface="com.l2jserver.service.game.world.WorldService"
+		implementation="com.l2jserver.service.game.world.WorldServiceImpl" />
+	<service
+		interface="com.l2jserver.service.game.world.event.WorldEventDispatcherService"
+		implementation="com.l2jserver.service.game.world.event.WorldEventDispatcherServiceImpl">
+		<!-- The amount of dispatching threads to use. You should not set it to 
+			a value higher than the number of processor cores on your system. Doing so, 
+			might result in performance loss instead of increase. -->
+		<!-- If you wish the system to automatically determine the number of cores 
+			in the system and configure the system accordingly, set it to 0 -->
+		<threading count="0" />
+	</service>
+	<!-- Template service configuration -->
+	<service interface="com.l2jserver.service.game.template.TemplateService"
+		implementation="com.l2jserver.service.game.template.XMLTemplateService">
+		<!-- The root where template data is located. Relative to the "data file 
+			system" -->
+		<templates root="template/" />
+
+		<!-- Whether the templates XML schemas should be validated before loading. 
+			This should be on, unless you know what you are doing! -->
+		<schema validation="true" />
+	</service>
+
+
+	<!-- ####################################################################### -->
+	<!-- ########################## NETWORK SERVICES ########################### -->
+	<!-- ####################################################################### -->
+	<!-- Those services all network related services that will communicate the 
+		server software to the player computer running the game client. Although 
+		not required, without them, becomes impossible to connect to the server in 
+		order to play the game. -->
+	<service interface="com.l2jserver.service.network.NetworkService"
+		implementation="com.l2jserver.service.network.NettyNetworkService">
+		<!-- The port in which the server should listen for incoming connections -->
+		<!-- NOTE: this port must be open manually on any firewall or router that 
+			is between you and other players. If you wish to play on the same machine 
+			you normally don't need to change anything here nor in the firewall. -->
+		<server listen="0.0.0.0:7777" />
+	</service>
+	<service interface="com.l2jserver.service.network.keygen.BlowfishKeygenService"
+		implementation="com.l2jserver.service.network.keygen.SecureBlowfishKeygenService" />
+	<service interface="com.l2jserver.service.network.gameguard.GameGuardService"
+		implementation="com.l2jserver.service.network.gameguard.GameGuardServiceImpl" />
+	<service interface="com.l2jserver.service.network.broadcast.BroadcastService"
+		implementation="com.l2jserver.service.network.broadcast.BroadcastServiceImpl" />
+</services>
