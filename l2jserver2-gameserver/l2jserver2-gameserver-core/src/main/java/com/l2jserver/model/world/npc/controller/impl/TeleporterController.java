@@ -48,8 +48,7 @@ public class TeleporterController extends BaseNPCController {
 		if (args.length >= 2) {
 			switch (args[0]) {
 			case "goto":
-				final TeleportationTemplate tele = teleportationIdProvider
-						.resolveID(Integer.parseInt(args[1])).getTemplate();
+				final TeleportationTemplate tele = teleportationIdProvider.resolveID(Integer.parseInt(args[1])).getTemplate();
 				if (tele == null) {
 					throw new NPCControllerException();
 				}

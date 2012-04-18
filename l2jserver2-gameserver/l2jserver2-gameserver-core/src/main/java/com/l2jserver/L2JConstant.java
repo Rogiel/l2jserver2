@@ -29,5 +29,6 @@ public class L2JConstant {
 	 * <p>
 	 * This <b>MUST</b> be hard-coded!
 	 */
-	public static final ProtocolVersion SUPPORTED_PROTOCOL = ProtocolVersion.FREYA;
+	//public static final ProtocolVersion SUPPORTED_PROTOCOL = ProtocolVersion.FREYA;
+	public static final ProtocolVersion SUPPORTED_PROTOCOL = ProtocolVersion.INTERLUDE;
 }

@@ -23,9 +23,12 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
+import com.l2jserver.service.ServiceException;
+import com.l2jserver.service.game.item.ItemService;
 import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnService;
@@ -53,6 +56,12 @@ public class AdministratorServiceImpl extends AbstractService implements
 	 */
 	@SuppressWarnings("unused")
 	private List<CharacterID> online;
+	
+	@Inject
+	private ItemService itemService;
+	
+	@Inject
+	private ItemTemplateIDProvider itidProvider;
 
 	/**
 	 * @param spawnService
@@ -66,7 +75,7 @@ public class AdministratorServiceImpl extends AbstractService implements
 	@Override
 	public void command(Lineage2Client conn, L2Character character,
 			String command, String... args) throws NotSpawnedServiceException,
-			CharacterAlreadyTeleportingServiceException {
+			CharacterAlreadyTeleportingServiceException, ServiceException {
 		log.debug("{} is opening admin control panel", character);
 		switch (command) {
 		case "tele":
@@ -79,8 +88,12 @@ public class AdministratorServiceImpl extends AbstractService implements
 							Integer.parseInt(args[1]),
 							Integer.parseInt(args[2])));
 			break;
-		default:
+		case "give":
+//			conn.sendMessage( "adding " + itidProvider.resolveID(57).getTemplate().getName() );
+			character.getInventory().add( itemService.create(itidProvider.resolveID(57).getTemplate(), 10000) );
 			break;
+		default:
+			throw new ServiceException();
 		}
 	}
 }

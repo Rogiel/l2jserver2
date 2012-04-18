@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template:npc
+    controller="com.l2jserver.model.world.npc.controller.impl.NotImplementedNPCController"
+    id="31845" xsi:schemaLocation="http://schemas.l2jserver2.com/npc ../../npc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:template="http://schemas.l2jserver2.com/npc">
+    <info aggressive="false" targetable="true" attackable="true">
+        <name display="true" send="false">Bloody Pixy</name>
+        <level>80</level>
+        <race>FAIRIE</race>
+        <sex>FEMALE</sex>
+        <stats>
+            <hp regen="8.5" max="3290.11306877694"/>
+            <mp regen="3.0" max="1674.8"/>
+            <attack critical="4" evasion="0" range="40">
+                <physical speed="253.0" damage="970.53755"/>
+                <magical speed="333.0" damage="662.75133"/>
+            </attack>
+            <defense>
+                <physical value="341.375"/>
+                <magical value="249.80341"/>
+            </defense>
+            <move walk="80.0" run="120.0"/>
+            <base wit="20" dex="30" men="20" con="43" str="40" int="21"/>
+        </stats>
+        <experience>7680</experience>
+        <sp>226</sp>
+        <collision heigth="25.0" radius="5.0"/>
+    </info>
+    <talk default="default">
+        <chat id="default"><![CDATA[<html><body>Bloody Pixy:<br>
+The weak spirits of darkness cannot protect the forest with their own powers and are receiving assistance from the Bloody Pixies. Wretched cowards they are, hiding in the ground, afraid of light!!<br>
+Thanks to them, we deal with invaders and outlaws by our own hands. If you violate the laws here, You will know why we are called the Bloody Pixies. Better be careful!<br>
+<a action="bypass -h npc_%objectId%_Quest">Quest</a>
+</body></html>]]></chat>
+    </talk>
+    <skills>
+        <skill level="1" id="4408"/>
+        <skill level="1" id="4409"/>
+        <skill level="16" id="4410"/>
+        <skill level="16" id="4411"/>
+        <skill level="16" id="4412"/>
+        <skill level="16" id="4413"/>
+        <skill level="2" id="4414"/>
+        <skill level="3" id="4415"/>
+        <skill level="13" id="4416"/>
+    </skills>
+</template:npc>

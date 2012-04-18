@@ -103,7 +103,7 @@ public class MapperPathingService extends AbstractService implements
 	@Override
 	protected void doStart() throws ServiceStartException {
 		try {
-			final java.nio.file.Path dbFile = vfsService.resolveDataFile(file);
+			final java.nio.file.Path dbFile = vfsService.resolveDataFile(file.toString());
 			this.channel = Files.newByteChannel(dbFile, CREATE, APPEND, WRITE);
 		} catch (IOException e) {
 			throw new ServiceStartException(

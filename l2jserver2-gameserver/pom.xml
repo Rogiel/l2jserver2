@@ -16,7 +16,8 @@
 	
 	<modules>
 		<module>l2jserver2-gameserver-core</module>
-		<module>l2jserver2-gameserver-freya</module>
+		<!-- <module>l2jserver2-gameserver-freya</module> -->
+		<module>l2jserver2-gameserver-interlude</module>
 	</modules>
 	
 	<build>

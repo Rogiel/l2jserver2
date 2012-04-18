@@ -28,9 +28,9 @@ public enum ProtocolVersion {
 	 */
 	RELEASE(0),
 	/**
-	 * The Interlude(200) version
+	 * The Interlude(746) version
 	 */
-	INTERLUDE(200, RELEASE),
+	INTERLUDE(746, RELEASE),
 	/**
 	 * The Freya(216) version
 	 */
@@ -39,7 +39,7 @@ public enum ProtocolVersion {
 	 * The High5(268) version
 	 */
 	HIGH5(268, FREYA);
-
+	
 	/**
 	 * The parent version
 	 */

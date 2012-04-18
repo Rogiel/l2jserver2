@@ -153,6 +153,11 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+				<groupId>l2jserver2</groupId>
+				<artifactId>l2jserver2-gameserver-interlude</artifactId>
+				<version>0.0.2</version>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -191,6 +196,7 @@
 					<configuration>
 						<source>1.7</source>
 						<target>1.7</target>
+						<debug>true</debug>
 						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
