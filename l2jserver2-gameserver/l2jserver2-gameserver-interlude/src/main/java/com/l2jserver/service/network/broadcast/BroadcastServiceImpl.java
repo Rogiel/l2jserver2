@@ -64,8 +64,10 @@ import com.l2jserver.model.world.character.event.CharacterStartMovingEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetDeselectedEvent;
 import com.l2jserver.model.world.character.event.CharacterTargetSelectedEvent;
 import com.l2jserver.model.world.character.event.CharacterWalkingEvent;
+import com.l2jserver.model.world.item.ItemCreatedEvent;
 import com.l2jserver.model.world.item.ItemDropEvent;
 import com.l2jserver.model.world.item.ItemPickEvent;
+import com.l2jserver.model.world.item.ItemRemovedEvent;
 import com.l2jserver.model.world.npc.event.NPCSpawnEvent;
 import com.l2jserver.model.world.npc.event.NPCTalkEvent;
 import com.l2jserver.model.world.player.event.PlayerTeleportedEvent;
@@ -225,7 +227,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 					final L2Character character = (L2Character) ((PlayerTeleportedEvent) e)
 							.getPlayer();
 					conn.write(new SM_CHAR_INFO(character));
-					//conn.write(new SM_CHAR_INFO_EXTRA(character)); not sure if interlude has this packet.
+					// conn.write(new SM_CHAR_INFO_EXTRA(character)); not sure
+					// if interlude has this packet.
 					broadcastAll(conn, character);
 				} else if (e instanceof ActorAttackHitEvent) {
 					conn.write(new SM_ACTOR_ATTACK(((ActorAttackHitEvent) e)
@@ -248,6 +251,26 @@ public class BroadcastServiceImpl extends AbstractService implements
 				} else if (e instanceof CharacterCreateShortcutEvent) {
 					conn.write(new SM_CHAR_SHORTCUT_REGISTER(
 							((CharacterCreateShortcutEvent) e).getShortcut()));
+				} else if (e instanceof ItemCreatedEvent) {
+					if (((ItemCreatedEvent) e).getItem().getCount() == 1) {
+						conn.sendSystemMessage(SystemMessage.C1_OBTAINED_S2,
+								((ItemCreatedEvent) e).getCharacter(),
+								((ItemCreatedEvent) e).getItem());
+					} else {
+						conn.sendSystemMessage(SystemMessage.C1_OBTAINED_S3_S2,
+								((ItemCreatedEvent) e).getCharacter(),
+								((ItemCreatedEvent) e).getItem(),
+								((ItemCreatedEvent) e).getItem().getCount());
+					}
+				} else if (e instanceof ItemRemovedEvent) {
+					if (((ItemCreatedEvent) e).getItem().getCount() == 1) {
+						conn.sendSystemMessage(SystemMessage.S1_DISAPPEARED,
+								((ItemCreatedEvent) e).getItem());
+					} else {
+						conn.sendSystemMessage(SystemMessage.S2_S1_DISAPPEARED,
+								((ItemCreatedEvent) e).getItem(),
+								((ItemCreatedEvent) e).getItem().getCount());
+					}
 				}
 				// keep listener alive
 				return true;
@@ -375,7 +398,8 @@ public class BroadcastServiceImpl extends AbstractService implements
 		// send this user information
 		log.debug("Sending character information packets");
 		conn.write(new SM_CHAR_INFO(e.getCharacter()));
-//		conn.write(new SM_CHAR_INFO_EXTRA(e.getCharacter())); interlude doesn't have this?
+		// conn.write(new SM_CHAR_INFO_EXTRA(e.getCharacter())); interlude
+		// doesn't have this?
 		conn.write(new SM_CHAR_INVENTORY(e.getCharacter().getInventory()));
 		conn.write(new SM_CHAR_SHORTCUT_LIST(e.getCharacter().getShortcuts()));
 

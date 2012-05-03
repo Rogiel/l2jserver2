@@ -27,6 +27,7 @@ import com.l2jserver.model.template.ItemTemplate;
 import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
+import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.service.network.model.Lineage2Client;
 import com.l2jserver.service.network.model.SystemMessage;
@@ -226,14 +227,12 @@ public class SM_SYSTEM_MESSAGE extends AbstractServerPacket {
 	 * @return this instance
 	 */
 	public final SM_SYSTEM_MESSAGE addActorName(final Actor actor) {
-		// params.add(new SystemMessagePacketParameter() {
-		// @Override
-		// public void write(Lineage2Connection conn, ChannelBuffer buffer) {
-		// // buffer.writeInt(TYPE_TEXT);
-		// // buffer.writeInt(number);
-		// // TODO
-		// }
-		// });
+		if (actor instanceof L2Character) {
+			addString(((L2Character) actor).getName());
+		} else if (actor instanceof NPC) {
+			addString(((NPC) actor).getTemplate().getInfo().getName()
+					.getValue());
+		}
 		return this;
 	}
 

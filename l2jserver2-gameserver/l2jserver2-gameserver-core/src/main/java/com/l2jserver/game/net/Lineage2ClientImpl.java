@@ -34,6 +34,7 @@ import com.l2jserver.model.game.Fort;
 import com.l2jserver.model.game.Skill;
 import com.l2jserver.model.id.object.CharacterID;
 import com.l2jserver.model.template.ItemTemplate;
+import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.network.model.Lineage2Client;
@@ -281,6 +282,8 @@ public class Lineage2ClientImpl implements Lineage2Client {
 				packet.addSkill((Skill) obj);
 			else if (obj instanceof Fort)
 				packet.addFort((Fort) obj);
+			else if(obj instanceof Actor)
+				packet.addActorName((Actor) obj);
 		}
 		return write(packet);
 	}
