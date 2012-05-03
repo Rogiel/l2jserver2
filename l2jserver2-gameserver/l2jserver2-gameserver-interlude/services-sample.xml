@@ -94,6 +94,9 @@
 	</service>
 	<service interface="com.l2jserver.service.game.character.ShortcutService"
 		implementation="com.l2jserver.service.game.character.ShortcutServiceImpl" />
+	<service
+		interface="com.l2jserver.service.game.character.CharacterInventoryService"
+		implementation="com.l2jserver.service.game.character.CharacterInventoryServiceImpl" />
 	<service interface="com.l2jserver.service.game.AttackService"
 		implementation="com.l2jserver.service.game.AttackServiceImpl" />
 	<service interface="com.l2jserver.service.game.npc.NPCService"
