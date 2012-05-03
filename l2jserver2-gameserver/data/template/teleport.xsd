@@ -18,45 +18,50 @@
 		<xs:restriction base="TemplateID" />
 	</xs:simpleType>
 
+	<xs:complexType name="TeleportationTemplate">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="TeleportationTemplate" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AbstractTemplate">
+				<xs:sequence>
+					<xs:element name="point" type="Coordinate" minOccurs="0" />
+					<xs:element name="restrictions" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="restriction" maxOccurs="unbounded">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="NOBLE" />
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="id" type="ths:TeleportationTemplateID"
+					use="required">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="iD" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="name" type="xs:string" />
+				<xs:attribute name="item" type="xs:int" />
+				<xs:attribute name="price" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:element name="teleports">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="teleport" minOccurs="1" maxOccurs="unbounded">
-					<xs:complexType>
-						<xs:complexContent>
-							<xs:extension base="AbstractTemplate">
-								<xs:sequence>
-									<xs:element name="point" type="Coordinate"
-										minOccurs="0" />
-									<xs:element name="restrictions" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="restriction" maxOccurs="unbounded">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="NOBLE" />
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-								<xs:attribute name="id" type="ths:TeleportationTemplateID"
-									use="required">
-									<xs:annotation>
-										<xs:appinfo>
-											<jaxb:property name="iD"  />
-										</xs:appinfo>
-									</xs:annotation>
-								</xs:attribute>
-								<xs:attribute name="name" type="xs:string" />
-								<xs:attribute name="item" type="xs:int" />
-								<xs:attribute name="price" type="xs:int" use="required" />
-							</xs:extension>
-						</xs:complexContent>
-					</xs:complexType>
-				</xs:element>
+				<xs:element name="teleport" type="ths:TeleportationTemplate"
+					minOccurs="1" maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

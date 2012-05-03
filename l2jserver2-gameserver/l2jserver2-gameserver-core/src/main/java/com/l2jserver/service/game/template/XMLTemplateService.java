@@ -32,11 +32,6 @@ import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -54,7 +49,6 @@ import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.template.SkillTemplate;
 import com.l2jserver.model.template.Teleports;
 import com.l2jserver.model.template.Template;
-import com.l2jserver.model.template.npc.TeleportationTemplate;
 import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.ServiceStartException;
@@ -257,8 +251,11 @@ public class XMLTemplateService extends
 	 *             if any error occur while processing the XML
 	 * @throws IOException
 	 *             if any error occur in the I/O level
+	 * @throws ServiceStartException
+	 *             if the template type is not known
 	 */
-	public void loadTemplate(Path path) throws JAXBException, IOException {
+	public void loadTemplate(Path path) throws JAXBException, IOException,
+			ServiceStartException {
 		Preconditions.checkNotNull(path, "path");
 		log.debug("Loading template {}", path);
 		final InputStream in = Files.newInputStream(path,
@@ -270,12 +267,15 @@ public class XMLTemplateService extends
 				log.debug("Template loaded: {}", template);
 				if (template.getID() != null)
 					templates.put(template.getID(), template);
-			} else if (obj instanceof TeleportationTemplateContainer) {
-				for (final Template template : ((TeleportationTemplateContainer) obj).templates) {
+			} else if (obj instanceof Teleports) {
+				for (final Template template : ((Teleports) obj).getTeleport()) {
 					log.debug("Template loaded: {}", template);
 					if (template.getID() != null)
 						templates.put(template.getID(), template);
 				}
+			} else {
+				throw new ServiceStartException(
+						"Unknown template container type: " + obj);
 			}
 		} finally {
 			// in.close();
@@ -300,21 +300,5 @@ public class XMLTemplateService extends
 		templates = null;
 		unmarshaller = null;
 		context = null;
-	}
-
-	/**
-	 * The teleportation template container
-	 * 
-	 * @author <a href="http://www.rogiel.com">Rogiel</a>
-	 */
-	@XmlRootElement(name = "teleports", namespace = "http://schemas.l2jserver2.com/teleport")
-	@XmlType(namespace = "http://schemas.l2jserver2.com/teleport", name = "TeleportsType")
-	@XmlAccessorType(XmlAccessType.FIELD)
-	public static class TeleportationTemplateContainer {
-		/**
-		 * The list of all teleportation templates
-		 */
-		@XmlElement(namespace = "http://schemas.l2jserver2.com/teleport", name = "teleport")
-		public List<TeleportationTemplate> templates;
 	}
 }

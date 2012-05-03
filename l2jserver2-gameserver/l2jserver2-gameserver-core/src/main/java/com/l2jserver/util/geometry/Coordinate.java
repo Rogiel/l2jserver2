@@ -18,6 +18,8 @@ package com.l2jserver.util.geometry;
 
 import org.apache.commons.math.geometry.Vector3D;
 
+import com.l2jserver.model.template.TemplateCoordinate;
+
 /**
  * Represents an coordinate in the game world.
  * <p>
@@ -104,6 +106,19 @@ public class Coordinate {
 	 */
 	public static Coordinate fromXYZ(int x, int y, int z) {
 		return new Coordinate(x, y, z);
+	}
+
+	/**
+	 * Creates a new instance from the another {@link TemplateCoordinate}
+	 * 
+	 * @param templateCoordinate
+	 *            the template coordinate
+	 * @return the new {@link Coordinate} object created
+	 */
+	public static Coordinate fromTemplateCoordinate(
+			TemplateCoordinate templateCoordinate) {
+		return fromXYZ(templateCoordinate.getX(), templateCoordinate.getY(),
+				templateCoordinate.getZ());
 	}
 
 	@Override

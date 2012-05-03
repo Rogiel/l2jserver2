@@ -22,7 +22,7 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.l2jserver.model.id.TemplateID;
 import com.l2jserver.model.template.SkillTemplate;
-import com.l2jserver.model.template.npc.TeleportationTemplate;
+import com.l2jserver.model.template.TeleportationTemplate;
 import com.l2jserver.service.game.template.TemplateService;
 import com.l2jserver.util.jaxb.TeleportationTemplateIDAdapter;
 

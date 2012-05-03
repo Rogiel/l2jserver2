@@ -9,7 +9,8 @@
 		<xs:annotation>
 			<xs:appinfo>
 				<xjc:superClass name="com.l2jserver.model.template.Template" />
-				<inheritance:implements>com.l2jserver.model.template.Template</inheritance:implements>
+				<inheritance:implements>com.l2jserver.model.template.Template
+				</inheritance:implements>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence />
@@ -27,11 +28,11 @@
 	</xs:simpleType>
 
 	<xs:complexType name="Coordinate">
-		<!-- <xs:annotation> -->
-		<!-- <xs:appinfo> -->
-		<!-- <jaxb:javaType name="com.l2jserver.util.geometry.Coordinate" /> -->
-		<!-- </xs:appinfo> -->
-		<!-- </xs:annotation> -->
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="TemplateCoordinate" />
+			</xs:appinfo>
+		</xs:annotation>
 		<xs:sequence />
 		<xs:attribute name="x" type="xs:int" use="required" />
 		<xs:attribute name="y" type="xs:int" use="required" />

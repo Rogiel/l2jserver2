@@ -18,12 +18,13 @@ package com.l2jserver.model.world.npc.controller.impl;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.template.provider.TeleportationTemplateIDProvider;
-import com.l2jserver.model.template.npc.TeleportationTemplate;
+import com.l2jserver.model.template.TeleportationTemplate;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.model.world.NPC;
 import com.l2jserver.model.world.npc.BaseNPCController;
 import com.l2jserver.service.game.spawn.SpawnService;
 import com.l2jserver.util.exception.L2Exception;
+import com.l2jserver.util.geometry.Coordinate;
 
 /**
  * This controller is used to control teleporters (e.g. gatekeepers)
@@ -48,12 +49,14 @@ public class TeleporterController extends BaseNPCController {
 		if (args.length >= 2) {
 			switch (args[0]) {
 			case "goto":
-				final TeleportationTemplate tele = teleportationIdProvider.resolveID(Integer.parseInt(args[1])).getTemplate();
+				final TeleportationTemplate tele = teleportationIdProvider
+						.resolveID(Integer.parseInt(args[1])).getTemplate();
 				if (tele == null) {
 					throw new NPCControllerException();
 				}
 				// TODO remove items from character inventory
-				spawnService.teleport(character, tele.getCoordinate());
+				spawnService.teleport(character,
+						Coordinate.fromTemplateCoordinate(tele.getPoint()));
 				return;
 			}
 		}

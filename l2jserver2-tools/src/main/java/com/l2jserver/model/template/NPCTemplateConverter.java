@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with l2jserver2.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.l2jserver.model.template.npc;
+package com.l2jserver.model.template;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,23 +43,20 @@ import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.NPCTemplateID;
 import com.l2jserver.model.id.template.SkillTemplateID;
 import com.l2jserver.model.id.template.TeleportationTemplateID;
-import com.l2jserver.model.template.NPCTemplate;
 import com.l2jserver.model.template.NPCTemplate.Droplist;
 import com.l2jserver.model.template.NPCTemplate.Droplist.Item.DropCategory;
 import com.l2jserver.model.template.NPCTemplate.Skills;
 import com.l2jserver.model.template.NPCTemplate.Talk;
 import com.l2jserver.model.template.NPCTemplate.Talk.Chat;
-import com.l2jserver.model.template.ObjectFactory;
+import com.l2jserver.model.template.TeleportationTemplate.Restrictions;
 import com.l2jserver.model.template.actor.ActorSex;
-import com.l2jserver.model.template.npc.TeleportationTemplate.TeleportRestriction;
+import com.l2jserver.model.template.npc.NPCRace;
 import com.l2jserver.model.world.npc.BaseNPCController;
 import com.l2jserver.model.world.npc.NPCController;
 import com.l2jserver.model.world.npc.controller.impl.MonsterController;
 import com.l2jserver.model.world.npc.controller.impl.NotImplementedNPCController;
 import com.l2jserver.model.world.npc.controller.impl.TeleporterController;
-import com.l2jserver.service.game.template.XMLTemplateService.TeleportationTemplateContainer;
 import com.l2jserver.util.factory.CollectionFactory;
-import com.l2jserver.util.geometry.Coordinate;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
@@ -76,7 +73,7 @@ public class NPCTemplateConverter {
 
 	private static List<NPCTemplate> templates = CollectionFactory.newList();
 	private static Collection<File> htmlScannedFiles;
-	private static TeleportationTemplateContainer teleportation = new TeleportationTemplateContainer();
+	private static Teleports teleportation = new Teleports();
 
 	public static void main(String[] args) throws SQLException, IOException,
 			ClassNotFoundException, JAXBException {
@@ -94,13 +91,13 @@ public class NPCTemplateConverter {
 				"html", "htm" }, true);
 
 		final JAXBContext c = JAXBContext.newInstance(NPCTemplate.class,
-				TeleportationTemplateContainer.class);
+				Teleports.class);
 
 		final Connection conn = DriverManager.getConnection(JDBC_URL,
 				JDBC_USERNAME, JDBC_PASSWORD);
 		{
 			System.out.println("Converting teleport templates...");
-			teleportation.templates = CollectionFactory.newList();
+			teleportation.teleport = CollectionFactory.newList();
 
 			final Marshaller m = c.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -114,16 +111,18 @@ public class NPCTemplateConverter {
 
 				template.id = new TeleportationTemplateID(rs.getInt("id"), null);
 				template.name = rs.getString("Description");
-				template.coordinate = Coordinate.fromXYZ(rs.getInt("loc_x"),
-						rs.getInt("loc_y"), rs.getInt("loc_z"));
+				TemplateCoordinate coord = new TemplateCoordinate();
+				coord.x = rs.getInt("loc_x");
+				coord.y = rs.getInt("loc_y");
+				coord.z = rs.getInt("loc_z");
+				template.point = coord;
 				template.price = rs.getInt("price");
-				template.itemTemplateID = new ItemTemplateID(
-						rs.getInt("itemId"), null);
+				template.item = rs.getInt("itemId");
 				if (rs.getBoolean("fornoble")) {
-					template.restrictions = Arrays
-							.asList(TeleportRestriction.NOBLE);
+					template.restrictions = new Restrictions();
+					template.restrictions.restriction = Arrays.asList("NOBLE");
 				}
-				teleportation.templates.add(template);
+				teleportation.teleport.add(template);
 			}
 			m.marshal(teleportation, getXMLSerializer(new FileOutputStream(
 					new File(target, "../teleports.xml"))));
