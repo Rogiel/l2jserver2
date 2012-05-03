@@ -154,6 +154,21 @@ public class CharacterInventory implements Iterable<Item> {
 	public boolean has(InventoryPaperdoll paperdoll) {
 		return getItem(paperdoll) != null;
 	}
+	
+	/**
+	 * Checks if the given item is already on the character's inventory
+	 * 
+	 * @param item
+	 *            the item
+	 * @return true if has the item
+	 */
+	public boolean has(Item item) {
+		for(final Item checkItem : items) {
+			if(checkItem.getID().equals(item.getID()))
+				return true;
+		}
+		return false;
+	}
 
 	/**
 	 * This method will add new items to the inventory. This is normally called

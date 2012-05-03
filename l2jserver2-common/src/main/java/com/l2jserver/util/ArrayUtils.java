@@ -19,6 +19,7 @@ package com.l2jserver.util;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import com.l2jserver.util.factory.CollectionFactory;
 
@@ -73,5 +74,21 @@ public class ArrayUtils {
 	 */
 	public final static <T> boolean contains(T[] array, T expected) {
 		return Arrays.binarySearch(array, expected) >= 0;
+	}
+	
+	/**
+	 * @param tokenizer
+	 *            the tokenizer
+	 * @return an array of strings with each parameter
+	 */
+	public static String[] createArgumentArray(StringTokenizer tokenizer) {
+		if (!tokenizer.hasMoreTokens())
+			return new String[0];
+		final String[] args = new String[tokenizer.countTokens()];
+		int i = 0;
+		while (tokenizer.hasMoreTokens()) {
+			args[i++] = tokenizer.nextToken();
+		}
+		return args;
 	}
 }

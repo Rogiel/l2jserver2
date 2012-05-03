@@ -29,7 +29,6 @@ import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE;
 import com.l2jserver.game.net.packet.server.SM_ACTOR_STATUS_UPDATE.Stat;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_BROADCAST;
-import com.l2jserver.game.net.packet.server.SM_CHAR_INFO_EXTRA;
 import com.l2jserver.game.net.packet.server.SM_CHAR_INVENTORY;
 import com.l2jserver.game.net.packet.server.SM_CHAR_MOVE_TYPE;
 import com.l2jserver.game.net.packet.server.SM_CHAR_SHORTCUT_LIST;

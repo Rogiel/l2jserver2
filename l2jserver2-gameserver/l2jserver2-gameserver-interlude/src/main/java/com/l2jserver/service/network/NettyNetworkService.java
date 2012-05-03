@@ -16,39 +16,17 @@
  */
 package com.l2jserver.service.network;
 
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+import org.jboss.netty.channel.ChannelPipelineFactory;
 
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.ChannelFutureListener;
-import org.jboss.netty.channel.ServerChannel;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
-import org.jboss.netty.logging.InternalLoggerFactory;
-import org.jboss.netty.logging.Slf4JLoggerFactory;
-import org.jboss.netty.util.ThreadNameDeterminer;
-import org.jboss.netty.util.ThreadRenamingRunnable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.google.common.base.Preconditions;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.l2jserver.game.net.Lineage2PipelineFactory;
-import com.l2jserver.model.id.object.CharacterID;
-import com.l2jserver.service.AbstractConfigurableService;
 import com.l2jserver.service.AbstractService.Depends;
 import com.l2jserver.service.core.logging.LoggingService;
-import com.l2jserver.service.core.threading.ThreadPool;
-import com.l2jserver.service.core.threading.ThreadPoolPriority;
 import com.l2jserver.service.core.threading.ThreadService;
 import com.l2jserver.service.game.world.WorldService;
 import com.l2jserver.service.network.keygen.BlowfishKeygenService;
-import com.l2jserver.service.network.model.Lineage2Client;
-import com.l2jserver.service.network.model.packet.ServerPacket;
-import com.l2jserver.util.ThreadPoolUtils;
-import com.l2jserver.util.factory.CollectionFactory;
 
 /**
  * Netty network service implementation
@@ -58,44 +36,7 @@ import com.l2jserver.util.factory.CollectionFactory;
 @Depends({ LoggingService.class, ThreadService.class,
 		BlowfishKeygenService.class, WorldService.class })
 public class NettyNetworkService extends
-		AbstractConfigurableService<NetworkServiceConfiguration> implements
-		NetworkService {
-	/**
-	 * The logger
-	 */
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-	/**
-	 * The {@link ThreadService}
-	 */
-	private final ThreadService threadService;
-
-	/**
-	 * The Google Guice {@link Injector}
-	 */
-	private final Injector injector;
-
-	/**
-	 * Netty Boss {@link ThreadPool}
-	 */
-	private ThreadPool bossPool;
-	/**
-	 * Netty Worker {@link ThreadPool}
-	 */
-	private ThreadPool workerPool;
-	/**
-	 * The server bootstrap
-	 */
-	private ServerBootstrap server;
-	/**
-	 * The server channel
-	 */
-	private ServerChannel channel;
-	/**
-	 * The client list. This list all active clients in the server
-	 */
-	private Set<Lineage2Client> clients = CollectionFactory.newSet();
-
+		AbstractNettyNetworkService {
 	/**
 	 * @param injector
 	 *            the {@link Guice} {@link Injector}
@@ -104,101 +45,11 @@ public class NettyNetworkService extends
 	 */
 	@Inject
 	public NettyNetworkService(Injector injector, ThreadService threadService) {
-		super(NetworkServiceConfiguration.class);
-		this.threadService = threadService;
-		this.injector = injector;
-		InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory());
+		super(injector, threadService);
 	}
-
+	
 	@Override
-	protected void doStart() {
-		bossPool = threadService.createThreadPool("netty-boss", 10, 60,
-				TimeUnit.SECONDS, ThreadPoolPriority.HIGH);
-		workerPool = threadService.createThreadPool("netty-worker", 50, 60,
-				TimeUnit.SECONDS, ThreadPoolPriority.HIGH);
-
-		ThreadRenamingRunnable
-				.setThreadNameDeterminer(new ThreadNameDeterminer() {
-					@Override
-					public String determineThreadName(String currentThreadName,
-							String proposedThreadName) throws Exception {
-						return currentThreadName;
-					}
-				});
-
-		server = new ServerBootstrap(new NioServerSocketChannelFactory(
-				ThreadPoolUtils.wrap(bossPool),
-				ThreadPoolUtils.wrap(workerPool), 50));
-
-		server.setPipelineFactory(new Lineage2PipelineFactory(injector, this));
-		channel = (ServerChannel) server.bind(config.getListenAddress());
-	}
-
-	@Override
-	public void register(final Lineage2Client client) {
-		Preconditions.checkNotNull(client, "client");
-
-		log.debug("Registering client: {}", client);
-
-		clients.add(client);
-		client.getChannel().getCloseFuture()
-				.addListener(new ChannelFutureListener() {
-					@Override
-					public void operationComplete(ChannelFuture future)
-							throws Exception {
-						unregister(client);
-					}
-				});
-	}
-
-	@Override
-	public void unregister(Lineage2Client client) {
-		Preconditions.checkNotNull(client, "client");
-
-		log.debug("Unregistering client: {}", client);
-		clients.remove(client);
-	}
-
-	@Override
-	public Lineage2Client discover(CharacterID character) {
-		Preconditions.checkNotNull(character, "character");
-
-		log.debug("Discovering client object for {}", character);
-
-		for (final Lineage2Client client : clients) {
-			if (character.equals(client.getCharacterID()))
-				return client;
-		}
-		return null;
-	}
-
-	@Override
-	public void broadcast(ServerPacket packet) {
-		Preconditions.checkNotNull(packet, "packet");
-
-		log.debug("Broadcasting {} packet to all connected clients", packet);
-
-		channel.write(packet);
-	}
-
-	@Override
-	public void cleanup() {
-		// TODO
-	}
-
-	@Override
-	protected void doStop() {
-		try {
-			channel.close().awaitUninterruptibly();
-			server.releaseExternalResources();
-			bossPool.dispose();
-			workerPool.dispose();
-		} finally {
-			server = null;
-			channel = null;
-			bossPool = null;
-			workerPool = null;
-		}
-		clients.clear();
+	protected ChannelPipelineFactory createPipelineFactory(Injector injector) {
+		return new Lineage2PipelineFactory(injector, this);
 	}
 }

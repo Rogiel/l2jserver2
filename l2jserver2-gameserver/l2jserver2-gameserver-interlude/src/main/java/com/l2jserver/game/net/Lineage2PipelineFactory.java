@@ -34,7 +34,7 @@ import com.l2jserver.game.net.codec.Lineage2PacketReader;
 import com.l2jserver.game.net.codec.Lineage2PacketWriter;
 import com.l2jserver.game.net.handler.Lineage2PacketHandler;
 import com.l2jserver.game.net.handler.Lineage2TimeoutHandler;
-import com.l2jserver.service.network.NettyNetworkService;
+import com.l2jserver.service.network.AbstractNettyNetworkService;
 import com.l2jserver.service.network.NetworkService;
 
 /**
@@ -49,9 +49,9 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	 */
 	private final Injector injector;
 	/**
-	 * The {@link NettyNetworkService}
+	 * The {@link AbstractNettyNetworkService}
 	 */
-	private final NettyNetworkService nettyNetworkService;
+	private final AbstractNettyNetworkService nettyNetworkService;
 
 	/**
 	 * Creates a new instance of this pipeline
@@ -65,7 +65,7 @@ public class Lineage2PipelineFactory implements ChannelPipelineFactory {
 	public Lineage2PipelineFactory(Injector injector,
 			NetworkService networkService) {
 		this.injector = injector;
-		this.nettyNetworkService = (NettyNetworkService) networkService;
+		this.nettyNetworkService = (AbstractNettyNetworkService) networkService;
 	}
 
 	@Override

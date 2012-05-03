@@ -40,6 +40,9 @@ import com.l2jserver.service.ServiceStopException;
 import com.l2jserver.service.core.threading.AsyncFuture;
 import com.l2jserver.service.database.DatabaseService;
 import com.l2jserver.service.game.character.CharacterAction;
+import com.l2jserver.service.game.character.CharacterInventoryItemDoesNotExistException;
+import com.l2jserver.service.game.character.CharacterInventoryItemExistsException;
+import com.l2jserver.service.game.character.CharacterInventoryService;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -69,6 +72,11 @@ public class ItemServiceImpl extends
 	 */
 	private final WorldEventDispatcherService eventDispatcher;
 	/**
+	 * The {@link L2Character} inventory service
+	 */
+	private final CharacterInventoryService inventoryService;
+
+	/**
 	 * The {@link ItemID} provider
 	 */
 	private final ItemIDProvider itemIdProvider;
@@ -85,17 +93,21 @@ public class ItemServiceImpl extends
 	 *            the spawn service
 	 * @param eventDispatcher
 	 *            the world service event dispatcher
+	 * @param inventoryService
+	 *            the character inventory service
 	 * @param itemIdProvider
 	 *            the {@link ItemID} provider
 	 */
 	@Inject
 	private ItemServiceImpl(ItemDAO itemDao, SpawnService spawnService,
 			WorldEventDispatcherService eventDispatcher,
+			CharacterInventoryService inventoryService,
 			ItemIDProvider itemIdProvider) {
 		super(ItemServiceConfiguration.class);
 		this.itemDao = itemDao;
 		this.spawnService = spawnService;
 		this.eventDispatcher = eventDispatcher;
+		this.inventoryService = inventoryService;
 		this.itemIdProvider = itemIdProvider;
 	}
 
@@ -137,7 +149,7 @@ public class ItemServiceImpl extends
 
 	@Override
 	public Item action(Item item, L2Character character, CharacterAction action)
-			throws ItemNotOnGroundServiceException, NotSpawnedServiceException {
+			throws ItemNotOnGroundServiceException, NotSpawnedServiceException, CharacterInventoryItemExistsException, CharacterInventoryItemDoesNotExistException {
 		switch (action) {
 		case CLICK:
 			return pickUp(item, character);
@@ -189,12 +201,12 @@ public class ItemServiceImpl extends
 	@Override
 	public boolean destroy(Item item, long count)
 			throws NotEnoughItemsServiceException,
-			NonStackableItemsServiceException {
+			NonStackableItemsServiceException, CharacterInventoryItemDoesNotExistException {
 		synchronized (item) {
 			Item destroyItem = split(item, count);
 			itemDao.deleteObjectsAsync(destroyItem);
 			if (destroyItem.getOwnerID() != null)
-				destroyItem.getOwner().getInventory().remove(destroyItem);
+				inventoryService.remove(destroyItem.getOwner(), destroyItem);
 			if (!destroyItem.equals(item))
 				itemDao.saveObjectsAsync(item);
 			return destroyItem.equals(item);
@@ -202,12 +214,12 @@ public class ItemServiceImpl extends
 	}
 
 	@Override
-	public void destroy(Item... items) {
+	public void destroy(Item... items) throws CharacterInventoryItemDoesNotExistException {
 		// requests the delete and starts removing items from inventory model
 		AsyncFuture<Integer> async = itemDao.deleteObjectsAsync(items);
 		for (final Item item : items) {
 			if (item.getOwnerID() != null) {
-				item.getOwner().getInventory().remove(item);
+				inventoryService.remove(item.getOwner(), item);
 			}
 		}
 		// now wait until database operation finishes
@@ -216,7 +228,7 @@ public class ItemServiceImpl extends
 
 	@Override
 	public Item pickUp(Item item, L2Character character)
-			throws ItemNotOnGroundServiceException, NotSpawnedServiceException {
+			throws ItemNotOnGroundServiceException, NotSpawnedServiceException, CharacterInventoryItemExistsException, CharacterInventoryItemDoesNotExistException {
 		synchronized (item) {
 			if (item.getLocation() != ItemLocation.GROUND)
 				throw new ItemNotOnGroundServiceException();
@@ -236,15 +248,15 @@ public class ItemServiceImpl extends
 					Item[] deleteItems = ArrayUtils.copyArrayExcept(stackItems,
 							item);
 					destroy(deleteItems);
-					character.getInventory().add(item);
+					inventoryService.add(character, item);
 				} catch (NonStackableItemsServiceException e) {
-					character.getInventory().add(item);
+					inventoryService.add(character, item);
 				}
 			} else {
-				character.getInventory().add(item);
+				inventoryService.add(character, item);
 			}
 
-			character.getInventory().add(item);
+			// character.getInventory().add(item);
 			this.items.remove(item);
 
 			// removes transient state
@@ -269,7 +281,7 @@ public class ItemServiceImpl extends
 			throws SpawnPointNotFoundServiceException,
 			ItemAlreadyOnGroundServiceException,
 			AlreadySpawnedServiceException, NotEnoughItemsServiceException,
-			NonStackableItemsServiceException {
+			NonStackableItemsServiceException, CharacterInventoryItemDoesNotExistException {
 		synchronized (item) {
 			if (item.getLocation() == ItemLocation.GROUND)
 				throw new AlreadySpawnedServiceException();
@@ -285,7 +297,7 @@ public class ItemServiceImpl extends
 
 			if (actor instanceof L2Character) {
 				if (sourceItem.equals(item)) {
-					((L2Character) actor).getInventory().remove(item);
+					inventoryService.remove(((L2Character) actor), item);
 				}
 			}
 
@@ -324,7 +336,7 @@ public class ItemServiceImpl extends
 			throws SpawnPointNotFoundServiceException,
 			ItemAlreadyOnGroundServiceException,
 			AlreadySpawnedServiceException, NotEnoughItemsServiceException,
-			NonStackableItemsServiceException {
+			NonStackableItemsServiceException, CharacterInventoryItemDoesNotExistException {
 		drop(item, item.getCount(), point, actor);
 	}
 

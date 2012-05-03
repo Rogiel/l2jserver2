@@ -23,6 +23,8 @@ import com.l2jserver.model.world.Item;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.Service;
 import com.l2jserver.service.game.character.CharacterAction;
+import com.l2jserver.service.game.character.CharacterInventoryItemDoesNotExistException;
+import com.l2jserver.service.game.character.CharacterInventoryItemExistsException;
 import com.l2jserver.service.game.spawn.AlreadySpawnedServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
 import com.l2jserver.service.game.spawn.SpawnPointNotFoundServiceException;
@@ -79,9 +81,16 @@ public interface ItemService extends Service {
 	 *             if the item is not on ground at the moment
 	 * @throws NotSpawnedServiceException
 	 *             if the item is not registered with {@link SpawnService}
+	 * @throws CharacterInventoryItemExistsException
+	 *             if the character's inventory already has the given item added
+	 *             to
+	 * @throws CharacterInventoryItemDoesNotExistException
+	 *             if the character's inventory does not have the requested item
 	 */
 	Item action(Item item, L2Character character, CharacterAction action)
-			throws ItemNotOnGroundServiceException, NotSpawnedServiceException;
+			throws ItemNotOnGroundServiceException, NotSpawnedServiceException,
+			CharacterInventoryItemExistsException,
+			CharacterInventoryItemDoesNotExistException;
 
 	/**
 	 * Splits this item in two pieces
@@ -127,18 +136,24 @@ public interface ItemService extends Service {
 	 * @throws NonStackableItemsServiceException
 	 *             if the item could not be destroyed because it was not
 	 *             possible to split it
+	 * @throws CharacterInventoryItemDoesNotExistException
+	 *             if the character's inventory does not have the requested item
 	 */
 	boolean destroy(Item item, long count)
 			throws NotEnoughItemsServiceException,
-			NonStackableItemsServiceException;
+			NonStackableItemsServiceException,
+			CharacterInventoryItemDoesNotExistException;
 
 	/**
 	 * Destroys several items
 	 * 
 	 * @param items
 	 *            the items to be destroyed
+	 * @throws CharacterInventoryItemDoesNotExistException
+	 *             if the character's inventory does not have the requested item
 	 */
-	void destroy(Item... items);
+	void destroy(Item... items)
+			throws CharacterInventoryItemDoesNotExistException;
 
 	/**
 	 * Picks up an dropped item and places it into another players inventory
@@ -152,9 +167,15 @@ public interface ItemService extends Service {
 	 *             if the item is not on ground at the moment
 	 * @throws NotSpawnedServiceException
 	 *             if the item is not registered with {@link SpawnService}
+	 * @throws CharacterInventoryItemExistsException
+	 *             if the character's inventory already has this item added to
+	 * @throws CharacterInventoryItemDoesNotExistException
+	 *             if the character's inventory does not have the item added to
 	 */
 	Item pickUp(Item item, L2Character character)
-			throws ItemNotOnGroundServiceException, NotSpawnedServiceException;
+			throws ItemNotOnGroundServiceException, NotSpawnedServiceException,
+			CharacterInventoryItemExistsException,
+			CharacterInventoryItemDoesNotExistException;
 
 	/**
 	 * Drops an item on the ground. If <code>actor</code> is not
@@ -181,11 +202,15 @@ public interface ItemService extends Service {
 	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
 	 * @throws NonStackableItemsServiceException
 	 *             if the item could not be splitted
+	 * @throws CharacterInventoryItemDoesNotExistException
+	 *             if the character's inventory does not contain the requested
+	 *             item
 	 */
 	Item drop(Item item, long count, Point3D point, Actor actor)
 			throws ItemAlreadyOnGroundServiceException,
 			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException,
-			NotEnoughItemsServiceException, NonStackableItemsServiceException;
+			NotEnoughItemsServiceException, NonStackableItemsServiceException,
+			CharacterInventoryItemDoesNotExistException;
 
 	/**
 	 * Drops an item on the ground. If <code>actor</code> is not
@@ -209,9 +234,12 @@ public interface ItemService extends Service {
 	 *             if <code>count</code> is bigger than {@link Item#getCount()}.
 	 * @throws NonStackableItemsServiceException
 	 *             if the item could not be splitted
+	 * @throws CharacterInventoryItemDoesNotExistException
+	 *             if the character's inventory does not have the requested item
 	 */
 	void drop(Item item, Point3D point, Actor actor)
 			throws ItemAlreadyOnGroundServiceException,
 			AlreadySpawnedServiceException, SpawnPointNotFoundServiceException,
-			NotEnoughItemsServiceException, NonStackableItemsServiceException;
+			NotEnoughItemsServiceException, NonStackableItemsServiceException,
+			CharacterInventoryItemDoesNotExistException;
 }

@@ -68,6 +68,22 @@ public interface Lineage2Client {
 	void setSession(Lineage2Session session);
 
 	/**
+	 * Enables the client decryptor network filter
+	 * 
+	 * @param key
+	 *            the key
+	 */
+	void enableDecrypter(Lineage2CryptographyKey key);
+
+	/**
+	 * Enables the client encryptor network filter
+	 * 
+	 * @param key
+	 *            the key
+	 */
+	void enableEncrypter(Lineage2CryptographyKey key);
+
+	/**
 	 * @return the version
 	 */
 	ProtocolVersion getVersion();
@@ -88,6 +104,19 @@ public interface Lineage2Client {
 	 * @see ProtocolVersion#supports(ProtocolVersion)
 	 */
 	boolean supports(ProtocolVersion version);
+
+	/**
+	 * Check if the client supports an given version of the protocol. Note that
+	 * if the protocol is not known false will always be returned.
+	 * 
+	 * @param from
+	 *            the minimum protocol version to test for support
+	 * @param to
+	 *            the maximum protocol version to test for support
+	 * @return true if version is supported by the client
+	 * @see ProtocolVersion#supports(ProtocolVersion)
+	 */
+	boolean supports(ProtocolVersion from, ProtocolVersion to);
 
 	/**
 	 * Get the channel

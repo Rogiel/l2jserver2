@@ -23,11 +23,13 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.l2jserver.model.id.object.CharacterID;
+import com.l2jserver.model.id.template.ItemTemplateID;
 import com.l2jserver.model.id.template.provider.ItemTemplateIDProvider;
 import com.l2jserver.model.world.Actor;
 import com.l2jserver.model.world.L2Character;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceException;
+import com.l2jserver.service.game.character.CharacterInventoryService;
 import com.l2jserver.service.game.item.ItemService;
 import com.l2jserver.service.game.spawn.CharacterAlreadyTeleportingServiceException;
 import com.l2jserver.service.game.spawn.NotSpawnedServiceException;
@@ -52,24 +54,43 @@ public class AdministratorServiceImpl extends AbstractService implements
 	private final SpawnService spawnService;
 
 	/**
+	 * The inventory service
+	 */
+	private final CharacterInventoryService inventoryService;
+	/**
+	 * The Item service
+	 */
+	private final ItemService itemService;
+	/**
+	 * The item template ID provider
+	 */
+	private final ItemTemplateIDProvider itemTemplateIdProvider;
+
+	/**
 	 * List of online administrators
 	 */
 	@SuppressWarnings("unused")
 	private List<CharacterID> online;
-	
-	@Inject
-	private ItemService itemService;
-	
-	@Inject
-	private ItemTemplateIDProvider itidProvider;
 
 	/**
 	 * @param spawnService
 	 *            the spawn service
+	 * @param inventoryService
+	 *            the inventory service
+	 * @param itemService
+	 *            the item service
+	 * @param itemTemplateIdProvider
+	 *            the item template id provider
 	 */
 	@Inject
-	private AdministratorServiceImpl(SpawnService spawnService) {
+	private AdministratorServiceImpl(SpawnService spawnService,
+			CharacterInventoryService inventoryService,
+			ItemService itemService,
+			ItemTemplateIDProvider itemTemplateIdProvider) {
 		this.spawnService = spawnService;
+		this.inventoryService = inventoryService;
+		this.itemService = itemService;
+		this.itemTemplateIdProvider = itemTemplateIdProvider;
 	}
 
 	@Override
@@ -89,8 +110,28 @@ public class AdministratorServiceImpl extends AbstractService implements
 							Integer.parseInt(args[2])));
 			break;
 		case "give":
-//			conn.sendMessage( "adding " + itidProvider.resolveID(57).getTemplate().getName() );
-			character.getInventory().add( itemService.create(itidProvider.resolveID(57).getTemplate(), 10000) );
+			L2Character target;
+			if (character.getTarget() instanceof L2Character) {
+				target = (L2Character) character.getTarget();
+			} else {
+				target = character;
+			}
+
+			int count = 1;
+			ItemTemplateID itemTemplateID;
+
+			if (args.length == 1) {
+				itemTemplateID = itemTemplateIdProvider.resolveID(Integer
+						.parseInt(args[0]));
+			} else if (args.length == 2) {
+				itemTemplateID = itemTemplateIdProvider.resolveID(Integer
+						.parseInt(args[0]));
+				count = Integer.parseInt(args[1]);
+			} else {
+				throw new ServiceException();
+			}
+			inventoryService.add(target,
+					itemService.create(itemTemplateID.getTemplate(), count));
 			break;
 		default:
 			throw new ServiceException();
