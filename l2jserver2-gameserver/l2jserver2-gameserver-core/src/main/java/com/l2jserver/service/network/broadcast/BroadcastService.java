@@ -44,7 +44,7 @@ import com.l2jserver.service.network.model.packet.ServerPacket;
  * 
  * This service main purpose is to keep server modularity. No other service
  * should be aware of network packets. Services, instead of generating an
- * {@link ServerPacket packet}, generate an {@link WorldEvent packet}, which
+ * {@link ServerPacket packet}, generate an {@link WorldEvent event}, which
  * gets converted into an {@link ServerPacket packet} by this service.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
