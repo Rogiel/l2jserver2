@@ -20,7 +20,7 @@ import com.l2jserver.service.database.ddl.QueryTemplate;
 import com.l2jserver.service.database.ddl.struct.Column.ColumnType;
 import com.mysema.query.QueryMetadata;
 import com.mysema.query.QueryModifiers;
-import com.mysema.query.sql.support.SerializationContext;
+import com.mysema.query.sql.SerializationContext;
 import com.mysema.query.types.Ops;
 
 /**
