@@ -36,7 +36,7 @@
 	<service interface="com.l2jserver.service.configuration.ConfigurationService"
 		implementation="com.l2jserver.service.configuration.XMLConfigurationService" />
 	<service interface="com.l2jserver.service.cache.CacheService"
-		implementation="com.l2jserver.service.cache.SoftCacheService" />
+		implementation="com.l2jserver.service.cache.GuavaCacheService" />
 	<service interface="com.l2jserver.service.core.logging.LoggingService"
 		implementation="com.l2jserver.service.core.logging.Log4JLoggingService">
 		<logger name="" level="ERROR" />
