@@ -21,6 +21,7 @@ import org.apache.commons.math.random.RandomDataImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Preconditions;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ServiceStartException;
 import com.l2jserver.service.ServiceStopException;
@@ -50,10 +51,12 @@ public class SecureBlowfishKeygenService extends AbstractService implements
 	}
 
 	@Override
-	public byte[] generate() {
-		log.debug("Generating a new key");
+	public byte[] generate(int strength) {
+		Preconditions.checkArgument(strength % 8 == 0,
+				"strength must be a multiple of 8");
+		log.debug("Generating a new {}-bit key", strength);
 
-		final byte[] key = new byte[16];
+		final byte[] key = new byte[strength / 8];
 		// randomize the 8 first bytes
 		for (int i = 0; i < key.length; i++) {
 			key[i] = (byte) random.nextSecureInt(0, 255);

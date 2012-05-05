@@ -83,7 +83,7 @@ public class CM_PROTOCOL_VERSION extends AbstractClientPacket {
 	public void process(final Lineage2Client conn) {
 		// generate a new key
 		final Lineage2CryptographyKey inKey = new Lineage2CryptographyKey(
-				keygen.generate());
+				keygen.generate(128));
 
 		conn.enableDecrypter(inKey);
 		final Lineage2CryptographyKey outKey = inKey.copy();

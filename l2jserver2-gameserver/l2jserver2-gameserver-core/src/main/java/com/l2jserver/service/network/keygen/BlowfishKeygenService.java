@@ -31,7 +31,10 @@ public interface BlowfishKeygenService extends Service {
 	 * Creates a new 128 bits key. Note that the key is not necessarily random
 	 * and can be a fixed key.
 	 * 
+	 * @param strength
+	 *            the key strength. Must be a multiple of 8.
+	 * 
 	 * @return the 128 bits key
 	 */
-	byte[] generate();
+	byte[] generate(int strength);
 }
