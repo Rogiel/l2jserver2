@@ -16,7 +16,6 @@
  */
 package com.l2jserver.service.configuration;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationHandler;
@@ -32,7 +31,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
 
-import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.l2jserver.service.AbstractService;
 import com.l2jserver.service.ConfigurableService;
@@ -292,35 +290,5 @@ public class XMLConfigurationService extends AbstractService implements
 			return (Node) XPathFactory.newInstance().newXPath().compile(key)
 					.evaluate(properties, XPathConstants.NODE);
 		}
-	}
-
-	/**
-	 * Tries to find an annotation in the class or any parent-class.
-	 * 
-	 * @param <T>
-	 *            the annotation type
-	 * @param annotationClass
-	 *            the annotation class
-	 * @param clazz
-	 *            the class to look for annotations
-	 * @return the annotation found
-	 */
-	private <T extends Annotation> T findAnnotation(Class<T> annotationClass,
-			Class<?> clazz) {
-		Preconditions.checkNotNull(annotationClass, "annotationClass");
-		Preconditions.checkNotNull(clazz, "clazz");
-
-		T ann = clazz.getAnnotation(annotationClass);
-		if (ann != null)
-			return ann;
-
-		for (Class<?> clazz2 : annotationClass.getInterfaces()) {
-			if (clazz2 == clazz)
-				continue;
-			ann = findAnnotation(annotationClass, clazz2);
-			if (ann != null)
-				return ann;
-		}
-		return null;
 	}
 }
