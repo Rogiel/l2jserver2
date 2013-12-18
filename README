@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/l2jserver2/l2jserver2.png?branch=master)](https://travis-ci.org/l2jserver2/l2jserver2)
+
 			== L2J Rewrite ==
   This is an rewrite of the l2jserver. This software is a complete rewrite
 from scratch and thus does not use any code from original l2jserver.
