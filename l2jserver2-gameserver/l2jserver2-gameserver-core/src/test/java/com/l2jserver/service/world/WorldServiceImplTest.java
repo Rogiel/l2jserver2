@@ -78,8 +78,7 @@ public class WorldServiceImplTest {
 	 */
 	@Test(expected = NullPointerException.class)
 	public void testAddNullId() {
-		final L2Character character = new L2Character(null);
-		world.add(character);
+		world.add(null);
 	}
 
 	/**

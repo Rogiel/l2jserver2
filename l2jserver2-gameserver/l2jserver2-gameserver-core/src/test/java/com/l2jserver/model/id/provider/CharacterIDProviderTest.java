@@ -70,8 +70,8 @@ public class CharacterIDProviderTest {
 	public void testCreateID() {
 		final ID<Integer> id1 = charIdFactory.createID();
 		final ID<Integer> id2 = charIdFactory.createID();
-		Assert.assertNotNull(id1);
-		Assert.assertFalse(id1.equals(id2));
+		Assert.assertNotNull("Must return a valid ID.", id1);
+		Assert.assertFalse("Must allocate unique IDs.", id1.equals(id2));
 	}
 
 	/**
@@ -82,6 +82,7 @@ public class CharacterIDProviderTest {
 		final CharacterID id1 = charIdFactory.createID();
 		Assert.assertNotNull(id1);
 		charIdFactory.destroy(id1);
+		Assert.assertNull(charIdFactory.resolveID(id1.getID()));
 	}
 
 	/**

@@ -52,9 +52,9 @@ public class BitSetIDAllocatorTest {
 	public void testAllocate() {
 		final int id1 = allocator.allocate();
 		final int id2 = allocator.allocate();
-		assertFalse(id1 == id2);
-		assertEquals(IDAllocator.FIRST_ID, id1);
-		assertEquals(IDAllocator.FIRST_ID + 1, id2);
+		assertFalse("IDs must not be equal", id1 == id2);
+		assertEquals("First allocated ID must be equal to the first allocatable ID", IDAllocator.FIRST_ID, id1);
+		assertEquals("IDs must increment sequentially", IDAllocator.FIRST_ID + 1, id2);
 	}
 
 	/**
